@@ -1,0 +1,47 @@
+{
+  "name": "docs-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "overrides": {
+    "next-contentlayer": {
+      "next": "$next"
+    }
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@headlessui/tailwindcss": "^0.2.1",
+    "@heroicons/react": "^2.1.3",
+    "@types/node": "^20.10.4",
+    "@types/react": "^18.2.42",
+    "@types/react-dom": "^18.2.17",
+    "clsx": "^2.1.1",
+    "contentlayer": "^0.3.2",
+    "lucide-react": "^0.379.0",
+    "next": "^14.0.3",
+    "next-contentlayer": "^0.3.4",
+    "next-themes": "^0.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rehype-pretty-code": "^0.12.0",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^3.0.1",
+    "shiki": "^0.14.5",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "autoprefixer": "^10.4.16",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.3",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6"
+  }
+}

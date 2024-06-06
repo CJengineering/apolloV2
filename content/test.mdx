@@ -1,0 +1,33 @@
+---
+title: "Understanding Async/Await in JavaScript"
+summary: "A deep dive into how async/await works in JavaScript, with examples and best practices."
+topic:
+  name: "JavaScript"
+  slug: "javascript"
+
+prev:
+  name: "Promises in JavaScript"
+  slug: "promises-in-javascript"
+next:
+  name: "JavaScript Event Loop"
+  slug: "javascript-event-loop"
+---
+
+# Understanding Async/Await in JavaScript
+
+Async/await is a modern way to handle asynchronous operations in JavaScript. It is built on top of Promises and allows you to write asynchronous code in a more synchronous fashion.
+
+## Introduction
+
+To understand async/await, we first need to understand Promises. Here's a brief overview:
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Success!");
+  }, 1000);
+});
+
+promise.then((value) => {
+  console.log(value); // "Success!"
+});

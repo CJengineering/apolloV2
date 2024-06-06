@@ -1,0 +1,90 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+
+/* Additional styles */
+@import 'additional-styles/utility-patterns.css';
+@import 'additional-styles/range-slider.css';
+@import 'additional-styles/toggle-switch.css';
+@import 'additional-styles/theme.css';
+
+@import 'tailwindcss/utilities';
+
+/* Additional Tailwind directives: https://tailwindcss.com/docs/functions-and-directives/#responsive */
+@layer utilities {
+    .rtl {
+        direction: rtl;
+    }
+}
+html{
+    overflow-y: scroll; 
+}
+.sans-serif {
+    font-family: var(--font-ibm-plex-sans)
+}
+.serif {
+    font-family: var(--font-ibm-plex-serif)
+}
+.mono {
+    font-family: var(--font-ibm-plex-mono)
+}
+.costa {
+    font-family: var(--font-costa)
+}
+.spacer {
+    display: block;
+    height: 80px;
+    margin-top: -80px;
+    visibility: hidden;
+}
+.carouselDaisy {
+    display: flex;                
+    overflow-x: auto;               
+    scroll-snap-type: x mandatory; 
+    gap: 16px;                  
+    padding: 16px;                 
+    border-radius: 8px;           
+    background-color: #333;         
+    max-width: 400px;            
+    
+    }
+    .carousel {
+        display: flex;                
+        overflow-x: auto;               
+        scroll-snap-type: x mandatory; 
+        gap: 16px;                  
+        padding: 16px;                 
+        border-radius: 8px;           
+         
+        max-width: 350px;            
+        
+        }
+
+  .carousel-item {
+    flex: 0 0 25%;                 
+    scroll-snap-align: center; 
+    position: relative;           
+  }
+  
+  .carousel-item img {
+    display: block;           
+    width: 100%;                 
+    height: auto;                  
+    border-radius: 8px;             
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .custom-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }

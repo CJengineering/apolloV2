@@ -1,0 +1,61 @@
+{
+    "sections": [
+      {
+        "title": "Documentation",
+        "segments": "documentation",
+        "icon": {
+          "color": "blue-400",
+          "svgPath": "M19.888 7.804a.88.88 0 0 0-.314-.328l-7.11-4.346a.889.889 0 0 0-.927 0L4.426 7.476a.88.88 0 0 0-.314.328L12 12.624l7.888-4.82Z"
+        },
+        "subLinks": [
+          { "title": "Fundamentals", "href": "/documentation/fundamentals" },
+          { "title": "Methods and Parameters", "href": "#0" },
+          { "title": "Merge Fields", "href": "#0" },
+          {
+            "title": "Alternative Schemas",
+            "segments": "alternative-scheme",
+            "subLinks": [
+              { "title": "File system", "href": "#0" },
+              { "title": "Describing responses", "href": "#0" }
+            ]
+          },
+          {
+            "title": "E-Commerce",
+            "segments": "ecommerce",
+            "subLinks": [
+              { "title": "Path parameters", "href": "#0" },
+              { "title": "Query string parameters", "href": "#0" }
+            ]
+          },
+          { "title": "Account Exports", "href": "#0" },
+          { "title": "Integrations", "href": "#0" },
+          { "title": "Add a contact", "href": "#0" }
+        ]
+      },
+      {
+        "title": "Guides / Tutorials",
+        "segments": "guides",
+        "icon": {
+          "color": "purple-400",
+          "svgPath": "M19.888 7.804a.88.88 0 0 0-.314-.328l-7.11-4.346a.889.889 0 0 0-.927 0L4.426 7.476a.88.88 0 0 0-.314.328L12 12.624l7.888-4.82Z"
+        },
+        "subLinks": [
+          { "title": "Marketing API Quick Start", "href": "/guides/marketing-api-quick-start" },
+          { "title": "Create an account", "href": "#0" },
+          { "title": "Generate your API key", "href": "#0" },
+          { "title": "Make your first API call", "href": "#0" },
+          { "title": "Next steps", "href": "#0" }
+        ]
+      },
+      {
+        "title": "Help / Support",
+        "segments": "help",
+        "icon": {
+          "color": "sky-400",
+          "svgPath": "M19.888 7.804a.88.88 0 0 0-.314-.328l-7.11-4.346a.889.889 0 0 0-.927 0L4.426 7.476a.88.88 0 0 0-.314.328L12 12.624l7.888-4.82Z"
+        },
+        "href": "/help/how-can-we-help"
+      }
+    ]
+  }
+  
