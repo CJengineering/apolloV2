@@ -29,6 +29,7 @@ import laravelLogo from "@/public/images/logos/laravel.svg";
 import PersonalCard from "@/components/custom beta components/PersonCard";
 import { ListOrdered } from "lucide-react";
 import { EventCardProps } from "../interfaces";
+import CodeBlock from "@/components/CJ-components/components-CJ/basic components/CodeBlock";
 const author = {
   name: "Mark Jackson",
   imageUrl: "https://via.placeholder.com/150.png?text=Mark+Jackson",
@@ -331,13 +332,10 @@ export default async function HomeComponents() {
               <div className="w-[400px]">
                 <div>
                   <h2 className="mb-3 font-ibmMono text-2xl text-red-600 ">
-                    Programme Card
+                    CardProgramme
                   </h2>
-                  <p className="mb-6">
-                    The Programme Card component has an aspect ratio of 1:1 and
-                    has a width that adadpts to the contraints of its parent
-                    wrapper. It{" "}
-                  </p>
+                  it has an image, a title and a subtitle
+             
                 </div>
                 <div className="">
                   <CardProgramme

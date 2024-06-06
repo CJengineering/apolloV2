@@ -20,17 +20,28 @@ const aboutNav: NavItem = {
   current: false,
   children: [
     { name: "Overview", href: "/overview" },
-    { name: "Team", href: "#" },
-    { name: "Family", href: "#" },
+    { name: "People", href: "/people" },
+    { name: "Family album", href: "#" },
   ],
 };
-const mediatNav: NavItem = {
-  name: "Media",
+const communityNav: NavItem = {
+  name: "Community",
   current: false,
   children: [
-    { name: "News", href: "#" },
-    { name: "Press", href: "#" },
-    { name: "Events", href: "#" },
+    { name: "Community", href: "/community" },
+
+  ],
+
+};
+
+const mediatNav: NavItem = {
+  name: "Discover",
+  current: false,
+  children: [
+    { name: "News", href: "/news" },
+    { name: "Announcements", href: "#" },
+    { name: "Whats' on", href: "/whats-on" },
+    { name: "Newsletter", href: "/newsletter" },
   ],
 };
 const programmesNav: NavItem = {
@@ -38,234 +49,234 @@ const programmesNav: NavItem = {
   current: false,
   children: [
     {
-      name: 'J-PAL',
+      name: "J-PAL",
       children: [
-        { name: 'Overview', href: '#', current: false },
-        { name: 'J-PAL MENA', href: '#', current: false },
+        { name: "Overview", href: "#", current: false },
+        { name: "J-PAL MENA", href: "#", current: false },
         {
-          name: 'Events',
+          name: "Events",
           children: [
-            { name: 'event 1', href: '#' },
-            { name: 'event 2', href: '#' },
-            { name: 'view all', href: '#' },
+            { name: "event 1", href: "#" },
+            { name: "event 2", href: "#" },
+            { name: "view all", href: "#" },
           ],
         },
         {
-          name: 'People',
+          name: "People",
           children: [
-            { name: 'people 1', href: '#' },
-            { name: 'people 2', href: '#' },
-            { name: 'view all', href: '#' },
+            { name: "people 1", href: "#" },
+            { name: "people 2", href: "#" },
+            { name: "view all", href: "#" },
           ],
         },
       ],
     },
     {
-      name: 'J-WAFS',
+      name: "J-WAFS",
       children: [
-        { name: 'Overview', href: '#', current: false },
-        { name: 'FACT Alliance', href: '#', current: false },
-        { name: 'Spinouts', href: '#', current: false },
-        { name: 'Funding', href: '#', current: false },
-        { name: 'Jameel Index', href: '#', current: false },
+        { name: "Overview", href: "#", current: false },
+        { name: "FACT Alliance", href: "#", current: false },
+        { name: "Spinouts", href: "#", current: false },
+        { name: "Funding", href: "#", current: false },
+        { name: "Jameel Index", href: "#", current: false },
         {
-          name: 'Events',
+          name: "Events",
           children: [
-            { name: 'event 1', href: '#' },
-            { name: 'event 2', href: '#' },
-            { name: 'view all', href: '#' },
+            { name: "event 1", href: "#" },
+            { name: "event 2", href: "#" },
+            { name: "view all", href: "#" },
           ],
         },
         {
-          name: 'People',
+          name: "People",
           children: [
-            { name: 'people 1', href: '#' },
-            { name: 'people 2', href: '#' },
-            { name: 'view all', href: '#' },
+            { name: "people 1", href: "#" },
+            { name: "people 2", href: "#" },
+            { name: "view all", href: "#" },
           ],
         },
       ],
     },
-    { name: 'J-WEL', href: '#', current: false },
+    { name: "J-WEL", href: "#", current: false },
     {
-      name: 'Jameel-Clinic',
+      name: "Jameel-Clinic",
       children: [
-        { name: 'Overview', href: '#', current: false },
-        { name: 'Press', href: '#', current: false },
-        { name: 'AI/ML tools', href: '#', current: false },
-        { name: 'Hospital Network', href: '#', current: false },
-        { name: 'MIT-Takeda Programme', href: '#', current: false },
+        { name: "Overview", href: "#", current: false },
+        { name: "Press", href: "#", current: false },
+        { name: "AI/ML tools", href: "#", current: false },
+        { name: "Hospital Network", href: "#", current: false },
+        { name: "MIT-Takeda Programme", href: "#", current: false },
         {
-          name: 'Events',
+          name: "Events",
           children: [
-            { name: 'event 1', href: '#' },
-            { name: 'event 2', href: '#' },
-            { name: 'view all', href: '#' },
+            { name: "event 1", href: "#" },
+            { name: "event 2", href: "#" },
+            { name: "view all", href: "#" },
           ],
         },
         {
-          name: 'People',
+          name: "People",
           children: [
-            { name: 'people 1', href: '#' },
-            { name: 'people 2', href: '#' },
-            { name: 'view all', href: '#' },
-          ],
-        },
-      ],
-    },
-    {
-      name: 'Jameel Institute',
-      children: [
-        { name: 'Overview', href: '#', current: false },
-        { name: 'Kenneth C. Griffin Initiative', href: '#', current: false },
-        {
-          name: 'Events',
-          children: [
-            { name: 'event 1', href: '#' },
-            { name: 'event 2', href: '#' },
-            { name: 'view all', href: '#' },
-          ],
-        },
-        {
-          name: 'People',
-          children: [
-            { name: 'people 1', href: '#' },
-            { name: 'people 2', href: '#' },
-            { name: 'view all', href: '#' },
+            { name: "people 1", href: "#" },
+            { name: "people 2", href: "#" },
+            { name: "view all", href: "#" },
           ],
         },
       ],
     },
     {
-      name: 'Jameel Observatory',
+      name: "Jameel Institute",
       children: [
-        { name: 'Overview', href: '#', current: false },
+        { name: "Overview", href: "#", current: false },
+        { name: "Kenneth C. Griffin Initiative", href: "#", current: false },
         {
-          name: 'Food Security Early Action',
+          name: "Events",
           children: [
-            { name: 'Overview', href: '#', current: false },
-            { name: 'Reports', href: '#', current: false },
+            { name: "event 1", href: "#" },
+            { name: "event 2", href: "#" },
+            { name: "view all", href: "#" },
+          ],
+        },
+        {
+          name: "People",
+          children: [
+            { name: "people 1", href: "#" },
+            { name: "people 2", href: "#" },
+            { name: "view all", href: "#" },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Jameel Observatory",
+      children: [
+        { name: "Overview", href: "#", current: false },
+        {
+          name: "Food Security Early Action",
+          children: [
+            { name: "Overview", href: "#", current: false },
+            { name: "Reports", href: "#", current: false },
             {
-              name: 'Events',
+              name: "Events",
               children: [
-                { name: 'event 1', href: '#' },
-                { name: 'event 2', href: '#' },
-                { name: 'view all', href: '#' },
+                { name: "event 1", href: "#" },
+                { name: "event 2", href: "#" },
+                { name: "view all", href: "#" },
               ],
             },
             {
-              name: 'People',
+              name: "People",
               children: [
-                { name: 'people 1', href: '#' },
-                { name: 'people 2', href: '#' },
-                { name: 'view all', href: '#' },
+                { name: "people 1", href: "#" },
+                { name: "people 2", href: "#" },
+                { name: "view all", href: "#" },
               ],
             },
           ],
         },
-        { name: 'CREWSNET', href: '#', current: false },
+        { name: "CREWSNET", href: "#", current: false },
       ],
     },
     {
-      name: 'Jameel Arts & Health Lab',
+      name: "Jameel Arts & Health Lab",
       children: [
-        { name: 'Overview', href: '#', current: false },
+        { name: "Overview", href: "#", current: false },
 
         {
-          name: 'Events',
+          name: "Events",
           children: [
-            { name: 'event 1', href: '#' },
-            { name: 'event 2', href: '#' },
-            { name: 'view all', href: '#' },
+            { name: "event 1", href: "#" },
+            { name: "event 2", href: "#" },
+            { name: "view all", href: "#" },
           ],
         },
       ],
     },
     {
-      name: 'Climavore x Jameel at RCA',
+      name: "Climavore x Jameel at RCA",
       children: [
-        { name: 'Overview', href: '#', current: false },
+        { name: "Overview", href: "#", current: false },
 
         {
-          name: 'Events',
+          name: "Events",
           children: [
-            { name: 'event 1', href: '#' },
-            { name: 'event 2', href: '#' },
-            { name: 'view all', href: '#' },
+            { name: "event 1", href: "#" },
+            { name: "event 2", href: "#" },
+            { name: "view all", href: "#" },
           ],
         },
       ],
     },
 
     {
-      name: 'Jameel House of Traditional Arts in Cairo',
+      name: "Jameel House of Traditional Arts in Cairo",
       children: [
-        { name: 'Overview', href: '#', current: false },
+        { name: "Overview", href: "#", current: false },
 
         {
-          name: 'Events',
+          name: "Events",
           children: [
-            { name: 'event 1', href: '#' },
-            { name: 'event 2', href: '#' },
-            { name: 'view all', href: '#' },
+            { name: "event 1", href: "#" },
+            { name: "event 2", href: "#" },
+            { name: "view all", href: "#" },
           ],
         },
-        { name: 'Gallery', href: '#', current: false },
-        { name: 'Graduates', href: '#', current: false },
+        { name: "Gallery", href: "#", current: false },
+        { name: "Graduates", href: "#", current: false },
       ],
     },
     {
-      name: 'Pratham Jameel Second Chance',
-      children: [{ name: 'Overview', href: '#', current: false }],
+      name: "Pratham Jameel Second Chance",
+      children: [{ name: "Overview", href: "#", current: false }],
     },
     {
-      name: 'Climate Labs',
+      name: "Climate Labs",
       children: [
-        { name: 'Overview', href: '#', current: false },
-        { name: 'J-PAL Air, Water & Energy Lab', href: '#', current: false },
-        { name: 'Jameel C40 Urban Climate Lab', href: '#', current: false },
+        { name: "Overview", href: "#", current: false },
+        { name: "J-PAL Air, Water & Energy Lab", href: "#", current: false },
+        { name: "Jameel C40 Urban Climate Lab", href: "#", current: false },
       ],
     },
-    { name: 'Ejada', href: '#', current: false },
+    { name: "Ejada", href: "#", current: false },
     {
-      name: 'Funds',
+      name: "Funds",
       children: [
-        { name: 'Jameel Fund', href: '#', current: false },
-        { name: 'Iraq Cultural Health Fund', href: '#', current: false },
-        { name: 'Covid-19-Excellence Fund', href: '#', current: false },
+        { name: "Jameel Fund", href: "#", current: false },
+        { name: "Iraq Cultural Health Fund", href: "#", current: false },
+        { name: "Covid-19-Excellence Fund", href: "#", current: false },
       ],
     },
-    { name: 'Jameel Toyota Scholarship', href: '#', current: false },
+    { name: "Jameel Toyota Scholarship", href: "#", current: false },
     {
-      name: 'Bocelli-Jameel Scholarship',
+      name: "Bocelli-Jameel Scholarship",
       children: [
-        { name: 'Overview', href: '#', current: false },
+        { name: "Overview", href: "#", current: false },
         {
-          name: 'Scholars',
+          name: "Scholars",
           children: [
             {
-              name: 'Clara Barbier Serrano (2020)',
-              href: '#',
+              name: "Clara Barbier Serrano (2020)",
+              href: "#",
               current: false,
             },
-            { name: 'Laura Mekhail (2021)', href: '#', current: false },
-            { name: 'Seonwoo Lee (2022)', href: '#', current: false },
-            { name: 'Anastasia Koorn (2023)', href: '#', current: false },
-            { name: 'Henna Mun (2023)', href: '#', current: false },
+            { name: "Laura Mekhail (2021)", href: "#", current: false },
+            { name: "Seonwoo Lee (2022)", href: "#", current: false },
+            { name: "Anastasia Koorn (2023)", href: "#", current: false },
+            { name: "Henna Mun (2023)", href: "#", current: false },
           ],
         },
         {
-          name: 'Performances',
+          name: "Performances",
           children: [
-            { name: 'event 1', href: '#' },
-            { name: 'event 2', href: '#' },
-            { name: 'view all', href: '#' },
+            { name: "event 1", href: "#" },
+            { name: "event 2", href: "#" },
+            { name: "view all", href: "#" },
           ],
         },
-        { name: 'Gallery', href: '#', current: false },
+        { name: "Gallery", href: "#", current: false },
       ],
     },
-    { name: 'Voxel Lab', href: '#', current: false },
+    { name: "Voxel Lab", href: "#", current: false },
   ],
 };
 
@@ -298,11 +309,12 @@ export default function Sidebar2() {
     return navItems.map((item) => (
       <div className="mt-3" key={item.name}>
         {item.href ? (
-          <SidebarLink href={item.href}>
-            {item.name}
-          </SidebarLink>
+          <SidebarLink href={item.href}>{item.name}</SidebarLink>
         ) : (
-          <SidebarLinkSubgroup title={item.name} open={segments.includes(item.name)}>
+          <SidebarLinkSubgroup
+            title={item.name}
+            open={segments.includes(item.name)}
+          >
             {renderNavItems(item.children || [])}
           </SidebarLinkSubgroup>
         )}
@@ -392,7 +404,54 @@ export default function Sidebar2() {
                               !open && "hidden"
                             }`}
                           >
-                              {renderNavItems(aboutNav.children || [])}
+                            {renderNavItems(aboutNav.children || [])}
+                          </div>
+                        </>
+                      );
+                    }}
+                  </SidebarLinkGroup>
+                  <SidebarLinkGroup open={segments.includes("About")}>
+                    {(handleClick, open) => {
+                      return (
+                        <>
+                          <Link
+                            href="#0"
+                            className={`relative flex items-center font-[650] text-slate-800 p-1 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-blue-400 before:to-purple-500 before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 ${
+                              !segments.includes("About") && "before:hidden"
+                            }`}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              handleClick();
+                            }}
+                          >
+                            <svg
+                              className="mr-3 shrink-0"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                className="fill-[#8B0000]"
+                                d="M19.888 7.804a.88.88 0 0 0-.314-.328l-7.11-4.346a.889.889 0 0 0-.927 0L4.426 7.476a.88.88 0 0 0-.314.328L12 12.624l7.888-4.82Z"
+                              />
+                              <path
+                                className="fill-white dark:fill-slate-800"
+                                d="M4.112 7.804a.889.889 0 0 0-.112.43v7.892c0 .31.161.597.426.758l7.11 4.346c.14.085.3.13.464.13v-8.736l-7.888-4.82Z"
+                              />
+                              <path
+                                className="fill-[#B22222]"
+                                d="M19.888 7.804c.073.132.112.28.112.43v7.892c0 .31-.161.597-.426.758l-7.11 4.346c-.14.085-.3.13-.464.13v-8.736l7.888-4.82Z"
+                              />
+                            </svg>
+                            <span>Community</span>
+                          </Link>
+                          <div
+                            className={`mb-3 ml-4 pl-6 border-l border-slate-200 dark:border-slate-800 ${
+                              !open && "hidden"
+                            }`}
+                          >
+                            {renderNavItems(communityNav.children || [])}
                           </div>
                         </>
                       );
@@ -439,7 +498,7 @@ export default function Sidebar2() {
                               !open && "hidden"
                             }`}
                           >
-                                {renderNavItems(programmesNav.children || [])}
+                            {renderNavItems(programmesNav.children || [])}
                           </div>
                         </>
                       );
@@ -479,14 +538,14 @@ export default function Sidebar2() {
                                 d="M19.888 7.804c.073.132.112.28.112.43v7.892c0 .31-.161.597-.426.758l-7.11 4.346c-.14.085-.3.13-.464.13v-8.736l7.888-4.82Z"
                               />
                             </svg>
-                            <span>Media</span>
+                            <span>Discover</span>
                           </Link>
                           <div
                             className={`mb-3 ml-4 pl-6 border-l border-slate-200 dark:border-slate-800 ${
                               !open && "hidden"
                             }`}
                           >
-                                {renderNavItems( mediatNav.children || [])}
+                            {renderNavItems(mediatNav.children || [])}
                           </div>
                         </>
                       );
