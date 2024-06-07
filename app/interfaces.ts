@@ -139,7 +139,7 @@ export interface Item<T> {
   createdOn: string;
   isArchived: boolean;
   isDraft: boolean;
-  fieldData:T
+  fieldData: T;
 }
 
 export type EventFieldData = {
@@ -169,7 +169,7 @@ export type EventFieldData = {
   "teaser-text": string;
   "signup-embed": string;
   "short-description-2": string;
-  "event-date": string; 
+  "event-date": string;
   "end-date": string;
   time: string;
   address: string;
@@ -195,7 +195,7 @@ export type EventFieldData = {
   group: string;
   name: string;
   slug: string;
-}
+};
 export interface EventFieldDataCleaned {
   pushToGr: boolean;
   programmeLabel: string;
@@ -224,7 +224,7 @@ export interface EventFieldDataCleaned {
   teaserText: string;
   signupEmbed: string;
   shortDescription2: string;
-  eventDate: string; 
+  eventDate: string;
   endDate: string;
   time: string;
   address: string;
@@ -254,16 +254,16 @@ export interface EventFieldDataCleaned {
 
 export interface ProgrammeRawFields {
   "push-to-gr"?: string;
-  "type"?: string;
+  type?: string;
   "link-to-page"?: string;
   "name-arabic"?: string;
-  "shortname"?: string;
+  shortname?: string;
   "short-name-arabic"?: string;
-  "byline"?: string;
+  byline?: string;
   "byline-arabic"?: string;
-  "description"?: string;
+  description?: string;
   "short-description-arabic"?: string;
-  "text"?: string;
+  text?: string;
   "summary-arabic"?: string;
   "field-english"?: string;
   "field-arabic"?: string;
@@ -273,38 +273,38 @@ export interface ProgrammeRawFields {
   "headquarters-arabic"?: string;
   "logo-svg-native-size"?: string;
   "logo-svg-square-overlay"?: string;
-  "logo"?: string;
-  "card"?: string;
-  "hero"?: string;
+  logo?: string;
+  card?: string;
+  hero?: string;
   "open-graph"?: string;
   "main-video"?: string;
-  "features"?: string[];
-  "partners"?: string[];
+  features?: string[];
+  partners?: string[];
   "related-programmes"?: string[];
-  "longitude"?: string;
-  "latitude"?: string;
-  "website"?: string;
-  "linkedin"?: string;
-  "instagram"?: string;
-  "twitter"?: string;
-  "youtube"?: string;
-  "facebook"?: string;
-  "tiktok"?: string;
-  "order"?: string;
-  "colour"?: string;
-  "name"?: string;
-  "slug"?: string;
+  longitude?: string;
+  latitude?: string;
+  website?: string;
+  linkedin?: string;
+  instagram?: string;
+  twitter?: string;
+  youtube?: string;
+  facebook?: string;
+  tiktok?: string;
+  order?: string;
+  colour?: string;
+  name?: string;
+  slug?: string;
 }
 export interface PartnersRawFields {
   "arabic-name"?: string;
-  "website"?: string;
-  "logo"?: string;
+  website?: string;
+  logo?: string;
   "short-description"?: string;
   "short-description-arabic"?: string;
-  "group"?: string;
-  "tags"?: string[];
-  "name"?: string;
-  "slug"?: string;
+  group?: string;
+  tags?: string[];
+  name?: string;
+  slug?: string;
 }
 export interface EventCardProps {
   id: string;
@@ -318,4 +318,36 @@ export interface EventCardProps {
     date: string;
     readTime: string;
   };
+}
+export interface PhotoFieldsRaw {
+  "name-arabic"?: string;
+  "main-image"?: { fileId: string; url: string; alt: string |'' };
+  "alt-text"?: string;
+  date?: string;
+  description?: string;
+  "description-arabic"?: string;
+  source?: string;
+  "programme-label"?: string;
+  "programmes-multi-reference"?: string[];
+  tags?: string[];
+  "people-multi-reference"?: string[];
+  "location-2"?: string;
+  "location-arabic"?: string;
+  "high-resolution"?: string;
+  name?: string;
+  slug?: string;
+}
+export interface ImageLightbox {
+  src: string;
+  alt: string;
+  location: string;
+  year: number;
+  people: string;
+}
+
+export interface LightboxProps {
+  image: ImageLightbox;
+  onClose: () => void;
+  onNext: () => void;
+  onPrev: () => void;
 }

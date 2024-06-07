@@ -21,7 +21,7 @@ const aboutNav: NavItem = {
   children: [
     { name: "Overview", href: "/overview" },
     { name: "People", href: "/people" },
-    { name: "Family album", href: "#" },
+    { name: "Family album", href: "/family-album" },
   ],
 };
 const communityNav: NavItem = {
