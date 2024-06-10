@@ -142,6 +142,7 @@ export default async function SinglePost({
   params: {
     topic: string;
     slug: string;
+    locale: string;
   };
 }) {
   const post = {
@@ -166,6 +167,12 @@ export default async function SinglePost({
     overlayColor: "bg-gray-400/80",
     subTitle: "Community Jameel",
     title: "Advancing science and learning for communities to thrive",
+  };
+  const heroPropsArabic = {
+    backgroundImageUrl: image.src,
+    overlayColor: "bg-gray-400/80",
+    subTitle: "Community Jameel",
+    title: "AImagine its in arabic",
   };
   const heroProps2 = {
     backgroundImageUrl: porgrammeImage.src,
@@ -207,7 +214,9 @@ export default async function SinglePost({
 
           {/* Article content */}
           <div className="md:mt-10">
-            <HeroBanter content={heroProps} />
+            <HeroBanter
+              content={params.locale === "en" ? heroProps : heroPropsArabic}
+            />
             <HomeIcons />
             <SectionBanter title={"Features"}>
               <div className="grid gap-6 grid-cols-1 md:grid-cols-3 ">

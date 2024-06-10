@@ -40,8 +40,6 @@ export async function getData(collection:string): Promise<FetchResponse> {
     const endTime = Date.now(); // Capture end time
     const fetchDuration = (endTime - startTime) / 1000; // Calculate duration in seconds
 
-    console.log("Total items fetched: ", allItems.length);
-    console.log("Fetching time: ", fetchDuration, "seconds");
 
     return { items: allItems, fetchTime: fetchDuration };
   } catch (error: any) {

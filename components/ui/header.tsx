@@ -1,6 +1,7 @@
 import Logo from '@/components/ui/logo'
 import ThemeToggle from './theme-toggle'
 import Search from './search'
+import LanguageChanger from '../custom beta components/LanguageChanger'
 
 export default function Header() {
   return (
@@ -29,6 +30,9 @@ export default function Header() {
               {/* Lights switch */}
               <li>
                 <ThemeToggle />
+              </li>
+              <li>
+                <LanguageChanger></LanguageChanger>
               </li>
             </ul>
           </nav>

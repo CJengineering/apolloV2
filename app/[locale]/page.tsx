@@ -15,6 +15,9 @@ import TrandingTopics from "@/components/custom beta components/trandingTopics";
 import EventSection from "@/components/custom beta components/eventSection";
 import HeroBanter from "@/components/custom beta components/HeroBanter";
 import image from "@/public/images/mapCJ.webp";
+import porgrammeImage from "@/public/images/blueCJMap.png";
+import Image from "next/image";
+
 import SectionBanter from "@/components/custom beta components/SectionBanter";
 import NewsMain, {
   NewsMainProps,
@@ -22,14 +25,6 @@ import NewsMain, {
 import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";
 import FeatureCard from "@/components/custom beta components/FeatureCard";
 import NewsSmall from "@/components/custom beta components/NewsSmall";
-import CardHorizontal from "@/components/CJ-components/components-CJ/basic components/CardHorizontal";
-import Link from "next/link";
-import Search from "@/components/ui/search";
-import { getData } from "@/functions/api/getData";
-import mapItemToNewsMainProps from "@/functions/transformers/newsTransformer";
-import NewsCard from "@/components/custom beta components/NewsCard";
-import getCollectionsAll from "@/functions/api/getCollectionsAll";
-import getCorrespondingValue from "@/functions/transformers/getCollectionName";
 
 const articleData: NewsMainProps = {
   tag: "Technology",
@@ -141,12 +136,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function NewsContent({
+export default async function SinglePost({
   params,
 }: {
   params: {
     topic: string;
     slug: string;
+    locale: string;
   };
 }) {
   const post = {
@@ -166,31 +162,31 @@ export default async function NewsContent({
       slug: "javascript-event-loop",
     },
   };
-  {/** DATA FETCHING  */}
- 
-  const dataWeb = await getData('61ee828a15a3185c99bde543');
-  const sourcesAll = await getData('61ee828a15a3183f55bde545');
-  const peopleAll = await getData('62271a6df4ceb0027d91e6c4');
-  
-  const programmeAll = await getData('61ee828a15a3183d2abde540');
-  let rawNewsArray = dataWeb.items;
-  rawNewsArray = rawNewsArray.filter((item) => item.isDraft === false);
-  const newsArray = rawNewsArray.map(item => mapItemToNewsMainProps(item, sourcesAll.items,programmeAll.items));
-
-
-
   const heroProps = {
     backgroundImageUrl: image.src,
     overlayColor: "bg-gray-400/80",
-    subTitle: "media",
-    title: "News",
+    subTitle: "Community Jameel",
+    title: "Advancing science and learning for communities to thrive",
   };
-
+  const heroPropsArabic = {
+    backgroundImageUrl: image.src,
+    overlayColor: "bg-gray-400/80",
+    subTitle: "Community Jameel",
+    title: "AImagine its in arabic",
+  };
+  const heroProps2 = {
+    backgroundImageUrl: porgrammeImage.src,
+    overlayColor: "",
+    subTitle: "",
+    title: "",
+  };
   if (!post) notFound();
 
   return (
     <>
-      <div className="flex xl:space-x-12">
+      {/* Page header */}
+
+      <article className="flex xl:space-x-12">
         {/* Main area */}
         <div className="min-w-0">
           {/* Mobile hamburger + breadcrumbs */}
@@ -218,24 +214,73 @@ export default async function NewsContent({
 
           {/* Article content */}
           <div className="md:mt-10">
-            <HeroBanter content={heroProps} />
-           
-              
-            <SectionBanter title={""}>
-              <div className=" relative mb-4">
-                <Search></Search>
-              </div>
+            <HeroBanter
+              content={params.locale === "en" ? heroProps : heroPropsArabic}
+            />
+            <HomeIcons />
+            <SectionBanter title={"Features"}>
               <div className="grid gap-6 grid-cols-1 md:grid-cols-3 ">
-                {newsArray.map((news, index) => (
-                  <NewsCard key={index} content={news} />
-                ))}
+                <FeatureCard content={articleData} />
+                <FeatureCard content={articleData} />
+                <FeatureCard content={articleData} />
+                <FeatureCard content={articleData} />
+                <FeatureCard content={articleData} />
+                <FeatureCard content={articleData} />
+                <FeatureCard content={articleData} />
+                <FeatureCard content={articleData} />
+                <FeatureCard content={articleData} />
               </div>
             </SectionBanter>
+            <SectionBanter title="Programmes">
+              <div className="relative w-full ">
+                <Image
+                  className="h-full w-full object-cover"
+                  src={porgrammeImage.src}
+                  alt=""
+                  width={1980}
+                  height={1080}
+                />
+              </div>
+            </SectionBanter>
+            <SectionBanter title={"News"}>
+              <div className="mx-auto max-w-2xl lg:flex lg:max-w-screen-2xl lg:items-start lg:space-x-8">
+                {/* Sticky Main Article Container */}
+
+                <NewsMain content={articleData} />
+
+                {/* Scrollable Recent News Container */}
+                <div className="mt-12 sm:mt-16 lg:ml-12 lg:mt-0 lg:w-1/2 xl:ml-16 ">
+                  <h3 className="relative border-b border-gray-300/70 pb-2.5 text-2xl font-medium text-gray-900 before:absolute before:-bottom-px before:left-0 before:h-px before:w-24 before:bg-red-600 before:content-['']">
+                    Recent news
+                  </h3>
+
+                  {/* Articles Container */}
+                  <div className="grid lg:gap-x-5 xl:grid-cols-1">
+                    <NewsSmall content={articleData} />
+                    <NewsSmall content={articleData} />
+                    <NewsSmall content={articleData} />
+                    <NewsSmall content={articleData} />
+                  </div>
+                </div>
+              </div>
+            </SectionBanter>
+            <TrandingTopics />
+            <SectionBanter title={"Events"}>
+              <EventSection />
+            </SectionBanter>
           </div>
+
+          {/* Feedback */}
+
+          {/* Page navigation */}
+
+          {/* Content footer */}
           <Footer />
         </div>
+
+        {/* Secondary navigation */}
         {/*        <SecondaryNav />*/}
-      </div>
+      </article>
     </>
   );
 }

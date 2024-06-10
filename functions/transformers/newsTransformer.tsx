@@ -15,6 +15,7 @@ interface NewsMainProps {
     authorLink: string;
     postImage: string;
     authorImage: string;
+    arabicTitle: string;
   }
   
   interface FieldData {
@@ -95,5 +96,6 @@ interface NewsMainProps {
       authorLink: `/news/${item.fieldData.slug}`, // Placeholder link
       postImage: item.fieldData.thumbnail?.url || '/path/to/default/image.jpg',  
       authorImage: "/path/to/author/image.jpg", // Placeholder image URL
+      arabicTitle: item.fieldData["arabic-title"] || '',
     };
   }

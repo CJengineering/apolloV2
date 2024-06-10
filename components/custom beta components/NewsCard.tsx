@@ -1,5 +1,10 @@
 import React from "react";
 import Image from "next/image";
+
+interface newLocaleProps {
+  locale: string;
+
+}
 export interface NewsMainProps {
   tag: string;
   title: string;
@@ -12,8 +17,9 @@ export interface NewsMainProps {
   authorLink: string;
   postImage: string;
   authorImage: string;
+  arabicTitle: string;
 }
-export default function NewsCard({ content }: { content: NewsMainProps }) {
+export default function NewsCard({ content, locale }: { content: NewsMainProps , locale: newLocaleProps}) {
   return (
     <article className="relative  ">
       <a
@@ -41,7 +47,7 @@ export default function NewsCard({ content }: { content: NewsMainProps }) {
         </a>
         <a href={content.categoryLink} className="group mt-3 block">
           <h2 className=" text-xl costa font-medium tracking-normal text-gray-900 decoration-gray-800 decoration-3 transition duration-300 ease-in-out group-hover:underline md:tracking-tight lg:text-2xl xl:text-3xl lg:leading-tight">
-            {content.title}
+            {locale.locale == 'ar' ? content.arabicTitle :content.title}
           </h2>
     
         </a>
