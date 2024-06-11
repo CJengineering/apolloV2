@@ -22,6 +22,8 @@ import mapItemNews from "@/functions/transformers/newsSingleTransformer";
 import NewsRightContent from "@/components/custom beta components/NewsRightContent";
 import filterItemsByPeopleAndProgrammes from "@/functions/filters/filterRelatedPersonAndProgramme";
 import filterNewsItems from "@/functions/filters/filterRelatedPersonAndProgramme";
+import { Suspense } from "react";
+import Loading from "@/components/custom beta components/Loading";
 
 const articleData: NewsMainProps = {
   tag: "Technology",
@@ -45,6 +47,7 @@ export default async function NewsPage({
   params: {
     topic: string;
     slug: string;
+    locale: string;
   };
 }) {
   const title = "Sample Article Title";
@@ -105,6 +108,7 @@ export default async function NewsPage({
 
   return (
     <>
+    <Suspense ></Suspense>
       <div className="flex xl:space-x-12">
         <div className="min-w-0">
           <div className="md:hidden mt-4 flex items-center mb-4 ">
@@ -141,7 +145,7 @@ export default async function NewsPage({
             <img src={newsItem.imageUrl} alt={title} className="w-full h-auto mb-6" />
           
             
-            <SectionBanter title={newsItem.title}>
+            <SectionBanter title={ params.locale == 'ar' ? newsItem.arabicTitle : newsItem.title}>
               <article className="prose w-full text-slate-600 dark:text-slate-400 max-w-none prose-p:leading-normal prose-headings:text-slate-800 dark:prose-headings:text-slate-200 prose-a:font-medium prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-800 dark:prose-strong:text-slate-100 prose-code:text-slate-800 prose-code:bg-slate-100 dark:prose-code:bg-slate-800 dark:prose-code:text-slate-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-[''] prose-code:after:content-[''] prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700 prose-headings:scroll-mt-24">
                 <div
                   className=""

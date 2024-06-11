@@ -4,6 +4,7 @@ interface NewsPageProps {
       slug: string;
     };
     title: string;
+    arabicTitle: string;
     imageUrl: string;
     richText1: string;
     richText2: string;
@@ -127,7 +128,7 @@ interface NewsPageProps {
       source: matchSource ? matchSource.fieldData.name : 'Unknown Source',
       datePublished: formatDate(item.fieldData["date-published"] || ''),
       arrayPeople: matchPeople.map(person => person ? { name: person.id} : { name: 'Unknown Person'}),
-
+     arabicTitle: item.fieldData["arabic-title"] || '',
       relatedProgrammes: matchProgramme ? [{ name: matchProgramme.fieldData.name, href: `/programme/${matchProgramme.id}` }] : [],
       relatedPeople: matchPeople.map(person => person ? { name: person.fieldData.name, href: `/people/${person.id}` } : { name: 'Unknown Person', href: '#' }),
     };
