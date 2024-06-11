@@ -2,13 +2,14 @@ import React from 'react';
 import SocialMediaLinks from './SocialMediaLinks';
 import { TeamMember } from '@/app/interfaces';
 import Link from 'next/link';
+
 interface PersonalCardProps {
     author: TeamMember;
     socialPlatforms: string[];
 }
 
 
-const   PersonalCard = ({ author, socialPlatforms }: PersonalCardProps) => {
+const PersonalCard = ({ author, socialPlatforms }: PersonalCardProps) => {
   return (
     <div className="relative rounded-3xl border border-gray-300/70 bg-transparent px-6 py-10 text-center transition duration-300 ease-in-out hover:border-gray-300/30 hover:shadow-lg sm:px-10">
       <div>

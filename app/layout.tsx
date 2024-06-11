@@ -74,7 +74,7 @@ export default function RootLayout({
         <Theme>
           <AppProvider>
               {/*  previous div had this 'min-h-screen overflow-hidden' removed for sticky postionnint  */}
-            <div className="flex    flex-col ">
+            <div className="flex flex-col ">
               <Header />
 
               {/*  Page content */}

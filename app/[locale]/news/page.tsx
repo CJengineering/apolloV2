@@ -103,7 +103,6 @@ export default async function NewsContent({
   const dataWeb = await getData('61ee828a15a3185c99bde543');
   const sourcesAll = await getData('61ee828a15a3183f55bde545');
   const peopleAll = await getData('62271a6df4ceb0027d91e6c4');
-  
   const programmeAll = await getData('61ee828a15a3183d2abde540');
   let rawNewsArray = dataWeb.items;
   rawNewsArray = rawNewsArray.filter((item) => item.isDraft === false);
