@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-import formsPlugin from '@tailwindcss/forms'
-import headlessuiPlugin from '@headlessui/tailwindcss'
-import { type Config } from 'tailwindcss'
+import formsPlugin from "@tailwindcss/forms";
+import headlessuiPlugin from "@headlessui/tailwindcss";
+import { type Config } from "tailwindcss";
 
 module.exports = {
   content: [
@@ -16,7 +16,9 @@ module.exports = {
         aspekta: ["var(--font-aspekta)", "sans-serif"],
         nycd: ["var(--font-nycd)", "cursive"],
       },
-
+      screens: {
+        xlc: "1500px",
+      },
       fontSize: {
         tiny: "0.813rem",
         md: "1.063rem",

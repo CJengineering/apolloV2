@@ -25,6 +25,19 @@ import NewsSmall from "@/components/custom beta components/NewsSmall";
 import CardHorizontal from "@/components/CJ-components/components-CJ/basic components/CardHorizontal";
 import Link from "next/link";
 import Search from "@/components/ui/search";
+import EventCard from "@/components/custom beta components/EventCard";
+import { getData } from "@/functions/api/getData";
+import eventMapper from "@/functions/transformers/eventMapper";
+
+import EventCardV1 from "@/components/custom beta components/EventCardV1";
+import {
+  EventFieldData,
+  Item,
+  PartnersRawFields,
+  ProgrammeRawFields,
+} from "@/app/interfaces";
+import MainContainer from "@/components/custom beta components/MainContainer";
+import ContentContainer from "@/components/custom beta components/ContentContainer";
 const articleData: NewsMainProps = {
   tag: "Technology",
   title: "Apple to Turn IPhones Into Payment Terminals in Fintech Push",
@@ -40,15 +53,15 @@ const articleData: NewsMainProps = {
   authorImage:
     "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg",
 };
-const articles = [
+const events = [
   {
     id: "1",
-    title: "Prepare to Shell Out for Warehouse Space -- If You Can Find It",
+    name: "Prepare to Shell Out for Warehouse Space -- If You Can Find It",
     description:
       "The demand for warehouse space is skyrocketing as e-commerce continues to grow.",
-    category: "Economic outlook",
+    programme: "Economic outlook",
     imageUrl: "https://via.placeholder.com/600x400.png?text=Warehouse+Space",
-    author: {
+    source: {
       name: "Taylor Adams",
       imageUrl: "https://via.placeholder.com/150.png?text=Taylor+Adams",
       date: "2023-05-29",
@@ -57,12 +70,12 @@ const articles = [
   },
   {
     id: "2",
-    title: "Tech Giants are Investing in Renewable Energy",
+    name: "Tech Giants are Investing in Renewable Energy",
     description:
       "Tech companies are leading the way in renewable energy investments to combat climate change.",
-    category: "Technology",
+    programme: "Technology",
     imageUrl: "https://via.placeholder.com/600x400.png?text=Renewable+Energy",
-    author: {
+    source: {
       name: "Jordan Lee",
       imageUrl: "https://via.placeholder.com/150.png?text=Jordan+Lee",
       date: "2023-05-28",
@@ -71,12 +84,12 @@ const articles = [
   },
   {
     id: "3",
-    title: "The Future of Remote Work",
+    name: "The Future of Remote Work",
     description:
       "Remote work is here to stay. Learn how companies are adapting to this new trend.",
-    category: "Workplace",
+    programme: "Workplace",
     imageUrl: "https://via.placeholder.com/600x400.png?text=Remote+Work",
-    author: {
+    source: {
       name: "Alex Morgan",
       imageUrl: "https://via.placeholder.com/150.png?text=Alex+Morgan",
       date: "2023-05-27",
@@ -85,12 +98,12 @@ const articles = [
   },
   {
     id: "4",
-    title: "Advancements in AI Technology",
+    name: "Advancements in AI Technology",
     description:
       "AI technology is evolving rapidly, impacting various industries around the world.",
-    category: "Artificial Intelligence",
+    programme: "Artificial Intelligence",
     imageUrl: "https://via.placeholder.com/600x400.png?text=AI+Technology",
-    author: {
+    source: {
       name: "Sam Taylor",
       imageUrl: "https://via.placeholder.com/150.png?text=Sam+Taylor",
       date: "2023-05-26",
@@ -99,12 +112,12 @@ const articles = [
   },
   {
     id: "5",
-    title: "How to Improve Cybersecurity in Your Organization",
+    name: "How to Improve Cybersecurity in Your Organization",
     description:
       "Cybersecurity is more important than ever. Here are some tips to keep your organization safe.",
-    category: "Cybersecurity",
+    programme: "Cybersecurity",
     imageUrl: "https://via.placeholder.com/600x400.png?text=Cybersecurity",
-    author: {
+    source: {
       name: "Morgan Brown",
       imageUrl: "https://via.placeholder.com/150.png?text=Morgan+Brown",
       date: "2023-05-25",
@@ -112,6 +125,7 @@ const articles = [
     },
   },
 ];
+
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
@@ -135,7 +149,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function AnnouncementsContent({
+export default async function WhatsOnContent({
   params,
 }: {
   params: {
@@ -163,69 +177,65 @@ export default async function AnnouncementsContent({
   const heroProps = {
     backgroundImageUrl: image.src,
     overlayColor: "bg-gray-400/80",
-    subTitle: "media",
-    title: "Announcements",
+    subTitle:
+      " Talks, exhibitions, performances and events from across the community",
+    title: "What's on",
   };
 
   if (!post) notFound();
+  {
+    /** DATA FETCHING  */
+  }
+  const eventsData = await getData("6225fe8b1f52b40001a99d66");
+  const programmeData = await getData("61ee828a15a3183d2abde540");
+  const partnersData = await getData("6225ffe9b0cebfbd804959d2");
+  const eventsRaw: Item<EventFieldData>[] = eventsData.items;
+  const programmeRaw: Item<ProgrammeRawFields>[] = programmeData.items;
+  const partnersRaw: Item<PartnersRawFields>[] = partnersData.items;
+  const eventsClean = eventsRaw.map((event) =>
+    eventMapper(event, partnersRaw, programmeRaw)
+  );
+  const eventsFeatured = eventsClean.filter((event) => event.featured);
 
+  const eventFuture = eventsClean.filter(
+    (event) =>
+      new Date(event.endDate) > new Date() && !event.featured && !event.isDraft
+  );
+
+  // Filter past events and check isDraft is false
+  const eventPast = eventsClean.filter(
+    (event) => new Date(event.endDate) < new Date() && !event.isDraft
+  );
   return (
-    <>
-      <div className="flex xl:space-x-12">
-        {/* Main area */}
-        <div className="min-w-0">
-          {/* Mobile hamburger + breadcrumbs */}
-          <div className="md:hidden mt-4 flex items-center mb-4 ">
-            <Hamburger />
+    <MainContainer isSideBar={false}>
+      <ContentContainer>
+        <HeroBanter content={heroProps} />
 
-            {/* Breadcrumbs */}
-            <div className="flex items-center text-sm whitespace-nowrap min-w-0 ml-3">
-              <span className="text-slate-600 dark:text-slate-400">
-                {post.topic.name}
-              </span>
-              <svg
-                className="fill-slate-400 shrink-0 mx-2 dark:fill-slate-500"
-                width="8"
-                height="10"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M1 2 2.414.586 6.828 5 2.414 9.414 1 8l3-3z" />
-              </svg>
-              <span className="text-slate-800 font-medium truncate dark:text-slate-200">
-                {post.title}
-              </span>
+        <SectionBanter title={"Featured"}>
+          <div className="flex  gap-6 justify-center ">
+            {eventsFeatured.map((article, index) => (
+              <EventCardV1 key={index} article={article} />
+            ))}
+          </div>
+        </SectionBanter>
+        {eventFuture.length > 0 && (
+          <SectionBanter title={"Upcoming events"}>
+            <div className="grid md:grid-cols-3 gap-6">
+              {eventFuture.map((article, index) => (
+                <EventCardV1 key={index} article={article} />
+              ))}
             </div>
+          </SectionBanter>
+        )}
+
+        <SectionBanter title={"Past events"}>
+          <div className="grid md:grid-cols-3 gap-6">
+            {eventPast.map((article, index) => (
+              <EventCardV1 key={index} article={article} />
+            ))}
           </div>
-
-          {/* Article content */}
-          <div className="md:mt-10">
-            <HeroBanter content={heroProps} />
-
-            <SectionBanter title={""}>
-              <div className=" relative mb-4">
-               
-
-                <Search></Search>
-        
-              </div>
-              <div className="grid gap-6 grid-cols-1 md:grid-cols-3 ">
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-              </div>
-            </SectionBanter>
-    
-          </div>
-          <Footer />
-        </div>
-        {/*        <SecondaryNav />*/}
-      </div>
-    </>
+        </SectionBanter>
+      </ContentContainer>
+    </MainContainer>
   );
 }

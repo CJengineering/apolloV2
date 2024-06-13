@@ -9,7 +9,7 @@ interface NavLink {
 interface NewsRightContentProps {
   source: string;
   datePublished: string;
-  relatedProgrammes: { name: string; href: string }[];
+  relatedContent: { name: string; href: string; type: string }[];
   relatedPeople: { name: string; href: string }[];
 }
 
@@ -18,10 +18,10 @@ const links: NavLink[] = [
   { id: "section2", innerHTML: "Section 2" },
 ];
 
-const NewsRightContent: React.FC<NewsRightContentProps> = ({
+const RightContent: React.FC<NewsRightContentProps> = ({
   source,
   datePublished,
-  relatedProgrammes,
+  relatedContent,
   relatedPeople,
 }) => {
   return (
@@ -47,17 +47,21 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
             </div>
             <div className="border-l border-slate-200 dark:border-slate-800 py-2">
               <div className="text-xs font-[650] text-slate-400 uppercase pl-4 dark:text-slate-200">
-                Related programmes
+                Related content
               </div>
               <div className="relative block font-normal text-slate-600 pl-4 before:absolute before:-left-px before:top-2 before:bottom-2 before:w-0.5">
-                {relatedProgrammes.map((programme, index) => (
-                  <Link
-                    key={index}
-                    href={programme.href}
-                    className="underline hover:cursor-pointer mt-0"
-                  >
-                    {programme.name}
-                  </Link>
+                {relatedContent.map((content, index) => (
+                  <div>
+                    <strong>{content.type}</strong>
+
+                    <Link
+                      key={index}
+                      href={`${content.type}/${content.href}`}
+                      className="underline hover:cursor-pointer mt-0"
+                    >
+                      {content.name}
+                    </Link>
+                  </div>
                 ))}
               </div>
             </div>
@@ -87,4 +91,4 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
   );
 };
 
-export default NewsRightContent;
+export default RightContent;

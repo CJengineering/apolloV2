@@ -1,12 +1,12 @@
-import Footer from "@/components/ui/footer";
+import ContentContainer from "@/components/custom beta components/ContentContainer";
+import MainContainer from "@/components/custom beta components/MainContainer";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
-import Search from "@/components/ui/search";
 import HeroSkeleton from "@/components/skeletons/HeroSkeleton";
 import NewsCardSkeleton from "@/components/skeletons/NewsCardSkeleton";
-import MainContainer from "@/components/custom beta components/MainContainer";
-import ContentContainer from "@/components/custom beta components/ContentContainer";
+import Search from "@/components/ui/search";
+import React from "react";
 
-export default function NewsContentSkeleton() {
+export default function loading() {
   return (
     <MainContainer isSideBar={false}>
       <ContentContainer>

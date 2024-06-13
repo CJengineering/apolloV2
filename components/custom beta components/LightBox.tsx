@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ImageNext from "next/image";
 
 interface Image {
   src: string;
@@ -49,9 +50,12 @@ const Lightbox: React.FC<LightboxProps> = ({
         </button>
         <div className="flex flex-col items-center justify-center w-full">
           <div className="overflow-auto max-h-[90vh] mb-4 mt-4">
-            <img
+            <ImageNext
               src={image.src}
+              loading="lazy"
               alt={image.alt}
+              width={1920}
+              height={1080}
               className={`w-auto ${
                 isPortrait ? "max-h-[70vh]" : "max-h-[90vh]"
               } object-contain`}

@@ -26,15 +26,11 @@ import CardHorizontal from "@/components/CJ-components/components-CJ/basic compo
 import Link from "next/link";
 import Search from "@/components/ui/search";
 import { getData } from "@/functions/api/getData";
-import mapItemToNewsMainProps from "@/functions/transformers/newsTransformer";
-import NewsCard from "@/components/custom beta components/NewsCard";
-import getCollectionsAll from "@/functions/api/getCollectionsAll";
-import getCorrespondingValue from "@/functions/transformers/getCollectionName";
-import { Suspense } from "react";
-import Loading from "@/components/custom beta components/Loading";
+import postMapper from "@/functions/transformers/postMapper";
+import PostCard from "@/components/custom beta components/PostCard";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
-
+import { Suspense } from "react";
 const articleData: NewsMainProps = {
   tag: "Technology",
   title: "Apple to Turn IPhones Into Payment Terminals in Fintech Push",
@@ -74,13 +70,13 @@ export async function generateMetadata({
   };
 }
 
-export default async function NewsContent({
+
+export default async function AnnouncementsContent({
   params,
 }: {
   params: {
     topic: string;
     slug: string;
-    locale: string;
   };
 }) {
   const post = {
@@ -100,48 +96,53 @@ export default async function NewsContent({
       slug: "javascript-event-loop",
     },
   };
-  {
-    /** DATA FETCHING  */
-  }
-
-  const dataWeb = await getData("61ee828a15a3185c99bde543");
-  const sourcesAll = await getData("61ee828a15a3183f55bde545");
-  const peopleAll = await getData("62271a6df4ceb0027d91e6c4");
-
-  const programmeAll = await getData("61ee828a15a3183d2abde540");
-  let rawNewsArray = dataWeb.items;
-  rawNewsArray = rawNewsArray.filter((item) => item.isDraft === false);
-  const newsArray = rawNewsArray.map((item) =>
-    mapItemToNewsMainProps(item, sourcesAll.items, programmeAll.items)
-  );
-
   const heroProps = {
     backgroundImageUrl: image.src,
     overlayColor: "bg-gray-400/80",
     subTitle: "media",
-    title: "News",
+    title: "Announcements",
   };
 
   if (!post) notFound();
+{/*Data fetching* */}
+
+const rawPosts = await getData("61ee828a15a3183262bde542");
+const programesRaw = await getData("61ee828a15a3183d2abde540");
+const eventsRaw = await getData("6225fe8b1f52b40001a99d66");
+const peopleRaw = await getData("62271a6df4ceb0027d91e6c4");
+
+const  posts = rawPosts.items.map((item) => postMapper(item, eventsRaw.items,programesRaw.items, peopleRaw.items));
+const cleanPosts: NewsMainProps[] = posts.map((item) => ({
+  tag: item.programme.name,  // Assuming 'name' is the string you need for the tag
+  title: item.name,
+  description: '',
+  authorName: item.name,
+  date: item.datePublished,
+  readTime: '6 min',
+  postLink: item.slug,
+  categoryLink: item.slug,  // Assuming 'url' is the string you need for the category link
+  authorLink: 'news',
+  postImage: item.thumbnail.url,
+  authorImage: 'https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg',
+}));
 
   return (
     <MainContainer isSideBar={false}>
-      <ContentContainer>
-        <HeroBanter content={heroProps} />
-
-        <SectionBanter title={""}>
+    <ContentContainer>
+    <HeroBanter content={heroProps} />
+      <SectionBanter title={""}>
           <div className=" relative mb-4">
             <Search></Search>
           </div>
           <div className="grid gap-6 grid-cols-1 md:grid-cols-3 ">
-            <Suspense fallback={<Loading />}>
-              {newsArray.map((news, index) => (
-                <NewsCard key={index} content={news} locale={params} />
-              ))}
+            <Suspense >
+            {cleanPosts.map((post) => (
+                  <PostCard content={post} />
+                ))}
             </Suspense>
           </div>
         </SectionBanter>
-      </ContentContainer>
-    </MainContainer>
+    </ContentContainer>
+  </MainContainer>
   );
 }

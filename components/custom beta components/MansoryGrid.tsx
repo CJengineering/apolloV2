@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Image from 'next/image';
 interface Image {
   src: string;
   alt: string;
@@ -18,7 +18,7 @@ const MasonryGrid: React.FC<MasonryGridProps> = ({ images, onImageClick }) => {
     <div className="columns-1 sm:columns-1 lg:columns-2 xl:columns-2 gap-4">
       {images.map((image, index) => (
         <div key={index} className="mb-4 break-inside-avoid" onClick={() => onImageClick(index)}>
-          <img src={image.src} alt={image.alt} className="w-full h-auto cursor-pointer" />
+          <Image src={image.src} width={500} loading='lazy' height = {400} alt={image.alt} className="w-full h-auto cursor-pointer" />
         </div>
       ))}
     </div>

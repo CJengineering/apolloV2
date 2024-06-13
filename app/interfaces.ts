@@ -321,7 +321,7 @@ export interface EventCardProps {
 }
 export interface PhotoFieldsRaw {
   "name-arabic"?: string;
-  "main-image"?: { fileId: string; url: string; alt: string |'' };
+  "main-image"?: { fileId: string; url: string; alt: string | "" };
   "alt-text"?: string;
   date?: string;
   description?: string;
@@ -350,4 +350,157 @@ export interface LightboxProps {
   onClose: () => void;
   onNext: () => void;
   onPrev: () => void;
+}
+export interface FieldsPostRaw {
+  "arabic-title"?: string;
+  "push-to-gr"?: boolean;
+  "programme-2"?: string;
+  "programmes-multiple"?: string[];
+  thumbnail?: { url: string; alt: string };
+  "main-image"?: string;
+  "open-graph-image"?: string;
+  "date-published"?: string;
+  location?: string;
+  "location-arabic"?: string;
+  "seo-title"?: string;
+  "seo-title-arabic"?: string;
+  "seo-meta"?: string;
+  "seo-meta-arabic"?: string;
+  summary?: string;
+  "summary-arabic"?: string;
+  body?: string;
+  "body-arabic"?: string;
+  "alt-text-for-hero-image"?: string;
+  "alt-text-hero-image-arabic"?: string;
+  "photo-credit-hero-image"?: string;
+  "hero-image-photo-credit-arabic"?: string;
+  "theme-3"?: string[];
+  "blogs-categories-2"?: string;
+  featured?: boolean;
+  "image-carousel"?: string[];
+  "image-gallery-credits-arabic"?: string;
+  "image-carousel-credits"?: string;
+  "related-event"?: string;
+  people?: string[];
+  innovations?: string[];
+  name?: string;
+  slug?: string;
+}
+
+export interface PeopleRawFields {
+  "name-arabic"?: string;
+  "arabic-on-off"?: boolean;
+  "push-to-gr"?: boolean;
+  hero?: boolean;
+  "related-programme"?: string;
+  "related-programmes"?: string[];
+  color?: string;
+  role?: string;
+  "role-arabic"?: string;
+  "short-description"?: string;
+  "short-description-arabic"?: string;
+  biography?: string;
+  "biography-arabic"?: string;
+  events?: string;
+  "events-arabic"?: string;
+  "research-area-english"?: string;
+  "research-areas-arabic"?: string;
+  type?: {
+    name: string;
+    id: string;
+  };
+  "hero-image"?: string;
+  "profile-picture"?: string;
+  "related-people-s"?: string[];
+  "partner-organisation"?: string[];
+  "instagram-link"?: string;
+  "linkedin-link"?: string;
+  "twitter-link"?: string;
+  facebook?: string;
+  "youtube-link"?: string;
+  github?: string;
+  "website-link"?: string;
+  shop?: string;
+  photos?: string[];
+  "hide-news"?: boolean;
+  "hide-multimedia"?: boolean;
+  "hide-events"?: boolean;
+  "hide-publications"?: boolean;
+  "hide-photos"?: boolean;
+  "hide-events-rich-text"?: boolean;
+  multimedia?: string[];
+  tag?: string[];
+  order?: number;
+  country?: string;
+  name?: string;
+  slug?: string;
+}
+export interface PostFieldsCleaned {
+  arabicTitle: string;
+  pushToGr: boolean;
+  programme: { name: string; url: string; slug: string };
+  programmesMultiple: { name: string; url: string; slug: string }[];
+  thumbnail: { url: string; alt: string };
+  mainImage: string;
+  openGraphImage: string;
+  datePublished: string;
+  location: string;
+  locationArabic: string;
+  seoTitle: string;
+  seoTitleArabic: string;
+  seoMeta: string;
+  seoMetaArabic: string;
+  summary: string;
+  summaryArabic: string;
+  body: string;
+  bodyArabic: string;
+  altTextForHeroImage: string;
+  altTextHeroImageArabic: string;
+  photoCreditHeroImage: string;
+  heroImagePhotoCreditArabic: string;
+  theme3: string[];
+  blogsCategories2: string;
+  featured: boolean;
+  imageCarousel: string[];
+  imageGalleryCreditsArabic: string;
+  imageCarouselCredits: string;
+  relatedEvent: { name: string; slug: string };
+  people: { name: string; slug: string }[];
+  innovations: string[];
+  name: string;
+  slug: string;
+}
+export interface Author {
+  name: string;
+  url: string;
+  avatar: string;
+  role: string;
+  body: {
+    code: string;
+  };
+  social_links: {
+    name: string;
+    url: string;
+  }[];
+}
+
+export interface Category {
+  name: string;
+  url: string;
+}
+
+export interface ArticleProps {
+  article: {
+    title: string;
+    description: string;
+    image: string;
+    date: string;
+    time_to_read_in_minutes: number;
+    body: {
+      code: string;
+    };
+    tags: string[];
+    category: Category;
+    author: Author;
+  };
 }

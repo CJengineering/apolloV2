@@ -30,12 +30,12 @@ export default async function MainContainer({children, isSideBar}: MainContainer
 
   return (
     <>
-      {/* Page header */}
+    
 
-      <div className={` isSideBar ? 'flex xl:space-x-12': ''`}>
-        {/* Main area */}
+      <div className=" md:flex 2xl:justify-center">
+      
         <div className="min-w-0">
-          {/* Mobile hamburger + breadcrumbs */}
+
           <div className="md:hidden mt-4 flex items-center mb-4 ">
             <Hamburger />
 
@@ -59,16 +59,16 @@ export default async function MainContainer({children, isSideBar}: MainContainer
           </div>
 
           {/* Article content */}
-          <div className="md:mt-10">
+          <div className="md:mt-10 ">
           {children}
           </div>
 
-       
-          <Footer />
+          {isSideBar ? <SecondaryNav /> : null}
+ 
         </div>
 
         {/* Secondary navigation */}
-        {isSideBar ?<SecondaryNav /> : null}
+     
       </div>
     </>
   );

@@ -83,7 +83,7 @@ export default function RootLayout({
                 
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none -z-10"></div>
 
-                  <div className="max-w-12xl mx-auto  px-4 sm:px-6">
+                  <div className="max-w-12xl mx-auto md:px-0 md:pr-3 sm:px-6">
                
                     {/* Main content */}
                     <div>

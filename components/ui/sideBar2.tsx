@@ -39,7 +39,7 @@ const mediatNav: NavItem = {
   current: false,
   children: [
     { name: "News", href: "/news" },
-    { name: "Announcements", href: "#" },
+    { name: "Announcements", href: "/announcements" },
     { name: "Whats' on", href: "/whats-on" },
     { name: "Newsletter", href: "/newsletter" },
   ],
@@ -357,7 +357,7 @@ export default function Sidebar2() {
             aria-hidden="true"
           ></div>
 
-          <div className="fixed top-0 bottom-0 w-64  px-4 sm:px-6 md:pl-0 md:pr-8 overflow-y-auto no-scrollbar">
+          <div className="fixed top-0 bottom-0 w-52   px-4 sm:px-6 md:pl-0 md:pr-8 overflow-y-auto no-scrollbar">
             <div className="pt-24 md:pt-28 pb-8">
               {/* Docs nav */}
               <nav className="md:block">

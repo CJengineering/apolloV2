@@ -28,8 +28,11 @@ import LogoLink from "@/components/custom beta components/LogoLink";
 import laravelLogo from "@/public/images/logos/laravel.svg";
 import PersonalCard from "@/components/custom beta components/PersonCard";
 import { ListOrdered } from "lucide-react";
-import { EventCardProps } from "../interfaces";
+
 import CodeBlock from "@/components/CJ-components/components-CJ/basic components/CodeBlock";
+import { EventCardProps } from "@/app/interfaces";
+import ModalVideo from "@/components/mdx/modal-video";
+import ModalVideoYoutube from "@/components/custom beta components/ModalVideoYoutube";
 const author = {
   name: "Mark Jackson",
   imageUrl: "https://via.placeholder.com/150.png?text=Mark+Jackson",
@@ -335,7 +338,6 @@ export default async function HomeComponents() {
                     CardProgramme
                   </h2>
                   it has an image, a title and a subtitle
-             
                 </div>
                 <div className="">
                   <CardProgramme
@@ -845,6 +847,23 @@ export default async function HomeComponents() {
                       socialPlatforms={socialPlatforms}
                     />
                   </SyndicationPartners>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li className="py-9">
+            <div className="flex">
+              <div>
+                <h2 className={`mb-3 font-ibmMono text-2xl text-red-600 `}>
+                  Card programme
+                </h2>
+                <p className="mb-6 ">Now its just Image card</p>
+              </div>
+            </div>
+            <div className=" ">
+              <div className="w-full ">
+                <div className=" p-4 border-dotted border-r-gray-100 border-2 ">
+                 <ModalVideoYoutube  thumbWidth={400} thumbHeight={440} thumbAlt={""} videoUrl={"https://www.youtube.com/watch?v=i7g4IrbJ_WU"} />
                 </div>
               </div>
             </div>

@@ -14,6 +14,8 @@ import HomePageBeta from "@/components/custom beta components/homePageBeta";
 import TrandingTopics from "@/components/custom beta components/trandingTopics";
 import EventSection from "@/components/custom beta components/eventSection";
 import TabsCJ from "@/components/CJ-components/components-CJ/custom components/TabsCJ";
+import MainContainer from "@/components/custom beta components/MainContainer";
+import ContentContainer from "@/components/custom beta components/ContentContainer";
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -67,49 +69,11 @@ export default async function SinglePost({
   if (!post) notFound();
 
   return (
-    <>
-      {/* Page header */}
-      <div className="h-16 flex items-center mb-6">
-        <TopicTitle name={post.topic.name} segment={post.topic.slug} />
-      </div>
-
-      <article className="flex xl:space-x-12">
-        {/* Main area */}
-        <div className="min-w-0">
-          {/* Mobile hamburger + breadcrumbs */}
-          <div className="md:hidden flex items-center mb-8">
-            <Hamburger />
-
-            {/* Breadcrumbs */}
-            <div className="flex items-center text-sm whitespace-nowrap min-w-0 ml-3">
-              <span className="text-slate-600 dark:text-slate-400">
-                {post.topic.name}
-              </span>
-              <svg
-                className="fill-slate-400 shrink-0 mx-2 dark:fill-slate-500"
-                width="8"
-                height="10"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M1 2 2.414.586 6.828 5 2.414 9.414 1 8l3-3z" />
-              </svg>
-              <span className="text-slate-800 font-medium truncate dark:text-slate-200">
-                {post.title}
-              </span>
-            </div>
-          </div>
-
-          {/* Article content */}
-          <div>
-            <TabsCJ></TabsCJ>
-          </div>
-
-          <Footer />
-        </div>
-
-        {/* Secondary navigation */}
-        {/*        <SecondaryNav />*/}
-      </article>
-    </>
+    <MainContainer isSideBar={false}>
+      <ContentContainer>
+        <h1 className="costa text-4xl    ">Our Community</h1>
+        <TabsCJ />
+      </ContentContainer>
+    </MainContainer>
   );
 }
