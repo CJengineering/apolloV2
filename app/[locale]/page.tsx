@@ -18,6 +18,7 @@ import image from "@/public/images/mapCJ.webp";
 import porgrammeImage from "@/public/images/blueCJMap.png";
 import Image from "next/image";
 
+
 import SectionBanter from "@/components/custom beta components/SectionBanter";
 import NewsMain, {
   NewsMainProps,
@@ -25,6 +26,7 @@ import NewsMain, {
 import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";
 import FeatureCard from "@/components/custom beta components/FeatureCard";
 import NewsSmall from "@/components/custom beta components/NewsSmall";
+import MainContainer from "@/components/custom beta components/MainContainer";
 
 const articleData: NewsMainProps = {
   tag: "Technology",
@@ -146,7 +148,7 @@ export default async function SinglePost({
   };
 }) {
   const post = {
-    title: "Community  Jameel",
+    title: "Community Jameel",
     summary:
       "A deep dive into how async/await works in JavaScript, with examples and best practices.",
     topic: {
@@ -186,49 +188,26 @@ export default async function SinglePost({
     <>
       {/* Page header */}
 
-      <article className="flex xl:space-x-12">
+      <MainContainer isSideBar={false}> 
         {/* Main area */}
         <div className="min-w-0">
           {/* Mobile hamburger + breadcrumbs */}
           <div className="md:hidden mt-4 flex items-center mb-4 ">
             <Hamburger />
-
-            {/* Breadcrumbs */}
-            <div className="flex items-center text-sm whitespace-nowrap min-w-0 ml-3">
-              <span className="text-slate-600 dark:text-slate-400">
-                {post.topic.name}
-              </span>
-              <svg
-                className="fill-slate-400 shrink-0 mx-2 dark:fill-slate-500"
-                width="8"
-                height="10"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M1 2 2.414.586 6.828 5 2.414 9.414 1 8l3-3z" />
-              </svg>
-              <span className="text-slate-800 font-medium truncate dark:text-slate-200">
-                {post.title}
-              </span>
-            </div>
           </div>
 
           {/* Article content */}
           <div className="md:mt-10">
-            <HeroBanter
+            {/* <HeroBanter
               content={params.locale === "en" ? heroProps : heroPropsArabic}
-            />
-            <HomeIcons />
+            /> */}
+            <div className="mt-8 lg:mt-16">
+              <h2 className="costa font-bold text-5xl leading-tight lg:text-7xl">{params.locale == 'ar' ? heroPropsArabic.title : heroProps.title}</h2>
+            </div> 
             <SectionBanter title={"Features"}>
               <div className="grid gap-6 grid-cols-1 md:grid-cols-3 ">
                 <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
-                <FeatureCard content={articleData} />
+
               </div>
             </SectionBanter>
             <SectionBanter title="Programmes">
@@ -250,7 +229,7 @@ export default async function SinglePost({
 
                 {/* Scrollable Recent News Container */}
                 <div className="mt-12 sm:mt-16 lg:ml-12 lg:mt-0 lg:w-1/2 xl:ml-16 ">
-                  <h3 className="relative border-b border-gray-300/70 pb-2.5 text-2xl font-medium text-gray-900 before:absolute before:-bottom-px before:left-0 before:h-px before:w-24 before:bg-red-600 before:content-['']">
+                  <h3 className="relative border-b border-gray-300/70 pb-2.5 text-2xl font-bold costa text-gray-900 before:absolute before:-bottom-px before:left-0 before:h-px before:w-24 before:bg-red-600 before:content-['']">
                     Recent news
                   </h3>
 
@@ -280,7 +259,7 @@ export default async function SinglePost({
 
         {/* Secondary navigation */}
         {/*        <SecondaryNav />*/}
-      </article>
+        </MainContainer>
     </>
   );
 }

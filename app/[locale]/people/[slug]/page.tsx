@@ -26,7 +26,7 @@ export default async function page({
   const programmeAll = await getData("61ee828a15a3183d2abde540");
 
 
-  const rawNewsArray = dataNews.items;
+const rawNewsArray = dataNews.items;
  const searchnews = rawNewsArray.find((item) => item.id === '6239dc108fcdf9ef5357b933');
   const filteredNewsItems = filterNewsItemsByPerson(
     rawNewsArray,

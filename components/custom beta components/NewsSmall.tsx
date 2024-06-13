@@ -39,7 +39,7 @@ export default function NewsSmall({content}: {content: NewsMainProps}) {
         </a>
 
         <a href={content.categoryLink}>
-          <h3 className="mt-2  font-medium leading-normal tracking-normal text-gray-900 decoration-gray-800 decoration-2 transition duration-300 ease-in-out hover:underline line-clamp-2">
+          <h3 className="mt-2 font-medium leading-normal tracking-normal text-gray-900 decoration-gray-800 decoration-2 transition duration-300 ease-in-out hover:underline line-clamp-2">
             {content.title}
           </h3>
         </a>

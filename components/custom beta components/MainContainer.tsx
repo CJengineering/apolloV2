@@ -32,7 +32,7 @@ export default async function MainContainer({children, isSideBar}: MainContainer
     <>
       {/* Page header */}
 
-      <div className={` isSideBar ? 'flex xl:space-x-12': ''`}>
+      <div className={`isSideBar ? 'flex xl:space-x-12' : 'width:100px'`}>
         {/* Main area */}
         <div className="min-w-0">
           {/* Mobile hamburger + breadcrumbs */}

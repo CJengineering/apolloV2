@@ -104,6 +104,7 @@ export interface TeamMember {
   photo?: TeamMemberPhoto;
   filter?: string;
 }
+
 interface TeamMemberPhoto {
   url: string;
   alt: string;

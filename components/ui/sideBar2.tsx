@@ -45,7 +45,7 @@ const mediatNav: NavItem = {
   ],
 };
 const programmesNav: NavItem = {
-  name: "PROGRAMMES",
+  name: "PROGRAMMESXXX",
   current: false,
   children: [
     {

@@ -38,7 +38,7 @@ export default function NewsMain({ content }: { content: NewsMainProps }) {
           {content.tag}
         </a>
         <a href={content.postLink} className="group mt-3 block">
-          <h2 className="text-3xl font-medium tracking-normal text-gray-900 decoration-gray-800 decoration-3 transition duration-300 ease-in-out group-hover:underline md:tracking-tight lg:text-4xl lg:leading-tight">
+          <h2 className="text-3xl text-gray-900 font-medium tracking-normal decoration-3 transition duration-300 ease-in-out group-hover:underline md:tracking-tight lg:text-4xl lg:leading-tight">
             {content.title}
           </h2>
           <div>

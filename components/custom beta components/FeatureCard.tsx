@@ -30,42 +30,24 @@ export default function FeatureCard({ content }: { content: NewsMainProps }) {
         </div>
       </a>
 
-      <div className="mt-6 md:align-middle">
+      <div className="mt-2 md:align-middle">
         <a
           href={content.categoryLink}
-          className="transition-color relative text-sm font-medium uppercase tracking-widest text-red-700 duration-300 ease-in-out hover:text-red-600"
+          className="mono font-normal uppercase relative text-sm"
         >
           {content.tag}
         </a>
-        <a href={content.postLink} className="group mt-3 block">
-          <h2 className=" text-xl costa font-medium tracking-normal text-gray-900 decoration-gray-800 decoration-3 transition duration-300 ease-in-out group-hover:underline md:tracking-tight lg:text-2xl xl:text-3xl lg:leading-tight">
+        <a href={content.postLink} className="group mt-1 block">
+          <h2 className="text-xl mono font-bold leading-6 tracking-tight decoration-3 transition duration-300 ease-in-out group-hover:underline md:tracking-tight lg:text-2xl lg:leading-tight ">
             {content.title}
           </h2>
           <div>
             <p
-              className="mt-4 text-base leading-loose text-gray-600"
+              className="mt-1 text-base sans-serif font-normal leading-6"
               dangerouslySetInnerHTML={{ __html: content.description }}
             ></p>
           </div>
         </a>
-
-        <div className="mt-4 flex items-center sm:mt-8">
-          <div className="">
-            <a
-              href={content.authorLink}
-              className="text-sm font-medium text-gray-800 hover:underline"
-            >
-              {content.authorName}
-            </a>
-            <p className="text-sm text-gray-500">
-              <time dateTime={content.date}>
-                {new Date(content.date).toLocaleDateString()}
-              </time>
-              <span aria-hidden="true"> &middot; </span>
-              <span>{content.readTime} read</span>
-            </p>
-          </div>
-        </div>
       </div>
     </article>
   );

@@ -11,7 +11,7 @@ export default function ListSmall({ data }: ListSmallProps) {
     <div>
       {Object.keys(data).map((key) => (
         <div key={key}>
-          <h6 className="text-small font-bold py-2 uppercase">{key}</h6>
+          <h6 className="text-small font-bold mono py-2 uppercase">{key}</h6>
 
           <div>
        

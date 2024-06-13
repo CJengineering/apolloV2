@@ -33,35 +33,31 @@ function TableRow({ repository }: RowData) {
         {({ open }) => (
           <>
             <Disclosure.Button className="">
-              <div className="grid min-w-full grid-cols-5 border-gray-300  px-2">
+              <div className="grid min-w-full grid-cols-5 border-gray-300">
                 <div
-                  className={`col-span-4 py-3 text-left text-gray-600 md:col-span-1 ${open ? 'opacity-100' : 'opacity-100'}`}
+                  className={`col-span-4 py-3 text-left md:col-span-1 ${open ? 'opacity-100' : 'opacity-100'}`}
                 >
-                  <h2 className="costa-bold text-lg uppercase">
+                  <h2 className="costa font-bold text-3xl uppercase">
                     {repository.top.name}
                   </h2>
-                  <h3 className="text-sm capitalize ">
+                  <h3 className="text-base sans-serif font-normal">
                     {repository.top.description}
                   </h3>
                 </div>
-                <div
-                  className={`hidden py-3 text-left text-gray-600 md:block ${open ? 'opacity-0' : 'opacity-100'}`}
-                >
-                  <div className="d">{repository.top.mission}</div>
+                <div className={`hidden py-3 text-left md:block ${open ? 'opacity-0' : 'opacity-100'}`}>
+                  <div className="sans-serif font-normal">{repository.top.mission}</div>
+                </div>
+                <div className={`hidden items-center py-3 text-left md:block ${open ? 'opacity-0' : 'opacity-100'}`}>
+                  <div className="text-sm sans-serif font-normal"> {repository.top.year}</div>
                 </div>
                 <div
-                  className={` hidden items-center py-3 text-left text-gray-600 md:block ${open ? 'opacity-0' : 'opacity-100'}`}
-                >
-                  <div className="text-sm"> {repository.top.year}</div>
-                </div>
-                <div
-                  className={` hidden items-center py-3 text-left text-gray-600 md:block ${open ? 'opacity-0' : 'opacity-100'}`}
+                  className={`hidden items-center py-3 text-left md:block ${open ? 'opacity-0' : 'opacity-100'}`}
                 >
                   <div className="text-sm">
                     {repository.top.partners.join(', ')}
                   </div>
                 </div>
-                <div className="flex items-center justify-end   py-3 text-right text-gray-600">
+                <div className="flex items-center justify-end py-3 text-right">
                   <>
                     <div
                       className={
@@ -75,13 +71,13 @@ function TableRow({ repository }: RowData) {
               </div>
             </Disclosure.Button>
 
-            <Disclosure.Panel className="mb-4 text-gray-500">
+            <Disclosure.Panel className="mb-4">
               <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-3">
                 <div>
                   <div>
                     <Image className=" object-fit w-24" src={testImage} alt="" />
                   </div>
-                  <div className="grid grid-cols-3 gap-2 py-4 ">
+                  <div className="grid grid-cols-3 gap-2 py-4">
                     <div>
                       <ListSmall
                         data={repository.content.research?.data || {}}
@@ -98,7 +94,7 @@ function TableRow({ repository }: RowData) {
                       />
                     </div>
                   </div>
-                  <p className="w-[90%]">
+                  <p className="sans-serif font-normal w-[90%]">
                     {repository.content.fullDescription}
                   </p>
                   <div className="py-2"></div>
