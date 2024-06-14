@@ -74,11 +74,18 @@ export default async function NewsPage({
               alt={title}
               className="w-full h-auto mb-6"
             />
+ 
             <SectionBanter
               title={
                 params.locale === "ar" ? newsItem.arabicTitle : newsItem.title
               }
             >
+                   <NewsRightContent
+          source={newsItem.source}
+          datePublished={newsItem.datePublished}
+          relatedProgrammes={newsItem.relatedProgrammes}
+          relatedPeople={newsItem.relatedPeople}
+        />
               <article className="prose w-full text-slate-600 dark:text-slate-400 max-w-none prose-p:leading-normal prose-headings:text-slate-800 dark:prose-headings:text-slate-200 prose-a:font-medium prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-800 dark:prose-strong:text-slate-100 prose-code:text-slate-800 prose-code:bg-slate-100 dark:prose-code:bg-slate-800 dark:prose-code:text-slate-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-[''] prose-code:after:content-[''] prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700 prose-headings:scroll-mt-24">
                 <div
                   dangerouslySetInnerHTML={{ __html: newsItem.richText1 }}
@@ -103,12 +110,7 @@ export default async function NewsPage({
             </SectionBanter>
           </Suspense>
         </div>
-        <NewsRightContent
-          source={newsItem.source}
-          datePublished={newsItem.datePublished}
-          relatedProgrammes={newsItem.relatedProgrammes}
-          relatedPeople={newsItem.relatedPeople}
-        />
+ 
       </ContentContainer>
     </MainContainer>
   );

@@ -28,7 +28,7 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
     <div className="hidden xlc:block 2xl:w-64 lg:w-32 shrink-0 ">
       {links.length > 0 && (
         <nav className="">
-          <div className="fixed 2xl:right-[2%]  xl:right-[1px] bottom-0 h-[calc(100vh-5rem)] pt-10 w-48 overflow-y-auto pb-8 no-scrollbar">
+          <div className="2xl:right-[2%]  xl:right-[1px] bottom-0  pt-10 w-48 overflow-y-auto pb-8 no-scrollbar">
             <div className="border-l border-slate-200 dark:border-slate-800 py-2">
               <div className="text-xs font-[650] text-slate-400 uppercase pl-4 dark:text-slate-200">
                 Source
