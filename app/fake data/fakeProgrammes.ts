@@ -43,7 +43,7 @@ export const rowDataExample: RowData = {
         },
       },
       fullDescription:
-        'J-WAFS is an MIT-wide effort that fuels research, innovation, and cross-disciplinary collaborations focused on water and food systems to meet human needs. Through early-stage research grants, support for technology commercialisation, sponsored research management, student funding and mentorship, and events that convene local and global experts, J-WAFS leverages the world-class resources for which MIT is known.',
+        'The Abdul Latif Jameel Water and Food Systems Lab (J-WAFS) is an MIT-wide effort that fuels research, innovation, and cross-disciplinary collaborations focused on water and food systems to meet human needs. Through early-stage research grants, support for technology commercialisation, sponsored research management, student funding and mentorship, and events that convene local and global experts, J-WAFS leverages the world-class resources for which MIT is known.',
       socialMediaLinks: {
         instagram: {
           url: 'https://instagram.com/innovatex',
