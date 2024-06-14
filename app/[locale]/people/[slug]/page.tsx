@@ -1,93 +1,123 @@
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import MainContainer from "@/components/custom beta components/MainContainer";
-import NewsSmall from "@/components/custom beta components/NewsSmall";
-import SectionBanter from "@/components/custom beta components/SectionBanter";
 import { getData } from "@/functions/api/getData";
-import filterNewsItemsByPerson from "@/functions/filters/fillterRelatedPersonNews";
-import mapItemToNewsMainProps from "@/functions/transformers/newsTransformer";
-import teamProfileMapper from "@/functions/transformers/teamProfileMapper";
+import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import React from "react";
+import filterNewsItemsByPerson from "@/functions/filters/fillterRelatedPersonNews";
+import peopleMapper from "@/functions/transformers/peopleMapper";
+import multimediaMapper from "@/functions/transformers/multimediaMapper";
+import filterRelatedMultimedia from "@/functions/filters/filterRelatedMultimedia";
+import { filterRelatedPosts } from "@/functions/filters/filterRelatedPosts";
+import { filterRelatedEvents } from "@/functions/filters/filterRelatedEvents";
+import SectionBanter from "@/components/custom beta components/SectionBanter";
 
-export default async function page({
+export default async function PeoplePage({
   params,
 }: {
-  params: {
-    slug: string;
-  };
+  params: { slug: string; locale: string };
 }) {
-  const data = await getData("61ee828a15a3182ecebde53f");
-  const teamMembersRaw = data.items;
-  const memberRaw = teamMembersRaw.filter(
+  {
+    /**Get the id by display name  */
+  }
+  const peopleCollectionID = getIdByDisplayName("People");
+  const programmeCollectionID = getIdByDisplayName("Programmes");
+  const partnersCollectionID = getIdByDisplayName("Partners");
+  const newsCollectionID = getIdByDisplayName("News");
+  const eventsCollectionID = getIdByDisplayName("Events");
+  const postsCollectionID = getIdByDisplayName("Posts");
+  const multimediaCollectionID = getIdByDisplayName("Multimedia");
+  const sourcesCollectionID = getIdByDisplayName("Sources");
+
+  {
+    /**Get the data from the collection */
+  }
+  const peopleDataRaw = await getData(peopleCollectionID);
+  const programmeDataRaw = await getData(programmeCollectionID);
+  const partnersDataRaw = await getData(partnersCollectionID);
+  const newsDataRaw = await getData(newsCollectionID);
+  const eventsDataRaw = await getData(eventsCollectionID);
+  const postsDataRaw = await getData(postsCollectionID);
+  const multimediaDataRaw = await getData(multimediaCollectionID);
+  const sourcesDataRaw = await getData(sourcesCollectionID);
+
+  {
+    /**Get the single item */
+  }
+  const peopleDataItemRaw = peopleDataRaw.items.find(
     (item) => item.fieldData.slug === params.slug
   );
-  const member = teamProfileMapper(memberRaw[0]);
 
-  const dataNews = await getData("61ee828a15a3185c99bde543");
-  const sourcesAll = await getData("61ee828a15a3183f55bde545");
-  const programmeAll = await getData("61ee828a15a3183d2abde540");
+  {
+    /**Get the related items */
+  }
+  const relatedNews = filterNewsItemsByPerson(
+    newsDataRaw.items,
+    peopleDataItemRaw.id
+  );
+  const relatedMultimedia = filterRelatedMultimedia(multimediaDataRaw.items, {
+    people: peopleDataItemRaw.id,
+  });
+  const relatedPosts = filterRelatedPosts(postsDataRaw.items, {
+    people: peopleDataItemRaw.id,
+  });
+  const relatedEvents = filterRelatedEvents(eventsDataRaw.items, {
+    people: peopleDataItemRaw.id,
+  });
 
-  const rawNewsArray = dataNews.items;
-  const searchnews = rawNewsArray.find(
-    (item) => item.id === "6239dc108fcdf9ef5357b933"
+  {
+    /**Get the item mapped and cleaned */
+  }
+  const peopleDataItem = peopleMapper(
+    peopleDataItemRaw,
+    partnersDataRaw.items,
+    eventsDataRaw.items,
+    programmeDataRaw.items,
+    postsDataRaw.items
   );
-  const filteredNewsItems = filterNewsItemsByPerson(
-    rawNewsArray,
-    "6239d4dc4a568b84d2bfb1cb"
-  );
-  const relatedNews = filteredNewsItems.map((item) =>
-    mapItemToNewsMainProps(item, sourcesAll.items, programmeAll.items)
-  );
+
+  {
+    /** test vairables for diplay*/
+  }
+
+  const testRelateMultimediaItem = relatedMultimedia.length;
+  const testRelatePostItem = relatedPosts.length;
+  const testRelateEventItem = relatedEvents.length;
+  const testRelateNewsItem = relatedNews.length;
 
   return (
-    <MainContainer isSideBar={false}>
-      <ContentContainer>
-        <h1>Page</h1>
-
-        <div className="p-4 bg-white shadow rounded-lg">
-          <img
-            src={member.imageUrl}
-            alt={member.altTextImage}
-            className="w-48 h-48 object-cover rounded-md"
-          />
-          <div className="mt-4">
-            <h2 className="text-xl font-bold mb-2">{member.name}</h2>
-            <ul className="text-gray-600 space-y-2">
-              <li>
-                <span className="font-semibold">Description:</span>{" "}
-                <div
-                  className=""
-                  dangerouslySetInnerHTML={{
-                    __html: member.paragraphDescription
-                      ? member.paragraphDescription
-                      : "",
-                  }}
-                ></div>
-              </li>
-              <li>
-                <span className="font-semibold">Meta Description:</span>{" "}
-                {member.metaDescription}
-              </li>
-              <li>
-                <span className="font-semibold">Position:</span>{" "}
-                {member.position}
-              </li>
-              <li>
-                <span className="font-semibold">Order:</span> {member.order}
-              </li>
-              <li>
-                <span className="font-semibold">Filter:</span> {member.filter}
-              </li>
-            </ul>
-            <SectionBanter title={"Related news"}>
-              <div className="grid md:grid-cols-3">
-                {relatedNews.map((article) => (
-                  <NewsSmall key={article.title} content={article} />
-                ))}
+    <div>
+      <MainContainer isSideBar={true}>
+        <ContentContainer>
+          <SectionBanter title={"Biography"}>
+            <div className="flex flex-col md:flex-row items-center md:items-start  bg-white rounded-lg">
+              <div className="w-full md:w-1/3">
+                <img
+                  src={peopleDataItem.profilePicture.url}
+                  alt="Profile"
+                  className="w-full h-auto rounded-full md:rounded-lg"
+                />
               </div>
-            </SectionBanter>
-          </div>
-        </div>
-      </ContentContainer>
-    </MainContainer>
+              <div className="w-full md:w-2/3 mt-4 md:mt-0 md:ml-6">
+                <h2 className="text-2xl font-bold mb-2">
+                  {peopleDataItem.name}
+                </h2>
+                <div className="prose mx-auto sm:prose-lg first-letter:text-4xl first-letter:font-bold first-letter:tracking-[.15em] prose-a:transition prose-a:duration-300 prose-a:ease-in-out hover:prose-a:text-red-700 prose-img:rounded-xl">
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: peopleDataItem.biography,
+                    }}
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </SectionBanter>
+          <SectionBanter title={"Multimedia"}>
+
+          </SectionBanter>
+          <SectionBanter title={"Related Posts"}></SectionBanter>
+       
+        </ContentContainer>
+      </MainContainer>
+    </div>
   );
 }

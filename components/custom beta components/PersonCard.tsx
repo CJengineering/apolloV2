@@ -19,7 +19,7 @@ const   PersonalCard = ({ author, socialPlatforms }: PersonalCardProps) => {
         />
         <div className="mt-6 leading-6">
           <h3 className="text-xl font-medium text-gray-900">
-            <Link href={`people/${author.slug}`}>
+            <Link href={`team/${author.slug}`}>
               <span className="absolute inset-0" aria-hidden="true"></span>
               {author.name} {author.order}
             </Link>

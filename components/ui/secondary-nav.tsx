@@ -19,7 +19,7 @@ export default function SecondaryNav() {
       links[i].classList.remove("scrollspy-active");
     };
     const removeAllActive = () =>
-      [...Array(targets.length).keys()].forEach((link) => removeActive(link));
+      [...Array(links.length).keys()].forEach((link) => removeActive(link));
     const targetMargin = 100;
     let currentActive = 0;
     addActive(0);
@@ -49,10 +49,7 @@ export default function SecondaryNav() {
 
   // populate the right sidebar
   useEffect(() => {
-    let linksArray: HTMLElement[] = [];
-    targets.map((target) => {
-      linksArray.push(target);
-    });
+    const linksArray: HTMLElement[] = Array.from(targets);
     setLinks(linksArray);
   }, [targets]);
 
@@ -62,10 +59,10 @@ export default function SecondaryNav() {
   }, [links]);
 
   return (
-    <div className="hidden xl:block w-48 shrink-0 bg-red-600">
+    <div className="hidden xl:block w-48 shrink-0">
       {links.length > 0 && (
-        <nav className="fr">
-          <div className="fixed right-12 bottom-0 h-[calc(100vh-5rem)] w-48 overflow-y-auto pt-32 pb-8 no-scrollbar">
+        <nav>
+          <div className="fixed 2xl:right-[1%] xl:right-[1px] bottom-0 h-[calc(100vh-5rem)] w-48 overflow-y-auto pt-32 pb-8 no-scrollbar">
             <div className="border-l border-slate-200 dark:border-slate-800">
               <div className="text-xs font-[650] text-slate-400 uppercase pl-4 py-1.5 dark:text-slate-200">
                 On this page
@@ -76,9 +73,9 @@ export default function SecondaryNav() {
                     <a
                       data-scrollspy-link
                       className="relative block font-normal text-slate-600 pl-4 py-1.5 before:absolute before:-left-px before:top-2 before:bottom-2 before:w-0.5"
-                      href={`#${link.id}`}
+                      href={`#${link.innerText.replace(/\s+/g, '-').toLowerCase()}`}
                     >
-                      {link.innerHTML}
+                      {link.innerText}
                     </a>
                   </li>
                 ))}

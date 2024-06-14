@@ -409,8 +409,8 @@ export interface PeopleRawFields {
     name: string;
     id: string;
   };
-  "hero-image"?: string;
-  "profile-picture"?: string;
+  "hero-image"?: { url: string; alt: string };
+  "profile-picture"?: { url: string; alt: string };
   "related-people-s"?: string[];
   "partner-organisation"?: string[];
   "instagram-link"?: string;
@@ -421,7 +421,7 @@ export interface PeopleRawFields {
   github?: string;
   "website-link"?: string;
   shop?: string;
-  photos?: string[];
+  photos?: { url: string; alt: string }[];
   "hide-news"?: boolean;
   "hide-multimedia"?: boolean;
   "hide-events"?: boolean;
@@ -503,4 +503,98 @@ export interface ArticleProps {
     category: Category;
     author: Author;
   };
+}
+export interface PeopleCleanedFields {
+  name: string;
+  nameArabic: string;
+  hero: boolean;
+  relatedProgramme: string;
+  relatedProgrammes: { name: string; slug: string }[];
+  color: string;
+  role: string;
+  roleArabic: string;
+  shortDescription: string;
+  shortDescriptionArabic: string;
+  biography: string;
+  biographyArabic: string;
+  events: string;
+  eventsArabic: string;
+  researchAreaEnglish: string;
+  researchAreasArabic: string;
+  type: {
+    name: string;
+    id: string;
+  };
+  heroImage: { alt: string; url: string };
+  profilePicture: { alt: string; url: string };
+  relatedPeople: { name: string; slug: string }[];
+  partnerOrganisation: { name: string; slug: string }[];
+  instagramLink: string;
+  linkedinLink: string;
+  twitterLink: string;
+  facebook: string;
+  youtubeLink: string;
+  github: string;
+  websiteLink: string;
+  shop: string;
+  photos: { alt: string; url: string }[];
+  hideNews: boolean;
+  hideMultimedia: boolean;
+  hideEvents: boolean;
+  hidePublications: boolean;
+  hidePhotos: boolean;
+  hideEventsRichText: boolean;
+  multimedia: string[];
+  tag: { name: string; slug: string }[];
+  order: number;
+  country: string;
+  slug: string;
+  pushToGr: boolean;
+  arabicOnOff: boolean;
+}
+export interface MultimediaRawFields {
+  "name-arabic"?: string;
+  "push-to-gr"?: boolean;
+  "programme-label"?: string;
+  "related-programmes"?: string[];
+  "innovation-related"?: string[];
+  "related-people"?: string[];
+  "related-event"?: string[];
+  thumbnail?: { url: string; alt: string };
+  "hero-video-audio"?: { url: string; alt: string };
+  "square-listen-1x2"?: { url: string; alt: string };
+  "no-embed-code"?: boolean;
+  "embed-code"?: string;
+  description?: string;
+  date?: string;
+  type?: "video" | "audio" | "photo" | "other";
+  source?: string;
+  "original-link"?: string;
+  "video-link"?: string;
+  "link-audio"?: string;
+  name: string;
+  slug: string;
+}
+export interface MultimediaCleanedFields {
+  nameArabic: string;
+  pushToGr: boolean;
+  programmeLabel: string;
+  relatedProgrammes: { name: string; slug: string }[];
+  innovationRelated: string[];
+  relatedPeople: { name: string; slug: string }[];
+  relatedEvent: { name: string; slug: string }[];
+  thumbnail: { url: string; alt: string };
+  heroVideoAudio: { url: string; alt: string };
+  squareListen1x2: { url: string; alt: string };
+  noEmbedCode: boolean;
+  embedCode: string;
+  description: string;
+  date: string;
+  type: "video" | "audio" | "photo" | "other";
+  source: string;
+  originalLink: string;
+  videoLink: string;
+  linkAudio: string;
+  name: string;
+  slug: string;
 }
