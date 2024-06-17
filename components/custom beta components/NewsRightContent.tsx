@@ -29,28 +29,18 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
       {links.length > 0 && (
         <nav className="">
           <div className="2xl:right-[2%]  xl:right-[1px] bottom-0  pt-10 w-48 overflow-y-auto pb-8 no-scrollbar">
-            <div className="border-l border-slate-200 dark:border-slate-800 py-2">
-              <div className="text-xs font-[650] text-slate-400 uppercase pl-4 dark:text-slate-200">
-                Source
-              </div>
-              <div className="relative block font-normal text-slate-600 pl-4 before:absolute before:-left-px before:top-2 before:bottom-2 before:w-0.5">
-                {source}
-              </div>
+            <div className="mb-3">
+              <div className="text-xs font-normal mono uppercase">source</div>
+              <div className="sans-serif text-base font-normal">{source}</div>
             </div>
-            <div className="border-l border-slate-200 dark:border-slate-800 py-2">
-              <div className="text-xs font-[650] text-slate-400 uppercase pl-4 dark:text-slate-200">
-                Date published
-              </div>
-              <div className="relative block font-normal text-slate-600 pl-4 before:absolute before:-left-px before:top-2 before:bottom-2 before:w-0.5">
-                {datePublished}
-              </div>
+            <div className="mb-3">
+              <div className="text-xs font-normal mono uppercase">date published</div>
+              <div className="sans-serif text-base font-normal">{source}</div>
             </div>
-            <div className="border-l border-slate-200 dark:border-slate-800 py-2">
-              <div className="text-xs font-[650] text-slate-400 uppercase pl-4 dark:text-slate-200">
-                Related programmes
-              </div>
-              <div className="relative block font-normal text-slate-600 pl-4 before:absolute before:-left-px before:top-2 before:bottom-2 before:w-0.5">
-                {relatedProgrammes.map((programme, index) => (
+            <div className="mb-3">
+              <div className="text-xs font-normal mono uppercase">related lab</div>
+              <div className="sans-serif text-base font-normal">                
+              {relatedProgrammes.map((programme, index) => (
                   <Link
                     key={index}
                     href={programme.href}
@@ -61,12 +51,10 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
                 ))}
               </div>
             </div>
-            <div className="border-l border-slate-200 dark:border-slate-800 mt-2">
-              <div className="text-xs font-[650] text-slate-400 uppercase pl-4 dark:text-slate-200">
-                Related people
-              </div>
-              <div className="relative block font-normal text-slate-600 pl-4 before:absolute before:-left-px before:top-2 before:bottom-2 before:w-0.5">
-                <ul>
+            <div className="mb-3">
+              <div className="text-xs font-normal mono uppercase">relate people</div>
+              <div className="sans-serif text-base font-normal">
+              <ul>
                   {relatedPeople.map((person, index) => (
                     <li key={index}>
                       <Link

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { BeakerIcon, BoltIcon, VideoCameraIcon, RocketLaunchIcon, NewspaperIcon, MegaphoneIcon, MicrophoneIcon, UserGroupIcon, BookOpenIcon, TrophyIcon, PlayCircleIcon, PaperClipIcon, CalendarDaysIcon } from '@heroicons/react/24/solid'
 
 interface newLocaleProps {
   locale: string;
@@ -40,34 +41,26 @@ export default function NewsCard({ content, locale }: { content: NewsMainProps ,
       </a>
 
       <div className="mt-6 md:align-middle">
-        <a
-          href={content.categoryLink}
-          className="transition-color relative text-sm font-medium uppercase tracking-widest text-red-700 duration-300 ease-in-out hover:text-red-600"
-        >
-          {content.tag}
-        </a>
+        <div className="flex">
+          <a href={content.categoryLink} className="mono text-sm font-medium uppercase">{content.tag}</a>
+          <div className="mono text-sm font-medium uppercase px-3"><span aria-hidden="true">|</span></div>
+          <a href={content.categoryLink} className="mono text-sm font-medium uppercase">news</a>
+        
+        </div>
         <a href={content.categoryLink} className="group mt-3 block">
-          <h2 className=" text-xl costa font-medium tracking-normal text-gray-900 decoration-gray-800 decoration-3 transition duration-300 ease-in-out group-hover:underline md:tracking-tight lg:text-2xl xl:text-3xl lg:leading-tight">
+          <h2 className="text-xl costa font-bold tracking-normal transition duration-300 ease-in-out group-hover:underline lg:text-2xl xl:text-3xl lg:leading-tight">
             {locale.locale == 'ar' ? content.arabicTitle :content.title}
           </h2>
     
         </a>
 
-        <div className="mt-4 flex items-center sm:mt-8">
-          <div className="">
-            <a
-              href={content.authorLink}
-              className="text-sm font-medium text-gray-800 hover:underline"
-            >
-              {content.authorName}
-            </a>
-            <p className="text-sm text-gray-500">
-              <time dateTime={content.date}>
-                {content.date}
-              </time>
-              <span aria-hidden="true"> &middot; </span>
-              <span>{content.readTime} read</span>
-            </p>
+        <div className="mt-2 block">
+          <div className="flex">
+            <div><p className="mono text-sm font-medium uppercase">{content.authorName}</p></div>
+            <div className="mono text-sm font-medium uppercase px-3"><span aria-hidden="true">|</span></div>
+            <div><p className="mono text-sm font-medium uppercase"><time dateTime={content.date}>{content.date}</time>
+              {/* <span>{content.readTime}</span> */}
+            </p></div>
           </div>
         </div>
       </div>

@@ -3,22 +3,21 @@ import { Tab } from '@headlessui/react'
 import CardProgramme from '../basic components/CardProgramme'
 import testImage from "@/public/images/content-image-01.jpg"
 import TableCJ from './TableCJ'
-import TestTableCJ from './TestTableCJ'
 const tableCount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 export default function TabsCJ() {
   return (
     <Tab.Group>
       <Tab.List className="flex justify-between gap-2">
-        <Tab className="hover: w-full border-[1px]  border-solid border-gray-600 py-4 uppercase focus:outline-none ui-selected:bg-orange-600 ">
+        <Tab className="hover: w-full border-[1px] border-solid border-gray-600 py-4 uppercase focus:outline-none ui-selected:bg-orange-600">
           labs
         </Tab>
-        <Tab className="w-full border-[1px] border-solid  border-gray-600 py-4 uppercase focus:outline-none ui-selected:bg-orange-600 ">
+        <Tab className="hover: w-full border-[1px] border-solid border-gray-600 py-4 uppercase focus:outline-none ui-selected:bg-orange-600">
           all
         </Tab>
       </Tab.List>
       <Tab.Panels>
         <Tab.Panel>
-          <div className="mt-3 grid  lg:grid-cols-3 gap-4">
+          <div className="mt-3 grid lg:grid-cols-2 gap-4">
             {tableCount.map((item, index) => (
               <CardProgramme
                 key={index}
@@ -31,7 +30,7 @@ export default function TabsCJ() {
         </Tab.Panel>
         <Tab.Panel>
           <div className="mt-3">
-            <TestTableCJ></TestTableCJ>
+            <TableCJ></TableCJ>
           </div>
         </Tab.Panel>
       </Tab.Panels>

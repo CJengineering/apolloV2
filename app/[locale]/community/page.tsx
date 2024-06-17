@@ -71,7 +71,7 @@ export default async function SinglePost({
   return (
     <MainContainer isSideBar={false}>
       <ContentContainer>
-        <h1 className="costa text-4xl    ">Our Community</h1>
+        <h1 className="costa font-bold text-7xl py-24 text-center">Community</h1>
         <TabsCJ />
       </ContentContainer>
     </MainContainer>

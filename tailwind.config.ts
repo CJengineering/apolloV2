@@ -12,11 +12,14 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      typography: { DEFAULT: 
-        { css: 
-          { a: 
-            { textDecoration: "none"
-            }
+      typography: { DEFAULT: { 
+        css:
+        { a:
+            { fontWeight: 'inherit', color: 'inherit', textDecorationLine: 'underline', textDecorationThickness: 'from-font'},
+
+          p: {fontWeight:'400'
+
+          }
           } 
         } 
       },

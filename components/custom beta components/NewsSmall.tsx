@@ -21,7 +21,7 @@ export default function NewsSmall({content}: {content: NewsMainProps}) {
         <div className="group aspect-square relative z-10  overflow-hidden  bg-gray-100">
           <Image
             src={content.postImage}
-            className=" w-full h-full object-cover  transition duration-300 ease-in-out group-hover:scale-110"
+            className="w-full h-full object-cover transition duration-300 ease-in-out group-hover:scale-110"
             alt={content.title}
             width={1900}
             height={1900}
@@ -31,18 +31,8 @@ export default function NewsSmall({content}: {content: NewsMainProps}) {
 
       {/* Content */}
       <div className="order-1 mt-2 w-full px-2 sm:mt-0 sm:max-w-sm sm:pl-0 sm:pr-5 lg:order-2 lg:mt-4 xl:ml-5 xl:mt-0 xl:flex-1">
-        <a
-          href={content.categoryLink}
-          className="transition-color text-xs font-medium uppercase tracking-widest text-red-700 duration-300 ease-in-out hover:text-red-600"
-        >
-          {content.tag}
-        </a>
-
-        <a href={content.categoryLink}>
-          <h3 className="mt-2  font-medium leading-normal tracking-normal text-gray-900 decoration-gray-800 decoration-2 transition duration-300 ease-in-out hover:underline line-clamp-2">
-            {content.title}
-          </h3>
-        </a>
+        <p className="mono text-sm font-medium uppercase leading-tight pb-3">{content.tag}</p>
+        <a href={content.categoryLink}><h3 className="costa font-bold text-xl leading-tight">{content.title}</h3></a>
 
         {/* Author */}
         <div className="mt-2 flex items-center justify-between">
@@ -51,11 +41,9 @@ export default function NewsSmall({content}: {content: NewsMainProps}) {
             
             <div className="flex text-tiny">
             
-              <a className="font-medium text-gray-700 hover:underline" href={content.authorLink}>
-                {content.authorName}
-              </a>
-              <div className='px-1'>|</div>
-              <span className="text-gray-500 lg:hidden xl:inline-block">{`${formatDate(content.date)}`}</span>
+              <a className="mono text-sm font-medium uppercase leading-tight" href={content.authorLink}>{content.authorName}</a>
+              <div className='px-3'>|</div>
+              <span className="mono text-sm font-medium uppercase leading-tight">{`${formatDate(content.date)}`}</span>
             </div>
           </div>
         </div>

@@ -31,14 +31,13 @@ export default function ArticleBanter({ article }: ArticleProps) {
             >
               {article.category.name}
             </Link>
-            <h2 className="mt-3.5 costa text-4xl font-bold tracking-normal group-hover:underline sm:mt-5 sm:text-5xl sm:leading-tight md:tracking-tight lg:text-6xl">
+            <h1 className="mt-3.5 costa text-4xl font-bold tracking-normal group-hover:underline sm:mt-5 sm:text-5xl sm:leading-tight md:tracking-tight lg:text-6xl">
               {article.title}
-            </h2>
+            </h1>
+            <div className="mono text-sm pt-3">{article.date}</div>
             <div>
-              <div className="mx-auto serif font-normal prose prose-base prose-a:font-normal sm:prose-xl">
-                <div
-                  dangerouslySetInnerHTML={{ __html: article.description }}
-                ></div>
+              <div className="mx-auto leading-7 text-black dark:text-white prose prose-xl serif font-normal dark:prose-invert">
+                <div dangerouslySetInnerHTML={{ __html: article.description }}></div>
               </div>
             </div>
           </div>
