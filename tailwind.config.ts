@@ -12,6 +12,14 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      typography: { DEFAULT: 
+        { css: 
+          { a: 
+            { textDecoration: "none"
+            }
+          } 
+        } 
+      },
       fontFamily: {
         aspekta: ["var(--font-aspekta)", "sans-serif"],
         nycd: ["var(--font-nycd)", "cursive"],

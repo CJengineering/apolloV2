@@ -56,9 +56,8 @@ export default async function page({
   }));
 
   return (
-    <MainContainer isSideBar={true}>
+    <MainContainer isSideBar={false}>
       <ContentContainer>
-        <h2>TEST</h2>
         <ArticleBanter article={article.article} />
       </ContentContainer>
     </MainContainer>
