@@ -17,6 +17,15 @@
         direction: rtl;
     }
 }
+/* Add any styling  here : 1 - give a name  then add @apply and your tailwind classes */
+@layer components{
+.custom-heading {
+    @apply text-2xl font-bold text-gray-900;
+}
+.custom-paragraph {
+    @apply text-xl font-bold text-gray-900;
+}
+}
 html{
     overflow-y: scroll; 
 }
@@ -91,6 +100,4 @@ html{
     scrollbar-width: none;
   }
 
-  .test { 
-    @apply underline font-normal text-blue-600 hover:text-blue-800;
-  }
+  
