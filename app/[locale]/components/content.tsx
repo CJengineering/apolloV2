@@ -253,18 +253,18 @@ const components = [
     key: "component1",
     element: (
       <CardProgramme
-        imageUrl={testImage}
+        imageUrl={testImage.src}
         programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab"
-      />
+        programmeType="abdul latif jameel poverty action lab" altText={""}      />
     ),
   },
   {
     key: "component2",
     element: (
       <CardProgramme
-        imageUrl={testImage}
+        imageUrl={testImage.src}
         programmeTitle="J-PAL"
+        altText="J-PAL"
         programmeType="abdul latif jameel poverty action lab"
       />
     ),
@@ -273,8 +273,9 @@ const components = [
     key: "component3",
     element: (
       <CardProgramme
-        imageUrl={testImage}
+        imageUrl={testImage.src}
         programmeTitle="J-PAL"
+        altText="J-PAL"
         programmeType="abdul latif jameel poverty action lab"
       />
     ),
@@ -283,40 +284,36 @@ const components = [
     key: "component4",
     element: (
       <CardProgramme
-        imageUrl={testImage}
+        imageUrl={testImage.src}
         programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab"
-      />
+        programmeType="abdul latif jameel poverty action lab" altText={""}      />
     ),
   },
   {
     key: "component5",
     element: (
       <CardProgramme
-        imageUrl={testImage}
+        imageUrl={testImage.src}
         programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab"
-      />
+        programmeType="abdul latif jameel poverty action lab" altText={""}      />
     ),
   },
   {
     key: "component6",
     element: (
       <CardProgramme
-        imageUrl={testImage}
+        imageUrl={testImage.src}
         programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab"
-      />
+        programmeType="abdul latif jameel poverty action lab" altText={""}      />
     ),
   },
   {
     key: "component7",
     element: (
       <CardProgramme
-        imageUrl={testImage}
+        imageUrl={testImage.src}
         programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab"
-      />
+        programmeType="abdul latif jameel poverty action lab" altText={""}      />
     ),
   },
 ];
@@ -341,7 +338,8 @@ export default async function HomeComponents() {
                 </div>
                 <div className="">
                   <CardProgramme
-                    imageUrl={testImage}
+                    imageUrl={testImage.src}
+                    altText={""}
                     programmeTitle="J-PAL"
                     programmeType="abdul latif jameel poverty action lab"
                   />
@@ -480,7 +478,7 @@ export default async function HomeComponents() {
             <div className="gap-5">
               <div className="w-full">
                 <div className="">
-                  <TableCJ />
+                  <TableCJ rowData={[]} />
                 </div>
               </div>
             </div>
@@ -557,7 +555,7 @@ export default async function HomeComponents() {
             <div className=" gap-5">
               <div className="w-full">
                 <div className="">
-                  <TabsCJ />
+                  <TabsCJ rowData={[]} cardData={[]} />
                 </div>
               </div>
             </div>
