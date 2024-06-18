@@ -43,7 +43,7 @@ function TableRow({ repository }: RowData) {
                   <div className="text-sm sans-serif font-normal leading-5">{repository.top.mission}</div>
                 </div>
                 
-                <div className={`hidden py-3 items-centertext-left md:block ${open ? 'opacity-0' : 'opacity-100'}`}>
+                <div className={`hidden py-3 items-center text-left md:block ${open ? 'opacity-0' : 'opacity-100'}`}>
                   <div className="text-sm sans-serif font-normal leading-5">{repository.top.year}</div>
                 </div>
                 
@@ -58,7 +58,7 @@ function TableRow({ repository }: RowData) {
               </div>
             </Disclosure.Button>
 
-            <Disclosure.Panel className="mb-3">
+            <Disclosure.Panel className="mb-4">
               <div className="grid md:grid-cols-2 md:gap-16">
                 <div>
                   {/* <div><Image className=" object-fit w-24" src={testImage} alt="" /></div> */}
@@ -66,33 +66,24 @@ function TableRow({ repository }: RowData) {
                   
                   <div className="py-6"></div>
 
-                  <div className="grid grid-cols-2 gap-x-9 gap-y-6 ">
-                      {repository.content.stats.map((stat: StatProps) => (
-                        <Stats
-                          key={stat.title}
-                          title={stat.title}
-                          content={stat.content}
-                        />
-                      ))}
-                    </div>
-                    <div className="grid grid-cols-2 py-9">
-                   
-                  <div className="flex items-center"><div><SocialMediaList {...repository.content.socialMediaLinks} /></div><div className="ml-3"><ButtonCJ>jwafs.mit.edu</ButtonCJ></div> </div>
+                
+                    <div className="grid grid-cols-2 py-4">
+                  
+                  <div className="flex items-center">
+                  <div><SocialMediaList {...repository.content.socialMediaLinks} /></div>
+                  <div className="ml-3"><ButtonCJ>jwafs.mit.edu</ButtonCJ></div></div>
                   </div>
                 </div>
 
                 <div>
-                  <div>
-                  <div><div className="grid grid-cols-2 gap-x-9 gap-y-6 py-4 lg:grid-cols-2">
+                <div className="py-4"></div>
+                  <div><div className="grid grid-cols-2 gap-x-9 gap-y-6 lg:grid-cols-2">
                     <div><ListSmall data={repository.content.research?.data || {}}/></div>
                     <div><ListSmall data={repository.content.established?.data || {}}/></div>
                     <div><ListSmall data={repository.content.headquarters?.data || {}}/></div>
                     <div><ListSmall data={repository.content['key partners']?.data}/></div>
                     <div><ListSmall data={repository.content.leadership?.data} /></div>
-                  </div></div>
-
-                    
-                
+                  </div>
                   </div>
                   {/* <div>
                     <div className="py-2"></div>
@@ -110,10 +101,19 @@ function TableRow({ repository }: RowData) {
                       )}
                     </div>
                   </div> */}
-                  <div className="py-2"></div>
+                  <div className="py-4"></div>
+                    <div className="grid grid-cols-2 gap-x-9 gap-y-6">
+                      {repository.content.stats.map((stat: StatProps) => (
+                        <Stats
+                          key={stat.title}
+                          title={stat.title}
+                          content={stat.content}
+                        />
+                      ))}
+                    </div>  
+                  <div className="py-4"></div>
                   <div className="">
-                    <div className="text-xs mono font-normal uppercase">features</div>
-                    <div className=" grid grid-cols-3 py-2">
+                    <div className="pt-4 pb-8 grid grid-cols-3">
                       {repository.content.features.map((feature, index) => (
                         <CardSquaredImage
                           key={index}
@@ -132,7 +132,7 @@ function TableRow({ repository }: RowData) {
   )
 }
 
-export default function TableCJ() {
+export default function   TableCJ() {
   return (
     <div className="overflow-x-auto">
       <div className="text-small grid grid-cols-5 gap-9 border-y-[1px]">

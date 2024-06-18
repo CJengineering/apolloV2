@@ -33,17 +33,17 @@ function TableRow({ repository }: RowData) {
         {({ open }) => (
           <>
             <Disclosure.Button className=" w-full">
-              <div className="min-w-full    grid grid-cols-5  md:gap-9 md:grid md:grid-cols-5 border-gray-300">
+              <div className="min-w-full grid grid-cols-5 md:gap-9 md:grid md:grid-cols-5 border-gray-300">
                 
                 <div className={`col-span-4 py-3 text-left md:col-span-1 ${open ? 'opacity-100' : 'opacity-100'}`}>
-                  <h2 className="mono align-middle font-bold text-xl uppercase">{repository.top.name}</h2>
+                  <h2 className="costa font-bold text-2xl uppercase">{repository.top.name}</h2>
                 </div>
                 
                 <div className={`hidden py-3 align-middle text-left md:block md:col-span-1 md:align-middle ${open ? 'opacity-0' : 'opacity-100'}`}>
                   <div className="sans-serif font-normal">{repository.top.mission}</div>
                 </div>
                 
-                <div className={`hidden items-center py-3 text-left md:block ${open ? 'opacity-0' : 'opacity-100'}`}>
+                <div className={`hidden align-middle items-center py-3 text-left md:block md:col-span-1 ${open ? 'opacity-0' : 'opacity-100'}`}>
                   <div className="text-sm sans-serif font-normal">{repository.top.year}</div>
                 </div>
                 
@@ -51,7 +51,7 @@ function TableRow({ repository }: RowData) {
                   <div className="text-sm">{repository.top.partners.join(', ')}</div>
                 </div>
                 
-                <div className=" bg-red-500 flex justify-end items-center py-3 text-right">
+                <div className="flex justify-end items-center py-3 text-right">
                     <div className={open ? 'rotate-45 transform text-3xl' : 'text-3xl'}>+</div>
                 </div>
               
@@ -62,29 +62,37 @@ function TableRow({ repository }: RowData) {
               <div className="grid lg:grid-cols-2 lg:gap-16">
                 <div>
                   {/* <div><Image className=" object-fit w-24" src={testImage} alt="" /></div> */}
-                  <div className="py-2"><p className="sans-serif lg:text-3xl leading font-normal">{repository.content.fullDescription}</p></div>
-                  <div className="grid grid-cols-2 gap-2 py-4 lg:grid-cols-3">
-                    <div><ListSmall data={repository.content.research?.data || {}}/></div>
-                    <div><ListSmall data={repository.content.established?.data || {}}/></div>
-                    <div><ListSmall data={repository.content.headquarters?.data || {}}/></div>
-                    <div><ListSmall data={repository.content['key partners']?.data}/></div>
-                    <div><ListSmall data={repository.content.leadership?.data} /></div>
-                  </div>
-                  <div className="py-2"></div>
-                  {/* <SocialMediaList {...repository.content.socialMediaLinks} /> */}
+                  <div className="pb-6"><p className="sans-serif lg:text-3xl leading font-normal">{repository.content.fullDescription}</p></div>
 
-                  <div className="py-2"></div>
+                  <div className="pb-6">
+                  <SocialMediaList {...repository.content.socialMediaLinks} />
+                  </div>
+                  <div className="pb-6">
                   <ButtonCJ>Discover</ButtonCJ>
+                  </div>
+
                 </div>
 
-                <div>
-                  <div className="py-2"></div>
-                  <div className="grid grid-cols-2">
-
-                  </div>
+                <div className="grid grid-cols-1 gap-y-4">
                   <div>
-                    <div className="text-tiny font-bold uppercase">impact</div>
-                    <div className="grid grid-cols-3 gap-3 ">
+                    <div className="grid grid-cols-2 py-4 lg:grid-cols-2">
+                    <div className="grid col-span-1 gap-y-4">
+                      <div><ListSmall data={repository.content.research?.data || {}}/></div>
+                      <div><ListSmall data={repository.content['key partners']?.data}/></div>
+                      <div><ListSmall data={repository.content.headquarters?.data || {}}/></div>
+                      
+                    </div>
+                    <div className="grid col-span-1 gap-y-4">
+                    <div><ListSmall data={repository.content.leadership?.data} /></div>
+                      <div><ListSmall data={repository.content.established?.data || {}}/></div>
+
+                    </div>
+                  </div>
+                  </div>
+
+                  <div>
+                    <div className="mono font-bold text-base uppercase pb-1">impact</div>
+                    <div className="grid grid-cols-2 gap-3 gap-y-9">
                       {repository.content.stats.map((stat: StatProps) => (
                         <Stats
                           key={stat.title}
@@ -92,9 +100,10 @@ function TableRow({ repository }: RowData) {
                           content={stat.content}
                         />
                       ))}
+                      </div>
                     </div>
-                  </div>
-                  <div>
+
+                  {/* <div>
                     <div className="py-2"></div>
                     <div className="text-base font-bold uppercase mono">news</div>
                     <div className="block">
@@ -109,13 +118,11 @@ function TableRow({ repository }: RowData) {
                         ),
                       )}
                     </div>
-                  </div>
+                  </div> */}
                   <div className="py-2"></div>
                   <div className="">
-                    <div className="text-tiny font-bold uppercase ">
-                      features
-                    </div>
-                    <div className=" grid grid-cols-3 py-2 ">
+                  <div className="mono font-bold text-base uppercase pb-1">features</div>
+                    <div className=" grid grid-cols-3 pb-6">
                       {repository.content.features.map((feature, index) => (
                         <CardSquaredImage
                           key={index}

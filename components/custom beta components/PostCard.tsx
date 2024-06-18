@@ -33,27 +33,23 @@ export default function PostCard({ content }: { content: NewsMainProps }) {
       <div className="mt-6 md:align-middle">
         <a
           href={content.categoryLink}
-          className="transition-color relative text-sm font-medium uppercase tracking-widest text-red-700 duration-300 ease-in-out hover:text-red-600"
+          className="mono text-sm font-medium uppercase"
         >
           {content.tag}
         </a>
         <a href={`announcements/${content.postLink}`} className="group mt-3 block">
-          <h2 className=" text-xl costa font-medium tracking-normal text-gray-900 decoration-gray-800 decoration-3 transition duration-300 ease-in-out group-hover:underline md:tracking-tight lg:text-2xl xl:text-3xl lg:leading-tight">
+        <h2 className="text-xl costa font-bold tracking-normal transition duration-300 ease-in-out group-hover:underline lg:text-2xl xl:text-3xl lg:leading-tight">
             {content.title}
           </h2>
-          <div>
-      
-          </div>
         </a>
 
-        <div className="mt-4 flex items-center sm:mt-8">
+        <div className="mt-2 flex items-center">
           <div className="">
-   
-            <p className="text-sm text-gray-500">
+            <p className="mono text-sm font-medium uppercase">
               <time dateTime={content.date}>
              {content.date}
               </time>
-              <span aria-hidden="true"> &middot; </span>
+              {/* <span aria-hidden="true"> &middot; </span> */}
            
             </p>
           </div>

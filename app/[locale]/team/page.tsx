@@ -69,7 +69,7 @@ export default async function PeopleContent({
   return (
     <MainContainer isSideBar={false}>
       <ContentContainer>
-        <HeroBanter content={heroProps} />
+      <h1 className="costa font-bold text-7xl py-24 text-center">Team</h1>
         <SectionBanter title={"Jameel Family"}>
           <div className="grid gap-6 md:grid-cols-3">
             {leadership.map((member) => (

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function ContentContainer({children}: {children: React.ReactNode}) {
   return (
-    <div className='lg:max-w-screen-lg    px-2'>
+    <div className='px-4 md:max-w-screen-2xl lg:max-w-screen-2xl'>
         {children}
     </div>
   )

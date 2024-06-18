@@ -14,30 +14,25 @@ export default function SocialMediaList({
   youtube,
 }: SocialMediaLinks ) {
   return (
-    <div className="flex gap-2">
+    <div className="flex">
       {' '}
-      {twitter && (
-        <a href={twitter.url} aria-label="Twitter">
-          
-        </a>
-      )}
       {instagram && (
-        <a href={instagram.url} aria-label="Instagram">
+        <a className="pr-2" href={instagram.url} aria-label="Instagram">
           <InstagramIcon />
         </a>
       )}
       {youtube && (
-        <a href={youtube.url} aria-label="YouTube">
+        <a className="pr-2" href={youtube.url} aria-label="YouTube">
         <YoutubeIcon />
         </a>
       )}
       {facebook && (
-        <a href={facebook.url} aria-label="Facebook">
+        <a className="pr-2" href={facebook.url} aria-label="Facebook">
           <InstagramIcon />
         </a>
       )}
       {linkedin && (
-        <a href={linkedin.url} aria-label="LinkedIn">
+        <a className="pr-2" href={linkedin.url} aria-label="LinkedIn">
           <InstagramIcon />
         </a>
       )}

@@ -129,12 +129,12 @@ const cleanPosts: NewsMainProps[] = posts.map((item) => ({
   return (
     <MainContainer isSideBar={false}>
     <ContentContainer>
-    <HeroBanter content={heroProps} />
+    {/* <HeroBanter content={heroProps} /> */}
       <SectionBanter title={""}>
           <div className=" relative mb-4">
             <Search></Search>
           </div>
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-3 ">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 ">
             <Suspense >
             {cleanPosts.map((post) => (
                   <PostCard content={post} />

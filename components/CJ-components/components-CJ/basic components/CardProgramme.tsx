@@ -16,11 +16,11 @@ export default function CardProgramme({
         <Image className="h-full w-full object-cover" src={imageUrl} alt="" />
 
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="absolute bottom-6 left-6 right-6 text-white">
-          <div className="costa-extra-bold text-4xl sm:text-4xl md:text-4xl lg:text-4xl xl:text-4xl 2xl:text-4xl">
+        <div className="absolute bottom-6 left-6 right-6">
+          <div className="costa font-bold text-2xl text-white sm:text-4xl md:text-6xl">
             {programmeTitle}
           </div>
-          <div className={`text-medium uppercase text-gray-300 leading-5 `}>
+          <div className="mono text-medium uppercase text-white">
             {programmeType}
           </div>
         </div>

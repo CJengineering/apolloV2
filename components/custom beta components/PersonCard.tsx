@@ -8,25 +8,31 @@ interface PersonalCardProps {
 }
 
 
-const   PersonalCard = ({ author, socialPlatforms }: PersonalCardProps) => {
+const PersonalCard = ({ author, socialPlatforms }: PersonalCardProps) => {
   return (
-    <div className="relative rounded-3xl border border-gray-300/70 bg-transparent px-6 py-10 text-center transition duration-300 ease-in-out hover:border-gray-300/30 hover:shadow-lg sm:px-10">
-      <div>
-        <img
-          className="mx-auto h-40 w-40 rounded-full object-cover xl:h-44 xl:w-44"
+    <div className="">
+      <div className="flex items-center justify-center">
+        <div className="w-1/3">
+          <img
+          className="mx-auto h-40 w-40 object-cover xl:h-44 xl:w-44"
           src={author.imageUrl}
           alt={author.name}
-        />
-        <div className="mt-6 leading-6">
-          <h3 className="text-xl font-medium text-gray-900">
-            <Link href={`team/${author.slug}`}>
-              <span className="absolute inset-0" aria-hidden="true"></span>
-              {author.name} {author.order}
-            </Link>
-          </h3>
-          <p className="mt-1 text-base text-red-600">{author.position}</p>
+          />
         </div>
-        <SocialMediaLinks platforms={socialPlatforms} />
+        <div className="block w-2/3 pl-3">
+          
+          <h2 className="costa font-bold text-xl">
+            <Link href={`team/${author.slug}`}>
+              <span className="" aria-hidden="true"></span>
+              {author.name}
+            </Link>
+          </h2>
+          
+          <div>
+            <p className="mono text-sm font-normal uppercase leading-tight">{author.position}</p>
+          </div>
+        </div>
+        {/* <SocialMediaLinks platforms={socialPlatforms} /> */}
       </div>
     </div>
   );
