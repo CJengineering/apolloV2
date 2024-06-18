@@ -128,12 +128,11 @@ export default async function NewsContent({
     <MainContainer isSideBar={false}>
       <ContentContainer>
         <HeroBanter content={heroProps} />
-
         <SectionBanter title={""}>
           <div className=" relative mb-4">
             <Search></Search>
           </div>
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-3 ">
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
             <Suspense fallback={<Loading />}>
               {newsArray.map((news, index) => (
                 <NewsCard key={index} content={news} locale={params} />

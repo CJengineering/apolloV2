@@ -1,5 +1,6 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 /* Additional styles */
 @import 'additional-styles/utility-patterns.css';
@@ -7,7 +8,8 @@
 @import 'additional-styles/toggle-switch.css';
 @import 'additional-styles/theme.css';
 
-@import 'tailwindcss/utilities';
+
+
 
 /* Additional Tailwind directives: https://tailwindcss.com/docs/functions-and-directives/#responsive */
 @layer utilities {
@@ -87,4 +89,8 @@ html{
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+
+  .test { 
+    @apply underline font-normal text-blue-600 hover:text-blue-800;
   }

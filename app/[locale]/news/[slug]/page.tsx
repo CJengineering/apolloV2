@@ -58,16 +58,15 @@ export default async function NewsPage({
   if (!newsItem) notFound();
 
   return (
-    <MainContainer isSideBar={false}>
+    <MainContainer isSideBar={true}>
       <ContentContainer>
         <div>
           <Suspense fallback={<Loading />}>
             <Link
               href="/news"
-              className="hover:text-gray-200 transition duration-150 ease-in-out"
-            >
-              <span className="mr-2 text-xl">&lsaquo;</span>
-              <span className="uppercase">back to news</span>
+              className="hover:text-gray-200 transition duration-150 ease-in-out">
+              {/* <span className="mr-2 text-xl">&lsaquo;</span> */}
+              {/* <span className="uppercase">back to news</span> */}
             </Link>
             <img
               src={newsItem.imageUrl}
@@ -75,39 +74,31 @@ export default async function NewsPage({
               className="w-full h-auto mb-6"
             />
  
-            <SectionBanter
-              title={
-                params.locale === "ar" ? newsItem.arabicTitle : newsItem.title
-              }
-            >
-                   <NewsRightContent
-          source={newsItem.source}
-          datePublished={newsItem.datePublished}
-          relatedProgrammes={newsItem.relatedProgrammes}
-          relatedPeople={newsItem.relatedPeople}
-        />
-              <article className="prose w-full text-slate-600 dark:text-slate-400 max-w-none prose-p:leading-normal prose-headings:text-slate-800 dark:prose-headings:text-slate-200 prose-a:font-medium prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-800 dark:prose-strong:text-slate-100 prose-code:text-slate-800 prose-code:bg-slate-100 dark:prose-code:bg-slate-800 dark:prose-code:text-slate-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-[''] prose-code:after:content-[''] prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700 prose-headings:scroll-mt-24">
-                <div
-                  dangerouslySetInnerHTML={{ __html: newsItem.richText1 }}
-                ></div>
-                {newsItem.richText2 && (
-                  <>
-                    <h3>Excerpt</h3>
-
-                    <div
-                      dangerouslySetInnerHTML={{ __html: newsItem.richText2 }}
-                    ></div>
+            <SectionBanter title={params.locale === "ar" ? newsItem.arabicTitle : newsItem.title}>
+              <div><NewsRightContent
+                source={newsItem.source}
+                datePublished={newsItem.datePublished}
+                relatedProgrammes={newsItem.relatedProgrammes}
+                relatedPeople={newsItem.relatedPeople}
+              />
+              </div>
+              <div>
+                <article className="mx-auto leading-7 text-black dark:text-white prose prose-xl serif font-normal dark:prose-invert">
+                <div dangerouslySetInnerHTML={{ __html: newsItem.richText1 }}></div>
+                {newsItem.richText2 && ( <>
+                    <h3 className="text-2xl">Excerpt</h3>
+                    <div dangerouslySetInnerHTML={{ __html: newsItem.richText2 }}></div>
                   </>
                 )}
-              </article>
+                </article>
+              </div>
             </SectionBanter>
-            <SectionBanter title="Related news">
-              <div className="grid md:grid-cols-3">
+            <div><h2 className="costa font-bold text-3xl">Related news</h2></div>
+              <div className="grid md:grid-cols-2">
                 {relatedNews.map((article) => (
                   <NewsSmall key={article.title} content={article} />
                 ))}
               </div>
-            </SectionBanter>
           </Suspense>
         </div>
  
