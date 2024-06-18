@@ -4,9 +4,10 @@ export interface ButtonCJProps {
   children: React.ReactNode;
 }
 export interface CardProgrammeProps {
-  imageUrl: StaticImageData | string;
+  imageUrl:  string;
   programmeTitle: string;
   programmeType: string;
+  altText: string;
 }
 export type CardHorizontalImageProps = {
   imageUrl: StaticImageData | string;
@@ -53,6 +54,7 @@ export interface RowTopData {
 export interface RowContentData {
   research?: ListSmallProps;
   established?: ListSmallProps;
+  logo?: { url: string; alt: string };
   headquarters?: ListSmallProps;
   leadership?: ListSmallProps;
   "key initiatives"?: ListSmallProps;
@@ -262,7 +264,6 @@ export interface ProgrammeRawFields {
   byline?: string;
   "byline-arabic"?: string;
   description?: string;
-  "short-description-arabic"?: string;
   text?: string;
   "summary-arabic"?: string;
   "field-english"?: string;
@@ -271,15 +272,15 @@ export interface ProgrammeRawFields {
   "year-closed"?: string;
   "headquarters-english"?: string;
   "headquarters-arabic"?: string;
-  "logo-svg-native-size"?: string;
-  "logo-svg-square-overlay"?: string;
-  logo?: string;
-  card?: string;
-  hero?: string;
-  "open-graph"?: string;
+  "logo-svg-square-overlay"?: { url: string; alt: string };
+  "logo-svg-dark"?: { url: string; alt: string };
+  card?: { url: string; alt: string };
+  hero?: { url: string; alt: string };
+  "open-graph"?: { url: string; alt: string };
   "main-video"?: string;
   features?: string[];
   partners?: string[];
+  leadership?: string[];
   "related-programmes"?: string[];
   longitude?: string;
   latitude?: string;
@@ -289,11 +290,102 @@ export interface ProgrammeRawFields {
   twitter?: string;
   youtube?: string;
   facebook?: string;
-  tiktok?: string;
   order?: string;
   colour?: string;
+  "impact-01"?: string;
+  "impact-01-title"?: string;
+  "impact-01-title-arabic"?: string;
+  "impact-02"?: string;
+  "impact-02-title"?: string;
+  "impact-02-title-arabic"?: string;
+  "impact-03"?: string;
+  "impact-03-title"?: string;
+  "impact-03-title-arabic"?: string;
+  "impact-04"?: string;
+  "impact-04-title"?: string;
+  "impact-04-title-arabic"?: string;
+  "impact-05"?: string;
+  "impact-05-title"?: string;
+  "impact-05-title-arabic"?: string;
+  "impact-06"?: string;
+  "impact-06-title"?: string;
+  "impact-06-title-arabic"?: string;
   name?: string;
   slug?: string;
+}
+export interface ProgrammeCleanedFields {
+  pushToGr: string;
+  type: string;
+  linkToPage: string;
+  nameArabic: string;
+  shortname: string;
+  shortNameArabic: string;
+  byline: string;
+  bylineArabic: string;
+  description: string;
+  text: string;
+  summaryArabic: string;
+  fieldEnglishResearch: string;
+  fieldArabicResearch: string;
+  yearEstablished: string;
+  yearClosed: string;
+  headquartersEnglish: string;
+  headquartersArabic: string;
+  logoSvgSquareOverlay: {
+    url: string;
+    alt: string;
+  };
+  logoSvgDark: {
+    url: string;
+    alt: string;
+  };
+  card: {
+    url: string;
+    alt: string;
+  };
+  hero: {
+    url: string;
+    alt: string;
+  };
+  openGraph: {
+    url: string;
+    alt: string;
+  };
+  mainVideo: string;
+  features: { name: string; slug: string }[];
+  partners: { name: string; slug: string }[];
+  leadership: { name: string; slug: string }[];
+  relatedProgrammes: { name: string; slug: string }[];
+  longitude: string;
+  latitude: string;
+  website: string;
+  linkedin: string;
+  instagram: string;
+  twitter: string;
+  youtube: string;
+  facebook: string;
+  order: string;
+  colour: string;
+  impact01: string;
+  impact01Title: string;
+  impact01TitleArabic: string;
+  impact02: string;
+  impact02Title: string;
+  impact02TitleArabic: string;
+  impact03: string;
+  impact03Title: string;
+  impact03TitleArabic: string;
+  impact04: string;
+  impact04Title: string;
+  impact04TitleArabic: string;
+  impact05: string;
+  impact05Title: string;
+  impact05TitleArabic: string;
+  impact06: string;
+  impact06Title: string;
+  impact06TitleArabic: string;
+  name: string;
+  slug: string;
 }
 export interface PartnersRawFields {
   "arabic-name"?: string;

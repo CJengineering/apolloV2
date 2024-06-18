@@ -16,29 +16,13 @@ import EventSection from "@/components/custom beta components/eventSection";
 import TabsCJ from "@/components/CJ-components/components-CJ/custom components/TabsCJ";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
-
-export async function generateStaticParams() {
-  return allPosts.map((post) => ({
-    slug: post.slug,
-  }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata | undefined> {
-  const post = allPosts.find((post) => post.slug === params.slug);
-
-  if (!post) return;
-
-  const { title, summary: description } = post;
-
-  return {
-    title,
-    description,
-  };
-}
+import { rowDataExample } from "@/app/fake data/fakeProgrammes";
+import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
+import { getData } from "@/functions/api/getData";
+import programmeMapper from "@/functions/transformers/programmeMapper";
+import { mapProgrammeToRowData } from "@/functions/transformers/programmeCleanIntoRowTable";
+import { mapProgrammeToCardProgramme } from "@/functions/transformers/porgrammeToCardProgramme";
+import { Container } from "@/components/CJ-components/components-CJ/Container";
 
 export default async function SinglePost({
   params,
@@ -68,12 +52,34 @@ export default async function SinglePost({
 
   if (!post) notFound();
 
+  const programmeId = getIdByDisplayName("Programmes");
+  const partnerId = getIdByDisplayName("Partners");
+  const peopleId = getIdByDisplayName("People");
+
+  const rawProgrammes = await getData(programmeId);
+  const rawPartners = await getData(partnerId);
+  const rawPeople = await getData(peopleId);
+
+  const cleanedProgrammes = rawProgrammes.items.map((item) =>
+    programmeMapper(
+      item,
+      rawPeople.items,
+      rawPartners.items,
+      rawProgrammes.items
+    )
+  );
+  const cardData = cleanedProgrammes.map(mapProgrammeToCardProgramme);
+  const dataForTable = cleanedProgrammes.map(mapProgrammeToRowData);
   return (
     <MainContainer isSideBar={false}>
-      <ContentContainer>
-        <h1 className="costa font-bold text-7xl py-24 text-center">Community</h1>
-        <TabsCJ />
-      </ContentContainer>
+      <Container>
+        <h1 className="costa font-bold text-7xl py-24 text-center">
+          Community
+        </h1>
+        <div className="min-w-full">
+          <TabsCJ rowData={dataForTable} cardData={cardData} />
+        </div>
+      </Container>
     </MainContainer>
   );
 }

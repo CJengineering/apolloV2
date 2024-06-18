@@ -8,12 +8,13 @@ import { CardProgrammeProps } from '@/app/interfaces'
 export default function CardProgramme({
   imageUrl,
   programmeTitle,
-  programmeType,
+  programmeType,              
+  altText                      
 }: CardProgrammeProps) {
   return (
     <div className="relative w-full">
       <div className="aspect-square overflow-hidden">
-        <Image className="h-full w-full object-cover" src={imageUrl} alt="" />
+        <Image className="h-full w-full object-cover" width={500} height={500} src={imageUrl} alt={altText} />
 
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute bottom-6 left-6 right-6">
