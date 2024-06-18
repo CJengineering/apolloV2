@@ -13,7 +13,6 @@ import Stats from '../basic components/Stats'
 
 import testImage from "@/public/images/content-image-01.jpg"
 import { ListContentProps, RowData, SocialMediaLinks, StatProps } from '@/app/interfaces'
-import { rowDataExample } from '@/app/fake data/fakeProgrammes'
 
 function TableRow({ repository }: RowData) {
   const data = { news: ['name one', 'name two'] }
@@ -33,25 +32,25 @@ function TableRow({ repository }: RowData) {
         {({ open }) => (
           <>
             <Disclosure.Button className="w-full hover:bg-slate-50 dark:hover:bg-slate-800">
-              <div className="min-w-full items-center grid grid-cols-5 md:gap-9 md:grid md:grid-cols-5 border-gray-300">
+              <div className="min-w-full items-center grid grid-cols-12 md:gap-9  md:grid md:grid-cols-12 border-gray-300">
                 
-                <div className={`py-3 text-left col-span-1 ${open ? 'opacity-100' : 'opacity-100'}`}>
-                  <h2 className="mono align-middle font-bold text-2xl uppercase pl-2">{repository.top.name}</h2>
+                <div className={`py-3 text-left col-span-5 ${open ? 'opacity-100' : 'opacity-100'}`}>
+                  <h2 className="mono  align-middle font-bold text-2xl uppercase pl-2">{repository.top.name}</h2>
                 </div>
                 
-                <div className={`hidden py-3 align-middle text-left md:block md:col-span-1 md:align-middle ${open ? 'opacity-0' : 'opacity-100'}`}>
+                <div className={`hidden py-3 align-middle  col-span-3 text-left md:block md:col-span-3 md:align-middle ${open ? 'opacity-0' : 'opacity-100'}`}>
                   <div className="text-sm sans-serif font-normal leading-5">{repository.top.mission}</div>
                 </div>
                 
-                <div className={`hidden py-3 items-center text-left md:block ${open ? 'opacity-0' : 'opacity-100'}`}>
+                <div className={`hidden py-3 items-center md:col-span-1 text-left md:block ${open ? 'opacity-0' : 'opacity-100'}`}>
                   <div className="text-sm sans-serif font-normal leading-5">{repository.top.year}</div>
                 </div>
                 
-                <div className={`hidden items-center py-3 text-left md:block ${open ? 'opacity-0' : 'opacity-100'}`}>
+                <div className={`hidden items-center py-3 md:col-span-2 text-left md:block ${open ? 'opacity-0' : 'opacity-100'}`}>
                   <div className="text-sm sans-serif font-normal leading-5">{repository.top.partners.join(', ')}</div>
                 </div>
                 
-                <div className="flex justify-end items-center py-3 text-right pr-2">
+                <div className="flex justify-end col-span-1 items-center py-3 text-right pr-2">
                     <div className={open ? 'rotate-45 transform text-3xl' : 'text-3xl'}>+</div>
                 </div>
               
@@ -61,8 +60,8 @@ function TableRow({ repository }: RowData) {
             <Disclosure.Panel className="mb-4">
               <div className="grid md:grid-cols-2 md:gap-16">
                 <div>
-                  {/* <div><Image className=" object-fit w-24" src={testImage} alt="" /></div> */}
-                  <div className="mt-6"><p className="sans-serif text-xl md:w-11/12 md:text-3xl leading font-normal">{repository.content.fullDescription}</p></div>
+                <div><Image className=" object-fit w-32 " width={400} height={300} src={repository.content.logo?.url || ''} alt="" /></div> 
+                  <div className="mt-6"><div className="sans-serif text-xl md:w-11/12 md:text-3xl leading font-normal" dangerouslySetInnerHTML={{__html:repository.content.fullDescription}}></div></div>
                   
                   <div className="py-6"></div>
 
@@ -106,8 +105,8 @@ function TableRow({ repository }: RowData) {
                       {repository.content.stats.map((stat: StatProps) => (
                         <Stats
                           key={stat.title}
-                          title={stat.title}
-                          content={stat.content}
+                          title={stat.content}
+                          content={stat.title}
                         />
                       ))}
                     </div>  
@@ -131,33 +130,32 @@ function TableRow({ repository }: RowData) {
     </div>
   )
 }
-
-export default function   TableCJ() {
+interface TableCJProps {
+  rowData: RowData[];
+}
+export default function   TableCJ({rowData}: TableCJProps) {
   return (
     <div className="overflow-x-auto">
-      <div className="text-small grid grid-cols-5 gap-9 border-y-[1px]">
+      <div className="text-small grid grid-cols-12 gap-9 border-y-[1px]">
         {/* Header */}
-        <div className="py-2 align-middle text-left mono text-xs font-medium uppercase md:block">
+        <div className="py-2 col-span-5 align-middle text-left mono text-xs font-medium uppercase md:block">
           Name
         </div>
-        <div className="hidden py-2 align-middle text-left mono text-xs font-medium uppercase md:block">
+        <div className="hidden col-span-3 py-2 align-middle text-left mono text-xs font-medium uppercase md:block">
           Mission
         </div>
-        <div className="hidden py-2 align-middle text-left mono text-xs font-medium uppercase md:block">
+        <div className="hidden col-span-1 py-2 align-middle text-left mono text-xs font-medium uppercase md:block">
           Established
         </div>
-        <div className="hidden py-2 align-middle text-left mono text-xs font-medium uppercase md:block">
+        <div className="hidden col-span-2 py-2 align-middle text-left mono text-xs font-medium uppercase md:block">
           Key Partners
         </div>
-        <div className="hidden py-2 align-middle text-left mono text-xs font-medium uppercase md:block"></div>
+        <div className="hidden  col-span-1 py-2 align-middle text-left mono text-xs font-medium uppercase md:block"></div>
       </div>
       {/* Row */}
-      <TableRow {...rowDataExample} />
-      <TableRow {...rowDataExample} />
-      <TableRow {...rowDataExample} />
-      <TableRow {...rowDataExample} />
-      <TableRow {...rowDataExample} />
-      <TableRow {...rowDataExample} />
+      {rowData.map((data, index) => (
+        <TableRow key={index} repository={data.repository} />
+      ))}
     </div>
   )
 }
