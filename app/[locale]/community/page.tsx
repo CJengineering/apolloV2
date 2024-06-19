@@ -23,6 +23,9 @@ import programmeMapper from "@/functions/transformers/programmeMapper";
 import { mapProgrammeToRowData } from "@/functions/transformers/programmeCleanIntoRowTable";
 import { mapProgrammeToCardProgramme } from "@/functions/transformers/porgrammeToCardProgramme";
 import { Container } from "@/components/CJ-components/components-CJ/Container";
+import test from "node:test";
+import featureMapper from "@/functions/transformers/featureMapper";
+import filterRelatedFeatures from "@/functions/filters/filterRelatedFeatures";
 
 export default async function SinglePost({
   params,
@@ -55,10 +58,14 @@ export default async function SinglePost({
   const programmeId = getIdByDisplayName("Programmes");
   const partnerId = getIdByDisplayName("Partners");
   const peopleId = getIdByDisplayName("People");
+  const feautureId = getIdByDisplayName("Features");
 
   const rawProgrammes = await getData(programmeId);
   const rawPartners = await getData(partnerId);
   const rawPeople = await getData(peopleId);
+  const rawFeatures = await getData(feautureId);
+
+  const cleanedFeature = rawFeatures.items.map((item)=>featureMapper(item, rawProgrammes.items))
 
   const cleanedProgrammes = rawProgrammes.items.map((item) =>
     programmeMapper(
@@ -68,14 +75,21 @@ export default async function SinglePost({
       rawProgrammes.items
     )
   );
-  const cardData = cleanedProgrammes.map(mapProgrammeToCardProgramme);
-  const dataForTable = cleanedProgrammes.map(mapProgrammeToRowData);
+  
+  const filterOnlyLabs = cleanedProgrammes.filter((item) => item.type == 'Lab'  );
+  const orderLabs = filterOnlyLabs.sort((a, b) => Number(a.order) - Number(b.order));
+
+  const orderTable =cleanedProgrammes.sort((a, b) => Number(a.order) - Number(b.order));
+
+  const cardData = orderLabs.map(mapProgrammeToCardProgramme);
+  const dataForTable = orderTable.map((item)=>mapProgrammeToRowData(item, cleanedFeature));
+
   return (
     <MainContainer isSideBar={false}>
       <ContentContainer>
         <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
-          Community
-        </h1>
+          Community 
+        </h1> 
         <div className="w-min-full]">
           <TabsCJ rowData={dataForTable} cardData={cardData} />
         </div>

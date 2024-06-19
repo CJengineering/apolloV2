@@ -15,7 +15,42 @@ import {
     programmes: Item<ProgrammeRawFields>[]
   ): ProgrammeCleanedFields {
     const { fieldData } = item;
-  
+    const options = [
+      {
+        "name": "Centre",
+        "id": "35a64f7b74cdf1054834e3cf6716e379"
+      },
+      {
+        "name": "Fund",
+        "id": "97db51b2bbf21724ef99187a3223b816"
+      },
+      {
+        "name": "Scholarship",
+        "id": "9793a3ca1eb9d160057b2c42b2d48c86"
+      },
+      {
+        "name": "Project",
+        "id": "09d5a039bdc2e46d6987ce7c09a41bc0"
+      },
+      {
+        "name": "Programme",
+        "id": "a1e61c0cc2923f64b29ca5da3e41e427"
+      },
+      {
+        "name": "Lab",
+        "id": "730944f73272c28e4ae4052f7611ceff"
+      },
+      {
+        "name": "Community Jameel",
+        "id": "bb96b247f8c989b67ca5ada5b5cb10df"
+      }
+    ];
+    
+    function getNameById(id:string) {
+      const option = options.find(option => option.id === id);
+      return option ? option.name : 'other';
+    }
+    
     const leadership =
       fieldData.leadership?.map((personId) => {
         const peopleMatch = people.find((person) => person.id === personId);
@@ -60,7 +95,7 @@ import {
         url: fieldData["logo-svg-original-ratio"]?.url || "",
         alt: fieldData["logo-svg-original-ratio"]?.alt || ""
       },
-      type: fieldData.type || "",
+      type: fieldData.type ? getNameById(fieldData.type) :"other",
       linkToPage: fieldData["link-to-page"] || "",
       nameArabic: fieldData["name-arabic"] || "",
       shortname: fieldData.shortname || "",

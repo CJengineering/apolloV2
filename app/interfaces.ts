@@ -67,12 +67,12 @@ export interface RowContentData {
   stats: StatProps[];
   listContent: ListContentProps[];
   features:
-    | [
+    | 
         {
           image: CardHorizontalImageProps;
           title: string;
-        }
-      ]
+        }[]
+      
     | [];
 }
 
@@ -705,3 +705,46 @@ export interface MultimediaCleanedFields {
   name: string;
   slug: string;
 }
+export interface FeatureRawFields {
+  "name-arabic"?: string;
+  "top-feature"?: boolean;
+  "order"?: number;
+  "custom-link"?: string;
+  "new-tab"?: boolean;
+  "label"?: string;
+  "label-arabic"?: string;
+  "short-text"?: string;
+  "short-text-arabic"?: string;
+  "type"?: string;
+  "square"?: { url: string; alt: string };
+  "image-16x9"?: { url: string; alt: string };
+  "hero"?: { url: string; alt: string };
+  "date-display"?: string;
+  "programme-label"?: string;
+  "programme-s"?: string[];
+  "name"?: string;
+  "slug"?: string;
+}
+
+export interface FeatureCleanedFields {
+
+    nameArabic: string;
+    topFeature: boolean;
+    order: number;
+    customLink: string;
+    newTab: boolean;
+    label: string;
+    labelArabic: string;
+    shortText: string;
+    shortTextArabic: string;
+    type: string;
+    square: { url: string; alt: string };
+    image16x9: { url: string; alt: string };
+    hero: { url: string; alt: string };
+    dateDisplay: string;
+    programmeLabel: { name: string; slug: string };
+    programmeS: {name: string; slug: string}[];
+    name: string;
+    slug: string;
+  }
+  

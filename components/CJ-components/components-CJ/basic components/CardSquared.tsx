@@ -17,6 +17,8 @@ export default function CardSquaredImage({ imageUrl}: CardHorizontalImageProps) 
           className="h-full w-full object-cover"
           src={imageUrl}
           alt=""
+          width={400}
+          height={400}
           unoptimized
         />
 
