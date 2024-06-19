@@ -27,11 +27,11 @@ function TableRow({ repository }: RowData) {
     },
   }
   return (
-    <div className="border-b-[1px]">
+    <div className=" border-b-[1px]">
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="w-full hover:bg-slate-100 dark:hover:bg-slate-800">
+            <Disclosure.Button className="w-full  hover:bg-slate-100 dark:hover:bg-slate-800">
               <div className="min-w-full items-center grid grid-cols-12 md:gap-9  md:grid md:grid-cols-12 border-gray-300">
                 
                 <div className={`py-3 text-left col-span-11 md:col-span-5 ${open ? 'opacity-100' : 'opacity-100'}`}>
@@ -58,10 +58,10 @@ function TableRow({ repository }: RowData) {
             </Disclosure.Button>
 
             <Disclosure.Panel className="mb-4">
-              <div className="grid md:grid-cols-2 md:gap-16">
+              <div className="grid px-2  md:grid-cols-2 md:gap-16">
                 <div>
-                <div><Image className="dark:hidden object-fit w-32 " width={400} height={300} src={repository.content.logo?.url || ''} alt="" /></div> 
-                <div><Image className="dark:block hidden object-fit w-32 " width={400} height={300} src={repository.content.logoDark?.url || ''} alt="" /></div> 
+                <div><Image className="dark:hidden object-fit w-64 py-9 " width={400} height={300} src={repository.content.logo?.url || ''} alt="" /></div> 
+                <div><Image className="dark:block hidden object-fit w-64 " width={400} height={300} src={repository.content.logoDark?.url || ''} alt="" /></div> 
                   <div className="mt-6"><div className="sans-serif text-xl md:w-11/12 md:text-3xl leading font-normal" dangerouslySetInnerHTML={{__html:repository.content.fullDescription}}></div></div>
                   
                   <div className="py-6"></div>
@@ -111,7 +111,7 @@ function TableRow({ repository }: RowData) {
                         />
                       ))}
                     </div>  
-                  <div className="py-4"></div>
+              
                   <div className="">
                     <div className="pt-4 pb-8 grid grid-cols-3">
                       {repository.content.features.map((feature, index) => (
