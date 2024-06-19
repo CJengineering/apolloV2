@@ -105,10 +105,10 @@ function TableRow({ repository }: RowData) {
                   </div>
 
                   <div className="pb-6">
-                    <SocialMediaList {...repository.content.socialMediaLinks} />
+                    <SocialMediaList  socialMediaLinks={repository.content.socialMediaLinks} />
                   </div>
                   <div className="pb-6">
-                    <ButtonCJ>Discover</ButtonCJ>
+                    <ButtonCJ href={"#"} text={"Discover"}></ButtonCJ>
                   </div>
                 </div>
 
