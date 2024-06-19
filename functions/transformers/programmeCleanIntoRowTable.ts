@@ -1,6 +1,10 @@
 import { ProgrammeCleanedFields, RowData } from "@/app/interfaces";
 
 export function mapProgrammeToRowData(programme: ProgrammeCleanedFields): RowData {
+  const mapSocialMediaLink = (name: string, url: string) => ({
+    name: url ? name : 'no social',
+    url: url || '',
+  });
     return {
       repository: {
         top: {
@@ -13,18 +17,20 @@ export function mapProgrammeToRowData(programme: ProgrammeCleanedFields): RowDat
         content: {
           established: { data: { established: [programme.yearEstablished, programme.yearClosed].filter(Boolean) } },
           research: { data: { research: [programme.fieldEnglishResearch ]} },
-          logo: {   url: programme.logoSvgDark.url , alt: programme.logoSvgDark.alt},
+          logo: {   url: programme.logoSvgOriginalRatio.url , alt: programme.logoSvgLightOriginalRatio.alt},
+          logoDark: {   url: programme.logoSvgLightOriginalRatio.url , alt: programme.logoSvgOriginalRatio.alt},
+          button: { href: programme.website, text: programme.buttonText },
           headquarters: { data: { headquarters: [programme.headquartersEnglish].filter(Boolean) } },
           leadership: { data: { leadership: programme.leadership.map(leader => leader.name) } },
           "key initiatives": { data: { initiatives: programme.features.map(feature => feature.name) } },
           "key partners": { data: { partners: programme.partners.map(partner => partner.name) } },
           fullDescription: programme.text,
           socialMediaLinks: {
-            instagram: {name: 'instagram', url: programme.instagram },
-            youtube: { name: 'youtube',url: programme.youtube },
-            linkedin: {name:'linkedin', url: programme.linkedin },
-            facebook: {name:'facebook', url: programme.facebook },
-            twitter: { name:'twitter',url: programme.twitter },
+            instagram: mapSocialMediaLink('instagram', programme.instagram),
+            youtube: mapSocialMediaLink('youtube', programme.youtube),
+            linkedin: mapSocialMediaLink('linkedin', programme.linkedin),
+            facebook: mapSocialMediaLink('facebook', programme.facebook),
+            twitter: mapSocialMediaLink('twitter', programme.twitter),
           },
           stats: [
             { title: programme.impact01Title, content: programme.impact01 },
