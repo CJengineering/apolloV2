@@ -58,13 +58,14 @@ export default async function NewsPage({
   if (!newsItem) notFound();
 
   return (
-    <MainContainer isSideBar={true}>
+    <MainContainer isSideBar={false}>
       <ContentContainer>
         <div>
           <Suspense fallback={<Loading />}>
             <Link
               href="/news"
-              className="hover:text-gray-200 transition duration-150 ease-in-out">
+              className="hover:text-gray-200 transition duration-150 ease-in-out"
+            >
               {/* <span className="mr-2 text-xl">&lsaquo;</span> */}
               {/* <span className="uppercase">back to news</span> */}
             </Link>
@@ -73,35 +74,48 @@ export default async function NewsPage({
               alt={title}
               className="w-full h-auto mb-6"
             />
- 
-            <SectionBanter title={params.locale === "ar" ? newsItem.arabicTitle : newsItem.title}>
-              <div><NewsRightContent
-                source={newsItem.source}
-                datePublished={newsItem.datePublished}
-                relatedProgrammes={newsItem.relatedProgrammes}
-                relatedPeople={newsItem.relatedPeople}
-              />
-              </div>
+
+            <SectionBanter
+              title={
+                params.locale === "ar" ? newsItem.arabicTitle : newsItem.title
+              }
+            >
               <div>
-                <article className="mx-auto leading-7 text-black dark:text-white prose prose-xl serif font-normal dark:prose-invert">
-                <div dangerouslySetInnerHTML={{ __html: newsItem.richText1 }}></div>
-                {newsItem.richText2 && ( <>
-                    <h3 className="text-2xl">Excerpt</h3>
-                    <div dangerouslySetInnerHTML={{ __html: newsItem.richText2 }}></div>
-                  </>
-                )}
-                </article>
+                <NewsRightContent
+                  source={newsItem.source}
+                  datePublished={newsItem.datePublished}
+                  relatedProgrammes={newsItem.relatedProgrammes}
+                  relatedPeople={newsItem.relatedPeople}
+                />
+                <div>
+                  <article className="mx-auto leading-7 text-black dark:text-white prose prose-xl serif font-normal dark:prose-invert">
+                    <div
+                      dangerouslySetInnerHTML={{ __html: newsItem.richText1 }}
+                    ></div>
+                    {newsItem.richText2 && (
+                      <>
+                        <h3 className="text-2xl">Excerpt</h3>
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: newsItem.richText2,
+                          }}
+                        ></div>
+                      </>
+                    )}
+                  </article>
+                </div>
               </div>
             </SectionBanter>
-            <div><h2 className="costa font-bold text-3xl">Related news</h2></div>
-              <div className="grid md:grid-cols-2">
-                {relatedNews.map((article) => (
-                  <NewsSmall key={article.title} content={article} />
-                ))}
-              </div>
+            <div>
+              <h2 className="costa font-bold text-3xl">Related news</h2>
+            </div>
+            <div className="grid md:grid-cols-2">
+              {relatedNews.map((article) => (
+                <NewsSmall key={article.title} content={article} />
+              ))}
+            </div>
           </Suspense>
         </div>
- 
       </ContentContainer>
     </MainContainer>
   );

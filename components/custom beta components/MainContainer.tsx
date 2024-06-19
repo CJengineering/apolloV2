@@ -61,7 +61,7 @@ export default async function MainContainer({
  
         <div className="md:mt-10 ">{children}</div>
 
-        {isSideBar ? <SecondaryNav /> : null}
+     
       </div>
     </>
   );
