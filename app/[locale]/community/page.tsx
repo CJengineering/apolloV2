@@ -72,14 +72,14 @@ export default async function SinglePost({
   const dataForTable = cleanedProgrammes.map(mapProgrammeToRowData);
   return (
     <MainContainer isSideBar={false}>
-      <Container>
-        <h1 className="costa font-bold text-7xl py-24 text-center">
+      <ContentContainer>
+        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
           Community
         </h1>
-        <div className="min-w-full">
+        <div className="w-min-full]">
           <TabsCJ rowData={dataForTable} cardData={cardData} />
         </div>
-      </Container>
+      </ContentContainer>
     </MainContainer>
   );
 }

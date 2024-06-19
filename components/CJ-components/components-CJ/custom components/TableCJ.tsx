@@ -31,11 +31,11 @@ function TableRow({ repository }: RowData) {
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="w-full hover:bg-slate-50 dark:hover:bg-slate-800">
+            <Disclosure.Button className="w-full hover:bg-slate-100 dark:hover:bg-slate-800">
               <div className="min-w-full items-center grid grid-cols-12 md:gap-9  md:grid md:grid-cols-12 border-gray-300">
                 
-                <div className={`py-3 text-left col-span-5 ${open ? 'opacity-100' : 'opacity-100'}`}>
-                  <h2 className="mono  align-middle font-bold text-2xl uppercase pl-2">{repository.top.name}</h2>
+                <div className={`py-3 text-left col-span-11 md:col-span-5 ${open ? 'opacity-100' : 'opacity-100'}`}>
+                  <h2 className="mono  align-middle font-bold text-xl md:text-2xl uppercase pl-2">{repository.top.name}</h2>
                 </div>
                 
                 <div className={`hidden py-3 align-middle  col-span-3 text-left md:block md:col-span-3 md:align-middle ${open ? 'opacity-0' : 'opacity-100'}`}>
@@ -60,7 +60,8 @@ function TableRow({ repository }: RowData) {
             <Disclosure.Panel className="mb-4">
               <div className="grid md:grid-cols-2 md:gap-16">
                 <div>
-                <div><Image className=" object-fit w-32 " width={400} height={300} src={repository.content.logo?.url || ''} alt="" /></div> 
+                <div><Image className="dark:hidden object-fit w-32 " width={400} height={300} src={repository.content.logo?.url || ''} alt="" /></div> 
+                <div><Image className="dark:block hidden object-fit w-32 " width={400} height={300} src={repository.content.logoDark?.url || ''} alt="" /></div> 
                   <div className="mt-6"><div className="sans-serif text-xl md:w-11/12 md:text-3xl leading font-normal" dangerouslySetInnerHTML={{__html:repository.content.fullDescription}}></div></div>
                   
                   <div className="py-6"></div>
@@ -69,8 +70,8 @@ function TableRow({ repository }: RowData) {
                     <div className="grid grid-cols-2 py-4">
                   
                   <div className="flex items-center">
-                  <div><SocialMediaList {...repository.content.socialMediaLinks} /></div>
-                  <div className="ml-3"><ButtonCJ>jwafs.mit.edu</ButtonCJ></div></div>
+                  <div><SocialMediaList socialMediaLinks={repository.content.socialMediaLinks} /></div>
+                  <div className="ml-3"><ButtonCJ href={repository.content.button.href} text={repository.content.button.text}/></div></div>
                   </div>
                 </div>
 
@@ -135,7 +136,7 @@ interface TableCJProps {
 }
 export default function   TableCJ({rowData}: TableCJProps) {
   return (
-    <div className="overflow-x-auto">
+    <div className="">
       <div className="text-small grid grid-cols-12 gap-9 border-y-[1px]">
         {/* Header */}
         <div className="py-2 col-span-5 align-middle text-left mono text-xs font-medium uppercase md:block">

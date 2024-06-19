@@ -36,6 +36,7 @@ export interface SocialMediaLinks {
   linkedin?: SocialMediaLink;
   facebook?: SocialMediaLink;
   twitter?: SocialMediaLink;
+  github?: SocialMediaLink;
 }
 export interface Image {
   url: string;
@@ -55,6 +56,8 @@ export interface RowContentData {
   research?: ListSmallProps;
   established?: ListSmallProps;
   logo?: { url: string; alt: string };
+  logoDark?: { url: string; alt: string };
+  button: { text: string; href: string };
   headquarters?: ListSmallProps;
   leadership?: ListSmallProps;
   "key initiatives"?: ListSmallProps;
@@ -265,6 +268,7 @@ export interface ProgrammeRawFields {
   "byline-arabic"?: string;
   description?: string;
   text?: string;
+  "button-text"?: string;
   "summary-arabic"?: string;
   "field-english"?: string;
   "field-arabic"?: string;
@@ -272,6 +276,8 @@ export interface ProgrammeRawFields {
   "year-closed"?: string;
   "headquarters-english"?: string;
   "headquarters-arabic"?: string;
+  "logo-svg-original-ratio"?:{ url: string; alt: string };
+   "logo-svg-light-original-ratio"?:{ url: string; alt: string };
   "logo-svg-square-overlay"?: { url: string; alt: string };
   "logo-svg-dark"?: { url: string; alt: string };
   card?: { url: string; alt: string };
@@ -314,10 +320,19 @@ export interface ProgrammeRawFields {
   slug?: string;
 }
 export interface ProgrammeCleanedFields {
+  logoSvgOriginalRatio: {
+    url: string;
+    alt: string;
+  };
+  logoSvgLightOriginalRatio: {
+    url: string;
+    alt: string;
+  };
   pushToGr: string;
   type: string;
   linkToPage: string;
   nameArabic: string;
+  buttonText: string;
   shortname: string;
   shortNameArabic: string;
   byline: string;

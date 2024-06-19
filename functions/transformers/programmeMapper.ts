@@ -52,12 +52,21 @@ import {
   
     return {
       pushToGr: fieldData["push-to-gr"] || "",
+      logoSvgLightOriginalRatio:{
+        url: fieldData["logo-svg-light-original-ratio"]?.url || "",
+        alt: fieldData["logo-svg-dark"]?.alt || ""
+      },
+      logoSvgOriginalRatio:{
+        url: fieldData["logo-svg-original-ratio"]?.url || "",
+        alt: fieldData["logo-svg-original-ratio"]?.alt || ""
+      },
       type: fieldData.type || "",
       linkToPage: fieldData["link-to-page"] || "",
       nameArabic: fieldData["name-arabic"] || "",
       shortname: fieldData.shortname || "",
       shortNameArabic: fieldData["short-name-arabic"] || "",
       byline: fieldData.byline || "",
+      buttonText: fieldData["button-text"] || "",
       bylineArabic: fieldData["byline-arabic"] || "",
       description: fieldData.description || "",
       text: fieldData.text || "",
