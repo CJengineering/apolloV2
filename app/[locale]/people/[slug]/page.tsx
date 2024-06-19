@@ -10,6 +10,7 @@ import filterRelatedMultimedia from "@/functions/filters/filterRelatedMultimedia
 import { filterRelatedPosts } from "@/functions/filters/filterRelatedPosts";
 import { filterRelatedEvents } from "@/functions/filters/filterRelatedEvents";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
+import SecondaryNav from "@/components/ui/secondary-nav";
 
 export default async function PeoplePage({
   params,
@@ -109,13 +110,13 @@ export default async function PeoplePage({
                   ></div>
                 </div>
               </div>
+              <div className="sticky top-10 self-start">
+                <SecondaryNav />
+              </div>
             </div>
           </SectionBanter>
-          <SectionBanter title={"Multimedia"}>
-
-          </SectionBanter>
+          <SectionBanter title={"Multimedia"}></SectionBanter>
           <SectionBanter title={"Related Posts"}></SectionBanter>
-       
         </ContentContainer>
       </MainContainer>
     </div>

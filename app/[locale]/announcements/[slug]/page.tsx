@@ -58,7 +58,10 @@ export default async function page({
   return (
     <MainContainer isSideBar={true}>
       <ContentContainer>
+        <h2>first h2</h2>
+        <h2>second h2</h2>  
         <ArticleBanter article={article.article} />
+        <h2 id= "third-h2">third h2</h2>
       </ContentContainer>
     </MainContainer>
   );

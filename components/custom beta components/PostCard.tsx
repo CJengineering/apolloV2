@@ -17,7 +17,7 @@ export default function PostCard({ content }: { content: NewsMainProps }) {
   return (
     <article className="relative  ">
       <a
-        href={content.postLink}
+        href={`announcements/${content.postLink}`}
         className="groupe relative z-10 block overflow-hidden  bg-gray-100"
         style={{ paddingBottom: "56.25%", position: "relative" }}
       >
