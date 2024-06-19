@@ -12,6 +12,10 @@ export const rowDataExample: RowData[] =[ {
       partners: ['MIT'],
     },
     content: {
+      button: {
+        href: 'https://mit.edu',
+        text: 'mit.edu',
+      },
       research: {
         data: {
           research: ['Water & Food systems'],
@@ -123,6 +127,10 @@ export const rowJwafs: RowData = {
       partners: ['MIT'],
     },
     content: {
+      button: {
+        href: 'https://jwafs.mit.edu/',
+        text: 'jwafs.mit.edu',
+      },
       headquarters: {
         data: {
           location: ['Cambridge, USA'],

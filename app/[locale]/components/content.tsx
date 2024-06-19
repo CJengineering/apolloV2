@@ -436,7 +436,7 @@ export default async function HomeComponents() {
             <div className="flex gap-5">
               <div className="w-[400px]">
                 <div className="">
-                  <ButtonCJ>Click Me</ButtonCJ>
+                  <ButtonCJ href={"#"} text={"Click Me"}/>
                 </div>
               </div>
               <div className="flex">
@@ -538,7 +538,7 @@ export default async function HomeComponents() {
             <div className=" gap-5">
               <div className="w-full">
                 <div className="">
-                  <SocialMediaList {...socialMediaLinks} />
+                  <SocialMediaList socialMediaLinks={socialMediaLinks} />
                 </div>
               </div>
             </div>
