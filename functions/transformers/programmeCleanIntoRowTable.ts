@@ -1,10 +1,12 @@
-import { ProgrammeCleanedFields, RowData } from "@/app/interfaces";
+import { CardHorizontalImageProps, FeatureCleanedFields, ProgrammeCleanedFields, RowData } from "@/app/interfaces";
 
-export function mapProgrammeToRowData(programme: ProgrammeCleanedFields): RowData {
+export function mapProgrammeToRowData(programme: ProgrammeCleanedFields, features: FeatureCleanedFields[]): RowData {
   const mapSocialMediaLink = (name: string, url: string) => ({
     name: url ? name : 'no social',
     url: url || '',
   });
+  const relatedFeatures = features.filter(feature => feature.programmeLabel.name === programme.name);
+
     return {
       repository: {
         top: {
@@ -45,11 +47,14 @@ export function mapProgrammeToRowData(programme: ProgrammeCleanedFields): RowDat
             source: rp.slug,
             date: new Date(), // Assuming current date for simplicity, replace with actual date if available
           })),
-          features: programme.features.length
-            ? [{
-                image: { imageUrl: programme.card.url },
-                title: programme.features[0].name,
-              }]
+          features: relatedFeatures.length
+            ? relatedFeatures.map(feature => ({
+                image: <CardHorizontalImageProps>{
+                  imageUrl: feature.square.url,
+                },
+                title: feature.label,
+              })  
+            )
             : [],
         },
       },
