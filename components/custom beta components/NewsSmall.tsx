@@ -1,6 +1,7 @@
 import React from 'react'
-import { NewsMainProps } from './NewsMain'
+
 import Image from 'next/image'
+import { NewsMainProps } from '@/app/interfaces'
 
   
 export default function NewsSmall({content}: {content: NewsMainProps}) {

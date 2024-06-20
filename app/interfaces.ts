@@ -747,4 +747,77 @@ export interface FeatureCleanedFields {
     name: string;
     slug: string;
   }
-  
+  export interface NewsRawFields {
+    "arabic-title"?: string;
+    "push-to-gr"?: boolean;
+    "featured"?: boolean;
+    "external-link"?: string;
+    "date-published"?: string;
+    "sources"?: string;
+    "programme"?: string;
+    "programme-s"?: string[];
+    "people"?: string[];
+    "innovation-s"?: string[];
+    "related-event"?: string;
+    "related-event-s"?: string[];
+    "summary"?: string;
+    "summary-arabic"?: string;
+    "excerpt"?: string;
+    "thumbnail"?: { url: string; alt: string };
+    "hero-image"?: { url: string; alt: string };
+    "thumbnail-alt-text"?: string;
+    "image-alt-text-arabic"?: string;
+    "related-team-members"?: string[];
+    "tags"?: string[];
+    "remove-from-news-grid"?: boolean;
+    "name"?: string;
+    "slug"?: string;
+  }
+  export interface NewsCleanedFields {
+    arabicTitle: string;
+    pushToGr: boolean;
+    featured: boolean;
+    externalLink: string;
+    datePublished: string;
+    sources: string;
+    programme: string;
+    programmeS: {name: string; slug: string}[];
+    people: {name: string; slug: string}[];
+    innovationS: string[];
+    relatedEvent: string;
+    relatedEventS: {name: string; slug: string}[];
+    summary: string;
+    summaryArabic: string;
+    excerpt: string;
+    thumbnail: { url: string; alt: string };
+    heroImage: { url: string; alt: string };
+    thumbnailAltText: string;
+    imageAltTextArabic: string;
+    relatedTeamMembers: {name: string; slug: string}[];
+    tags: string[];
+    removeFromNewsGrid: boolean;
+    name: string;
+    slug: string;
+  }
+  export interface MediaCardProps {
+    imageUrl: string;
+    alt: string;
+    source: 'video' | 'audio' | 'photo' | 'other';
+    name: string;
+    slug: string;
+  }
+  export interface NewsMainProps {
+    
+    arabicTitle: string;
+    tag: string;
+    title: string;
+    description: string;
+    authorName: string;
+    date: string;
+    readTime: string;
+    postLink: string;
+    categoryLink: string;
+    authorLink: string;
+    postImage: string;
+    authorImage: string;
+  }

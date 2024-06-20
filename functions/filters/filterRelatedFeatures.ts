@@ -1,10 +1,10 @@
 import { FeatureRawFields, Item } from "@/app/interfaces";
 
 export default function filterRelatedFeatures(
-  multimediaRaw: Item<FeatureRawFields>[],
+  features: Item<FeatureRawFields>[],
   programme: string
 ): Item<FeatureRawFields>[] {
-  return multimediaRaw.filter((item) => {
+  return features.filter((item) => {
     const matchesProgramme = item.fieldData["programme-label"] === programme;
 
     return matchesProgramme;

@@ -15,7 +15,7 @@ import SourceContainer from "@/components/CJ-components/components-CJ/layout/Sou
 import Header4 from "@/components/CJ-components/components-CJ/typography/Header4";
 import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";
 import NewsMain, {
-  NewsMainProps,
+ 
 } from "@/components/custom beta components/NewsMain";
 import testImage from "@/public/images/content-image-01.jpg";
 import NewsSmall from "@/components/custom beta components/NewsSmall";
@@ -30,7 +30,7 @@ import PersonalCard from "@/components/custom beta components/PersonCard";
 import { ListOrdered } from "lucide-react";
 
 import CodeBlock from "@/components/CJ-components/components-CJ/basic components/CodeBlock";
-import { EventCardProps } from "@/app/interfaces";
+import { EventCardProps, NewsMainProps } from "@/app/interfaces";
 import ModalVideo from "@/components/mdx/modal-video";
 import ModalVideoYoutube from "@/components/custom beta components/ModalVideoYoutube";
 const author = {
@@ -203,6 +203,7 @@ const heroProps = {
 };
 const articleData: NewsMainProps = {
   tag: "Technology",
+  arabicTitle: "Technology in narabic",
   title: "Apple to Turn IPhones Into Payment Terminals in Fintech Push",
   description:
     "Apple Inc is introducing a new feature that will allow businesses to accept credit card and digital payments with just a tap on their iPhones, bypassing hardware systems such as Block Inc's Square terminals.",

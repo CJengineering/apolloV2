@@ -17,7 +17,7 @@ import HeroBanter from "@/components/custom beta components/HeroBanter";
 import image from "@/public/images/mapCJ.webp";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
 import NewsMain, {
-  NewsMainProps,
+ 
 } from "@/components/custom beta components/NewsMain";
 import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";
 import FeatureCard from "@/components/custom beta components/FeatureCard";
@@ -31,8 +31,10 @@ import PostCard from "@/components/custom beta components/PostCard";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import { Suspense } from "react";
+import { NewsMainProps } from "@/app/interfaces";
 const articleData: NewsMainProps = {
   tag: "Technology",
+  arabicTitle: "تكنولوجيا",
   title: "Apple to Turn IPhones Into Payment Terminals in Fintech Push",
   description:
     "Apple Inc is introducing a new feature that will allow businesses to accept credit card and digital payments with just a tap on their iPhones, bypassing hardware systems such as Block Inc's Square terminals.",
@@ -115,6 +117,7 @@ const  posts = rawPosts.items.map((item) => postMapper(item, eventsRaw.items,pro
 const cleanPosts: NewsMainProps[] = posts.map((item) => ({
   tag: item.programme.name,  // Assuming 'name' is the string you need for the tag
   title: item.name,
+  arabicTitle: item.arabicTitle,
   description: '',
   authorName: item.name,
   date: item.datePublished,
