@@ -450,6 +450,24 @@ export interface ImageLightbox {
   location: string;
   year: number;
   people: string;
+  programme2: string;
+
+  nameArabic: string;
+  mainImage: { fileId: string; url: string; alt: string };
+  altText: string;
+  date: string;
+  description: string;
+  descriptionArabic: string;
+  source: string;
+  programmeLabel: string;
+  programmesMultiReference: { name: string; slug: string }[];
+  tags: string[];
+  peopleMultiReference: { name: string; slug: string }[];
+  location2: string;
+  locationArabic: string;
+  highResolution: string;
+  name: string;
+  slug: string;
 }
 
 export interface LightboxProps {
@@ -821,3 +839,166 @@ export interface FeatureCleanedFields {
     postImage: string;
     authorImage: string;
   }
+  export interface PublicationsRawFields {
+    "name-arabic"?: string;
+    "date-published"?: string;
+    "type"?: string;
+    "book-cover-image"?: { url: string; alt: string };
+    "thumbnail"?: { url: string; alt: string };
+    "text"?: string;
+    "summary-arabic"?: string;
+    "push-to-gr"?: boolean;
+    "external-link"?: string;
+    "document"?: { url: string; alt: string };
+    "source-2"?: string;
+    "programme-s"?: string[];
+    "author-s-meta-text"?: string;
+    "author-s-meta-text-arabic"?: string;
+    "people"?: string[];
+    "name"?: string;
+    "slug"?: string;
+  }
+  export interface PublicationsCleanedFields {
+    nameArabic: string;
+    datePublished: string;
+    type: string;
+    bookCoverImage: { url: string; alt: string };
+    thumbnail: { url: string; alt: string };
+    text: string;
+    summaryArabic: string;
+    pushToGr: boolean;
+    externalLink: string;
+    document: { url: string; alt: string };
+    source2: string;
+    programmeS: { name: string; slug: string }[];
+    authorMetaText: string;
+    authorMetaTextArabic: string;
+    people: { name: string; slug: string }[];
+    name: string;
+    slug: string;
+  }
+  export interface AwardsRawFields {
+    "name-arabic"?: string;
+    "custom-link"?: string;
+    "logo"?: { url: string; alt: string };
+    "thumbnail"?: { url: string; alt: string };
+    "image"?: { url: string; alt: string };
+    "open-graph"?: { url: string; alt: string };
+    "description"?: string;
+    "description-arabic"?: string;
+    "type"?: string;
+    "date"?: string;
+    "people-related"?: string[];
+    "programme-related"?: string[];
+    "name"?: string;
+    "slug"?: string;
+  }
+  export interface AwardsCleanedFields {
+    nameArabic: string;
+    customLink: string;
+    logo: { url: string; alt: string };
+    thumbnail: { url: string; alt: string };
+    image: { url: string; alt: string };
+    openGraph: { url: string; alt: string };
+    description: string;
+    descriptionArabic: string;
+    type: string;
+    date: string;
+    peopleRelated: { name: string; slug: string }[];
+    programmeRelated: { name: string; slug: string }[];
+    name: string;
+    slug: string;
+  }
+  export interface PrizesRawFields {
+    "name-arabic"?: string;
+    "award"?: string;
+    "award-year"?: number;
+    "winners-people"?: string[];
+    "summary"?: string;
+    "summary-arabic"?: string;
+    "name"?: string;
+    "slug"?: string;
+  }
+  export interface PrizesCleanedFields {
+    nameArabic: string;
+    award: { name: string; slug: string };
+    awardYear: number;
+    winnersPeople: { name: string; slug: string }[];
+    summary: string;
+    summaryArabic: string;
+    name: string;
+    slug: string;
+  }
+  export interface LegalRawFields {
+    "name-arabic"?: string;
+    "body"?: string;
+    "body-arabic"?: string;
+    "name"?: string;
+    "slug"?: string;
+  }
+  export interface LegalCleanFields {
+    nameArabic: string;
+    body: string;
+    bodyArabic: string;
+    name: string;
+    slug: string;
+  }
+  export interface TagRawFields {
+    "name-arabic"?: string;
+    "name"?: string;
+    "slug"?: string;
+  }
+  export interface TagCleanedFields {
+    nameArabic: string;
+    name: string;
+    slug: string;
+  }export interface SourceRawFields {
+    "name-arabic"?: string;
+    "short-name"?: string;
+    "short-name-arabic"?: string;
+    "logo"?: { url: string; alt: string };
+    "logo-native"?: { url: string; alt: string };
+    "name"?: string;
+    "slug"?: string;
+  }
+  export interface SourceCleanedFields {
+    nameArabic: string;
+    shortName: string;
+    shortNameArabic: string;
+    logo: { url: string; alt: string };
+    logoNative: { url: string; alt: string };
+    name: string;
+    slug: string;
+  }
+  export interface JobsRawFields {
+    "name-arabic"?: string;
+    "link"?: string;
+    "label-programmed"?: string;
+    "related-programme"?: string[];
+    "posted-on"?: string;
+    "closing-date"?: string;
+    "type"?: string;
+    "country"?: string;
+    "city"?: string;
+    "description"?: string;
+    "description-arabic"?: string;
+    "name"?: string;
+    "slug"?: string;
+  }
+  export interface JobsCleanedFields {
+    nameArabic: string;
+    link: string;
+    labelProgrammed: { name: string; slug: string };
+    relatedProgramme: { name: string; slug: string }[];
+    postedOn: string;
+    closingDate: string;
+    type: string;
+    country: string;
+    city: string;
+    description: string;
+    descriptionArabic: string;
+    name: string;
+    slug: string;
+  }
+  
+  
