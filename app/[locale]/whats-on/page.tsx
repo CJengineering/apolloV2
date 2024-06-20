@@ -17,7 +17,7 @@ import HeroBanter from "@/components/custom beta components/HeroBanter";
 import image from "@/public/images/mapCJ.webp";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
 import NewsMain, {
-  NewsMainProps,
+
 } from "@/components/custom beta components/NewsMain";
 import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";
 import FeatureCard from "@/components/custom beta components/FeatureCard";
@@ -33,12 +33,14 @@ import EventCardV1 from "@/components/custom beta components/EventCardV1";
 import {
   EventFieldData,
   Item,
+  NewsMainProps,
   PartnersRawFields,
   ProgrammeRawFields,
 } from "@/app/interfaces";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 const articleData: NewsMainProps = {
+  arabicTitle: "تكنولوجيا",
   tag: "Technology",
   title: "Apple to Turn IPhones Into Payment Terminals in Fintech Push",
   description:

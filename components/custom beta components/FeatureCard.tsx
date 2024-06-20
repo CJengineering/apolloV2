@@ -1,18 +1,7 @@
+import { NewsMainProps } from "@/app/interfaces";
 import React from "react";
 
-export interface NewsMainProps {
-  tag: string;
-  title: string;
-  description: string;
-  authorName: string;
-  date: string;
-  readTime: string;
-  postLink: string;
-  categoryLink: string;
-  authorLink: string;
-  postImage: string;
-  authorImage: string;
-}
+
 export default function FeatureCard({ content }: { content: NewsMainProps }) {
   return (
     <article className="relative  ">

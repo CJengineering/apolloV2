@@ -1,25 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import { BeakerIcon, BoltIcon, VideoCameraIcon, RocketLaunchIcon, NewspaperIcon, MegaphoneIcon, MicrophoneIcon, UserGroupIcon, BookOpenIcon, TrophyIcon, PlayCircleIcon, PaperClipIcon, CalendarDaysIcon } from '@heroicons/react/24/solid'
+import { NewsMainProps } from "@/app/interfaces";
 
 interface newLocaleProps {
   locale: string;
 
 }
-export interface NewsMainProps {
-  tag: string;
-  title: string;
-  description: string;
-  authorName: string;
-  date: string;
-  readTime: string;
-  postLink: string;
-  categoryLink: string;
-  authorLink: string;
-  postImage: string;
-  authorImage: string;
-  arabicTitle: string;
-}
+
 export default function NewsCard({ content, locale }: { content: NewsMainProps , locale: newLocaleProps}) {
   return (
     <article className="relative  ">

@@ -9,7 +9,7 @@ import Footer from "@/components/ui/footer";
 import HeroBanter from "@/components/custom beta components/HeroBanter";
 import image from "@/public/images/mapCJ.webp";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
-import { NewsMainProps } from "@/components/custom beta components/NewsMain";
+
 import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";
 
 import CardHorizontal from "@/components/CJ-components/components-CJ/basic components/CardHorizontal";
