@@ -12,16 +12,22 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      typography: { DEFAULT: { 
-        css:
-        { a:
-            { fontWeight: 'inherit', color: 'inherit', textDecorationLine: 'underline', textDecorationThickness: 'from-font'},
+      typography: {
+        DEFAULT: {
+          css: {
+            a: {
+              fontWeight: "inherit",
+              color: "inherit",
+              textDecorationLine: "underline",
+              textDecorationThickness: "from-font",
+            },
 
-          p: {fontWeight:'400'
-
-          }
-          } 
-        } 
+            p: { fontWeight: "400" },
+            figure: { position: "relative !important",width: "100% !important" , "padding-bottom": "56.25% !important" },
+            iframe: { position: "absolute !important", top: "0 !important", left: "0 !important", width: "100% !important", height: "100% !important" },
+            
+          },
+        },
       },
       fontFamily: {
         aspekta: ["var(--font-aspekta)", "sans-serif"],
