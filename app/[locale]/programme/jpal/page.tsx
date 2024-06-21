@@ -6,11 +6,13 @@ import MainContainer from "@/components/custom beta components/MainContainer";
 import NewsCard from "@/components/custom beta components/NewsCard";
 import PostCard from "@/components/custom beta components/PostCard";
 import { getData } from "@/functions/api/getData";
+import filterRelatedAwards from "@/functions/filters/filterRelatedAwards";
 import { filterRelatedEvents } from "@/functions/filters/filterRelatedEvents";
 import filterRelatedFeatures from "@/functions/filters/filterRelatedFeatures";
 import filterRelatedMultimedia from "@/functions/filters/filterRelatedMultimedia";
 import { filterRelatedNews } from "@/functions/filters/filterRelatedNews";
 import { filterRelatedPosts } from "@/functions/filters/filterRelatedPosts";
+import filterRelatedPrizes from "@/functions/filters/filterRelatedPrizes";
 import eventMapper from "@/functions/transformers/eventMapper";
 import featureMapper from "@/functions/transformers/featureMapper";
 import { mapEventFieldDataToEventCard } from "@/functions/transformers/mapEventFieldToEventCard";
@@ -20,6 +22,7 @@ import { mapMultimediaToMediaCard } from "@/functions/transformers/multimediaToC
 import newsMapper from "@/functions/transformers/newsMapper";
 import { newsToNewsCard } from "@/functions/transformers/newsToNewsCard";
 import mapItemToNewsMainProps from "@/functions/transformers/newsTransformer";
+import photoMapper from "@/functions/transformers/photoRawToLightBox";
 import { mapProgrammeToCardProgramme } from "@/functions/transformers/porgrammeToCardProgramme";
 import postMapper from "@/functions/transformers/postMapper";
 import { postToPostCard } from "@/functions/transformers/postToPostCard";
@@ -29,6 +32,7 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { get } from "http";
 import { Divide } from "lucide-react";
 import React from "react";
+import ContentPhotos from "./content-photos";
 
 export default async function JpalPage({
   params,
@@ -44,6 +48,10 @@ export default async function JpalPage({
   const multimediaCollectionID = getIdByDisplayName("Multimedia");
   const sourcesCollectionID = getIdByDisplayName("Sources");
   const featuresCollectionID = getIdByDisplayName("Features");
+  const awardsCollectionID = getIdByDisplayName("Awards");
+  const jobsCollectionID = getIdByDisplayName("Jobs");
+  const photosCollectionID = getIdByDisplayName("Photos");
+  const prizesCollectionID = getIdByDisplayName("Prizes");
 
   {
     /**Get the data from the collection */
@@ -58,6 +66,10 @@ export default async function JpalPage({
   const eventsRawData = await getData(eventsCollectionID);
   const sourcesRawData = await getData(sourcesCollectionID);
   const featuresRawData = await getData(featuresCollectionID);
+  const awardsRawData = await getData(awardsCollectionID);
+  const jobsRawData = await getData(jobsCollectionID);
+  const photosRawData = await getData(photosCollectionID);
+  const prizesRawData = await getData(prizesCollectionID);
 
   {
     /**Get the single programme by id from webflow */
@@ -87,7 +99,16 @@ export default async function JpalPage({
     featuresRawData.items,
     singleProgramme.id
   );
-
+  const relatedPrizes = filterRelatedPrizes(prizesRawData.items, {
+    people: singleProgramme.id,
+  });
+  const relatedAwards = filterRelatedAwards(awardsRawData.items, {
+    programme: singleProgramme.id,
+  });
+  const relatedJobs = filterRelatedAwards(jobsRawData.items, {
+    programme: singleProgramme.id,
+  });
+ const relatedPhotos = photosRawData.items
   {
     /**Missing to add 
     prizes jobs people photos learns
@@ -113,6 +134,11 @@ export default async function JpalPage({
   const cleanedFeatures = relatedFeatures.map((item) =>
     featureMapper(item, programmesRawData.items)
   );
+  const cleanedRelatedPhotos = relatedPhotos.map((item) => (photoMapper(
+    item,
+    programmesRawData.items,
+    peopleRawData.items
+  )));
   const cleanRelatedNews = relatedNews.map((item) =>
     newsMapper(
       item,
@@ -215,6 +241,13 @@ export default async function JpalPage({
                 <EventCard article={item}></EventCard>
               </>
             ))}
+          </div>
+        </div>
+        <div>
+          <h2> related photos by programme</h2>
+          <div>
+          <ContentPhotos images={cleanedRelatedPhotos} />
+       
           </div>
         </div>
       </div>

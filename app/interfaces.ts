@@ -502,7 +502,7 @@ export interface FieldsPostRaw {
   "theme-3"?: string[];
   "blogs-categories-2"?: string;
   featured?: boolean;
-  "image-carousel"?: string[];
+  "image-carousel"?: { url: string; alt: string }[];
   "image-gallery-credits-arabic"?: string;
   "image-carousel-credits"?: string;
   "related-event"?: string;
@@ -586,7 +586,7 @@ export interface PostFieldsCleaned {
   theme3: string[];
   blogsCategories2: string;
   featured: boolean;
-  imageCarousel: string[];
+  imageCarousel: { url: string; alt: string }[];
   imageGalleryCreditsArabic: string;
   imageCarouselCredits: string;
   relatedEvent: { name: string; slug: string };
@@ -766,6 +766,7 @@ export interface FeatureCleanedFields {
     slug: string;
   }
   export interface NewsRawFields {
+   
     "arabic-title"?: string;
     "push-to-gr"?: boolean;
     "featured"?: boolean;

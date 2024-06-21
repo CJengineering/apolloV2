@@ -8,6 +8,12 @@ import Link from "next/link";
 import SidebarLink from "./sidebar-link";
 import SidebarLinkGroup from "./sidebar-link-group";
 import SidebarLinkSubgroup from "./sidebar-link-subgroup";
+import vector from "@/public/images/Vector.svg";
+import VectorIcon from "./vectorIcon";
+import GlobeIcon from "./globe-icon";
+import ChipIcon from "./chip-icon";
+import BeakerIcon from "./beaker-icon";
+
 type NavItem = {
   name: string;
   href?: string;
@@ -20,18 +26,14 @@ const aboutNav: NavItem = {
   current: false,
   children: [
     { name: "Overview", href: "/overview" },
-    { name: "People", href: "/people" },
+    { name: "Team", href: "/team" },
     { name: "Family album", href: "/family-album" },
   ],
 };
 const communityNav: NavItem = {
   name: "Community",
   current: false,
-  children: [
-    { name: "Community", href: "/community" },
-
-  ],
-
+  children: [{ name: "Community", href: "/community" }],
 };
 
 const mediatNav: NavItem = {
@@ -343,7 +345,7 @@ export default function Sidebar2() {
           unmount={false}
           as="aside"
           id="sidebar"
-          className="fixed left-0 top-0 bottom-0 w-64 h-screen border-r border-slate-200 md:left-auto md:shrink-0 z-10 md:!opacity-100 md:!block dark:border-slate-800 dark:bg-slate-900"
+          className="fixed left-0 top-0  bottom-0 w-56 h-screen border-r border-slate-200 md:left-auto md:shrink-0 z-10 md:!opacity-100 md:!block dark:border-slate-800 dark:bg-slate-900"
           enter="transition ease-out duration-200 transform"
           enterFrom="opacity-0 -translate-x-full"
           enterTo="opacity-100 translate-x-0"
@@ -360,16 +362,27 @@ export default function Sidebar2() {
           <div className="fixed top-0 bottom-0 w-52   px-4 sm:px-6 md:pl-0 md:pr-8 overflow-y-auto no-scrollbar">
             <div className="pt-24 md:pt-28 pb-8">
               {/* Docs nav */}
-              <nav className="md:block">
+              <nav className="md:block  w-52">
                 <div className="text-sm">
-                  {/* 1st level */}
+                  {/* 1st level */}{" "}
+                  <>
+                    <Link
+                      href="/community"
+                      className={`relative flex items-center font-[650] text-slate-800 p-1 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-blue-400 before:to-purple-500 before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 ${
+                        !segments.includes("About") && "before:hidden"
+                      }`}
+                    >
+                      <GlobeIcon />
+                      <span className="ml-2">Community</span>
+                    </Link>
+                  </>
                   <SidebarLinkGroup open={segments.includes("About")}>
                     {(handleClick, open) => {
                       return (
                         <>
                           <Link
                             href="#0"
-                            className={`relative flex items-center font-[650] text-slate-800 p-1 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-blue-400 before:to-purple-500 before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 ${
+                            className={`relative flex w-52  justify-between   items-center font-[650] text-slate-800 p-1 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-blue-400 before:to-purple-500 before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 ${
                               !segments.includes("About") && "before:hidden"
                             }`}
                             onClick={(e) => {
@@ -377,27 +390,20 @@ export default function Sidebar2() {
                               handleClick();
                             }}
                           >
+                            <div className="flex items-center">
+                              <VectorIcon />
+                              <span className="ml-2">About</span>
+                            </div>
                             <svg
-                              className="mr-3 shrink-0"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
+                              className={`fill-slate-400 shrink-0 ml-2 ${
+                                open && "rotate-90"
+                              }`}
+                              width="8"
+                              height="10"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <path
-                                className="fill-[#8B0000]"
-                                d="M19.888 7.804a.88.88 0 0 0-.314-.328l-7.11-4.346a.889.889 0 0 0-.927 0L4.426 7.476a.88.88 0 0 0-.314.328L12 12.624l7.888-4.82Z"
-                              />
-                              <path
-                                className="fill-white dark:fill-slate-800"
-                                d="M4.112 7.804a.889.889 0 0 0-.112.43v7.892c0 .31.161.597.426.758l7.11 4.346c.14.085.3.13.464.13v-8.736l-7.888-4.82Z"
-                              />
-                              <path
-                                className="fill-[#B22222]"
-                                d="M19.888 7.804c.073.132.112.28.112.43v7.892c0 .31-.161.597-.426.758l-7.11 4.346c-.14.085-.3.13-.464.13v-8.736l7.888-4.82Z"
-                              />
+                              <path d="M1 2 2.414.586 6.828 5 2.414 9.414 1 8l3-3z" />
                             </svg>
-                            <span>About</span>
                           </Link>
                           <div
                             className={`mb-3 ml-4 pl-6 border-l border-slate-200 dark:border-slate-800 ${
@@ -416,7 +422,7 @@ export default function Sidebar2() {
                         <>
                           <Link
                             href="#0"
-                            className={`relative flex items-center font-[650] text-slate-800 p-1 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-blue-400 before:to-purple-500 before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 ${
+                            className={`relative flex justify-between items-center font-[650] text-slate-800 p-1 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-blue-400 before:to-purple-500 before:opacity-20 before:-z-20 before:pointer-events-none dark:text-slate-200 ${
                               !segments.includes("About") && "before:hidden"
                             }`}
                             onClick={(e) => {
@@ -424,74 +430,21 @@ export default function Sidebar2() {
                               handleClick();
                             }}
                           >
+                            {" "}
+                            <div className="flex items-center">
+                              <ChipIcon />
+                              <span className="ml-2">Programmes</span>
+                            </div>
                             <svg
-                              className="mr-3 shrink-0"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
+                              className={`fill-slate-400 shrink-0 ml-2 ${
+                                open && "rotate-90"
+                              }`}
+                              width="8"
+                              height="10"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <path
-                                className="fill-[#8B0000]"
-                                d="M19.888 7.804a.88.88 0 0 0-.314-.328l-7.11-4.346a.889.889 0 0 0-.927 0L4.426 7.476a.88.88 0 0 0-.314.328L12 12.624l7.888-4.82Z"
-                              />
-                              <path
-                                className="fill-white dark:fill-slate-800"
-                                d="M4.112 7.804a.889.889 0 0 0-.112.43v7.892c0 .31.161.597.426.758l7.11 4.346c.14.085.3.13.464.13v-8.736l-7.888-4.82Z"
-                              />
-                              <path
-                                className="fill-[#B22222]"
-                                d="M19.888 7.804c.073.132.112.28.112.43v7.892c0 .31-.161.597-.426.758l-7.11 4.346c-.14.085-.3.13-.464.13v-8.736l7.888-4.82Z"
-                              />
+                              <path d="M1 2 2.414.586 6.828 5 2.414 9.414 1 8l3-3z" />
                             </svg>
-                            <span>Community</span>
-                          </Link>
-                          <div
-                            className={`mb-3 ml-4 pl-6 border-l border-slate-200 dark:border-slate-800 ${
-                              !open && "hidden"
-                            }`}
-                          >
-                            {renderNavItems(communityNav.children || [])}
-                          </div>
-                        </>
-                      );
-                    }}
-                  </SidebarLinkGroup>
-                  <SidebarLinkGroup open={segments.includes("About")}>
-                    {(handleClick, open) => {
-                      return (
-                        <>
-                          <Link
-                            href="#0"
-                            className={`relative flex items-center font-[650] text-slate-800 p-1 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-blue-400 before:to-purple-500 before:opacity-20 before:-z-20 before:pointer-events-none dark:text-slate-200 ${
-                              !segments.includes("About") && "before:hidden"
-                            }`}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              handleClick();
-                            }}
-                          >
-                            <svg
-                              className="mr-3 shrink-0"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                className="fill-[#FF0000]"
-                                d="M19.888 7.804a.88.88 0 0 0-.314-.328l-7.11-4.346a.889.889 0 0 0-.927 0L4.426 7.476a.88.88 0 0 0-.314.328L12 12.624l7.888-4.82Z"
-                              />
-                              <path
-                                className="fill-white dark:fill-slate-800"
-                                d="M4.112 7.804a.889.889 0 0 0-.112.43v7.892c0 .31.161.597.426.758l7.11 4.346c.14.085.3.13.464.13v-8.736l-7.888-4.82Z"
-                              />
-                              <path
-                                className="fill-[#DC143C]"
-                                d="M19.888 7.804c.073.132.112.28.112.43v7.892c0 .31-.161.597-.426.758l-7.11 4.346c-.14.085-.3.13-.464.13v-8.736l7.888-4.82Z"
-                              />
-                            </svg>
-                            <span>Programmes</span>
                           </Link>
                           <div
                             className={`mb-3 ml-4 pl-6 border-l border-slate-200 dark:border-slate-800 ${
@@ -510,7 +463,7 @@ export default function Sidebar2() {
                         <>
                           <Link
                             href="#0"
-                            className={`relative flex items-center font-[650] text-slate-800 p-1 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-blue-400 before:to-purple-500 before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 ${
+                            className={`relative flex items-center justify-between font-[650] text-slate-800 p-1 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:from-blue-400 before:to-purple-500 before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 ${
                               !segments.includes("About") && "before:hidden"
                             }`}
                             onClick={(e) => {
@@ -518,27 +471,20 @@ export default function Sidebar2() {
                               handleClick();
                             }}
                           >
+                            <div className="flex items-center">
+                              <BeakerIcon />
+                              <span className="ml-2">Discover</span>
+                            </div>
                             <svg
-                              className="mr-3 shrink-0"
-                              width="24"
-                              height="24"
-                              viewBox="0 0 24 24"
+                              className={`fill-slate-400 shrink-0 ml-2 ${
+                                open && "rotate-90"
+                              }`}
+                              width="8"
+                              height="10"
                               xmlns="http://www.w3.org/2000/svg"
                             >
-                              <path
-                                className="fill-[#DC143C]"
-                                d="M19.888 7.804a.88.88 0 0 0-.314-.328l-7.11-4.346a.889.889 0 0 0-.927 0L4.426 7.476a.88.88 0 0 0-.314.328L12 12.624l7.888-4.82Z"
-                              />
-                              <path
-                                className="fill-white dark:fill-slate-800"
-                                d="M4.112 7.804a.889.889 0 0 0-.112.43v7.892c0 .31.161.597.426.758l7.11 4.346c.14.085.3.13.464.13v-8.736l-7.888-4.82Z"
-                              />
-                              <path
-                                className="fill-[#B22222]"
-                                d="M19.888 7.804c.073.132.112.28.112.43v7.892c0 .31-.161.597-.426.758l-7.11 4.346c-.14.085-.3.13-.464.13v-8.736l7.888-4.82Z"
-                              />
+                              <path d="M1 2 2.414.586 6.828 5 2.414 9.414 1 8l3-3z" />
                             </svg>
-                            <span>Discover</span>
                           </Link>
                           <div
                             className={`mb-3 ml-4 pl-6 border-l border-slate-200 dark:border-slate-800 ${

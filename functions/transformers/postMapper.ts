@@ -33,6 +33,10 @@ export default function postMapper(
   const programmeMatch = programmes.find(
     (programme) => programme.id === fieldData["programme-2"]
   );
+  const imagesCarousel = fieldData["image-carousel"] && fieldData["image-carousel"]?.length > 0  ?
+    fieldData["image-carousel"].map((image) => {
+      return { url: image.url || '', alt: image.alt || '' }
+    }) : [{ url: '', alt: '' }];
   const relatedProgrammes =
     fieldData["programmes-multiple"] &&
     fieldData["programmes-multiple"].length > 0
@@ -101,7 +105,7 @@ export default function postMapper(
     theme3: fieldData["theme-3"] || ["N/A"],
     blogsCategories2: fieldData["blogs-categories-2"] || "N/A",
     featured: fieldData.featured || false,
-    imageCarousel: ["N/A"],
+    imageCarousel: imagesCarousel,
     imageGalleryCreditsArabic:
       fieldData["image-gallery-credits-arabic"] || "N/A",
     imageCarouselCredits: fieldData["image-carousel-credits"] || "N/A",

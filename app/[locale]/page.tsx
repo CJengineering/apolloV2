@@ -19,15 +19,14 @@ import porgrammeImage from "@/public/images/blueCJMap.png";
 import Image from "next/image";
 
 import SectionBanter from "@/components/custom beta components/SectionBanter";
-import NewsMain, {
-
-} from "@/components/custom beta components/NewsMain";
+import NewsMain from "@/components/custom beta components/NewsMain";
 import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";
 import FeatureCard from "@/components/custom beta components/FeatureCard";
 import NewsSmall from "@/components/custom beta components/NewsSmall";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import { NewsMainProps } from "../interfaces";
+import PostAccordion from "@/components/mdx/accordion";
 
 const articleData: NewsMainProps = {
   tag: "Technology",
@@ -194,6 +193,10 @@ export default async function SinglePost({
         />
         <HomeIcons />
 
+        <PostAccordion title={"Accordion that we have "}  >
+          <div>Hi, I am the accordion built in the template  </div>
+          <div>You Can remove me </div>
+        </PostAccordion>
         <SectionBanter title={"Features"}>
           <div className="grid  gap-6 grid-cols-1 md:grid-cols-3 ">
             <FeatureCard content={articleData} />

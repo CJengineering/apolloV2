@@ -1,3 +1,5 @@
+import { NewsRawFields } from "@/app/interfaces";
+import FiltredNews from "@/components/CJ-components/components-CJ/FiltredNews";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import NewsSmall from "@/components/custom beta components/NewsSmall";
@@ -28,10 +30,9 @@ export default async function page({
 
   const rawNewsArray = dataNews.items;
   const personId= memberRaw[0].id;
-  const filteredNewsItems = filterNewsItemsByPerson(
-    rawNewsArray,
-    "6239d4dc4a568b84d2bfb1cb"
-  );
+  const filteredNewsItems = rawNewsArray.filter((item) => item.fieldData["related-team-members"]?.includes(personId));
+  const test = filteredNewsItems[0]
+
   const relatedNews = filteredNewsItems.map((item) =>
     mapItemToNewsMainProps(item, sourcesAll.items, programmeAll.items)
   );
@@ -39,7 +40,7 @@ export default async function page({
   return (
     <MainContainer isSideBar={false}>
       <ContentContainer>
-        <h1>Page</h1>
+        <h1>Page </h1>
 
         <div className="p-4 bg-white shadow rounded-lg">
           <img
@@ -72,9 +73,7 @@ export default async function page({
               <li>
                 <span className="font-semibold">Order:</span> {member.order}
               </li>
-              <li>
-                <span className="font-semibold">Filter:</span> {member.filter}
-              </li>
+             
             </ul>
             <SectionBanter title={"Related news"}>
               <div className="grid md:grid-cols-3">
