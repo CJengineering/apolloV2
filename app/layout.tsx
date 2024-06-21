@@ -73,23 +73,17 @@ export default function RootLayout({
       >
         <Theme>
           <AppProvider>
-              {/*  previous div had this 'min-h-screen overflow-hidden' removed for sticky postionnint  */}
+            {/*  previous div had this 'min-h-screen overflow-hidden' removed for sticky postionnint  */}
             <div className="flex    flex-col ">
               <Header />
 
               {/*  Page content */}
               <main className="grow  ">
                 <div className="relative">
-                
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none -z-10"></div>
 
                   <div className="max-w-12xl mx-auto md:px-0 md:pr-3 sm:px-6">
-               
-                    {/* Main content */}
                     <div>
-                      {/* Sidebar */}
-                      {/*  <Sidebar /> */}
-
                       <Sidebar2 />
 
                       {/* Page container */}
