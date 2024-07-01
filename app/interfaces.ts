@@ -19,7 +19,7 @@ export interface ListContentProps {
   date: string | Date;
 }
 export interface ListSmallProps {
-  data?: { [key: string]: string[] | undefined } | undefined;
+  data?: { [key: string]: string[]  } 
 }
 
 export interface StatProps {

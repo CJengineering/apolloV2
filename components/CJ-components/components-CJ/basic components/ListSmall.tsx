@@ -1,28 +1,34 @@
-
 import { ListSmallProps } from '@/app/interfaces';
-import React from 'react'
+import React from 'react';
 
 export default function ListSmall({ data }: ListSmallProps) {
-  if (!data ) {
-    return <div></div>;
+  if (!data || Object.keys(data).length === 0) {
+    return null;
   }
-  return (
-    
-    <div>
-      {Object.keys(data).map((key) => (
-        <div key={key}>
-          <h6 className="text-xs font-normal mono uppercase">{key}</h6>
 
-          <div>
-       
-            {data[key] &&  data[key]?.map((item, index) => (
-              <div className="text-small sans-serif font-normal" key={index}>
-                {item}
-              </div>
-            ))}
+
+  return (
+    <>
+      {Object.keys(data).map((key) => {
+        const items = data[key]; 
+
+        return (
+          <div key={key}>
+        
+            <h6 className="text-xs font-normal mono uppercase">
+              {(items && items.length > 0) && (items && items[0] !=="")  ? key : ''}
+            </h6>
+
+            <div>
+              {items && items.map((item, index) => (
+                <div className="text-small sans-serif font-normal" key={index}>
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
-  )
+        );
+      })}
+    </>
+  );
 }

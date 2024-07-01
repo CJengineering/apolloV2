@@ -20,6 +20,13 @@ import {
 } from "@/app/interfaces";
 
 function TableRow({ repository }: RowData) {
+  const dataChecks = [
+    repository.content.research?.data,
+    repository.content.established?.data,
+    repository.content.headquarters?.data,
+    repository.content["key partners"]?.data,
+    repository.content.leadership?.data,
+  ];
   return (
     <div className=" border-b-[1px]">
       <Disclosure>
@@ -83,13 +90,15 @@ function TableRow({ repository }: RowData) {
               <div className="grid px-2  md:grid-cols-2 md:gap-16">
                 <div>
                   <div>
-                    <Image
-                      className="dark:hidden object-fit w-64 py-9 "
-                      width={400}
-                      height={300}
-                      src={repository.content.logo?.url || ""}
-                      alt=""
-                    />
+                    {repository.content.logo?.url && (
+                      <Image
+                        className="dark:hidden object-fit w-64 py-9 "
+                        width={400}
+                        height={300}
+                        src={repository.content.logo?.url || ""}
+                        alt=""
+                      />
+                    )}
                   </div>
                   <div>
                     <Image
@@ -119,10 +128,12 @@ function TableRow({ repository }: RowData) {
                         />
                       </div>
                       <div className="ml-3">
-                        <ButtonCJ
-                          href={repository.content.button.href}
-                          text={repository.content.button.text}
-                        />
+                        {repository.content.button.href && (
+                          <ButtonCJ
+                            href={repository.content.button.href}
+                            text={repository.content.button.text}
+                          />
+                        )}
                       </div>
                     </div>
                   </div>
@@ -132,29 +143,17 @@ function TableRow({ repository }: RowData) {
                   <div className="py-4"></div>
                   <div>
                     <div className="grid grid-cols-2 gap-x-9 gap-y-6 lg:grid-cols-2">
-                      <div>
-                        <ListSmall
-                          data={repository.content.research?.data || {}}
-                        />
-                      </div>
-                      <div>
-                        <ListSmall
-                          data={repository.content.established?.data || {}}
-                        />
-                      </div>
-                      <div>
-                        <ListSmall
-                          data={repository.content.headquarters?.data || {}}
-                        />
-                      </div>
-                      <div>
-                        <ListSmall
-                          data={repository.content["key partners"]?.data}
-                        />
-                      </div>
-                      <div>
-                        <ListSmall data={repository.content.leadership?.data} />
-                      </div>
+                      {dataChecks.map(
+                        (data, index) =>
+                          data &&
+                          Object.keys(data).length > 0 &&
+                          data[Object.keys(data)[0]].length > 0 &&
+                          data[Object.keys(data)[0]][0] !== "" && (
+                            <div key={index}>
+                              <ListSmall data={data} />
+                            </div>
+                          )
+                      )}
                     </div>
                   </div>
                   {/* <div>
@@ -185,15 +184,19 @@ function TableRow({ repository }: RowData) {
                   </div>
 
                   <div className="">
-                    <h2>features</h2>
-                    <div className="pt-4 pb-8 grid grid-cols-3 gap-3">
-                      {repository.content.features.map((feature, index) => (
-                        <CardSquaredImage
-                          key={index}
-                          imageUrl={feature.image.imageUrl}
-                        />
-                      ))}
-                    </div>
+                    {repository.content.features.length > 0 && (
+                      <>
+                        <h2>features</h2>
+                        <div className="pt-4 pb-8 grid grid-cols-3 gap-3">
+                          {repository.content.features.map((feature, index) => (
+                            <CardSquaredImage
+                              key={index}
+                              imageUrl={feature.image.imageUrl}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
