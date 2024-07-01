@@ -1,4 +1,5 @@
 import { StaticImageData } from "next/image";
+import { inter } from "./fonts";
 
 export interface ButtonCJProps {
   children: React.ReactNode;
@@ -193,7 +194,7 @@ export type EventFieldData = {
   partners: string[];
   "participants-affiliated-institutions": string[];
   "rich-text": string;
-  "image-gallery": string[];
+  "image-gallery": {url:string, alt:string}[] 
   "gallery-photo-credits": string;
   "news-on-off": boolean;
   "custom-code-for-hiding-weglot": string;
@@ -247,11 +248,11 @@ export interface EventFieldDataCleaned {
   video3: string;
   tags: string[];
   relatedPeople: string[];
-  organisers: string[];
-  partners: string[];
+  organisers: {name: string, slug: string, website:string,  logo:{url:string; alt:string}}[];
+  partners: {name: string, slug: string, website:string, logo:{url:string; alt:string}}[];
   participantsAffiliatedInstitutions: string[];
   richText: string;
-  imageGallery: string[];
+  imageGallery: {url:string, alt:string}[];
   galleryPhotoCredits: string;
   newsOnOff: boolean;
   customCodeForHidingWeglot: string;
@@ -424,7 +425,11 @@ export interface ProgrammeCleanedFields {
 export interface PartnersRawFields {
   "arabic-name"?: string;
   website?: string;
-  logo?: string;
+  logo?: {
+    fileId: string;
+    url: string;
+    alt: string;
+  }
   "short-description"?: string;
   "short-description-arabic"?: string;
   group?: string;
@@ -432,7 +437,17 @@ export interface PartnersRawFields {
   name?: string;
   slug?: string;
 }
-
+export interface PartnersCleanedFields {
+  arabicName: string;
+  website: string;
+  logo: string;
+  shortDescription: string;
+  shortDescriptionArabic: string;
+  group: string;
+  tags: string[];
+  name: string;
+  slug: string;
+}
 export interface PhotoFieldsRaw {
   "name-arabic"?: string;
   "main-image"?: { fileId: string; url: string; alt: string | "" };
@@ -592,6 +607,7 @@ export interface PostFieldsCleaned {
   heroImagePhotoCreditArabic: string;
   theme3: string[];
   blogsCategories2: string;
+  blogsCategories2Arabic: string;
   featured: boolean;
   imageCarousel: { url: string; alt: string }[];
   imageGalleryCreditsArabic: string;
@@ -1009,4 +1025,13 @@ export interface FeatureCleanedFields {
     slug: string;
   }
   
-  
+  export interface CategorieRawFields {
+    "name-arabic"?: string;
+    "name"?: string;
+    "slug"?: string;
+  }
+  export interface CategorieCleanedFields {
+    nameArabic: string;
+    name: string;
+    slug: string;
+  }

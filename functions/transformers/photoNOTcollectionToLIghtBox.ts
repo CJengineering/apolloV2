@@ -1,4 +1,4 @@
-import { Item, PhotoFieldsRaw, ImageLightbox, ProgrammeRawFields, PeopleRawFields } from "@/app/interfaces";
+import {ImageLightbox,  } from "@/app/interfaces";
 interface SinglePhoto {
     url: string;
     alt: string;

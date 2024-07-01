@@ -5,7 +5,11 @@ import RightContent from "@/components/custom beta components/RightContent";
 import { getData } from "@/functions/api/getData";
 import postMapper from "@/functions/transformers/postMapper";
 import { transformPostFieldsToArticleProps } from "@/functions/transformers/transformPostFieldsToArticleProps";
+import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
+import { get } from "http";
 import React from "react";
+import ContentPhotos from "../../programme/j-wafs/content-photos";
+import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcollectionToLIghtBox";
 const addType = (items: any[], type: string) =>
   items.map((item) => ({ ...item, type }));
 
@@ -14,6 +18,8 @@ export default async function page({
 }: {
   params: { locale: string; slug: string };
 }) {
+  const categoryId = getIdByDisplayName("Categories");
+  const categoriesRaw = await getData(categoryId);
   const rawPosts = await getData("61ee828a15a3183262bde542");
   const programesRaw = await getData("61ee828a15a3183d2abde540");
   const eventsRaw = await getData("6225fe8b1f52b40001a99d66");
@@ -24,6 +30,7 @@ export default async function page({
   );
   const cleanPost = postMapper(
     post,
+    categoriesRaw.items,
     eventsRaw.items,
     programesRaw.items,
     peopleRaw.items
@@ -36,6 +43,9 @@ export default async function page({
       href: person.slug,
     };
   });
+  const cleanRelatedImages = cleanPost.imageCarousel.map(
+    photoNotFromCollectionMapper
+  );
   const combinedItems = [
     ...addType(rawPosts.items, "announcements"),
     ...addType(programesRaw.items, "programme"),
@@ -59,9 +69,15 @@ export default async function page({
     <MainContainer isSideBar={true}>
       <ContentContainer>
         <h2>first h2</h2>
-        <h2>second h2</h2>  
+        <h2>second h2</h2>
         <ArticleBanter article={article.article} />
-        <h2 id= "third-h2">third h2</h2>
+    
+        {cleanPost.imageCarousel.length > 0 && cleanPost.imageCarousel[0].url !== ''  && (
+          <>
+            <h2 id="third-h2">Related Images </h2>
+            <ContentPhotos images={cleanRelatedImages} />
+          </>
+        )}
       </ContentContainer>
     </MainContainer>
   );

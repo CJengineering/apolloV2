@@ -2,6 +2,7 @@ import {
   PostFieldsCleaned,
   Item,
   PartnersRawFields,
+  CategorieRawFields,
   ProgrammeRawFields,
   FieldsPostRaw,
   PeopleRawFields,
@@ -24,7 +25,7 @@ const formatDate = (date: Date | string): string => {
 
 export default function postMapper(
   item: Item<FieldsPostRaw>,
-
+  categories: Item<CategorieRawFields>[],
   events: Item<EventFieldData>[],
   programmes: Item<ProgrammeRawFields>[],
   people: Item<PeopleRawFields>[]
@@ -33,10 +34,14 @@ export default function postMapper(
   const programmeMatch = programmes.find(
     (programme) => programme.id === fieldData["programme-2"]
   );
-  const imagesCarousel = fieldData["image-carousel"] && fieldData["image-carousel"]?.length > 0  ?
-    fieldData["image-carousel"].map((image) => {
-      return { url: image.url || '', alt: image.alt || '' }
-    }) : [{ url: '', alt: '' }];
+  const categoriesMatch = categories.find((category) => category.id === fieldData["blogs-categories-2"]);
+  const imagesCarousel =
+    fieldData["image-carousel"] && fieldData["image-carousel"]?.length > 0
+      ? fieldData["image-carousel"].map((image) => {
+          return { url: image.url || "", alt: image.alt || "" };
+        })
+      : [{ url: "", alt: "" }];
+  
   const relatedProgrammes =
     fieldData["programmes-multiple"] &&
     fieldData["programmes-multiple"].length > 0
@@ -83,7 +88,12 @@ export default function postMapper(
         }
       : { name: "N/A", url: "N/A", slug: "N/A" },
     programmesMultiple: relatedProgrammes,
-    thumbnail: fieldData.thumbnail ? {url: fieldData.thumbnail.url||'', alt: fieldData.thumbnail.alt ||''} : {url:'', alt:''},
+    thumbnail: fieldData.thumbnail
+      ? {
+          url: fieldData.thumbnail.url || "",
+          alt: fieldData.thumbnail.alt || "",
+        }
+      : { url: "", alt: "" },
     mainImage: fieldData["main-image"] || "N/A",
     openGraphImage: fieldData["open-graph-image"] || "N/A",
     datePublished: formatDate(fieldData["date-published"] || ""),
@@ -103,7 +113,8 @@ export default function postMapper(
     heroImagePhotoCreditArabic:
       fieldData["hero-image-photo-credit-arabic"] || "N/A",
     theme3: fieldData["theme-3"] || ["N/A"],
-    blogsCategories2: fieldData["blogs-categories-2"] || "N/A",
+    blogsCategories2: categoriesMatch?.fieldData.name || "N/A",
+    blogsCategories2Arabic: categoriesMatch?.fieldData["name-arabic"] || "N/A",
     featured: fieldData.featured || false,
     imageCarousel: imagesCarousel,
     imageGalleryCreditsArabic:

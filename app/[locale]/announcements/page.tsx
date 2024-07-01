@@ -32,6 +32,7 @@ import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import { Suspense } from "react";
 import { NewsMainProps } from "@/app/interfaces";
+import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 const articleData: NewsMainProps = {
   tag: "Technology",
   arabicTitle: "تكنولوجيا",
@@ -107,13 +108,15 @@ export default async function AnnouncementsContent({
 
   if (!post) notFound();
 {/*Data fetching* */}
+const categoryId= getIdByDisplayName("Categories")
 
 const rawPosts = await getData("61ee828a15a3183262bde542");
 const programesRaw = await getData("61ee828a15a3183d2abde540");
 const eventsRaw = await getData("6225fe8b1f52b40001a99d66");
 const peopleRaw = await getData("62271a6df4ceb0027d91e6c4");
+const categoriesRaw = await getData(categoryId);
 
-const  posts = rawPosts.items.map((item) => postMapper(item, eventsRaw.items,programesRaw.items, peopleRaw.items));
+const  posts = rawPosts.items.map((item) => postMapper(item, categoriesRaw.items,eventsRaw.items,programesRaw.items, peopleRaw.items));
 const cleanPosts: NewsMainProps[] = posts.map((item) => ({
   tag: item.programme.name,  // Assuming 'name' is the string you need for the tag
   title: item.name,
@@ -122,7 +125,7 @@ const cleanPosts: NewsMainProps[] = posts.map((item) => ({
   authorName: item.name,
   date: item.datePublished,
   readTime: '6 min',
-  postLink: item.slug,
+  postLink: `/announcements/${item.slug}`,
   categoryLink: item.slug,  // Assuming 'url' is the string you need for the category link
   authorLink: 'news',
   postImage: item.thumbnail.url,

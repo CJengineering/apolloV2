@@ -1,4 +1,10 @@
-import { EventFieldData, EventFieldDataCleaned, Item, PartnersRawFields, ProgrammeRawFields } from "@/app/interfaces";
+import {
+  EventFieldData,
+  EventFieldDataCleaned,
+  Item,
+  PartnersRawFields,
+  ProgrammeRawFields,
+} from "@/app/interfaces";
 
 function calculateReadTime(text: string): string {
   const wordsPerMinute = 200;
@@ -8,95 +14,142 @@ function calculateReadTime(text: string): string {
 }
 
 const formatDate = (date: Date | string): string => {
-  if (typeof date === 'string') {
+  if (typeof date === "string") {
     date = new Date(date);
   }
   if (date instanceof Date && !isNaN(date.valueOf())) {
     const day = date.getDate();
-    const month = date.toLocaleString('en-US', { month: 'long' });
+    const month = date.toLocaleString("en-US", { month: "long" });
     const year = date.getFullYear();
     return `${day} ${month} ${year}`;
   } else {
-    return 'Invalid Date';
+    return "Invalid Date";
   }
-}
+};
 
 export default function eventMapper(
   item: Item<EventFieldData>,
   arrayPartners: Item<PartnersRawFields>[],
   arrayProgramme: Item<ProgrammeRawFields>[]
 ): EventFieldDataCleaned {
-  const matchPartners = item.fieldData.partners && item.fieldData.partners.length > 0
-    ? item.fieldData.partners
-        .map(partnerId => arrayPartners.find(partner => partner.id === partnerId))
-        .filter(partner => partner !== undefined)
-    : [];
-    const matchOrganisers = item.fieldData.organisers && item.fieldData.organisers.length > 0 ?
-    item.fieldData.organisers
-        .map(organiserId => arrayPartners.find(partner => partner.id === organiserId))
-        .filter(partner => partner !== undefined)
-    : [];
+  const imagesCarousel =
+    item.fieldData["image-gallery"] &&
+    item.fieldData["image-gallery"]?.length > 0
+      ? item.fieldData["image-gallery"].map((image) => {
+          return { url: image.url || "", alt: image.alt || "" };
+        })
+      : [{ url: "", alt: "" }];
+  const matchPartners =
+    item.fieldData.partners && item.fieldData.partners.length > 0
+      ? item.fieldData.partners
+          .map((partnerId) =>
+            arrayPartners.find((partner) => partner.id === partnerId)
+          )
+          .filter((partner) => partner !== undefined)
+      : [];
+  const matchOrganisers =
+    item.fieldData.organisers && item.fieldData.organisers.length > 0
+      ? item.fieldData.organisers
+          .map((organiserId) =>
+            arrayPartners.find((partner) => partner.id === organiserId)
+          )
+          .filter((partner) => partner !== undefined)
+      : [];
 
-  const matchProgrammes = item.fieldData['related-programme-s'] && item.fieldData['related-programme-s'].length > 0
-    ? item.fieldData['related-programme-s']
-        .map(programmeId => arrayProgramme.find(programme => programme.id === programmeId))
-        .filter(programme => programme !== undefined)
-    : [];
-    const programmeLabelCleaned = matchProgrammes.map(prog => prog ? prog.fieldData.name : '').filter((name): name is string => name !== undefined);
+  const matchProgrammes =
+    item.fieldData["related-programme-s"] &&
+    item.fieldData["related-programme-s"].length > 0
+      ? item.fieldData["related-programme-s"]
+          .map((programmeId) =>
+            arrayProgramme.find((programme) => programme.id === programmeId)
+          )
+          .filter((programme) => programme !== undefined)
+      : [];
+  const programmeLabelCleaned = matchProgrammes
+    .map((prog) => (prog ? prog.fieldData.name : ""))
+    .filter((name): name is string => name !== undefined);
 
   return {
-    pushToGr: item.fieldData['push-to-gr'] || false,
-    programmeLabel: programmeLabelCleaned[0] || '',
-    relatedProgrammes: matchProgrammes.map(prog => prog ? prog.fieldData.name : '').filter((name): name is string => name !== undefined),
+    pushToGr: item.fieldData["push-to-gr"] || false,
+    programmeLabel: programmeLabelCleaned[0] || "",
+    relatedProgrammes: matchProgrammes
+      .map((prog) => (prog ? prog.fieldData.name : ""))
+      .filter((name): name is string => name !== undefined),
     thumbnail: {
-      fileId: item.fieldData.thumbnail?.fileId || '',
-      url: item.fieldData.thumbnail?.url || '',
+      fileId: item.fieldData.thumbnail?.fileId || "",
+      url: item.fieldData.thumbnail?.url || "",
       alt: item.fieldData.thumbnail?.alt || null,
     },
     heroImage: {
-      fileId: item.fieldData["hero-image"]?.fileId || '',
-      url: item.fieldData["hero-image"]?.url ||'',
+      fileId: item.fieldData["hero-image"]?.fileId || "",
+      url: item.fieldData["hero-image"]?.url || "",
       alt: item.fieldData["hero-image"]?.alt || null,
     },
     openGraphImage: {
-      fileId: item.fieldData["open-graph-image"]?.fileId || '',
-      url: item.fieldData["open-graph-image"]?.url || '',
+      fileId: item.fieldData["open-graph-image"]?.fileId || "",
+      url: item.fieldData["open-graph-image"]?.url || "",
       alt: item.fieldData["open-graph-image"]?.alt || null,
     },
     isDraft: item.isDraft,
-    heroImageCaption: item.fieldData["hero-image-caption"] || '',
+    heroImageCaption: item.fieldData["hero-image-caption"] || "",
     featured: item.fieldData.featured || false,
-    arabicTitle: item.fieldData["arabic-title"] || '',
-    seoMetaDescription: item.fieldData["seo-meta-description"] || '',
-    seoTitle: item.fieldData["seo-title"] || '',
-    teaserText: item.fieldData["teaser-text"] || '',
-    signupEmbed: item.fieldData["signup-embed"] || '',
-    shortDescription2: item.fieldData["short-description-2"] || '',
-    eventDate: formatDate(item.fieldData["event-date"] || ''),
-    endDate:formatDate(item.fieldData["end-date"] ||item.fieldData["event-date"]|| '') ,
-    time: item.fieldData.time || '',
-    address: item.fieldData.address || '',
-    locationLink: item.fieldData["location-link"] || '',
-    livestreamLink: item.fieldData["livestream-link"] || '',
-    attendanceType: item.fieldData["attendance-type"] || '',
-    contactDetails: item.fieldData["contact-details"] || '',
-    buttonCtaText: item.fieldData["button-cta-text"] || '',
-    rsvpLink: item.fieldData["rsvp-link"] || '',
-    trailerLivestreamHighlightsVideoLink: item.fieldData["trailer-livestream-highlights-video-link"] || '',
-    video2: item.fieldData["video-2"] || '',
-    video3: item.fieldData["video-3"] || '',
+    arabicTitle: item.fieldData["arabic-title"] || "",
+    seoMetaDescription: item.fieldData["seo-meta-description"] || "",
+    seoTitle: item.fieldData["seo-title"] || "",
+    teaserText: item.fieldData["teaser-text"] || "",
+    signupEmbed: item.fieldData["signup-embed"] || "",
+    shortDescription2: item.fieldData["short-description-2"] || "",
+    eventDate: formatDate(item.fieldData["event-date"] || ""),
+    endDate: formatDate(
+      item.fieldData["end-date"] || item.fieldData["event-date"] || ""
+    ),
+    time: item.fieldData.time || "",
+    address: item.fieldData.address || "",
+    locationLink: item.fieldData["location-link"] || "",
+    livestreamLink: item.fieldData["livestream-link"] || "",
+    attendanceType: item.fieldData["attendance-type"] || "",
+    contactDetails: item.fieldData["contact-details"] || "",
+    buttonCtaText: item.fieldData["button-cta-text"] || "",
+    rsvpLink: item.fieldData["rsvp-link"] || "",
+    trailerLivestreamHighlightsVideoLink:
+      item.fieldData["trailer-livestream-highlights-video-link"] || "",
+    video2: item.fieldData["video-2"] || "",
+    video3: item.fieldData["video-3"] || "",
     tags: item.fieldData.tags || [],
     relatedPeople: item.fieldData["related-people"] || [],
-    organisers: matchOrganisers.map(organiser => organiser ? organiser.fieldData.name : '').filter((name): name is string => name !== undefined),
-    partners: matchPartners.map(partner => partner ? partner.fieldData.name : '').filter((name): name is string => name !== undefined),
-    participantsAffiliatedInstitutions: item.fieldData["participants-affiliated-institutions"] || [],
-    richText: item.fieldData["rich-text"] || '',
-    imageGallery: item.fieldData["image-gallery"] || [],
-    galleryPhotoCredits: item.fieldData["gallery-photo-credits"] || '',
+    organisers: matchOrganisers.map((organiser) => {
+      return {
+        name: organiser?.fieldData.name || "",
+        slug: organiser?.fieldData.slug || "",
+        website: organiser?.fieldData.website || "",
+        logo: {
+          url: organiser?.fieldData.logo?.url || "",
+          alt: organiser?.fieldData.logo?.alt || "",
+        },
+      };
+    }),
+    partners: matchPartners.map((partner) => {
+      return {
+        name: partner?.fieldData.name || "",
+        slug: partner?.fieldData.slug || "",
+        website: partner?.fieldData.website || "",
+        logo: {
+          url: partner?.fieldData.logo?.url || "",
+          alt: partner?.fieldData.logo?.alt || "",
+        },
+      };
+    }),
+
+    participantsAffiliatedInstitutions:
+      item.fieldData["participants-affiliated-institutions"] || [],
+    richText: item.fieldData["rich-text"] || "",
+    imageGallery: imagesCarousel || [],
+    galleryPhotoCredits: item.fieldData["gallery-photo-credits"] || "",
     newsOnOff: item.fieldData["news-on-off"] || false,
-    customCodeForHidingWeglot: item.fieldData["custom-code-for-hiding-weglot"] || '',
-    group: item.fieldData.group || '',
-    name: item.fieldData.name || '',
-    slug: item.fieldData.slug || '',
+    customCodeForHidingWeglot:
+      item.fieldData["custom-code-for-hiding-weglot"] || "",
+    group: item.fieldData.group || "",
+    name: item.fieldData.name || "",
+    slug: item.fieldData.slug || "",
   };
 }
