@@ -11,6 +11,8 @@ import { filterRelatedPosts } from "@/functions/filters/filterRelatedPosts";
 import { filterRelatedEvents } from "@/functions/filters/filterRelatedEvents";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
 import SecondaryNav from "@/components/ui/secondary-nav";
+import ContentPhotos from "../../programme/j-wafs/content-photos";
+import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcollectionToLIghtBox";
 
 export default async function PeoplePage({
   params,
@@ -75,11 +77,12 @@ export default async function PeoplePage({
     programmeDataRaw.items,
     postsDataRaw.items
   );
-
+{/** Images of the person */}
+ const cleanRelatedImages = peopleDataItem.photos.map(photoNotFromCollectionMapper)
   {
     /** test vairables for diplay*/
   }
-
+  
   const testRelateMultimediaItem = relatedMultimedia.length;
   const testRelatePostItem = relatedPosts.length;
   const testRelateEventItem = relatedEvents.length;
@@ -117,6 +120,11 @@ export default async function PeoplePage({
           </SectionBanter>
           <SectionBanter title={"Multimedia"}></SectionBanter>
           <SectionBanter title={"Related Posts"}></SectionBanter>
+          <SectionBanter title={"Images"}>
+
+            <ContentPhotos images={cleanRelatedImages}/>
+          </SectionBanter>
+
         </ContentContainer>
       </MainContainer>
     </div>

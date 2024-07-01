@@ -10,7 +10,7 @@ const EventCardV1: React.FC<{ article: EventFieldDataCleaned }> = ({ article }) 
       className="group relative flex flex-col flex-wrap rounded-2xl transition duration-300 ease-in-out hover:shadow-xl"
     >
       <div className="aspect-h-1 aspect-w-2 relative z-20 w-full overflow-hidden rounded-t-2xl bg-gray-50">
-        <a href={article.locationLink} className="bg-red-400">
+        <a href={`/events/${article.slug}`} className="bg-red-400">
           <img
             src={article.heroImage.url}
             alt={article.heroImage.alt || article.name}
@@ -21,7 +21,7 @@ const EventCardV1: React.FC<{ article: EventFieldDataCleaned }> = ({ article }) 
       <div className="box-border flex w-full flex-1 flex-col justify-between rounded-b-2xl border-b-2 border-l-2 border-r-2 border-gray-100 bg-white p-6 transition duration-300 ease-in-out group-hover:border-transparent xl:p-7">
         <div>
           <a
-            href={article.locationLink}
+            href={`/events/${article.slug}`}
             className="transition-color relative text-tiny font-medium uppercase tracking-widest text-red-700 duration-300 ease-in-out hover:text-red-600"
           >
             {article.programmeLabel}
@@ -55,7 +55,7 @@ const EventCardV1: React.FC<{ article: EventFieldDataCleaned }> = ({ article }) 
             </p>
             <ul className="text-sm text-gray-500">
               {article.organisers.map((organiser, index) => (
-                <li key={index}>{organiser}</li>
+                <li key={index}>{organiser.name}</li>
               ))}
             </ul>
             <a

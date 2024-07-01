@@ -53,6 +53,7 @@ export default async function JpalPage({
   const jobsCollectionID = getIdByDisplayName("Jobs");
   const photosCollectionID = getIdByDisplayName("Photos");
   const prizesCollectionID = getIdByDisplayName("Prizes");
+  const categoryId = getIdByDisplayName("Categories");
 
   {
     /**Get the data from the collection */
@@ -71,6 +72,7 @@ export default async function JpalPage({
   const jobsRawData = await getData(jobsCollectionID);
   const photosRawData = await getData(photosCollectionID);
   const prizesRawData = await getData(prizesCollectionID);
+  const categoriesRawData = await getData(categoryId);
 
   {
     /**Get the single programme by id from webflow */
@@ -123,6 +125,7 @@ export default async function JpalPage({
   const cleanRelatedPosts = relatedPost.map((item) =>
     postMapper(
       item,
+      categoriesRawData.items,
       eventsRawData.items,
       programmesRawData.items,
       peopleRawData.items
