@@ -60,7 +60,7 @@ export default async function PeopleContent({
     .filter((member) => member.filter === "fe9cb4ecfb6b2b3673fb682e3ae1b662")
     .sort((a, b) => a.order - b.order);
   const advisoryCommittee = teamMembers
-    .filter((member) => member.position === "Advisory Committee")
+    .filter((member) => member.filter === "2e13032295d06cb32ab76c38a07299fc")
     .sort((a, b) => a.order - b.order);
   const alumnus = teamMembers
     .filter((member) => member.position === "Alumnus")
@@ -69,35 +69,54 @@ export default async function PeopleContent({
   return (
     <MainContainer isSideBar={false}>
       <ContentContainer>
-      <h1 className="costa font-bold text-7xl py-24 text-center">Team</h1>
-        <SectionBanter title={"Jameel Family"}>
-          <div className="grid gap-6 md:grid-cols-3">
-            {leadership.map((member) => (
+      <h1 className="mono uppercase font-regular text-7xl py-24 text-center">Team</h1>   
+      <div className="pb-9">
+          <h2 className="serif font-semibold text-3xl pb-6">Core</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {team.map((member) => (
               <PersonalCard
+              key={member.order}
+              author={member}
+              socialPlatforms={[]}
+              ></PersonalCard>
+            ))}
+          </div>
+        </div>
+<div className="border border-b py-12"></div>
+        <div>
+          <h2 className="serif font-semibold text-3xl pb-6">Advisory Committee</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {advisoryCommittee.map((member) => (
+              <PersonalCard
+                key={member.order}
                 author={member}
                 socialPlatforms={["Twitter", "Linkedin"]}
               ></PersonalCard>
             ))}
           </div>
-          <Article>
-            <p className="mt-6">
-              Check out a selection of archival photos of the Jameel family from
-              across the history of Community Jameel.
-            </p>
-          </Article>
-        </SectionBanter>
-        <SectionBanter title={"Team"}>
-          <div className="grid w-full gap-6 md:grid-cols-3">
-            {team.map((member) => (
+        </div>
+
+
+        <div>
+          <h2 className="serif font-semibold text-3xl pb-6">Jameel Family</h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {leadership.map((member) => (
               <PersonalCard
                 key={member.order}
                 author={member}
-                socialPlatforms={[]}
+                socialPlatforms={["Twitter", "Linkedin"]}
               ></PersonalCard>
             ))}
           </div>
-        </SectionBanter>
-        <SectionBanter title=""></SectionBanter>
+        </div>
+
+
+
+            <p className="serif font-normal text-base mt-3">
+              Check out a selection of <a href="https://www.communityjameel.org/about/people/family-album" className="underline">archival photos</a> of the Jameel family from across the history of Community Jameel.
+            </p>
+            <div className="pb-24"></div>
+
       </ContentContainer>
     </MainContainer>
   );

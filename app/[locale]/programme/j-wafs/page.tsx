@@ -33,6 +33,7 @@ import { get } from "http";
 import { Divide } from "lucide-react";
 import React from "react";
 import ContentPhotos from "./content-photos";
+import PostAccordion from "@/components/mdx/accordion";
 
 export default async function JpalPage({
   params,
@@ -74,7 +75,6 @@ export default async function JpalPage({
   {
     /**Get the single programme by id from webflow */
   }
-  const jpalId = "61ee828a15a318c663bde6fb";
   const jwafsId = "61ee828a15a3182b72bde63d";
   const singleProgramme = programmesRawData.items.find(
     (item) => item.id === jwafsId
@@ -187,34 +187,40 @@ export default async function JpalPage({
 
   return (
     <MainContainer>
-      <div className="pt-24">
+      <div className="pt-12">
         <TableRowSingle repository={dataForRow.repository} />
-        <div className=" p-6 ">
-          <h2>Related multimedia</h2>
-          <div className="grid grid-cols-3 gap-5 w-1/2 mx-auto">
+               <div className="">
+          <PostAccordion title={"News"}  >
+          <div className="grid grid-cols-3 gap-5">
+            {newsProps.slice(2, 5).map((item) => (
+              <NewsCard content={item} locale={params} />
+            ))}
+          </div>
+        </PostAccordion>
+
+        </div>
+        <div className="">
+        <PostAccordion title={"Multimedia"}  >
+          <div className="grid grid-cols-3 gap-5">
             {multimediaProps.map((item) => (
               <div key={item.alt} className="">
                 <MediaCard {...item} />
               </div>
             ))}
           </div>
+          </PostAccordion>
         </div>
-        <div className=" p-6 ">
-          <h2>Related News</h2>
-          <div className="grid grid-cols-3 gap-5">
-            {newsProps.slice(2, 5).map((item) => (
-              <NewsCard content={item} locale={params} />
-            ))}
-          </div>
-        </div>
-        <div className=" p-6 ">
-          <h2>Related Posts </h2>
+
+        <div className="">
+          <PostAccordion title={"Press"}  >
           <div className="grid grid-cols-3 gap-5">
             {postProps.slice(0, 8).map((post) => (
               <PostCard key={post.title} content={post} />
             ))}
           </div>
+          </PostAccordion>
         </div>
+{/* 
 
         <div>
           <h2> related features </h2>
@@ -231,25 +237,27 @@ export default async function JpalPage({
               </>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div>
-          <h2> related events </h2>
-          <div>
+         
+          <PostAccordion title={"Events"}  >
+          <div className="grid grid-cols-3 gap-5">
             {eventProps.map((item) => (
               <>
                 <EventCard article={item}></EventCard>
               </>
             ))}
           </div>
+          </PostAccordion>
         </div>
-        <div>
+        {/* <div>
           <h2> related photos by programme</h2>
           <div>
           <ContentPhotos images={cleanedRelatedPhotos} />
        
           </div>
-        </div>
+        </div> */}
       </div>
     </MainContainer>
   );

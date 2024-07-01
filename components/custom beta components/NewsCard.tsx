@@ -30,13 +30,12 @@ export default function NewsCard({ content, locale }: { content: NewsMainProps ,
 
       <div className="mt-6 md:align-middle">
         <div className="flex">
-          <a href={content.categoryLink} className="mono text-sm font-medium uppercase">{content.tag}</a>
-          <div className="mono text-sm font-medium uppercase px-3"><span aria-hidden="true">|</span></div>
-          <a href={content.categoryLink} className="mono text-sm font-medium uppercase">news</a>
-        
+          <a href={content.categoryLink} className="mono text-sm font-normal uppercase">{content.tag}</a>
+          {/* <div className="mono text-sm font-medium uppercase px-3"><span aria-hidden="true">|</span></div> */}
+          {/* <a href={content.categoryLink} className="mono text-sm font-normal uppercase">news</a>*/}
         </div>
         <a href={content.categoryLink} className="group mt-3 block">
-          <h2 className="text-xl costa font-bold tracking-normal transition duration-300 ease-in-out group-hover:underline lg:text-2xl xl:text-3xl lg:leading-tight">
+          <h2 className="text-base sans-serif font-medium tracking-normal transition duration-300 ease-in-out group-hover:underline lg:text-2xl xl:text-2xl lg:leading-tight">
             {locale.locale == 'ar' ? content.arabicTitle :content.title}
           </h2>
     
@@ -44,9 +43,9 @@ export default function NewsCard({ content, locale }: { content: NewsMainProps ,
 
         <div className="mt-2 block">
           <div className="flex">
-            <div><p className="mono text-sm font-medium uppercase">{content.authorName}</p></div>
-            <div className="mono text-sm font-medium uppercase px-3"><span aria-hidden="true">|</span></div>
-            <div><p className="mono text-sm font-medium uppercase"><time dateTime={content.date}>{content.date}</time>
+            <div><p className="mono text-sm font-normal uppercase">{content.authorName}</p></div>
+            <div className="mono text-sm font-normal uppercase px-3"><span aria-hidden="true">|</span></div>
+            <div><p className="mono text-sm font-normal uppercase"><time dateTime={content.date}>{content.date}</time>
               {/* <span>{content.readTime}</span> */}
             </p></div>
           </div>

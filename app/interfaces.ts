@@ -201,6 +201,9 @@ export type EventFieldData = {
   name: string;
   slug: string;
 };
+
+// EVENTS DATA START //
+
 export interface EventFieldDataCleaned {
   pushToGr: boolean;
   programmeLabel: string;
@@ -256,6 +259,22 @@ export interface EventFieldDataCleaned {
   name: string;
   slug: string;
 }
+
+export interface EventCardProps {
+  id: string;
+  name: string;
+  description: string;
+  programme: string;
+  imageUrl: string;
+  source: {
+    name: string;
+    imageUrl: string;
+    date: string;
+    readTime: string;
+  };
+}
+
+// EVENTS DATA END //
 
 export interface ProgrammeRawFields {
   "push-to-gr"?: string;
@@ -413,19 +432,7 @@ export interface PartnersRawFields {
   name?: string;
   slug?: string;
 }
-export interface EventCardProps {
-  id: string;
-  name: string;
-  description: string;
-  programme: string;
-  imageUrl: string;
-  source: {
-    name: string;
-    imageUrl: string;
-    date: string;
-    readTime: string;
-  };
-}
+
 export interface PhotoFieldsRaw {
   "name-arabic"?: string;
   "main-image"?: { fileId: string; url: string; alt: string | "" };
