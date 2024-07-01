@@ -40,20 +40,18 @@ export default async function page({
   return (
     <MainContainer isSideBar={false}>
       <ContentContainer>
-        <h1>Page </h1>
-
-        <div className="p-4 bg-white shadow rounded-lg">
-          <img
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="p-4">
+        <img
             src={member.imageUrl}
             alt={member.altTextImage}
-            className="w-48 h-48 object-cover rounded-md"
+            className="w-96 h-96 object-cover"
           />
-          <div className="mt-4">
-            <h2 className="text-xl font-bold mb-2">{member.name}</h2>
-            <ul className="text-gray-600 space-y-2">
-              <li>
-                <span className="font-semibold">Description:</span>{" "}
-                <div
+        </div>
+        <div className="p-4 border border-gray-300 rounded">
+        <h1 className="text-3xl serif font-bold">{member.name}</h1>
+        <p className="mono uppercase font-normal">{member.position}</p>
+        <div
                   className=""
                   dangerouslySetInnerHTML={{
                     __html: member.paragraphDescription
@@ -61,29 +59,20 @@ export default async function page({
                       : "",
                   }}
                 ></div>
-              </li>
-              <li>
-                <span className="font-semibold">Meta Description:</span>{" "}
-                {member.metaDescription}
-              </li>
-              <li>
-                <span className="font-semibold">Position:</span>{" "}
-                {member.position}
-              </li>
-              <li>
-                <span className="font-semibold">Order:</span> {member.order}
-              </li>
-             
-            </ul>
-            <SectionBanter title={"Related news"}>
-              <div className="grid md:grid-cols-3">
+        </div>
+      </div>
+
+          <div className="mt-4">
+            
+            
+      <div className="grid md:grid-cols-2">
                 {relatedNews.map((article) => (
                   <NewsSmall key={article.title} content={article} />
                 ))}
               </div>
-            </SectionBanter>
+          
           </div>
-        </div>
+
       </ContentContainer>
     </MainContainer>
   );

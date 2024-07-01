@@ -59,7 +59,7 @@ export default async function MainContainer({
         </div>
 
  
-        <div className="md:mt-10 ">{children}</div>
+        <div className="md:mt-8">{children}</div>
 
      
       </div>

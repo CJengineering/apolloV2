@@ -14,6 +14,7 @@ import mapItemToNewsMainProps from "@/functions/transformers/newsTransformer";
 import mapItemNews from "@/functions/transformers/newsSingleTransformer";
 import filterNewsItems from "@/functions/filters/filterRelatedPersonAndProgramme";
 import BreadCrumb from "@/components/custom beta components/BreadCrumb";
+import Accordion from "@/components/mdx/accordion";
 
 export default async function NewsPage({
   params,
@@ -109,6 +110,7 @@ export default async function NewsPage({
             <div>
               <h2 className="costa font-bold text-3xl">Related news</h2>
             </div>
+
             <div className="grid md:grid-cols-2">
               {relatedNews.map((article) => (
                 <NewsSmall key={article.title} content={article} />

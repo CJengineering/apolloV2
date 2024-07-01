@@ -16,6 +16,7 @@ import CardHorizontal from "@/components/CJ-components/components-CJ/basic compo
 import Link from "next/link";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import CardSquared from "@/components/CJ-components/components-CJ/basic components/CardSquared";
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -77,12 +78,15 @@ export default async function OverviewContent({
   return (
     <MainContainer isSideBar={false}>
       <ContentContainer>
-        <HeroBanter content={heroProps} />
+        {/* <HeroBanter content={heroProps} /> */}
+        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
+          Overview
+        </h1> 
 
         <SectionBanter title={""}>
-          <article className="prose w-full text-slate-600 dark:text-slate-400 max-w-none prose-p:leading-normal prose-headings:text-slate-800 dark:prose-headings:text-slate-200 prose-a:font-medium prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-800 dark:prose-strong:text-slate-100 prose-code:text-slate-800 prose-code:bg-slate-100 dark:prose-code:bg-slate-800 dark:prose-code:text-slate-100 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:before:content-[''] prose-code:after:content-[''] prose-pre:bg-slate-800 prose-pre:border prose-pre:border-slate-700 prose-headings:scroll-mt-24">
+          <article className="mx-auto leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
             <div className="text-rich-text w-richtext">
-              <p>
+              <p className="prose prose-2xl  dark:text-white font-medium">
                 Community Jameel advances science and learning for communities
                 to thrive.{" "}
               </p>
@@ -126,7 +130,7 @@ export default async function OverviewContent({
                 the Ministry of Human Resources and Social Development in the
                 Kingdom of Saudi Arabia.{" "}
               </p>
-              <h2>A tradition since 1945</h2>
+              <h3>A tradition since 1945</h3>
               <p>
                 In 2020, the Jameel family marked 75 years of business and
                 philanthropy by committing to advancing the United Nations
@@ -143,24 +147,26 @@ export default async function OverviewContent({
               </p>
             </div>
           </article>
+          <div className="py-12"></div>
         </SectionBanter>
         <SectionBanter title="">
           <div className="flex gap-6">
             <Link href={"/community"} className=" group cursor-pointer">
-              <CardHorizontal imageUrl={image} />
-              <div className="costa group-hover:text-purple-500 group-hover:">
+              <CardSquared imageUrl={image} />
+              <div className="sans-serif text-xl font-medium text">
                 Community
               </div>
             </Link>
             <Link href={"/community"} className=" group cursor-pointer">
-              <CardHorizontal imageUrl={image} />
-              <div className="costa group-hover:text-purple-500">People</div>
+              <CardSquared  imageUrl={image} />
+              <div className="sans-serif text-xl font-medium text">People</div>
             </Link>
             <Link href={"/community"} className=" group cursor-pointer">
-              <CardHorizontal imageUrl={image} />
-              <div className="costa group-hover:text-purple-500">Jameel 75</div>
+              <CardSquared imageUrl={image} />
+              <div className="sans-serif text-xl font-medium text">Jameel 75</div>
             </Link>
           </div>
+          <div className="py-24"></div>
         </SectionBanter>
       </ContentContainer>
     </MainContainer>

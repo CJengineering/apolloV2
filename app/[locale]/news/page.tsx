@@ -129,18 +129,32 @@ export default async function NewsContent({
   return (
     <MainContainer isSideBar={false}>
       <ContentContainer>
-        <HeroBanter content={heroProps} />
+      <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
+          News 
+        </h1>
+        {/* <HeroBanter content={heroProps} /> */}
         <SectionBanter title={""}>
-          <div className=" relative mb-4">
+          {/* <div className=" relative mb-4">
             <Search></Search>
-          </div>
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
-            <Suspense fallback={<Loading />}>
-              {newsArray.map((news, index) => (
+          </div> */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
+          <div className="pb-6 lg:col-span-6"><Suspense fallback={<Loading />}>
+              {newsArray.slice(0,1).map((news, index) => (
                 <NewsCard key={index} content={news} locale={params} />
+              ))}
+
+            </Suspense>
+            </div>
+          <div className="lg:col-span-6 lg:pl-6"><Suspense fallback={<Loading />}>
+          {newsArray.slice(2,4).map((news, index)=> (
+                <NewsSmall key={index} content={news} />
               ))}
             </Suspense>
           </div>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
+        <div className="pb-6 lg:col-span-6"></div>
+        </div>
         </SectionBanter>
       </ContentContainer>
     </MainContainer>
