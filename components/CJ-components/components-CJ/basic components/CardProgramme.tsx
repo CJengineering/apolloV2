@@ -10,6 +10,7 @@ export default function CardProgramme({
   programmeTitle,
   programmeType,              
   altText,
+
                        
 }: CardProgrammeProps) {
   return (

@@ -29,7 +29,7 @@ export default function TabsCJ({ rowData, cardData }: TabsCJProps) {
                 imageUrl={item.imageUrl}
                 programmeTitle={item.programmeTitle}
                 programmeType={""}
-                altText={item.altText} url={""}              />
+                altText={item.altText}            />
             ))}
           </div>
         </Tab.Panel>
