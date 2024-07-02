@@ -10,6 +10,9 @@ import { get } from "http";
 import React from "react";
 import ContentPhotos from "../../programme/j-wafs/content-photos";
 import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcollectionToLIghtBox";
+import { findRelatedPosts } from "@/functions/findFunctions/findRelatedPostsFromPosts";
+import PostCard from "@/components/custom beta components/PostCard";
+import SectionBanter from "@/components/custom beta components/SectionBanter";
 const addType = (items: any[], type: string) =>
   items.map((item) => ({ ...item, type }));
 
@@ -52,7 +55,16 @@ export default async function page({
     ...addType(eventsRaw.items, "event"),
     ...addType(peopleRaw.items, "people"),
   ];
-
+  const relatedPostsRaw = findRelatedPosts(post, rawPosts.items);
+  const relatedPostsCleaned = relatedPostsRaw.map((post) =>
+    postMapper(
+      post,
+      categoriesRaw.items,
+      eventsRaw.items,
+      programesRaw.items,
+      peopleRaw.items
+    )
+  );
   combinedItems.sort(
     (a, b) =>
       new Date(b.fieldData.datePublished).getTime() -
@@ -68,16 +80,26 @@ export default async function page({
   return (
     <MainContainer isSideBar={true}>
       <ContentContainer>
-        <h2>first h2</h2>
-        <h2>second h2</h2>
         <ArticleBanter article={article.article} />
-    
-        {cleanPost.imageCarousel.length > 0 && cleanPost.imageCarousel[0].url !== ''  && (
-          <>
-            <h2 id="third-h2">Related Images </h2>
-            <ContentPhotos images={cleanRelatedImages} />
-          </>
+
+        {relatedPostsCleaned.length > 0 && (
+          <SectionBanter title={"Related announcements"}>
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-3 ">
+              {relatedPostsCleaned.map((post) => (
+                <PostCard key={post.name} content={post} />
+              ))}
+            </div>
+          </SectionBanter>
         )}
+
+        {cleanPost.imageCarousel.length > 0 &&
+          cleanPost.imageCarousel[0].url !== "" && (
+  
+              <SectionBanter title="Related images">
+                <ContentPhotos images={cleanRelatedImages} />
+              </SectionBanter>
+    
+          )}
       </ContentContainer>
     </MainContainer>
   );
