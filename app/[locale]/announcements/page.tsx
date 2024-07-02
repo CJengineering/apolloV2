@@ -16,9 +16,7 @@ import EventSection from "@/components/custom beta components/eventSection";
 import HeroBanter from "@/components/custom beta components/HeroBanter";
 import image from "@/public/images/mapCJ.webp";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
-import NewsMain, {
- 
-} from "@/components/custom beta components/NewsMain";
+import NewsMain from "@/components/custom beta components/NewsMain";
 import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";
 import FeatureCard from "@/components/custom beta components/FeatureCard";
 import NewsSmall from "@/components/custom beta components/NewsSmall";
@@ -33,7 +31,6 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 import { Suspense } from "react";
 import { NewsMainProps } from "@/app/interfaces";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
-
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -57,7 +54,6 @@ export async function generateMetadata({
     description,
   };
 }
-
 
 export default async function AnnouncementsContent({
   params,
@@ -92,49 +88,43 @@ export default async function AnnouncementsContent({
   };
 
   if (!post) notFound();
-{/*Data fetching* */}
-const categoryId= getIdByDisplayName("Categories")
+  {
+    /*Data fetching* */
+  }
+  const categoryId = getIdByDisplayName("Categories");
 
-const rawPosts = await getData("61ee828a15a3183262bde542");
-const programesRaw = await getData("61ee828a15a3183d2abde540");
-const eventsRaw = await getData("6225fe8b1f52b40001a99d66");
-const peopleRaw = await getData("62271a6df4ceb0027d91e6c4");
-const categoriesRaw = await getData(categoryId);
+  const rawPosts = await getData("61ee828a15a3183262bde542");
+  const programesRaw = await getData("61ee828a15a3183d2abde540");
+  const eventsRaw = await getData("6225fe8b1f52b40001a99d66");
+  const peopleRaw = await getData("62271a6df4ceb0027d91e6c4");
+  const categoriesRaw = await getData(categoryId);
 
-const  posts = rawPosts.items.map((item) => postMapper(item, categoriesRaw.items,eventsRaw.items,programesRaw.items, peopleRaw.items));
-const cleanPosts: NewsMainProps[] = posts.map((item) => ({
-  tag: 'string',  // Assuming 'name' is the string you need for the tag
-  title: item.name,
-  arabicTitle: item.arabicTitle,
-  description: '',
-  source: item.name,
-  datePublished: item.datePublished,
-  readTime: '6 min',
-  postLink: `/announcements/${item.slug}`,
-  categoryLink: item.slug,  // Assuming 'url' is the string you need for the category link
-  authorLink: 'news',
-  postImage: item.thumbnail.url,
-  authorImage: 'https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg',
-}));
+  const posts = rawPosts.items.map((item) =>
+    postMapper(
+      item,
+      categoriesRaw.items,
+      eventsRaw.items,
+      programesRaw.items,
+      peopleRaw.items
+    )
+  );
 
   return (
     <MainContainer isSideBar={false}>
-    <ContentContainer>
-    {/* <HeroBanter content={heroProps} /> */}
-      <SectionBanter title={""}>
+      <ContentContainer>
+        <SectionBanter title={""}>
           <div className=" relative mb-4">
             <Search></Search>
           </div>
           <div className="grid gap-6 grid-cols-1 md:grid-cols-2 ">
-            <Suspense >
-            {cleanPosts.map((post) => (
-                  <PostCard  key={post.title}
-                  content={post} />
-                ))}
+            <Suspense>
+              {posts.map((post) => (
+                <PostCard key={post.name} content={post} />
+              ))}
             </Suspense>
           </div>
         </SectionBanter>
-    </ContentContainer>
-  </MainContainer>
+      </ContentContainer>
+    </MainContainer>
   );
 }

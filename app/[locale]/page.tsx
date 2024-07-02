@@ -193,21 +193,13 @@ export default async function SinglePost({
         />
         <HomeIcons />
 
-        <PostAccordion title={"Accordion that we have "}  >
-          <div>Hi, I am the accordion built in the template  </div>
+        <PostAccordion title={"Accordion that we have "}>
+          <div>Hi, I am the accordion built in the template </div>
           <div>You Can remove me </div>
         </PostAccordion>
         <SectionBanter title={"Features"}>
           <div className="grid  gap-6 grid-cols-1 md:grid-cols-3 ">
-            <FeatureCard content={articleData} />
-            <FeatureCard content={articleData} />
-            <FeatureCard content={articleData} />
-            <FeatureCard content={articleData} />
-            <FeatureCard content={articleData} />
-            <FeatureCard content={articleData} />
-            <FeatureCard content={articleData} />
-            <FeatureCard content={articleData} />
-            <FeatureCard content={articleData} />
+            <p className="text-4xl"> Add Feature CARD HERE </p>
           </div>
         </SectionBanter>
         <SectionBanter title="Programmes">
@@ -225,8 +217,6 @@ export default async function SinglePost({
           <div className="mx-auto max-w-2xl lg:flex lg:max-w-screen-2xl lg:items-start lg:space-x-8">
             {/* Sticky Main Article Container */}
 
-    
-
             {/* Scrollable Recent News Container */}
             <div className="mt-12 sm:mt-16 lg:ml-12 lg:mt-0 lg:w-1/2 xl:ml-16 ">
               <h3 className="relative border-b border-gray-300/70 pb-2.5 text-2xl font-medium text-gray-900 before:absolute before:-bottom-px before:left-0 before:h-px before:w-24 before:bg-red-600 before:content-['']">
@@ -234,9 +224,7 @@ export default async function SinglePost({
               </h3>
 
               {/* Articles Container */}
-              <div className="grid lg:gap-x-5 xl:grid-cols-1">
-               
-              </div>
+              <div className="grid lg:gap-x-5 xl:grid-cols-1"></div>
             </div>
           </div>
         </SectionBanter>

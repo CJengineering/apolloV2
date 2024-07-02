@@ -9,8 +9,8 @@ interface NavLink {
 interface NewsRightContentProps {
   source: string;
   datePublished: string;
-  relatedProgrammes: { name: string; href: string }[];
-  relatedPeople: { name: string; href: string }[];
+  relatedProgrammes: { name: string; slug: string }[];
+  relatedPeople: { name: string; slug: string }[];
 }
 
 const links: NavLink[] = [
@@ -36,14 +36,15 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
             <div className="mb-3">
               <div className="text-xs font-normal mono uppercase">date published</div>
               <div className="sans-serif text-base font-normal">{source}</div>
+                       
             </div>
             <div className="mb-3">
               <div className="text-xs font-normal mono uppercase">related lab</div>
-              <div className="sans-serif text-base font-normal">                
+              <div className="sans-serif text-base font-normal">   
               {relatedProgrammes.map((programme, index) => (
                   <Link
                     key={index}
-                    href={programme.href}
+                    href={`/programmes/${programme.slug}`}
                     className="underline hover:cursor-pointer mt-0"
                   >
                     {programme.name}
@@ -58,7 +59,7 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
                   {relatedPeople.map((person, index) => (
                     <li key={index}>
                       <Link
-                        href={person.href}
+                        href={`/people/${person.slug}`}
                         className="underline hover:cursor-pointer mt-0"
                       >
                         {person.name}
