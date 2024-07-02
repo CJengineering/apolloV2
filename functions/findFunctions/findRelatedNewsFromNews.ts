@@ -1,11 +1,12 @@
 import { Item, NewsRawFields } from "@/app/interfaces";
 
 function hasCommonElements(arr1: string[], arr2: string[]): boolean {
-
   return arr1.length > 0 && arr2.length > 0 && arr1.some(item => arr2.includes(item));
 }
 
 export function findRelatedNews(newsItem: Item<NewsRawFields>, newsArray: Item<NewsRawFields>[]): Item<NewsRawFields>[] {
+  // Accessing 'id' directly from 'newsItem', assuming it's structured as 'newsItem.id'
+  const currentId = newsItem.id; 
   const {
     programme,
     "programme-s": programmeS = [],
@@ -16,16 +17,9 @@ export function findRelatedNews(newsItem: Item<NewsRawFields>, newsArray: Item<N
     "related-team-members": relatedTeamMembers = []
   } = newsItem.fieldData;
 
-  console.log('Reference News Item:');
-  console.log('Programme:', programme);
-  console.log('Programme-s:', programmeS);
-  console.log('People:', people);
-  console.log('Innovation-s:', innovationS);
-  console.log('Related-event:', relatedEvent);
-  console.log('Related-event-s:', relatedEventS);
-  console.log('Related-team-members:', relatedTeamMembers);
-
   return newsArray.filter(news => {
+    // Accessing 'id' directly from each 'news', assuming it's structured as 'news.id'
+    const newsId = news.id; 
     const {
       programme: newsProgramme,
       "programme-s": newsProgrammeS = [],
@@ -36,10 +30,9 @@ export function findRelatedNews(newsItem: Item<NewsRawFields>, newsArray: Item<N
       "related-team-members": newsRelatedTeamMembers = []
     } = news.fieldData;
 
-   
-
     return (
-      (programme && programme === newsProgramme) ||
+      currentId !== newsId && 
+      ((programme && programme === newsProgramme) ||
       (programme && newsProgrammeS.includes(programme)) ||
       (newsProgramme && programmeS.includes(newsProgramme)) ||
       hasCommonElements(programmeS, newsProgrammeS) ||
@@ -49,7 +42,7 @@ export function findRelatedNews(newsItem: Item<NewsRawFields>, newsArray: Item<N
       (relatedEvent && newsRelatedEventS.includes(relatedEvent)) ||
       (newsRelatedEvent && relatedEventS.includes(newsRelatedEvent)) ||
       hasCommonElements(relatedEventS, newsRelatedEventS) ||
-      hasCommonElements(relatedTeamMembers, newsRelatedTeamMembers)
+      hasCommonElements(relatedTeamMembers, newsRelatedTeamMembers))
     );
   });
 }
