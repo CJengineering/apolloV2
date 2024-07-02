@@ -33,22 +33,7 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 import { Suspense } from "react";
 import { NewsMainProps } from "@/app/interfaces";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
-const articleData: NewsMainProps = {
-  tag: "Technology",
-  arabicTitle: "تكنولوجيا",
-  title: "Apple to Turn IPhones Into Payment Terminals in Fintech Push",
-  description:
-    "Apple Inc is introducing a new feature that will allow businesses to accept credit card and digital payments with just a tap on their iPhones, bypassing hardware systems such as Block Inc's Square terminals.",
-  authorName: "Mark Jack",
-  date: "2021-12-16",
-  readTime: "6 min",
-  postLink: "post.html",
-  categoryLink: "category.html",
-  authorLink: "author.html",
-  postImage: cancerImage.src,
-  authorImage:
-    "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg",
-};
+
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -118,12 +103,12 @@ const categoriesRaw = await getData(categoryId);
 
 const  posts = rawPosts.items.map((item) => postMapper(item, categoriesRaw.items,eventsRaw.items,programesRaw.items, peopleRaw.items));
 const cleanPosts: NewsMainProps[] = posts.map((item) => ({
-  tag: item.programme.name,  // Assuming 'name' is the string you need for the tag
+  tag: 'string',  // Assuming 'name' is the string you need for the tag
   title: item.name,
   arabicTitle: item.arabicTitle,
   description: '',
-  authorName: item.name,
-  date: item.datePublished,
+  source: item.name,
+  datePublished: item.datePublished,
   readTime: '6 min',
   postLink: `/announcements/${item.slug}`,
   categoryLink: item.slug,  // Assuming 'url' is the string you need for the category link

@@ -15,6 +15,10 @@ import mapItemNews from "@/functions/transformers/newsSingleTransformer";
 import filterNewsItems from "@/functions/filters/filterRelatedPersonAndProgramme";
 import BreadCrumb from "@/components/custom beta components/BreadCrumb";
 import Accordion from "@/components/mdx/accordion";
+import newsMapper from "@/functions/transformers/newsMapper";
+import { get } from "http";
+import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
+import { findRelatedNews } from "@/functions/findFunctions/findRelatedNewsFromNews";
 
 export default async function NewsPage({
   params,
@@ -27,38 +31,39 @@ export default async function NewsPage({
 }) {
   const title = "Sample Article Title";
 
+  //Get Names
+
+  const progremmeId = getIdByDisplayName("Programmes");
+  const peopleId = getIdByDisplayName("People");
+  const sourcesId = getIdByDisplayName("Sources");
+  const tagsId = getIdByDisplayName("Tags");
+  const eventsId = getIdByDisplayName("Events");
+  const newsId = getIdByDisplayName("News");
+
   // Data fetching
-  const dataWeb = await getData("61ee828a15a3185c99bde543");
-  const sourcesAll = await getData("61ee828a15a3183f55bde545");
-  const peopleAll = await getData("62271a6df4ceb0027d91e6c4");
-  const programmeAll = await getData("61ee828a15a3183d2abde540");
+  const dataWeb = await getData(newsId);
+  const sourcesAll = await getData(sourcesId);
+  const peopleAll = await getData(peopleId);
+  const programmeAll = await getData(progremmeId);
+  const eventAll = await getData(eventsId);
+  const tagsAll = await getData(tagsId);
 
   const rawNewsArray = dataWeb.items;
-  const rawNews = rawNewsArray.find(
+  const rawSingleNews = rawNewsArray.find(
     (item) => item.fieldData.slug === params.slug
   );
-
+  const relatedNews = findRelatedNews(rawSingleNews, rawNewsArray);
   const newsItem = mapItemNews(
-    rawNews,
+    rawSingleNews,
     sourcesAll.items,
     programmeAll.items,
     peopleAll.items
   );
-
-  const filteredNewsItems = filterNewsItems(
-    rawNewsArray,
-    rawNews.fieldData.programme,
-    rawNews.fieldData.people,
-    rawNews.id
-  );
-
-  const relatedNews = filteredNewsItems.map((item) =>
-    mapItemToNewsMainProps(item, sourcesAll.items, programmeAll.items)
-  );
+  const relatedNewsClean = relatedNews.map((item) =>newsMapper(item, programmeAll.items, peopleAll.items, sourcesAll.items, tagsAll.items, eventAll.items));
 
   if (!newsItem) notFound();
 
-  return (
+  return (  
     <MainContainer isSideBar={false}>
       <ContentContainer>
         <div>
@@ -112,12 +117,12 @@ export default async function NewsPage({
             </div>
 
             <div className="grid md:grid-cols-2">
-              {relatedNews.map((article) => (
-                <NewsSmall key={article.title} content={article} />
+              {relatedNewsClean .map((article) => (
+                <NewsSmall key={article.name} content={article} />
               ))}
             </div>
           </Suspense>
-        </div>
+        </div> . 
       </ContentContainer>
     </MainContainer>
   );

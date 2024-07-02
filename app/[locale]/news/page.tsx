@@ -16,9 +16,7 @@ import EventSection from "@/components/custom beta components/eventSection";
 import HeroBanter from "@/components/custom beta components/HeroBanter";
 import image from "@/public/images/mapCJ.webp";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
-import NewsMain, {
-
-} from "@/components/custom beta components/NewsMain";
+import NewsMain from "@/components/custom beta components/NewsMain";
 import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";
 import FeatureCard from "@/components/custom beta components/FeatureCard";
 import NewsSmall from "@/components/custom beta components/NewsSmall";
@@ -35,23 +33,10 @@ import Loading from "@/components/custom beta components/Loading";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import { NewsMainProps } from "@/app/interfaces";
+import newsMapper from "@/functions/transformers/newsMapper";
+import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 
-const articleData: NewsMainProps = {
-  tag: "Technology",
-  arabicTitle: "تكنولوجيا",
-  title: "Apple to Turn IPhones Into Payment Terminals in Fintech Push",
-  description:
-    "Apple Inc is introducing a new feature that will allow businesses to accept credit card and digital payments with just a tap on their iPhones, bypassing hardware systems such as Block Inc's Square terminals.",
-  authorName: "Mark Jack",
-  date: "2021-12-16",
-  readTime: "6 min",
-  postLink: "post.html",
-  categoryLink: "category.html",
-  authorLink: "author.html",
-  postImage: cancerImage.src,
-  authorImage:
-    "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg",
-};
+
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -106,13 +91,36 @@ export default async function NewsContent({
     /** DATA FETCHING  */
   }
 
-  const dataWeb = await getData("61ee828a15a3185c99bde543");
-  const sourcesAll = await getData("61ee828a15a3183f55bde545");
-  const peopleAll = await getData("62271a6df4ceb0027d91e6c4");
+  //Get Names
 
-  const programmeAll = await getData("61ee828a15a3183d2abde540");
+  const progremmeId = getIdByDisplayName("Programmes");
+  const peopleId = getIdByDisplayName("People");
+  const sourcesId = getIdByDisplayName("Sources");
+  const tagsId = getIdByDisplayName("Tags");
+  const eventsId = getIdByDisplayName("Events");
+  const newsId = getIdByDisplayName("News");
+
+  // Data fetching
+  const dataWeb = await getData(newsId);
+  const sourcesAll = await getData(sourcesId);
+  const peopleAll = await getData(peopleId);
+  const programmeAll = await getData(progremmeId);
+  const eventAll = await getData(eventsId);
+  const tagsAll = await getData(tagsId);
+
   let rawNewsArray = dataWeb.items;
   rawNewsArray = rawNewsArray.filter((item) => item.isDraft === false);
+
+  const newsArrayCleaned = rawNewsArray.map((item) =>
+    newsMapper(
+      item,
+      programmeAll.items,
+      peopleAll.items,
+      sourcesAll.items,
+      tagsAll.items,
+      eventAll.items
+    )
+  );
   const newsArray = rawNewsArray.map((item) =>
     mapItemToNewsMainProps(item, sourcesAll.items, programmeAll.items)
   );
@@ -129,8 +137,8 @@ export default async function NewsContent({
   return (
     <MainContainer isSideBar={false}>
       <ContentContainer>
-      <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
-          News 
+        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
+          News
         </h1>
         {/* <HeroBanter content={heroProps} /> */}
         <SectionBanter title={""}>
@@ -138,23 +146,23 @@ export default async function NewsContent({
             <Search></Search>
           </div> */}
           <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
-          <div className="pb-6 lg:col-span-6"><Suspense fallback={<Loading />}>
-              {newsArray.slice(0,1).map((news, index) => (
-                <NewsCard key={index} content={news} locale={params} />
-              ))}
-
-            </Suspense>
+            <div className="pb-6 lg:col-span-6">
+              <Suspense fallback={<Loading />}>
+                {newsArrayCleaned.slice(0, 1).map((news, index) => (
+                  <NewsCard key={index} content={news} locale={params} />
+                ))}
+              </Suspense>
             </div>
-          <div className="lg:col-span-6 lg:pl-6"><Suspense fallback={<Loading />}>
-          {newsArray.slice(2,4).map((news, index)=> (
-                <NewsSmall key={index} content={news} />
-              ))}
-            </Suspense>
+            <div className="lg:col-span-6 lg:pl-6">
+              <Suspense fallback={<Loading />}>
+              {newsArrayCleaned.slice(2,4).map((news, index)=> (
+                <NewsSmall key={index} content={news } />
+              ))}</Suspense>
+            </div>
           </div>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
-        <div className="pb-6 lg:col-span-6"></div>
-        </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
+            <div className="pb-6 lg:col-span-6"></div>
+          </div>
         </SectionBanter>
       </ContentContainer>
     </MainContainer>

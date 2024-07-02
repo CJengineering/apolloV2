@@ -55,6 +55,7 @@ export default async function JpalPage({
   const photosCollectionID = getIdByDisplayName("Photos");
   const prizesCollectionID = getIdByDisplayName("Prizes");
   const categoryId = getIdByDisplayName("Categories");
+  const tagId = getIdByDisplayName("Tags");
 
   {
     /**Get the data from the collection */
@@ -74,6 +75,7 @@ export default async function JpalPage({
   const photosRawData = await getData(photosCollectionID);
   const prizesRawData = await getData(prizesCollectionID);
   const categoriesRawData = await getData(categoryId);
+  const tagsRawData = await getData(tagId);
 
   {
     /**Get the single programme by id from webflow */
@@ -149,7 +151,9 @@ export default async function JpalPage({
       item,
       programmesRawData.items,
       peopleRawData.items,
-      sourcesRawData.items
+      sourcesRawData.items,
+      tagsRawData.items,
+      eventsRawData.items
     )
   );
   const cleanRelatedMultimedia = relatedMultimedia.map((item) =>
@@ -207,9 +211,9 @@ export default async function JpalPage({
         <div className=" p-6 ">
           <h2>Related News</h2>
           <div className="grid grid-cols-3 gap-5">
-            {newsProps.slice(2, 5).map((item) => (
+            {/* {newsProps.slice(2, 5).map((item) => (
               <NewsCard content={item} locale={params} />
-            ))}
+            ))} */}
           </div>
         </div>
         <div className=" p-6 ">
