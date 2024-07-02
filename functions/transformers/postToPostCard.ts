@@ -8,8 +8,8 @@ import { Item, NewsMainProps, PostFieldsCleaned } from "@/app/interfaces";
         title: fieldData.name,
         arabicTitle: fieldData.arabicTitle,
         description: '',
-        authorName: fieldData.name,
-        date: fieldData.datePublished,
+        source: fieldData.name,
+        datePublished: fieldData.datePublished,
         readTime: '6 min',
 
         postLink: `/announcements/${fieldData.slug}`,

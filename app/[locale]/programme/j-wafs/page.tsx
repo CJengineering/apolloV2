@@ -184,7 +184,7 @@ export default async function JpalPage({
       programmesRawData.items
     )
   );
-  const postProps = cleanRelatedPosts.map(postToPostCard);
+  const postProps = cleanRelatedPosts
   const eventProps = cleanRelatedEvents.map(mapEventFieldDataToEventCard);
 
   const dataForRow = mapProgrammeToRowData(
@@ -222,7 +222,7 @@ export default async function JpalPage({
           <PostAccordion title={"Press"}  >
           <div className="grid grid-cols-3 gap-5">
             {postProps.slice(0, 8).map((post) => (
-              <PostCard key={post.title} content={post} />
+              <PostCard key={post.name} content={post} />
             ))}
           </div>
           </PostAccordion>

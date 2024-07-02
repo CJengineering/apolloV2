@@ -14,9 +14,7 @@ import SectionUnderline from "@/components/CJ-components/components-CJ/layout/Se
 import SourceContainer from "@/components/CJ-components/components-CJ/layout/SourceContainer";
 import Header4 from "@/components/CJ-components/components-CJ/typography/Header4";
 import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";
-import NewsMain, {
- 
-} from "@/components/custom beta components/NewsMain";
+import NewsMain from "@/components/custom beta components/NewsMain";
 import testImage from "@/public/images/content-image-01.jpg";
 import NewsSmall from "@/components/custom beta components/NewsSmall";
 import SocialMedia from "@/components/custom beta components/SocialMedia";
@@ -256,7 +254,9 @@ const components = [
       <CardProgramme
         imageUrl={testImage.src}
         programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab" altText={""}      />
+        programmeType="abdul latif jameel poverty action lab"
+        altText={""}
+      />
     ),
   },
   {
@@ -287,7 +287,9 @@ const components = [
       <CardProgramme
         imageUrl={testImage.src}
         programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab" altText={""}      />
+        programmeType="abdul latif jameel poverty action lab"
+        altText={""}
+      />
     ),
   },
   {
@@ -296,7 +298,9 @@ const components = [
       <CardProgramme
         imageUrl={testImage.src}
         programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab" altText={""}      />
+        programmeType="abdul latif jameel poverty action lab"
+        altText={""}
+      />
     ),
   },
   {
@@ -305,7 +309,9 @@ const components = [
       <CardProgramme
         imageUrl={testImage.src}
         programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab" altText={""}      />
+        programmeType="abdul latif jameel poverty action lab"
+        altText={""}
+      />
     ),
   },
   {
@@ -314,7 +320,9 @@ const components = [
       <CardProgramme
         imageUrl={testImage.src}
         programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab" altText={""}      />
+        programmeType="abdul latif jameel poverty action lab"
+        altText={""}
+      />
     ),
   },
 ];
@@ -437,7 +445,7 @@ export default async function HomeComponents() {
             <div className="flex gap-5">
               <div className="w-[400px]">
                 <div className="">
-                  <ButtonCJ href={"#"} text={"Click Me"}/>
+                  <ButtonCJ href={"#"} text={"Click Me"} />
                 </div>
               </div>
               <div className="flex">
@@ -635,9 +643,7 @@ export default async function HomeComponents() {
             </div>
             <div className=" gap-5">
               <div className=" ">
-                <div className=" flex p-4 border-dotted border-r-gray-100 border-2 ">
-              
-                </div>
+                <div className=" flex p-4 border-dotted border-r-gray-100 border-2 "></div>
               </div>
             </div>
           </li>
@@ -652,9 +658,7 @@ export default async function HomeComponents() {
             </div>
             <div className=" gap-5">
               <div className=" ">
-                <div className=" flex p-4 border-dotted border-r-gray-100 border-2 ">
-              
-                </div>
+                <div className=" flex p-4 border-dotted border-r-gray-100 border-2 "></div>
               </div>
             </div>
           </li>
@@ -670,9 +674,7 @@ export default async function HomeComponents() {
             <div className=" gap-5">
               <div className="w-1/2 ">
                 <div className=" flex p-4 border-dotted border-r-gray-100 border-2 ">
-                  <div className="grid grid-cols-1">
-              
-                  </div>
+                  <div className="grid grid-cols-1"></div>
                 </div>
               </div>
             </div>
@@ -855,7 +857,12 @@ export default async function HomeComponents() {
             <div className=" ">
               <div className="w-full ">
                 <div className=" p-4 border-dotted border-r-gray-100 border-2 ">
-                 <ModalVideoYoutube  thumbWidth={400} thumbHeight={440} thumbAlt={""} videoUrl={"https://www.youtube.com/watch?v=i7g4IrbJ_WU"} />
+                  <ModalVideoYoutube
+                    thumbWidth={400}
+                    thumbHeight={440}
+                    thumbAlt={""}
+                    videoUrl={"https://www.youtube.com/watch?v=i7g4IrbJ_WU"}
+                  />
                 </div>
               </div>
             </div>

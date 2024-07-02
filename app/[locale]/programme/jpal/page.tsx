@@ -1,4 +1,3 @@
-
 import TableRowSingle from "@/components/CJ-components/components-CJ/custom components/TableRowSIngle";
 
 import EventCard from "@/components/custom beta components/EventCard";
@@ -114,7 +113,7 @@ export default async function JpalPage({
   const relatedJobs = filterRelatedAwards(jobsRawData.items, {
     programme: singleProgramme.id,
   });
- const relatedPhotos = photosRawData.items
+  const relatedPhotos = photosRawData.items;
   {
     /**Missing to add 
     prizes jobs people photos learns
@@ -141,11 +140,9 @@ export default async function JpalPage({
   const cleanedFeatures = relatedFeatures.map((item) =>
     featureMapper(item, programmesRawData.items)
   );
-  const cleanedRelatedPhotos = relatedPhotos.map((item) => (photoMapper(
-    item,
-    programmesRawData.items,
-    peopleRawData.items
-  )));
+  const cleanedRelatedPhotos = relatedPhotos.map((item) =>
+    photoMapper(item, programmesRawData.items, peopleRawData.items)
+  );
   const cleanRelatedNews = relatedNews.map((item) =>
     newsMapper(
       item,
@@ -186,7 +183,7 @@ export default async function JpalPage({
       programmesRawData.items
     )
   );
-  const postProps = cleanRelatedPosts.map(postToPostCard);
+  const postProps = cleanRelatedPosts;
   const eventProps = cleanRelatedEvents.map(mapEventFieldDataToEventCard);
 
   const dataForRow = mapProgrammeToRowData(
@@ -220,7 +217,7 @@ export default async function JpalPage({
           <h2>Related Posts </h2>
           <div className="grid grid-cols-3 gap-5">
             {postProps.slice(0, 8).map((post) => (
-              <PostCard key={post.title} content={post} />
+              <PostCard key={post.name} content={post} />
             ))}
           </div>
         </div>
@@ -255,8 +252,7 @@ export default async function JpalPage({
         <div>
           <h2> related photos by programme</h2>
           <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
+            <ContentPhotos images={cleanedRelatedPhotos} />
           </div>
         </div>
       </div>

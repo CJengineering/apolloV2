@@ -1,19 +1,19 @@
-import { NewsMainProps } from "@/app/interfaces";
+import { FeatureCleanedFields, NewsCleanedFields, NewsMainProps } from "@/app/interfaces";
 import React from "react";
 
 
-export default function FeatureCard({ content }: { content: NewsMainProps }) {
+export default function FeatureCard({ content }: { content: FeatureCleanedFields }) {
   return (
     <article className="relative  ">
       <a
-        href={content.postLink}
+        href={content.slug}
         className="groupe relative z-10 block overflow-hidden  bg-gray-100"
         style={{ paddingBottom: "56.25%", position: "relative" }}
       >
         <div className="aspect-h-9 aspect-w-16">
           <img
             className="absolute top-0 left-0 w-full h-full object-cover object-center transition duration-300 ease-in-out group-hover:scale-140"
-            src={content.postImage}
+            src={content.image16x9.url}
             alt="Featured article"
           />
         </div>
@@ -21,19 +21,19 @@ export default function FeatureCard({ content }: { content: NewsMainProps }) {
 
       <div className="mt-6 md:align-middle">
         <a
-          href={content.categoryLink}
+          href={content.slug}
           className="transition-color relative text-sm font-medium uppercase tracking-widest text-red-700 duration-300 ease-in-out hover:text-red-600"
         >
-          {content.tag}
+          {'tag'}
         </a>
-        <a href={content.postLink} className="group mt-3 block">
+        <a href={content.slug} className="group mt-3 block">
           <h2 className=" text-xl costa font-medium tracking-normal text-gray-900 decoration-gray-800 decoration-3 transition duration-300 ease-in-out group-hover:underline md:tracking-tight lg:text-2xl xl:text-3xl lg:leading-tight">
-            {content.title}
+            {content.name}
           </h2>
           <div>
             <p
               className="mt-4 text-base leading-loose text-gray-600"
-              dangerouslySetInnerHTML={{ __html: content.description }}
+              dangerouslySetInnerHTML={{ __html: content.shortText }}
             ></p>
           </div>
         </a>
@@ -41,17 +41,17 @@ export default function FeatureCard({ content }: { content: NewsMainProps }) {
         <div className="mt-4 flex items-center sm:mt-8">
           <div className="">
             <a
-              href={content.authorLink}
+              href={content.slug}
               className="text-sm font-medium text-gray-800 hover:underline"
             >
-              {content.authorName}
+              {'source'}
             </a>
             <p className="text-sm text-gray-500">
-              <time dateTime={content.date}>
-                {new Date(content.date).toLocaleDateString()}
+              <time dateTime={content.dateDisplay}>
+                {content.dateDisplay}
               </time>
               <span aria-hidden="true"> &middot; </span>
-              <span>{content.readTime} read</span>
+              <span>{'6 min'} read</span>
             </p>
           </div>
         </div>

@@ -53,11 +53,13 @@ export default async function NewsPage({
     (item) => item.fieldData.slug === params.slug
   );
   const relatedNews = findRelatedNews(rawSingleNews, rawNewsArray);
-  const newsItem = mapItemNews(
+  const newsItem = newsMapper(
     rawSingleNews,
-    sourcesAll.items,
     programmeAll.items,
-    peopleAll.items
+    peopleAll.items,
+    sourcesAll.items,
+    tagsAll.items,
+    eventAll.items
   );
   const relatedNewsClean = relatedNews.map((item) =>newsMapper(item, programmeAll.items, peopleAll.items, sourcesAll.items, tagsAll.items, eventAll.items));
 
@@ -65,6 +67,7 @@ export default async function NewsPage({
 
   return (  
     <MainContainer isSideBar={false}>
+   
       <ContentContainer>
         <div>
           <Suspense fallback={<Loading />}>
@@ -76,34 +79,34 @@ export default async function NewsPage({
               {/* <span className="uppercase">back to news</span> */}
             </Link>
             <img
-              src={newsItem.imageUrl}
+              src={newsItem.heroImage.url}
               alt={title}
               className="w-full h-auto mb-6"
             />
 
             <SectionBanter
               title={
-                params.locale === "ar" ? newsItem.arabicTitle : newsItem.title
+                params.locale === "ar" ? newsItem.arabicTitle : newsItem.name
               }
             >
               <div>
                 <NewsRightContent
-                  source={newsItem.source}
+                  source={newsItem.sources.name}
                   datePublished={newsItem.datePublished}
-                  relatedProgrammes={newsItem.relatedProgrammes}
-                  relatedPeople={newsItem.relatedPeople}
+                  relatedProgrammes={newsItem.programmeS}
+                  relatedPeople={newsItem.people}
                 />
                 <div>
                   <article className="mx-auto leading-7 text-black dark:text-white prose prose-xl serif font-normal dark:prose-invert">
                     <div
-                      dangerouslySetInnerHTML={{ __html: newsItem.richText1 }}
+                      dangerouslySetInnerHTML={{ __html: newsItem.excerpt }}
                     ></div>
-                    {newsItem.richText2 && (
+                    {newsItem.excerpt && (
                       <>
                         <h3 className="text-2xl">Excerpt</h3>
                         <div
                           dangerouslySetInnerHTML={{
-                            __html: newsItem.richText2,
+                            __html: newsItem.excerpt
                           }}
                         ></div>
                       </>
