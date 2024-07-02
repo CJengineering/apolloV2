@@ -5,7 +5,7 @@ export interface ButtonCJProps {
   children: React.ReactNode;
 }
 export interface CardProgrammeProps {
-  imageUrl:  string;
+  imageUrl: string;
   programmeTitle: string;
   programmeType: string;
   altText: string;
@@ -20,7 +20,7 @@ export interface ListContentProps {
   date: string | Date;
 }
 export interface ListSmallProps {
-  data?: { [key: string]: string[]  } 
+  data?: { [key: string]: string[] };
 }
 
 export interface StatProps {
@@ -68,12 +68,10 @@ export interface RowContentData {
   stats: StatProps[];
   listContent: ListContentProps[];
   features:
-    | 
-        {
-          image: CardHorizontalImageProps;
-          title: string;
-        }[]
-      
+    | {
+        image: CardHorizontalImageProps;
+        title: string;
+      }[]
     | [];
 }
 
@@ -194,7 +192,7 @@ export type EventFieldData = {
   partners: string[];
   "participants-affiliated-institutions": string[];
   "rich-text": string;
-  "image-gallery": {url:string, alt:string}[] 
+  "image-gallery": { url: string; alt: string }[];
   "gallery-photo-credits": string;
   "news-on-off": boolean;
   "custom-code-for-hiding-weglot": string;
@@ -248,11 +246,21 @@ export interface EventFieldDataCleaned {
   video3: string;
   tags: string[];
   relatedPeople: string[];
-  organisers: {name: string, slug: string, website:string,  logo:{url:string; alt:string}}[];
-  partners: {name: string, slug: string, website:string, logo:{url:string; alt:string}}[];
+  organisers: {
+    name: string;
+    slug: string;
+    website: string;
+    logo: { url: string; alt: string };
+  }[];
+  partners: {
+    name: string;
+    slug: string;
+    website: string;
+    logo: { url: string; alt: string };
+  }[];
   participantsAffiliatedInstitutions: string[];
   richText: string;
-  imageGallery: {url:string, alt:string}[];
+  imageGallery: { url: string; alt: string }[];
   galleryPhotoCredits: string;
   newsOnOff: boolean;
   customCodeForHidingWeglot: string;
@@ -296,8 +304,8 @@ export interface ProgrammeRawFields {
   "year-closed"?: string;
   "headquarters-english"?: string;
   "headquarters-arabic"?: string;
-  "logo-svg-original-ratio"?:{ url: string; alt: string };
-   "logo-svg-light-original-ratio"?:{ url: string; alt: string };
+  "logo-svg-original-ratio"?: { url: string; alt: string };
+  "logo-svg-light-original-ratio"?: { url: string; alt: string };
   "logo-svg-square-overlay"?: { url: string; alt: string };
   "logo-svg-dark"?: { url: string; alt: string };
   card?: { url: string; alt: string };
@@ -429,7 +437,7 @@ export interface PartnersRawFields {
     fileId: string;
     url: string;
     alt: string;
-  }
+  };
   "short-description"?: string;
   "short-description-arabic"?: string;
   group?: string;
@@ -749,289 +757,288 @@ export interface MultimediaCleanedFields {
 export interface FeatureRawFields {
   "name-arabic"?: string;
   "top-feature"?: boolean;
-  "order"?: number;
+  order?: number;
   "custom-link"?: string;
   "new-tab"?: boolean;
-  "label"?: string;
+  label?: string;
   "label-arabic"?: string;
   "short-text"?: string;
   "short-text-arabic"?: string;
-  "type"?: string;
-  "square"?: { url: string; alt: string };
+  type?: string;
+  square?: { url: string; alt: string };
   "image-16x9"?: { url: string; alt: string };
-  "hero"?: { url: string; alt: string };
+  hero?: { url: string; alt: string };
   "date-display"?: string;
   "programme-label"?: string;
   "programme-s"?: string[];
-  "name"?: string;
-  "slug"?: string;
+  name?: string;
+  slug?: string;
 }
 
 export interface FeatureCleanedFields {
+  nameArabic: string;
+  topFeature: boolean;
+  order: number;
+  customLink: string;
+  newTab: boolean;
+  label: string;
+  labelArabic: string;
+  shortText: string;
+  shortTextArabic: string;
+  type: string;
+  square: { url: string; alt: string };
+  image16x9: { url: string; alt: string };
+  hero: { url: string; alt: string };
+  dateDisplay: string;
+  programmeLabel: { name: string; slug: string };
+  programmeS: { name: string; slug: string }[];
+  name: string;
+  slug: string;
+}
 
-    nameArabic: string;
-    topFeature: boolean;
-    order: number;
-    customLink: string;
-    newTab: boolean;
-    label: string;
-    labelArabic: string;
-    shortText: string;
-    shortTextArabic: string;
-    type: string;
-    square: { url: string; alt: string };
-    image16x9: { url: string; alt: string };
-    hero: { url: string; alt: string };
-    dateDisplay: string;
-    programmeLabel: { name: string; slug: string };
-    programmeS: {name: string; slug: string}[];
-    name: string;
-    slug: string;
-  }
-  export interface NewsRawFields {
-   
-    "arabic-title"?: string;
-    "push-to-gr"?: boolean;
-    "featured"?: boolean;
-    "external-link"?: string;
-    "date-published"?: string;
-    "sources"?: string;
-    "programme"?: string;
-    "programme-s"?: string[];
-    "people"?: string[];
-    "innovation-s"?: string[];
-    "related-event"?: string;
-    "related-event-s"?: string[];
-    "summary"?: string;
-    "summary-arabic"?: string;
-    "excerpt"?: string;
-    "thumbnail"?: { url: string; alt: string };
-    "hero-image"?: { url: string; alt: string };
-    "thumbnail-alt-text"?: string;
-    "image-alt-text-arabic"?: string;
-    "related-team-members"?: string[];
-    "tags"?: string[];
-    "remove-from-news-grid"?: boolean;
-    "name"?: string;
-    "slug"?: string;
-  }
-  export interface NewsCleanedFields {
-    arabicTitle: string;
-    pushToGr: boolean;
-    featured: boolean;
-    externalLink: string;
-    datePublished: string;
-    sources: string;
-    programme: string;
-    programmeS: {name: string; slug: string}[];
-    people: {name: string; slug: string}[];
-    innovationS: string[];
-    relatedEvent: string;
-    relatedEventS: {name: string; slug: string}[];
-    summary: string;
-    summaryArabic: string;
-    excerpt: string;
-    thumbnail: { url: string; alt: string };
-    heroImage: { url: string; alt: string };
-    thumbnailAltText: string;
-    imageAltTextArabic: string;
-    relatedTeamMembers: {name: string; slug: string}[];
-    tags: string[];
-    removeFromNewsGrid: boolean;
-    name: string;
-    slug: string;
-  }
-  export interface MediaCardProps {
-    imageUrl: string;
-    alt: string;
-    source: 'video' | 'audio' | 'photo' | 'other';
-    name: string;
-    slug: string;
-  }
-  export interface NewsMainProps {
-    
-    arabicTitle: string;
-    tag: string;
-    title: string;
-    description: string;
-    authorName: string;
-    date: string;
-    readTime: string;
-    postLink: string;
-    categoryLink: string;
-    authorLink: string;
-    postImage: string;
-    authorImage: string;
-  }
-  export interface PublicationsRawFields {
-    "name-arabic"?: string;
-    "date-published"?: string;
-    "type"?: string;
-    "book-cover-image"?: { url: string; alt: string };
-    "thumbnail"?: { url: string; alt: string };
-    "text"?: string;
-    "summary-arabic"?: string;
-    "push-to-gr"?: boolean;
-    "external-link"?: string;
-    "document"?: { url: string; alt: string };
-    "source-2"?: string;
-    "programme-s"?: string[];
-    "author-s-meta-text"?: string;
-    "author-s-meta-text-arabic"?: string;
-    "people"?: string[];
-    "name"?: string;
-    "slug"?: string;
-  }
-  export interface PublicationsCleanedFields {
-    nameArabic: string;
-    datePublished: string;
-    type: string;
-    bookCoverImage: { url: string; alt: string };
-    thumbnail: { url: string; alt: string };
-    text: string;
-    summaryArabic: string;
-    pushToGr: boolean;
-    externalLink: string;
-    document: { url: string; alt: string };
-    source2: string;
-    programmeS: { name: string; slug: string }[];
-    authorMetaText: string;
-    authorMetaTextArabic: string;
-    people: { name: string; slug: string }[];
-    name: string;
-    slug: string;
-  }
-  export interface AwardsRawFields {
-    "name-arabic"?: string;
-    "custom-link"?: string;
-    "logo"?: { url: string; alt: string };
-    "thumbnail"?: { url: string; alt: string };
-    "image"?: { url: string; alt: string };
-    "open-graph"?: { url: string; alt: string };
-    "description"?: string;
-    "description-arabic"?: string;
-    "type"?: string;
-    "date"?: string;
-    "people-related"?: string[];
-    "programme-related"?: string[];
-    "name"?: string;
-    "slug"?: string;
-  }
-  export interface AwardsCleanedFields {
-    nameArabic: string;
-    customLink: string;
-    logo: { url: string; alt: string };
-    thumbnail: { url: string; alt: string };
-    image: { url: string; alt: string };
-    openGraph: { url: string; alt: string };
-    description: string;
-    descriptionArabic: string;
-    type: string;
-    date: string;
-    peopleRelated: { name: string; slug: string }[];
-    programmeRelated: { name: string; slug: string }[];
-    name: string;
-    slug: string;
-  }
-  export interface PrizesRawFields {
-    "name-arabic"?: string;
-    "award"?: string;
-    "award-year"?: number;
-    "winners-people"?: string[];
-    "summary"?: string;
-    "summary-arabic"?: string;
-    "name"?: string;
-    "slug"?: string;
-  }
-  export interface PrizesCleanedFields {
-    nameArabic: string;
-    award: { name: string; slug: string };
-    awardYear: number;
-    winnersPeople: { name: string; slug: string }[];
-    summary: string;
-    summaryArabic: string;
-    name: string;
-    slug: string;
-  }
-  export interface LegalRawFields {
-    "name-arabic"?: string;
-    "body"?: string;
-    "body-arabic"?: string;
-    "name"?: string;
-    "slug"?: string;
-  }
-  export interface LegalCleanFields {
-    nameArabic: string;
-    body: string;
-    bodyArabic: string;
-    name: string;
-    slug: string;
-  }
-  export interface TagRawFields {
-    "name-arabic"?: string;
-    "name"?: string;
-    "slug"?: string;
-  }
-  export interface TagCleanedFields {
-    nameArabic: string;
-    name: string;
-    slug: string;
-  }export interface SourceRawFields {
-    "name-arabic"?: string;
-    "short-name"?: string;
-    "short-name-arabic"?: string;
-    "logo"?: { url: string; alt: string };
-    "logo-native"?: { url: string; alt: string };
-    "name"?: string;
-    "slug"?: string;
-  }
-  export interface SourceCleanedFields {
-    nameArabic: string;
-    shortName: string;
-    shortNameArabic: string;
-    logo: { url: string; alt: string };
-    logoNative: { url: string; alt: string };
-    name: string;
-    slug: string;
-  }
-  export interface JobsRawFields {
-    "name-arabic"?: string;
-    "link"?: string;
-    "label-programmed"?: string;
-    "related-programme"?: string[];
-    "posted-on"?: string;
-    "closing-date"?: string;
-    "type"?: string;
-    "country"?: string;
-    "city"?: string;
-    "description"?: string;
-    "description-arabic"?: string;
-    "name"?: string;
-    "slug"?: string;
-  }
-  export interface JobsCleanedFields {
-    nameArabic: string;
-    link: string;
-    labelProgrammed: { name: string; slug: string };
-    relatedProgramme: { name: string; slug: string }[];
-    postedOn: string;
-    closingDate: string;
-    type: string;
-    country: string;
-    city: string;
-    description: string;
-    descriptionArabic: string;
-    name: string;
-    slug: string;
-  }
-  
-  export interface CategorieRawFields {
-    "name-arabic"?: string;
-    "name"?: string;
-    "slug"?: string;
-  }
-  export interface CategorieCleanedFields {
-    nameArabic: string;
-    name: string;
-    slug: string;
-  }
+export interface NewsCleanedFields {
+  arabicTitle: string;
+  pushToGr: boolean;
+  featured: boolean;
+  externalLink: string;
+  datePublished: string;
+  sources: { name: string; slug: string };
+  programme: { name: string; slug: string };
+  programmeS: { name: string; slug: string }[];
+  people: { name: string; slug: string }[];
+  innovationS: { name: string; slug: string }[];
+  relatedEvent: { name: string; slug: string };
+  relatedEventS: { name: string; slug: string }[];
+  summary: string;
+  summaryArabic: string;
+  excerpt: string;
+  thumbnail: { url: string; alt: string };
+  heroImage: { url: string; alt: string };
+  thumbnailAltText: string;
+  imageAltTextArabic: string;
+  relatedTeamMembers: { name: string; slug: string }[];
+  tags: { name: string; slug: string }[];
+  removeFromNewsGrid: boolean;
+  name: string;
+  slug: string;
+}
+export interface MediaCardProps {
+  imageUrl: string;
+  alt: string;
+  source: "video" | "audio" | "photo" | "other";
+  name: string;
+  slug: string;
+}
+export interface NewsMainProps {
+  arabicTitle: string;
+  tag: string;
+  title: string;
+  description: string;
+  source: string;
+  datePublished: string;
+  readTime: string;
+  postLink: string;
+  categoryLink: string;
+  authorLink: string;
+  postImage: string;
+  authorImage: string;
+}
+export interface PublicationsRawFields {
+  "name-arabic"?: string;
+  "date-published"?: string;
+  type?: string;
+  "book-cover-image"?: { url: string; alt: string };
+  thumbnail?: { url: string; alt: string };
+  text?: string;
+  "summary-arabic"?: string;
+  "push-to-gr"?: boolean;
+  "external-link"?: string;
+  document?: { url: string; alt: string };
+  "source-2"?: string;
+  "programme-s"?: string[];
+  "author-s-meta-text"?: string;
+  "author-s-meta-text-arabic"?: string;
+  people?: string[];
+  name?: string;
+  slug?: string;
+}
+export interface PublicationsCleanedFields {
+  nameArabic: string;
+  datePublished: string;
+  type: string;
+  bookCoverImage: { url: string; alt: string };
+  thumbnail: { url: string; alt: string };
+  text: string;
+  summaryArabic: string;
+  pushToGr: boolean;
+  externalLink: string;
+  document: { url: string; alt: string };
+  source2: string;
+  programmeS: { name: string; slug: string }[];
+  authorMetaText: string;
+  authorMetaTextArabic: string;
+  people: { name: string; slug: string }[];
+  name: string;
+  slug: string;
+}
+export interface AwardsRawFields {
+  "name-arabic"?: string;
+  "custom-link"?: string;
+  logo?: { url: string; alt: string };
+  thumbnail?: { url: string; alt: string };
+  image?: { url: string; alt: string };
+  "open-graph"?: { url: string; alt: string };
+  description?: string;
+  "description-arabic"?: string;
+  type?: string;
+  date?: string;
+  "people-related"?: string[];
+  "programme-related"?: string[];
+  name?: string;
+  slug?: string;
+}
+export interface AwardsCleanedFields {
+  nameArabic: string;
+  customLink: string;
+  logo: { url: string; alt: string };
+  thumbnail: { url: string; alt: string };
+  image: { url: string; alt: string };
+  openGraph: { url: string; alt: string };
+  description: string;
+  descriptionArabic: string;
+  type: string;
+  date: string;
+  peopleRelated: { name: string; slug: string }[];
+  programmeRelated: { name: string; slug: string }[];
+  name: string;
+  slug: string;
+}
+export interface PrizesRawFields {
+  "name-arabic"?: string;
+  award?: string;
+  "award-year"?: number;
+  "winners-people"?: string[];
+  summary?: string;
+  "summary-arabic"?: string;
+  name?: string;
+  slug?: string;
+}
+export interface PrizesCleanedFields {
+  nameArabic: string;
+  award: { name: string; slug: string };
+  awardYear: number;
+  winnersPeople: { name: string; slug: string }[];
+  summary: string;
+  summaryArabic: string;
+  name: string;
+  slug: string;
+}
+export interface LegalRawFields {
+  "name-arabic"?: string;
+  body?: string;
+  "body-arabic"?: string;
+  name?: string;
+  slug?: string;
+}
+export interface LegalCleanFields {
+  nameArabic: string;
+  body: string;
+  bodyArabic: string;
+  name: string;
+  slug: string;
+}
+export interface TagRawFields {
+  "name-arabic"?: string;
+  name?: string;
+  slug?: string;
+}
+export interface TagCleanedFields {
+  nameArabic: string;
+  name: string;
+  slug: string;
+}
+export interface SourceRawFields {
+  "name-arabic"?: string;
+  "short-name"?: string;
+  "short-name-arabic"?: string;
+  logo?: { url: string; alt: string };
+  "logo-native"?: { url: string; alt: string };
+  name?: string;
+  slug?: string;
+}
+export interface SourceCleanedFields {
+  nameArabic: string;
+  shortName: string;
+  shortNameArabic: string;
+  logo: { url: string; alt: string };
+  logoNative: { url: string; alt: string };
+  name: string;
+  slug: string;
+}
+export interface JobsRawFields {
+  "name-arabic"?: string;
+  link?: string;
+  "label-programmed"?: string;
+  "related-programme"?: string[];
+  "posted-on"?: string;
+  "closing-date"?: string;
+  type?: string;
+  country?: string;
+  city?: string;
+  description?: string;
+  "description-arabic"?: string;
+  name?: string;
+  slug?: string;
+}
+export interface JobsCleanedFields {
+  nameArabic: string;
+  link: string;
+  labelProgrammed: { name: string; slug: string };
+  relatedProgramme: { name: string; slug: string }[];
+  postedOn: string;
+  closingDate: string;
+  type: string;
+  country: string;
+  city: string;
+  description: string;
+  descriptionArabic: string;
+  name: string;
+  slug: string;
+}
+
+export interface CategorieRawFields {
+  "name-arabic"?: string;
+  name?: string;
+  slug?: string;
+}
+export interface CategorieCleanedFields {
+  nameArabic: string;
+  name: string;
+  slug: string;
+}
+export interface NewsRawFields {
+  "arabic-title"?: string;
+  "push-to-gr"?: boolean;
+  featured?: boolean;
+  "external-link"?: string;
+  "date-published"?: string;
+  sources?: string;
+  programme?: string;
+  "programme-s"?: string[];
+  people?: string[];
+  "innovation-s"?: string[];
+  "related-event"?: string;
+  "related-event-s"?: string[];
+  summary?: string;
+  "summary-arabic"?: string;
+  excerpt?: string;
+  thumbnail?: { url: string; alt: string };
+  "hero-image"?: { url: string; alt: string };
+  "thumbnail-alt-text"?: string;
+  "image-alt-text-arabic"?: string;
+  "related-team-members"?: string[];
+  tags?: string[];
+  "remove-from-news-grid"?: boolean;
+  name?: string;
+  slug?: string;
+}

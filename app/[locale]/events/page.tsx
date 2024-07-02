@@ -45,8 +45,8 @@ const articleData: NewsMainProps = {
   title: "Apple to Turn IPhones Into Payment Terminals in Fintech Push",
   description:
     "Apple Inc is introducing a new feature that will allow businesses to accept credit card and digital payments with just a tap on their iPhones, bypassing hardware systems such as Block Inc's Square terminals.",
-  authorName: "Mark Jack",
-  date: "2021-12-16",
+  source: "Mark Jack",
+  datePublished: "2021-12-16",
   readTime: "6 min",
   postLink: "post.html",
   categoryLink: "category.html",

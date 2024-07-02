@@ -23,12 +23,12 @@ function calculateReadTime(text: string): string {
 
 export function newsToNewsCard(news: NewsCleanedFields): NewsMainProps {
     return {
-        tag: news.tags[0],
+        tag: 'test',
         arabicTitle: news.arabicTitle,
         title: news.name,
         description: news.excerpt,
-        authorName: news.sources,
-        date: news.datePublished,
+        source: 'source',
+        datePublished: news.datePublished,
         readTime: '6 min',
         postLink: news.slug,
         categoryLink: news.slug,

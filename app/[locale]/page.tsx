@@ -34,8 +34,8 @@ const articleData: NewsMainProps = {
   title: "Apple to Turn IPhones Into Payment Terminals in Fintech Push",
   description:
     "Apple Inc is introducing a new feature that will allow businesses to accept credit card and digital payments with just a tap on their iPhones, bypassing hardware systems such as Block Inc's Square terminals.",
-  authorName: "Mark Jack",
-  date: "2021-12-16",
+  source: "Mark Jack",
+  datePublished: "2021-12-16",
   readTime: "6 min",
   postLink: "post.html",
   categoryLink: "category.html",
@@ -225,7 +225,7 @@ export default async function SinglePost({
           <div className="mx-auto max-w-2xl lg:flex lg:max-w-screen-2xl lg:items-start lg:space-x-8">
             {/* Sticky Main Article Container */}
 
-            <NewsMain content={articleData} />
+    
 
             {/* Scrollable Recent News Container */}
             <div className="mt-12 sm:mt-16 lg:ml-12 lg:mt-0 lg:w-1/2 xl:ml-16 ">
@@ -235,10 +235,7 @@ export default async function SinglePost({
 
               {/* Articles Container */}
               <div className="grid lg:gap-x-5 xl:grid-cols-1">
-                <NewsSmall content={articleData} />
-                <NewsSmall content={articleData} />
-                <NewsSmall content={articleData} />
-                <NewsSmall content={articleData} />
+               
               </div>
             </div>
           </div>

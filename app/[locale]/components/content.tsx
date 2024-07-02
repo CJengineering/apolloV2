@@ -207,8 +207,8 @@ const articleData: NewsMainProps = {
   title: "Apple to Turn IPhones Into Payment Terminals in Fintech Push",
   description:
     "Apple Inc is introducing a new feature that will allow businesses to accept credit card and digital payments with just a tap on their iPhones, bypassing hardware systems such as Block Inc's Square terminals.",
-  authorName: "Mark Jack",
-  date: "2021-12-16",
+  source: "Mark Jack",
+  datePublished: "2021-12-16",
   readTime: "6 min",
   postLink: "post.html",
   categoryLink: "category.html",
@@ -636,7 +636,7 @@ export default async function HomeComponents() {
             <div className=" gap-5">
               <div className=" ">
                 <div className=" flex p-4 border-dotted border-r-gray-100 border-2 ">
-                  <NewsMain content={articleData} />
+              
                 </div>
               </div>
             </div>
@@ -653,7 +653,7 @@ export default async function HomeComponents() {
             <div className=" gap-5">
               <div className=" ">
                 <div className=" flex p-4 border-dotted border-r-gray-100 border-2 ">
-                  <NewsSmall content={articleData} />
+              
                 </div>
               </div>
             </div>
@@ -671,14 +671,7 @@ export default async function HomeComponents() {
               <div className="w-1/2 ">
                 <div className=" flex p-4 border-dotted border-r-gray-100 border-2 ">
                   <div className="grid grid-cols-1">
-                    <NewsSmall content={articleData} />
-                    <NewsSmall content={articleData} />
-                    <NewsSmall content={articleData} />
-                    <NewsSmall content={articleData} />
-                    <NewsSmall content={articleData} />
-                    <NewsSmall content={articleData} />
-                    <NewsSmall content={articleData} />
-                    <NewsSmall content={articleData} />
+              
                   </div>
                 </div>
               </div>

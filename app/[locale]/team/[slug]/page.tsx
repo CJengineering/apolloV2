@@ -66,9 +66,9 @@ export default async function page({
             
             
       <div className="grid md:grid-cols-2">
-                {relatedNews.map((article) => (
+                {/* {relatedNews.map((article) => (
                   <NewsSmall key={article.title} content={article} />
-                ))}
+                ))} */}
               </div>
           
           </div>
