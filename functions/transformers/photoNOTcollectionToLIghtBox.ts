@@ -1,12 +1,9 @@
 import {ImageLightbox,  } from "@/app/interfaces";
-interface SinglePhoto {
-    url: string;
-    alt: string;
-}
+
 
 
 export default function photoNotFromCollectionMapper(
-  item: SinglePhoto,
+  item: any,
 
 ): ImageLightbox {
   

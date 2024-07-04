@@ -60,7 +60,8 @@ export default async function EventPage({
   const eventSingleDataCleaned = eventMapper(
     eventSingleDataRaw,
     partnersDataRaw.items,
-    programmeDataRaw.items
+    programmeDataRaw.items,
+    peopleDataRaw.items
   );
   const relatedPeopleDataCleaned = relatedPeopleDataRaw.map((item) =>
     peopleMapper(
@@ -68,7 +69,8 @@ export default async function EventPage({
       partnersDataRaw.items,
       eventsDataRaw.items,
       programmeDataRaw.items,
-      peopleDataRaw.items
+      peopleDataRaw.items,
+      multimediaDataRaw.items
     )
   );
 
