@@ -99,6 +99,7 @@ export default function newsMapper(
 
   return {
     arabicTitle: fieldData["arabic-title"] || "",
+    collectionName:'news',
     pushToGr: fieldData["push-to-gr"] || false,
     featured: fieldData.featured || false,
     externalLink: fieldData["external-link"] || "",

@@ -4,6 +4,7 @@ export function mapProgrammeToCardProgramme(programme: ProgrammeCleanedFields): 
     return {
       imageUrl: programme.card.url,
       programmeTitle: programme.name,
+      order: programme.order,
       programmeType: '',
       altText: programme.card.alt
     };

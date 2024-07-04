@@ -3,7 +3,7 @@ import { inter } from "./fonts";
 
 interface ImageProps {
   url: string;
-  alt: string ;
+  alt: string;
 }
 export interface RelatedColection {
   name: string;
@@ -18,6 +18,7 @@ export interface CardProgrammeProps {
   imageUrl: string;
   programmeTitle: string;
   programmeType: string;
+  order: string;
   altText: string;
 }
 export type CardHorizontalImageProps = {
@@ -216,6 +217,7 @@ export interface EventFieldData {
 export interface EventFieldDataCleaned {
   pushToGr: boolean;
   programmeLabel: string;
+  collectionName: "event";
   isDraft: boolean;
   relatedProgrammes: string[];
   thumbnail: ImageProps;
@@ -578,6 +580,7 @@ export interface PostFieldsCleaned {
   seoTitleArabic: string;
   seoMeta: string;
   seoMetaArabic: string;
+  collectionName: "press";
   summary: string;
   summaryArabic: string;
   body: string;
@@ -707,6 +710,7 @@ export interface MultimediaRawFields {
 export interface MultimediaCleanedFields {
   nameArabic: string;
   pushToGr: boolean;
+  collectionName: "multimedia"; 
   programmeLabel: string;
   relatedProgrammes: RelatedColection[];
   innovationRelated: string[];
@@ -772,6 +776,7 @@ export interface FeatureCleanedFields {
 export interface NewsCleanedFields {
   arabicTitle: string;
   pushToGr: boolean;
+  collectionName: "news";
   featured: boolean;
   externalLink: string;
   datePublished: string;
@@ -842,6 +847,7 @@ export interface PublicationsCleanedFields {
   bookCoverImage: ImageProps;
   thumbnail: ImageProps;
   text: string;
+  collectionName: "publications";
   summaryArabic: string;
   pushToGr: boolean;
   externalLink: string;
@@ -1019,7 +1025,8 @@ type UnifiedFields =
   | PostFieldsCleaned
   | MultimediaCleanedFields
   | NewsCleanedFields
-  | EventFieldDataCleaned;
+  | EventFieldDataCleaned
+  | PublicationsCleanedFields;
 
 export interface UnifiedComponentProps {
   data: UnifiedFields;

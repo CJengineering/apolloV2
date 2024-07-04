@@ -127,6 +127,7 @@ export default function postMapper(
     blogsCategories2Arabic: categoriesMatch?.fieldData["name-arabic"] || "N/A",
     featured: fieldData.featured || false,
     imageCarousel: imagesCarousel,
+    collectionName: 'press',
     imageGalleryCreditsArabic:
       fieldData["image-gallery-credits-arabic"] || "N/A",
     imageCarouselCredits: fieldData["image-carousel-credits"] || "N/A",

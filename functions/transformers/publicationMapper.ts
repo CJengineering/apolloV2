@@ -94,6 +94,7 @@ export default function publicationMapper(
       alt: fieldData.document?.alt || ""
     },
     source2: fieldData["source-2"] || "",
+    collectionName: 'publications',
     programmeS: relatedProgrammes,
     authorMetaText: fieldData["author-s-meta-text"] || "",
     authorMetaTextArabic: fieldData["author-s-meta-text-arabic"] || "",

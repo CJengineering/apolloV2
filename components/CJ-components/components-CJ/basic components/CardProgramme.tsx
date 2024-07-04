@@ -10,6 +10,7 @@ export default function CardProgramme({
   programmeTitle,
   programmeType,              
   altText,
+  order
 
                        
 }: CardProgrammeProps) {
@@ -21,7 +22,7 @@ export default function CardProgramme({
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute bottom-6 left-6 right-6">
           <div className="mono font-bold text-2xl text-white sm:text-4xl md:text-6xl">
-            {programmeTitle}
+            {programmeTitle} 
           </div>
           <div className="mono text-medium uppercase text-white">
             {programmeType}
