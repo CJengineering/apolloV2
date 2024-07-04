@@ -124,6 +124,7 @@ export default function eventMapper(
     contactDetails: item.fieldData["contact-details"] || "",
     buttonCtaText: item.fieldData["button-cta-text"] || "",
     rsvpLink: item.fieldData["rsvp-link"] || "",
+    collectionName: "event",
     trailerLivestreamHighlightsVideoLink:
       item.fieldData["trailer-livestream-highlights-video-link"] || "",
     video2: item.fieldData["video-2"] || "",

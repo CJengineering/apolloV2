@@ -98,6 +98,7 @@ export default function multimediaMapper(
     pushToGr: fieldData["push-to-gr"] || false,
     programmeLabel: fieldData["programme-label"] || "N/A",
     relatedProgrammes: relatedProgrammes,
+    collectionName: "multimedia",
     innovationRelated: fieldData["innovation-related"] || [],
     relatedPeople: relatedPeople,
     relatedEvent: relatedEvent,

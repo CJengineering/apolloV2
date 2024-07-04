@@ -77,9 +77,17 @@ export default async function SinglePost({
   );
   
   const filterOnlyLabs = cleanedProgrammes.filter((item) => item.type == 'Lab'  );
-  const orderLabs = filterOnlyLabs.sort((a, b) => Number(a.order) - Number(b.order));
-
-  const orderTable =cleanedProgrammes.sort((a, b) => Number(a.order) - Number(b.order));
+  const orderLabs = filterOnlyLabs.sort((a, b) => {
+    const orderA = a.order ? Number(a.order) : Number.MAX_SAFE_INTEGER;
+    const orderB = b.order ? Number(b.order) : Number.MAX_SAFE_INTEGER;
+    return orderA - orderB;
+  });
+  
+  const orderTable = cleanedProgrammes.sort((a, b) => {
+    const orderA = a.order ? Number(a.order) : Number.MAX_SAFE_INTEGER;
+    const orderB = b.order ? Number(b.order) : Number.MAX_SAFE_INTEGER;
+    return orderA - orderB;
+  });
 
   const cardData = orderLabs.map(mapProgrammeToCardProgramme);
   const dataForTable = orderTable.map((item)=>mapProgrammeToRowData(item, cleanedFeature));
