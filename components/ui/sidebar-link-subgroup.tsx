@@ -14,7 +14,7 @@ export default function SidebarLinkSubgroup({
   const [linkOpen, setLinkOpen] = useState<boolean>(open);
 
   return (
-    <div className="mt-3">
+    <div className="mt-3 bg-amber-200">
       <a
         className="flex items-center justify-between space-x-3 text-slate-800 font-medium dark:text-slate-200"
         href="#0"

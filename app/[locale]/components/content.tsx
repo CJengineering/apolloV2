@@ -256,6 +256,7 @@ const components = [
         programmeTitle="J-PAL"
         programmeType="abdul latif jameel poverty action lab"
         altText={""}
+        order = {'1'}
       />
     ),
   },
@@ -267,6 +268,7 @@ const components = [
         programmeTitle="J-PAL"
         altText="J-PAL"
         programmeType="abdul latif jameel poverty action lab"
+        order = {'2'}
       />
     ),
   },
@@ -278,6 +280,7 @@ const components = [
         programmeTitle="J-PAL"
         altText="J-PAL"
         programmeType="abdul latif jameel poverty action lab"
+        order = {'3'}
       />
     ),
   },
@@ -289,6 +292,7 @@ const components = [
         programmeTitle="J-PAL"
         programmeType="abdul latif jameel poverty action lab"
         altText={""}
+        order = {'4'}
       />
     ),
   },
@@ -300,6 +304,7 @@ const components = [
         programmeTitle="J-PAL"
         programmeType="abdul latif jameel poverty action lab"
         altText={""}
+        order = {'5'}
       />
     ),
   },
@@ -311,6 +316,7 @@ const components = [
         programmeTitle="J-PAL"
         programmeType="abdul latif jameel poverty action lab"
         altText={""}
+        order = {'6'}
       />
     ),
   },
@@ -322,6 +328,7 @@ const components = [
         programmeTitle="J-PAL"
         programmeType="abdul latif jameel poverty action lab"
         altText={""}
+        order = {'7'}
       />
     ),
   },
@@ -351,6 +358,7 @@ export default async function HomeComponents() {
                     altText={""}
                     programmeTitle="J-PAL"
                     programmeType="abdul latif jameel poverty action lab"
+                      order="1"
                   />
                 </div>
               </div>
