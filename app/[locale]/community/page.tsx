@@ -27,6 +27,7 @@ import test from "node:test";
 import featureMapper from "@/functions/transformers/featureMapper";
 import filterRelatedFeatures from "@/functions/filters/filterRelatedFeatures";
 
+
 export default async function SinglePost({
   params,
 }: {
@@ -95,6 +96,7 @@ export default async function SinglePost({
   return (
     <MainContainer isSideBar={false}>
       <ContentContainer>
+
         <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
           Community 
         </h1> 
