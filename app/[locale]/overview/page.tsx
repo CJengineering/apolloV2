@@ -8,6 +8,7 @@ import Footer from "@/components/ui/footer";
 
 import HeroBanter from "@/components/custom beta components/HeroBanter";
 import image from "@/public/images/mapCJ.webp";
+import imageCommunity from "@/public/images/imagesCJ/Funding_J-WAFS.png"
 import SectionBanter from "@/components/custom beta components/SectionBanter";
 
 import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";
@@ -83,10 +84,12 @@ export default async function OverviewContent({
           Overview
         </h1> 
 
-        <SectionBanter title={""}>
-          <article className="mx-auto leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="">
+      <article className="mx-auto leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
             <div className="text-rich-text w-richtext">
-              <p className="prose prose-2xl  dark:text-white font-medium">
+              <p className="prose prose-2xl text-black dark:text-white font-medium">
                 Community Jameel advances science and learning for communities
                 to thrive.{" "}
               </p>
@@ -130,7 +133,9 @@ export default async function OverviewContent({
                 the Ministry of Human Resources and Social Development in the
                 Kingdom of Saudi Arabia.{" "}
               </p>
-              <h3>A tradition since 1945</h3>
+              <p className="prose prose-2xl text-black dark:text-white font-medium">
+                A tradition since 1945
+              </p>
               <p>
                 In 2020, the Jameel family marked 75 years of business and
                 philanthropy by committing to advancing the United Nations
@@ -147,27 +152,32 @@ export default async function OverviewContent({
               </p>
             </div>
           </article>
+      </div>
+      <div className=""></div>
+
+          
           <div className="py-12"></div>
-        </SectionBanter>
-        <SectionBanter title="">
+        </div>
+          <div>
           <div className="flex gap-6">
-            <Link href={"/community"} className=" group cursor-pointer">
-              <CardSquared imageUrl={image} />
-              <div className="sans-serif text-xl font-medium text">
+            <Link href={"/community"} className="group cursor-pointer">
+              <CardSquared imageUrl={imageCommunity} />
+              <div className="serif text-xl font-medium">
                 Community
               </div>
             </Link>
-            <Link href={"/community"} className=" group cursor-pointer">
+            <Link href={"/community"} className="group cursor-pointer">
               <CardSquared  imageUrl={image} />
-              <div className="sans-serif text-xl font-medium text">People</div>
+              <div className="serif text-xl font-medium">People</div>
             </Link>
-            <Link href={"/community"} className=" group cursor-pointer">
-              <CardSquared imageUrl={image} />
-              <div className="sans-serif text-xl font-medium text">Jameel 75</div>
+            <Link href={"/community"} className="group cursor-pointer">
+              <CardSquared imageUrl={image}/>
+              <div className="serif text-xl font-medium">Jameel 75</div>
             </Link>
           </div>
           <div className="py-24"></div>
-        </SectionBanter>
+          </div>
+
       </ContentContainer>
     </MainContainer>
   );
