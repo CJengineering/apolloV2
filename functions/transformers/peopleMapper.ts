@@ -1,6 +1,7 @@
 import {
   EventFieldData,
   Item,
+  MultimediaRawFields,
   PartnersRawFields,
   PeopleCleanedFields,
   PeopleRawFields,
@@ -12,7 +13,8 @@ export default function peopleMapper(
   partners: Item<PartnersRawFields>[],
   events: Item<EventFieldData>[],
   programmes: Item<ProgrammeRawFields>[],
-  people: Item<PeopleRawFields>[]
+  people: Item<PeopleRawFields>[],
+  multimedia: Item<MultimediaRawFields>[]
 ): PeopleCleanedFields {
   const { fieldData } = item;
 
@@ -39,7 +41,20 @@ export default function peopleMapper(
           }
         : { name: "N/A", slug: "N/A" };
     }) || [];
-
+  const relatedMultimedia =
+    fieldData["multimedia"] && fieldData["multimedia"].length > 0
+      ? fieldData["multimedia"].map((multimediaId) => {
+          const multimediaMatch = multimedia.find(
+            (multimedia) => multimedia.id === multimediaId
+          );
+          return multimediaMatch
+            ? {
+                name: multimediaMatch.fieldData.name || "",
+                slug: multimediaMatch.fieldData.slug || "",
+              }
+            : { name: "N/A", slug: "N/A" };
+        })
+      : [];
   const partnerOrganisation =
     fieldData["partner-organisation"]?.map((orgId) => {
       const orgMatch = partners.find((partner) => partner.id === orgId);
@@ -108,7 +123,7 @@ export default function peopleMapper(
     hidePublications: fieldData["hide-publications"] || false,
     hidePhotos: fieldData["hide-photos"] || false,
     hideEventsRichText: fieldData["hide-events-rich-text"] || false,
-    multimedia: fieldData.multimedia || ["N/A"],
+    multimedia: relatedMultimedia,
     tag:
       fieldData.tag?.map((tag) => ({ name: tag || "N/A", slug: "N/A" })) || [],
     order: fieldData.order || 0,

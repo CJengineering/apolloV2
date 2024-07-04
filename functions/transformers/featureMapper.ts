@@ -9,7 +9,10 @@ import {
     FeatureRawFields,
     FeatureCleanedFields,
   } from "@/app/interfaces";
-  
+  type Option = {
+    name: string;
+    id: string;
+  };
   const formatDate = (date: Date | string): string => {
     if (typeof date === "string") {
       date = new Date(date);
@@ -23,7 +26,65 @@ import {
       return "Invalid Date";
     }
   };
-  
+  const options: Option[] = [
+    {
+      "name": "Announcement",
+      "id": "0ad951a951e73d504a1c6db9ebec7528"
+    },
+    {
+      "name": "Event",
+      "id": "11ca5b800a405a6d71bbc2e1fe23a10e"
+    },
+    {
+      "name": "Launch",
+      "id": "4a5cc7f4620a3616e8ed3fa7d4fcadba"
+    },
+    {
+      "name": "Watch",
+      "id": "57434717c21777a7853871434a1cf524"
+    },
+    {
+      "name": "Listen",
+      "id": "d61a30816c103df5fe81212262a9c68e"
+    },
+    {
+      "name": "Award",
+      "id": "9f9c048e7e000a796dc8cdfd70b3f439"
+    },
+    {
+      "name": "Jobs",
+      "id": "0e1b4d737159c42afe0efc86d7e0a1bd"
+    },
+    {
+      "name": "Publication",
+      "id": "26c14d69deceeef1cb8a18c6d8b59eb0"
+    },
+    {
+      "name": "Innovation",
+      "id": "83b281eff71880aa0a21bfbad95cdf6e"
+    },
+    {
+      "name": "Product",
+      "id": "c5243cbe473595168227b974a09fc2c0"
+    },
+    {
+      "name": "News",
+      "id": "9f3e79e5982b3c48a64fe83dfdabf2c8"
+    },
+    {
+      "name": "Spinout",
+      "id": "eae045e214777815f47dd071dbceb89f"
+    },
+    {
+      "name": "Research",
+      "id": "d073d57a4ac8e3f4a62ee8ec5e94ff96"
+    }
+  ];
+
+  function getNameById(id: string): string {
+    const option = options.find((option) => option.id === id);
+    return option ? option.name : "";
+  }
   export default function featureMapper(
     item: Item<FeatureRawFields>,
   
@@ -64,7 +125,7 @@ import {
         labelArabic: fieldData["label-arabic"] || "",
         shortText: fieldData["short-text"] || "",
         shortTextArabic: fieldData["short-text-arabic"] || "",
-        type: fieldData.type || "",
+        type:  fieldData.type ?  getNameById(fieldData.type) : "",
         square: {
           url: fieldData.square?.url || "",
           alt: fieldData.square?.alt || ""

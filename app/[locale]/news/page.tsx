@@ -35,6 +35,7 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 import { NewsMainProps } from "@/app/interfaces";
 import newsMapper from "@/functions/transformers/newsMapper";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
+import UnifiedComponent from "@/components/CJ-components/components-CJ/custom components/UnifiedComponent";
 
 
 
@@ -147,6 +148,7 @@ export default async function NewsContent({
           </div> */}
           <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
             <div className="pb-6 lg:col-span-6">
+
               <Suspense fallback={<Loading />}>
                 {newsArrayCleaned.slice(0, 1).map((news, index) => (
                   <NewsCard key={index} content={news} locale={params} />
@@ -159,6 +161,7 @@ export default async function NewsContent({
                 <NewsSmall key={index} content={news } />
               ))}</Suspense>
             </div>
+      
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
             <div className="pb-6 lg:col-span-6"></div>

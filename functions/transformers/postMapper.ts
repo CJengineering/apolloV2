@@ -7,6 +7,7 @@ import {
   FieldsPostRaw,
   PeopleRawFields,
   EventFieldData,
+  TagRawFields,
 } from "@/app/interfaces";
 
 const formatDate = (date: Date | string): string => {
@@ -41,7 +42,16 @@ export default function postMapper(
           return { url: image.url || "", alt: image.alt || "" };
         })
       : [{ url: "", alt: "" }];
-  
+  const relatedTags = fieldData["theme-3"]&& fieldData['theme-3'].length > 0 ? fieldData["theme-3"].map((tagId) => {
+    const tagMatch = categories.find((tag) => tag.id === tagId);
+    return tagMatch
+      ? {
+          name: tagMatch.fieldData.name || "",
+          slug: tagMatch.fieldData.slug || "",
+        }
+      : { name: "N/A", slug: "N/A" };
+  }
+  ) : [];
   const relatedProgrammes =
     fieldData["programmes-multiple"] &&
     fieldData["programmes-multiple"].length > 0
@@ -112,7 +122,7 @@ export default function postMapper(
     photoCreditHeroImage: fieldData["photo-credit-hero-image"] || "N/A",
     heroImagePhotoCreditArabic:
       fieldData["hero-image-photo-credit-arabic"] || "N/A",
-    theme3: fieldData["theme-3"] || ["N/A"],
+    theme3: relatedTags,
     blogsCategories2: categoriesMatch?.fieldData.name || "N/A",
     blogsCategories2Arabic: categoriesMatch?.fieldData["name-arabic"] || "N/A",
     featured: fieldData.featured || false,

@@ -39,6 +39,8 @@ import {
 } from "@/app/interfaces";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import { get } from "http";
+import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 const articleData: NewsMainProps = {
   arabicTitle: "تكنولوجيا",
   tag: "Technology",
@@ -188,14 +190,17 @@ export default async function WhatsOnContent({
   {
     /** DATA FETCHING  */
   }
+  const peopleId = getIdByDisplayName("People");
+
   const eventsData = await getData("6225fe8b1f52b40001a99d66");
+  const peopleData = await getData(peopleId);
   const programmeData = await getData("61ee828a15a3183d2abde540");
   const partnersData = await getData("6225ffe9b0cebfbd804959d2");
   const eventsRaw: Item<EventFieldData>[] = eventsData.items;
   const programmeRaw: Item<ProgrammeRawFields>[] = programmeData.items;
   const partnersRaw: Item<PartnersRawFields>[] = partnersData.items;
   const eventsClean = eventsRaw.map((event) =>
-    eventMapper(event, partnersRaw, programmeRaw)
+    eventMapper(event, partnersRaw, programmeRaw,peopleData.items)
   );
   const eventsFeatured = eventsClean.filter((event) => event.featured);
 

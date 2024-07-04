@@ -134,7 +134,7 @@ export default async function JpalPage({
     )
   );
   const cleanRelatedEvents = relatedEvents.map((item) =>
-    eventMapper(item, programmesRawData.items, peopleRawData.items)
+    eventMapper(item, programmesRawData.items, peopleRawData.items, peopleRawData.items)
   );
   const cleanedFeatures = relatedFeatures.map((item) =>
     featureMapper(item, programmesRawData.items)

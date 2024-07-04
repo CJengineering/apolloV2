@@ -4,6 +4,7 @@ import {
   Item,
   PartnersRawFields,
   ProgrammeRawFields,
+  PeopleRawFields,
 } from "@/app/interfaces";
 
 function calculateReadTime(text: string): string {
@@ -30,7 +31,8 @@ const formatDate = (date: Date | string): string => {
 export default function eventMapper(
   item: Item<EventFieldData>,
   arrayPartners: Item<PartnersRawFields>[],
-  arrayProgramme: Item<ProgrammeRawFields>[]
+  arrayProgramme: Item<ProgrammeRawFields>[],
+  people: Item<PeopleRawFields>[]
 ): EventFieldDataCleaned {
   const imagesCarousel =
     item.fieldData["image-gallery"] &&
@@ -39,6 +41,17 @@ export default function eventMapper(
           return { url: image.url || "", alt: image.alt || "" };
         })
       : [{ url: "", alt: "" }];
+      const matchPeople = item.fieldData["related-people"] && item.fieldData["related-people"].length > 0
+      ? item.fieldData["related-people"].map((personId) => {
+          const personMatch = people.find((person) => person.id === personId);
+          return personMatch
+            ? {
+                name: personMatch.fieldData.name || "",
+                slug: personMatch.fieldData.slug || "",
+              }
+            : { name: "N/A", slug: "N/A" };
+        })
+      : [];
   const matchPartners =
     item.fieldData.partners && item.fieldData.partners.length > 0
       ? item.fieldData.partners
@@ -76,19 +89,19 @@ export default function eventMapper(
       .map((prog) => (prog ? prog.fieldData.name : ""))
       .filter((name): name is string => name !== undefined),
     thumbnail: {
-      fileId: item.fieldData.thumbnail?.fileId || "",
+ 
       url: item.fieldData.thumbnail?.url || "",
-      alt: item.fieldData.thumbnail?.alt || null,
+      alt: item.fieldData.thumbnail?.alt || '',
     },
     heroImage: {
-      fileId: item.fieldData["hero-image"]?.fileId || "",
+    
       url: item.fieldData["hero-image"]?.url || "",
-      alt: item.fieldData["hero-image"]?.alt || null,
+      alt: item.fieldData["hero-image"]?.alt || '',
     },
     openGraphImage: {
-      fileId: item.fieldData["open-graph-image"]?.fileId || "",
+
       url: item.fieldData["open-graph-image"]?.url || "",
-      alt: item.fieldData["open-graph-image"]?.alt || null,
+      alt: item.fieldData["open-graph-image"]?.alt || '',
     },
     isDraft: item.isDraft,
     heroImageCaption: item.fieldData["hero-image-caption"] || "",
@@ -116,7 +129,7 @@ export default function eventMapper(
     video2: item.fieldData["video-2"] || "",
     video3: item.fieldData["video-3"] || "",
     tags: item.fieldData.tags || [],
-    relatedPeople: item.fieldData["related-people"] || [],
+    relatedPeople: matchPeople,
     organisers: matchOrganisers.map((organiser) => {
       return {
         name: organiser?.fieldData.name || "",

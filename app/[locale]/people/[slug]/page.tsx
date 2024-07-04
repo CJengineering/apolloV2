@@ -75,7 +75,8 @@ export default async function PeoplePage({
     partnersDataRaw.items,
     eventsDataRaw.items,
     programmeDataRaw.items,
-    postsDataRaw.items
+    postsDataRaw.items,
+    multimediaDataRaw.items
   );
 {/** Images of the person */}
  const cleanRelatedImages = peopleDataItem.photos.map(photoNotFromCollectionMapper)

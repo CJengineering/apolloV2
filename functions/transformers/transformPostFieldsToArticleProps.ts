@@ -4,6 +4,8 @@ import { ArticleProps, PostFieldsCleaned } from "@/app/interfaces";
 
   
   export function transformPostFieldsToArticleProps(post: PostFieldsCleaned): ArticleProps {
+
+    const arrayTags= post.theme3 && post.theme3.length > 0 ? post.theme3.map(tag=>tag.name) : [];
     return {
       article: {
         title: post.seoTitle,
@@ -14,10 +16,10 @@ import { ArticleProps, PostFieldsCleaned } from "@/app/interfaces";
         body: {
           code: post.body, // Assuming `code` in body is the same as `body` in PostFieldsCleaned
         },
-        tags: post.theme3,
+        tags: arrayTags,
         category: {
           name: post.programme.name,
-          url: post.programme.url,
+          url: post.programme.url || '',
         },
         author: {
           name: post.name,
