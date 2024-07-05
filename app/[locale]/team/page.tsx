@@ -69,8 +69,10 @@ export default async function PeopleContent({
   return (
     <MainContainer isSideBar={false}>
       <ContentContainer>
-      <h1 className="mono uppercase font-regular text-7xl py-24 text-center">Team</h1>   
-      <div className="pb-9">
+      <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
+          Team
+        </h1>   
+      <div className="pb-12">
           <h2 className="serif font-semibold text-3xl pb-6">Core</h2>
           <div className="grid gap-6 md:grid-cols-2">
             {team.map((member) => (
@@ -82,8 +84,10 @@ export default async function PeopleContent({
             ))}
           </div>
         </div>
-<div className="border border-b py-12"></div>
-        <div>
+    <div className="flex flex-col pb-12">
+      <div className="w-full h-px bg-gray-200"></div> {/* Separation Bar */}
+    </div>
+        <div className="pb-12">
           <h2 className="serif font-semibold text-3xl pb-6">Advisory Committee</h2>
           <div className="grid gap-6 md:grid-cols-2">
             {advisoryCommittee.map((member) => (
@@ -96,9 +100,14 @@ export default async function PeopleContent({
           </div>
         </div>
 
-
+        <div className="flex flex-col pb-12">
+      <div className="w-full h-px bg-gray-200"></div> {/* Separation Bar */}
+    </div>
         <div>
-          <h2 className="serif font-semibold text-3xl pb-6">Jameel Family</h2>
+          <h2 className="serif font-semibold text-3xl">Jameel Family</h2>
+          <p className="serif font-normal text-base mb-6">
+              Check out a selection of <a href="https://www.communityjameel.org/about/people/family-album" className="underline">archival photos</a> of the Jameel family from across the history of Community Jameel.
+            </p>
           <div className="grid gap-6 md:grid-cols-2">
             {leadership.map((member) => (
               <PersonalCard
@@ -112,9 +121,7 @@ export default async function PeopleContent({
 
 
 
-            <p className="serif font-normal text-base mt-3">
-              Check out a selection of <a href="https://www.communityjameel.org/about/people/family-album" className="underline">archival photos</a> of the Jameel family from across the history of Community Jameel.
-            </p>
+
             <div className="pb-24"></div>
 
       </ContentContainer>
