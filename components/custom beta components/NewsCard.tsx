@@ -1,20 +1,6 @@
-import React from "react";
+
 import Image from "next/image";
-import {
-  BeakerIcon,
-  BoltIcon,
-  VideoCameraIcon,
-  RocketLaunchIcon,
-  NewspaperIcon,
-  MegaphoneIcon,
-  MicrophoneIcon,
-  UserGroupIcon,
-  BookOpenIcon,
-  TrophyIcon,
-  PlayCircleIcon,
-  PaperClipIcon,
-  CalendarDaysIcon,
-} from "@heroicons/react/24/solid";
+
 import { NewsCleanedFields, NewsMainProps } from "@/app/interfaces";
 
 interface newLocaleProps {
@@ -49,8 +35,8 @@ export default function NewsCard({
 
       <div className="mt-6 md:align-middle">
         <div className="flex">
-          <a href={content.slug} className="mono text-sm font-normal uppercase">
-            {content.name}
+          <a href={content.name} className="mono text-sm font-normal cursor-pointer uppercase">
+            {content.programme.name}
           </a>
           {/* <div className="mono text-sm font-medium uppercase px-3"><span aria-hidden="true">|</span></div> */}
           {/* <a href={content.categoryLink} className="mono text-sm font-normal uppercase">news</a>*/}
