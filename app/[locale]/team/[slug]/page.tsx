@@ -10,6 +10,7 @@ import mapItemToNewsMainProps from "@/functions/transformers/newsTransformer";
 import teamProfileMapper from "@/functions/transformers/teamProfileMapper";
 import React from "react";
 
+
 export default async function page({
   params,
 }: {
@@ -38,42 +39,29 @@ export default async function page({
   );
 
   return (
-    <MainContainer isSideBar={false}>
-      <ContentContainer>
-      <div className="grid grid-cols-1 md:grid-cols-2">
-        <div className="p-4">
-        <img
-            src={member.imageUrl}
-            alt={member.altTextImage}
-            className="w-96 h-96 object-cover"
-          />
+    <>
+    <ContentContainer width="full" desktopWidth="small">
+    <div className="py-12 flex flex-col items-center justify-center">
+        <div className="w-full pb-2 md:w-1/2">
+          <h1 className="text-center text-4xl serif font-bold">{member.name}</h1>
         </div>
-        <div className="p-4 border border-gray-300 rounded">
-        <h1 className="text-3xl serif font-bold">{member.name}</h1>
-        <p className="mono uppercase font-normal">{member.position}</p>
-        <div
-                  className=""
-                  dangerouslySetInnerHTML={{
-                    __html: member.paragraphDescription
-                      ? member.paragraphDescription
-                      : "",
-                  }}
-                ></div>
+        <div className="w-full md:w-1/3">
+          <p className="text-center mono uppercase font-normal">{member.position}</p>
         </div>
       </div>
-
-          <div className="mt-4">
-            
-            
-      <div className="grid md:grid-cols-2">
-                {/* {relatedNews.map((article) => (
-                  <NewsSmall key={article.title} content={article} />
-                ))} */}
-              </div>
-          
-          </div>
-
+      <div className="flex justify-center">
+        <div className="w-full md:w-1/3">
+          <img src={member.imageUrl} alt={member.altTextImage} className="w-full h-auto object-cover"/>
+        </div>
+      </div>
+      <div className="flex justify-center pt-12">
+        <div className="w-full md:w-2/3 prose dark:prose-dark serif font-semibold"
+          dangerouslySetInnerHTML={{
+            __html: member.paragraphDescription ? member.paragraphDescription : "",
+          }}
+        ></div>
+      </div>
       </ContentContainer>
-    </MainContainer>
+    </>
   );
 }

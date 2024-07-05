@@ -2,22 +2,9 @@ import type { Metadata } from "next";
 import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 
-import Hamburger from "@/components/ui/hamburger";
-
-import Footer from "@/components/ui/footer";
-
-import HeroBanter from "@/components/custom beta components/HeroBanter";
-import image from "@/public/images/mapCJ.webp";
-import imageCommunity from "@/public/images/imagesCJ/Funding_J-WAFS.png"
-import SectionBanter from "@/components/custom beta components/SectionBanter";
-
-import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";
-
-import CardHorizontal from "@/components/CJ-components/components-CJ/basic components/CardHorizontal";
 import Link from "next/link";
-import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
-import CardSquared from "@/components/CJ-components/components-CJ/basic components/CardSquared";
+import { ArrowRightIcon } from "@heroicons/react/24/solid"; 
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -51,7 +38,7 @@ export default async function OverviewContent({
   };
 }) {
   const post = {
-    title: "Community  Jameel",
+    title: "Community Jameel",
     summary:
       "A deep dive into how async/await works in JavaScript, with examples and best practices.",
     topic: {
@@ -67,31 +54,21 @@ export default async function OverviewContent({
       slug: "javascript-event-loop",
     },
   };
-  const heroProps = {
-    backgroundImageUrl: image.src,
-    overlayColor: "bg-gray-400/80",
-    subTitle: "Community Jameel",
-    title: "Overview",
-  };
 
   if (!post) notFound();
 
   return (
-    <MainContainer isSideBar={false}>
-      <ContentContainer>
-        {/* <HeroBanter content={heroProps} /> */}
-        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
+    <>
+      <ContentContainer width="full" desktopWidth="small">
+        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-36 text-center">
           Overview
-        </h1> 
-
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div className="">
-      <article className="mx-auto leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
+        </h1>
+        <div className="flex justify-center">
+          <article className="mx-auto leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
             <div className="text-rich-text w-richtext">
               <p className="prose prose-2xl text-black dark:text-white font-medium">
                 Community Jameel advances science and learning for communities
-                to thrive.{" "}
+                to thrive.
               </p>
               <p>
                 An independent, global organisation, Community Jameel launched
@@ -152,33 +129,28 @@ export default async function OverviewContent({
               </p>
             </div>
           </article>
-      </div>
-      <div className=""></div>
-
-          
-          <div className="py-12"></div>
         </div>
-          <div>
-          <div className="flex gap-6">
-            <Link href={"/community"} className="group cursor-pointer">
-              <CardSquared imageUrl={imageCommunity} />
-              <div className="serif text-xl font-medium">
-                Community
-              </div>
-            </Link>
-            <Link href={"/community"} className="group cursor-pointer">
-              <CardSquared  imageUrl={image} />
-              <div className="serif text-xl font-medium">People</div>
-            </Link>
-            <Link href={"/community"} className="group cursor-pointer">
-              <CardSquared imageUrl={image}/>
-              <div className="serif text-xl font-medium">Jameel 75</div>
-            </Link>
-          </div>
-          <div className="py-24"></div>
-          </div>
 
+<article>
+        <div className="flex justify-center py-6">
+      <div className="flex justify-between items-center w-full max-w-lg">
+        <Link href="/community" className="flex items-center group">
+          <p className="text-xl serif font-medium group-hover:underline">Community</p>
+          <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
+        </Link>
+        <Link href="/people" className="flex items-center group">
+          <p className="text-xl serif font-medium group-hover:underline">People</p>
+          <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
+        </Link>
+        <Link href="https://jameel75.com/en" target="_blank" className="flex items-center group">
+          <p className="text-xl serif font-medium group-hover:underline">Jameel 75</p>
+          <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
+        </Link>
+      </div>
+    </div>
+    </article>
+        <div className="py-24"></div>
       </ContentContainer>
-    </MainContainer>
+    </>
   );
 }

@@ -66,15 +66,16 @@ export default async function PeopleContent({
     .filter((member) => member.position === "Alumnus")
     .sort((a, b) => a.order - b.order);
   const sortedTeamMembers = [...teamMembers].sort((a, b) => a.order - b.order);
+  
   return (
-    <MainContainer isSideBar={false}>
-      <ContentContainer>
+<>
+      <ContentContainer width="full" desktopWidth="large">
       <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
           Team
         </h1>   
       <div className="pb-12">
           <h2 className="serif font-semibold text-3xl pb-6">Core</h2>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {team.map((member) => (
               <PersonalCard
               key={member.order}
@@ -89,7 +90,7 @@ export default async function PeopleContent({
     </div>
         <div className="pb-12">
           <h2 className="serif font-semibold text-3xl pb-6">Advisory Committee</h2>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {advisoryCommittee.map((member) => (
               <PersonalCard
                 key={member.order}
@@ -108,7 +109,7 @@ export default async function PeopleContent({
           <p className="serif font-normal text-base mb-6">
               Check out a selection of <a href="https://www.communityjameel.org/about/people/family-album" className="underline">archival photos</a> of the Jameel family from across the history of Community Jameel.
             </p>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {leadership.map((member) => (
               <PersonalCard
                 key={member.order}
@@ -125,6 +126,7 @@ export default async function PeopleContent({
             <div className="pb-24"></div>
 
       </ContentContainer>
-    </MainContainer>
+  
+      </>
   );
 }
