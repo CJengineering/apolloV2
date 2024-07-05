@@ -9,10 +9,10 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: "class",
+  darkMode: "class", // Enable class-based dark mode
   theme: {
     extend: {
-      typography: {
+      typography: (theme) => ({
         DEFAULT: {
           css: {
             a: {
@@ -21,14 +21,53 @@ module.exports = {
               textDecorationLine: "underline",
               textDecorationThickness: "from-font",
             },
-
-            p: { fontWeight: "400" },
-            figure: { position: "relative !important",width: "100% !important" , "padding-bottom": "56.25% !important" },
-            iframe: { position: "absolute !important", top: "0 !important", left: "0 !important", width: "100% !important", height: "100% !important" },
-            
+            p: {
+              fontWeight: "400",
+              fontSize: "1.1rem",
+            },
+            figure: {
+              position: "relative !important",
+              width: "100% !important",
+              paddingBottom: "56.25% !important",
+            },
+            iframe: {
+              position: "absolute !important",
+              top: "0 !important",
+              left: "0 !important",
+              width: "100% !important",
+              height: "100% !important",
+            },
           },
         },
-      },
+        dark: {
+          css: {
+            color: theme('colors.white'),
+            a: {
+              color: theme('colors.white'),
+              '&:hover': {
+                color: theme('colors.white'),
+              },
+            },
+            p: {
+              color: theme('colors.white'), // Set paragraph text color to white in dark mode
+              fontWeight: '400',
+              fontSize: '1.1rem',
+            },
+            figure: {
+              position: 'relative !important',
+              width: '100% !important',
+              paddingBottom: '56.25% !important',
+            },
+            iframe: {
+              position: 'absolute !important',
+              top: '0 !important',
+              left: '0 !important',
+              width: '100% !important',
+              height: '100% !important',
+            },
+          },
+        },
+      }),
       fontFamily: {
         aspekta: ["var(--font-aspekta)", "sans-serif"],
         nycd: ["var(--font-nycd)", "cursive"],
@@ -42,50 +81,41 @@ module.exports = {
         "5xl": "2.65rem",
         "6xl": "2.75rem",
       },
-
       maxWidth: {
         xxs: "16rem",
       },
-
       height: {
         96: "24rem",
       },
-
       margin: {
         13: "3.25rem",
       },
-
       padding: {
         full: "100%",
       },
-
       textDecorationThickness: {
         3: "3px",
       },
-
       translate: {
         "4/5": "80%",
       },
-
       animation: {
         orbit: "orbit 2.5s linear infinite",
       },
-
       keyframes: {
         orbit: {
           "0%": {
             transform: "rotate(0deg) translate(-0.25rem) rotate(0deg)",
           },
-
           "100%": {
-            transform: "rotate(360deg) translate(-0.25rem) rotate(-360deg);",
+            transform: "rotate(360deg) translate(-0.25rem) rotate(-360deg)",
           },
         },
       },
     },
   },
   plugins: [
-    require("@tailwindcss/forms"),
+    formsPlugin,
     require("@tailwindcss/typography"),
     headlessuiPlugin,
     require("@headlessui/tailwindcss")({ prefix: "ui" }),
