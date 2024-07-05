@@ -37,7 +37,25 @@ import newsMapper from "@/functions/transformers/newsMapper";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import UnifiedComponent from "@/components/CJ-components/components-CJ/custom components/UnifiedComponent";
 
-
+import UseClient from "@/components/CJ-components/components-CJ/test components/UseClient";
+import {
+  CompoundNewsCard,
+  CompoundNewsCardDateLabel,
+  CompoundNewsCardDivider,
+  CompoundNewsCardImageLink,
+  CompoundNewsCardProgrammeLabel,
+  CompoundNewsCardSourceDateContainer,
+  CompoundNewsCardSourceLabel,
+  CompoundNewsCardTitleLink,
+} from "@/components/CJ-components/components-CJ/test components/CompoundNewsCard";
+import {
+  CompoundNewsSmall,
+  CompoundNewsSmallDateLabel,
+  CompoundNewsSmallImageLink,
+  CompoundNewsSmallMetaContainer,
+  CompoundNewsSmallSourceLabel,
+  CompoundNewsSmallTitleLink,
+} from "@/components/CJ-components/components-CJ/test components/CompoundNewsSmall";
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -147,21 +165,42 @@ export default async function NewsContent({
             <Search></Search>
           </div> */}
           <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
+        
             <div className="pb-6 lg:col-span-6">
-
-              <Suspense fallback={<Loading />}>
-                {newsArrayCleaned.slice(0, 1).map((news, index) => (
-                  <NewsCard key={index} content={news} locale={params} />
+              {newsArrayCleaned.slice(0, 1).map((news, index) => (
+                <CompoundNewsCard
+                  key={index}
+                  locale={params.locale}
+                  content={news}
+                >
+                  <CompoundNewsCardImageLink />
+                  <div className="mt-6 md:align-middle">
+                    <CompoundNewsCardProgrammeLabel />
+                    <CompoundNewsCardTitleLink />
+                  </div>
+                </CompoundNewsCard>
+              ))}
+            </div>
+            <div className="lg:col-span-6 lg:pl-6">
+            <Suspense fallback={<Loading />}>
+                {newsArrayCleaned.slice(2, 4).map((news, index) => (
+                  <CompoundNewsSmall
+                    key={index}
+                    content={news}
+                    locale={params.locale}
+                  >
+                    <CompoundNewsSmallImageLink />
+                    <div className="order-2 mt-2 w-full px-2 sm:mt-0 sm:max-w-sm sm:pl-0 sm:pr-5 lg:order-2 lg:mt-4 xl:ml-5 xl:mt-0 xl:flex-1">
+                      <CompoundNewsSmallSourceLabel />
+                      <CompoundNewsSmallTitleLink />
+                      <CompoundNewsSmallMetaContainer>
+                        <CompoundNewsSmallDateLabel />
+                      </CompoundNewsSmallMetaContainer>
+                    </div>
+                  </CompoundNewsSmall>
                 ))}
               </Suspense>
             </div>
-            <div className="lg:col-span-6 lg:pl-6">
-              <Suspense fallback={<Loading />}>
-              {newsArrayCleaned.slice(2,4).map((news, index)=> (
-                <NewsSmall key={index} content={news } />
-              ))}</Suspense>
-            </div>
-      
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
             <div className="pb-6 lg:col-span-6"></div>
