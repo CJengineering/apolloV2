@@ -12,7 +12,7 @@ module.exports = {
   darkMode: "class", // Enable class-based dark mode
   theme: {
     extend: {
-      typography: (theme) => ({
+      typography: (theme: any) => ({
         DEFAULT: {
           css: {
             a: {
