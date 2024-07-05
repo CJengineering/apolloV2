@@ -20,25 +20,12 @@ const PersonalCard = ({ author, socialPlatforms }: PersonalCardProps) => {
           alt={author.name}
           />
         </div>
-        {/* <div className="block w-2/3 pl-3">
-          <h3 className="serif font-medium text-xl hover:underline">
-            <Link href={`team/${author.slug}`}>
-              <span className="" aria-hidden="true"></span>
-              {author.name}
-            </Link>
-          </h3>
-          <div>
-            <p className="mono text-sm font-normal uppercase leading-tight">{author.position}</p>
-          </div>
-        </div> */}
-
-
         <div className="block w-2/3 pl-3">
           <h3 className="serif font-medium text-xl hover:underline">
               {author.name}
           </h3>
           <div>
-            <p className="mono text-sm font-normal uppercase leading-tight">{author.position}</p>
+            <p className="mono text-xs font-normal uppercase leading-tight">{author.position}</p>
           </div>
         </div>
         

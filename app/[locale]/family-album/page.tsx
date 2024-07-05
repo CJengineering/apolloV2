@@ -20,12 +20,12 @@ export default async function page() {
 
   return (
     <div>
-      <MainContainer isSideBar={false}>
-        <ContentContainer>
-          <h1>Familly album</h1>
+      <ContentContainer width="full" desktopWidth="large">
+      <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-36 text-center">
+          Family album
+        </h1>
           <ContentFamily images={photos} />
         </ContentContainer>
-      </MainContainer>
     </div>
   );
 }
