@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 
 import { NewsCleanedFields, NewsMainProps } from "@/app/interfaces";
@@ -12,7 +11,7 @@ export default function NewsCard({
   locale,
 }: {
   content: NewsCleanedFields;
-  locale: newLocaleProps;
+  locale: newLocaleProps | string;
 }) {
   return (
     <article className="relative  ">
@@ -35,7 +34,10 @@ export default function NewsCard({
 
       <div className="mt-6 md:align-middle">
         <div className="flex">
-          <a href={content.name} className="mono text-sm font-normal cursor-pointer uppercase">
+          <a
+            href={content.name}
+            className="mono text-sm font-normal cursor-pointer uppercase"
+          >
             {content.programme.name}
           </a>
           {/* <div className="mono text-sm font-medium uppercase px-3"><span aria-hidden="true">|</span></div> */}
@@ -43,7 +45,7 @@ export default function NewsCard({
         </div>
         <a href={content.slug} className="group mt-3 block">
           <h2 className="text-base sans-serif font-medium tracking-normal transition duration-300 ease-in-out group-hover:underline lg:text-2xl xl:text-2xl lg:leading-tight">
-            {locale.locale == "ar" ? content.arabicTitle : content.name}
+            {locale == "ar" ? content.arabicTitle : content.name}
           </h2>
         </a>
 

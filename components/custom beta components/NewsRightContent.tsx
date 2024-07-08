@@ -34,14 +34,17 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
               <div className="sans-serif text-base font-normal">{source}</div>
             </div>
             <div className="mb-3">
-              <div className="text-xs font-normal mono uppercase">date published</div>
-              <div className="sans-serif text-base font-normal">{source}</div>
-                       
+              <div className="text-xs font-normal mono uppercase">
+                date published
+              </div>
+              <div className="sans-serif text-base font-normal">{datePublished}</div>
             </div>
             <div className="mb-3">
-              <div className="text-xs font-normal mono uppercase">related lab</div>
-              <div className="sans-serif text-base font-normal">   
-              {relatedProgrammes.map((programme, index) => (
+              <div className="text-xs font-normal mono uppercase">
+                related lab
+              </div>
+              <div className="sans-serif text-base font-normal">
+                {relatedProgrammes.map((programme, index) => (
                   <Link
                     key={index}
                     href={`/programmes/${programme.slug}`}
@@ -52,23 +55,27 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
                 ))}
               </div>
             </div>
-            <div className="mb-3">
-              <div className="text-xs font-normal mono uppercase">relate people</div>
-              <div className="sans-serif text-base font-normal">
-              <ul>
-                  {relatedPeople.map((person, index) => (
-                    <li key={index}>
-                      <Link
-                        href={`/people/${person.slug}`}
-                        className="underline hover:cursor-pointer mt-0"
-                      >
-                        {person.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+            {relatedPeople.length > 0 && (
+              <div className="mb-3">
+                <div className="text-xs font-normal mono uppercase">
+                  related people
+                </div>
+                <div className="sans-serif text-base font-normal">
+                  <ul>
+                    {relatedPeople.map((person, index) => (
+                      <li key={index}>
+                        <Link
+                          href={`/people/${person.slug}`}
+                          className="underline hover:cursor-pointer mt-0"
+                        >
+                          {person.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </nav>
       )}
