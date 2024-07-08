@@ -1,16 +1,55 @@
+import CardHorizontal from "@/components/CJ-components/components-CJ/basic components/CardHorizontal";
+import CardHorizontalImage from "@/components/CJ-components/components-CJ/basic components/CardHorizontal";
+import MediaCard from "@/components/CJ-components/components-CJ/basic components/MediaCard";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import EventCard from "@/components/custom beta components/EventCard";
+import EventCardV1 from "@/components/custom beta components/EventCardV1";
+import FeatureCard from "@/components/custom beta components/FeatureCard";
 import NewsCard from "@/components/custom beta components/NewsCard";
 import NewsRightContent from "@/components/custom beta components/NewsRightContent";
 import NewsSmall from "@/components/custom beta components/NewsSmall";
 import PersonalCard from "@/components/custom beta components/PersonCard";
+import PostCard from "@/components/custom beta components/PostCard";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
 import Logo from "@/components/ui/logo";
 import { getData } from "@/functions/api/getData";
+import eventMapper from "@/functions/transformers/eventMapper";
+import featureMapper from "@/functions/transformers/featureMapper";
+import multimediaMapper from "@/functions/transformers/multimediaMapper";
 import newsMapper from "@/functions/transformers/newsMapper";
+import postMapper from "@/functions/transformers/postMapper";
 import teamProfileMapper from "@/functions/transformers/teamProfileMapper";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { t } from "i18next";
 import React from "react";
+import image from "../../../public/images/imagesCJ/FACT Alliance_J-WAFS.png";
+import CardProgramme from "@/components/CJ-components/components-CJ/basic components/CardProgramme";
+import programmeMapper from "@/functions/transformers/programmeMapper";
+import CardSquared from "@/components/CJ-components/components-CJ/basic components/CardSquared";
+import {
+  CompoundNewsCard,
+  CompoundNewsCardImageLink,
+  CompoundNewsCardProgrammeLabel,
+  CompoundNewsCardTitleLink,
+} from "@/components/CJ-components/components-CJ/test components/CompoundNewsCard";
+import {
+  CompoundNewsSmall,
+  CompoundNewsSmallDateLabel,
+  CompoundNewsSmallImageLink,
+  CompoundNewsSmallMetaContainer,
+  CompoundNewsSmallSourceLabel,
+  CompoundNewsSmallTitleLink,
+} from "@/components/CJ-components/components-CJ/test components/CompoundNewsSmall";
+import {
+  CompoundEventCard,
+  EventCardContentContainer,
+  EventCardEventDetails,
+  EventCardImageLink,
+  EventCardOrganisers,
+  EventCardProgrammeLink,
+  EventCardTeaserText,
+  EventCardTitleLink,
+} from "@/components/CJ-components/components-CJ/test components/CompoundEventCard";
 
 // This is a component documentation component
 interface ComponentDocProps {
@@ -59,6 +98,8 @@ export default async function HomeSecond({
   const multimediaId = getIdByDisplayName("Multimedia");
   const awardId = getIdByDisplayName("Awards");
   const teamId = getIdByDisplayName("Team");
+  const categoryId = getIdByDisplayName("Categories");
+  const featureId = getIdByDisplayName("Features");
 
   // Data fetching
   const newsAll = await getData(newsId);
@@ -72,6 +113,8 @@ export default async function HomeSecond({
   const multimediaAll = await getData(multimediaId);
   const awardAll = await getData(awardId);
   const teamAll = await getData(teamId);
+  const categoryAll = await getData(categoryId);
+  const featureAll = await getData(featureId);
 
   //mapping the data
 
@@ -86,6 +129,88 @@ export default async function HomeSecond({
     )
   );
   const teamCleanedAll = teamAll.items.map((item) => teamProfileMapper(item));
+
+  const postCleanedAll = postsAll.items.map((item) =>
+    postMapper(
+      item,
+      categoryAll.items,
+      eventAll.items,
+      programmeAll.items,
+      peopleAll.items
+    )
+  );
+  const programmeCeanedAll = programmeAll.items.map((item) =>
+    programmeMapper(
+      item,
+      peopleAll.items,
+      partnersAll.items,
+      programmeAll.items
+    )
+  );
+  const mediaCleanedAll = multimediaAll.items.map((item) =>
+    multimediaMapper(item, programmeAll.items, eventAll.items, peopleAll.items)
+  );
+  const featureCleanedAll = featureAll.items.map((item) =>
+    featureMapper(item, programmeAll.items)
+  );
+
+  const eventCleanedAll = eventAll.items.map((item) =>
+    eventMapper(item, partnersAll.items, programmeAll.items, peopleAll.items)
+  );
+
+  const compoundComponents = [
+    {
+      name: "CompoundNewsCard",
+      description:
+        "Remove the component you don't need and if component has Container in the name it's just used as a container so it can be replace by any other container div",
+      component: (
+        <CompoundNewsCard content={newsCleanedAll[0]} locale={params.locale}>
+          <CompoundNewsCardImageLink />
+          <div className="mt-6 md:align-middle">
+            <CompoundNewsCardProgrammeLabel />
+            <CompoundNewsCardTitleLink />
+          </div>
+        </CompoundNewsCard>
+      ),
+    },
+    {
+      name: "CompoundNewsSmall",
+      description:
+        "Remove the component you don't need and if component has Container in the name it's just used as a container so it can be replace by any other container div",
+      component: (
+        <CompoundNewsSmall content={newsCleanedAll[0]} locale={params.locale}>
+          <CompoundNewsSmallImageLink />
+          <div className="order-2 mt-2 w-full px-2 sm:mt-0 sm:max-w-sm sm:pl-0 sm:pr-5 lg:order-2 lg:mt-4 xl:ml-5 xl:mt-0 xl:flex-1">
+            <CompoundNewsSmallSourceLabel />
+            <CompoundNewsSmallTitleLink />
+            <CompoundNewsSmallMetaContainer>
+              <CompoundNewsSmallDateLabel />
+            </CompoundNewsSmallMetaContainer>
+          </div>
+        </CompoundNewsSmall>
+      ),
+    },
+    {
+      name: "CompoundEventsCard",
+      description:
+        "Remove the component you don't need and if component has Container in the name it's just used as a container so it can be replace by any other container div",
+      component: (
+        <CompoundEventCard article={eventCleanedAll[0]}>
+          <EventCardImageLink />
+          <EventCardContentContainer>
+            <div>
+              <EventCardProgrammeLink />
+              <EventCardTitleLink />
+              <EventCardTeaserText />
+              <EventCardEventDetails />
+            </div>
+            <EventCardOrganisers />
+          </EventCardContentContainer>
+        </CompoundEventCard>
+      ),
+    },
+  ];
+
   const componentsCard = [
     {
       name: "NewsCard",
@@ -135,11 +260,72 @@ export default async function HomeSecond({
         <PersonalCard author={teamCleanedAll[0]} socialPlatforms={[]} />
       ),
     },
+    {
+      name: "PostCard",
+      width: "400px",
+      description: "Is used inside posts which will be news  ",
+      component: <PostCard content={postCleanedAll[0]} />,
+    },
+    {
+      name: "EventCard",
+      width: "400px",
+      description: "Is used inside event  page  ",
+      component: <EventCardV1 article={eventCleanedAll[0]} />,
+    },
+    {
+      name: "MediaCard",
+      width: "400px",
+      description: "Is used inside event  page  ",
+      component: (
+        <MediaCard
+          imageUrl={mediaCleanedAll[0].thumbnail.url}
+          alt={mediaCleanedAll[0].thumbnail.alt}
+          source={mediaCleanedAll[0].source}
+          name={mediaCleanedAll[0].name}
+          slug={mediaCleanedAll[0].slug}
+        />
+      ),
+    },
+    {
+      name: "FeatureCard",
+      width: "400px",
+      description: "Is used for feature  ",
+      component: <FeatureCard content={featureCleanedAll[5]} />,
+    },
+    {
+      name: "CardHorizontal",
+      width: "400px",
+      description: "Is used inside event  page  ",
+      component: <CardHorizontal imageUrl={image} />,
+    },
+    {
+      name: "CardProgramme",
+      width: "400px",
+      description: "used in Community page ",
+      component: (
+        <CardProgramme
+          imageUrl={programmeCeanedAll[30].logoSvgSquareOverlay.url}
+          programmeTitle={programmeCeanedAll[30].name}
+          programmeType={programmeCeanedAll[30].type}
+          order={programmeCeanedAll[30].order}
+          altText={programmeCeanedAll[30].logoSvgOriginalRatio.alt}
+        />
+      ),
+    },
+    {
+      name: "CardProgramme",
+      width: "400px",
+      description: "used in Community page ",
+      component: (
+        <CardSquared
+          imageUrl={programmeCeanedAll[30].logoSvgSquareOverlay.url}
+        />
+      ),
+    },
   ];
 
   return (
     <ContentContainer width="full" desktopWidth="large">
-      
       <div className="h-8"></div>
       <SectionBanter title={"All components"} type="h1">
         <p className="mt-6">
@@ -219,6 +405,25 @@ const awardAll = await getData(awardId);`}</code>
         <p className="my-6">
           Card componennts used for News, Press, Events, Multimedia, People,
           Programmes, Partners, Sources, and Posts
+        </p>
+        <div className="h-8"></div>
+        <div className="">
+          {componentsCard.map((comp, index) => (
+            <ComponentDoc
+              key={index}
+              name={comp.name}
+              width={comp.width}
+              description={comp.description}
+            >
+              {comp.component}
+            </ComponentDoc>
+          ))}
+        </div>
+      </SectionBanter>
+      <SectionBanter title={"Compound Card "}>
+        <p className="my-6">
+          These cards has multiple components inside them to conditionnaly
+          render the content
         </p>
         <div className="h-8"></div>
         <div className="">
