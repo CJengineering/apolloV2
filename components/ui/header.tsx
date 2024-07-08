@@ -1,7 +1,9 @@
-import Logo from '@/components/ui/logo'
-import ThemeToggle from './theme-toggle'
-import Search from './search'
-import LanguageChanger from '../custom beta components/LanguageChanger'
+import Logo from "@/components/ui/logo";
+import ThemeToggle from "./theme-toggle";
+import Search from "./search";
+import LanguageChanger from "../custom beta components/LanguageChanger";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import Hamburger from "./hamburger";
 
 export default function Header() {
   return (
@@ -16,20 +18,22 @@ export default function Header() {
           <div className="grow">
             <div className="flex items-center">
               <Logo />
-           
             </div>
           </div>
 
           {/* Desktop navigation */}
           <nav className="flex">
             {/* Right side elements links */}
-            <ul className="flex grow justify-end flex-wrap items-center">
-              <li className="ml-4">
-              <Search />
-              </li>
+            <Hamburger />
+            <ul className="md:flex hidden  w-40 grow justify-between flex-wrap items-center">
               {/* Lights switch */}
               <li>
                 <ThemeToggle />
+              </li>
+              <li>
+                <div className="h-4 w-4">
+                  <MagnifyingGlassIcon />
+                </div>
               </li>
               <li>
                 <LanguageChanger></LanguageChanger>
@@ -39,5 +43,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }

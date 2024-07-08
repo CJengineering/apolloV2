@@ -139,6 +139,7 @@ export default async function HomeSecond({
 
   return (
     <ContentContainer width="full" desktopWidth="large">
+      
       <div className="h-8"></div>
       <SectionBanter title={"All components"} type="h1">
         <p className="mt-6">
