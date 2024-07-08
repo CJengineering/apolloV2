@@ -21,9 +21,7 @@ export default function LanguageChanger() {
     return i18nConfig.locales.includes(pathLocale) ? pathLocale : i18nConfig.defaultLocale;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newLocale = e.target.value;
-
+  const handleChange = (newLocale: string) => {
     // Set cookie for next-i18n-router
     setCookie('NEXT_LOCALE', newLocale, 30);
 
@@ -66,29 +64,19 @@ export default function LanguageChanger() {
   const derivedLocale = getLocaleFromPathname(currentPathname);
 
   return (
-    <div className="flex items-center space-x-4">
-      <label className="flex items-center space-x-2">
-        <input
-          type="radio"
-          name="language"
-          value="en"
-          checked={derivedLocale === 'en'}
-          onChange={handleChange}
-          className="form-radio hover:cursor-pointer h-4 w-4 text-blue-600"
-        />
-        <span>English</span>
-      </label>
-      <label className="flex items-center space-x-2">
-        <input
-          type="radio"
-          name="language"
-          value="ar"
-          checked={derivedLocale === 'ar'}
-          onChange={handleChange}
-          className="form-radio hover:cursor-pointer h-4 w-4 text-blue-600"
-        />
-        <span>Arabic</span>
-      </label>
+    <div className="flex  text-xs items-center space-x-2">
+      <span
+        onClick={() => handleChange('en')}
+        className={`cursor-pointer mono ${derivedLocale === 'en' ? 'font-bold' : ''}`}
+      >
+        EN
+      </span>
+      <span
+        onClick={() => handleChange('ar')}
+        className={`cursor-pointer text-xs  mono ${derivedLocale === 'ar' ? 'font-bold' : ''}`}
+      >
+        ع
+      </span>
     </div>
   );
 }
