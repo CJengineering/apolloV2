@@ -803,7 +803,7 @@ export interface NewsCleanedFields {
 export interface MediaCardProps {
   imageUrl: string;
   alt: string;
-  source: "video" | "audio" | "photo" | "other";
+  source: string;
   name: string;
   slug: string;
 }
@@ -1021,7 +1021,7 @@ export interface NewsRawFields {
   name?: string;
   slug?: string;
 }
-type UnifiedFields =
+export type UnifiedFields =
   | PostFieldsCleaned
   | MultimediaCleanedFields
   | NewsCleanedFields
