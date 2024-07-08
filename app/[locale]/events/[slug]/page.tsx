@@ -77,6 +77,7 @@ export default async function EventPage({
   return (
     <MainContainer isSideBar={true}>
       <ContentContainer>
+        <h1>{eventSingleDataCleaned.seoTitle}</h1>
         <Image
           className="w-full"
           src={eventSingleDataCleaned.heroImage.url}

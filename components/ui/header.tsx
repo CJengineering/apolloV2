@@ -24,8 +24,11 @@ export default function Header() {
           {/* Desktop navigation */}
           <nav className="flex">
             {/* Right side elements links */}
+            <div className=" flex md:hidden ">
+
             <Hamburger />
-            <ul className="md:flex hidden  w-40 grow justify-between flex-wrap items-center">
+            </div>
+            <ul className="md:flex hidden gap-4  grow justify-between flex-wrap items-center">
               {/* Lights switch */}
               <li>
                 <ThemeToggle />
@@ -35,9 +38,7 @@ export default function Header() {
                   <MagnifyingGlassIcon />
                 </div>
               </li>
-              <li>
-                <LanguageChanger></LanguageChanger>
-              </li>
+            
             </ul>
           </nav>
         </div>
