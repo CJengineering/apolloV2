@@ -13,6 +13,24 @@ import SectionBanter from "@/components/custom beta components/SectionBanter";
 import SecondaryNav from "@/components/ui/secondary-nav";
 import ContentPhotos from "../../programme/j-wafs/content-photos";
 import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcollectionToLIghtBox";
+import eventMapper from "@/functions/transformers/eventMapper";
+import newsMapper from "@/functions/transformers/newsMapper";
+import {
+  CompoundUnifiedComponent,
+  UnifiedComponentCollection,
+  UnifiedComponentRelatedProgrammes,
+  UnifiedComponentSlug,
+  UnifiedComponentThumbnail,
+  UnifiedComponentTitle,
+} from "@/components/CJ-components/components-CJ/test components/CompoundUnifiedComponent";
+import {
+  PostCardDatePublished,
+  PostCardImageLink,
+  PostCardProvider,
+  PostCardTagLink,
+  PostCardTitleLink,
+} from "@/components/CJ-components/components-CJ/test components/CompoundPostCard";
+import postMapper from "@/functions/transformers/postMapper";
 
 export default async function PeoplePage({
   params,
@@ -30,7 +48,8 @@ export default async function PeoplePage({
   const postsCollectionID = getIdByDisplayName("Posts");
   const multimediaCollectionID = getIdByDisplayName("Multimedia");
   const sourcesCollectionID = getIdByDisplayName("Sources");
-
+  const tagsCollectionID = getIdByDisplayName("Tags");
+  const categoriesCollectionID = getIdByDisplayName("Categories");
   {
     /**Get the data from the collection */
   }
@@ -42,6 +61,8 @@ export default async function PeoplePage({
   const postsDataRaw = await getData(postsCollectionID);
   const multimediaDataRaw = await getData(multimediaCollectionID);
   const sourcesDataRaw = await getData(sourcesCollectionID);
+  const tagsDataRaw = await getData(tagsCollectionID);
+  const categoriesDataRaw = await getData(categoriesCollectionID);
 
   {
     /**Get the single item */
@@ -78,16 +99,54 @@ export default async function PeoplePage({
     postsDataRaw.items,
     multimediaDataRaw.items
   );
-{/** Images of the person */}
- const cleanRelatedImages = peopleDataItem.photos.map(photoNotFromCollectionMapper)
+
+  {
+    /** Images of the person */
+  }
+  const cleanRelatedImages = peopleDataItem.photos.map(
+    photoNotFromCollectionMapper
+  );
   {
     /** test vairables for diplay*/
   }
-  
-  const testRelateMultimediaItem = relatedMultimedia.length;
-  const testRelatePostItem = relatedPosts.length;
-  const testRelateEventItem = relatedEvents.length;
-  const testRelateNewsItem = relatedNews.length;
+
+  // Clean version og related events
+
+  const cleanEvents = relatedEvents.map((event) =>
+    eventMapper(
+      event,
+      partnersDataRaw.items,
+      programmeDataRaw.items,
+      peopleDataRaw.items
+    )
+  );
+  const cleanMultimedia = relatedMultimedia.map((item) =>
+    multimediaMapper(
+      item,
+      programmeDataRaw.items,
+      eventsDataRaw.items,
+      peopleDataRaw.items
+    )
+  );
+  const cleanNews = relatedNews.map((item) =>
+    newsMapper(
+      item,
+      programmeDataRaw.items,
+      peopleDataRaw.items,
+      sourcesDataRaw.items,
+      tagsDataRaw.items,
+      eventsDataRaw.items
+    )
+  );
+  const cleanPosts = relatedPosts.map((item) =>
+    postMapper(
+      item,
+      categoriesDataRaw.items,
+      eventsDataRaw.items,
+      programmeDataRaw.items,
+      peopleDataRaw.items
+    )
+  );
 
   return (
     <div>
@@ -119,13 +178,36 @@ export default async function PeoplePage({
               </div>
             </div>
           </SectionBanter>
-          <SectionBanter title={"Multimedia"}></SectionBanter>
-          <SectionBanter title={"Related Posts"}></SectionBanter>
-          <SectionBanter title={"Images"}>
-
-            <ContentPhotos images={cleanRelatedImages}/>
+          <SectionBanter title={"Multimedia"}>
+            <div className="grid grid-cols-3">
+              {cleanMultimedia.map((item) => (
+                <CompoundUnifiedComponent data={item}>
+                  <UnifiedComponentTitle />
+                  <UnifiedComponentThumbnail />
+                  <UnifiedComponentSlug />
+                  <UnifiedComponentCollection />
+                  <UnifiedComponentRelatedProgrammes />
+                </CompoundUnifiedComponent>
+              ))}
+            </div>
           </SectionBanter>
-
+          <SectionBanter title={"Related Posts"}>
+            <div className="grid grid-cols-3">
+              {cleanPosts.map((content) => (
+                <PostCardProvider content={content}>
+                  <PostCardImageLink />
+                  <div className="mt-6 md:align-middle">
+                    <PostCardTagLink />
+                    <PostCardTitleLink />
+                    <PostCardDatePublished />
+                  </div>
+                </PostCardProvider>
+              ))}
+            </div>
+          </SectionBanter>
+          <SectionBanter title={"Images"}>
+            <ContentPhotos images={cleanRelatedImages} />
+          </SectionBanter>
         </ContentContainer>
       </MainContainer>
     </div>

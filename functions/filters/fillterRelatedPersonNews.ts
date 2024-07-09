@@ -1,3 +1,5 @@
+import { Item, NewsRawFields } from "@/app/interfaces";
+
 interface NewsMainProps {
     tag: string;
     title: string;
@@ -38,19 +40,10 @@ interface NewsMainProps {
     alt: string | null;
   }
   
-  interface Item {
-    id: string;
-    cmsLocaleId: string | null;
-    lastPublished: string | null;
-    lastUpdated: string;
-    createdOn: string;
-    isArchived: boolean;
-    isDraft: boolean;
-    fieldData: FieldData;
-  }
+
 
  
-  export default function (rawNewsArray:Item[], searchId :string) {
+  export default function (rawNewsArray:Item<NewsRawFields>[], searchId :string) {
     return rawNewsArray.filter(item => 
         item.fieldData.people && item.fieldData.people.includes(searchId)
     );
