@@ -50,6 +50,23 @@ import {
   EventCardTeaserText,
   EventCardTitleLink,
 } from "@/components/CJ-components/components-CJ/test components/CompoundEventCard";
+import {
+  CompoundUnifiedComponent,
+  UnifiedComponentCollection,
+  UnifiedComponentRelatedProgrammes,
+  UnifiedComponentSlug,
+  UnifiedComponentThumbnail,
+  UnifiedComponentTitle,
+} from "@/components/CJ-components/components-CJ/test components/CompoundUnifiedComponent";
+import {
+  CompoundUnifiedCard,
+  CompoundUnifiedCardDivider,
+  CompoundUnifiedCardProgrammeLabel,
+  CompoundUnifiedCardSourceDateContainer,
+  CompoundUnifiedCardSourceLabel,
+  CompoundUnifiedCardTitleLink,
+} from "@/components/CJ-components/components-CJ/test components/CompoundUnifiedCard";
+
 
 // This is a component documentation component
 interface ComponentDocProps {
@@ -161,6 +178,7 @@ export default async function HomeSecond({
   const compoundComponents = [
     {
       name: "CompoundNewsCard",
+      width: "400px",
       description:
         "Remove the component you don't need and if component has Container in the name it's just used as a container so it can be replace by any other container div",
       component: (
@@ -175,6 +193,7 @@ export default async function HomeSecond({
     },
     {
       name: "CompoundNewsSmall",
+      width: "400px",
       description:
         "Remove the component you don't need and if component has Container in the name it's just used as a container so it can be replace by any other container div",
       component: (
@@ -191,7 +210,8 @@ export default async function HomeSecond({
       ),
     },
     {
-      name: "CompoundEventsCard",
+      name: "CompoundEventCard",
+      width: "400px",
       description:
         "Remove the component you don't need and if component has Container in the name it's just used as a container so it can be replace by any other container div",
       component: (
@@ -209,6 +229,41 @@ export default async function HomeSecond({
         </CompoundEventCard>
       ),
     },
+    {
+      name: "CompoundUnifiedComponent",
+      width: "400px",
+      description:
+      "Must be used as a blue print can accepts multimedia, events, news, posts, publications",
+      component: (
+      <CompoundUnifiedComponent data={eventCleanedAll[0]}>
+        <UnifiedComponentTitle />
+        <UnifiedComponentThumbnail />
+        <UnifiedComponentSlug />
+        <UnifiedComponentCollection />
+        <UnifiedComponentRelatedProgrammes />
+      </CompoundUnifiedComponent>
+      ),
+    },
+    {
+      name: "CompoundUnifiedCard",
+      widht: "400px",
+      description:
+      "Must be used as a blue print can accepts multimedia, events, news, posts, publications",
+      component: (
+      <CompoundUnifiedCard content={newsCleanedAll[0]} locale={params.locale}>
+    
+        <CompoundUnifiedCardProgrammeLabel />
+        <CompoundUnifiedCardTitleLink />
+        <CompoundUnifiedCardSourceLabel />
+        <CompoundUnifiedCardDivider />
+        <CompoundUnifiedCardSourceDateContainer>
+        <CompoundUnifiedCardSourceLabel />
+        <CompoundUnifiedCardDivider />
+        </CompoundUnifiedCardSourceDateContainer>
+      </CompoundUnifiedCard>
+      ),
+    },
+
   ];
 
   const componentsCard = [
@@ -427,11 +482,11 @@ const awardAll = await getData(awardId);`}</code>
         </p>
         <div className="h-8"></div>
         <div className="">
-          {componentsCard.map((comp, index) => (
+          {compoundComponents.map((comp, index) => (
             <ComponentDoc
               key={index}
               name={comp.name}
-              width={comp.width}
+              width={'400px'}
               description={comp.description}
             >
               {comp.component}

@@ -28,7 +28,7 @@ type UnifiedComponentProviderProps = PropsWithChildren<{
   data: any;
 }>;
 
-const UnifiedComponentProvider = ({
+const CompoundUnifiedComponent = ({
   data,
   children,
 }: UnifiedComponentProviderProps) => {
@@ -54,7 +54,7 @@ const UnifiedComponentProvider = ({
     </UnifiedComponentContext.Provider>
   );
 };
-UnifiedComponentProvider.displayName = "UnifiedComponentProvider";
+CompoundUnifiedComponent.displayName = "CompoundUnifiedComponent";
 const Title = () => {
     const { data } = useUnifiedComponentContext();
     return <h2>{data.name}</h2>;
@@ -93,7 +93,7 @@ const Title = () => {
         <h3>Related Programmes:</h3>
         <ul>
           {getRelatedProgrammes().map((prog) => (
-            <Link key={prog.slug} href={prog.slug}>
+            <Link key={prog.slug} href={'d'}>
               {prog.name}
             </Link>
           ))}
@@ -103,7 +103,7 @@ const Title = () => {
   };
   RelatedProgrammes.displayName = "RelatedProgrammes";
   export {
-    UnifiedComponentProvider,
+    CompoundUnifiedComponent,
     Title as UnifiedComponentTitle,
     Thumbnail as UnifiedComponentThumbnail,
     Slug as UnifiedComponentSlug,
