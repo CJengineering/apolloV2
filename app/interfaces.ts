@@ -112,6 +112,9 @@ export interface TeamMember {
   imageUrl: string;
   slug?: string;
   position: string;
+  nameArabic: string;
+  biographyArabic: string;
+  postionArabic: string;
   order: number;
   paragraphDescription?: string;
   metaDescription?: string;
@@ -135,6 +138,10 @@ export interface FieldDataTeamProfile {
   slug: string;
   filter: string;
   order: number;
+  "name-arabic": string;
+  "biography-arabic": string;
+  "position-arabic": string;
+
   "paragraph-description": string;
   "meta-decscription": string;
   photo: Image;
@@ -710,7 +717,7 @@ export interface MultimediaRawFields {
 export interface MultimediaCleanedFields {
   nameArabic: string;
   pushToGr: boolean;
-  collectionName: "multimedia"; 
+  collectionName: "multimedia";
   programmeLabel: string;
   relatedProgrammes: RelatedColection[];
   innovationRelated: string[];
@@ -777,6 +784,7 @@ export interface NewsCleanedFields {
   arabicTitle: string;
   pushToGr: boolean;
   collectionName: "news";
+ 
   featured: boolean;
   externalLink: string;
   datePublished: string;
