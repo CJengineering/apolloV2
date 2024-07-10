@@ -35,16 +35,14 @@ const CompoundNewsSmall = ({
   children,
 }: CompoundNewsSmallProps) => (
   <CompoundNewsSmallContext.Provider value={{locale, content }}>
-    <article className="pb-8 sm:flex lg:flex-col xl:flex-row xl:items-center">{children}</article>
+    <article className="pb-8 sm:flex lg:flex-col xl:flex-row xl:items-center"><Link href={content.slug}>{children}</Link></article>
   </CompoundNewsSmallContext.Provider>
 );
 CompoundNewsSmall.displayName = "CompoundNewsSmall";
 const ImageLink = () => {
     const { content } = useCompoundNewsSmallContext();
     return (
-      <a
-        href={content.slug}
-        className="order-1 w-full sm:w-2/5 lg:order-1 lg:w-full xl:w-2/5"
+      <div className="order-1 w-full sm:w-2/5 lg:order-1 lg:w-full xl:w-2/5"
       >
         <div className="group aspect-square relative z-10 overflow-hidden bg-gray-100">
           <Image
@@ -55,7 +53,7 @@ const ImageLink = () => {
             height={1900}
           />
         </div>
-      </a>
+      </div>
     );
   };
   ImageLink.displayName = "ImageLink";
@@ -63,20 +61,32 @@ const ImageLink = () => {
   const SourceLabel = () => {
     const { content } = useCompoundNewsSmallContext();
     return (
-      <p className="mono text-sm font-normal uppercase leading-tight pb-3">
+      <span className="mono text-xs font-normal uppercase leading-tight">
         {content.sources.name}
-      </p>
+        </span>
     );
   };
   SourceLabel.displayName = "SourceLabel";
   
+  // const ProgrammeLabel = () => {
+  //   const { content } = useCompoundNewsSmallContext();
+  //   return (
+  //     <p className="mono text-xs font-normal uppercase leading-tight pb-3">
+  //       {content.programme.name}
+  //     </p>
+  //   );
+  // };
+  // ProgrammeLabel.displayName = "ProgrammeLabel";
+
+
+
   const TitleLink = () => {
     const { content } = useCompoundNewsSmallContext();
     return (
       <a href={content.slug}>
-        <h3 className="sans-serif font-medium text-lg leading-tight">
+        <h2 className="serif font-normal text-lg leading-tight hover:underline">
           {content.name}
-        </h3>
+        </h2>
       </a>
     );
   };
@@ -96,7 +106,7 @@ const ImageLink = () => {
     };
   
     return (
-      <span className="mono text-sm font-normal uppercase leading-tight">
+      <span className="mono text-xs font-normal uppercase leading-tight">
         {formatDate(content.datePublished)}
       </span>
     );

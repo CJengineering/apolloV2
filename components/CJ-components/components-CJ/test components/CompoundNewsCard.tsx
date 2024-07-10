@@ -35,7 +35,7 @@ const CompoundNewsCard = ({
   locale,
 }: CompoundNewsCardProps) => (
   <CompoundNewsCardContext.Provider value={{ content, locale }}>
-    <div className="relative">{children}</div>
+    <div className="relative cursor-pointer"><Link href={content.slug}>{children}</ Link></div>
   </CompoundNewsCardContext.Provider>
 );
 CompoundNewsCard.displayName = "CompoundNewsCard";
@@ -67,12 +67,9 @@ const ProgrammeLabel = () => {
   const { content } = useCompoundNewsCardContext();
   return (
     <div className="flex">
-      <Link
-        href={content.programme.slug}
-        className="mono text-sm font-normal cursor-pointer uppercase"
-      >
+     <p className="mono text-sm font-normal uppercase">
         {content.programme.name}
-      </Link>
+    </p>
     </div>
   );
 };
@@ -81,8 +78,8 @@ ProgrammeLabel.displayName = "ProgrammeLabel";
 const TitleLink = () => {
   const { content, locale } = useCompoundNewsCardContext();
   return (
-    <Link href={content.slug} className="group mt-3 block">
-      <h2 className="text-base sans-serif font-medium tracking-normal transition duration-300 ease-in-out group-hover:underline lg:text-2xl xl:text-2xl lg:leading-tight">
+    <Link href={content.slug} className="group mt-1 block">
+      <h2 className="text-base serif font-medium tracking-normal transition duration-300 ease-in-out group-hover:underline lg:text-2xl xl:text-2xl lg:leading-tight">
         {locale === "ar" ? content.arabicTitle : content.name}
       </h2>
     </Link>
