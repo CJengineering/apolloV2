@@ -1,10 +1,15 @@
 import { FieldDataTeamProfile, Item, TeamMember } from "@/app/interfaces";
 import { it } from "node:test";
 
-export default function teamProfileMapper(item: Item<FieldDataTeamProfile>): TeamMember {
+export default function teamProfileMapper(
+  item: Item<FieldDataTeamProfile>
+): TeamMember {
   return {
     id: item.id,
     name: item.fieldData.name,
+    nameArabic: item.fieldData["name-arabic"],
+    postionArabic: item.fieldData["position-arabic"],
+    biographyArabic: item.fieldData["biography-arabic"],
     imageUrl: item.fieldData.photo.url,
     slug: item.fieldData.slug,
     position: item.fieldData.position,

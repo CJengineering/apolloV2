@@ -53,6 +53,7 @@ export function mapProgrammeToRowData(programme: ProgrammeCleanedFields, feature
                   imageUrl: feature.square.url,
                 },
                 title: feature.label,
+                type: feature.type,
               })  
             )
             : [],
