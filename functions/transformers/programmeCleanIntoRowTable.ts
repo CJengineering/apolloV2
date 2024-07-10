@@ -52,9 +52,7 @@ export function mapProgrammeToRowData(programme: ProgrammeCleanedFields, feature
                 image: <CardHorizontalImageProps>{
                   imageUrl: feature.square.url,
                 },
-
                 title: feature.name,
-
               })  
             )
             : [],
