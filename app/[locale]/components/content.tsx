@@ -844,10 +844,7 @@ export default async function HomeComponents() {
               <div className="w-full ">
                 <div className=" p-4 border-dotted border-r-gray-100 border-2 ">
                   <SyndicationPartners title="Title of the section">
-                    <PersonalCard
-                      author={author}
-                      socialPlatforms={socialPlatforms}
-                    />
+               
                   </SyndicationPartners>
                 </div>
               </div>
