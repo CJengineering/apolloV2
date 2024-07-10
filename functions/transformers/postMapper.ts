@@ -95,6 +95,7 @@ export default function postMapper(
           name: programmeMatch.fieldData.name || "",
           url: programmeMatch.fieldData.website || "",
           slug: programmeMatch.fieldData.slug || "",
+          shortname: programmeMatch.fieldData.shortname || "",
         }
       : { name: "N/A", url: "N/A", slug: "N/A" },
     programmesMultiple: relatedProgrammes,
@@ -104,7 +105,12 @@ export default function postMapper(
           alt: fieldData.thumbnail.alt || "",
         }
       : { url: "", alt: "" },
-    mainImage: fieldData["main-image"] || "N/A",
+      mainImage: fieldData["main-image"]
+      ? {
+          url: fieldData["main-image"].url || "",
+          alt: fieldData["main-image"].alt || "",
+        }
+      : { url: "", alt: "" },
     openGraphImage: fieldData["open-graph-image"] || "N/A",
     datePublished: formatDate(fieldData["date-published"] || ""),
     location: fieldData["location"] || "N/A",

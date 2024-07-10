@@ -25,6 +25,16 @@ module.exports = {
               fontWeight: "400",
               fontSize: "1.1rem",
             },
+            
+            li: {
+              fontWeight: "400",
+              fontSize: "1.1rem",
+            },
+
+            'li::marker': {
+              fontWeight: "inherit",
+              color: "black",
+            },
             figure: {
               position: "relative !important",
               width: "100% !important",
