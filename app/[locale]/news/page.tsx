@@ -155,7 +155,7 @@ export default async function NewsContent({
 
   return (
     <MainContainer isSideBar={false}>
-      <ContentContainer>
+      <ContentContainer width="full" desktopWidth="full">
         <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
           News
         </h1>
@@ -174,29 +174,39 @@ export default async function NewsContent({
                   content={news}
                 >
                   <CompoundNewsCardImageLink />
-                  <div className="mt-6 md:align-middle">
-                    <CompoundNewsCardProgrammeLabel />
+                  <div className="mt-3 md:align-middle">
+                    {/* <CompoundNewsCardProgrammeLabel /> */}
+                    <div><CompoundNewsCardProgrammeLabel /></div>
                     <CompoundNewsCardTitleLink />
+                    <div className="flex pt-1">
+                    <div><CompoundNewsCardDateLabel /></div>
+                    <div className="px-3 mono text-sm">•</div>
+                    <div><CompoundNewsCardSourceLabel /></div>
+                    
+                    </div>
+                    
                   </div>
                 </CompoundNewsCard>
               ))}
             </div>
             <div className="lg:col-span-6 lg:pl-6">
             <Suspense fallback={<Loading />}>
-                {newsArrayCleaned.slice(2, 4).map((news, index) => (
+                {newsArrayCleaned.slice(2, 7).map((news, index) => (
                   <CompoundNewsSmall
                     key={index}
                     content={news}
                     locale={params.locale}
                   >
-                    <CompoundNewsSmallImageLink />
+                    {/* <CompoundNewsSmallImageLink /> */}
                     <div className="order-2 mt-2 w-full px-2 sm:mt-0 sm:max-w-sm sm:pl-0 sm:pr-5 lg:order-2 lg:mt-4 xl:ml-5 xl:mt-0 xl:flex-1">
-                      <CompoundNewsSmallSourceLabel />
+                
                       <CompoundNewsSmallTitleLink />
                       <CompoundNewsSmallMetaContainer>
                         <CompoundNewsSmallDateLabel />
-                      </CompoundNewsSmallMetaContainer>
-                    </div>
+                        <span className="flex items-center justify-center px-1 mono text-xs">•</span>
+                        <CompoundNewsSmallSourceLabel />
+                        </CompoundNewsSmallMetaContainer>
+                      </div>
                   </CompoundNewsSmall>
                 ))}
               </Suspense>

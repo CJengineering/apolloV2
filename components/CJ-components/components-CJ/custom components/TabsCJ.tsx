@@ -12,7 +12,7 @@ interface TabsCJProps {
 export default function TabsCJ({ rowData, cardData }: TabsCJProps) {
   return (
     <Tab.Group>
-      <Tab.List className="flex justify-between gap-2">
+      <Tab.List className="flex justify-between gap-4">
         <Tab className="font-mono text-base font-medium w-full border border-gray-800 py-4 uppercase hover:bg-gray-600 hover:bg-opacity-10 focus:outline-none ui-selected:bg-orange-600">
           labs
         </Tab>
@@ -22,7 +22,7 @@ export default function TabsCJ({ rowData, cardData }: TabsCJProps) {
       </Tab.List>
       <Tab.Panels>
         <Tab.Panel>
-          <div className="mt-3  w-full  grid lg:grid-cols-2 gap-4">
+          <div className="mt-3 w-full grid lg:grid-cols-2 gap-4">
             {cardData.map((item, index) => (
               <CardProgramme
                 key={index}

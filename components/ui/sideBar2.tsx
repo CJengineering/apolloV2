@@ -407,7 +407,7 @@ export default function Sidebar2() {
                 <NavLink href="/community" icon={<GlobeIcon />}>
                   Community
                 </NavLink>
-              {/* this is a component that is done for dropdonw only and has a logo you can dinf this component on top  */}
+              {/* this is a component that is for the dropdown only and has a logo you can dinf this component on top  */}
                 <NavGroup title="About" icon={<VectorIcon />}>
                   {renderNavItems(navItems[0].children || [])}
                 </NavGroup>
