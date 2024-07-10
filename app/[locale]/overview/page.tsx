@@ -61,7 +61,7 @@ export default async function OverviewContent({
     <>
       <ContentContainer width="full" desktopWidth="small">
         <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-36 text-center">
-          Overview
+          Who we are
         </h1>
         <div className="flex justify-center">
           <article className="mx-auto leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
@@ -139,7 +139,7 @@ export default async function OverviewContent({
           <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
         </Link>
         <Link href="/people" className="flex items-center group">
-          <p className="text-xl serif font-medium group-hover:underline">People</p>
+          <p className="text-xl serif font-medium group-hover:underline">Team</p>
           <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
         </Link>
         <Link href="https://jameel75.com/en" target="_blank" className="flex items-center group">
