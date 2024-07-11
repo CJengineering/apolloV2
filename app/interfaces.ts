@@ -7,6 +7,7 @@ interface ImageProps {
 }
 export interface RelatedColection {
   name: string;
+  shortname?: string;
   slug: string;
   url?: string;
 }
@@ -494,7 +495,7 @@ export interface FieldsPostRaw {
   "programme-2"?: string;
   "programmes-multiple"?: string[];
   thumbnail?: { url: string; alt: string };
-  "main-image"?: string;
+  "main-image"?: { url: string; alt: string };
   "open-graph-image"?: string;
   "date-published"?: string;
   location?: string;
@@ -578,7 +579,7 @@ export interface PostFieldsCleaned {
   programme: RelatedColection;
   programmesMultiple: RelatedColection[];
   thumbnail: ImageProps;
-  mainImage: string;
+  mainImage: ImageProps;
   openGraphImage: string;
   datePublished: string;
   location: string;
@@ -629,10 +630,11 @@ export interface Category {
 }
 
 export interface ArticleProps {
-  article: {
+    article: {
     title: string;
     description: string;
     image: string;
+    mainImage: string;
     date: string;
     time_to_read_in_minutes: number;
     body: {

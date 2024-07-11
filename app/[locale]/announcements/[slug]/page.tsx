@@ -79,8 +79,7 @@ export default async function page({
 
   return (
     <MainContainer isSideBar={true}>
-      <ContentContainer>
-        <ArticleBanter article={article.article} />
+        <ArticleBanter post={cleanPost} />
 
         {relatedPostsCleaned.length > 0 && (
           <SectionBanter title={"Related announcements"}>
@@ -100,7 +99,7 @@ export default async function page({
               </SectionBanter>
     
           )}
-      </ContentContainer>
+
     </MainContainer>
   );
 }
