@@ -17,6 +17,7 @@ import { ArticleProps, PostFieldsCleaned } from "@/app/interfaces";
           code: post.body, // Assuming `code` in body is the same as `body` in PostFieldsCleaned
         },
         tags: arrayTags,
+        mainImage: post.mainImage.url,
         category: {
           name: post.programme.name,
           url: post.programme.url || '',
