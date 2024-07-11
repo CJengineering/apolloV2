@@ -99,7 +99,7 @@ export default async function page({
         </div>
         <div className="flex justify-center pt-12">
           <div
-            className="w-full md:w-2/3 prose dark:prose-dark serif font-semibold"
+            className="prose prose-xl dark:prose-dark serif"
             dangerouslySetInnerHTML={{
               __html: memberBiography ? memberBiography : "",
             }}
