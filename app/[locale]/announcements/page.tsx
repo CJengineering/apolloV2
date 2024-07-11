@@ -111,8 +111,10 @@ export default async function AnnouncementsContent({
 
   return (
     <MainContainer isSideBar={false}>
-      <ContentContainer>
-        <SectionBanter title={""}>
+      <ContentContainer width="full" desktopWidth="small">
+        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-36 text-center">
+          News
+        </h1>
           <div className=" relative mb-4">
             <Search></Search>
           </div>
@@ -123,7 +125,6 @@ export default async function AnnouncementsContent({
               ))}
             </Suspense>
           </div>
-        </SectionBanter>
       </ContentContainer>
     </MainContainer>
   );
