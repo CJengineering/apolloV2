@@ -11,22 +11,32 @@ export function mapProgrammeToRowData(programme: ProgrammeCleanedFields, feature
       repository: {
         top: {
           name: programme.name,
-          description: programme.description,
+          nameArabic: programme.nameArabic,
+          descriptionArabic: programme.bylineArabic,
+          description: programme.shortNameArabic,
           mission: programme.byline,
+          missionArabic: programme.bylineArabic,
           year: programme.yearEstablished,
           partners: programme.partners.map(partner => partner.name),
+          partnersArabic: programme.partners.map(partner => partner.arabicName),
         },
         content: {
           established: { data: { established: [programme.yearEstablished, programme.yearClosed].filter(Boolean) } },
           research: { data: { research: [programme.fieldEnglishResearch ]} },
+          researchArabic: { data: { research: [programme.fieldArabicResearch ]} },
+
           logo: {   url: programme.logoSvgOriginalRatio.url , alt: programme.logoSvgLightOriginalRatio.alt},
           logoDark: {   url: programme.logoSvgLightOriginalRatio.url , alt: programme.logoSvgOriginalRatio.alt},
           button: { href: programme.website, text: programme.buttonText },
           headquarters: { data: { headquarters: [programme.headquartersEnglish].filter(Boolean) } },
           leadership: { data: { leadership: programme.leadership.map(leader => leader.name) } },
           "key initiatives": { data: { initiatives: programme.features.map(feature => feature.name) } },
+          
+          "key initiativesArabic": { data: { initiatives: programme.features.map(feature => feature.arabicName) } },
           "key partners": { data: { partners: programme.partners.map(partner => partner.name) } },
+          "key partnersArabic": { data: { partners: programme.partners.map(partner => partner.arabicName) } },
           fullDescription: programme.text,
+          fullDescriptionArabic: programme.summaryArabic,
           socialMediaLinks: {
             instagram: mapSocialMediaLink('instagram', programme.instagram),
             youtube: mapSocialMediaLink('youtube', programme.youtube),

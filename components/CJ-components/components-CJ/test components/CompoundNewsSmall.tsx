@@ -83,11 +83,11 @@ const ImageLink = () => {
   const TitleLink = () => {
     const { content } = useCompoundNewsSmallContext();
     return (
-      <a href={content.slug}>
+      <div>
         <h2 className="serif font-normal text-lg leading-tight hover:underline">
           {content.name}
         </h2>
-      </a>
+      </div>
     );
   };
   TitleLink.displayName = "TitleLink";

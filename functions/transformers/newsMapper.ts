@@ -1,4 +1,13 @@
-import { Item, NewsRawFields, NewsCleanedFields, ProgrammeRawFields, PeopleRawFields, SourceRawFields, TagRawFields, EventFieldData } from "@/app/interfaces";
+import {
+  Item,
+  NewsRawFields,
+  NewsCleanedFields,
+  ProgrammeRawFields,
+  PeopleRawFields,
+  SourceRawFields,
+  TagRawFields,
+  EventFieldData,
+} from "@/app/interfaces";
 import { formatDate } from "../utils/formDate";
 
 export default function newsMapper(
@@ -7,15 +16,29 @@ export default function newsMapper(
   people: Item<PeopleRawFields>[],
   sources: Item<SourceRawFields>[],
   tags: Item<TagRawFields>[],
-  events : Item<EventFieldData>[]
+  events: Item<EventFieldData>[]
 ): NewsCleanedFields {
   const { fieldData } = item;
 
-  const sourceMatch = sources.find(source => source.id === fieldData.sources);
-  const source = sourceMatch ? { name: sourceMatch.fieldData.name || "", slug: sourceMatch.fieldData.slug || "" } : { name: "N/A", slug: "N/A" };
+  const sourceMatch = sources.find((source) => source.id === fieldData.sources);
+  const source = sourceMatch
+    ? {
+        name: sourceMatch.fieldData.name || "",
+        slug: sourceMatch.fieldData.slug || "",
+        arabicName: sourceMatch.fieldData["name-arabic"] || "",
+      }
+    : { name: "N/A", slug: "N/A", arabicName: "N/A" };
 
-  const programmeMatch = programmes.find(prog => prog.id === fieldData.programme);
-  const programme = programmeMatch ? { name: programmeMatch.fieldData.name || "", slug: programmeMatch.fieldData.slug || "" } : { name: "N/A", slug: "N/A" };
+  const programmeMatch = programmes.find(
+    (prog) => prog.id === fieldData.programme
+  );
+  const programme = programmeMatch
+    ? {
+        name: programmeMatch.fieldData.name || "",
+        slug: programmeMatch.fieldData.slug || "",
+        arabicName: programmeMatch.fieldData["name-arabic"] || "",
+      }
+    : { name: "N/A", slug: "N/A", arabicName: "N/A" };
 
   const relatedProgrammes = fieldData["programme-s"]
     ? fieldData["programme-s"].map((programmeId) => {
@@ -25,9 +48,10 @@ export default function newsMapper(
         return programmeMatch
           ? {
               name: programmeMatch.fieldData.name || "",
+              arabicName: programmeMatch.fieldData["name-arabic"] || "",
               slug: programmeMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A", arabicName: "N/A" };
       })
     : [];
 
@@ -37,9 +61,10 @@ export default function newsMapper(
         return peopleMatch
           ? {
               name: peopleMatch.fieldData.name || "",
+              arabicName: peopleMatch.fieldData["name-arabic"] || "",
               slug: peopleMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A", arabicName: "N/A" };
       })
     : [];
 
@@ -51,23 +76,23 @@ export default function newsMapper(
         return innovationMatch
           ? {
               name: innovationMatch.fieldData.name || "",
+              arabicName: innovationMatch.fieldData["name-arabic"] || "",
               slug: innovationMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A", arabicName: "N/A" };
       })
     : [];
 
   const relatedEvents = fieldData["related-event-s"]
     ? fieldData["related-event-s"].map((eventId) => {
-        const eventMatch = events.find(
-          (event) => event.id === eventId
-        );
+        const eventMatch = events.find((event) => event.id === eventId);
         return eventMatch
           ? {
               name: eventMatch.fieldData.name || "",
+              arabicName: eventMatch.fieldData["arabic-title"] || "",
               slug: eventMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A", arabicName: "N/A" };
       })
     : [];
 
@@ -79,31 +104,33 @@ export default function newsMapper(
         return teamMemberMatch
           ? {
               name: teamMemberMatch.fieldData.name || "",
+              arabicName: teamMemberMatch.fieldData["name-arabic"] || "",
               slug: teamMemberMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A", arabicName: "N/A" };
       })
     : [];
 
   const relatedTags = fieldData.tags
     ? fieldData.tags.map((tagId) => {
-        const tagMatch = tags.find(tag => tag.id === tagId);
+        const tagMatch = tags.find((tag) => tag.id === tagId);
         return tagMatch
           ? {
               name: tagMatch.fieldData.name || "",
+              arabicName: tagMatch.fieldData["name-arabic"] || "",
               slug: tagMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A", arabicName: "N/A" };
       })
     : [];
 
   return {
     arabicTitle: fieldData["arabic-title"] || "",
-    collectionName:'news',
+    collectionName: "news",
     pushToGr: fieldData["push-to-gr"] || false,
     featured: fieldData.featured || false,
     externalLink: fieldData["external-link"] || "",
-    datePublished: formatDate(fieldData["date-published"]|| '') || "",
+    datePublished: formatDate(fieldData["date-published"] || "") || "",
     sources: source,
     programme: programme,
     programmeS: relatedProgrammes,
@@ -111,7 +138,8 @@ export default function newsMapper(
     innovationS: relatedInnovations,
     relatedEvent: {
       name: fieldData["related-event"] || "",
-      slug: fieldData["related-event"] || ""
+      arabicName: fieldData["arabic-title"] || "",
+      slug: fieldData["related-event"] || "",
     },
     relatedEventS: relatedEvents,
     summary: fieldData.summary || "",
@@ -119,11 +147,11 @@ export default function newsMapper(
     excerpt: fieldData.excerpt || "",
     thumbnail: {
       url: fieldData.thumbnail?.url || "",
-      alt: fieldData.thumbnail?.alt || ""
+      alt: fieldData.thumbnail?.alt || "",
     },
     heroImage: {
       url: fieldData["hero-image"]?.url || "",
-      alt: fieldData["hero-image"]?.alt || ""
+      alt: fieldData["hero-image"]?.alt || "",
     },
     thumbnailAltText: fieldData["thumbnail-alt-text"] || "",
     imageAltTextArabic: fieldData["image-alt-text-arabic"] || "",
@@ -131,8 +159,6 @@ export default function newsMapper(
     tags: relatedTags,
     removeFromNewsGrid: fieldData["remove-from-news-grid"] || false,
     name: fieldData.name || "",
-    slug: `/news/${fieldData.slug}` || ""
+    slug: `/press/${fieldData.slug}` || "",
   };
 }
-
-

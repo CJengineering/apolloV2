@@ -106,12 +106,13 @@ import {
             return programmeMatch
               ? {
                   name: programmeMatch.fieldData.name || "",
+                  arabicName: programmeMatch.fieldData["name-arabic"] || "",
                   url: programmeMatch.fieldData.website || "",
                   slug: programmeMatch.fieldData.slug || "",
                 }
-              : { name: "N/A", url: "N/A", slug: "N/A" };
+              : { name: "N/A", url: "N/A", slug: "N/A" , arabicName: "N/A"};
           })
-        : [{ name: "N/A", url: "N/A", slug: "N/A" }];
+        : [{ name: "N/A", url: "N/A", slug: "N/A", arabicName: "N/A"}];
    
   
    
@@ -142,9 +143,10 @@ import {
         programmeLabel: programmeMatch
           ? {
               name: programmeMatch.fieldData.name || "",
+              arabicName: programmeMatch.fieldData["name-arabic"] || "",
               slug: programmeMatch.fieldData.slug || ""
             }
-          : { name: "N/A", slug: "N/A" },
+          : { name: "N/A", slug: "N/A", arabicName: "N/A"},
         programmeS: relatedProgrammes,
         name: fieldData.name || "",
         slug: fieldData.slug || ""

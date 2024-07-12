@@ -48,8 +48,9 @@ export default function postMapper(
       ? {
           name: tagMatch.fieldData.name || "",
           slug: tagMatch.fieldData.slug || "",
+          arabicName: tagMatch.fieldData["name-arabic"] || "",
         }
-      : { name: "N/A", slug: "N/A" };
+      : { name: "N/A", slug: "N/A" , arabicName: "N/A"};
   }
   ) : [];
   const relatedProgrammes =
@@ -63,11 +64,12 @@ export default function postMapper(
             ? {
                 name: programmeMatch.fieldData.name || "",
                 url: programmeMatch.fieldData.website || "",
+                arabicName: programmeMatch.fieldData["name-arabic"] || "",
                 slug: programmeMatch.fieldData.slug || "",
               }
-            : { name: "N/A", url: "N/A", slug: "N/A" };
+            : { name: "N/A", url: "N/A", slug: "N/A",arabicName: "N/A"};
         })
-      : [{ name: "N/A", url: "N/A", slug: "N/A" }];
+      : [{ name: "N/A", url: "N/A", slug: "N/A",arabicName: "N/A"}];
   const relatedPeople =
     fieldData.people && fieldData.people.length > 0
       ? fieldData.people.map((programmeId) => {
@@ -77,17 +79,17 @@ export default function postMapper(
           return peopleMatch
             ? {
                 name: peopleMatch.fieldData.name || "",
-
+                arabicName: peopleMatch.fieldData["name-arabic"] || "",
                 slug: peopleMatch.fieldData.slug || "",
               }
-            : { name: "N/A", slug: "N/A" };
+            : { name: "N/A", slug: "N/A",arabicName : "N/A" };
         })
-      : [{ name: "N/A", url: "N/A", slug: "N/A" }];
+      : [{ name: "N/A", url: "N/A", slug: "N/A", arabicName: "N/A"}];
 
   const eventMatch = events.find(
     (programme) => programme.id === fieldData["related-event"]
   );
-  const programeShortName = {name: programmeMatch?.fieldData.shortname || "N/A", slug:`/porgrammes/${ programmeMatch?.fieldData.slug}`}
+  const programeShortName = {name: programmeMatch?.fieldData.shortname || "N/A", slug:`/porgrammes/${ programmeMatch?.fieldData.slug}`, arabicName: programmeMatch?.fieldData["name-arabic"] || "N/A"}
   return {
     arabicTitle: fieldData["arabic-title"] || "",
     pushToGr: fieldData["push-to-gr"] || false,
@@ -95,10 +97,11 @@ export default function postMapper(
       ? {
           name: programmeMatch.fieldData.name || "",
           url: programmeMatch.fieldData.website || "",
+          arabicName: programmeMatch.fieldData["name-arabic"] || "",
           slug: programmeMatch.fieldData.slug || "",
           shortname: programmeMatch.fieldData.shortname || "",
         }
-      : { name: "N/A", url: "N/A", slug: "N/A" },
+      : { name: "N/A", url: "N/A", slug: "N/A" , arabicName: "N/A", shortname: "N/A"},
     programmesMultiple: relatedProgrammes,
     thumbnail: fieldData.thumbnail
       ? {
@@ -142,9 +145,10 @@ export default function postMapper(
     relatedEvent: eventMatch
       ? {
           name: eventMatch.fieldData.name || "",
+          arabicName: eventMatch.fieldData["arabic-title"] || "",
           slug: eventMatch.fieldData.slug || "",
         }
-      : { name: "N/A", slug: "N/A" },
+      : { name: "N/A", slug: "N/A",arabicName: "N/A" },
     people: relatedPeople,
     innovations: ["N/A"],
     name: fieldData.name || "N/A",

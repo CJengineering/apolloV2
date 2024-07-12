@@ -45,9 +45,10 @@ export default function multimediaMapper(
   const source = sourceMatch
     ? {
         name: sourceMatch.fieldData.name || "",
+        arabicName: sourceMatch.fieldData["name-arabic"] || "",
         slug: sourceMatch.fieldData.slug || "",
       }
-    : { name: "N/A", slug: "N/A" };
+    : { name: "N/A", slug: "N/A" ,arabicName: "N/A"};
   const relatedProgrammes =
     fieldData["related-programmes"]?.map((programmeId) => {
       const programmeMatch = programmes.find(
@@ -56,9 +57,10 @@ export default function multimediaMapper(
       return programmeMatch
         ? {
             name: programmeMatch.fieldData.name || "",
+            arabicName: programmeMatch.fieldData["name-arabic"] || "",
             slug: programmeMatch.fieldData.slug || "",
           }
-        : { name: "N/A", slug: "N/A" };
+        : { name: "N/A", slug: "N/A",arabicName: "N/A"};
     }) || [];
 
   const relatedPeople =
@@ -67,9 +69,10 @@ export default function multimediaMapper(
       return peopleMatch
         ? {
             name: peopleMatch.fieldData.name || "",
+            arabicName: peopleMatch.fieldData["name-arabic"] || "",
             slug: peopleMatch.fieldData.slug || "",
           }
-        : { name: "N/A", slug: "N/A" };
+        : { name: "N/A", slug: "N/A" , arabicName: "N/A"};
     }) || [];
 
   const relatedEvent =
@@ -78,9 +81,10 @@ export default function multimediaMapper(
       return eventMatch
         ? {
             name: eventMatch.fieldData.name || "",
+            arabicName: eventMatch.fieldData["arabic-title"] || "",
             slug: eventMatch.fieldData.slug || "",
           }
-        : { name: "N/A", slug: "N/A" };
+        : { name: "N/A", slug: "N/A" ,arabicName: "N/A"};
     }) || [];
 
   const thumbnail = fieldData.thumbnail

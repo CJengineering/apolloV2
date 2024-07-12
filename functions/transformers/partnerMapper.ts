@@ -12,9 +12,10 @@ export default function partnerMapper(
         return tagMatch
           ? {
               name: tagMatch.fieldData.name || "",
+              arabicName: tagMatch.fieldData["name-arabic"] || "",
               slug: tagMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A", arabicName  : "N/A"};
       })
     : [];
 

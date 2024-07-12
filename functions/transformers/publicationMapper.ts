@@ -55,9 +55,10 @@ export default function publicationMapper(
         return programmeMatch
           ? {
               name: programmeMatch.fieldData.name || "",
+              arabicName  : programmeMatch.fieldData["name-arabic"] || "",
               slug: programmeMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A", arabicName: "N/A" };
       })
     : [];
 
@@ -67,12 +68,13 @@ export default function publicationMapper(
         return peopleMatch
           ? {
               name: peopleMatch.fieldData.name || "",
+              arabicName  : peopleMatch.fieldData["name-arabic"] || "",
               slug: peopleMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A", arabicName: "N/A" };
       })
     : [];
- const validateSource =  {name :relatedProgrammes[0].name|| '', slug: "N/A"}
+ const validateSource =  {name :relatedProgrammes[0].name|| '', slug: "N/A", arabicName: relatedProgrammes[0].arabicName || ""};
   return {
     nameArabic: fieldData["name-arabic"] || "",
     datePublished: fieldData["date-published"] ? formatDate(fieldData["date-published"]) : "",

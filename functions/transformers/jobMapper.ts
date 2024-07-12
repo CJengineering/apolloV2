@@ -35,7 +35,7 @@ export default function jobMapper(
   const { fieldData } = item;
 
   const programmeMatch = programmes.find(prog => prog.id === fieldData["label-programmed"]);
-  const labelProgrammed = programmeMatch ? { name: programmeMatch.fieldData.name || "", slug: programmeMatch.fieldData.slug || "" } : { name: "N/A", slug: "N/A" };
+  const labelProgrammed = programmeMatch ? { name: programmeMatch.fieldData.name || "", slug: programmeMatch.fieldData.slug || "", arabicName: programmeMatch.fieldData["name-arabic"]||'' } : { name: "N/A", slug: "N/A", arabicName: "N/A"};
 
   const relatedProgrammes = fieldData["related-programme"]
     ? fieldData["related-programme"].map((programmeId) => {
@@ -45,9 +45,10 @@ export default function jobMapper(
         return programmeMatch
           ? {
               name: programmeMatch.fieldData.name || "",
+              arabicName: programmeMatch.fieldData["name-arabic"] || "",
               slug: programmeMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A", arabicName: "N/A"};
       })
     : [];
 
