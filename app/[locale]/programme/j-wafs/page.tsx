@@ -112,7 +112,7 @@ export default async function JpalPage({
   const relatedJobs = filterRelatedAwards(jobsRawData.items, {
     programme: singleProgramme.id,
   });
- const relatedPhotos = photosRawData.items
+  const relatedPhotos = photosRawData.items;
   {
     /**Missing to add 
     prizes jobs people photos learns
@@ -134,16 +134,19 @@ export default async function JpalPage({
     )
   );
   const cleanRelatedEvents = relatedEvents.map((item) =>
-    eventMapper(item, programmesRawData.items, peopleRawData.items, peopleRawData.items)
+    eventMapper(
+      item,
+      programmesRawData.items,
+      peopleRawData.items,
+      peopleRawData.items
+    )
   );
   const cleanedFeatures = relatedFeatures.map((item) =>
     featureMapper(item, programmesRawData.items)
   );
-  const cleanedRelatedPhotos = relatedPhotos.map((item) => (photoMapper(
-    item,
-    programmesRawData.items,
-    peopleRawData.items
-  )));
+  const cleanedRelatedPhotos = relatedPhotos.map((item) =>
+    photoMapper(item, programmesRawData.items, peopleRawData.items)
+  );
   const cleanRelatedNews = relatedNews.map((item) =>
     newsMapper(
       item,
@@ -185,7 +188,7 @@ export default async function JpalPage({
       programmesRawData.items
     )
   );
-  const postProps = cleanRelatedPosts
+  const postProps = cleanRelatedPosts;
   const eventProps = cleanRelatedEvents.map(mapEventFieldDataToEventCard);
 
   const dataForRow = mapProgrammeToRowData(
@@ -197,38 +200,37 @@ export default async function JpalPage({
     <MainContainer>
       <div className="pt-12">
         <TableRowSingle repository={dataForRow.repository} />
-               <div className="">
-          <PostAccordion title={"News"}  >
-          <div className="grid grid-cols-3 gap-5">
-            {newsProps.slice(2, 5).map((item) => (
-              <NewsCard content={item} locale={params} />
-            ))}
-          </div>
-        </PostAccordion>
-
+        <div className="">
+          <PostAccordion title={"News"}>
+            <div className="grid grid-cols-3 gap-5">
+              {newsProps.slice(2, 5).map((item) => (
+                <NewsCard content={item} locale={params} />
+              ))}
+            </div>
+          </PostAccordion>
         </div>
         <div className="">
-        <PostAccordion title={"Multimedia"}  >
-          <div className="grid grid-cols-3 gap-5">
-            {multimediaProps.map((item) => (
-              <div key={item.alt} className="">
-                <MediaCard {...item} />
-              </div>
-            ))}
-          </div>
+          <PostAccordion title={"Multimedia"}>
+            <div className="grid grid-cols-3 gap-5">
+              {multimediaProps.map((item) => (
+                <div key={item.alt} className="">
+                  <MediaCard {...item} />
+                </div>
+              ))}
+            </div>
           </PostAccordion>
         </div>
 
         <div className="">
-          <PostAccordion title={"Press"}  >
-          <div className="grid grid-cols-3 gap-5">
-            {postProps.slice(0, 8).map((post) => (
-              <PostCard key={post.name} content={post} />
-            ))}
-          </div>
+          <PostAccordion title={"Press"}>
+            <div className="grid grid-cols-3 gap-5">
+              {postProps.slice(0, 8).map((post) => (
+                <PostCard key={post.name} content={post} />
+              ))}
+            </div>
           </PostAccordion>
         </div>
-{/* 
+        {/* 
 
         <div>
           <h2> related features </h2>
@@ -248,15 +250,14 @@ export default async function JpalPage({
         </div> */}
 
         <div>
-         
-          <PostAccordion title={"Events"}  >
-          <div className="grid grid-cols-3 gap-5">
-            {eventProps.map((item) => (
-              <>
-                <EventCard article={item}></EventCard>
-              </>
-            ))}
-          </div>
+          <PostAccordion title={"Events"}>
+            <div className="grid grid-cols-3 gap-5">
+              {eventProps.map((item) => (
+                <>
+                  <EventCard article={item}></EventCard>
+                </>
+              ))}
+            </div>
           </PostAccordion>
         </div>
         {/* <div>
