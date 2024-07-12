@@ -87,6 +87,7 @@ export default function postMapper(
   const eventMatch = events.find(
     (programme) => programme.id === fieldData["related-event"]
   );
+  const programeShortName = {name: programmeMatch?.fieldData.shortname || "N/A", slug:`/porgrammes/${ programmeMatch?.fieldData.slug}`}
   return {
     arabicTitle: fieldData["arabic-title"] || "",
     pushToGr: fieldData["push-to-gr"] || false,
@@ -116,6 +117,7 @@ export default function postMapper(
     location: fieldData["location"] || "N/A",
     locationArabic: fieldData["location-arabic"] || "N/A",
     seoTitle: fieldData["seo-title"] || "N/A",
+    sources: programeShortName,
     seoTitleArabic: fieldData["seo-title-arabic"] || "N/A",
     seoMeta: fieldData["seo-meta"] || "N/A",
     seoMetaArabic: fieldData["seo-meta-arabic"] || "N/A",

@@ -82,9 +82,12 @@ export default function eventMapper(
     .map((prog) => (prog ? prog.fieldData.name : ""))
     .filter((name): name is string => name !== undefined);
 
+    const fakeSource  = {name : programmeLabelCleaned[0], slug: "N/A"}
+
   return {
     pushToGr: item.fieldData["push-to-gr"] || false,
     programmeLabel: programmeLabelCleaned[0] || "",
+    sources: fakeSource,
     relatedProgrammes: matchProgrammes
       .map((prog) => (prog ? prog.fieldData.name : ""))
       .filter((name): name is string => name !== undefined),
@@ -105,6 +108,7 @@ export default function eventMapper(
     },
     isDraft: item.isDraft,
     heroImageCaption: item.fieldData["hero-image-caption"] || "",
+    datePublished:formatDate(item.fieldData["event-date"] || ""),
     featured: item.fieldData.featured || false,
     arabicTitle: item.fieldData["arabic-title"] || "",
     seoMetaDescription: item.fieldData["seo-meta-description"] || "",

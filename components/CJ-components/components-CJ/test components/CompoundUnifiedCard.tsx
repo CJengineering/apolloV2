@@ -1,139 +1,133 @@
-'use client';
-import { NewsCleanedFields } from "@/app/interfaces";
+"use client";
+
+import { createContext, PropsWithChildren, useContext } from "react";
+import { NewsCleanedFields, UnifiedFields } from "@/app/interfaces";
 import Image from "next/image";
 import Link from "next/link";
-import { PropsWithChildren, createContext, useContext } from "react";
 
-type CompoundUnifiedCardContextType = {
-  content: NewsCleanedFields;
+type UnifiedCardSmallContextType = {
+  content: UnifiedFields;
   locale: string;
 };
 
-const CompoundUnifiedCardContext = createContext<
-  CompoundUnifiedCardContextType | undefined
+const UnifiedCardSmallContext = createContext<
+  UnifiedCardSmallContextType | undefined
 >(undefined);
 
-function useCompoundUnifiedCardContext() {
-  const context = useContext(CompoundUnifiedCardContext);
+function useUnifiedCardSmallContext() {
+  const context = useContext(UnifiedCardSmallContext);
   if (!context) {
     throw new Error(
-      "useCompoundUnifiedCardContext must be used within a CompoundUnifiedCardProvider"
+      "useUnifiedCardSmallContext must be used within a UnifiedCardSmallProvider"
     );
   }
   return context;
 }
 
-type CompoundUnifiedCardProps = PropsWithChildren<{
-  content: NewsCleanedFields;
+type UnifiedCardSmallProps = PropsWithChildren<{
+  content: UnifiedFields;
   locale: string;
 }>;
 
-const CompoundUnifiedCard = ({
+const UnifiedCardSmall = ({
   content,
-  children,
   locale,
-}: CompoundUnifiedCardProps) => (
-  <CompoundUnifiedCardContext.Provider value={{ content, locale }}>
-    <div className="relative">{children}</div>
-  </CompoundUnifiedCardContext.Provider>
+  children,
+}: UnifiedCardSmallProps) => (
+  <UnifiedCardSmallContext.Provider value={{locale, content }}>
+    <article className="pb-8 sm:flex lg:flex-col xl:flex-row xl:items-center"><Link href={content.slug}>{children}</Link></article>
+  </UnifiedCardSmallContext.Provider>
 );
-CompoundUnifiedCard.displayName = "CompoundUnifiedCard";
-
+UnifiedCardSmall.displayName = "UnifiedCardSmall";
 const ImageLink = () => {
-  const { content } = useCompoundUnifiedCardContext();
-  return (
-    <a
-      href={content.slug}
-      className="group relative z-10 block overflow-hidden bg-gray-100"
-      style={{ paddingBottom: "56.25%", position: "relative" }}
-    >
-      <div className="aspect-h-9 aspect-w-16">
-        <Image
-          className="absolute top-0 left-0 w-full h-full object-cover object-center transition duration-300 ease-in-out group-hover:scale-110"
-          src={content.thumbnail.url}
-          loading="lazy"
-          width={500}
-          height={500}
-          alt="Featured article"
-        />
-      </div>
-    </a>
-  );
-};
-ImageLink.displayName = "ImageLink";
-
-const ProgrammeLabel = () => {
-  const { content } = useCompoundUnifiedCardContext();
-  return (
-    <div className="flex">
-      <Link
-        href={content.programme.slug}
-        className="mono text-sm font-normal cursor-pointer uppercase"
+    const { content } = useUnifiedCardSmallContext();
+    return (
+      <div className="order-1 w-full sm:w-2/5 lg:order-1 lg:w-full xl:w-2/5"
       >
-        {content.programme.name}
-      </Link>
-    </div>
-  );
-};
-ProgrammeLabel.displayName = "ProgrammeLabel";
-
-const TitleLink = () => {
-  const { content, locale } = useCompoundUnifiedCardContext();
-  return (
-    <Link href={content.slug} className="group mt-3 block">
-      <h2 className="text-base sans-serif font-medium tracking-normal transition duration-300 ease-in-out group-hover:underline lg:text-2xl xl:text-2xl lg:leading-tight">
-        {locale === "ar" ? content.arabicTitle : content.name}
-      </h2>
-    </Link>
-  );
-};
-TitleLink.displayName = "TitleLink";
-
-const SourceLabel = () => {
-  const { content } = useCompoundUnifiedCardContext();
-  return (
-    <div>
-      <p className="mono text-sm font-normal uppercase">
+        <div className="group aspect-square relative z-10 overflow-hidden bg-gray-100">
+          <Image
+            src={content.thumbnail.url}
+            className="w-full h-full object-cover transition duration-300 ease-in-out group-hover:scale-110"
+            alt={content.thumbnail.alt}
+            width={1900}
+            height={1900}
+          />
+        </div>
+      </div>
+    );
+  };
+  ImageLink.displayName = "ImageLink";
+  
+  const SourceLabel = () => {
+    const { content } = useUnifiedCardSmallContext();
+    return (
+      <span className="mono text-xs font-normal uppercase leading-tight">
         {content.sources.name}
-      </p>
+        </span>
+    );
+  };
+  SourceLabel.displayName = "SourceLabel";
+  
+  // const ProgrammeLabel = () => {
+  //   const { content } = useUnifiedCardSmallContext();
+  //   return (
+  //     <p className="mono text-xs font-normal uppercase leading-tight pb-3">
+  //       {content.programme.name}
+  //     </p>
+  //   );
+  // };
+  // ProgrammeLabel.displayName = "ProgrammeLabel";
+
+
+
+  const TitleLink = () => {
+    const { content } = useUnifiedCardSmallContext();
+    return (
+      <a href={content.slug}>
+        <h2 className="serif font-normal text-lg leading-tight hover:underline">
+          {content.name}
+        </h2>
+      </a>
+    );
+  };
+  TitleLink.displayName = "TitleLink";
+  
+  const DateLabel = () => {
+    const { content } = useUnifiedCardSmallContext();
+    const formatDate = (date: Date | string): string => {
+      if (date instanceof Date) {
+        const day = date.getDate();
+        const month = date.toLocaleString("en-US", { month: "long" });
+        const year = date.getFullYear();
+        return `${day} ${month} ${year}`;
+      } else {
+        return date;
+      }
+    };
+  
+    return (
+      <span className="mono text-xs font-normal uppercase leading-tight">
+        {formatDate(content.datePublished)}
+      </span>
+    );
+  };
+  DateLabel.displayName = "DateLabel";
+  
+  const MetaContainer = ({ children }: PropsWithChildren) => (
+    <div className="mt-2 flex items-center justify-between">
+      <div className="flex items-center justify-center">
+        <div className="flex text-tiny">{children}</div>
+      </div>
     </div>
   );
-};
-SourceLabel.displayName = "SourceLabel";
-
-const DateLabel = () => {
-  const { content } = useCompoundUnifiedCardContext();
-  return (
-    <div>
-      <p className="mono text-sm font-normal uppercase">
-        <time dateTime={content.datePublished}>{content.datePublished}</time>
-      </p>
-    </div>
-  );
-};
-DateLabel.displayName = "DateLabel";
-
-const Divider = () => (
-  <div className="text-sm font-normal uppercase px-3">
-    <span aria-hidden="true">|</span>
-  </div>
-);
-Divider.displayName = "Divider";
-
-const SourceDateContainer = ({ children }: PropsWithChildren) => (
-  <div className="mt-2 block">
-    <div className="flex">{children}</div>
-  </div>
-);
-SourceDateContainer.displayName = "SourceDateContainer";
-
-export {
-  CompoundUnifiedCard,
-  ImageLink as CompoundUnifiedCardImageLink,
-  ProgrammeLabel as CompoundUnifiedCardProgrammeLabel,
-  TitleLink as CompoundUnifiedCardTitleLink,
-  SourceLabel as CompoundUnifiedCardSourceLabel,
-  DateLabel as CompoundUnifiedCardDateLabel,
-  Divider as CompoundUnifiedCardDivider,
-  SourceDateContainer as CompoundUnifiedCardSourceDateContainer,
-};
+  MetaContainer.displayName = "MetaContainer";
+  
+  export {
+    UnifiedCardSmall,
+    ImageLink as UnifiedCardSmallImageLink,
+    SourceLabel as UnifiedCardSmallSourceLabel,
+    TitleLink as UnifiedCardSmallTitleLink,
+    DateLabel as UnifiedCardSmallDateLabel,
+    MetaContainer as UnifiedCardSmallMetaContainer,
+  };
+  

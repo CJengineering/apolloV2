@@ -5,38 +5,49 @@ import {
   MultimediaRawFields,
   PeopleRawFields,
   ProgrammeRawFields,
+  SourceRawFields,
 } from "@/app/interfaces";
 import { formatDate } from "../utils/formDate";
+import { Source } from "postcss";
 export default function multimediaMapper(
   item: Item<MultimediaRawFields>,
   programmes: Item<ProgrammeRawFields>[],
   events: Item<EventFieldData>[],
-
+  sources: Item<SourceRawFields>[],
   people: Item<PeopleRawFields>[]
 ): MultimediaCleanedFields {
-
   const { fieldData } = item;
-  const optionsType =[
-          {
-            "name": "video",
-            "id": "12c285a1559398d7807de54a56160616"
-          },
-          {
-            "name": "audio",
-            "id": "f3c29d41192018e7b692df578cc317c4"
-          },
-          {
-            "name": "other",
-            "id": "8b855376e67bdc8bc85ebdd8911fcd35"
-          },
-          {
-            "name": "photo",
-            "id": "6baffb4a3887be45a6a433d870505907"
-          }]
-          function getNameById(id: string): "video" | "audio" | "other" | "photo" {
-            const option = optionsType.find(option => option.id === id);
-            return option ? option.name as "video" | "audio" | "other" | "photo" : 'other';
-          }
+  const optionsType = [
+    {
+      name: "video",
+      id: "12c285a1559398d7807de54a56160616",
+    },
+    {
+      name: "audio",
+      id: "f3c29d41192018e7b692df578cc317c4",
+    },
+    {
+      name: "other",
+      id: "8b855376e67bdc8bc85ebdd8911fcd35",
+    },
+    {
+      name: "photo",
+      id: "6baffb4a3887be45a6a433d870505907",
+    },
+  ];
+  function getNameById(id: string): "video" | "audio" | "other" | "photo" {
+    const option = optionsType.find((option) => option.id === id);
+    return option
+      ? (option.name as "video" | "audio" | "other" | "photo")
+      : "other";
+  }
+  const sourceMatch = sources.find((source) => source.id === fieldData.source);
+  const source = sourceMatch
+    ? {
+        name: sourceMatch.fieldData.name || "",
+        slug: sourceMatch.fieldData.slug || "",
+      }
+    : { name: "N/A", slug: "N/A" };
   const relatedProgrammes =
     fieldData["related-programmes"]?.map((programmeId) => {
       const programmeMatch = programmes.find(
@@ -99,6 +110,7 @@ export default function multimediaMapper(
     programmeLabel: fieldData["programme-label"] || "N/A",
     relatedProgrammes: relatedProgrammes,
     collectionName: "multimedia",
+    datePublished:formatDate(fieldData["date"] || ""),
     innovationRelated: fieldData["innovation-related"] || [],
     relatedPeople: relatedPeople,
     relatedEvent: relatedEvent,
@@ -109,8 +121,8 @@ export default function multimediaMapper(
     embedCode: fieldData["embed-code"] || "N/A",
     description: fieldData["description"] || "N/A",
     date: formatDate(fieldData["date"] || ""),
-    type: fieldData.type ?  getNameById(fieldData.type) : "other",
-    source: fieldData.source ? fieldData.source : "N/A",
+    type: fieldData.type ? getNameById(fieldData.type) : "other",
+    sources: source,
     originalLink: fieldData["original-link"] || "N/A",
     videoLink: fieldData["video-link"] || "N/A",
     linkAudio: fieldData["link-audio"] || "N/A",
