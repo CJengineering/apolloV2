@@ -60,13 +60,13 @@ export default async function OverviewContent({
   return (
     <>
       <ContentContainer width="full" desktopWidth="small">
-        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-36 text-center">
+        <h1 className="costa font-bold text-5xl md:text-7xl pt-12 pb-9 md:py-24 text-center">
           Overview
-        </h1>
+        </h1> 
         <div className="flex justify-center">
-          <article className="mx-auto leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
+          <article className="mx-auto leading-7 text-black dark:text-white prose prose-xl serif font-normal dark:prose-invert">
             <div className="text-rich-text w-richtext">
-              <p className="prose prose-2xl text-black dark:text-white font-medium">
+              <p className="prose prose-2xl mt-0 text-black dark:text-white font-medium">
                 Community Jameel advances science and learning for communities
                 to thrive.
               </p>
