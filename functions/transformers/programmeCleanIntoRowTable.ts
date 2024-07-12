@@ -31,6 +31,7 @@ export function mapProgrammeToRowData(programme: ProgrammeCleanedFields, feature
           headquarters: { data: { headquarters: [programme.headquartersEnglish].filter(Boolean) } },
           leadership: { data: { leadership: programme.leadership.map(leader => leader.name) } },
           "key initiatives": { data: { initiatives: programme.features.map(feature => feature.name) } },
+          leadershipArabic: { data: { leadership: programme.leadership.map(leader => leader.arabicName) } },
           
           "key initiativesArabic": { data: { initiatives: programme.features.map(feature => feature.arabicName) } },
           "key partners": { data: { partners: programme.partners.map(partner => partner.name) } },

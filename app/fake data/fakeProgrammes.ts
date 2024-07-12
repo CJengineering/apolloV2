@@ -1,7 +1,7 @@
 import logo from "@/public/images/content-image-01.jpg"
 import { RowData } from '../interfaces'
 
-export const rowDataExample: RowData[] =[ {
+export const rowDataExample: any[] =[ {
   repository: {
     top: {
       name: 'MIT J-WAFS',
@@ -116,7 +116,7 @@ export const rowDataExample: RowData[] =[ {
     },
   },
 }]
-export const rowJwafs: RowData = {
+export const rowJwafs: any = {
   repository: {
     top: {
       name: 'Abdul Latif Jameel Water and Food Systems Lab',
