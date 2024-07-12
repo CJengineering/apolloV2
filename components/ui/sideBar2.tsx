@@ -1,3 +1,19 @@
+// "use client";
+
+// import { useRef, useEffect } from "react";
+// import { useAppProvider } from "@/app/app-provider";
+// import { useSelectedLayoutSegments } from "next/navigation";
+// import { Transition } from "@headlessui/react";
+// import Link from "next/link";
+// import SidebarLink from "./sidebar-link";
+// import SidebarLinkGroup from "./sidebar-link-group";
+// import SidebarLinkSubgroup from "./sidebar-link-subgroup";
+// import VectorIcon from "./vectorIcon";
+// import GlobeIcon from "./globe-icon";
+// import ChipIcon from "./chip-icon";
+// import BeakerIcon from "./beaker-icon";
+// import { ChevronRightIcon } from '@heroicons/react/24/solid';
+
 "use client";
 
 import { useRef, useEffect } from "react";
@@ -8,11 +24,8 @@ import Link from "next/link";
 import SidebarLink from "./sidebar-link";
 import SidebarLinkGroup from "./sidebar-link-group";
 import SidebarLinkSubgroup from "./sidebar-link-subgroup";
-import VectorIcon from "./vectorIcon";
-import GlobeIcon from "./globe-icon";
-import ChipIcon from "./chip-icon";
-import BeakerIcon from "./beaker-icon";
-import { ChevronRightIcon } from '@heroicons/react/24/solid';
+import { AcademicCapIcon, GlobeAltIcon, BeakerIcon, ChevronRightIcon, CpuChipIcon } from '@heroicons/react/24/outline';
+
 
 type NavItem = {
   name: string;
@@ -44,7 +57,7 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    name: "PROGRAMMES",
+    name: "Programmes",
     children: [
       {
         name: "J-PAL",
@@ -302,7 +315,7 @@ const NavGroup = ({ title, children, icon }: { title: string; children: React.Re
           e.preventDefault();
           handleClick();
         }}
-        className="uppercase relative flex w-[280px] justify-between items-center font-normal mono text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+        className="relative flex w-[240px] justify-between items-center font-normal mono text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
       >
         <div className="flex items-center">
           {icon && <span className="mr-3">{icon}</span>}
@@ -314,7 +327,7 @@ const NavGroup = ({ title, children, icon }: { title: string; children: React.Re
           }`}
         />
       </div>
-      <div className={`mb-3 ml-4 pl-6 border-l mono font-normal border-slate-200 dark:border-slate-800 ${!open && "hidden"}`}>
+      <div className={`mb-3 ml-[7px] pl-5 border-l mono font-normal border-slate-200 dark:border-slate-800 ${!open && "hidden"}`}>
         {children}
       </div>
     </>
@@ -383,7 +396,7 @@ export default function Sidebar2() {
     unmount={false}
     as="aside"
     id="sidebar"
-    className="fixed bg-green-200 left-0 top-0 bottom-0 w-60 h-screen border-r border-slate-200 md:left-auto md:shrink-0 z-10 md:!opacity-100 md:!block dark:border-slate-800 dark:bg-slate-900"
+    className="fixed left-0 top-0 bottom-0 w-full md:w-[250px] h-screen border-r border-slate-200 md:left-auto md:shrink-0 z-10 md:!opacity-100 md:!block dark:border-slate-800 dark:bg-slate-900"
     enter="transition ease-out duration-200 transform"
     enterFrom="opacity-0 -translate-x-full"
     enterTo="opacity-100 translate-x-0"
@@ -391,27 +404,27 @@ export default function Sidebar2() {
     leaveFrom="opacity-100"
     leaveTo="opacity-0"
   >
-          {/* Gradient bg displaying on light layout only ackground mask */}
+          {/* Gradient bg displaying on light layout only background mask */}
           <div
-            className="absolute inset-0 -left-[9999px]  bg-gradient-to-b from-slate-50 to-white pointer-events-none -z-10 dark:hidden"
+            className="absolute inset-0 -left-[9999px] bg-gradient-to-b from-slate-50 to-white pointer-events-none -z-10 dark:hidden"
             aria-hidden="true"
           ></div>
           {/* The navigational part on postion fixed */}
-          <div className="fixed top-0 bottom-0 w-[288px] px-4 sm:px-6 md:pl-2 md:pr-8 overflow-y-auto no-scrollbar">
+          <div className="fixed top-0 bottom-0 w-[272px] px-4 sm:px-6 md:pl-2 md:pr-8 overflow-y-auto scrollbar">
             <div className="pt-24 md:pt-[84px] pb-8">
-              <nav className="md:block w-53 text-sm">
-              {/* This is navigational Link consider it as a link  you can find this on component on top of the file  */}
-                <NavLink href="/community" icon={<GlobeIcon />}>
+            <nav className="md:block w-53 text-sm">
+                {/* This is navigational Link consider it as a link  you can find this on component on top of the file */}
+                <NavLink href="/community" icon={<GlobeAltIcon className="h-4 w-4 text-gray-500 dark:text-gray-500" />}>
                   Community
                 </NavLink>
-              {/* this is a component that is for the dropdown only and has a logo you can dinf this component on top  */}
-                <NavGroup title="About" icon={<VectorIcon />}>
+                {/* this is a component that is for the dropdown only and has a logo you can find this component on top */}
+                <NavGroup title="About" icon={<AcademicCapIcon className="h-4 w-4 text-gray-500 dark:text-gray-500" />}>
                   {renderNavItems(navItems[0].children || [])}
                 </NavGroup>
-                <NavGroup title="Programmes" icon={<ChipIcon />}>
+                <NavGroup title="Programmes" icon={<CpuChipIcon className="h-4 w-4 text-gray-500 dark:text-gray-500" />}>
                   {renderNavItems(navItems[3].children || [])}
                 </NavGroup>
-                <NavGroup title="Discover" icon={<BeakerIcon />}>
+                <NavGroup title="Discover" icon={<BeakerIcon className="h-4 w-4 text-gray-500 dark:text-gray-500" />}>
                   {renderNavItems(navItems[2].children || [])}
                 </NavGroup>
               </nav>
