@@ -195,7 +195,7 @@ export default async function JpalPage({
   return (
     <MainContainer>
       <div className="pt-24">
-        <TableRowSingle repository={dataForRow.repository} />
+        <TableRowSingle repository={dataForRow.repository} locale={params.locale} />
         <div className=" p-6 ">
           <h2>Related multimedia</h2>
           <div className="grid grid-cols-3 gap-5 w-1/2 mx-auto">
