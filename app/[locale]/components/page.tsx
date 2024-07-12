@@ -58,15 +58,6 @@ import {
   UnifiedComponentThumbnail,
   UnifiedComponentTitle,
 } from "@/components/CJ-components/components-CJ/test components/CompoundUnifiedComponent";
-import {
-  CompoundUnifiedCard,
-  CompoundUnifiedCardDivider,
-  CompoundUnifiedCardProgrammeLabel,
-  CompoundUnifiedCardSourceDateContainer,
-  CompoundUnifiedCardSourceLabel,
-  CompoundUnifiedCardTitleLink,
-} from "@/components/CJ-components/components-CJ/test components/CompoundUnifiedCard";
-
 
 // This is a component documentation component
 interface ComponentDocProps {
@@ -165,7 +156,13 @@ export default async function HomeSecond({
     )
   );
   const mediaCleanedAll = multimediaAll.items.map((item) =>
-    multimediaMapper(item, programmeAll.items, eventAll.items, peopleAll.items)
+    multimediaMapper(
+      item,
+      programmeAll.items,
+      eventAll.items,
+      sourcesAll.items,
+      peopleAll.items
+    )
   );
   const featureCleanedAll = featureAll.items.map((item) =>
     featureMapper(item, programmeAll.items)
@@ -233,37 +230,17 @@ export default async function HomeSecond({
       name: "CompoundUnifiedComponent",
       width: "400px",
       description:
-      "Must be used as a blue print can accepts multimedia, events, news, posts, publications",
+        "Must be used as a blue print can accepts multimedia, events, news, posts, publications",
       component: (
-      <CompoundUnifiedComponent data={eventCleanedAll[0]}>
-        <UnifiedComponentTitle />
-        <UnifiedComponentThumbnail />
-        <UnifiedComponentSlug />
-        <UnifiedComponentCollection />
-        <UnifiedComponentRelatedProgrammes />
-      </CompoundUnifiedComponent>
+        <CompoundUnifiedComponent data={eventCleanedAll[0]}>
+          <UnifiedComponentTitle />
+          <UnifiedComponentThumbnail />
+          <UnifiedComponentSlug />
+          <UnifiedComponentCollection />
+          <UnifiedComponentRelatedProgrammes />
+        </CompoundUnifiedComponent>
       ),
     },
-    {
-      name: "CompoundUnifiedCard",
-      widht: "400px",
-      description:
-      "Must be used as a blue print can accepts multimedia, events, news, posts, publications",
-      component: (
-      <CompoundUnifiedCard content={newsCleanedAll[0]} locale={params.locale}>
-    
-        <CompoundUnifiedCardProgrammeLabel />
-        <CompoundUnifiedCardTitleLink />
-        <CompoundUnifiedCardSourceLabel />
-        <CompoundUnifiedCardDivider />
-        <CompoundUnifiedCardSourceDateContainer>
-        <CompoundUnifiedCardSourceLabel />
-        <CompoundUnifiedCardDivider />
-        </CompoundUnifiedCardSourceDateContainer>
-      </CompoundUnifiedCard>
-      ),
-    },
-
   ];
 
   const componentsCard = [
@@ -335,7 +312,7 @@ export default async function HomeSecond({
         <MediaCard
           imageUrl={mediaCleanedAll[0].thumbnail.url}
           alt={mediaCleanedAll[0].thumbnail.alt}
-          source={mediaCleanedAll[0].source}
+          source={mediaCleanedAll[0].sources.name}
           name={mediaCleanedAll[0].name}
           slug={mediaCleanedAll[0].slug}
         />
@@ -486,7 +463,7 @@ const awardAll = await getData(awardId);`}</code>
             <ComponentDoc
               key={index}
               name={comp.name}
-              width={'400px'}
+              width={"400px"}
               description={comp.description}
             >
               {comp.component}

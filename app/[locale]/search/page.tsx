@@ -83,7 +83,7 @@ export default async function SearchPage() {
   );
 
   const cleanMultimedia = multimediaRaw.items.map((item) =>
-    multimediaMapper(item, programmeRaw.items, peopleRaw.items, eventRaw.items)
+    multimediaMapper(item, programmeRaw.items, eventRaw.items,sourcesRaw.items,peopleRaw.items )
   );
   const postsClean = postsRaw.items.map((item) =>
     postMapper(item,categoriesRaw.items, eventRaw.items, programmeRaw.items, peopleRaw.items)
