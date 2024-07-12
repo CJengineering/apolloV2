@@ -157,7 +157,7 @@ export default async function NewsContent({
     <MainContainer isSideBar={false}>
       <ContentContainer width="full" desktopWidth="full">
         <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
-          News
+          Press
         </h1>
         {/* <HeroBanter content={heroProps} /> */}
         <SectionBanter title={""}>

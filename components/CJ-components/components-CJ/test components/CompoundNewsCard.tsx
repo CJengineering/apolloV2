@@ -43,8 +43,8 @@ CompoundNewsCard.displayName = "CompoundNewsCard";
 const ImageLink = () => {
   const { content } = useCompoundNewsCardContext();
   return (
-    <a
-      href={content.slug}
+    <div
+     
       className="group relative z-10 block overflow-hidden bg-gray-100"
       style={{ paddingBottom: "56.25%", position: "relative" }}
     >
@@ -58,7 +58,7 @@ const ImageLink = () => {
           alt="Featured article"
         />
       </div>
-    </a>
+    </div>
   );
 };
 ImageLink.displayName = "ImageLink";
@@ -74,15 +74,15 @@ const ProgrammeLabel = () => {
   );
 };
 ProgrammeLabel.displayName = "ProgrammeLabel";
-
+ 
 const TitleLink = () => {
   const { content, locale } = useCompoundNewsCardContext();
   return (
-    <Link href={content.slug} className="group mt-1 block">
+    <div className="group mt-1 block">
       <h2 className="text-base serif font-medium tracking-normal transition duration-300 ease-in-out group-hover:underline lg:text-2xl xl:text-2xl lg:leading-tight">
         {locale === "ar" ? content.arabicTitle : content.name}
       </h2>
-    </Link>
+    </div>
   );
 };
 TitleLink.displayName = "TitleLink";

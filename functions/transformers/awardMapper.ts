@@ -35,9 +35,10 @@ export default function awardMapper(
         return programmeMatch
           ? {
               name: programmeMatch.fieldData.name || "",
+              arabicName: programmeMatch.fieldData["name-arabic"] || "",
               slug: programmeMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A", arabicName: "N/A"};
       })
     : [];
 
@@ -47,9 +48,10 @@ export default function awardMapper(
         return peopleMatch
           ? {
               name: peopleMatch.fieldData.name || "",
+              arabicName: peopleMatch.fieldData["name-arabic"] || "",
               slug: peopleMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A" , arabicName: "N/A"};
       })
     : [];
 

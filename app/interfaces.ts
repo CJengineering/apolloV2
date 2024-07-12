@@ -7,6 +7,7 @@ interface ImageProps {
 }
 export interface RelatedColection {
   name: string;
+  arabicName: string;
   shortname?: string;
   slug: string;
   url?: string;
@@ -60,22 +61,33 @@ export interface ListSmallData {
 
 export interface RowTopData {
   name: string;
+  nameArabic: string;
   description: string;
+  descriptionArabic: string;
   mission: string;
+  missionArabic: string;
   year: string;
   partners: string[];
+  partnersArabic: string[];
 }
 export interface RowContentData {
   research?: ListSmallProps;
+  researchArabic?: ListSmallProps;
+
   established?: ListSmallProps;
   logo?: { url: string; alt: string };
   logoDark?: { url: string; alt: string };
   button: { text: string; href: string };
   headquarters?: ListSmallProps;
+  headquartersArabic?: ListSmallProps;  
   leadership?: ListSmallProps;
+  leadershipArabic?: ListSmallProps;
   "key initiatives"?: ListSmallProps;
+  "key initiativesArabic"?: ListSmallProps;
   "key partners"?: ListSmallProps;
+  "key partnersArabic"?: ListSmallProps;
   fullDescription: string;
+  fullDescriptionArabic: string;
   socialMediaLinks: SocialMediaLinks;
   stats: StatProps[];
   listContent: ListContentProps[];

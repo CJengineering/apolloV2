@@ -47,9 +47,10 @@ export default function eventMapper(
           return personMatch
             ? {
                 name: personMatch.fieldData.name || "",
+                arabicName: personMatch.fieldData["name-arabic"] || "",
                 slug: personMatch.fieldData.slug || "",
               }
-            : { name: "N/A", slug: "N/A" };
+            : { name: "N/A", slug: "N/A", arabicName: "N/A"};
         })
       : [];
   const matchPartners =
@@ -82,7 +83,7 @@ export default function eventMapper(
     .map((prog) => (prog ? prog.fieldData.name : ""))
     .filter((name): name is string => name !== undefined);
 
-    const fakeSource  = {name : programmeLabelCleaned[0], slug: "N/A"}
+    const fakeSource  = {name : programmeLabelCleaned[0], arabicName: matchProgrammes[0]?.fieldData["field-arabic"]|| 'N/A', slug: "N/A"}
 
   return {
     pushToGr: item.fieldData["push-to-gr"] || false,

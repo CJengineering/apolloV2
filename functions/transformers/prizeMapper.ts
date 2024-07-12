@@ -8,7 +8,8 @@ export default function prizeMapper(
   const { fieldData } = item;
 
   const awardMatch = awards.find(award => award.id === fieldData.award);
-  const award = awardMatch ? { name: awardMatch.fieldData.name || "", slug: awardMatch.fieldData.slug || "" } : { name: "N/A", slug: "N/A" };
+  const award = awardMatch ? { name: awardMatch.fieldData.name || "", slug: awardMatch.fieldData.slug || "" , arabicName: awardMatch.fieldData["name-arabic"] || ""
+  } : { name: "N/A", slug: "N/A" , arabicName: "N/A"};
 
   const relatedPeople = fieldData["winners-people"]
     ? fieldData["winners-people"].map((personId) => {
@@ -16,9 +17,10 @@ export default function prizeMapper(
         return peopleMatch
           ? {
               name: peopleMatch.fieldData.name || "",
+              arabicName: peopleMatch.fieldData["name-arabic"] || "",
               slug: peopleMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A", arabicName  : "N/A"};
       })
     : [];
 

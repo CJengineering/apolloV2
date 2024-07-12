@@ -57,9 +57,10 @@ import {
         return peopleMatch
           ? {
               name: peopleMatch.fieldData.name || "",
+              arabicName: peopleMatch.fieldData["name-arabic"] || "",
               slug: peopleMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A" , arabicName: "N/A"};
       }) || [];
   
     const relatedPartners =
@@ -68,9 +69,10 @@ import {
         return partnerMatch
           ? {
               name: partnerMatch.fieldData.name || "",
+              arabicName: partnerMatch.fieldData["arabic-name"]|| "",
               slug: partnerMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A",arabicName: "N/A"};
       }) || [];
       const relatedProgrammes =
       fieldData["related-programmes"]?.map((programmeId) => {
@@ -80,9 +82,10 @@ import {
         return programmeMatch
           ? {
               name: programmeMatch.fieldData.name || "",
+              arabicName: programmeMatch.fieldData["name-arabic"] || "",
               slug: programmeMatch.fieldData.slug || "",
             }
-          : { name: "N/A", slug: "N/A" };
+          : { name: "N/A", slug: "N/A", arabicName: "N/A"};
       }) || [];
   
     return {
@@ -135,6 +138,7 @@ import {
       mainVideo: fieldData["main-video"] || "",
       features: fieldData.features?.map(feature => ({
         name: 'feature name ',
+        arabicName  : 'feature arabic name',
         slug: 'feature.slug'
       })) || [],
       partners: relatedPartners,

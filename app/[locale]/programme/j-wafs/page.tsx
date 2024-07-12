@@ -34,6 +34,7 @@ import { Divide } from "lucide-react";
 import React from "react";
 import ContentPhotos from "./content-photos";
 import PostAccordion from "@/components/mdx/accordion";
+import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 
 export default async function JpalPage({
   params,
@@ -182,10 +183,13 @@ export default async function JpalPage({
 
   const multimediaProps = cleanRelatedMultimedia.map(mapMultimediaToMediaCard);
   const newsProps: any[] = relatedNews.map((item) =>
-    mapItemToNewsMainProps(
-      item as any,
+    newsMapper(
+      item ,
+      programmesRawData.items,
+      peopleRawData.items,
       sourcesRawData.items,
-      programmesRawData.items
+      tagsRawData.items,
+      eventsRawData.items
     )
   );
   const postProps = cleanRelatedPosts;
@@ -199,7 +203,8 @@ export default async function JpalPage({
   return (
     <MainContainer>
       <div className="pt-12">
-        <TableRowSingle repository={dataForRow.repository} />
+        <LanguageChanger />
+        <TableRowSingle repository={dataForRow.repository} locale={params.locale} />
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-3 gap-5">
