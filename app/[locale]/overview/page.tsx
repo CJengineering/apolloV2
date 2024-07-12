@@ -61,7 +61,7 @@ export default async function OverviewContent({
     <>
       <ContentContainer width="full" desktopWidth="small">
         <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-36 text-center">
-          Who we are
+          Overview
         </h1>
         <div className="flex justify-center">
           <article className="mx-auto leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">

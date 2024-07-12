@@ -12,17 +12,20 @@ interface ArticleBanterProps {
 }
 export default function ArticleBanter({ post }: ArticleBanterProps) {
   return (
-    <ContentContainer width="full" desktopWidth="medium">
-<div className="flex justify-center">
-  <div className="flex pt-12">
-    <span className="mono text-sm font-normal uppercase">{post.programme.name}</span>
-    <span className="mono text-sm font-normal uppercase px-3">•</span>
+<>
+
+      <div className="pt-3 md:pt-12 flex flex-col items-start md:w-5/6">
+      <h1 className="text-left text-2xl md:text-4xl serif font-medium">{post.name}</h1>
+      </div>
+      <div className="flex items-start">
+  <div className="flex mt-3 mb-12 md:mt-6">
+  <span className="mono text-sm font-normal uppercase">news</span>
+  <span className="mono text-sm font-normal uppercase mx-3">•</span>
+    <span className="mono text-sm font-normal uppercase bg-slate-100 px-1">{post.programme.name}</span>
+    <span className="mono text-sm font-normal uppercase mx-3">•</span>
     <div className="mono text-sm font-normal uppercase">{post.datePublished}</div>
   </div>
 </div>
-      <div className="py-12 flex flex-col items-center justify-center mx-auto md:w-3/4">
-      <h1 className="text-center text-4xl serif font-bold">{post.name}</h1>
-      </div>
         <Image
           className=""
           src={post.mainImage.url}
@@ -31,26 +34,22 @@ export default function ArticleBanter({ post }: ArticleBanterProps) {
           width={1920}
         />
 
-
       <div className="flex justify-around min-h-screen">
-        <div className="px-5 lg:px-0">
-          <div className="mx-auto mb-8  pb-8 pt-10 text-lg sm:pt-16">
-             
-            
+        <div className="lg:px-0">
+          <div className="mx-auto pt-12 text-lg">            
             <div>
               <div className="mono text-sm font-normal uppercase">{post.location === 'N/A' ? '': post.location }</div>
               <div className="mx-auto leading-7 text-black dark:text-white prose prose-xl serif font-normal dark:prose-invert">
-                <div
-                  dangerouslySetInnerHTML={{ __html: post.body }}
-                ></div>
+                <div dangerouslySetInnerHTML={{ __html: post.body }}></div>
               </div>
             </div>
-          </div>
+          </div>  
         </div>
+        
         {/* <div className="sticky top-20 self-start">
           <SecondaryNav />
         </div> */}
       </div>
-    </ContentContainer>
+      </>
   );
 }
