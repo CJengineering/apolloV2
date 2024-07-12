@@ -72,7 +72,7 @@ export default function publicationMapper(
           : { name: "N/A", slug: "N/A" };
       })
     : [];
-
+ const validateSource =  {name :relatedProgrammes[0].name|| '', slug: "N/A"}
   return {
     nameArabic: fieldData["name-arabic"] || "",
     datePublished: fieldData["date-published"] ? formatDate(fieldData["date-published"]) : "",
@@ -94,6 +94,7 @@ export default function publicationMapper(
       alt: fieldData.document?.alt || ""
     },
     source2: fieldData["source-2"] || "",
+    sources: validateSource  ,
     collectionName: 'publications',
     programmeS: relatedProgrammes,
     authorMetaText: fieldData["author-s-meta-text"] || "",

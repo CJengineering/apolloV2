@@ -225,11 +225,13 @@ export interface EventFieldData {
 export interface EventFieldDataCleaned {
   pushToGr: boolean;
   programmeLabel: string;
+  sources:RelatedColection;
   collectionName: "event";
   isDraft: boolean;
   relatedProgrammes: string[];
   thumbnail: ImageProps;
   heroImage: ImageProps;
+  datePublished: string;
   openGraphImage: ImageProps;
   heroImageCaption: string;
   featured: boolean;
@@ -580,6 +582,7 @@ export interface PostFieldsCleaned {
   programmesMultiple: RelatedColection[];
   thumbnail: ImageProps;
   mainImage: ImageProps;
+  sources: RelatedColection;
   openGraphImage: string;
   datePublished: string;
   location: string;
@@ -732,8 +735,9 @@ export interface MultimediaCleanedFields {
   embedCode: string;
   description: string;
   date: string;
+  datePublished: string;
   type: "video" | "audio" | "photo" | "other";
-  source: string;
+  sources: RelatedColection;
   originalLink: string;
   videoLink: string;
   linkAudio: string;
@@ -855,6 +859,7 @@ export interface PublicationsCleanedFields {
   datePublished: string;
   type: string;
   bookCoverImage: ImageProps;
+  sources: RelatedColection;
   thumbnail: ImageProps;
   text: string;
   collectionName: "publications";
