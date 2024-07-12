@@ -24,38 +24,13 @@ import CardHorizontal from "@/components/CJ-components/components-CJ/basic compo
 import Link from "next/link";
 import Search from "@/components/ui/search";
 import { getData } from "@/functions/api/getData";
-import mapItemToNewsMainProps from "@/functions/transformers/newsTransformer";
-import NewsCard from "@/components/custom beta components/NewsCard";
-import getCollectionsAll from "@/functions/api/getCollectionsAll";
-import getCorrespondingValue from "@/functions/transformers/getCollectionName";
-import { Suspense } from "react";
-import Loading from "@/components/custom beta components/Loading";
+import postMapper from "@/functions/transformers/postMapper";
+import PostCard from "@/components/custom beta components/PostCard";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import { Suspense } from "react";
 import { NewsMainProps } from "@/app/interfaces";
-import newsMapper from "@/functions/transformers/newsMapper";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
-import UnifiedComponent from "@/components/CJ-components/components-CJ/custom components/UnifiedComponent";
-
-import UseClient from "@/components/CJ-components/components-CJ/test components/UseClient";
-import {
-  CompoundNewsCard,
-  CompoundNewsCardDateLabel,
-  CompoundNewsCardDivider,
-  CompoundNewsCardImageLink,
-  CompoundNewsCardProgrammeLabel,
-  CompoundNewsCardSourceDateContainer,
-  CompoundNewsCardSourceLabel,
-  CompoundNewsCardTitleLink,
-} from "@/components/CJ-components/components-CJ/test components/CompoundNewsCard";
-import {
-  CompoundNewsSmall,
-  CompoundNewsSmallDateLabel,
-  CompoundNewsSmallImageLink,
-  CompoundNewsSmallMetaContainer,
-  CompoundNewsSmallSourceLabel,
-  CompoundNewsSmallTitleLink,
-} from "@/components/CJ-components/components-CJ/test components/CompoundNewsSmall";
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -80,13 +55,12 @@ export async function generateMetadata({
   };
 }
 
-export default async function NewsContent({
+export default async function AnnouncementsContent({
   params,
 }: {
   params: {
     topic: string;
     slug: string;
-    locale: string;
   };
 }) {
   const post = {
@@ -106,116 +80,51 @@ export default async function NewsContent({
       slug: "javascript-event-loop",
     },
   };
-  {
-    /** DATA FETCHING  */
-  }
-
-  //Get Names
-
-  const progremmeId = getIdByDisplayName("Programmes");
-  const peopleId = getIdByDisplayName("People");
-  const sourcesId = getIdByDisplayName("Sources");
-  const tagsId = getIdByDisplayName("Tags");
-  const eventsId = getIdByDisplayName("Events");
-  const newsId = getIdByDisplayName("News");
-
-  // Data fetching
-  const dataWeb = await getData(newsId);
-  const sourcesAll = await getData(sourcesId);
-  const peopleAll = await getData(peopleId);
-  const programmeAll = await getData(progremmeId);
-  const eventAll = await getData(eventsId);
-  const tagsAll = await getData(tagsId);
-
-  let rawNewsArray = dataWeb.items;
-  rawNewsArray = rawNewsArray.filter((item) => item.isDraft === false);
-
-  const newsArrayCleaned = rawNewsArray.map((item) =>
-    newsMapper(
-      item,
-      programmeAll.items,
-      peopleAll.items,
-      sourcesAll.items,
-      tagsAll.items,
-      eventAll.items
-    )
-  );
-  const newsArray = rawNewsArray.map((item) =>
-    mapItemToNewsMainProps(item, sourcesAll.items, programmeAll.items)
-  );
-
   const heroProps = {
     backgroundImageUrl: image.src,
     overlayColor: "bg-gray-400/80",
     subTitle: "media",
-    title: "News",
+    title: "Announcements",
   };
 
   if (!post) notFound();
+  {
+    /*Data fetching* */
+  }
+  const categoryId = getIdByDisplayName("Categories");
+
+  const rawPosts = await getData("61ee828a15a3183262bde542");
+  const programesRaw = await getData("61ee828a15a3183d2abde540");
+  const eventsRaw = await getData("6225fe8b1f52b40001a99d66");
+  const peopleRaw = await getData("62271a6df4ceb0027d91e6c4");
+  const categoriesRaw = await getData(categoryId);
+
+  const posts = rawPosts.items.map((item) =>
+    postMapper(
+      item,
+      categoriesRaw.items,
+      eventsRaw.items,
+      programesRaw.items,
+      peopleRaw.items
+    )
+  );
 
   return (
     <MainContainer isSideBar={false}>
-      <ContentContainer width="full" desktopWidth="full">
-        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
+      <ContentContainer width="full" desktopWidth="small">
+        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-36 text-center">
           News
         </h1>
-        {/* <HeroBanter content={heroProps} /> */}
-        <SectionBanter title={""}>
-          {/* <div className=" relative mb-4">
+          <div className=" relative mb-4">
             <Search></Search>
-          </div> */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
-        
-            <div className="pb-6 lg:col-span-6">
-              {newsArrayCleaned.slice(0, 1).map((news, index) => (
-                <CompoundNewsCard
-                  key={index}
-                  locale={params.locale}
-                  content={news}
-                >
-                  <CompoundNewsCardImageLink />
-                  <div className="mt-3 md:align-middle">
-                    {/* <CompoundNewsCardProgrammeLabel /> */}
-                    <div><CompoundNewsCardProgrammeLabel /></div>
-                    <CompoundNewsCardTitleLink />
-                    <div className="flex pt-1">
-                    <div><CompoundNewsCardDateLabel /></div>
-                    <div className="px-3 mono text-sm">•</div>
-                    <div><CompoundNewsCardSourceLabel /></div>
-                    
-                    </div>
-                    
-                  </div>
-                </CompoundNewsCard>
+          </div>
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 ">
+            <Suspense>
+              {posts.map((post) => (
+                <PostCard key={post.name} content={post} />
               ))}
-            </div>
-            <div className="lg:col-span-6 lg:pl-6">
-            <Suspense fallback={<Loading />}>
-                {newsArrayCleaned.slice(2, 7).map((news, index) => (
-                  <CompoundNewsSmall
-                    key={index}
-                    content={news}
-                    locale={params.locale}
-                  >
-                    {/* <CompoundNewsSmallImageLink /> */}
-                    <div className="order-2 mt-2 w-full px-2 sm:mt-0 sm:max-w-sm sm:pl-0 sm:pr-5 lg:order-2 lg:mt-4 xl:ml-5 xl:mt-0 xl:flex-1">
-                
-                      <CompoundNewsSmallTitleLink />
-                      <CompoundNewsSmallMetaContainer>
-                        <CompoundNewsSmallDateLabel />
-                        <span className="flex items-center justify-center px-1 mono text-xs">•</span>
-                        <CompoundNewsSmallSourceLabel />
-                        </CompoundNewsSmallMetaContainer>
-                      </div>
-                  </CompoundNewsSmall>
-                ))}
-              </Suspense>
-            </div>
+            </Suspense>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
-            <div className="pb-6 lg:col-span-6"></div>
-          </div>
-        </SectionBanter>
       </ContentContainer>
     </MainContainer>
   );

@@ -1,132 +1,113 @@
-import { notFound } from "next/navigation";
-import { Suspense } from "react";
-import Link from "next/link";
-
-import SectionBanter from "@/components/custom beta components/SectionBanter";
-import NewsSmall from "@/components/custom beta components/NewsSmall";
-import NewsRightContent from "@/components/custom beta components/NewsRightContent";
-import Loading from "@/components/custom beta components/Loading";
-import MainContainer from "@/components/custom beta components/MainContainer";
+import ArticleBanter from "@/components/custom beta components/ArticleBanter";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
-
+import MainContainer from "@/components/custom beta components/MainContainer";
+import RightContent from "@/components/custom beta components/RightContent";
 import { getData } from "@/functions/api/getData";
-import mapItemToNewsMainProps from "@/functions/transformers/newsTransformer";
-import mapItemNews from "@/functions/transformers/newsSingleTransformer";
-import filterNewsItems from "@/functions/filters/filterRelatedPersonAndProgramme";
-import BreadCrumb from "@/components/custom beta components/BreadCrumb";
-import Accordion from "@/components/mdx/accordion";
-import newsMapper from "@/functions/transformers/newsMapper";
-import { get } from "http";
+import postMapper from "@/functions/transformers/postMapper";
+import { transformPostFieldsToArticleProps } from "@/functions/transformers/transformPostFieldsToArticleProps";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
-import { findRelatedNews } from "@/functions/findFunctions/findRelatedNewsFromNews";
+import { get } from "http";
+import React from "react";
+import ContentPhotos from "../../programme/j-wafs/content-photos";
+import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcollectionToLIghtBox";
+import { findRelatedPosts } from "@/functions/findFunctions/findRelatedPostsFromPosts";
+import PostCard from "@/components/custom beta components/PostCard";
+import SectionBanter from "@/components/custom beta components/SectionBanter";
+const addType = (items: any[], type: string) =>
+  items.map((item) => ({ ...item, type }));
 
-export default async function NewsPage({
+export default async function page({
   params,
 }: {
-  params: {
-    topic: string;
-    slug: string;
-    locale: string;
-  };
+  params: { locale: string; slug: string };
 }) {
-  const title = "Sample Article Title";
+  const categoryId = getIdByDisplayName("Categories");
+  const categoriesRaw = await getData(categoryId);
+  const rawPosts = await getData("61ee828a15a3183262bde542");
+  const programesRaw = await getData("61ee828a15a3183d2abde540");
+  const eventsRaw = await getData("6225fe8b1f52b40001a99d66");
+  const peopleRaw = await getData("62271a6df4ceb0027d91e6c4");
 
-  //Get Names
-
-  const progremmeId = getIdByDisplayName("Programmes");
-  const peopleId = getIdByDisplayName("People");
-  const sourcesId = getIdByDisplayName("Sources");
-  const tagsId = getIdByDisplayName("Tags");
-  const eventsId = getIdByDisplayName("Events");
-  const newsId = getIdByDisplayName("News");
-
-  // Data fetching
-  const dataWeb = await getData(newsId);
-  const sourcesAll = await getData(sourcesId);
-  const peopleAll = await getData(peopleId);
-  const programmeAll = await getData(progremmeId);
-  const eventAll = await getData(eventsId);
-  const tagsAll = await getData(tagsId);
-
-  const rawNewsArray = dataWeb.items;
-  const rawSingleNews = rawNewsArray.find(
-    (item) => item.fieldData.slug === params.slug
+  const post = rawPosts.items.find(
+    (post) => post.fieldData.slug === params.slug
   );
-  const relatedNews = findRelatedNews(rawSingleNews, rawNewsArray);
-  const newsItem = newsMapper(
-    rawSingleNews,
-    programmeAll.items,
-    peopleAll.items,
-    sourcesAll.items,
-    tagsAll.items,
-    eventAll.items
+  const cleanPost = postMapper(
+    post,
+    categoriesRaw.items,
+    eventsRaw.items,
+    programesRaw.items,
+    peopleRaw.items
   );
-  const relatedNewsClean = relatedNews.map((item) =>newsMapper(item, programmeAll.items, peopleAll.items, sourcesAll.items, tagsAll.items, eventAll.items));
+  const article = transformPostFieldsToArticleProps(cleanPost);
 
-  if (!newsItem) notFound();
+  const relatedPeople = cleanPost.people.map((person) => {
+    return {
+      name: person.name,
+      href: person.slug,
+    };
+  });
+  const cleanRelatedImages = cleanPost.imageCarousel.map(
+    photoNotFromCollectionMapper
+  );
+  const combinedItems = [
+    ...addType(rawPosts.items, "announcements"),
+    ...addType(programesRaw.items, "programme"),
+    ...addType(eventsRaw.items, "event"),
+    ...addType(peopleRaw.items, "people"),
+  ];
+  const relatedPostsRaw = findRelatedPosts(post, rawPosts.items);
+  const relatedPostsCleaned = relatedPostsRaw.map((post) =>
+    postMapper(
+      post,
+      categoriesRaw.items,
+      eventsRaw.items,
+      programesRaw.items,
+      peopleRaw.items
+    )
+  );
+  combinedItems.sort(
+    (a, b) =>
+      new Date(b.fieldData.datePublished).getTime() -
+      new Date(a.fieldData.datePublished).getTime()
+  );
+  const latestItems = combinedItems.slice(0, 6);
+  const result = latestItems.map((item) => ({
+    name: item.fieldData.name,
+    href: item.fieldData.slug,
+    type: item.type,
+  }));
 
-  return (  
-    <MainContainer isSideBar={false}>
-   
+  return (
+    <MainContainer isSideBar={true}>
       <ContentContainer>
-        <div>
-          <Suspense fallback={<Loading />}>
-            <Link
-              href="/news"
-              className="hover:text-gray-200 transition duration-150 ease-in-out"
-            >
-              {/* <span className="mr-2 text-xl">&lsaquo;</span> */}
-              {/* <span className="uppercase">back to news</span> */}
-            </Link>
-            <img
-              src={newsItem.heroImage.url}
-              alt={title}
-              className="w-full h-auto mb-6"
-            />
+        <div className="pb-12">
+        <ArticleBanter post={cleanPost} />
+        </div>
+        {relatedPostsCleaned.length > 0 && ( 
+          <>
+          <div className="pb-12">
+          {cleanPost.imageCarousel.length > 0 &&
+          cleanPost.imageCarousel[0].url !== "" && (
+            <ContentPhotos images={cleanRelatedImages} />
+          )
+        }
+        </div>
+         <div className="pb-9"> 
+        <hr className="border-gray-200" />
+        </div>
+          <div className="pb-3">
+            <h2 className="serif font-medium text-2xl">Related</h2>
+          </div>
 
-            <SectionBanter
-              title={
-                params.locale === "ar" ? newsItem.arabicTitle : newsItem.name
-              }
-            >
-              <div>
-                <NewsRightContent
-                  source={newsItem.sources.name}
-                  datePublished={newsItem.datePublished}
-                  relatedProgrammes={newsItem.programmeS}
-                  relatedPeople={newsItem.people}
-                />
-                <div>
-                  <article className="mx-auto leading-7 text-black dark:text-white prose prose-xl serif font-normal dark:prose-invert">
-                    <div
-                      dangerouslySetInnerHTML={{ __html: newsItem.excerpt }}
-                    ></div>
-                    {newsItem.excerpt && (
-                      <>
-                        <h3 className="text-2xl">Excerpt</h3>
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: newsItem.excerpt
-                          }}
-                        ></div>
-                      </>
-                    )}
-                  </article>
-                </div>
-              </div>
-            </SectionBanter>
-            <div>
-              <h2 className="costa font-bold text-3xl">Related news</h2>
-            </div>
-
-            <div className="grid md:grid-cols-2">
-              {relatedNewsClean .map((article) => (
-                <NewsSmall key={article.name} content={article} />
+            <div className="grid md:grid-cols-2 gap-4">
+              {relatedPostsCleaned.map((post) => (
+                <PostCard key={post.name} content={post} />
               ))}
             </div>
-          </Suspense>
-        </div> . 
-      </ContentContainer>
+            </>
+        )}
+
+</ContentContainer>
     </MainContainer>
   );
 }
