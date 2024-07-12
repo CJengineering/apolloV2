@@ -125,6 +125,7 @@ export default async function PeoplePage({
       item,
       programmeDataRaw.items,
       eventsDataRaw.items,
+      sourcesDataRaw.items,
       peopleDataRaw.items
     )
   );

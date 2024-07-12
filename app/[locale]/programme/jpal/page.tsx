@@ -158,6 +158,7 @@ export default async function JpalPage({
       item,
       programmesRawData.items,
       eventsRawData.items,
+      sourcesRawData.items,
       peopleRawData.items
     )
   );
