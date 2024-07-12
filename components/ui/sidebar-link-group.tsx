@@ -21,7 +21,7 @@ export default function SidebarLinkGroup({
   }, [open])
 
   return (
-    <div className="mb-1 border border-dotted  border-indigo-600 ">
+    <div className="w-full">
       {children(handleClick, openGroup)}
     </div>
   )

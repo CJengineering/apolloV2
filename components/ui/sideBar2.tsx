@@ -12,6 +12,7 @@ import VectorIcon from "./vectorIcon";
 import GlobeIcon from "./globe-icon";
 import ChipIcon from "./chip-icon";
 import BeakerIcon from "./beaker-icon";
+import { ChevronRightIcon } from '@heroicons/react/24/solid';
 
 type NavItem = {
   name: string;
@@ -282,8 +283,7 @@ const navItems: NavItem[] = [
 const NavLink = ({ href, children, icon }: { href: string; children: React.ReactNode; icon?: React.ReactNode }) => (
   <Link
     href={href}
-    className="relative flex items-center font-normal mono text-black p-1 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200"
-  >
+    className="relative flex items-center font-normal mono text-black py-2 pr-2 uppercase before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200">
     {icon && <span className="mr-3">{icon}</span>}
     {children}
   </Link>
@@ -294,35 +294,32 @@ const NavGroup = ({ title, children, icon }: { title: string; children: React.Re
   const open = segments.includes(title);
 
   return (
-    <SidebarLinkGroup open={open}>
-      {(handleClick, open) => (
-        <>
-          <div
-            onClick={(e) => {
-              e.preventDefault();
-              handleClick();
-            }}
-            className="relative flex justify-between items-center font-normal mono text-black p-1 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
-          >
-            <div className="flex items-center">
-              {icon && <span className="mr-3">{icon}</span>}
-              {title}
-            </div>
-            <svg
-              className={`shrink-0 ml-2 ${open ? "rotate-90" : ""}`}
-              width="8"
-              height="10"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M1 2 2.414.586 6.828 5 2.414 9.414 1 8l3-3z" />
-            </svg>
-          </div>
-          <div className={`mb-3 ml-4 pl-6 border-l mono font-normal border-slate-200 dark:border-slate-800 ${!open && "hidden"}`}>
-            {children}
-          </div>
-        </>
-      )}
-    </SidebarLinkGroup>
+<SidebarLinkGroup open={open}>
+  {(handleClick, open) => (
+    <>
+      <div
+        onClick={(e) => {
+          e.preventDefault();
+          handleClick();
+        }}
+        className="uppercase relative flex w-[280px] justify-between items-center font-normal mono text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+      >
+        <div className="flex items-center">
+          {icon && <span className="mr-3">{icon}</span>}
+          {title}
+        </div>
+        <ChevronRightIcon
+          className={`h-3 w-3 text-black dark:text-white shrink-0 ml-2 transition-transform duration-200 ${
+            open ? "rotate-90" : ""
+          }`}
+        />
+      </div>
+      <div className={`mb-3 ml-4 pl-6 border-l mono font-normal border-slate-200 dark:border-slate-800 ${!open && "hidden"}`}>
+        {children}
+      </div>
+    </>
+  )}
+</SidebarLinkGroup>
   );
 };
 
@@ -379,30 +376,30 @@ export default function Sidebar2() {
         aria-hidden="true"
       />
 
-      {/* Sidebar  here you can change the side bar widht etc */}
+      {/* Sidebar here you can change the side bar width etc */}
       <div ref={sidebar}>
-        <Transition
-          show={sidebarOpen}
-          unmount={false}
-          as="aside"
-          id="sidebar"
-          className="fixed bg-green-200 left-0 top-0 bottom-0 w-56 h-screen border-r border-slate-200 md:left-auto md:shrink-0 z-10 md:!opacity-100 md:!block dark:border-slate-800 dark:bg-slate-900"
-          enter="transition ease-out duration-200 transform"
-          enterFrom="opacity-0 -translate-x-full"
-          enterTo="opacity-100 translate-x-0"
-          leave="transition ease-out duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          {/* Gradient bg displaying on light layout only  background mask */}
+      <Transition
+    show={sidebarOpen}
+    unmount={false}
+    as="aside"
+    id="sidebar"
+    className="fixed bg-green-200 left-0 top-0 bottom-0 w-60 h-screen border-r border-slate-200 md:left-auto md:shrink-0 z-10 md:!opacity-100 md:!block dark:border-slate-800 dark:bg-slate-900"
+    enter="transition ease-out duration-200 transform"
+    enterFrom="opacity-0 -translate-x-full"
+    enterTo="opacity-100 translate-x-0"
+    leave="transition ease-out duration-200"
+    leaveFrom="opacity-100"
+    leaveTo="opacity-0"
+  >
+          {/* Gradient bg displaying on light layout only ackground mask */}
           <div
             className="absolute inset-0 -left-[9999px]  bg-gradient-to-b from-slate-50 to-white pointer-events-none -z-10 dark:hidden"
             aria-hidden="true"
           ></div>
           {/* The navigational part on postion fixed */}
-          <div className="fixed top-0 bottom-0 w-52 px-4 sm:px-6 md:pl-0 md:pr-8 overflow-y-auto no-scrollbar">
-            <div className="pt-24 md:pt-28 pb-8">
-              <nav className="md:block w-52 text-sm">
+          <div className="fixed top-0 bottom-0 w-[288px] px-4 sm:px-6 md:pl-2 md:pr-8 overflow-y-auto no-scrollbar">
+            <div className="pt-24 md:pt-[84px] pb-8">
+              <nav className="md:block w-53 text-sm">
               {/* This is navigational Link consider it as a link  you can find this on component on top of the file  */}
                 <NavLink href="/community" icon={<GlobeIcon />}>
                   Community
