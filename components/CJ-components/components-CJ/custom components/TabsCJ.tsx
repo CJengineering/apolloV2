@@ -4,12 +4,15 @@ import CardProgramme from "../basic components/CardProgramme";
 import testImage from "@/public/images/content-image-01.jpg";
 import TableCJ from "./TableCJ";
 import { CardProgrammeProps, RowData } from "@/app/interfaces";
+import { getCookie } from "@/functions/utils/cookies";
+import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 const tableCount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 interface TabsCJProps {
   rowData: RowData[];
   cardData: CardProgrammeProps[];
 }
 export default function TabsCJ({ rowData, cardData }: TabsCJProps) {
+  const locale = getCookie("NEXT_LOCALE") || "en";
   return (
     <Tab.Group>
       <Tab.List className="flex justify-between gap-4">
@@ -36,7 +39,8 @@ export default function TabsCJ({ rowData, cardData }: TabsCJProps) {
         </Tab.Panel>
         <Tab.Panel>
           <div className="mt-3">
-            <TableCJ rowData={rowData}></TableCJ>
+            <LanguageChanger/>
+            <TableCJ rowData={rowData} locale={locale}></TableCJ>
           </div>
         </Tab.Panel>
       </Tab.Panels>
