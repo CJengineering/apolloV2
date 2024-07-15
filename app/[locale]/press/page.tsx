@@ -56,6 +56,7 @@ import {
   CompoundNewsSmallSourceLabel,
   CompoundNewsSmallTitleLink,
 } from "@/components/CJ-components/components-CJ/test components/CompoundNewsSmall";
+import FilterComponent from "@/components/CJ-components/components-CJ/test components/FilterComponent";
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -161,9 +162,7 @@ export default async function NewsContent({
         </h1>
         {/* <HeroBanter content={heroProps} /> */}
         <SectionBanter title={""}>
-          {/* <div className=" relative mb-4">
-            <Search></Search>
-          </div> */}
+          <FilterComponent ></FilterComponent>
           <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
         
             <div className="pb-6 lg:col-span-6">
