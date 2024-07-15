@@ -317,7 +317,8 @@ const NavGroup = ({ title, children, icon }: { title: string; children: React.Re
         }}
         className="relative flex w-[240px] justify-between items-center font-normal mono text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
       >
-        <div className="flex items-center">
+        <div className="flex uppercase items-center">
+
           {icon && <span className="mr-3">{icon}</span>}
           {title}
         </div>

@@ -81,31 +81,33 @@ export default async function page({
     <MainContainer isSideBar={true}>
       <ContentContainer>
         <div className="pb-12">
-          <ArticleBanter post={cleanPost} />
+        <ArticleBanter post={cleanPost} />
         </div>
-        {relatedPostsCleaned.length > 0 && (
+        {relatedPostsCleaned.length > 0 && ( 
           <>
-            <div className="pb-12">
-              {cleanPost.imageCarousel.length > 0 &&
-                cleanPost.imageCarousel[0].url !== "" && (
-                  <ContentPhotos images={cleanRelatedImages} />
-                )}
-            </div>
-            <div className="pb-9">
-              <hr className="border-gray-200" />
-            </div>
-            <div className="pb-3">
-              <h2 className="serif font-medium text-2xl">Related</h2>
-            </div>
+          <div className="pb-12">
+          {cleanPost.imageCarousel.length > 0 &&
+          cleanPost.imageCarousel[0].url !== "" && (
+            <ContentPhotos images={cleanRelatedImages} />
+          )
+        }
+        </div>
+         <div className="pb-9"> 
+        <hr className="border-gray-200" />
+        </div>
+          <div className="pb-3">
+            <h2 className="serif font-medium text-2xl">Related</h2>
+          </div>
 
             <div className="grid md:grid-cols-2 gap-4">
               {relatedPostsCleaned.map((post) => (
                 <PostCard key={post.name} content={post} />
               ))}
             </div>
-          </>
+            </>
         )}
-      </ContentContainer>
+
+</ContentContainer>
     </MainContainer>
   );
 }

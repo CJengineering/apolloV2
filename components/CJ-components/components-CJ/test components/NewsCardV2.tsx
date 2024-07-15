@@ -1,47 +1,47 @@
 "use client";
 
 import React, { createContext, PropsWithChildren, useContext } from "react";
-import { PostFieldsCleaned } from "@/app/interfaces";
+import { NewsCleanedFields, PostFieldsCleaned } from "@/app/interfaces";
 import Link from "next/link";
 
-type PostCardContextType = {
-  content: PostFieldsCleaned;
+type NewsCardV2ContextType = {
+  content: NewsCleanedFields;
 };
 
-const PostCardContext = createContext<PostCardContextType | undefined>(
+const NewsCardV2Context = createContext<NewsCardV2ContextType | undefined>(
   undefined
 );
 
-function usePostCardContext() {
-  const context = useContext(PostCardContext);
+function useNewsCardV2Context() {
+  const context = useContext(NewsCardV2Context);
   if (!context) {
     throw new Error(
-      "usePostCardContext must be used within a PostCardProvider"
+      "useNewsCardV2Context must be used within a NewsCardV2Provider"
     );
   }
   return context;
 }
 
-type PostCardProviderProps = PropsWithChildren<{
-  content: PostFieldsCleaned;
+type NewsCardV2ProviderProps = PropsWithChildren<{
+  content: NewsCleanedFields;
 }>;
 
-const PostCardProvider = ({ content, children }: PostCardProviderProps) => {
+const NewsCardV2Provider = ({ content, children }: NewsCardV2ProviderProps) => {
   return (
-    <PostCardContext.Provider value={{ content }}>
-      <Link href={content.slug} className="group relative block overflow-hidden">
+    <NewsCardV2Context.Provider value={{ content }}>
+      <Link href={content.slug} className="group  relative block overflow-hidden">
         <article className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center pb-2">
           {children}
         </article>
       </Link>
-    </PostCardContext.Provider>
+    </NewsCardV2Context.Provider>
   );
 };
-PostCardProvider.displayName = "PostCardProvider";
+NewsCardV2Provider.displayName = "NewsCardV2Provider";
 const ImageColumn = () => {
-  const { content } = usePostCardContext();
+  const { content } = useNewsCardV2Context();
   return (
-    <div className="col-span-1 relative hidden md:block" style={{ paddingBottom: "100%" }}>
+    <div className="col-span-1  relative hidden md:block" style={{ paddingBottom: "100%" }}>
       <img
         className="absolute top-0 left-0 w-full h-full object-cover object-center transition duration-300 ease-in-out group-hover:scale-140"
         src={content.thumbnail.url}
@@ -53,12 +53,12 @@ const ImageColumn = () => {
 ImageColumn.displayName = "ImageColumn";
 
 const ProgrammeLabel = () => {
-  const { content } = usePostCardContext();
+  const { content } = useNewsCardV2Context();
   return (
     content.programme.shortname && (
       <div className="text-left">
         <span className="mono text-xs font-normal uppercase p-1 bg-slate-100 dark:bg-slate-800">
-          {content.programme.shortname}
+          {content.programme.shortname} 
         </span>
       </div>
     )
@@ -67,7 +67,7 @@ const ProgrammeLabel = () => {
 ProgrammeLabel.displayName = "ProgrammeLabel";
 
 const Title = () => {
-  const { content } = usePostCardContext();
+  const { content } = useNewsCardV2Context();
   return (
     <div className="text-left">
       <h3 className="text-base serif font-medium">{content.name}</h3>
@@ -77,12 +77,15 @@ const Title = () => {
 Title.displayName = "Title";
 
 const DatePublished = () => {
-  const { content } = usePostCardContext();
+  const { content } = useNewsCardV2Context();
   return (
-    <div className="text-left">
+    <div className="text-left flex pt-1 space-x-1 ">
       <p className="mono text-xs font-uppercase">
         <time dateTime={content.datePublished}>{content.datePublished}</time>
       </p>
+      <p className="mono text-xs font-uppercase"><span>
+      •</span></p>
+        <p className="mono text-xs font-uppercase"><span>{content.sources.name}</span></p>
     </div>
   );
 };
@@ -95,10 +98,10 @@ const TextColumn = ({ children }: PropsWithChildren) => (
 );
 TextColumn.displayName = "TextColumn";
 export {
-  PostCardProvider,
-  ImageColumn as PostCardImageColumn,
-  ProgrammeLabel as PostCardProgrammeLabel,
-  Title as PostCardTitle,
-  DatePublished as PostCardDatePublished,
-  TextColumn as PostCardTextColumn,
+  NewsCardV2Provider,
+  ImageColumn as NewsCardV2ImageColumn,
+  ProgrammeLabel as NewsCardV2ProgrammeLabel,
+  Title as NewsCardV2Title,
+  DatePublished as NewsCardV2DatePublished,
+  TextColumn as NewsCardV2TextColumn,
 };
