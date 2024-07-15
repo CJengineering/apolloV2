@@ -495,7 +495,7 @@ export default async function HomeComponents() {
             <div className="gap-5">
               <div className="w-full">
                 <div className="">
-                  <TableCJ rowData={[]} />
+                  <TableCJ rowData={[]} locale="en" />
                 </div>
               </div>
             </div>
