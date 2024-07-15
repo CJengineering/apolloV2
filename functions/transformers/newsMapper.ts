@@ -36,9 +36,10 @@ export default function newsMapper(
     ? {
         name: programmeMatch.fieldData.name || "",
         slug: programmeMatch.fieldData.slug || "",
+        shortname: programmeMatch.fieldData['shortname'] || "helloo",
         arabicName: programmeMatch.fieldData["name-arabic"] || "",
       }
-    : { name: "N/A", slug: "N/A", arabicName: "N/A" };
+    : { name: "N/A", slug: "N/A", arabicName: "N/A", shortname: "N/A"};
 
   const relatedProgrammes = fieldData["programme-s"]
     ? fieldData["programme-s"].map((programmeId) => {

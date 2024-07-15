@@ -31,6 +31,19 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 import { Suspense } from "react";
 import { NewsMainProps } from "@/app/interfaces";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
+import {
+  PostCardDatePublished,
+  PostCardImageColumn,
+  PostCardProgrammeLabel,
+  PostCardProvider,
+  PostCardTextColumn,
+  PostCardTitle,
+} from "@/components/CJ-components/components-CJ/test components/CompoundPostCard";
+import PostsDisplay from "./posts-display";
+import { PostProvider } from "./post-context";
+import FilterComponent from "@/components/CJ-components/components-CJ/test components/FilterComponent";
+import { sources } from "next/dist/compiled/webpack/webpack";
+import FilterComponentForPosts from "@/components/CJ-components/components-CJ/test components/FilterComponentForPosts";
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -108,6 +121,21 @@ export default async function AnnouncementsContent({
       peopleRaw.items
     )
   );
+  interface RelatedCollection {
+    id: string;
+    name: string;
+  }
+  const programmesForFilter: RelatedCollection[] = programesRaw.items.map(
+    (item) => ({
+      id: item.id || "",
+      name: item.fieldData.shortname || "",
+    })
+  );
+  const peopleForFilter: RelatedCollection[] = peopleRaw.items.map((item) => ({
+    id: item.id || "",
+    name: item.fieldData.name || "",
+    }));
+  
 
   return (
     <MainContainer isSideBar={false}>
@@ -115,16 +143,13 @@ export default async function AnnouncementsContent({
         <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-36 text-center">
           News
         </h1>
+        <PostProvider programmes={programmesForFilter } people={peopleForFilter} postsClean={posts}>
           <div className=" relative mb-4">
-            <Search></Search>
+         <FilterComponentForPosts/>
           </div>
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-2 ">
-            <Suspense>
-              {posts.map((post) => (
-                <PostCard key={post.name} content={post} />
-              ))}
-            </Suspense>
-          </div>
+          <PostsDisplay />
+        </PostProvider>
+
       </ContentContainer>
     </MainContainer>
   );
