@@ -16,8 +16,10 @@ interface NewsContextProps {
   sources: RelatedCollection[];
   newsArrayCleaned: NewsCleanedFields[];
   filteredNews: NewsCleanedFields[];
+ newsQuery: string;
   setProgrammeFilter: (programmes: RelatedCollection[]) => void;
   setSourceFilter: (sources: RelatedCollection[]) => void;
+  setNewsQuery: (query: string) => void;
 }
 
 const NewsContext = createContext<NewsContextProps | undefined>(undefined);
@@ -41,17 +43,33 @@ interface NewsProviderProps {
 export const NewsProvider: React.FC<NewsProviderProps> = ({ children, programmes, sources, newsArrayCleaned }) => {
   const [selectedProgrammes, setSelectedProgrammes] = useState<RelatedCollection[]>([]);
   const [selectedSources, setSelectedSources] = useState<RelatedCollection[]>([]);
-
+  const [newsQuery, setNewsQuery] = useState(''); 
   const filteredNews = useMemo(() => {
-    if (selectedProgrammes.length === 0 && selectedSources.length === 0) {
-      return newsArrayCleaned;
+    let filtered = newsArrayCleaned;
+  
+    // Filter by programmes if any are selected
+    if (selectedProgrammes.length > 0) {
+      filtered = filtered.filter(news =>
+        selectedProgrammes.some(programme => news.programme.shortname === programme.name)
+      );
     }
-    return newsArrayCleaned.filter(news => {
-      const matchesProgramme = selectedProgrammes.length > 0 ? selectedProgrammes.some(programme => news.programme.shortname === programme.name): false;
-      const matchesSource = selectedSources.length > 0 ? selectedSources.some(source => news.sources.name === source.name):false ;
-      return matchesProgramme || matchesSource;
-    });
-  }, [newsArrayCleaned, selectedProgrammes, selectedSources]);
+  
+    // Filter by sources if any are selected
+    if (selectedSources.length > 0) {
+      filtered = filtered.filter(news =>
+        selectedSources.some(source => news.sources.name === source.name)
+      );
+    }
+  
+    // Filter by news name using the search query
+    if (newsQuery.trim() !== '') {
+      filtered = filtered.filter(news => 
+        news.name.toLowerCase().includes(newsQuery.toLowerCase())
+      );
+    }
+  
+    return filtered;
+  }, [newsArrayCleaned, selectedProgrammes, selectedSources, newsQuery]);
 
   const setProgrammeFilter = (programmes: RelatedCollection[]) => {
     setSelectedProgrammes(programmes);
@@ -62,7 +80,7 @@ export const NewsProvider: React.FC<NewsProviderProps> = ({ children, programmes
   };
 
   return (
-    <NewsContext.Provider value={{ programmes, sources, newsArrayCleaned, filteredNews, setProgrammeFilter, setSourceFilter }}>
+    <NewsContext.Provider value={{ programmes, sources, newsArrayCleaned, filteredNews, setProgrammeFilter, setSourceFilter,newsQuery, setNewsQuery }}>
       {children}
     </NewsContext.Provider>
   );

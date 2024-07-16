@@ -191,6 +191,49 @@ export default async function NewsContent({
         </h1>
         {/* <HeroBanter content={heroProps} /> */}
         <SectionBanter title={""}>
+        <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
+          <div className="pb-6 lg:col-span-6">
+            {newsArrayCleaned.slice(0, 1).map((news, index) => (
+              <CompoundNewsCard key={index} locale={params.locale} content={news}>
+                <CompoundNewsCardImageLink />
+                <div className="mt-3 md:align-middle">
+                  <div>
+                    <CompoundNewsCardProgrammeLabel />
+                  </div>
+                  <CompoundNewsCardTitleLink />
+                  <div className="flex pt-1">
+                    <div>
+                      <CompoundNewsCardDateLabel />
+                    </div>
+                    <div className="px-3 mono text-sm">•</div>
+                    <div>
+                      <CompoundNewsCardSourceLabel />
+                    </div>
+                  </div>
+                </div>
+              </CompoundNewsCard>
+            ))}
+          </div>
+          <div className="lg:col-span-6 lg:pl-6">
+            <Suspense fallback={<Loading />}>
+              {newsArrayCleaned.slice(2, 7).map((news, index) => (
+                <CompoundNewsSmall key={index} content={news} locale={params.locale}>
+                  <div className="order-2 mt-2 w-full px-2 sm:mt-0 sm:max-w-sm sm:pl-0 sm:pr-5 lg:order-2 lg:mt-4 xl:ml-5 xl:mt-0 xl:flex-1">
+                    <CompoundNewsSmallTitleLink />
+                    <CompoundNewsSmallMetaContainer>
+                      <CompoundNewsSmallDateLabel />
+                      <span className="flex items-center justify-center px-1 mono text-xs">•</span>
+                      <CompoundNewsSmallSourceLabel />
+                    </CompoundNewsSmallMetaContainer>
+                  </div>
+                </CompoundNewsSmall>
+              ))}
+            </Suspense>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
+          <div className="pb-6 lg:col-span-6"></div>
+        </div>
           <NewsProvider
             programmes={programmesForFilter}
             sources={sourcesForFilter}
