@@ -24,7 +24,8 @@ const FilterComponent: React.FC = () => {
     []
   );
 
-
+  const [openProgrammeDropdown, setOpenProgrammeDropdown] = useState<boolean>(false);
+  const [openSourceDropdown, setOpenSourceDropdown] = useState<boolean>(false);
   const [queryProgramme, setQueryProgramme] = useState<string>("");
   const [querySource, setQuerySource] = useState<string>("");
 
@@ -87,6 +88,9 @@ const FilterComponent: React.FC = () => {
           <Combobox
             value={queryProgramme}
             onChange={(value) => setQueryProgramme(String(value))}
+            
+            
+            
           >
             {({ open }) => (
               <>
@@ -101,6 +105,7 @@ const FilterComponent: React.FC = () => {
                       onChange={(event) =>
                         setQueryProgramme(event.target.value)
                       }
+           
                       displayValue={(programme: RelatedCollection) =>
                         programme.name
                       }

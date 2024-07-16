@@ -25,10 +25,11 @@ import {
 } from "@/components/CJ-components/components-CJ/test components/CompoundUnifiedComponent";
 import {
   PostCardDatePublished,
-  PostCardImageLink,
+  PostCardImageColumn,
+  PostCardProgrammeLabel,
   PostCardProvider,
-  PostCardTagLink,
-  PostCardTitleLink,
+  PostCardTextColumn,
+  PostCardTitle,
 } from "@/components/CJ-components/components-CJ/test components/CompoundPostCard";
 import postMapper from "@/functions/transformers/postMapper";
 
@@ -196,12 +197,12 @@ export default async function PeoplePage({
             <div className="grid grid-cols-3">
               {cleanPosts.map((content) => (
                 <PostCardProvider content={content}>
-                  <PostCardImageLink />
-                  <div className="mt-6 md:align-middle">
-                    <PostCardTagLink />
-                    <PostCardTitleLink />
+                  <PostCardImageColumn />
+                  <PostCardTextColumn>
+                    <PostCardProgrammeLabel />
+                    <PostCardTitle />
                     <PostCardDatePublished />
-                  </div>
+                  </PostCardTextColumn>
                 </PostCardProvider>
               ))}
             </div>

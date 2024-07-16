@@ -14,7 +14,7 @@ interface RelatedCollection {
 }
 
 export const FilterComponentForPosts: React.FC = () => {
-  const { programmes, people, setProgrammeFilter, setPeopleFilter } =
+  const { programmes, people, setProgrammeFilter, setPeopleFilter, setPostQuery,postQuery } =
     usePostContext();
 
   const [selectedProgrammes, setSelectedProgrammes] = useState<
@@ -252,6 +252,22 @@ export const FilterComponentForPosts: React.FC = () => {
               </>
             )}
           </Combobox>
+        </div>
+        <div className="w-full mb-4">
+          <label
+            htmlFor="news-search"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Search News
+          </label>
+          <input
+            id="news-search"
+            type="text"
+            placeholder="Type to search..."
+            value={postQuery}
+            onChange={(e) => setPostQuery(e.target.value)}
+            className="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          />
         </div>
       </div>
 
