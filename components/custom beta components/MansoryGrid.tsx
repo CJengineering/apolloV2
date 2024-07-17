@@ -1,15 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-interface Image {
-  src: string;
-  alt: string;
-  location: string;
-  year: number;
-  people: string;
-}
+import { ImageLightbox } from '@/app/interfaces';
+
 
 interface MasonryGridProps {
-  images: Image[];
+  images: ImageLightbox[];
   onImageClick: (index: number) => void;
 }
 
