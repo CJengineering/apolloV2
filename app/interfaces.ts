@@ -475,7 +475,7 @@ export interface ImageLightbox {
   src: string;
   alt: string;
   location: string;
-  year: number;
+  year: string;
   people: string;
   programme2: string;
 
@@ -486,7 +486,7 @@ export interface ImageLightbox {
   description: string;
   descriptionArabic: string;
   source: string;
-  programmeLabel: string;
+  programmeLabel: {name: string; slug: string};
   programmesMultiReference: { name: string; slug: string }[];
   tags: string[];
   peopleMultiReference: { name: string; slug: string }[];

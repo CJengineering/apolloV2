@@ -1,4 +1,5 @@
 import { Item, PhotoFieldsRaw, ImageLightbox, ProgrammeRawFields, PeopleRawFields } from "@/app/interfaces";
+import { formatDate } from "../utils/formDate";
 
 export default function photoMapper(
   item: Item<PhotoFieldsRaw>,
@@ -20,7 +21,7 @@ export default function photoMapper(
           : { name: "N/A", slug: "N/A" };
       })
     : [];
-
+  const programmeLabel = programmes.find((programme)=> programme.id === fieldData["programme-label"])
   const relatedPeople = fieldData["people-multi-reference"]
     ? fieldData["people-multi-reference"].map((personId) => {
         const peopleMatch = people.find((person) => person.id === personId);
@@ -33,11 +34,12 @@ export default function photoMapper(
       })
     : [];
 
+
   return {
     src: fieldData["main-image"]?.url || "",
     alt: fieldData["main-image"]?.alt || "",
     location: fieldData["location-2"] || "",
-    year: fieldData.date ? new Date(fieldData.date).getFullYear() : NaN,
+    year: fieldData.date ? formatDate(fieldData.date) : "",
     people: fieldData["people-multi-reference"]?.join(", ") || "",
     programme2: fieldData["programme-label"] || "",
 
@@ -52,7 +54,7 @@ export default function photoMapper(
     description: fieldData.description || "",
     descriptionArabic: fieldData["description-arabic"] || "",
     source: fieldData.source || "",
-    programmeLabel: fieldData["programme-label"] || "",
+    programmeLabel: {name: programmeLabel?.fieldData.name ||"", slug: programmeLabel?.fieldData.slug||""} || {name: "", slug: ""},
     programmesMultiReference: relatedProgrammes,
     tags: fieldData.tags || [],
     peopleMultiReference: relatedPeople,
