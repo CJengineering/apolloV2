@@ -9,10 +9,19 @@ import Illustration from "@/public/images/hero-illustration.svg";
 import Header from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
 import Sidebar2 from "@/components/ui/sideBar2";
-import { eb_garamond, ibm_plex_mono, ibm_plex_sans, ibm_plex_serif, libre_baskerville, vollkorn } from "./fonts";
+import {
+  eb_garamond,
+  ibm_plex_mono,
+  ibm_plex_sans,
+  ibm_plex_serif,
+  libre_baskerville,
+  vollkorn,
+} from "./fonts";
 import { get } from "http";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { getData } from "@/functions/api/getData";
+import Footer from "@/components/ui/footer";
+import { DivideCircle } from "lucide-react";
 
 const nycd = Nothing_You_Could_Do({
   subsets: ["latin"],
@@ -68,10 +77,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-
-
-
   return (
     <html lang="en" className="scroll-smooth " suppressHydrationWarning>
       {/* suppressHydrationWarning: https://github.com/vercel/next.js/issues/44343 */}
@@ -79,7 +84,7 @@ export default async function RootLayout({
         className={`${nycd.variable} ${aspekta.variable} ${costa.variable} ${ibm_plex_mono.variable} ${ibm_plex_sans.variable} ${ibm_plex_serif.variable} ${vollkorn.variable} ${libre_baskerville.variable} ${eb_garamond.variable} font-aspekta antialiased text-slate-800 font-[350] bg-white dark:bg-slate-900 dark:text-slate-200`}
       >
         <Theme>
-          <AppProvider >
+          <AppProvider>
             {/*  previous div had this 'min-h-screen overflow-hidden' removed for sticky postionnint  */}
             <div className="flex    flex-col ">
               <Header />
@@ -99,6 +104,8 @@ export default async function RootLayout({
                           {children}
                         </div>
                       </div>
+
+                      <Footer />
                     </div>
                   </div>
                 </div>
