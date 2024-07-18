@@ -105,9 +105,9 @@ export default async function RootLayout({
                         </div>
                       </div>
 
-                      <Footer />
                     </div>
                   </div>
+                      <Footer />
                 </div>
               </main>
             </div>

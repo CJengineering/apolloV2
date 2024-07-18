@@ -8,7 +8,7 @@ import { transformPostFieldsToArticleProps } from "@/functions/transformers/tran
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { get } from "http";
 import React from "react";
-import ContentPhotos from "../../programme/j-wafs/content-photos";
+import ContentPhotos from "../../programmes/j-wafs/content-photos";
 import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcollectionToLIghtBox";
 import { findRelatedPosts } from "@/functions/findFunctions/findRelatedPostsFromPosts";
 import PostCard from "@/components/custom beta components/PostCard";
@@ -81,33 +81,31 @@ export default async function page({
     <MainContainer isSideBar={true}>
       <ContentContainer>
         <div className="pb-12">
-        <ArticleBanter post={cleanPost} />
+          <ArticleBanter post={cleanPost} />
         </div>
-        {relatedPostsCleaned.length > 0 && ( 
+        {relatedPostsCleaned.length > 0 && (
           <>
-          <div className="pb-12">
-          {cleanPost.imageCarousel.length > 0 &&
-          cleanPost.imageCarousel[0].url !== "" && (
-            <ContentPhotos images={cleanRelatedImages} />
-          )
-        }
-        </div>
-         <div className="pb-9"> 
-        <hr className="border-gray-200" />
-        </div>
-          <div className="pb-3">
-            <h2 className="serif font-medium text-2xl">Related</h2>
-          </div>
+            <div className="pb-12">
+              {cleanPost.imageCarousel.length > 0 &&
+                cleanPost.imageCarousel[0].url !== "" && (
+                  <ContentPhotos images={cleanRelatedImages} />
+                )}
+            </div>
+            <div className="pb-9">
+              <hr className="border-gray-200" />
+            </div>
+            <div className="pb-3">
+              <h2 className="serif font-medium text-2xl">Related</h2>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-4">
               {relatedPostsCleaned.map((post) => (
                 <PostCard key={post.name} content={post} />
               ))}
             </div>
-            </>
+          </>
         )}
-
-</ContentContainer>
+      </ContentContainer>
     </MainContainer>
   );
 }
