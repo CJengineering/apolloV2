@@ -3,6 +3,7 @@
 import React, { createContext, PropsWithChildren, useContext } from "react";
 import { NewsCleanedFields, PostFieldsCleaned } from "@/app/interfaces";
 import Link from "next/link";
+import Image from 'next/image'
 
 type NewsCardV2ContextType = {
   content: NewsCleanedFields;
@@ -42,10 +43,13 @@ const ImageColumn = () => {
   const { content } = useNewsCardV2Context();
   return (
     <div className="col-span-1  relative hidden md:block" style={{ paddingBottom: "100%" }}>
-      <img
+      <Image
         className="absolute top-0 left-0 w-full h-full object-cover object-center transition duration-300 ease-in-out group-hover:scale-140"
         src={content.thumbnail.url}
         alt="Featured article"
+        loading="lazy"
+        width={500}
+        height={500}
       />
     </div>
   );

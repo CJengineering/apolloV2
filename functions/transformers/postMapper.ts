@@ -152,6 +152,6 @@ export default function postMapper(
     people: relatedPeople,
     innovations: ["N/A"],
     name: fieldData.name || "N/A",
-    slug: `/announcements/${fieldData.slug}` || "N/A",
+    slug: `/news/${fieldData.slug}` || "N/A",
   };
 }

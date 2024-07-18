@@ -12,7 +12,7 @@ interface TabsCJProps {
   cardData: CardProgrammeProps[];
 }
 export default function TabsCJ({ rowData, cardData }: TabsCJProps) {
-  const locale = getCookie("NEXT_LOCALE") || "en";
+  const locale =  "en";
   return (
     <Tab.Group>
       <Tab.List className="flex justify-between gap-4">
