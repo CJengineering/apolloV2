@@ -21,7 +21,7 @@ export default function ListSmall({ data }: ListSmallProps) {
 
             <div>
               {items && items.map((item, index) => (
-                <div className="text-small sans-serif font-normal" key={index}>
+                <div className="text-small serif font-normal" key={index}>
                   {item}
                 </div>
               ))}

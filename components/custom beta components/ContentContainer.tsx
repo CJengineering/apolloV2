@@ -1,14 +1,4 @@
-// import React from 'react'
-
-// export default function ContentContainer({children}: {children: React.ReactNode}) {
-//   return (
-//     <div className='px-4 md:max-w-screen-md lg:max-w-screen-xl'>
-//         {children}
-//     </div>
-//   )
-// }
-
-import React from 'react'
+import React from 'react';
 
 interface ContentContainerProps {
   children: React.ReactNode;
@@ -59,7 +49,11 @@ export default function ContentContainer({ children, width = 'full', desktopWidt
 
   return (
     <div className={`mx-auto mt-8 px-4 md:px-4 lg:px-4 ${widthClass} ${desktopWidthClass}`}>
-      {children}
+      {React.Children.map(children, (child) => (
+        <div className="mb-12">
+          {child}
+        </div>
+      ))}
     </div>
-  )
+  );
 }

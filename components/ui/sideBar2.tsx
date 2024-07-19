@@ -62,22 +62,16 @@ const navItems: NavItem[] = [
       {
         name: "J-PAL",
         children: [
-          { name: "Overview", href: "#", current: false },
-          { name: "J-PAL MENA", href: "#", current: false },
-          {
-            name: "Events",
-            children: [
-              { name: "event 1", href: "#" },
-              { name: "event 2", href: "#" },
-              { name: "view all", href: "#" },
-            ],
-          },
+          { name: "Overview", href: "/programmes/j-pal", current: false },
+          { name: "J-PAL MENA", href: "#", current: false },,
           {
             name: "People",
             children: [
-              { name: "people 1", href: "#" },
-              { name: "people 2", href: "#" },
-              { name: "view all", href: "#" },
+              { name: "Esther Duflor", href: "/people/esther-duflo" },
+              { name: "Abhijit Banerjee", href: "/people/abhijit-barnerjee" },
+              { name: "Iqbal Dhaliwal", href: "people/iqbal-dhaliwal" },
+              { name: "Amy Finkelstein", href: "people/amy-finklestein" },
+              { name: "Ben Olken", href: "people/ben-olken" },
             ],
           },
         ],
@@ -86,18 +80,8 @@ const navItems: NavItem[] = [
         name: "J-WAFS",
         children: [
           { name: "Overview", href: "/programmes/j-wafs", current: false },
-          { name: "FACT Alliance", href: "#", current: false },
-          { name: "Spinouts", href: "#", current: false },
-          { name: "Funding", href: "#", current: false },
-          { name: "Jameel Index", href: "#", current: false },
-          {
-            name: "Events",
-            children: [
-              { name: "event 1", href: "#" },
-              { name: "event 2", href: "#" },
-              { name: "view all", href: "#" },
-            ],
-          },
+          { name: "FACT Alliance", href: "/programmes/j-wafs/fact-alliance", current: false },
+          { name: "Jameel Index", href: "/programmes/j-wafs/jameel-index", current: false },
           {
             name: "People",
             children: [
@@ -296,7 +280,7 @@ const navItems: NavItem[] = [
 const NavLink = ({ href, children, icon }: { href: string; children: React.ReactNode; icon?: React.ReactNode }) => (
   <Link
     href={href}
-    className="relative flex items-center font-normal mono text-black py-2 pr-2 uppercase before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200">
+    className="relative flex items-center font-normal mono text-black py-2 pr-2 uppercase hover:text-orange-700 dark:hover:text-orange-400 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200">
     {icon && <span className="mr-3">{icon}</span>}
     {children}
   </Link>
@@ -317,7 +301,7 @@ const NavGroup = ({ title, children, icon }: { title: string; children: React.Re
         }}
         className="relative flex w-[240px] justify-between items-center font-normal mono text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
       >
-        <div className="flex uppercase items-center">
+        <div className="flex uppercase items-center hover:text-orange-700 dark:hover:text-orange-400">
 
           {icon && <span className="mr-3">{icon}</span>}
           {title}
@@ -415,17 +399,17 @@ export default function Sidebar2() {
             <div className="pt-24 md:pt-[84px] pb-8">
             <nav className="md:block w-53 text-sm">
                 {/* This is navigational Link consider it as a link  you can find this on component on top of the file */}
-                <NavLink href="/community" icon={<GlobeAltIcon className="h-4 w-4 text-gray-500 dark:text-gray-500" />}>
+                <NavLink href="/community" icon={<GlobeAltIcon className="h-4 w-4 text-gray-500 dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />}>
                   Community
                 </NavLink>
                 {/* this is a component that is for the dropdown only and has a logo you can find this component on top */}
-                <NavGroup title="About" icon={<AcademicCapIcon className="h-4 w-4 text-gray-500 dark:text-gray-500" />}>
+                <NavGroup title="About" icon={<AcademicCapIcon className="h-4 w-4 text-gray-500 dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />}>
                   {renderNavItems(navItems[0].children || [])}
                 </NavGroup>
-                <NavGroup title="Programmes" icon={<CpuChipIcon className="h-4 w-4 text-gray-500 dark:text-gray-500" />}>
+                <NavGroup title="Programmes" icon={<CpuChipIcon className="h-4 w-4 text-gray-500 dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />}>
                   {renderNavItems(navItems[3].children || [])}
                 </NavGroup>
-                <NavGroup title="Discover" icon={<BeakerIcon className="h-4 w-4 text-gray-500 dark:text-gray-500" />}>
+                <NavGroup title="Discover" icon={<BeakerIcon className="h-4 w-4 text-gray-500 dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />}>
                   {renderNavItems(navItems[2].children || [])}
                 </NavGroup>
               </nav>

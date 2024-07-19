@@ -17,8 +17,12 @@ export default function SidebarLink({
   const { setSidebarOpen } = useAppProvider()  
   
   return (
-    <Link className={`flex items-center space-x-3 w-36 font-normal ${pathname === href ? 'text-dark-600' : 'text-black dark:text-white'}`} href={href} onClick={() => setSidebarOpen(false)}>
-      {children}
-    </Link>
+<Link 
+  className={`flex items-center space-x-3 w-36 font-normal ${pathname === href ? 'text-dark-600' : 'text-black dark:text-white'} hover:text-orange-700 dark:hover:text-orange-400`} 
+  href={href} 
+  onClick={() => setSidebarOpen(false)}
+>
+  {children}
+</Link>
   )
 }

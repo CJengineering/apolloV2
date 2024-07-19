@@ -26,6 +26,7 @@ import { Container } from "@/components/CJ-components/components-CJ/Container";
 import test from "node:test";
 import featureMapper from "@/functions/transformers/featureMapper";
 import filterRelatedFeatures from "@/functions/filters/filterRelatedFeatures";
+import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 
 
 export default async function SinglePost({
@@ -95,6 +96,7 @@ export default async function SinglePost({
 
   return (
       <ContentContainer width="full" desktopWidth="medium">
+<LanguageChanger/>
         <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
           Community
         </h1> 

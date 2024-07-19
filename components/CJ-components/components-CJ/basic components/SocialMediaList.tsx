@@ -5,7 +5,7 @@ const IconBase = ({ path, ...props }: { path: string; [key: string]: any }) => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
     {...props}
-    className="w-6 h-6 fill-current text-gray-500 dark:text-gray-400 transition duration-300 ease-in-out group-hover:text-gray-600"
+    className="w-6 h-6 fill-current text-slate-500 dark:text-gray-400 transition duration-300 ease-in-out hover:text-orange-700 dark:hover:text-orange-400"
   >
     <path d={path} />
   </svg>
