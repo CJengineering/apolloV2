@@ -97,7 +97,7 @@ export default function TableRowSingle({ repository, locale }: TableRowSinglePro
             <h2>features</h2>
             <div className="pt-4 pb-8 grid grid-cols-3 gap-3">
               {repository.content.features.map((feature, index) => (
-                <CardSquaredImage key={index} imageUrl={feature.image.imageUrl} />
+                <CardSquaredImage key={index} type= {feature.image.type} imageUrl={feature.image.imageUrl} />
               ))}
             </div>
           </div>

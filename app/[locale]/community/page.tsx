@@ -95,6 +95,7 @@ export default async function SinglePost({
 
   return (
       <ContentContainer width="full" desktopWidth="medium">
+
         <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
           Community
         </h1> 

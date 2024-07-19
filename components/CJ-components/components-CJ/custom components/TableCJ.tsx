@@ -179,6 +179,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                           <div key={index}>
                             <CardSquaredImage
                               imageUrl={feature.image.imageUrl}
+                              type={feature.image.type}
                             />
                             <p className="text-xs mono uppercase font-medium mt-2">
                               {feature.title}
