@@ -32,14 +32,24 @@ html{
 .sans-serif {
     font-family: var(--font-ibm-plex-sans)
 }
+.sans-serif-ar {
+  font-family: var(--font-noto-sans-arabic)
+}
 .serif {
     font-family: var(--font-ibm-plex-serif)
 }
+
 .mono {
     font-family: var(--font-ibm-plex-mono)
 }
+.mono-ar {
+  font-family: var(--font-noto-kufi-arabic)
+}
 .costa {
     font-family: var(--font-costa)
+}
+.costa-ar {
+  font-family: var(--font-alexandria     )
 }
 .spacer {
     display: block;

@@ -10,11 +10,14 @@ import Header from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
 import Sidebar2 from "@/components/ui/sideBar2";
 import {
+  alexandria,
   eb_garamond,
   ibm_plex_mono,
   ibm_plex_sans,
   ibm_plex_serif,
   libre_baskerville,
+  noto_kufi_arabic,
+  noto_sans_arabic,
   vollkorn,
 } from "./fonts";
 import { get } from "http";
@@ -81,7 +84,7 @@ export default async function RootLayout({
     <html lang="en" className="scroll-smooth " suppressHydrationWarning>
       {/* suppressHydrationWarning: https://github.com/vercel/next.js/issues/44343 */}
       <body
-        className={`${nycd.variable} ${aspekta.variable} ${costa.variable} ${ibm_plex_mono.variable} ${ibm_plex_sans.variable} ${ibm_plex_serif.variable} ${vollkorn.variable} ${libre_baskerville.variable} ${eb_garamond.variable} font-aspekta antialiased text-slate-800 font-[350] bg-white dark:bg-slate-900 dark:text-slate-200`}
+        className={`${nycd.variable} ${noto_sans_arabic.variable} ${noto_kufi_arabic.variable} ${alexandria.variable} ${aspekta.variable} ${costa.variable} ${ibm_plex_mono.variable} ${ibm_plex_sans.variable} ${ibm_plex_serif.variable} ${vollkorn.variable} ${libre_baskerville.variable} ${eb_garamond.variable} font-aspekta antialiased text-slate-800 font-[350] bg-white dark:bg-slate-900 dark:text-slate-200`}
       >
         <Theme>
           <AppProvider>

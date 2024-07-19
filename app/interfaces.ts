@@ -21,10 +21,12 @@ export interface CardProgrammeProps {
   programmeTitle: string;
   programmeType: string;
   order: string;
+  slug: string;
   altText: string;
 }
 export type CardHorizontalImageProps = {
   imageUrl: StaticImageData | string;
+  type?: string;
 };
 
 export interface ListContentProps {
@@ -79,7 +81,7 @@ export interface RowContentData {
   logoDark?: { url: string; alt: string };
   button: { text: string; href: string };
   headquarters?: ListSmallProps;
-  headquartersArabic?: ListSmallProps;  
+  headquartersArabic?: ListSmallProps;
   leadership?: ListSmallProps;
   leadershipArabic?: ListSmallProps;
   "key initiatives"?: ListSmallProps;
@@ -237,7 +239,7 @@ export interface EventFieldData {
 export interface EventFieldDataCleaned {
   pushToGr: boolean;
   programmeLabel: string;
-  sources:RelatedColection;
+  sources: RelatedColection;
   collectionName: "event";
   isDraft: boolean;
   relatedProgrammes: string[];
@@ -486,7 +488,7 @@ export interface ImageLightbox {
   description: string;
   descriptionArabic: string;
   source: string;
-  programmeLabel: {name: string; slug: string};
+  programmeLabel: { name: string; slug: string };
   programmesMultiReference: { name: string; slug: string }[];
   tags: string[];
   peopleMultiReference: { name: string; slug: string }[];
@@ -645,7 +647,7 @@ export interface Category {
 }
 
 export interface ArticleProps {
-    article: {
+  article: {
     title: string;
     description: string;
     image: string;
@@ -802,7 +804,7 @@ export interface NewsCleanedFields {
   arabicTitle: string;
   pushToGr: boolean;
   collectionName: "news";
- 
+
   featured: boolean;
   externalLink: string;
   datePublished: string;

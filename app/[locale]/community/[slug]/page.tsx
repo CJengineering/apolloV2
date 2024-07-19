@@ -43,10 +43,10 @@ export default async function SinglePost({ params }: {
 
   return (
     <>
-      {/* Page header */}
-      <div className="h-16 flex items-center mb-6">
+      {/* Page header    <div className="h-16 flex items-center mb-6">
         <TopicTitle name={post.topic.name} segment={post.topic.slug} />
-      </div>
+      </div>*/}
+   
 
       <article className="flex xl:space-x-12">
 
@@ -56,7 +56,6 @@ export default async function SinglePost({ params }: {
           {/* Mobile hamburger + breadcrumbs */}
           <div className="md:hidden flex items-center mb-8">
 
-            <Hamburger />
 
             {/* Breadcrumbs */}
             <div className="flex items-center text-sm whitespace-nowrap min-w-0 ml-3">
