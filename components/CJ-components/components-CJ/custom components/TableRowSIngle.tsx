@@ -17,7 +17,7 @@ export default function TableRowSingle({ repository, locale }: TableRowSinglePro
   const isArabic = locale === "ar";
 
   return (
-    <div className="border-b-[1px]">
+    <div className="border-b dark:border-slate-700 pb-9">
       <div className="grid px-2 md:grid-cols-2 md:gap-16">
         <div>
           <div>
@@ -92,9 +92,8 @@ export default function TableRowSingle({ repository, locale }: TableRowSinglePro
               <Stats key={stat.title} title={stat.content} content={stat.title} />
             ))}
           </div>
-
+          <div className="py-4"></div>
           <div>
-            <h2>features</h2>
             <div className="pt-4 pb-8 grid grid-cols-3 gap-3">
               {repository.content.features.map((feature, index) => (
                 <CardSquaredImage key={index} imageUrl={feature.image.imageUrl} />

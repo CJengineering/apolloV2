@@ -16,10 +16,10 @@ export default function TabsCJ({ rowData, cardData }: TabsCJProps) {
   return (
     <Tab.Group>
       <Tab.List className="flex justify-between gap-4">
-        <Tab className="font-mono text-base font-medium w-full border border-gray-800 py-4 uppercase hover:bg-gray-600 hover:bg-opacity-10 focus:outline-none ui-selected:bg-orange-600">
+        <Tab className="font-mono text-base font-medium w-full border border-slate-700 py-4 uppercase hover:bg-gray-600 hover:bg-opacity-10 focus:outline-none ui-selected:bg-orange-600">
           labs
         </Tab>
-        <Tab className="font-mono text-base font-medium w-full border border-gray-800 py-4 uppercase hover:bg-gray-400 hover:bg-opacity-10 focus:outline-none ui-selected:bg-orange-600">
+        <Tab className="font-mono text-base font-medium w-full border border-slate-700 py-4 uppercase hover:bg-gray-400 hover:bg-opacity-10 focus:outline-none ui-selected:bg-orange-600">
           all
         </Tab>
       </Tab.List>
@@ -39,7 +39,6 @@ export default function TabsCJ({ rowData, cardData }: TabsCJProps) {
         </Tab.Panel>
         <Tab.Panel>
           <div className="mt-3">
-            <LanguageChanger/>
             <TableCJ rowData={rowData} locale={locale}></TableCJ>
           </div>
         </Tab.Panel>

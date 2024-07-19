@@ -35,6 +35,7 @@ import React from "react";
 import ContentPhotos from "./content-photos";
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
+import ContentContainer from "@/components/custom beta components/ContentContainer";
 
 export default async function JpalPage({
   params,
@@ -201,13 +202,23 @@ export default async function JpalPage({
   );
 
   return (
-    <MainContainer>
+      <ContentContainer width="full" desktopWidth="large">
       <div className="pt-12">
         <LanguageChanger />
         <TableRowSingle repository={dataForRow.repository} locale={params.locale} />
+      
         <div className="">
           <PostAccordion title={"News"}>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {postProps.slice(0, 8).map((post) => (
+                <PostCard key={post.name} content={post} />
+              ))}
+            </div>
+          </PostAccordion>
+        </div>
+        <div className="">
+          <PostAccordion title={"Press"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {newsProps.slice(2, 5).map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
@@ -216,7 +227,7 @@ export default async function JpalPage({
         </div>
         <div className="">
           <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {multimediaProps.map((item) => (
                 <div key={item.alt} className="">
                   <MediaCard {...item} />
@@ -226,15 +237,7 @@ export default async function JpalPage({
           </PostAccordion>
         </div>
 
-        <div className="">
-          <PostAccordion title={"Press"}>
-            <div className="grid grid-cols-3 gap-5">
-              {postProps.slice(0, 8).map((post) => (
-                <PostCard key={post.name} content={post} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
+
         {/* 
 
         <div>
@@ -273,6 +276,6 @@ export default async function JpalPage({
           </div>
         </div> */}
       </div>
-    </MainContainer>
+      </ContentContainer>
   );
 }

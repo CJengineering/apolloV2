@@ -31,7 +31,7 @@ function TableRow({ repository, locale }: TableRowProps) {
   ];
 
   return (
-    <div className="border-b-[1px]">
+    <div className="border-b-[1px] dark:border-slate-700">
       <Disclosure>
         {({ open }) => (
           <>
@@ -42,7 +42,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                     open ? "opacity-100" : "opacity-100"
                   }`}
                 >
-                  <h2 className="mono align-middle font-bold text-xl md:text-2xl uppercase pl-2">
+                  <h2 className="mono align-middle font-semibold text-xl md:text-1xl uppercase pl-2">
                     {isArabic ? repository.top.nameArabic : repository.top.name}
                   </h2>
                 </div>
@@ -52,7 +52,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                     open ? "opacity-0" : "opacity-100"
                   }`}
                 >
-                  <div className="text-sm sans-serif font-normal leading-5">
+                  <div className="text-sm serif font-normal leading-5">
                     {isArabic ? repository.top.missionArabic : repository.top.mission}
                   </div>
                 </div>
@@ -62,7 +62,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                     open ? "opacity-0" : "opacity-100"
                   }`}
                 >
-                  <div className="text-sm sans-serif font-normal leading-5">
+                  <div className="text-sm serif font-normal leading-5">
                     {repository.top.year}
                   </div>
                 </div>
@@ -72,7 +72,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                     open ? "opacity-0" : "opacity-100"
                   }`}
                 >
-                  <div className="text-sm sans-serif font-normal leading-5">
+                  <div className="text-sm serif font-normal leading-5">
                     {isArabic ? repository.top.partnersArabic.join(", ") : repository.top.partners.join(", ")}
                   </div>
                 </div>
@@ -105,7 +105,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                   </div>
                   <div>
                     <Image
-                      className="dark:block hidden object-fit w-64"
+                      className="dark:block hidden object-fit w-64 py-9"
                       width={400}
                       height={300}
                       src={repository.content.logoDark?.url || ""}
@@ -114,7 +114,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                   </div>
                   <div className="mt-6">
                     <div
-                      className="sans-serif text-xl md:w-11/12 md:text-3xl leading font-normal"
+                      className="serif text-xl md:w-11/12 md:text-3xl leading font-normal"
                       dangerouslySetInnerHTML={{
                         __html: isArabic
                           ? repository.content.fullDescriptionArabic
@@ -206,7 +206,7 @@ interface TableCJProps {
 export default function TableCJ({ rowData, locale }: TableCJProps) {
   return (
     <div>
-      <div className="text-small grid grid-cols-12 gap-9 border-y-[1px]">
+      <div className="text-small grid grid-cols-12 gap-9 border-y dark:border-slate-700">
         {/* Header */}
         <div className="py-2 col-span-5 align-middle text-left mono text-xs font-medium uppercase md:block">
           Name

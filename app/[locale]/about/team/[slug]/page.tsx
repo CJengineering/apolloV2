@@ -106,8 +106,8 @@ export default async function page({
           ></div>
         </div>
       </div>
-      <h2> related news </h2>
-      <div className="grid grid-cols-3 gap-3">
+      <h2 className="serif font-semibold text-3xl">Related</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {relatedNewsToTeamMember.map((item) => (
           <NewsCard content={item} locale={params.locale} />
         ))}

@@ -73,9 +73,9 @@ export default async function PeopleContent({
       <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
           Team
         </h1>   
-      <div className="pb-12">
+      <div className="pb-6">
           <h2 className="serif font-semibold text-3xl pb-6">Core</h2>
-          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
             {team.map((member) => (
               <PersonalCard
               key={member.order}
@@ -85,10 +85,10 @@ export default async function PeopleContent({
             ))}
           </div>
         </div>
-    <div className="flex flex-col pb-12">
-      <div className="w-full h-px bg-gray-200"></div> {/* Separation Bar */}
+    <div className="flex flex-col py-6">
+    <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
     </div>
-        <div className="pb-12">
+        <div className="">
           <h2 className="serif font-semibold text-3xl pb-6">Advisory Committee</h2>
           <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {advisoryCommittee.map((member) => (
@@ -101,8 +101,8 @@ export default async function PeopleContent({
           </div>
         </div>
 
-        <div className="flex flex-col pb-12">
-      <div className="w-full h-px bg-gray-200"></div> {/* Separation Bar */}
+        <div className="flex flex-col py-6">
+      <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
     </div>
         <div>
           <h2 className="serif font-semibold text-3xl">Jameel Family</h2>
@@ -119,10 +119,6 @@ export default async function PeopleContent({
             ))}
           </div>
         </div>
-
-
-
-
             <div className="pb-24"></div>
 
       </ContentContainer>

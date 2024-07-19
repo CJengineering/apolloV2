@@ -22,31 +22,20 @@ export default function LanguageChanger() {
   };
 
   const handleChange = (newLocale: string) => {
-    // Set cookie for next-i18n-router
     setCookie('NEXT_LOCALE', newLocale, 30);
 
     let newPath = currentPathname;
 
-    console.log('Current Pathname:', currentPathname);
-    console.log('Current Locale:', currentLocale);
-    console.log('New Locale:', newLocale);
-
-    // Remove any existing locale prefix
     newPath = newPath.replace(new RegExp(`^/(${i18nConfig.locales.join('|')})(?=/|$)`), '');
 
-    // Add the new locale prefix if it's not the default locale
     if (newLocale !== i18nConfig.defaultLocale) {
       newPath = `/${newLocale}${newPath}`;
     }
 
-    // Ensure that we handle the root path properly
     if (newPath === '') {
       newPath = '/';
     }
 
-    console.log('New Path:', newPath);
-
-    // Update the current locale state and redirect to the new locale path if different
     if (currentLocale !== newLocale) {
       setCurrentLocale(newLocale);
       router.push(newPath);
@@ -64,19 +53,24 @@ export default function LanguageChanger() {
   const derivedLocale = getLocaleFromPathname(currentPathname);
 
   return (
-    <div className="flex  text-xs items-center space-x-2">
-      <span
-        onClick={() => handleChange('en')}
-        className={`cursor-pointer mono ${derivedLocale === 'en' ? 'font-bold' : ''}`}
-      >
-        EN
-      </span>
-      <span
-        onClick={() => handleChange('ar')}
-        className={`cursor-pointer text-xs  mono ${derivedLocale === 'ar' ? 'font-bold' : ''}`}
-      >
-        ع
-      </span>
+    <div className="flex justify-center items-center">
+      <div className="bg-slate-100 py-1 px-2 rounded mt-3">
+        {derivedLocale === 'en' ? (
+          <span
+            onClick={() => handleChange('ar')}
+            className="cursor-pointer mono text-xs font-medium"
+          >
+            عرض
+          </span>
+        ) : (
+          <span
+            onClick={() => handleChange('en')}
+            className="cursor-pointer mono text-xs uppercase font-medium"
+          >
+            English
+          </span>
+        )}
+      </div>
     </div>
   );
 }
