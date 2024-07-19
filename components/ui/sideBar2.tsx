@@ -63,7 +63,7 @@ const navItems: NavItem[] = [
         name: "J-PAL",
         children: [
           { name: "Overview", href: "/programmes/j-pal", current: false },
-          { name: "J-PAL MENA", href: "#", current: false },,
+          { name: "J-PAL MENA", href: "#", current: false },
           {
             name: "People",
             children: [
