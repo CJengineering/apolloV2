@@ -25,62 +25,51 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
   relatedPeople,
 }) => {
   return (
-    <div className="hidden xlc:block 2xl:w-64 lg:w-32 shrink-0 ">
-      {links.length > 0 && (
-        <nav className="">
-          <div className="2xl:right-[2%]  xl:right-[1px] bottom-0  pt-10 w-48 overflow-y-auto pb-8 no-scrollbar">
-            <div className="mb-3">
-              <div className="text-xs font-normal mono uppercase">source</div>
-              <div className="sans-serif text-base font-normal">{source}</div>
-            </div>
-            <div className="mb-3">
-              <div className="text-xs font-normal mono uppercase">
-                date published
-              </div>
-              <div className="sans-serif text-base font-normal">{datePublished}</div>
-            </div>
-            <div className="mb-3">
-              <div className="text-xs font-normal mono uppercase">
-                related lab
-              </div>
-              <div className="sans-serif text-base font-normal">
-                {relatedProgrammes.map((programme, index) => (
+    <div className="w-full md:w-auto xl:w-64 lg:w-32 shrink-0 mt-6">
+      {/* <div className="mb-6 flex items-center space-x-2">
+        <div className="mono uppercase text-sm font-normal">{source}</div>
+        <span>•</span>
+        <div className="mono uppercase text-sm font-normal">{datePublished}</div>
+      </div> */}
+      <div className="mb-6">
+        <div className="text-xs font-normal mono uppercase">related lab(s)</div>
+        <div className="serif text-base font-normal">
+          <ul>
+            {relatedProgrammes.map((programme, index) => (
+              <li key={index}>
+                <Link
+                  key={index}
+                  href={`/programmes/${programme.slug}`}
+                  className="underline hover:cursor-pointer mt-0"
+                >
+                  {programme.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      {relatedPeople.length > 0 && (
+        <div className="mb-3">
+          <div className="text-xs font-normal mono uppercase">related people</div>
+          <div className="serif text-base font-normal">
+            <ul>
+              {relatedPeople.map((person, index) => (
+                <li key={index}>
                   <Link
                     key={index}
-                    href={`/programmes/${programme.slug}`}
+                    href={`/people/${person.slug}`}
                     className="underline hover:cursor-pointer mt-0"
                   >
-                    {programme.name}
+                    {person.name}
                   </Link>
-                ))}
-              </div>
-            </div>
-            {relatedPeople.length > 0 && (
-              <div className="mb-3">
-                <div className="text-xs font-normal mono uppercase">
-                  related people
-                </div>
-                <div className="sans-serif text-base font-normal">
-                  <ul>
-                    {relatedPeople.map((person, index) => (
-                      <li key={index}>
-                        <Link
-                          href={`/people/${person.slug}`}
-                          className="underline hover:cursor-pointer mt-0"
-                        >
-                          {person.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )}
+                </li>
+              ))}
+            </ul>
           </div>
-        </nav>
+        </div>
       )}
     </div>
   );
 };
-
 export default NewsRightContent;

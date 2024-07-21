@@ -84,7 +84,7 @@ const ImageLink = () => {
     const { content } = useCompoundNewsSmallContext();
     return (
       <div>
-        <h2 className="serif font-normal text-lg leading-tight hover:underline">
+        <h2 className="serif font-medium text-lg leading-tight hover:underline">
           {content.name}
         </h2>
       </div>
