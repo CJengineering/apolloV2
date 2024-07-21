@@ -83,13 +83,13 @@ Title.displayName = "Title";
 const DatePublished = () => {
   const { content } = useNewsCardV2Context();
   return (
-    <div className="text-left flex pt-1 space-x-1 ">
-      <p className="mono text-xs font-uppercase">
+    <div className="text-left flex space-x-1">
+      <p className="mono text-xs font-normal uppercase">
         <time dateTime={content.datePublished}>{content.datePublished}</time>
       </p>
-      <p className="mono text-xs font-uppercase"><span>
+      <p className="mono text-xs font-normal uppercase"><span>
       •</span></p>
-        <p className="mono text-xs font-uppercase"><span>{content.sources.name}</span></p>
+        <p className="mono text-xs font-normal uppercase"><span>{content.sources.name}</span></p>
     </div>
   );
 };

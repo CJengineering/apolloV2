@@ -184,15 +184,13 @@ export default async function NewsContent({
 
 
   return (
-    <MainContainer isSideBar={false}>
-      <ContentContainer width="full" desktopWidth="full">
+      <ContentContainer width="full" desktopWidth="medium">
         <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
           Press
         </h1>
         {/* <HeroBanter content={heroProps} /> */}
-        <SectionBanter title={""}>
         <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
-          <div className="pb-6 lg:col-span-6">
+          <div className="pb-6 col-span-12">
             {newsArrayCleaned.slice(0, 1).map((news, index) => (
               <CompoundNewsCard key={index} locale={params.locale} content={news}>
                 <CompoundNewsCardImageLink />
@@ -214,7 +212,7 @@ export default async function NewsContent({
               </CompoundNewsCard>
             ))}
           </div>
-          <div className="lg:col-span-6 lg:pl-6">
+          {/* <div className="lg:col-span-6 lg:pl-6">
             <Suspense fallback={<Loading />}>
               {newsArrayCleaned.slice(2, 7).map((news, index) => (
                 <CompoundNewsSmall key={index} content={news} locale={params.locale}>
@@ -229,11 +227,13 @@ export default async function NewsContent({
                 </CompoundNewsSmall>
               ))}
             </Suspense>
-          </div>
+          </div> */}
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
+        {/* <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
           <div className="pb-6 lg:col-span-6"></div>
-        </div>
+        </div> */}
+
+        
           <NewsProvider
             programmes={programmesForFilter}
             sources={sourcesForFilter}
@@ -242,8 +242,6 @@ export default async function NewsContent({
             <FilterComponent></FilterComponent>
             <NewsDisplay locale={params.locale} />
           </NewsProvider>
-        </SectionBanter>
       </ContentContainer>
-    </MainContainer>
   );
 }

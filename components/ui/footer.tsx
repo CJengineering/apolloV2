@@ -5,7 +5,7 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 export default function Footer() {
   return (
     <ContentContainer width="full" desktopWidth="large">
-      <footer className="border-t ml-64 dark:bg-slate-900 bg-white pb-4 border-gray-200 dark:border-gray-600 pt-8">
+      <footer className="border-t ml-64 dark:bg-slate-900 bg-white border-gray-200 dark:border-gray-600 pt-8">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="mb-4 md:mb-0">
             <div className="shrink-0 flex flex-col md:flex-row items-center">
@@ -92,11 +92,22 @@ export default function Footer() {
           registered trademarks of Abdul Latif Jameel IPR Company Limited.
         </p>
         <div className="flex flex-col md:flex-row mb-8 text-sm mono text-slate-800 dark:text-slate-500 mt-4 gap-x-6 gap-y-2 underline">
-          <Link href={"/legal/terms-of-use"}>Terms of Use</Link>
-          <Link href={"/legal/copyright-notice-disclaimer"}>Copyright notice & disclaimer</Link>
-          <Link href={"/legal/privacy-policy"}>Privacy policy</Link>
-          <Link href={"/legal/cookie-policy"}>Cookie policy</Link>
-          <Link href={"/legal/accessibility-policy"}>Accessibility policy</Link>
+        <Link href="/legal/terms-of-use">
+  <span className="hover:text-orange-700">Terms of Use</span>
+</Link>
+<Link href="/legal/copyright-notice-disclaimer">
+  <span className="hover:text-orange-700">Copyright notice & disclaimer</span>
+</Link>
+<Link href="/legal/privacy-policy">
+  <span className="hover:text-orange-700">Privacy policy</span>
+</Link>
+<Link href="/legal/cookie-policy">
+  <span className="hover:text-orange-700">Cookie policy</span>
+</Link>
+<Link href="/legal/accessibility-policy">
+  <span className="hover:text-orange-700">Accessibility policy</span>
+</Link>
+
         </div>
       </footer>
     </ContentContainer>

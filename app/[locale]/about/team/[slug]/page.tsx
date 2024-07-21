@@ -46,12 +46,10 @@ export default async function page({
   const filteredNewsItems = dataNews.items.filter((item) =>
     item.fieldData["related-team-members"]?.includes(personId)
   );
-  const test = filteredNewsItems[0];
 
   const relatedNews = filteredNewsItems.map((item) =>
     mapItemToNewsMainProps(item, sourcesAll.items, programmeAll.items)
   );
-  const testLocale = params.locale;
 
   const relatedNewsToTeamMember = filteredNewsItems.map((item) =>
     newsMapper(
@@ -76,7 +74,7 @@ export default async function page({
     <ContentContainer width="full" desktopWidth="small">
       <LanguageChanger></LanguageChanger>
       <div className={params.locale === "ar" ? "rtl" : ""}>
-        <div className="py-12 flex flex-col items-center justify-center">
+        <div className="pb-12 flex flex-col items-center justify-center">
           <div className="w-full pb-2 md:w-1/2">
             <h1 className="text-center text-4xl serif font-bold">
               {memberName}
@@ -106,10 +104,17 @@ export default async function page({
           ></div>
         </div>
       </div>
-      <h2 className="serif font-semibold text-3xl">Related</h2>
+      {relatedNewsToTeamMember.length > 0 && (
+        <>
+          <div className="flex flex-col py-6">
+            <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
+          </div>
+          <h2 className="serif font-semibold text-3xl">Related</h2>
+        </>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {relatedNewsToTeamMember.map((item) => (
-          <NewsCard content={item} locale={params.locale} />
+          <NewsCard key={item.slug} content={item} locale={params.locale} />
         ))}
       </div>
     </ContentContainer>

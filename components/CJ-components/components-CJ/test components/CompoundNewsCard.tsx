@@ -67,7 +67,7 @@ const ProgrammeLabel = () => {
   const { content } = useCompoundNewsCardContext();
   return (
     <div className="flex">
-     <p className="mono text-sm font-normal uppercase">
+     <p className="mono text-xs font-normal uppercase p-1 bg-slate-100 dark:bg-slate-800">
         {content.programme.name}
     </p>
     </div>
@@ -79,7 +79,7 @@ const TitleLink = () => {
   const { content, locale } = useCompoundNewsCardContext();
   return (
     <div className="group mt-1 block">
-      <h2 className="text-base serif font-medium tracking-normal transition duration-300 ease-in-out group-hover:underline lg:text-2xl xl:text-2xl lg:leading-tight">
+      <h2 className="text-xl md:text-base serif font-medium tracking-normal transition duration-300 ease-in-out group-hover:underline lg:text-2xl xl:text-2xl lg:leading-tight">
         {locale === "ar" ? content.arabicTitle : content.name}
       </h2>
     </div>

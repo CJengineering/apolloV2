@@ -60,14 +60,14 @@ export default function LanguageChanger() {
             onClick={() => handleChange('ar')}
             className="cursor-pointer mono text-xs font-medium"
           >
-            عرض الصفحة باللغة العربية
+            عربي
           </span>
         ) : (
           <span
             onClick={() => handleChange('en')}
             className="cursor-pointer mono text-xs uppercase font-medium"
           >
-            view page in english
+            english
           </span>
         )}
       </div>
