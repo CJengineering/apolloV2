@@ -111,7 +111,7 @@ export default async function AnnouncementsContent({
   const eventsRaw = await getData("6225fe8b1f52b40001a99d66");
   const peopleRaw = await getData("62271a6df4ceb0027d91e6c4");
   const categoriesRaw = await getData(categoryId);
-
+  rawPosts.items.filter((item) => !item.isDraft);
   const posts = rawPosts.items.map((item) =>
     postMapper(
       item,
@@ -121,6 +121,7 @@ export default async function AnnouncementsContent({
       peopleRaw.items
     )
   );
+
   interface RelatedCollection {
     id: string;
     name: string;
@@ -134,8 +135,7 @@ export default async function AnnouncementsContent({
   const peopleForFilter: RelatedCollection[] = peopleRaw.items.map((item) => ({
     id: item.id || "",
     name: item.fieldData.name || "",
-    }));
-  
+  }));
 
   return (
     <MainContainer isSideBar={false}>
@@ -143,13 +143,16 @@ export default async function AnnouncementsContent({
         <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-36 text-center">
           News
         </h1>
-        <PostProvider programmes={programmesForFilter } people={peopleForFilter} postsClean={posts}>
+        <PostProvider
+          programmes={programmesForFilter}
+          people={peopleForFilter}
+          postsClean={posts}
+        >
           <div className=" relative mb-4">
-         <FilterComponentForPosts/>
+            <FilterComponentForPosts />
           </div>
           <PostsDisplay />
         </PostProvider>
-
       </ContentContainer>
     </MainContainer>
   );
