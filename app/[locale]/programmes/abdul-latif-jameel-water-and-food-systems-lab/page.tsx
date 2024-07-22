@@ -1,11 +1,13 @@
 import React from 'react';
 
-export default function Abdul-Latif-Jameel-Water-And-Food-Systems-Lab({
-    params,
-  }: {
-    params: { slug: string; locale: string };
-  }) {
+interface Props {
+  params: { slug: string; locale: string };
+}
+
+export default function AbdulLatifJameelWaterAndFoodSystemsLab({
+  params,
+}: Props) {
   return (
-    <div className='pt-36'>Abdul-Latif-Jameel-Water-And-Food-Systems-Lab</div>
-  )
+    <div className='pt-36'>Abdul Latif Jameel Water And Food Systems Lab</div>
+  );
 }

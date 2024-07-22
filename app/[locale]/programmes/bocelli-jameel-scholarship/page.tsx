@@ -1,11 +1,14 @@
 import React from 'react';
 
-export default function Bocelli-Jameel-Scholarship({
-    params,
-  }: {
-    params: { slug: string; locale: string };
-  }) {
-  return (
-    <div className='pt-36'>Bocelli-Jameel-Scholarship</div>
-  )
+interface Params {
+  slug: string;
+  locale: string;
+}
+
+export default function BocelliJameelScholarship({
+  params,
+}: {
+  params: Params;
+}) {
+  return <div className='pt-36'>Bocelli-Jameel-Scholarship</div>;
 }
