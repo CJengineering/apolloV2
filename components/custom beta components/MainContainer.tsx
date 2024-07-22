@@ -53,9 +53,9 @@ export default async function MainContainer({
     <>
       <div className="flex-grow mx-auto max-w-screen-sm  lg:max-w-screen-lg xl:max-w-screen-xl ">
         <div className="md:hidden mt-4 flex items-center mb-4 ">
-          <Hamburger />
+        
 
-          <BreadCrump name={post.topic.name} title={post.title}></BreadCrump>
+      
         </div>
 
  
