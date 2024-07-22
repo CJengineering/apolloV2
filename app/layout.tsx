@@ -25,6 +25,7 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { getData } from "@/functions/api/getData";
 import Footer from "@/components/ui/footer";
 import { DivideCircle } from "lucide-react";
+import Transition from "@/components/CJ-components/components-CJ/test components/Transition";
 
 const nycd = Nothing_You_Could_Do({
   subsets: ["latin"],
@@ -104,7 +105,7 @@ export default async function RootLayout({
                       {/* Page container */}
                       <div className="md:grow md:pl-64 lg:pr-6 xl:pr-0">
                         <div className="pt-12 md:pt-12 pb-8 md:pl-6 lg:pl-6">
-                          {children}
+                        <Transition>{children}</Transition>
                         </div>
                       </div>
 
