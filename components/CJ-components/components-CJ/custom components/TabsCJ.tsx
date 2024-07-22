@@ -32,6 +32,7 @@ export default function TabsCJ({ rowData, cardData }: TabsCJProps) {
                 imageUrl={item.imageUrl}
                 programmeTitle={item.programmeTitle}
                 programmeType={""}
+                slug={item.slug}
                 altText={item.altText}    
                 order ={item.order}        />
             ))}

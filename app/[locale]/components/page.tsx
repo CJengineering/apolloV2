@@ -324,12 +324,7 @@ export default async function HomeSecond({
       description: "Is used for feature  ",
       component: <FeatureCard content={featureCleanedAll[5]} />,
     },
-    {
-      name: "CardHorizontal",
-      width: "400px",
-      description: "Is used inside event  page  ",
-      component: <CardHorizontal imageUrl={image} />,
-    },
+   
     {
       name: "CardProgramme",
       width: "400px",
@@ -339,6 +334,7 @@ export default async function HomeSecond({
           imageUrl={programmeCeanedAll[30].logoSvgSquareOverlay.url}
           programmeTitle={programmeCeanedAll[30].name}
           programmeType={programmeCeanedAll[30].type}
+          slug={programmeCeanedAll[30].slug}
           order={programmeCeanedAll[30].order}
           altText={programmeCeanedAll[30].logoSvgOriginalRatio.alt}
         />

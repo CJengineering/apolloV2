@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import type { StaticImageData } from 'next/image'
 import { CardProgrammeProps } from '@/app/interfaces'
+import Link from 'next/link'
 
 
 
@@ -10,12 +11,13 @@ export default function CardProgramme({
   programmeTitle,
   programmeType,              
   altText,
+  slug,
   order
 
                        
 }: CardProgrammeProps) {
   return (
-    <div className="relative w-full">
+    <Link href={`/programmes/${slug}`} className="relative w-full">
       <div className="aspect-square overflow-hidden">
         <Image className="h-full w-full object-cover" width={500} height={500} src={imageUrl} alt={altText} />
 
@@ -29,6 +31,6 @@ export default function CardProgramme({
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
