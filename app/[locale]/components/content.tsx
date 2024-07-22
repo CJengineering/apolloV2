@@ -254,81 +254,10 @@ const components = [
       <CardProgramme
         imageUrl={testImage.src}
         programmeTitle="J-PAL"
+        slug="slug"
         programmeType="abdul latif jameel poverty action lab"
         altText={""}
-        order = {'1'}
-      />
-    ),
-  },
-  {
-    key: "component2",
-    element: (
-      <CardProgramme
-        imageUrl={testImage.src}
-        programmeTitle="J-PAL"
-        altText="J-PAL"
-        programmeType="abdul latif jameel poverty action lab"
-        order = {'2'}
-      />
-    ),
-  },
-  {
-    key: "component3",
-    element: (
-      <CardProgramme
-        imageUrl={testImage.src}
-        programmeTitle="J-PAL"
-        altText="J-PAL"
-        programmeType="abdul latif jameel poverty action lab"
-        order = {'3'}
-      />
-    ),
-  },
-  {
-    key: "component4",
-    element: (
-      <CardProgramme
-        imageUrl={testImage.src}
-        programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab"
-        altText={""}
-        order = {'4'}
-      />
-    ),
-  },
-  {
-    key: "component5",
-    element: (
-      <CardProgramme
-        imageUrl={testImage.src}
-        programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab"
-        altText={""}
-        order = {'5'}
-      />
-    ),
-  },
-  {
-    key: "component6",
-    element: (
-      <CardProgramme
-        imageUrl={testImage.src}
-        programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab"
-        altText={""}
-        order = {'6'}
-      />
-    ),
-  },
-  {
-    key: "component7",
-    element: (
-      <CardProgramme
-        imageUrl={testImage.src}
-        programmeTitle="J-PAL"
-        programmeType="abdul latif jameel poverty action lab"
-        altText={""}
-        order = {'7'}
+        order={"1"}
       />
     ),
   },
@@ -356,9 +285,10 @@ export default async function HomeComponents() {
                   <CardProgramme
                     imageUrl={testImage.src}
                     altText={""}
+                    slug="slug"
                     programmeTitle="J-PAL"
                     programmeType="abdul latif jameel poverty action lab"
-                      order="1"
+                    order="1"
                   />
                 </div>
               </div>
@@ -380,9 +310,7 @@ export default async function HomeComponents() {
                     to.
                   </p>
                 </div>
-                <div className="">
-                  <CardHorizontal imageUrl={testImage} />
-                </div>
+                <div className=""></div>
               </div>
               <div className=""></div>
             </div>
@@ -843,9 +771,7 @@ export default async function HomeComponents() {
             <div className=" ">
               <div className="w-full ">
                 <div className=" p-4 border-dotted border-r-gray-100 border-2 ">
-                  <SyndicationPartners title="Title of the section">
-               
-                  </SyndicationPartners>
+                  <SyndicationPartners title="Title of the section"></SyndicationPartners>
                 </div>
               </div>
             </div>

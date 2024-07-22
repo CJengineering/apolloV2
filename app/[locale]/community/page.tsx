@@ -28,7 +28,6 @@ import featureMapper from "@/functions/transformers/featureMapper";
 import filterRelatedFeatures from "@/functions/filters/filterRelatedFeatures";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 
-
 export default async function SinglePost({
   params,
 }: {
@@ -67,7 +66,9 @@ export default async function SinglePost({
   const rawPeople = await getData(peopleId);
   const rawFeatures = await getData(feautureId);
 
-  const cleanedFeature = rawFeatures.items.map((item)=>featureMapper(item, rawProgrammes.items))
+  const cleanedFeature = rawFeatures.items.map((item) =>
+    featureMapper(item, rawProgrammes.items)
+  );
 
   const cleanedProgrammes = rawProgrammes.items.map((item) =>
     programmeMapper(
@@ -77,14 +78,14 @@ export default async function SinglePost({
       rawProgrammes.items
     )
   );
-  
-  const filterOnlyLabs = cleanedProgrammes.filter((item) => item.type == 'Lab'  );
+
+  const filterOnlyLabs = cleanedProgrammes.filter((item) => item.type == "Lab");
   const orderLabs = filterOnlyLabs.sort((a, b) => {
     const orderA = a.order ? Number(a.order) : Number.MAX_SAFE_INTEGER;
     const orderB = b.order ? Number(b.order) : Number.MAX_SAFE_INTEGER;
     return orderA - orderB;
   });
-  
+
   const orderTable = cleanedProgrammes.sort((a, b) => {
     const orderA = a.order ? Number(a.order) : Number.MAX_SAFE_INTEGER;
     const orderB = b.order ? Number(b.order) : Number.MAX_SAFE_INTEGER;
@@ -92,17 +93,19 @@ export default async function SinglePost({
   });
 
   const cardData = orderLabs.map(mapProgrammeToCardProgramme);
-  const dataForTable = orderTable.map((item)=>mapProgrammeToRowData(item, cleanedFeature));
+  const dataForTable = orderTable.map((item) =>
+    mapProgrammeToRowData(item, cleanedFeature)
+  );
 
   return (
-      <ContentContainer width="full" desktopWidth="medium">
-<LanguageChanger/>
-        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
-          Community
-        </h1> 
-        <div className="w-min-full]">
-          <TabsCJ rowData={dataForTable} cardData={cardData} />
-        </div>
-      </ContentContainer>
+    <ContentContainer width="full" desktopWidth="medium">
+      <LanguageChanger />
+      <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
+        Community
+      </h1>
+      <div className="w-min-full]">
+        <TabsCJ rowData={dataForTable} cardData={cardData} />
+      </div>
+    </ContentContainer>
   );
 }

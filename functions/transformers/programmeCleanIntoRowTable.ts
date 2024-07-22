@@ -62,6 +62,7 @@ export function mapProgrammeToRowData(programme: ProgrammeCleanedFields, feature
             ? relatedFeatures.map(feature => ({
                 image: <CardHorizontalImageProps>{
                   imageUrl: feature.square.url,
+                  type: feature.type,
                 },
                 title: feature.name,
               })  

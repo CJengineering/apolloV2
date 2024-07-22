@@ -3,12 +3,16 @@ import {
   IBM_Plex_Sans,
   IBM_Plex_Serif,
   Inter,
+
   Roboto_Mono,
   Libre_Baskerville,
   Vollkorn,
   EB_Garamond,
   Crimson_Text,
   Frank_Ruhl_Libre,
+  Noto_Sans_Arabic,
+  
+  Alexandria,
 } from 'next/font/google';
 
 export const inter = Inter({
@@ -20,6 +24,23 @@ export const roboto_mono = Roboto_Mono({
   subsets: ['latin'],
   display: 'swap',
 });
+export const noto_sans_arabic = Noto_Sans_Arabic({
+  subsets: ['arabic'],
+  display: 'swap',
+  variable: '--font-noto-sans-arabic',
+});
+export const noto_kufi_arabic = Noto_Sans_Arabic({
+  subsets: ['arabic'],
+  display: 'swap',
+  variable: '--font-noto-kufi-arabic',
+});
+
+export const  alexandria =Alexandria({
+  subsets: ['arabic'],
+  display: 'swap',
+  variable: '--font-alexandria',
+});
+
 
 export const ibm_plex_mono = IBM_Plex_Mono({
   subsets: ['latin'],
