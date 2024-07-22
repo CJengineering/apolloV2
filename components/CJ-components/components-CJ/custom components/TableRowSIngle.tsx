@@ -13,7 +13,10 @@ interface TableRowSingleProps {
   locale: string;
 }
 
-export default function TableRowSingle({ repository, locale }: TableRowSingleProps) {
+export default function TableRowSingle({
+  repository,
+  locale,
+}: TableRowSingleProps) {
   const isArabic = locale === "ar";
 
   return (
@@ -42,23 +45,30 @@ export default function TableRowSingle({ repository, locale }: TableRowSinglePro
             <div
               className="sans-serif text-xl md:w-11/12 md:text-3xl leading font-normal"
               dangerouslySetInnerHTML={{
-                __html: isArabic ? repository.content.fullDescriptionArabic : repository.content.fullDescription,
+                __html: isArabic
+                  ? repository.content.fullDescriptionArabic
+                  : repository.content.fullDescription,
               }}
             ></div>
           </div>
 
           <div className="py-6"></div>
 
-          <div className="grid grid-cols-2 py-4">
-            <div className="flex items-center">
+          <div className="grid grid-cols-2  py-4">
+            <div className="flex    items-center">
               <div>
-                <SocialMediaList socialMediaLinks={repository.content.socialMediaLinks} />
-              </div>
-              <div className="ml-3">
-                <ButtonCJ
-                  href={repository.content.button.href}
-                  text={repository.content.button.text}
+                <SocialMediaList
+                  socialMediaLinks={repository.content.socialMediaLinks}
                 />
+              </div>
+              <div className="ml-3   flex space-x-4">
+                {repository.content.button.text && (
+                  <ButtonCJ
+                    href={repository.content.button.href}
+                    text={repository.content.button.text}
+                  />
+                )}
+           
               </div>
             </div>
           </div>
@@ -69,19 +79,49 @@ export default function TableRowSingle({ repository, locale }: TableRowSinglePro
           <div>
             <div className="grid grid-cols-2 gap-x-9 gap-y-6 lg:grid-cols-2">
               <div>
-                <ListSmall data={isArabic ? repository.content.researchArabic?.data : repository.content.research?.data} />
+                <ListSmall
+                  data={
+                    isArabic
+                      ? repository.content.researchArabic?.data
+                      : repository.content.research?.data
+                  }
+                />
               </div>
               <div>
-                <ListSmall data={isArabic ? repository.content.established?.data : repository.content.established?.data} />
+                <ListSmall
+                  data={
+                    isArabic
+                      ? repository.content.established?.data
+                      : repository.content.established?.data
+                  }
+                />
               </div>
               <div>
-                <ListSmall data={isArabic ? repository.content.headquartersArabic?.data : repository.content.headquarters?.data} />
+                <ListSmall
+                  data={
+                    isArabic
+                      ? repository.content.headquartersArabic?.data
+                      : repository.content.headquarters?.data
+                  }
+                />
               </div>
               <div>
-                <ListSmall data={isArabic ? repository.content["key partnersArabic"]?.data : repository.content["key partners"]?.data} />
+                <ListSmall
+                  data={
+                    isArabic
+                      ? repository.content["key partnersArabic"]?.data
+                      : repository.content["key partners"]?.data
+                  }
+                />
               </div>
               <div>
-                <ListSmall data={isArabic ? repository.content.leadershipArabic?.data : repository.content.leadership?.data} />
+                <ListSmall
+                  data={
+                    isArabic
+                      ? repository.content.leadershipArabic?.data
+                      : repository.content.leadership?.data
+                  }
+                />
               </div>
             </div>
           </div>
@@ -89,14 +129,22 @@ export default function TableRowSingle({ repository, locale }: TableRowSinglePro
           <div className="py-4"></div>
           <div className="grid grid-cols-2 gap-x-9 gap-y-6">
             {repository.content.stats.map((stat: StatProps) => (
-              <Stats key={stat.title} title={stat.content} content={stat.title} />
+              <Stats
+                key={stat.title}
+                title={stat.content}
+                content={stat.title}
+              />
             ))}
           </div>
           <div className="py-4"></div>
           <div>
             <div className="pt-4 pb-8 grid grid-cols-3 gap-3">
               {repository.content.features.map((feature, index) => (
-                <CardSquaredImage key={index} type= {feature.image.type} imageUrl={feature.image.imageUrl} />
+                <CardSquaredImage
+                  key={index}
+                  type={feature.image.type}
+                  imageUrl={feature.image.imageUrl}
+                />
               ))}
             </div>
           </div>

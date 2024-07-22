@@ -8,7 +8,7 @@ import { transformPostFieldsToArticleProps } from "@/functions/transformers/tran
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { get } from "http";
 import React from "react";
-import ContentPhotos from "../../programmes/j-wafs/content-photos";
+import ContentPhotos from "../../../../components/CJ-components/components-CJ/test components/content-photos";
 import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcollectionToLIghtBox";
 import { findRelatedPosts } from "@/functions/findFunctions/findRelatedPostsFromPosts";
 import PostCard from "@/components/custom beta components/PostCard";

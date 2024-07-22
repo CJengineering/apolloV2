@@ -11,7 +11,7 @@ import { filterRelatedPosts } from "@/functions/filters/filterRelatedPosts";
 import { filterRelatedEvents } from "@/functions/filters/filterRelatedEvents";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
 import SecondaryNav from "@/components/ui/secondary-nav";
-import ContentPhotos from "../../programmes/j-wafs/content-photos";
+import ContentPhotos from "../../../../components/CJ-components/components-CJ/test components/content-photos";
 import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcollectionToLIghtBox";
 import eventMapper from "@/functions/transformers/eventMapper";
 import newsMapper from "@/functions/transformers/newsMapper";

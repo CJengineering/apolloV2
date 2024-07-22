@@ -11,6 +11,7 @@ export function mapProgrammeToRowData(programme: ProgrammeCleanedFields, feature
       repository: {
         top: {
           name: programme.name,
+          slug: programme.slug,
           nameArabic: programme.nameArabic,
           descriptionArabic: programme.bylineArabic,
           description: programme.shortNameArabic,

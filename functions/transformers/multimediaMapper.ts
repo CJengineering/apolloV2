@@ -9,6 +9,7 @@ import {
 } from "@/app/interfaces";
 import { formatDate } from "../utils/formDate";
 import { Source } from "postcss";
+import { arrayBuffer } from "stream/consumers";
 export default function multimediaMapper(
   item: Item<MultimediaRawFields>,
   programmes: Item<ProgrammeRawFields>[],
@@ -48,7 +49,16 @@ export default function multimediaMapper(
         arabicName: sourceMatch.fieldData["name-arabic"] || "",
         slug: sourceMatch.fieldData.slug || "",
       }
-    : { name: "N/A", slug: "N/A" ,arabicName: "N/A"};
+    : { name: "N/A", slug: "N/A", arabicName: "N/A" };
+  const realtedLabelProgramme = programmes.find(
+    (programme) => programme.id === fieldData["programme-label"]
+  );
+  const programmeLabel = {
+    name: realtedLabelProgramme?.fieldData.name || "",
+    slug: realtedLabelProgramme?.fieldData.slug || "",
+    arabicName: realtedLabelProgramme?.fieldData["name-arabic"] || "",
+    shortname: realtedLabelProgramme?.fieldData["shortname"] || "",
+  };
   const relatedProgrammes =
     fieldData["related-programmes"]?.map((programmeId) => {
       const programmeMatch = programmes.find(
@@ -60,7 +70,7 @@ export default function multimediaMapper(
             arabicName: programmeMatch.fieldData["name-arabic"] || "",
             slug: programmeMatch.fieldData.slug || "",
           }
-        : { name: "N/A", slug: "N/A",arabicName: "N/A"};
+        : { name: "N/A", slug: "N/A", arabicName: "N/A" };
     }) || [];
 
   const relatedPeople =
@@ -72,7 +82,7 @@ export default function multimediaMapper(
             arabicName: peopleMatch.fieldData["name-arabic"] || "",
             slug: peopleMatch.fieldData.slug || "",
           }
-        : { name: "N/A", slug: "N/A" , arabicName: "N/A"};
+        : { name: "N/A", slug: "N/A", arabicName: "N/A" };
     }) || [];
 
   const relatedEvent =
@@ -84,7 +94,7 @@ export default function multimediaMapper(
             arabicName: eventMatch.fieldData["arabic-title"] || "",
             slug: eventMatch.fieldData.slug || "",
           }
-        : { name: "N/A", slug: "N/A" ,arabicName: "N/A"};
+        : { name: "N/A", slug: "N/A", arabicName: "N/A" };
     }) || [];
 
   const thumbnail = fieldData.thumbnail
@@ -111,10 +121,10 @@ export default function multimediaMapper(
   return {
     nameArabic: fieldData["name-arabic"] || "N/A",
     pushToGr: fieldData["push-to-gr"] || false,
-    programmeLabel: fieldData["programme-label"] || "N/A",
+    programmeLabel: programmeLabel,
     relatedProgrammes: relatedProgrammes,
     collectionName: "multimedia",
-    datePublished:formatDate(fieldData["date"] || ""),
+    datePublished: formatDate(fieldData["date"] || ""),
     innovationRelated: fieldData["innovation-related"] || [],
     relatedPeople: relatedPeople,
     relatedEvent: relatedEvent,

@@ -33,7 +33,7 @@ import { Divide } from "lucide-react";
 import React from "react";
 
 import MediaCard from "@/components/CJ-components/components-CJ/basic components/MediaCard";
-import ContentPhotos from "../j-wafs/content-photos";
+import ContentPhotos from "../../../../components/CJ-components/components-CJ/test components/content-photos";
 
 export default async function JpalPage({
   params,
@@ -135,7 +135,12 @@ export default async function JpalPage({
     )
   );
   const cleanRelatedEvents = relatedEvents.map((item) =>
-    eventMapper(item, programmesRawData.items, peopleRawData.items, peopleRawData.items)
+    eventMapper(
+      item,
+      programmesRawData.items,
+      peopleRawData.items,
+      peopleRawData.items
+    )
   );
   const cleanedFeatures = relatedFeatures.map((item) =>
     featureMapper(item, programmesRawData.items)
@@ -195,7 +200,10 @@ export default async function JpalPage({
   return (
     <MainContainer>
       <div className="pt-24">
-        <TableRowSingle repository={dataForRow.repository} locale={params.locale} />
+        <TableRowSingle
+          repository={dataForRow.repository}
+          locale={params.locale}
+        />
         <div className=" p-6 ">
           <h2>Related multimedia</h2>
           <div className="grid grid-cols-3 gap-5 w-1/2 mx-auto">

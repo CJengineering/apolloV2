@@ -10,22 +10,18 @@ import Header from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
 import Sidebar2 from "@/components/ui/sideBar2";
 import {
-  alexandria,
   eb_garamond,
   ibm_plex_mono,
   ibm_plex_sans,
   ibm_plex_serif,
   libre_baskerville,
-  noto_kufi_arabic,
-  noto_sans_arabic,
   vollkorn,
 } from "./fonts";
 import { get } from "http";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { getData } from "@/functions/api/getData";
 import Footer from "@/components/ui/footer";
-import { DivideCircle } from "lucide-react";
-import Transition from "@/components/CJ-components/components-CJ/test components/Transition";
+import { DivideCircle, Weight } from "lucide-react";
 
 const nycd = Nothing_You_Could_Do({
   subsets: ["latin"],
@@ -54,6 +50,16 @@ const aspekta = localFont({
     },
   ],
   variable: "--font-aspekta",
+  display: "swap",
+});
+const zain = localFont({
+  src: [
+    { path: "../public/fonts/Zain-Black.ttf", weight: "900" },
+    { path: "../public/fonts/Zain-ExtraBold.ttf", weight: "800" },
+    { path: "../public/fonts/Zain-ExtraLight.ttf", weight: "200" },
+    { path: "../public/fonts/Zain-Regular.ttf", weight: "400" },
+  ],
+  variable: "--font-zain",
   display: "swap",
 });
 const costa = localFont({
@@ -85,7 +91,7 @@ export default async function RootLayout({
     <html lang="en" className="scroll-smooth " suppressHydrationWarning>
       {/* suppressHydrationWarning: https://github.com/vercel/next.js/issues/44343 */}
       <body
-        className={`${nycd.variable} ${noto_sans_arabic.variable} ${noto_kufi_arabic.variable} ${alexandria.variable} ${aspekta.variable} ${costa.variable} ${ibm_plex_mono.variable} ${ibm_plex_sans.variable} ${ibm_plex_serif.variable} ${vollkorn.variable} ${libre_baskerville.variable} ${eb_garamond.variable} font-aspekta antialiased text-slate-800 font-[350] bg-white dark:bg-slate-900 dark:text-slate-200`}
+        className={`${nycd.variable}${zain.variable} ${aspekta.variable} ${costa.variable} ${ibm_plex_mono.variable} ${ibm_plex_sans.variable} ${ibm_plex_serif.variable} ${vollkorn.variable} ${libre_baskerville.variable} ${eb_garamond.variable} font-aspekta antialiased text-slate-800 font-[350] bg-white dark:bg-slate-900 dark:text-slate-200`}
       >
         <Theme>
           <AppProvider>
@@ -104,14 +110,13 @@ export default async function RootLayout({
 
                       {/* Page container */}
                       <div className="md:grow md:pl-64 lg:pr-6 xl:pr-0">
-                        <div className="pt-12 md:pt-12 pb-8 md:pl-6 lg:pl-6">
-                        <Transition>{children}</Transition>
+                        <div className="pt-12  md:pt-12 pb-8 md:pl-6 lg:pl-6">
+                          {children}
                         </div>
                       </div>
-
                     </div>
                   </div>
-                      <Footer />
+                  <Footer />
                 </div>
               </main>
             </div>

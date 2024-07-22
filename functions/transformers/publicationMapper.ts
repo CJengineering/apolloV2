@@ -74,7 +74,7 @@ export default function publicationMapper(
           : { name: "N/A", slug: "N/A", arabicName: "N/A" };
       })
     : [];
- const validateSource =  {name :relatedProgrammes[0].name|| '', slug: "N/A", arabicName: relatedProgrammes[0].arabicName || ""};
+ const validateSource =  {name : 'ff'  || '', slug: "N/A", arabicName: 'relatedProgrammes[0].arabicName' || ""};
   return {
     nameArabic: fieldData["name-arabic"] || "",
     datePublished: fieldData["date-published"] ? formatDate(fieldData["date-published"]) : "",

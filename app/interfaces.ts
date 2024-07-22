@@ -63,6 +63,7 @@ export interface ListSmallData {
 
 export interface RowTopData {
   name: string;
+  slug: string;
   nameArabic: string;
   description: string;
   descriptionArabic: string;
@@ -737,7 +738,7 @@ export interface MultimediaCleanedFields {
   nameArabic: string;
   pushToGr: boolean;
   collectionName: "multimedia";
-  programmeLabel: string;
+  programmeLabel: RelatedColection;
   relatedProgrammes: RelatedColection[];
   innovationRelated: string[];
   relatedPeople: RelatedColection[];
@@ -832,6 +833,8 @@ export interface MediaCardProps {
   imageUrl: string;
   alt: string;
   source: string;
+  datePublished: string;
+  programme: { name: string; slug: string };
   name: string;
   slug: string;
 }

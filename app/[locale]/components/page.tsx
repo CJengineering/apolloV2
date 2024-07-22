@@ -58,6 +58,7 @@ import {
   UnifiedComponentThumbnail,
   UnifiedComponentTitle,
 } from "@/components/CJ-components/components-CJ/test components/CompoundUnifiedComponent";
+import { Sulphur_Point } from "next/font/google";
 
 // This is a component documentation component
 interface ComponentDocProps {
@@ -312,6 +313,8 @@ export default async function HomeSecond({
         <MediaCard
           imageUrl={mediaCleanedAll[0].thumbnail.url}
           alt={mediaCleanedAll[0].thumbnail.alt}
+          datePublished={mediaCleanedAll[0].datePublished}
+          programme={{ name: "", slug: "" }}
           source={mediaCleanedAll[0].sources.name}
           name={mediaCleanedAll[0].name}
           slug={mediaCleanedAll[0].slug}

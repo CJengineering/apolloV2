@@ -3,9 +3,13 @@ import { CardProgrammeProps, MediaCardProps, MultimediaCleanedFields, ProgrammeC
 export function mapMultimediaToMediaCard(multimedia: MultimediaCleanedFields): MediaCardProps {
     return {
         name: multimedia.name || '',
+        source: multimedia.sources.name,
+        datePublished: multimedia.datePublished,
+        programme: {name: multimedia.programmeLabel.shortname ||'test', slug: multimedia.relatedProgrammes[0].slug},
+
         imageUrl: multimedia.thumbnail.url,
         alt: multimedia.thumbnail.alt,
-        source: multimedia.type,
+   
         slug : `/multimedia/${multimedia.slug}`
     };
   }

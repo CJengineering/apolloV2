@@ -57,223 +57,216 @@ const navItems: NavItem[] = [
     ],
   },
   {
-    name: "Programmes",
-    children: [
+    "name": "Programmes",
+    "children": [
       {
-        name: "J-PAL",
-        children: [
-          { name: "Overview", href: "/programmes/j-pal", current: false },
-          { name: "J-PAL MENA", href: "#", current: false },
+        "name": "J-PAL",
+        "children": [
+          { "name": "Overview", "href": "/programmes/jameel-poverty-action-lab", "current": false },
+          { "name": "J-PAL MENA", "href": "/programmes/jameel-poverty-action-lab-middle-east-and-north-africa", "current": false },
           {
-            name: "People",
-            children: [
-              { name: "Esther Duflor", href: "/people/esther-duflo" },
-              { name: "Abhijit Banerjee", href: "/people/abhijit-barnerjee" },
-              { name: "Iqbal Dhaliwal", href: "people/iqbal-dhaliwal" },
-              { name: "Amy Finkelstein", href: "people/amy-finklestein" },
-              { name: "Ben Olken", href: "people/ben-olken" },
-            ],
-          },
-        ],
+            "name": "People",
+            "children": [
+              { "name": "Esther Duflor", "href": "/people/esther-duflo" },
+              { "name": "Abhijit Banerjee", "href": "/people/abhijit-barnerjee" },
+              { "name": "Iqbal Dhaliwal", "href": "/people/iqbal-dhaliwal" },
+              { "name": "Amy Finkelstein", "href": "/people/amy-finklestein" },
+              { "name": "Ben Olken", "href": "/people/ben-olken" }
+            ]
+          }
+        ]
       },
       {
-        name: "J-WAFS",
-        children: [
-          { name: "Overview", href: "/programmes/j-wafs", current: false },
-          { name: "FACT Alliance", href: "/programmes/j-wafs/fact-alliance", current: false },
-          { name: "Jameel Index", href: "/programmes/j-wafs/jameel-index", current: false },
+        "name": "J-WAFS",
+        "children": [
+          { "name": "Overview", "href": "/programmes/j-wafs", "current": false },
+          { "name": "FACT Alliance", "href": "/programmes/j-wafs/fact-alliance", "current": false },
+          { "name": "Jameel Index", "href": "/programmes/j-wafs/jameel-index", "current": false },
           {
-            name: "People",
-            children: [
-              { name: "people 1", href: "#" },
-              { name: "people 2", href: "#" },
-              { name: "view all", href: "#" },
-            ],
-          },
-        ],
+            "name": "People",
+            "children": [
+              { "name": "people 1", "href": "/programmes" },
+              { "name": "people 2", "href": "/programmes" },
+              { "name": "view all", "href": "/programmes" }
+            ]
+          }
+        ]
       },
-      { name: "J-WEL", href: "#", current: false },
+      { "name": "J-WEL", "href": "/programmes/", "current": false },
       {
-        name: "Jameel-Clinic",
-        children: [
-          { name: "Overview", href: "#", current: false },
-          { name: "Press", href: "#", current: false },
-          { name: "AI/ML tools", href: "#", current: false },
-          { name: "Hospital Network", href: "#", current: false },
-          { name: "MIT-Takeda Programme", href: "#", current: false },
+        "name": "Jameel-Clinic",
+        "children": [
+          { "name": "Overview", "href": "/programmes/jameel-clinic", "current": false },
+          { "name": "Press", "href": "/programmes", "current": false },
+          { "name": "AI/ML tools", "href": "/programmes", "current": false },
+          { "name": "Hospital Network", "href": "/programmes", "current": false },
+          { "name": "MIT-Takeda Programme", "href": "/programmes", "current": false },
           {
-            name: "Events",
-            children: [
-              { name: "event 1", href: "#" },
-              { name: "event 2", href: "#" },
-              { name: "view all", href: "#" },
-            ],
+            "name": "Events",
+            "children": [
+              { "name": "event 1", "href": "/programmes" },
+              { "name": "event 2", "href": "/programmes" },
+              { "name": "view all", "href": "/programmes" }
+            ]
           },
           {
-            name: "People",
-            children: [
-              { name: "people 1", href: "#" },
-              { name: "people 2", href: "#" },
-              { name: "view all", href: "#" },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Jameel Institute",
-        children: [
-          { name: "Overview", href: "#", current: false },
-          { name: "Kenneth C. Griffin Initiative", href: "#", current: false },
-          {
-            name: "Events",
-            children: [
-              { name: "event 1", href: "#" },
-              { name: "event 2", href: "#" },
-              { name: "view all", href: "#" },
-            ],
-          },
-          {
-            name: "People",
-            children: [
-              { name: "people 1", href: "#" },
-              { name: "people 2", href: "#" },
-              { name: "view all", href: "#" },
-            ],
-          },
-        ],
+            "name": "People",
+            "children": [
+              { "name": "people 1", "href": "/programmes" },
+              { "name": "people 2", "href": "/programmes" },
+              { "name": "view all", "href": "/programmes" }
+            ]
+          }
+        ]
       },
       {
-        name: "Jameel Observatory",
-        children: [
-          { name: "Overview", href: "#", current: false },
+        "name": "Jameel Institute",
+        "children": [
+          { "name": "Overview", "href": "/programmes/jameel-institute", "current": false },
+          { "name": "Kenneth C. Griffin Initiative", "href": "/programmes/jameel-institute-kenneth-c-griffin-initiative-for-economics-of-pandemic-preparedness", "current": false },
           {
-            name: "Food Security Early Action",
-            children: [
-              { name: "Overview", href: "#", current: false },
-              { name: "Reports", href: "#", current: false },
+            "name": "Events",
+            "children": [
+              { "name": "event 1", "href": "/programmes" },
+              { "name": "event 2", "href": "/programmes" },
+              { "name": "view all", "href": "/programmes" }
+            ]
+          },
+          {
+            "name": "People",
+            "children": [
+              { "name": "people 1", "href": "/programmes" },
+              { "name": "people 2", "href": "/programmes" },
+              { "name": "view all", "href": "/programmes" }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Jameel Observatory",
+        "children": [
+          { "name": "Overview", "href": "/programmes/jameel-observatory", "current": false },
+          {
+            "name": "Food Security Early Action",
+            "children": [
+              { "name": "Overview", "href": "/programmes", "current": false },
+              { "name": "Reports", "href": "/programmes", "current": false },
               {
-                name: "Events",
-                children: [
-                  { name: "event 1", href: "#" },
-                  { name: "event 2", href: "#" },
-                  { name: "view all", href: "#" },
-                ],
+                "name": "Events",
+                "children": [
+                  { "name": "event 1", "href": "/programmes" },
+                  { "name": "event 2", "href": "/programmes" },
+                  { "name": "view all", "href": "/programmes" }
+                ]
               },
               {
-                name: "People",
-                children: [
-                  { name: "people 1", href: "#" },
-                  { name: "people 2", href: "#" },
-                  { name: "view all", href: "#" },
-                ],
-              },
-            ],
+                "name": "People",
+                "children": [
+                  { "name": "people 1", "href": "/programmes" },
+                  { "name": "people 2", "href": "/programmes" },
+                  { "name": "view all", "href": "/programmes" }
+                ]
+              }
+            ]
           },
-          { name: "CREWSNET", href: "#", current: false },
-        ],
+          { "name": "CREWSNET", "href": "/programmes/jameel-observatory-crewsnet", "current": false }
+        ]
       },
       {
-        name: "Jameel Arts & Health Lab",
-        children: [
-          { name: "Overview", href: "#", current: false },
+        "name": "Jameel Arts & Health Lab",
+        "children": [
+          { "name": "Overview", "href": "/programmes/jameel-arts-health-lab", "current": false },
+          {
+            "name": "Events",
+            "children": [
+              { "name": "event 1", "href": "/programmes" },
+              { "name": "event 2", "href": "/programmes" },
+              { "name": "view all", "href": "/programmes" }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Climavore x Jameel at RCA",
+        "children": [
+          { "name": "Overview", "href": "/programmes/climavore-x-jameel-at-rca", "current": false },
+          {
+            "name": "Events",
+            "children": [
+              { "name": "event 1", "href": "/programmes" },
+              { "name": "event 2", "href": "/programmes" },
+              { "name": "view all", "href": "/programmes" }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Jameel House of Traditional Arts in Cairo",
+        "children": [
+          { "name": "Overview", "href": "/programmes/jameel-house-of-traditional-arts-in-cairo", "current": false },
+          {
+            "name": "Events",
+            "children": [
+              { "name": "event 1", "href": "/programmes" },
+              { "name": "event 2", "href": "/programmes" },
+              { "name": "view all", "href": "/programmes" }
+            ]
+          },
+          { "name": "Gallery", "href": "/programmes", "current": false },
+          { "name": "Graduates", "href": "/programmes", "current": false }
+        ]
+      },
+      {
+        "name": "Pratham Jameel Second Chance",
+        "children": [{ "name": "Overview", "href": "/programmes/pratham-jameel-second-chance-programme", "current": false }]
+      },
+      {
+        "name": "Climate Labs",
+        "children": [
+          { "name": "Overview", "href": "/programmes/climate-labs", "current": false },
+          { "name": "J-PAL Air, Water & Energy Lab", "href": "/programmes/jpal-air-and-water-labs", "current": false },
+          { "name": "Jameel C40 Urban Climate Lab", "href": "/programmes/jameel-c40-urban-planning-climate-labs", "current": false }
+        ]
+      },
+      { "name": "Ejada", "href": "/programmes", "current": false },
+      {
+        "name": "Funds",
+        "children": [
+          { "name": "Jameel Fund", "href": "/programmes/jameel-fund", "current": false },
+          { "name": "Iraq Cultural Health Fund", "href": "/programmes/iraq-cultural-health-fund", "current": false },
+          { "name": "Covid-19-Excellence Fund", "href": "/programmes/covid-19-excellence-fund", "current": false }
+        ]
+      },
+      { "name": "Jameel Toyota Scholarship", "href": "/programmes/jameel-toyota-scholarship", "current": false },
+      {
+        "name": "Bocelli-Jameel Scholarship",
+        "children": [
+          { "name": "Overview", "href": "/programmes/bocelli-jameel-scholarship", "current": false },
+          {
+            "name": "Scholars",
+            "children": [
+              { "name": "Clara Barbier Serrano (2020)", "href": "/programmes" },
+              { "name": "Laura Mekhail (2021)", "href": "/programmes" },
+              { "name": "Seonwoo Lee (2022)", "href": "/programmes" },
+              { "name": "Anastasia Koorn (2023)", "href": "/programmes" },
+              { "name": "Henna Mun (2023)", "href": "/programmes" }
+            ]
+          },
+          {
+            "name": "Performances",
+            "children": [
+              { "name": "event 1", "href": "/programmes" },
+              { "name": "event 2", "href": "/programmes" },
+              { "name": "view all", "href": "/programmes" }
+            ]
+          },
+          { "name": "Gallery", "href": "/programmes", "current": false }
+        ]
+      },
+      { "name": "Voxel Lab", "href": "/programmes/voxel-lab", "current": false }
+    ]
+  }
   
-          {
-            name: "Events",
-            children: [
-              { name: "event 1", href: "#" },
-              { name: "event 2", href: "#" },
-              { name: "view all", href: "#" },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Climavore x Jameel at RCA",
-        children: [
-          { name: "Overview", href: "#", current: false },
-  
-          {
-            name: "Events",
-            children: [
-              { name: "event 1", href: "#" },
-              { name: "event 2", href: "#" },
-              { name: "view all", href: "#" },
-            ],
-          },
-        ],
-      },
-  
-      {
-        name: "Jameel House of Traditional Arts in Cairo",
-        children: [
-          { name: "Overview", href: "#", current: false },
-  
-          {
-            name: "Events",
-            children: [
-              { name: "event 1", href: "#" },
-              { name: "event 2", href: "#" },
-              { name: "view all", href: "#" },
-            ],
-          },
-          { name: "Gallery", href: "#", current: false },
-          { name: "Graduates", href: "#", current: false },
-        ],
-      },
-      {
-        name: "Pratham Jameel Second Chance",
-        children: [{ name: "Overview", href: "#", current: false }],
-      },
-      {
-        name: "Climate Labs",
-        children: [
-          { name: "Overview", href: "#", current: false },
-          { name: "J-PAL Air, Water & Energy Lab", href: "#", current: false },
-          { name: "Jameel C40 Urban Climate Lab", href: "#", current: false },
-        ],
-      },
-      { name: "Ejada", href: "#", current: false },
-      {
-        name: "Funds",
-        children: [
-          { name: "Jameel Fund", href: "#", current: false },
-          { name: "Iraq Cultural Health Fund", href: "#", current: false },
-          { name: "Covid-19-Excellence Fund", href: "#", current: false },
-        ],
-      },
-      { name: "Jameel Toyota Scholarship", href: "#", current: false },
-      {
-        name: "Bocelli-Jameel Scholarship",
-        children: [
-          { name: "Overview", href: "#", current: false },
-          {
-            name: "Scholars",
-            children: [
-              {
-                name: "Clara Barbier Serrano (2020)",
-                href: "#",
-                current: false,
-              },
-              { name: "Laura Mekhail (2021)", href: "#", current: false },
-              { name: "Seonwoo Lee (2022)", href: "#", current: false },
-              { name: "Anastasia Koorn (2023)", href: "#", current: false },
-              { name: "Henna Mun (2023)", href: "#", current: false },
-            ],
-          },
-          {
-            name: "Performances",
-            children: [
-              { name: "event 1", href: "#" },
-              { name: "event 2", href: "#" },
-              { name: "view all", href: "#" },
-            ],
-          },
-          { name: "Gallery", href: "#", current: false },
-        ],
-      },
-      { name: "Voxel Lab", href: "#", current: false },
-    ],
-  },
   // ... (Other nav items here)
 ];
 
