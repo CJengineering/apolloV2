@@ -32,7 +32,7 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { get } from "http";
 import { Divide } from "lucide-react";
 import React from "react";
-import ContentPhotos from "./content-photos";
+import ContentPhotos from "../../../../components/CJ-components/components-CJ/test components/content-photos";
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
@@ -82,6 +82,7 @@ export default async function JpalPage({
     /**Get the single programme by id from webflow */
   }
   const jwafsId = "61ee828a15a3182b72bde63d";
+  const jwafsSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
     (item) => item.id === jwafsId
   );
@@ -185,7 +186,7 @@ export default async function JpalPage({
   const multimediaProps = cleanRelatedMultimedia.map(mapMultimediaToMediaCard);
   const newsProps: any[] = relatedNews.map((item) =>
     newsMapper(
-      item ,
+      item,
       programmesRawData.items,
       peopleRawData.items,
       sourcesRawData.items,
@@ -202,11 +203,14 @@ export default async function JpalPage({
   );
 
   return (
-      <ContentContainer width="full" desktopWidth="large">
+    <ContentContainer width="full" desktopWidth="large">
       <div className="pt-12">
         <LanguageChanger />
-        <TableRowSingle repository={dataForRow.repository} locale={params.locale} />
-      
+        <TableRowSingle
+          repository={dataForRow.repository}
+          locale={params.locale}
+        />
+
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -236,7 +240,6 @@ export default async function JpalPage({
             </div>
           </PostAccordion>
         </div>
-
 
         {/* 
 
@@ -276,6 +279,6 @@ export default async function JpalPage({
           </div>
         </div> */}
       </div>
-      </ContentContainer>
+    </ContentContainer>
   );
 }

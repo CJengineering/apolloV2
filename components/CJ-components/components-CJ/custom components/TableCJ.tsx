@@ -23,11 +23,21 @@ interface TableRowProps {
 function TableRow({ repository, locale }: TableRowProps) {
   const isArabic = locale === "ar";
   const dataChecks = [
-    isArabic ? repository.content.researchArabic?.data : repository.content.research?.data,
-    isArabic ? repository.content.established?.data : repository.content.established?.data,
-    isArabic ? repository.content.headquartersArabic?.data : repository.content.headquarters?.data,
-    isArabic ? repository.content["key partnersArabic"]?.data : repository.content["key partners"]?.data,
-    isArabic ? repository.content.leadershipArabic?.data : repository.content.leadership?.data,
+    isArabic
+      ? repository.content.researchArabic?.data
+      : repository.content.research?.data,
+    isArabic
+      ? repository.content.established?.data
+      : repository.content.established?.data,
+    isArabic
+      ? repository.content.headquartersArabic?.data
+      : repository.content.headquarters?.data,
+    isArabic
+      ? repository.content["key partnersArabic"]?.data
+      : repository.content["key partners"]?.data,
+    isArabic
+      ? repository.content.leadershipArabic?.data
+      : repository.content.leadership?.data,
   ];
 
   return (
@@ -53,7 +63,9 @@ function TableRow({ repository, locale }: TableRowProps) {
                   }`}
                 >
                   <div className="text-sm serif font-normal leading-5">
-                    {isArabic ? repository.top.missionArabic : repository.top.mission}
+                    {isArabic
+                      ? repository.top.missionArabic
+                      : repository.top.mission}
                   </div>
                 </div>
 
@@ -73,7 +85,9 @@ function TableRow({ repository, locale }: TableRowProps) {
                   }`}
                 >
                   <div className="text-sm serif font-normal leading-5">
-                    {isArabic ? repository.top.partnersArabic.join(", ") : repository.top.partners.join(", ")}
+                    {isArabic
+                      ? repository.top.partnersArabic.join(", ")
+                      : repository.top.partners.join(", ")}
                   </div>
                 </div>
 
@@ -125,20 +139,24 @@ function TableRow({ repository, locale }: TableRowProps) {
 
                   <div className="py-6"></div>
 
-                  <div className="grid grid-cols-2 py-4">
-                    <div className="flex items-center">
+                  <div className=" py-4">
+                    <div className="flex  items-center">
                       <div>
                         <SocialMediaList
                           socialMediaLinks={repository.content.socialMediaLinks}
                         />
                       </div>
-                      <div className="ml-3">
-                        {repository.content.button.href && (
+                      <div className="ml-3 flex flex-grow gap-x-3  ">
+                        {repository.content.button.text && (
                           <ButtonCJ
                             href={repository.content.button.href}
                             text={repository.content.button.text}
                           />
                         )}
+                        <ButtonCJ
+                          href={`/programmes/${repository.top.slug}`}
+                          text="learn more"
+                        />
                       </div>
                     </div>
                   </div>

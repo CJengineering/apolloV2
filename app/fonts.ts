@@ -13,6 +13,7 @@ import {
   Noto_Sans_Arabic,
   
   Alexandria,
+  Noto_Kufi_Arabic,
 } from 'next/font/google';
 
 export const inter = Inter({
@@ -29,7 +30,7 @@ export const noto_sans_arabic = Noto_Sans_Arabic({
   display: 'swap',
   variable: '--font-noto-sans-arabic',
 });
-export const noto_kufi_arabic = Noto_Sans_Arabic({
+export const noto_kufi_arabic = Noto_Kufi_Arabic({
   subsets: ['arabic'],
   display: 'swap',
   variable: '--font-noto-kufi-arabic',

@@ -65,7 +65,8 @@ export default async function SinglePost({
   const rawPartners = await getData(partnerId);
   const rawPeople = await getData(peopleId);
   const rawFeatures = await getData(feautureId);
- // get rid of Comunitu jameel in the arrays 
+  rawProgrammes.items = rawProgrammes.items.filter((item) => item.fieldData.type !== "bb96b247f8c989b67ca5ada5b5cb10df");
+  // get rid of Comunitu jameel in the arrays
   const cleanedFeature = rawFeatures.items.map((item) =>
     featureMapper(item, rawProgrammes.items)
   );
@@ -96,7 +97,7 @@ export default async function SinglePost({
   const dataForTable = orderTable.map((item) =>
     mapProgrammeToRowData(item, cleanedFeature)
   );
-  
+
   return (
     <ContentContainer width="full" desktopWidth="medium">
       <LanguageChanger />

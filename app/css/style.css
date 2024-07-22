@@ -38,6 +38,9 @@ html{
 .serif {
     font-family: var(--font-ibm-plex-serif)
 }
+.serif-ar {
+  font-family: var(--font-zain)
+}
 
 .mono {
     font-family: var(--font-ibm-plex-mono)
