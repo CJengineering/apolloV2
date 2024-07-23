@@ -1,3 +1,4 @@
+
 import FilterResults from "@/components/CJ-components/components-CJ/test components/FilterResults";
 import { getData } from "@/functions/api/getData";
 import { filterByKeyword } from "@/functions/filters/filterByKeyWord";
@@ -11,8 +12,7 @@ import programmeMapper from "@/functions/transformers/programmeMapper";
 import publicationMapper from "@/functions/transformers/publicationMapper";
 import teamProfileMapper from "@/functions/transformers/teamProfileMapper";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
-import { sources } from "next/dist/compiled/webpack/webpack";
-import { features } from "process";
+
 import React from "react";
 
 export default async function SearchPage() {
@@ -52,7 +52,9 @@ export default async function SearchPage() {
       programmeRaw.items
     )
   );
-  const eventClean = eventRaw.items.map((item) =>eventMapper(item,partnersRaw.items, programmeRaw.items, peopleRaw.items ))
+  const eventClean = eventRaw.items.map((item) =>
+    eventMapper(item, partnersRaw.items, programmeRaw.items, peopleRaw.items)
+  );
   const peopleClean = peopleRaw.items.map((item) =>
     peopleMapper(
       item,
@@ -83,22 +85,60 @@ export default async function SearchPage() {
   );
 
   const cleanMultimedia = multimediaRaw.items.map((item) =>
-    multimediaMapper(item, programmeRaw.items, eventRaw.items,sourcesRaw.items,peopleRaw.items )
+    multimediaMapper(
+      item,
+      programmeRaw.items,
+      eventRaw.items,
+      sourcesRaw.items,
+      peopleRaw.items
+    )
   );
   const postsClean = postsRaw.items.map((item) =>
-    postMapper(item,categoriesRaw.items, eventRaw.items, programmeRaw.items, peopleRaw.items)
+    postMapper(
+      item,
+      categoriesRaw.items,
+      eventRaw.items,
+      programmeRaw.items,
+      peopleRaw.items
+    )
   );
   const teamsClean = teamRaw.items.map((item) => teamProfileMapper(item));
-  const publicationsClean = publicationRaw.items.map((item) =>publicationMapper(item, programmeRaw.items, peopleRaw.items, partnersRaw.items))
+  const publicationsClean = publicationRaw.items.map((item) =>
+    publicationMapper(
+      item,
+      programmeRaw.items,
+      peopleRaw.items,
+      partnersRaw.items
+    )
+  );
 
-  const results = filterByKeyword('Esther',teamsClean, eventClean, programmeClean, postsClean, peopleClean, cleanMultimedia, featureClean, newsClean, publicationsClean)
-  
+  const results = filterByKeyword(
+    "Esther",
+    teamsClean,
+    eventClean,
+    programmeClean,
+    postsClean,
+    peopleClean,
+    cleanMultimedia,
+    featureClean,
+    newsClean,
+    publicationsClean
+  );
 
+  const content = {
+    slug: "/sample-slug",
+    imageSrc: "/path/to/image.jpg",
+    programShortname: "Program Shortname",
+    title: "Sample Title",
+    datePublished: "2024-07-23",
+    collectionName: 'news',
+    source: "Sample Source",
+  };
 
-return (
+  return (
     <div className="pt-24">
-         <FilterResults
-
+    
+      <FilterResults
         teamMembers={teamsClean}
         events={eventClean}
         programmes={programmeClean}
@@ -110,5 +150,5 @@ return (
         publications={publicationsClean}
       />
     </div>
-);
+  );
 }

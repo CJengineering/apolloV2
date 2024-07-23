@@ -606,7 +606,7 @@ export interface PostFieldsCleaned {
   seoTitleArabic: string;
   seoMeta: string;
   seoMetaArabic: string;
-  collectionName: "press";
+  collectionName: "news";
   summary: string;
   summaryArabic: string;
   body: string;
@@ -667,6 +667,7 @@ export interface PeopleCleanedFields {
   name: string;
   nameArabic: string;
   hero: boolean;
+  collectionName: "people";
   relatedProgramme: string;
   relatedProgrammes: RelatedColection[];
   color: string;
@@ -804,7 +805,7 @@ export interface FeatureCleanedFields {
 export interface NewsCleanedFields {
   arabicTitle: string;
   pushToGr: boolean;
-  collectionName: "news";
+  collectionName: "press";
 
   featured: boolean;
   externalLink: string;
@@ -1062,4 +1063,26 @@ export type UnifiedFields =
 
 export interface UnifiedComponentProps {
   data: UnifiedFields;
+}
+export type AgnosticFields =
+| PostFieldsCleaned
+| MultimediaCleanedFields
+| NewsCleanedFields
+| EventFieldDataCleaned
+| PublicationsCleanedFields
+| PeopleCleanedFields;
+
+export interface AgnosticComponentProps {
+  data: AgnosticFields;
+}
+export interface AgnosticCardProps{
+  slug: string;
+  imageSrc: string;
+  programShortname: string;
+  title: string;
+  datePublished: string;
+  collectionName: string;
+  source: string;
+  shortDescription?: string;
+
 }

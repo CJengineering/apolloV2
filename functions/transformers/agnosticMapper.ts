@@ -1,0 +1,125 @@
+import {
+  AgnosticCardProps,
+  AgnosticComponentProps,
+  EventFieldDataCleaned,
+  MultimediaCleanedFields,
+  NewsCleanedFields,
+  PeopleCleanedFields,
+  PostFieldsCleaned,
+  PublicationsCleanedFields,
+} from "@/app/interfaces";
+
+
+
+function isPostFieldsCleaned(data: any): data is PostFieldsCleaned {
+  return data.collectionName === "news";
+}
+
+function isMultimediaCleanedFields(data: any): data is MultimediaCleanedFields {
+  return data.collectionName === "multimedia";
+}
+
+function isNewsCleanedFields(data: any): data is NewsCleanedFields {
+  return data.collectionName === "press";
+}
+
+function isEventFieldDataCleaned(data: any): data is EventFieldDataCleaned {
+  return data.collectionName === "event";
+}
+
+function isPublicationsCleanedFields(
+  data: any
+): data is PublicationsCleanedFields {
+  return data.collectionName === "publications";
+}
+
+function isPeopleCleanedFields(data: any): data is PeopleCleanedFields {
+  return data.collectionName === "people";
+}
+
+export default function agnosticMapper(
+  data: any
+): AgnosticCardProps {
+  let title = "";
+  let slug = "";
+  let imageSrc = "";
+  let programShortname = "";
+  let datePublished = "";
+  let source = "";
+  let collectionName = "";
+  let shortDescription = "";
+  if (isMultimediaCleanedFields(data)) {
+    imageSrc = data.thumbnail.url;
+    title = data.name;
+    slug = data.slug;
+    collectionName = data.collectionName;
+    programShortname = data.programmeLabel.shortname || "";
+    datePublished = data.datePublished;
+    source = data.sources.name;
+  }
+  if (isPostFieldsCleaned(data)) {
+    imageSrc = data.thumbnail.url;
+    title = data.name;
+    slug = data.slug;
+    collectionName = data.collectionName;
+    programShortname = data.programme.shortname || "";
+    datePublished = data.datePublished;
+    source = data.programme.shortname || "";
+  }
+  if (isNewsCleanedFields(data)) {
+    imageSrc = data.thumbnail.url;
+    title = data.name;
+    slug = data.slug;
+    collectionName = data.collectionName;
+    programShortname = data.programme.shortname || "";
+    datePublished = data.datePublished;
+    source = data.sources.name;
+  }
+  if (isEventFieldDataCleaned(data)) {
+    imageSrc = data.thumbnail.url;
+    title = data.name;
+    slug = data.slug;
+    collectionName = data.collectionName;
+    programShortname = data.programmeLabel || "";
+    datePublished = data.datePublished;
+    source = data.programmeLabel || "";
+  }
+  if (isPublicationsCleanedFields(data)) {
+    imageSrc = data.thumbnail.url;
+    title = data.name;
+    slug = data.slug;
+    collectionName = data.collectionName;
+    programShortname = 'programme pub' || "";
+    datePublished = data.datePublished;
+    source = 'data.programmeS[0].shortname' || "";
+  }
+  if (isPeopleCleanedFields(data)) {
+    imageSrc = data.profilePicture.url;
+    title = data.name;
+    slug = data.slug;
+    collectionName = data.collectionName;
+    programShortname = "";
+    datePublished = "";
+    source = "";
+    shortDescription = data.shortDescription || 'test';
+  }
+  if (isPostFieldsCleaned(data)) {
+    imageSrc = data.thumbnail.url;
+    title = data.name || 'test';
+    slug = data.slug;
+    collectionName = data.collectionName;
+    programShortname = data.programme.shortname || "";
+    datePublished = data.datePublished;
+    source = data.programme.shortname || "";
+    }
+  return {
+    title: title,
+    slug: slug,
+    imageSrc: imageSrc,
+    programShortname: programShortname,
+    datePublished: datePublished,
+    source: source,
+    collectionName: collectionName,
+    shortDescription: shortDescription,
+  };
+}

@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   TeamMember,
   EventFieldDataCleaned,
@@ -11,6 +11,9 @@ import {
   NewsCleanedFields,
   PublicationsCleanedFields,
 } from "@/app/interfaces";
+import agnosticMapper from "@/functions/transformers/agnosticMapper";
+import { AgnosticComponentCollectionName, AgnosticComponentDateAndSourceContainer, AgnosticComponentDatePublished, AgnosticComponentImageColumn, AgnosticComponentProgramLabel, AgnosticComponentProvider, AgnosticComponentShortDescription, AgnosticComponentSource, AgnosticComponentTextColumn, AgnosticComponentTitle } from "./AgnosticComponent";
+import { useSearchParams } from "next/navigation";
 
 interface FilterResultsProps {
   teamMembers: TeamMember[];
@@ -37,6 +40,13 @@ const FilterResults: React.FC<FilterResultsProps> = ({
 }) => {
   const [keyword, setKeyword] = useState("");
   const keywordLower = keyword.toLowerCase();
+  const searchParams = useSearchParams()
+  useEffect(() => {
+    const urlKeyword = searchParams.get("name");
+    if (urlKeyword) {
+      setKeyword(urlKeyword);
+    }
+  }, [searchParams]);
 
   const containsKeyword = (obj: any): boolean => {
     for (let key in obj) {
@@ -67,6 +77,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
     }
     return false;
   };
+ 
 
   const filteredTeamMembers = useMemo(
     () => teamMembers.filter(containsKeyword),
@@ -104,7 +115,15 @@ const FilterResults: React.FC<FilterResultsProps> = ({
     () => publications.filter(containsKeyword),
     [publications, keywordLower]
   );
+  const combinedArray = [
+    ...filteredPeople,
+    ...filteredNews,
+    ...filteredEvents,
+    ...filteredMultimedia,
+    ...filteredPosts,
 
+  ];
+  const agnosticPropsArray = combinedArray.map((value) => agnosticMapper(value))
   return (
     <div>
       <input
@@ -113,8 +132,29 @@ const FilterResults: React.FC<FilterResultsProps> = ({
         onChange={(e) => setKeyword(e.target.value)}
         placeholder="Search..."
         className="mb-4 p-2 border border-gray-300 rounded"
-      />
+      />      <h2 className="text-2xl">Agnostic component</h2>
+      {searchParams.get("name")}
+      <div className="grid grid-cols-1">
+  
+        {agnosticPropsArray.map((value) => (
+          <AgnosticComponentProvider content={value}>
+    
+            <AgnosticComponentTextColumn>
+            
+              <AgnosticComponentProgramLabel />
+              <AgnosticComponentTitle />
+              <AgnosticComponentShortDescription/>
+              <AgnosticComponentDateAndSourceContainer>
+                <AgnosticComponentDatePublished />
+                <span className="mono text-xs font-normal uppercase">•</span>
+                <AgnosticComponentSource />
+              </AgnosticComponentDateAndSourceContainer>
+            </AgnosticComponentTextColumn>
+          </AgnosticComponentProvider>
+        ))}
+      </div>
       <h2 className="text-2xl">Team Members</h2>
+
       <ul>
         {filteredTeamMembers.map((teamMember) => (
           <li key={teamMember.name}>{teamMember.name}</li>
@@ -132,7 +172,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
           <li key={programme.name}>{programme.name}</li>
         ))}
       </ul>
-      <h2 className="text-2xl" >Posts</h2>
+      <h2 className="text-2xl">Posts</h2>
       <ul>
         {filteredPosts.map((post) => (
           <li key={post.name}>{post.name}</li>
