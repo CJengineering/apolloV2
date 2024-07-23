@@ -169,6 +169,6 @@ export default function eventMapper(
       item.fieldData["custom-code-for-hiding-weglot"] || "",
     group: item.fieldData.group || "",
     name: item.fieldData.name || "",
-    slug: item.fieldData.slug || "",
+    slug: `/events/${item.fieldData.slug}` || "",
   };
 }

@@ -35,24 +35,28 @@ export default function postMapper(
   const programmeMatch = programmes.find(
     (programme) => programme.id === fieldData["programme-2"]
   );
-  const categoriesMatch = categories.find((category) => category.id === fieldData["blogs-categories-2"]);
+  const categoriesMatch = categories.find(
+    (category) => category.id === fieldData["blogs-categories-2"]
+  );
   const imagesCarousel =
     fieldData["image-carousel"] && fieldData["image-carousel"]?.length > 0
       ? fieldData["image-carousel"].map((image) => {
           return { url: image.url || "", alt: image.alt || "" };
         })
       : [{ url: "", alt: "" }];
-  const relatedTags = fieldData["theme-3"]&& fieldData['theme-3'].length > 0 ? fieldData["theme-3"].map((tagId) => {
-    const tagMatch = categories.find((tag) => tag.id === tagId);
-    return tagMatch
-      ? {
-          name: tagMatch.fieldData.name || "",
-          slug: tagMatch.fieldData.slug || "",
-          arabicName: tagMatch.fieldData["name-arabic"] || "",
-        }
-      : { name: "N/A", slug: "N/A" , arabicName: "N/A"};
-  }
-  ) : [];
+  const relatedTags =
+    fieldData["theme-3"] && fieldData["theme-3"].length > 0
+      ? fieldData["theme-3"].map((tagId) => {
+          const tagMatch = categories.find((tag) => tag.id === tagId);
+          return tagMatch
+            ? {
+                name: tagMatch.fieldData.name || "",
+                slug: tagMatch.fieldData.slug || "",
+                arabicName: tagMatch.fieldData["name-arabic"] || "",
+              }
+            : { name: "N/A", slug: "N/A", arabicName: "N/A" };
+        })
+      : [];
   const relatedProgrammes =
     fieldData["programmes-multiple"] &&
     fieldData["programmes-multiple"].length > 0
@@ -67,9 +71,9 @@ export default function postMapper(
                 arabicName: programmeMatch.fieldData["name-arabic"] || "",
                 slug: programmeMatch.fieldData.slug || "",
               }
-            : { name: "N/A", url: "N/A", slug: "N/A",arabicName: "N/A"};
+            : { name: "N/A", url: "N/A", slug: "N/A", arabicName: "N/A" };
         })
-      : [{ name: "N/A", url: "N/A", slug: "N/A",arabicName: "N/A"}];
+      : [{ name: "N/A", url: "N/A", slug: "N/A", arabicName: "N/A" }];
   const relatedPeople =
     fieldData.people && fieldData.people.length > 0
       ? fieldData.people.map((programmeId) => {
@@ -82,14 +86,18 @@ export default function postMapper(
                 arabicName: peopleMatch.fieldData["name-arabic"] || "",
                 slug: peopleMatch.fieldData.slug || "",
               }
-            : { name: "N/A", slug: "N/A",arabicName : "N/A" };
+            : { name: "N/A", slug: "N/A", arabicName: "N/A" };
         })
-      : [{ name: "N/A", url: "N/A", slug: "N/A", arabicName: "N/A"}];
+      : [{ name: "N/A", url: "N/A", slug: "N/A", arabicName: "N/A" }];
 
   const eventMatch = events.find(
     (programme) => programme.id === fieldData["related-event"]
   );
-  const programeShortName = {name: programmeMatch?.fieldData.shortname || "N/A", slug:`/porgrammes/${ programmeMatch?.fieldData.slug}`, arabicName: programmeMatch?.fieldData["name-arabic"] || "N/A"}
+  const programeShortName = {
+    name: programmeMatch?.fieldData.shortname || "N/A",
+    slug: `/porgrammes/${programmeMatch?.fieldData.slug}`,
+    arabicName: programmeMatch?.fieldData["name-arabic"] || "N/A",
+  };
   return {
     arabicTitle: fieldData["arabic-title"] || "",
     pushToGr: fieldData["push-to-gr"] || false,
@@ -101,7 +109,13 @@ export default function postMapper(
           slug: programmeMatch.fieldData.slug || "",
           shortname: programmeMatch.fieldData.shortname || "",
         }
-      : { name: "N/A", url: "N/A", slug: "N/A" , arabicName: "N/A", shortname: "N/A"},
+      : {
+          name: "N/A",
+          url: "N/A",
+          slug: "N/A",
+          arabicName: "N/A",
+          shortname: "N/A",
+        },
     programmesMultiple: relatedProgrammes,
     thumbnail: fieldData.thumbnail
       ? {
@@ -109,7 +123,7 @@ export default function postMapper(
           alt: fieldData.thumbnail.alt || "",
         }
       : { url: "", alt: "" },
-      mainImage: fieldData["main-image"]
+    mainImage: fieldData["main-image"]
       ? {
           url: fieldData["main-image"].url || "",
           alt: fieldData["main-image"].alt || "",
@@ -138,7 +152,7 @@ export default function postMapper(
     blogsCategories2Arabic: categoriesMatch?.fieldData["name-arabic"] || "N/A",
     featured: fieldData.featured || false,
     imageCarousel: imagesCarousel,
-    collectionName: 'press',
+    collectionName: "news",
     imageGalleryCreditsArabic:
       fieldData["image-gallery-credits-arabic"] || "N/A",
     imageCarouselCredits: fieldData["image-carousel-credits"] || "N/A",
@@ -148,7 +162,7 @@ export default function postMapper(
           arabicName: eventMatch.fieldData["arabic-title"] || "",
           slug: eventMatch.fieldData.slug || "",
         }
-      : { name: "N/A", slug: "N/A",arabicName: "N/A" },
+      : { name: "N/A", slug: "N/A", arabicName: "N/A" },
     people: relatedPeople,
     innovations: ["N/A"],
     name: fieldData.name || "N/A",

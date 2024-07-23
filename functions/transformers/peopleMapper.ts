@@ -95,6 +95,7 @@ export default function peopleMapper(
     nameArabic: fieldData["name-arabic"] || "N/A",
     hero: fieldData.hero || false,
     relatedProgramme: fieldData["related-programme"] || "N/A",
+    collectionName: "people",
     relatedProgrammes: relatedProgrammes,
     color: fieldData.color || "N/A",
     role: fieldData.role || "N/A",
@@ -132,7 +133,7 @@ export default function peopleMapper(
       fieldData.tag?.map((tag) => ({ name: tag || "N/A", slug: "N/A", arabicName: 'NA' })) || [],
     order: fieldData.order || 0,
     country: fieldData.country || "N/A",
-    slug: fieldData.slug || "N/A",
+    slug: `/people/${fieldData.slug}` || "N/A",
     pushToGr: fieldData["push-to-gr"] || false,
     arabicOnOff: fieldData["arabic-on-off"] || false,
   };

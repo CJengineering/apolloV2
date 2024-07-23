@@ -89,7 +89,7 @@ export default async function EventPage({
           <div className="prose mx-auto sm:prose-lg first-letter:text-4xl first-letter:font-bold first-letter:tracking-[.15em] prose-a:transition prose-a:duration-300 prose-a:ease-in-out hover:prose-a:text-red-700 prose-img:rounded-xl">
             <div
               dangerouslySetInnerHTML={{
-                __html: eventSingleDataCleaned.richText,
+                __html: eventSingleDataCleaned.shortDescription2,
               }}
             ></div>
           </div>
