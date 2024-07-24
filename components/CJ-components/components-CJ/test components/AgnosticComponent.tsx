@@ -75,7 +75,7 @@ const ShortDescription = () => {
   if (!shortDescription) return null;
   return (
     <div className="text-left">
-      <p className="mono text-xs font-normal uppercase">{shortDescription} test</p>
+      <p className="mono text-xs font-normal uppercase">{shortDescription} </p>
     </div>
   );
 }
