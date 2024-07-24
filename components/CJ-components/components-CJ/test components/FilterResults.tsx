@@ -12,8 +12,21 @@ import {
   PublicationsCleanedFields,
 } from "@/app/interfaces";
 import agnosticMapper from "@/functions/transformers/agnosticMapper";
-import { AgnosticComponentCollectionName, AgnosticComponentDateAndSourceContainer, AgnosticComponentDatePublished, AgnosticComponentImageColumn, AgnosticComponentProgramLabel, AgnosticComponentProvider, AgnosticComponentShortDescription, AgnosticComponentSource, AgnosticComponentTextColumn, AgnosticComponentTitle } from "./AgnosticComponent";
-import { useSearchParams } from "next/navigation";
+import {
+  AgnosticComponentCollectionName,
+  AgnosticComponentDateAndSourceContainer,
+  AgnosticComponentDatePublished,
+  AgnosticComponentImageColumn,
+  AgnosticComponentProgramLabel,
+  AgnosticComponentProvider,
+  AgnosticComponentShortDescription,
+  AgnosticComponentSource,
+  AgnosticComponentTextColumn,
+  AgnosticComponentTitle,
+} from "./AgnosticComponent";
+import { useRouter, useSearchParams } from "next/navigation";
+import Accordion from "../basic components/Accordion";
+import PostAccordion from "@/components/mdx/accordion";
 
 interface FilterResultsProps {
   teamMembers: TeamMember[];
@@ -40,9 +53,24 @@ const FilterResults: React.FC<FilterResultsProps> = ({
 }) => {
   const [keyword, setKeyword] = useState("");
   const keywordLower = keyword.toLowerCase();
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
+  const eventParam = searchParams.get("event");
+  const peopleParam = searchParams.get("people");
+  const programmeParam = searchParams.get("programme");
+  const newsParam = searchParams.get("news");
+  const multimediaParam = searchParams.get("multimedia");
+  const pressParam = searchParams.get("press");
+  const publicationParam = searchParams.get("publication");
+  const noParams =
+    !eventParam &&
+    !peopleParam &&
+    !programmeParam &&
+    !newsParam &&
+    !multimediaParam &&
+    !pressParam &&
+    !publicationParam;
   useEffect(() => {
-    const urlKeyword = searchParams.get("name");
+    const urlKeyword = searchParams.get("event")|| searchParams.get("people") || searchParams.get("programme") || searchParams.get("news") || searchParams.get("multimedia") || searchParams.get("press") || searchParams.get("publication");
     if (urlKeyword) {
       setKeyword(urlKeyword);
     }
@@ -77,7 +105,6 @@ const FilterResults: React.FC<FilterResultsProps> = ({
     }
     return false;
   };
- 
 
   const filteredTeamMembers = useMemo(
     () => teamMembers.filter(containsKeyword),
@@ -121,93 +148,193 @@ const FilterResults: React.FC<FilterResultsProps> = ({
     ...filteredEvents,
     ...filteredMultimedia,
     ...filteredPosts,
-
   ];
-  const agnosticPropsArray = combinedArray.map((value) => agnosticMapper(value))
+  const agnosticPropsArray = combinedArray.map((value) =>
+    agnosticMapper(value)
+  );
+  const filtredPeopleMaped = filteredPeople.map((value) =>
+    agnosticMapper(value)
+  );
+  const filtredNewsMaped = filteredNews.map((value) => agnosticMapper(value));
+  const filtredEventsMaped = filteredEvents.map((value) =>
+    agnosticMapper(value)
+  );
+  const filtredMultimediaMaped = filteredMultimedia.map((value) =>
+    agnosticMapper(value)
+  );
+  const filtredPostsMaped = filteredPosts.map((value) => agnosticMapper(value));
+
+  const filtredPublicationsMaped = filteredPublications.map((value) =>
+    agnosticMapper(value)
+  );
+  const filtredProgrammesMaped = filteredProgrammes.map((value) =>
+    agnosticMapper(value)
+  );
+  const router = useRouter();
+  const refreshPage = () => {
+    router.push(window.location.pathname);
+  };
+
   return (
-    <div>
+    <div className="min-h-screen">
       <input
         type="text"
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
         placeholder="Search..."
         className="mb-4 p-2 border border-gray-300 rounded"
-      />      <h2 className="text-2xl">Agnostic component</h2>
-      {searchParams.get("name")}
-      <div className="grid grid-cols-1">
-  
-        {agnosticPropsArray.map((value) => (
-          <AgnosticComponentProvider content={value}>
+      />
+       <button onClick={refreshPage} className="mb-4 p-2 mx-2 bg-slate-500 text-white rounded">Refresh</button>
+      <h2 className="text-2xl">Results</h2>
+      {(peopleParam || noParams) && (
+        <PostAccordion
+          title="People"
+          itemsCount={`${filtredPeopleMaped.length}`}
+        >
+          {filtredPeopleMaped.map((value) => (
+            <AgnosticComponentProvider content={value}>
+              <AgnosticComponentTextColumn>
+                <AgnosticComponentProgramLabel />
+                <AgnosticComponentTitle />
+                <AgnosticComponentShortDescription />
+                <AgnosticComponentDateAndSourceContainer>
+                  <AgnosticComponentDatePublished />
+                  <span className="mono text-xs font-normal uppercase">•</span>
+                  <AgnosticComponentSource />
+                </AgnosticComponentDateAndSourceContainer>
+              </AgnosticComponentTextColumn>
+            </AgnosticComponentProvider>
+          ))}
+        </PostAccordion>
+      )}
+      {(programmeParam || noParams) && (
+        <PostAccordion
+          title="Programmes"
+          itemsCount={`${filtredProgrammesMaped.length}`}
+        >
+          {filtredProgrammesMaped.map((value) => (
+            <AgnosticComponentProvider content={value}>
+              <AgnosticComponentTextColumn>
+                <AgnosticComponentProgramLabel />
+                <AgnosticComponentTitle />
+                <AgnosticComponentShortDescription />
+                <AgnosticComponentDateAndSourceContainer>
+                  <AgnosticComponentDatePublished />
+                  <span className="mono text-xs font-normal uppercase">•</span>
+                  <AgnosticComponentSource />
+                </AgnosticComponentDateAndSourceContainer>
+              </AgnosticComponentTextColumn>
+            </AgnosticComponentProvider>
+          ))}
+        </PostAccordion>
+      )}
+      {(newsParam || noParams) && (
+        <PostAccordion
+          title="News"
+          itemsCount={`${filtredNewsMaped.length}`}
+        >
+          {filtredNewsMaped.map((value) => (
+            <AgnosticComponentProvider content={value}>
+              <AgnosticComponentTextColumn>
+                <AgnosticComponentProgramLabel />
+                <AgnosticComponentTitle />
+                <AgnosticComponentShortDescription />
+                <AgnosticComponentDateAndSourceContainer>
+                  <AgnosticComponentDatePublished />
+                  <span className="mono text-xs font-normal uppercase">•</span>
+                  <AgnosticComponentSource />
+                </AgnosticComponentDateAndSourceContainer>
+              </AgnosticComponentTextColumn>
+            </AgnosticComponentProvider>
+          ))}
+        </PostAccordion>
+      )}
+      {(pressParam || noParams) && (
+        <PostAccordion
+          title="Press"
+          itemsCount={`${filteredPosts.length}`}
+        >
+          {filtredPostsMaped.map((value) => (
+            <AgnosticComponentProvider content={value}>
+              <AgnosticComponentTextColumn>
+                <AgnosticComponentProgramLabel />
+                <AgnosticComponentTitle />
+                <AgnosticComponentShortDescription />
+                <AgnosticComponentDateAndSourceContainer>
+                  <AgnosticComponentDatePublished />
+                  <span className="mono text-xs font-normal uppercase">•</span>
+                  <AgnosticComponentSource />
+                </AgnosticComponentDateAndSourceContainer>
+              </AgnosticComponentTextColumn>
+            </AgnosticComponentProvider>
+          ))}
+        </PostAccordion>
+      )}
+      {(multimediaParam || noParams) && (
+        <PostAccordion
+          title="Multimedia"
+          itemsCount={`${filtredMultimediaMaped.length}`}
+        >
+          {filtredMultimediaMaped.map((value) => (
+            <AgnosticComponentProvider content={value}>
+              <AgnosticComponentTextColumn>
+                <AgnosticComponentProgramLabel />
+                <AgnosticComponentTitle />
+                <AgnosticComponentShortDescription />
+                <AgnosticComponentDateAndSourceContainer>
+                  <AgnosticComponentDatePublished />
+                  <span className="mono text-xs font-normal uppercase">•</span>
+                  <AgnosticComponentSource />
+                </AgnosticComponentDateAndSourceContainer>
+              </AgnosticComponentTextColumn>
+            </AgnosticComponentProvider>
+          ))}
+        </PostAccordion>
+      )}
+      {(publicationParam || noParams) && (
+        <PostAccordion
+          title="Publications"
+          itemsCount={`${filtredPublicationsMaped.length}`}
+        >
+          {filtredPublicationsMaped.map((value) => (
+            <AgnosticComponentProvider content={value}>
+              <AgnosticComponentTextColumn>
+                <AgnosticComponentProgramLabel />
+                <AgnosticComponentTitle />
+                <AgnosticComponentShortDescription />
+                <AgnosticComponentDateAndSourceContainer>
+                  <AgnosticComponentDatePublished />
+                  <span className="mono text-xs font-normal uppercase">•</span>
+                  <AgnosticComponentSource />
+                </AgnosticComponentDateAndSourceContainer>
+              </AgnosticComponentTextColumn>
+            </AgnosticComponentProvider>
+          ))}
+        </PostAccordion>
+      )}
+      {(eventParam || noParams) && (
+        <PostAccordion
+          title="Events"
+          itemsCount={`${filtredEventsMaped.length}`}
+        >
+          {filtredEventsMaped.map((value) => (
+            <AgnosticComponentProvider content={value}>
+              <AgnosticComponentTextColumn>
+                <AgnosticComponentProgramLabel />
+                <AgnosticComponentTitle />
+                <AgnosticComponentShortDescription />
+                <AgnosticComponentDateAndSourceContainer>
+                  <AgnosticComponentDatePublished />
+                  <span className="mono text-xs font-normal uppercase">•</span>
+                  <AgnosticComponentSource />
+                </AgnosticComponentDateAndSourceContainer>
+              </AgnosticComponentTextColumn>
+            </AgnosticComponentProvider>
+          ))}
+        </PostAccordion>
+      )}
+     
     
-            <AgnosticComponentTextColumn>
-            
-              <AgnosticComponentProgramLabel />
-              <AgnosticComponentTitle />
-              <AgnosticComponentShortDescription/>
-              <AgnosticComponentDateAndSourceContainer>
-                <AgnosticComponentDatePublished />
-                <span className="mono text-xs font-normal uppercase">•</span>
-                <AgnosticComponentSource />
-              </AgnosticComponentDateAndSourceContainer>
-            </AgnosticComponentTextColumn>
-          </AgnosticComponentProvider>
-        ))}
-      </div>
-      <h2 className="text-2xl">Team Members</h2>
-
-      <ul>
-        {filteredTeamMembers.map((teamMember) => (
-          <li key={teamMember.name}>{teamMember.name}</li>
-        ))}
-      </ul>
-      <h2 className="text-2xl">Events</h2>
-      <ul>
-        {filteredEvents.map((event) => (
-          <li key={event.name}>{event.name}</li>
-        ))}
-      </ul>
-      <h2 className="text-2xl">Programmes</h2>
-      <ul>
-        {filteredProgrammes.map((programme) => (
-          <li key={programme.name}>{programme.name}</li>
-        ))}
-      </ul>
-      <h2 className="text-2xl">Posts</h2>
-      <ul>
-        {filteredPosts.map((post) => (
-          <li key={post.name}>{post.name}</li>
-        ))}
-      </ul>
-      <h2 className="text-2xl">People</h2>
-      <ul>
-        {filteredPeople.map((person) => (
-          <li key={person.name}>{person.name}</li>
-        ))}
-      </ul>
-      <h2 className="text-2xl">Multimedia</h2>
-      <ul>
-        {filteredMultimedia.map((media) => (
-          <li key={media.name}>{media.name}</li>
-        ))}
-      </ul>
-      <h2 className="text-2xl">Features</h2>
-      <ul>
-        {filteredFeatures.map((feature) => (
-          <li key={feature.name}>{feature.name}</li>
-        ))}
-      </ul>
-      <h2 className="text-2xl">News</h2>
-      <ul>
-        {filteredNews.map((news) => (
-          <li key={news.name}>{news.name}</li>
-        ))}
-      </ul>
-      <h2 className="text-2xl">Publications</h2>
-      <ul>
-        {filteredPublications.map((publication) => (
-          <li key={publication.name}>{publication.name}</li>
-        ))}
-      </ul>
     </div>
   );
 };

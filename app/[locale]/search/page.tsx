@@ -1,5 +1,7 @@
 
 import FilterResults from "@/components/CJ-components/components-CJ/test components/FilterResults";
+import WebflowPage from "@/components/CJ-components/components-CJ/test components/testWebflowPage";
+import ContentContainer from "@/components/custom beta components/ContentContainer";
 import { getData } from "@/functions/api/getData";
 import { filterByKeyword } from "@/functions/filters/filterByKeyWord";
 import eventMapper from "@/functions/transformers/eventMapper";
@@ -136,8 +138,10 @@ export default async function SearchPage() {
   };
 
   return (
-    <div className="pt-24">
-    
+    <ContentContainer width="full" desktopWidth="large">
+      <div className="pt-12">
+      
+      <WebflowPage />
       <FilterResults
         teamMembers={teamsClean}
         events={eventClean}
@@ -150,5 +154,6 @@ export default async function SearchPage() {
         publications={publicationsClean}
       />
     </div>
+    </ContentContainer>
   );
 }

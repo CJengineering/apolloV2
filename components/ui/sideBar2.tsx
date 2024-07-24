@@ -71,7 +71,8 @@ const navItems: NavItem[] = [
               { "name": "Abhijit Banerjee", "href": "/people/abhijit-barnerjee" },
               { "name": "Iqbal Dhaliwal", "href": "/people/iqbal-dhaliwal" },
               { "name": "Amy Finkelstein", "href": "/people/amy-finklestein" },
-              { "name": "Ben Olken", "href": "/people/ben-olken" }
+              { "name": "Ben Olken", "href": "/people/ben-olken" },
+              { "name": "view all", "href": "/search?people=jameel-poverty-action-lab" }
             ]
           }
         ]
@@ -87,7 +88,7 @@ const navItems: NavItem[] = [
             "children": [
               { "name": "people 1", "href": "/programmes" },
               { "name": "people 2", "href": "/programmes" },
-              { "name": "view all", "href": "/programmes" }
+              { "name": "view all", "href": "/search?people=j-wafs" }
             ]
           }
         ]
@@ -104,9 +105,9 @@ const navItems: NavItem[] = [
           {
             "name": "Events",
             "children": [
-              { "name": "event 1", "href": "/programmes" },
-              { "name": "event 2", "href": "/programmes" },
-              { "name": "view all", "href": "/programmes" }
+              { "name": "event 1", "href": "/search?event=jameel+clinic" },
+              { "name": "event 2", "href": "/search?event=jameel+clinic" },
+              { "name": "view all", "href": "/search?event=jameel-clinic" }
             ]
           },
           {
@@ -114,7 +115,7 @@ const navItems: NavItem[] = [
             "children": [
               { "name": "people 1", "href": "/programmes" },
               { "name": "people 2", "href": "/programmes" },
-              { "name": "view all", "href": "/programmes" }
+              { "name": "view all", "href": "/search?people=jameel-clinic" }
             ]
           }
         ]
@@ -129,7 +130,7 @@ const navItems: NavItem[] = [
             "children": [
               { "name": "event 1", "href": "/programmes" },
               { "name": "event 2", "href": "/programmes" },
-              { "name": "view all", "href": "/programmes" }
+              { "name": "view all", "href": "/search?event=jameel-institute" }
             ]
           },
           {
@@ -137,7 +138,7 @@ const navItems: NavItem[] = [
             "children": [
               { "name": "people 1", "href": "/programmes" },
               { "name": "people 2", "href": "/programmes" },
-              { "name": "view all", "href": "/programmes" }
+              { "name": "view all", "href": "/search?people=jameel-institute" }
             ]
           }
         ]
@@ -156,7 +157,7 @@ const navItems: NavItem[] = [
                 "children": [
                   { "name": "event 1", "href": "/programmes" },
                   { "name": "event 2", "href": "/programmes" },
-                  { "name": "view all", "href": "/programmes" }
+                  { "name": "view all", "href": "/search?event=jameel-observatory" }
                 ]
               },
               {
@@ -164,7 +165,7 @@ const navItems: NavItem[] = [
                 "children": [
                   { "name": "people 1", "href": "/programmes" },
                   { "name": "people 2", "href": "/programmes" },
-                  { "name": "view all", "href": "/programmes" }
+                  { "name": "view all", "href": "/search?people=jameel-observatory" }
                 ]
               }
             ]
@@ -181,7 +182,7 @@ const navItems: NavItem[] = [
             "children": [
               { "name": "event 1", "href": "/programmes" },
               { "name": "event 2", "href": "/programmes" },
-              { "name": "view all", "href": "/programmes" }
+              { "name": "view all", "href": "/search?event=jameel-arts-health-lab" }
             ]
           }
         ]
@@ -195,7 +196,7 @@ const navItems: NavItem[] = [
             "children": [
               { "name": "event 1", "href": "/programmes" },
               { "name": "event 2", "href": "/programmes" },
-              { "name": "view all", "href": "/programmes" }
+              { "name": "view all", "href": "/search?event=climavore-x-jameel-at-rca" }
             ]
           }
         ]
@@ -209,7 +210,7 @@ const navItems: NavItem[] = [
             "children": [
               { "name": "event 1", "href": "/programmes" },
               { "name": "event 2", "href": "/programmes" },
-              { "name": "view all", "href": "/programmes" }
+              { "name": "view all", "href": "/search?event=jameel-house-of-traditional-arts-in-cairo" }
             ]
           },
           { "name": "Gallery", "href": "/programmes", "current": false },
@@ -257,7 +258,7 @@ const navItems: NavItem[] = [
             "children": [
               { "name": "event 1", "href": "/programmes" },
               { "name": "event 2", "href": "/programmes" },
-              { "name": "view all", "href": "/programmes" }
+              { "name": "view all", "href": "/search?event=bocelli-jameel-scholarship" }
             ]
           },
           { "name": "Gallery", "href": "/programmes", "current": false }
@@ -266,6 +267,7 @@ const navItems: NavItem[] = [
       { "name": "Voxel Lab", "href": "/programmes/voxel-lab", "current": false }
     ]
   }
+  
   
   // ... (Other nav items here)
 ];
