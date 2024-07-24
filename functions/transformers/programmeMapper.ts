@@ -144,6 +144,7 @@ import {
       partners: relatedPartners,
       leadership: leadership,
       relatedProgrammes:relatedProgrammes,
+      collectionName: "programme",
       longitude: fieldData.longitude || "",
       latitude: fieldData.latitude || "",
       website: fieldData.website || "",

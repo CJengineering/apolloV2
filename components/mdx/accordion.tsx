@@ -6,20 +6,26 @@ interface PostAccordionProps {
   active?: boolean;
   children: React.ReactNode;
   itemsCount?:string;
+  isOpen?: boolean;
 }
 
 export default function PostAccordion({
   title,
   itemsCount,
+  isOpen,
   active = false,
   ...props
 }: PostAccordionProps) {
-  const [accordionOpen, setAccordionOpen] = useState<boolean>(false);
+  const [accordionOpen, setAccordionOpen] = useState<boolean>(isOpen || false );
   const accordion = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setAccordionOpen(active);
-  }, [accordion]);
+    if (isOpen) {
+      setAccordionOpen(isOpen);
+    } else {
+      setAccordionOpen(active);
+    }
+  }, [isOpen,accordion]);
 
   return (
     <div className="border-b border-slate-200 dark:border-slate-700 py-4 px prose-p:m-0">

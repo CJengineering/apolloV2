@@ -1,4 +1,3 @@
-
 import FilterResults from "@/components/CJ-components/components-CJ/test components/FilterResults";
 import WebflowPage from "@/components/CJ-components/components-CJ/test components/testWebflowPage";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
@@ -133,27 +132,25 @@ export default async function SearchPage() {
     programShortname: "Program Shortname",
     title: "Sample Title",
     datePublished: "2024-07-23",
-    collectionName: 'news',
+    collectionName: "news",
     source: "Sample Source",
   };
 
   return (
     <ContentContainer width="full" desktopWidth="large">
       <div className="pt-12">
-      
-      <WebflowPage />
-      <FilterResults
-        teamMembers={teamsClean}
-        events={eventClean}
-        programmes={programmeClean}
-        posts={postsClean}
-        people={peopleClean}
-        multimedia={cleanMultimedia}
-        features={featureClean}
-        news={newsClean}
-        publications={publicationsClean}
-      />
-    </div>
+        <FilterResults
+          teamMembers={teamsClean}
+          events={eventClean}
+          programmes={programmeClean}
+          posts={postsClean}
+          people={peopleClean}
+          multimedia={cleanMultimedia}
+          features={featureClean}
+          news={newsClean}
+          publications={publicationsClean}
+        />
+      </div>
     </ContentContainer>
   );
 }

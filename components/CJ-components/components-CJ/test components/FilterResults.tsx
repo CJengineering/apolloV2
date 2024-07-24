@@ -27,6 +27,7 @@ import {
 import { useRouter, useSearchParams } from "next/navigation";
 import Accordion from "../basic components/Accordion";
 import PostAccordion from "@/components/mdx/accordion";
+import { ArrowPathIcon } from "@heroicons/react/24/outline";
 
 interface FilterResultsProps {
   teamMembers: TeamMember[];
@@ -172,22 +173,27 @@ const FilterResults: React.FC<FilterResultsProps> = ({
   );
   const router = useRouter();
   const refreshPage = () => {
+    setKeyword("");
     router.push(window.location.pathname);
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
+      <div className="flex items-center ">
+
       <input
         type="text"
         value={keyword}
         onChange={(e) => setKeyword(e.target.value)}
         placeholder="Search..."
-        className="mb-4 p-2 border border-gray-300 rounded"
+        className=" p-2 border border-gray-300 w-1/3 rounded"
       />
-       <button onClick={refreshPage} className="mb-4 p-2 mx-2 bg-slate-500 text-white rounded">Refresh</button>
-      <h2 className="text-2xl">Results</h2>
+       <button onClick={refreshPage} className=" p-2 mx-2  bg-slate-700 rounded transition ease-in-out delay-50 text-white  hover:bg-slate-600 hover:text-orange-700 dark:hover:text-orange-400"><ArrowPathIcon  className="h-6 w-6 "></ArrowPathIcon></button>
+      </div>
+              
       {(peopleParam || noParams) && (
         <PostAccordion
+         isOpen={searchParams.get('open') === 'true' ? true : false}
           title="People"
           itemsCount={`${filtredPeopleMaped.length}`}
         >
@@ -210,6 +216,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
       {(programmeParam || noParams) && (
         <PostAccordion
           title="Programmes"
+          isOpen={searchParams.get('open') === 'true' ? true : false}
           itemsCount={`${filtredProgrammesMaped.length}`}
         >
           {filtredProgrammesMaped.map((value) => (
@@ -220,7 +227,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
                 <AgnosticComponentShortDescription />
                 <AgnosticComponentDateAndSourceContainer>
                   <AgnosticComponentDatePublished />
-                  <span className="mono text-xs font-normal uppercase">•</span>
+               
                   <AgnosticComponentSource />
                 </AgnosticComponentDateAndSourceContainer>
               </AgnosticComponentTextColumn>
@@ -231,6 +238,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
       {(newsParam || noParams) && (
         <PostAccordion
           title="News"
+          isOpen={searchParams.get('open') === 'true' ? true : false}
           itemsCount={`${filtredNewsMaped.length}`}
         >
           {filtredNewsMaped.map((value) => (
@@ -252,6 +260,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
       {(pressParam || noParams) && (
         <PostAccordion
           title="Press"
+          isOpen={searchParams.get('open') === 'true' ? true : false}
           itemsCount={`${filteredPosts.length}`}
         >
           {filtredPostsMaped.map((value) => (
@@ -273,6 +282,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
       {(multimediaParam || noParams) && (
         <PostAccordion
           title="Multimedia"
+          isOpen={searchParams.get('open') === 'true' ? true : false}
           itemsCount={`${filtredMultimediaMaped.length}`}
         >
           {filtredMultimediaMaped.map((value) => (
@@ -293,6 +303,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
       )}
       {(publicationParam || noParams) && (
         <PostAccordion
+        isOpen={searchParams.get('open') === 'true' ? true : false}
           title="Publications"
           itemsCount={`${filtredPublicationsMaped.length}`}
         >
@@ -314,6 +325,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
       )}
       {(eventParam || noParams) && (
         <PostAccordion
+        isOpen={searchParams.get('open') === 'true' ? true : false}
           title="Events"
           itemsCount={`${filtredEventsMaped.length}`}
         >

@@ -66,14 +66,7 @@ const navItems: NavItem[] = [
           { "name": "J-PAL MENA", "href": "/programmes/jameel-poverty-action-lab-middle-east-and-north-africa", "current": false },
           {
             "name": "People",
-            "children": [
-              { "name": "Esther Duflor", "href": "/people/esther-duflo" },
-              { "name": "Abhijit Banerjee", "href": "/people/abhijit-barnerjee" },
-              { "name": "Iqbal Dhaliwal", "href": "/people/iqbal-dhaliwal" },
-              { "name": "Amy Finkelstein", "href": "/people/amy-finklestein" },
-              { "name": "Ben Olken", "href": "/people/ben-olken" },
-              { "name": "view all", "href": "/search?people=jameel-poverty-action-lab" }
-            ]
+            "href": "/search?people=jameel-poverty-action-lab&open=true"
           }
         ]
       },
@@ -85,15 +78,11 @@ const navItems: NavItem[] = [
           { "name": "Jameel Index", "href": "/programmes/j-wafs/jameel-index", "current": false },
           {
             "name": "People",
-            "children": [
-              { "name": "people 1", "href": "/programmes" },
-              { "name": "people 2", "href": "/programmes" },
-              { "name": "view all", "href": "/search?people=j-wafs" }
-            ]
+            "href": "/search?people=j-wafs&open=true"
           }
         ]
       },
-      { "name": "J-WEL", "href": "/programmes/", "current": false },
+      { "name": "J-WEL", "href": "/programmes/abdul-latif-jameel-world-education-lab", "current": false },
       {
         "name": "Jameel-Clinic",
         "children": [
@@ -104,19 +93,11 @@ const navItems: NavItem[] = [
           { "name": "MIT-Takeda Programme", "href": "/programmes", "current": false },
           {
             "name": "Events",
-            "children": [
-              { "name": "event 1", "href": "/search?event=jameel+clinic" },
-              { "name": "event 2", "href": "/search?event=jameel+clinic" },
-              { "name": "view all", "href": "/search?event=jameel-clinic" }
-            ]
+            "href": "/search?event=jameel-clinic&open=true"
           },
           {
             "name": "People",
-            "children": [
-              { "name": "people 1", "href": "/programmes" },
-              { "name": "people 2", "href": "/programmes" },
-              { "name": "view all", "href": "/search?people=jameel-clinic" }
-            ]
+            "href": "/search?people=jameel-clinic&open=true"
           }
         ]
       },
@@ -127,19 +108,11 @@ const navItems: NavItem[] = [
           { "name": "Kenneth C. Griffin Initiative", "href": "/programmes/jameel-institute-kenneth-c-griffin-initiative-for-economics-of-pandemic-preparedness", "current": false },
           {
             "name": "Events",
-            "children": [
-              { "name": "event 1", "href": "/programmes" },
-              { "name": "event 2", "href": "/programmes" },
-              { "name": "view all", "href": "/search?event=jameel-institute" }
-            ]
+            "href": "/search?event=jameel-institute&open=true"
           },
           {
             "name": "People",
-            "children": [
-              { "name": "people 1", "href": "/programmes" },
-              { "name": "people 2", "href": "/programmes" },
-              { "name": "view all", "href": "/search?people=jameel-institute" }
-            ]
+            "href": "/search?people=jameel-institute&open=true"
           }
         ]
       },
@@ -154,19 +127,11 @@ const navItems: NavItem[] = [
               { "name": "Reports", "href": "/programmes", "current": false },
               {
                 "name": "Events",
-                "children": [
-                  { "name": "event 1", "href": "/programmes" },
-                  { "name": "event 2", "href": "/programmes" },
-                  { "name": "view all", "href": "/search?event=jameel-observatory" }
-                ]
+                "href": "/search?event=jameel-observatory&open=true"
               },
               {
                 "name": "People",
-                "children": [
-                  { "name": "people 1", "href": "/programmes" },
-                  { "name": "people 2", "href": "/programmes" },
-                  { "name": "view all", "href": "/search?people=jameel-observatory" }
-                ]
+                "href": "/search?people=jameel-observatory&open=true"
               }
             ]
           },
@@ -179,11 +144,7 @@ const navItems: NavItem[] = [
           { "name": "Overview", "href": "/programmes/jameel-arts-health-lab", "current": false },
           {
             "name": "Events",
-            "children": [
-              { "name": "event 1", "href": "/programmes" },
-              { "name": "event 2", "href": "/programmes" },
-              { "name": "view all", "href": "/search?event=jameel-arts-health-lab" }
-            ]
+            "href": "/search?event=jameel-arts-health-lab&open=true"
           }
         ]
       },
@@ -193,11 +154,7 @@ const navItems: NavItem[] = [
           { "name": "Overview", "href": "/programmes/climavore-x-jameel-at-rca", "current": false },
           {
             "name": "Events",
-            "children": [
-              { "name": "event 1", "href": "/programmes" },
-              { "name": "event 2", "href": "/programmes" },
-              { "name": "view all", "href": "/search?event=climavore-x-jameel-at-rca" }
-            ]
+            "href": "/search?event=climavore-x-jameel-at-rca&open=true"
           }
         ]
       },
@@ -207,11 +164,7 @@ const navItems: NavItem[] = [
           { "name": "Overview", "href": "/programmes/jameel-house-of-traditional-arts-in-cairo", "current": false },
           {
             "name": "Events",
-            "children": [
-              { "name": "event 1", "href": "/programmes" },
-              { "name": "event 2", "href": "/programmes" },
-              { "name": "view all", "href": "/search?event=jameel-house-of-traditional-arts-in-cairo" }
-            ]
+            "href": "/search?event=jameel-house-of-traditional-arts-in-cairo&open=true"
           },
           { "name": "Gallery", "href": "/programmes", "current": false },
           { "name": "Graduates", "href": "/programmes", "current": false }
@@ -255,11 +208,7 @@ const navItems: NavItem[] = [
           },
           {
             "name": "Performances",
-            "children": [
-              { "name": "event 1", "href": "/programmes" },
-              { "name": "event 2", "href": "/programmes" },
-              { "name": "view all", "href": "/search?event=bocelli-jameel-scholarship" }
-            ]
+            "href": "/search?event=bocelli-jameel-scholarship&open=true"
           },
           { "name": "Gallery", "href": "/programmes", "current": false }
         ]
@@ -267,6 +216,8 @@ const navItems: NavItem[] = [
       { "name": "Voxel Lab", "href": "/programmes/voxel-lab", "current": false }
     ]
   }
+  
+
   
   
   // ... (Other nav items here)
