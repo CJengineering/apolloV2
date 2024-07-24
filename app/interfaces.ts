@@ -377,6 +377,7 @@ export interface ProgrammeCleanedFields {
   logoSvgLightOriginalRatio: ImageProps;
   pushToGr: string;
   type: string;
+  collectionName: "programme";
   linkToPage: string;
   nameArabic: string;
   buttonText: string;

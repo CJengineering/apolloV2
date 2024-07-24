@@ -6,6 +6,7 @@ import {
   NewsCleanedFields,
   PeopleCleanedFields,
   PostFieldsCleaned,
+  ProgrammeCleanedFields,
   PublicationsCleanedFields,
 } from "@/app/interfaces";
 
@@ -22,7 +23,9 @@ function isMultimediaCleanedFields(data: any): data is MultimediaCleanedFields {
 function isNewsCleanedFields(data: any): data is NewsCleanedFields {
   return data.collectionName === "press";
 }
-
+function isProgrammeCleanedFields(data: any): data is ProgrammeCleanedFields {
+    return data.collectionName === "programme";
+    }
 function isEventFieldDataCleaned(data: any): data is EventFieldDataCleaned {
   return data.collectionName === "event";
 }
@@ -74,6 +77,15 @@ export default function agnosticMapper(
     programShortname = data.programme.shortname || "";
     datePublished = data.datePublished;
     source = data.sources.name;
+  }
+  if (isProgrammeCleanedFields(data)) {
+    imageSrc = data.logoSvgDark.url;
+    title = data.name;
+    slug = `/programmes/${data.slug}`;
+    collectionName = 'programme'
+    programShortname = data.shortname || "";
+    datePublished = '';
+    source = '';
   }
   if (isEventFieldDataCleaned(data)) {
     imageSrc = data.thumbnail.url;
