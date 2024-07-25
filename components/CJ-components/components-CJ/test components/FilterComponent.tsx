@@ -6,7 +6,7 @@ import {
   ChevronDownIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { useNewsContext } from "@/app/[locale]/press/news-contect";
+import { useNewsContext } from "@/app/[locale]/(website)/press/news-contect";
 
 interface RelatedCollection {
   id: string;
@@ -14,8 +14,14 @@ interface RelatedCollection {
 }
 
 const FilterComponent: React.FC = () => {
-  const { programmes, sources, setProgrammeFilter, setSourceFilter, setNewsQuery, newsQuery } =
-    useNewsContext();
+  const {
+    programmes,
+    sources,
+    setProgrammeFilter,
+    setSourceFilter,
+    setNewsQuery,
+    newsQuery,
+  } = useNewsContext();
 
   const [selectedProgrammes, setSelectedProgrammes] = useState<
     RelatedCollection[]
@@ -24,7 +30,8 @@ const FilterComponent: React.FC = () => {
     []
   );
 
-  const [openProgrammeDropdown, setOpenProgrammeDropdown] = useState<boolean>(false);
+  const [openProgrammeDropdown, setOpenProgrammeDropdown] =
+    useState<boolean>(false);
   const [openSourceDropdown, setOpenSourceDropdown] = useState<boolean>(false);
   const [queryProgramme, setQueryProgramme] = useState<string>("");
   const [querySource, setQuerySource] = useState<string>("");
