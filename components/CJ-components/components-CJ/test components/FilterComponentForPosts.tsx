@@ -6,7 +6,7 @@ import {
   MagnifyingGlassIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { usePostContext } from "@/app/[locale]/news/post-context";
+import { usePostContext } from "@/app/[locale]/(website)/news/post-context";
 
 interface RelatedCollection {
   id: string;
@@ -14,8 +14,14 @@ interface RelatedCollection {
 }
 
 export const FilterComponentForPosts: React.FC = () => {
-  const { programmes, people, setProgrammeFilter, setPeopleFilter, setPostQuery,postQuery } =
-    usePostContext();
+  const {
+    programmes,
+    people,
+    setProgrammeFilter,
+    setPeopleFilter,
+    setPostQuery,
+    postQuery,
+  } = usePostContext();
 
   const [selectedProgrammes, setSelectedProgrammes] = useState<
     RelatedCollection[]
