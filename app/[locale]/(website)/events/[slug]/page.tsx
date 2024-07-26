@@ -82,24 +82,36 @@ export default async function EventPage({
 
   return (
     <ContentContainer width="full" desktopWidth="medium">
-         <div className="py-12 flex flex-col items-center justify-center">
-          <div className="w-full pb-2 md:w-1/2">
-            <h1 className="text-center text-4xl serif font-bold">
-            {eventSingleDataCleaned.name}
-            </h1>
-          </div>
-          <div className="flex justify-center space-x-4">
-      <div className="p-4">
-        <p className="sans-serif text-base font-normal">{eventSingleDataCleaned.eventDate}</p>
+      <div className="flex flex-col justify-center items-center w-full">
+      <div className="pt-12 pb-3 w-full">
+        <h1 className="text-left text-4xl serif font-bold">
+          {eventSingleDataCleaned.name}
+        </h1>
       </div>
-      <div className="p-4">
-        <p className="">time</p>
-      </div>
-      <div className="p-4">
-        <p className="">location</p>
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-start md:justify-left md:space-x-4 w-full">
+        <div className="flex items-start md:items-center space-x-1 w-full md:w-auto">
+          <p className="sans-serif text-base font-normal">
+            {eventSingleDataCleaned.eventDate}
+          </p>
+          {(eventSingleDataCleaned.endDate !== eventSingleDataCleaned.eventDate) && (
+            <>
+              <p className="sans-serif text-base font-normal"> – </p>
+              <p className="sans-serif text-base font-normal">
+                {eventSingleDataCleaned.endDate}
+              </p>
+            </>
+          )}
+        </div>
+        <div className="hidden md:block mx-2">|</div>
+        <div className="flex items-start text-left mt-2 md:mt-0 md:px-2 w-full md:w-auto">
+          <p className="sans-serif text-base font-normal">{eventSingleDataCleaned.time}</p>
+        </div>
+        <div className="hidden md:block mx-2">|</div>
+        <div className="flex items-start text-left mt-2 md:mt-0 md:px-2 w-full md:w-auto">
+          <p className="sans-serif text-base font-normal">{eventSingleDataCleaned.address}</p>
+        </div>
       </div>
     </div>
-          </div>
         <Image
           className="w-full"
           src={eventSingleDataCleaned.heroImage.url}
@@ -107,88 +119,108 @@ export default async function EventPage({
           width={100}
           height={100}
         />
-       <div className="flex justify-center pt-12">
-          <div className="prose prose-xl dark:prose-dark serif">
-            <div
-              dangerouslySetInnerHTML={{
-                __html: eventSingleDataCleaned.shortDescription2,
-              }}
-            ></div>
-          </div> 
 
-          </div>
 
-          <div>
-          <div className="">
-            <div className="w-max-[100px]"
-              dangerouslySetInnerHTML={{
-                __html: eventSingleDataCleaned.trailerLivestreamHighlightsVideoLink,
-              }}
-            ></div>
+
+    <div className="flex flex-col items-center pt-6 space-y-12">
+      <div className="prose prose-xl dark:prose-dark serif">
+        <div
+          dangerouslySetInnerHTML={{
+            __html: eventSingleDataCleaned.shortDescription2,
+          }}
+        ></div>
+      </div>
+      <div className="flex w-full justify-center">
+        <div
+          dangerouslySetInnerHTML={{
+            __html: eventSingleDataCleaned.trailerLivestreamHighlightsVideoLink,
+          }}
+        ></div>
+      </div>
+    </div>
+    <ContentContainer width="lg" desktopWidth="medium">
+    <div className="pt-12">
+      <h2 className="serif font-semibold text-3xl mb-6">Participants</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {relatedPeopleDataCleaned.map((person) => (
+          <div key={person.name} className="text-left">
+            <Image
+              src={person.profilePicture.url}
+              alt={person.profilePicture.alt || ""}
+              width={330}
+              height={330}
+              className="mx-auto"
+            />
+            <h2 className="mt-2 font-medium serif text-lg">{person.name}</h2>
+            <p className="mt-1 sans-serif text-sm font-normal text-left text-gray-600">{person.shortDescription}</p>
           </div>
-  
-          </div>
-        <SectionBanter title="Participants">
-          {relatedPeopleDataCleaned.map((person) => (
-            <div key={person.name}>
-              <Image
-                src={person.profilePicture.url}
-                alt={person.profilePicture.alt || ""}
-                width={100}
-                height={100}
-              />
-              <h2>{person.name}</h2>
-              <p>{person.shortDescription}</p>
-            </div>
-          ))}
-        </SectionBanter>
-        <SectionBanter title="Organisers">
+        ))}
+      </div>
+    </div>
+    </ContentContainer>
+
+    <ContentContainer width="lg" desktopWidth="medium">
+    <div>
+      {eventSingleDataCleaned.organisers.length > 0 && (
+        <h2 className="serif font-semibold text-3xl mb-6">Organisers</h2>
+      )}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {eventSingleDataCleaned.organisers.map((organiser) => (
-            <div key={organiser.name}>
-              <Image
-                src={organiser.logo.url}
-                alt={organiser.logo.alt || ""}
-                width={100}
-                height={100}
-              />
-            </div>
-          ))}
- 
-        </SectionBanter>
-        <SectionBanter title="Partners">
-        {eventSingleDataCleaned.partners.map((partners) => (
-            <div key={partners.name}>
-              <Image
-                src={partners.logo.url}
-                alt={partners.logo.alt || ""}
-                width={100}
-                height={100}
-              />
-         
-            </div>
-          ))}
-        </SectionBanter>
-        
-        <SectionBanter title="With representatives from">
-        {eventSingleDataCleaned.participantsAffiliatedInstitutions.map((organiser) => (
-            <div key={organiser.name}>
-              <Image
-                src={organiser.logo.url}
-                alt={organiser.logo.alt || ""}
-                width={100}
-                height={100}
-              />
-            </div>
-          ))}
-        </SectionBanter>
-        <SectionBanter title="Gallery">
+          <div key={organiser.name} className="flex justify-center">
+            <Image
+              src={organiser.logo.url}
+              alt={organiser.logo.alt || ""}
+              width={200}
+              height={200}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+        <div>
+      {eventSingleDataCleaned.partners.length > 0 && (
+        <h2 className="serif font-semibold text-3xl mb-6">Partners</h2>
+      )}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {eventSingleDataCleaned.partners.map((partner) => (
+          <div key={partner.name} className="flex justify-center">
+            <Image
+              src={partner.logo.url}
+              alt={partner.logo.alt || ""}
+              width={200}
+              height={200}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+
+
+    <div>
+      {eventSingleDataCleaned.participantsAffiliatedInstitutions.length > 0 && (
+        <h2 className="serif font-semibold text-3xl mb-6">With representatives from</h2>
+      )}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        {eventSingleDataCleaned.participantsAffiliatedInstitutions.map((representatives) => (
+          <div key={representatives.name} className="flex justify-center">
+            <Image
+              src={representatives.logo.url}
+              alt={representatives.logo.alt || ""}
+              width={200}
+              height={200}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+
+        </ContentContainer>
         <div className="pb-12">
               {eventSingleDataCleaned.imageGallery.length > 0 &&
                 eventSingleDataCleaned.imageGallery[0].url !== "" && (
                   <ContentPhotos images={cleanRelatedImages} />
                 )}
             </div>
-        </SectionBanter>
         
         
       </ContentContainer>

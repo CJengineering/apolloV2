@@ -223,7 +223,7 @@ export default async function WhatsOnContent({
               <EventCardLarge key={index} article={article} />
             ))}
           </div>
-          <div className="py-12"><div className="w-full h-px bg-slate-200"></div></div>
+          <div className="pb-12 pt-16"><div className="w-full h-px bg-slate-200"></div></div>
         {eventFuture.length > 0 && (
           <div className="">
         <div className="pb-3"><h2 className="serif font-semibold text-3xl">Upcoming events</h2></div>
@@ -235,7 +235,7 @@ export default async function WhatsOnContent({
             </div>
         )}
       <div>
-      <div className="py-12"><div className="w-full h-px bg-slate-200"></div></div>
+      <div className="pt-9 pb-12"><div className="w-full h-px bg-slate-200"></div></div>
       <div className="pb-3"><h2 className="serif font-semibold text-3xl">Past events</h2></div>
           <div className="grid md:grid-cols-3 gap-6">
             {eventPast.map((article, index) => (

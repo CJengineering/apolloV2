@@ -129,8 +129,8 @@ export default function eventMapper(
     buttonCtaText: item.fieldData["button-cta-text"] || "",
     rsvpLink: item.fieldData["rsvp-link"] || "",
     collectionName: "event",
-    trailerLivestreamHighlightsVideoLink:
-      item.fieldData["trailer-livestream-highlights-video-link"].metadata.html || "",
+    trailerLivestreamHighlightsVideoLink:item.fieldData["trailer-livestream-highlights-video-link"]?
+    item.fieldData["trailer-livestream-highlights-video-link"].metadata.html : "",
     video2: item.fieldData["video-2"] || "",
     video3: item.fieldData["video-3"] || "",
     tags: item.fieldData.tags || [],
