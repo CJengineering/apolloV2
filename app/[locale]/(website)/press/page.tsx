@@ -189,7 +189,7 @@ export default async function NewsContent({
           Press
         </h1>
         {/* <HeroBanter content={heroProps} /> */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
+        {/* <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
           <div className="pb-6 col-span-12">
             {newsArrayCleaned.slice(0, 1).map((news, index) => (
               <CompoundNewsCard key={index} locale={params.locale} content={news}>
@@ -212,6 +212,7 @@ export default async function NewsContent({
               </CompoundNewsCard>
             ))}
           </div>
+          </div> */}
           {/* <div className="lg:col-span-6 lg:pl-6">
             <Suspense fallback={<Loading />}>
               {newsArrayCleaned.slice(2, 7).map((news, index) => (
@@ -228,7 +229,7 @@ export default async function NewsContent({
               ))}
             </Suspense>
           </div> */}
-        </div>
+
         {/* <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
           <div className="pb-6 lg:col-span-6"></div>
         </div> */}

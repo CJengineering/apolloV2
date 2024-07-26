@@ -19,11 +19,10 @@ export default function ArticleBanter({ post }: ArticleBanterProps) {
       </div>
       <div className="flex items-start">
   <div className="flex mt-3 mb-12 md:mt-6">
-  <span className="mono text-sm font-normal uppercase">news</span>
-  <span className="mono text-sm font-normal uppercase mx-3">•</span>
-    <span className="mono text-sm font-normal uppercase bg-slate-100 px-1">{post.programme.name}</span>
-    <span className="mono text-sm font-normal uppercase mx-3">•</span>
-    <div className="mono text-sm font-normal uppercase">{post.datePublished}</div>
+    <span className="mono text-sm font-normal uppercase bg-slate-100 px-1 mr-3">{post.programme.name}</span>
+  {/* <span className="mono text-sm font-normal uppercase">news</span> */}
+  {/* <span className="sans-serif text-sm font-normal mx-3">|</span> */}
+    <div className="sans-serif text-sm font-normal">{post.datePublished}</div>
   </div>
 </div>
         <Image

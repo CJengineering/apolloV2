@@ -51,18 +51,18 @@ export default function NewsCard({
           <div className="flex space-x-2">
             {/* PUBLISHED DATE */}
             <div className="text-left">
-              <p className="mono text-xs font-normal uppercase">
+              <p className="sans-serif font-normal text-sm">
                 <time dateTime={content.datePublished}>{content.datePublished}</time>
               </p>
             </div>
             {/* SOURCES */}
             <div className="text-left">
-              <p className="mono text-xs font-normal uppercase">
-                •
+              <p className="sans-serif font-normal text-sm">
+                |
               </p>
             </div>
             <div className="text-left">
-              <p className="mono text-xs font-normal uppercase">
+              <p className="sans-serif font-normal text-sm">
                 {content.sources.name}
               </p>
             </div>

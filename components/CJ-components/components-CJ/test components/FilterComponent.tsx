@@ -94,10 +94,10 @@ const FilterComponent: React.FC = () => {
           <input
             id="news-search"
             type="text"
-            placeholder="Type to search..."
+            placeholder="Search..."
             value={newsQuery}
             onChange={(e) => setNewsQuery(e.target.value)}
-            className="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 mono font-normal block w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
         </div>
         <div className="hidden md:block w-1/2">
@@ -108,10 +108,10 @@ const FilterComponent: React.FC = () => {
             {({ open }) => (
               <>
                 <div className="mt-1 relative">
-                  <div className="relative w-full text-left bg-white rounded-lg cursor-default overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
+                  <div className="relative w-full text-left bg-white rounded-lg cursor-default overflow-hidden focus:outline-none focus:ring-indigo-500 sm:text-sm">
                     <Combobox.Input
-                      className="w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      placeholder="Search programme..."
+                      className="mono font-normal block w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      placeholder="Lab"
                       onChange={(event) =>
                         setQueryProgramme(event.target.value)
                       }
@@ -197,11 +197,11 @@ const FilterComponent: React.FC = () => {
                 <div className="mt-1 relative">
                   <div className="relative w-full text-left bg-white rounded-lg cursor-default overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
                     <Combobox.Input
-                      className="w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      placeholder="Search source..."
+                      className="w-full mono font-normal block pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      placeholder="Source"
                       onChange={(event) => setQuerySource(event.target.value)}
                       displayValue={(source: RelatedCollection) => source.name}
-                    />
+                    />  
                     <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
                       <ChevronDownIcon
                         className="w-5 h-5 text-gray-400"
@@ -270,7 +270,7 @@ const FilterComponent: React.FC = () => {
         </div>
       </div>
 
-      <div className="mb-6">
+      <div className="mt-1 mb-9">
         <div className="mt-2 flex flex-wrap gap-2">
           {selectedProgrammes.map((programme) => (
             <div

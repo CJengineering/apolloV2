@@ -81,7 +81,7 @@ export default async function page({
             </h1>
           </div>
           <div className="w-full md:w-1/3">
-            <p className="text-center mono uppercase font-normal">
+            <p className="text-center sans-serif text-base font-normal">
               {memberPosition}
             </p>
           </div>

@@ -140,7 +140,7 @@ export default async function AnnouncementsContent({
   return (
     <MainContainer isSideBar={false}>
       <ContentContainer width="full" desktopWidth="small">
-        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-36 text-center">
+      <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
           News
         </h1>
         <PostProvider
