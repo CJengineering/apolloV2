@@ -14,7 +14,7 @@ import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcolle
 import Image from "next/image";
 import React from "react";
 
-export default async function EventPage({
+export default async function EventPage({ 
   params,
 }: {
   params: { slug: string; locale: string };
@@ -25,7 +25,7 @@ export default async function EventPage({
   const peopleCollectionID = getIdByDisplayName("People");
   const programmeCollectionID = getIdByDisplayName("Programmes");
   const partnersCollectionID = getIdByDisplayName("Partners");
-  const newsCollectionID = getIdByDisplayName("News");
+  const  newsCollectionID = getIdByDisplayName("News");
   const eventsCollectionID = getIdByDisplayName("Events");
   const postsCollectionID = getIdByDisplayName("Posts");
   const multimediaCollectionID = getIdByDisplayName("Multimedia");

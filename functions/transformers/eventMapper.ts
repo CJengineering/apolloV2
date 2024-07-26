@@ -38,7 +38,9 @@ export default function eventMapper(
           return { url: image.url || "", alt: image.alt || "" };
         })
       : [{ url: "", alt: "" }];
-      const matchPeople = item.fieldData["related-people"] && item.fieldData["related-people"].length > 0
+  const matchPeople =
+    item.fieldData["related-people"] &&
+    item.fieldData["related-people"].length > 0
       ? item.fieldData["related-people"].map((personId) => {
           const personMatch = people.find((person) => person.id === personId);
           return personMatch
@@ -47,7 +49,7 @@ export default function eventMapper(
                 arabicName: personMatch.fieldData["name-arabic"] || "",
                 slug: personMatch.fieldData.slug || "",
               }
-            : { name: "N/A", slug: "N/A", arabicName: "N/A"};
+            : { name: "N/A", slug: "N/A", arabicName: "N/A" };
         })
       : [];
   const matchPartners =
@@ -58,14 +60,15 @@ export default function eventMapper(
           )
           .filter((partner) => partner !== undefined)
       : [];
-      const matchRepresentatives =
-      item.fieldData["participants-affiliated-institutions"] && item.fieldData["participants-affiliated-institutions"].length > 0
-        ? item.fieldData["participants-affiliated-institutions"]
-            .map((partnerId) =>
-              arrayPartners.find((partner) => partner.id === partnerId)
-            )
-            .filter((partner) => partner !== undefined)
-        : [];
+  const matchRepresentatives =
+    item.fieldData["participants-affiliated-institutions"] &&
+    item.fieldData["participants-affiliated-institutions"].length > 0
+      ? item.fieldData["participants-affiliated-institutions"]
+          .map((partnerId) =>
+            arrayPartners.find((partner) => partner.id === partnerId)
+          )
+          .filter((partner) => partner !== undefined)
+      : [];
   const matchOrganisers =
     item.fieldData.organisers && item.fieldData.organisers.length > 0
       ? item.fieldData.organisers
@@ -86,7 +89,11 @@ export default function eventMapper(
   const programmeLabelCleaned = matchProgrammes
     .map((prog) => (prog ? prog.fieldData.name : ""))
     .filter((name): name is string => name !== undefined);
-    const fakeSource  = {name : programmeLabelCleaned[0], arabicName: matchProgrammes[0]?.fieldData["field-arabic"]|| 'N/A', slug: "N/A"}
+  const fakeSource = {
+    name: programmeLabelCleaned[0],
+    arabicName: matchProgrammes[0]?.fieldData["field-arabic"] || "N/A",
+    slug: "N/A",
+  };
   return {
     pushToGr: item.fieldData["push-to-gr"] || false,
     programmeLabel: programmeLabelCleaned[0] || "",
@@ -96,19 +103,19 @@ export default function eventMapper(
       .filter((name): name is string => name !== undefined),
     thumbnail: {
       url: item.fieldData.thumbnail?.url || "",
-      alt: item.fieldData.thumbnail?.alt || '',
+      alt: item.fieldData.thumbnail?.alt || "",
     },
     heroImage: {
       url: item.fieldData["hero-image"]?.url || "",
-      alt: item.fieldData["hero-image"]?.alt || '',
+      alt: item.fieldData["hero-image"]?.alt || "",
     },
     openGraphImage: {
       url: item.fieldData["open-graph-image"]?.url || "",
-      alt: item.fieldData["open-graph-image"]?.alt || '',
+      alt: item.fieldData["open-graph-image"]?.alt || "",
     },
     isDraft: item.isDraft,
     heroImageCaption: item.fieldData["hero-image-caption"] || "",
-    datePublished:formatDate(item.fieldData["event-date"] || ""),
+    datePublished: formatDate(item.fieldData["event-date"] || ""),
     featured: item.fieldData.featured || false,
     arabicTitle: item.fieldData["arabic-title"] || "",
     seoMetaDescription: item.fieldData["seo-meta-description"] || "",
@@ -129,8 +136,12 @@ export default function eventMapper(
     buttonCtaText: item.fieldData["button-cta-text"] || "",
     rsvpLink: item.fieldData["rsvp-link"] || "",
     collectionName: "event",
-    trailerLivestreamHighlightsVideoLink:item.fieldData["trailer-livestream-highlights-video-link"]?
-    item.fieldData["trailer-livestream-highlights-video-link"].metadata.html : "",
+
+    trailerLivestreamHighlightsVideoLink: item.fieldData[
+      "trailer-livestream-highlights-video-link"
+    ]
+      ? item.fieldData["trailer-livestream-highlights-video-link"].metadata.html
+      : "",
     video2: item.fieldData["video-2"] || "",
     video3: item.fieldData["video-3"] || "",
     tags: item.fieldData.tags || [],
@@ -157,18 +168,19 @@ export default function eventMapper(
         },
       };
     }),
-    participantsAffiliatedInstitutions:
-    matchRepresentatives.map((organiser) => {
-      return {
-        name: organiser?.fieldData.name || "",
-        slug: organiser?.fieldData.slug || "",
-        website: organiser?.fieldData.website || "",
-        logo: {
-          url: organiser?.fieldData.logo?.url || "",
-          alt: organiser?.fieldData.logo?.alt || "",
-        },
-      };
-    }),
+    participantsAffiliatedInstitutions: matchRepresentatives.map(
+      (organiser) => {
+        return {
+          name: organiser?.fieldData.name || "",
+          slug: organiser?.fieldData.slug || "",
+          website: organiser?.fieldData.website || "",
+          logo: {
+            url: organiser?.fieldData.logo?.url || "",
+            alt: organiser?.fieldData.logo?.alt || "",
+          },
+        };
+      }
+    ),
     richText: item.fieldData["rich-text"] || "",
     imageGallery: imagesCarousel || [],
     galleryPhotoCredits: item.fieldData["gallery-photo-credits"] || "",

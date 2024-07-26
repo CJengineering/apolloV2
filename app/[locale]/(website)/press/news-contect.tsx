@@ -47,9 +47,20 @@ export const NewsProvider: React.FC<NewsProviderProps> = ({ children, programmes
   const filteredNews = useMemo(() => {
     let filtered = newsArrayCleaned;  // Start with the full list of news
   
-    if (selectedProgrammes.length > 0 || selectedSources.length > 0) {
+    if (selectedProgrammes.length > 0 && selectedSources.length > 0) {
+      // Filter by both programmes and sources
       filtered = filtered.filter(news =>
-        selectedProgrammes.some(programme => news.programme.shortname === programme.name) ||
+        selectedProgrammes.some(programme => news.programme.shortname === programme.name) &&
+        selectedSources.some(source => news.sources.name === source.name)
+      );
+    } else if (selectedProgrammes.length > 0) {
+      // Filter by programmes only
+      filtered = filtered.filter(news =>
+        selectedProgrammes.some(programme => news.programme.shortname === programme.name)
+      );
+    } else if (selectedSources.length > 0) {
+      // Filter by sources only
+      filtered = filtered.filter(news =>
         selectedSources.some(source => news.sources.name === source.name)
       );
     }
@@ -62,7 +73,7 @@ export const NewsProvider: React.FC<NewsProviderProps> = ({ children, programmes
     }
   
     return filtered;
-  }, [newsArrayCleaned, selectedProgrammes, selectedSources, newsQuery]); 
+  }, [newsArrayCleaned, selectedProgrammes, selectedSources, newsQuery]);
 
   const setProgrammeFilter = (programmes: RelatedCollection[]) => {
     setSelectedProgrammes(programmes);

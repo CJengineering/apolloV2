@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import {
   CheckIcon,
@@ -7,6 +7,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { useNewsContext } from "@/app/[locale]/(website)/press/news-contect";
+import { FixedSizeList as List } from "react-window";
 
 interface RelatedCollection {
   id: string;
@@ -78,13 +79,33 @@ const FilterComponent: React.FC = () => {
     switch (type) {
       case "programme":
         setSelectedProgrammes(selectedProgrammes.filter((p) => p.id !== id));
+        setQueryProgramme(""); // Reset the programme filter query
         break;
       case "source":
         setSelectedSources(selectedSources.filter((s) => s.id !== id));
+        setQuerySource(""); // Reset the source filter query
         break;
       default:
         break;
     }
+  };
+  interface SourceItemProps {
+    index: number;
+    style: React.CSSProperties;
+  }
+
+  const SourceItem = ({ index, style }: SourceItemProps) => {
+    const source = filteredSources[index];
+    return (
+      <div
+        style={style}
+        key={source.id}
+        onClick={() => handleSelect(source, "source")}
+        className="cursor-default select-none relative py-2 pl-3 pr-9 text-gray-900"
+      >
+        <span className="block truncate font-normal">{source.name}</span>
+      </div>
+    );
   };
 
   return (
@@ -216,50 +237,20 @@ const FilterComponent: React.FC = () => {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <Combobox.Options className="absolute z-40 mt-1 w-full bg-white max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
+                   <Combobox.Options className="absolute z-40 mt-1 w-full bg-white max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5  focus:outline-none sm:text-sm">
                       {filteredSources.length === 0 && querySource !== "" ? (
                         <div className="cursor-default select-none relative py-2 px-4 text-gray-700">
                           No results found
                         </div>
                       ) : (
-                        filteredSources.map((source) => (
-                          <Combobox.Option
-                            key={source.id}
-                            value={source}
-                            onClick={() => handleSelect(source, "source")}
-                            className={({ active }) =>
-                              `cursor-default select-none relative py-2 pl-3 pr-9 ${
-                                active
-                                  ? "text-white bg-indigo-600"
-                                  : "text-gray-900"
-                              }`
-                            }
-                          >
-                            {({ selected, active }) => (
-                              <>
-                                <span
-                                  className={`block truncate ${
-                                    selected ? "font-semibold" : "font-normal"
-                                  }`}
-                                >
-                                  {source.name}
-                                </span>
-                                {selected ? (
-                                  <span
-                                    className={`absolute inset-y-0 right-0 flex items-center pr-4 ${
-                                      active ? "text-white" : "text-indigo-600"
-                                    }`}
-                                  >
-                                    <CheckIcon
-                                      className="h-5 w-5"
-                                      aria-hidden="true"
-                                    />
-                                  </span>
-                                ) : null}
-                              </>
-                            )}
-                          </Combobox.Option>
-                        ))
+                        <List
+                          height={240}
+                          itemCount={filteredSources.length}
+                          itemSize={35}
+                          width={"100%"}
+                        >
+                          {SourceItem}
+                        </List>
                       )}
                     </Combobox.Options>
                   </Transition>

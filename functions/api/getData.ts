@@ -32,7 +32,15 @@ export async function getData(collection:string): Promise<FetchResponse> {
       const items = data.items;
       allItems = allItems.concat(items);
       offset += items.length;
+ // Filter items with isDraft: true
+ allItems = allItems.filter(item => !item.isDraft);
 
+ // Sort items by datePublished in descending order, placing items without datePublished at the end
+ allItems.sort((a, b) => {
+   const dateA = a.fieldData["date-published"]? new Date(a.fieldData["date-published"]).getTime() : 0;
+   const dateB = b.fieldData["date-published"]? new Date(b.fieldData["date-published"]).getTime() : 0;
+   return dateB - dateA;
+ });
       // Check if the number of items fetched is less than 100, indicating last page
       fetchMore = items.length === 100;
     }
