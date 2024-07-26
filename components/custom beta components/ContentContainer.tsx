@@ -48,7 +48,7 @@ export default function ContentContainer({ children, width = 'full', desktopWidt
   }
 
   return (
-    <div className={`mx-auto md:mt-8 mt-4 px-4 md:px-4 lg:px-4 ${widthClass} ${desktopWidthClass} overflow-x-hidden`}>
+    <div className={`mx-auto md:mt-8 mt-4 px-4 md:px-4 lg:px-4 ${widthClass} ${desktopWidthClass} `}>
       {React.Children.map(children, (child) => (
         <div className="mb-6">
           {child}

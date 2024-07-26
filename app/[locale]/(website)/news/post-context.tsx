@@ -48,40 +48,41 @@ export const PostProvider: React.FC<PostProviderProps> = ({
   >([]);
   const [selectedPeople, setSelectedPeople] = useState<RelatedCollection[]>([]);
   const [postQuery, setPostQuery] = useState("");
-
   const filteredPosts = useMemo(() => {
-    let filtered = postsClean; // Start with the clean list of posts
-
-    if (selectedProgrammes.length > 0 || selectedPeople.length > 0) {
-      filtered = filtered.filter((post) => {
-        const matchesProgramme =
-          selectedProgrammes.length > 0
-            ? selectedProgrammes.some(
-                (programme) => post.programme.shortname === programme.name
-              )
-            : false;
-        const matchesPeople =
-          selectedPeople.length > 0
-            ? selectedPeople.some((selectedPerson) =>
-                post.people.some(
-                  (person) => person.name === selectedPerson.name
-                )
-              )
-            : false;
-
-        return matchesProgramme || matchesPeople;
-      });
+    let filtered = postsClean; 
+  
+    if (selectedProgrammes.length > 0 && selectedPeople.length > 0) {
+      // Filter by both programmes and people
+      filtered = filtered.filter((post) => 
+        selectedProgrammes.some((programme) => post.programme.shortname === programme.name) &&
+        selectedPeople.some((selectedPerson) => 
+          post.people.some((person) => person.name === selectedPerson.name)
+        )
+      );
+    } else if (selectedProgrammes.length > 0) {
+      // Filter by programmes only
+      filtered = filtered.filter((post) =>
+        selectedProgrammes.some((programme) => post.programme.shortname === programme.name)
+      );
+    } else if (selectedPeople.length > 0) {
+      // Filter by people only
+      filtered = filtered.filter((post) =>
+        selectedPeople.some((selectedPerson) => 
+          post.people.some((person) => person.name === selectedPerson.name)
+        )
+      );
     }
-
+  
     // Further filter by the post query if it's not empty
     if (postQuery.trim() !== "") {
       filtered = filtered.filter((post) =>
         post.name.toLowerCase().includes(postQuery.toLowerCase())
       );
     }
-
+  
     return filtered;
   }, [postsClean, selectedProgrammes, selectedPeople, postQuery]);
+  
 
   const setProgrammeFilter = (programmes: RelatedCollection[]) => {
     setSelectedProgrammes(programmes);
