@@ -217,7 +217,7 @@ export interface EventFieldData {
   "contact-details": string;
   "button-cta-text": string;
   "rsvp-link": string;
-  "trailer-livestream-highlights-video-link": string;
+  "trailer-livestream-highlights-video-link": {metadata: {html: string}};
   "video-2": string;
   "video-3": string;
   tags: string[];
@@ -283,7 +283,12 @@ export interface EventFieldDataCleaned {
     website: string;
     logo: ImageProps;
   }[];
-  participantsAffiliatedInstitutions: string[];
+  participantsAffiliatedInstitutions:  {
+    name: string;
+    slug: string;
+    website: string;
+    logo: ImageProps;
+  }[];
   richText: string;
   imageGallery: ImageProps[];
   galleryPhotoCredits: string;

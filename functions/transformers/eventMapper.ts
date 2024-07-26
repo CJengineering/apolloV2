@@ -6,14 +6,12 @@ import {
   ProgrammeRawFields,
   PeopleRawFields,
 } from "@/app/interfaces";
-
 function calculateReadTime(text: string): string {
   const wordsPerMinute = 200;
   const numberOfWords = text ? text.split(/\s+/).length : 0;
   const minutes = Math.ceil(numberOfWords / wordsPerMinute);
   return `${minutes} min read`;
 }
-
 const formatDate = (date: Date | string): string => {
   if (typeof date === "string") {
     date = new Date(date);
@@ -27,7 +25,6 @@ const formatDate = (date: Date | string): string => {
     return "Invalid Date";
   }
 };
-
 export default function eventMapper(
   item: Item<EventFieldData>,
   arrayPartners: Item<PartnersRawFields>[],
@@ -61,6 +58,14 @@ export default function eventMapper(
           )
           .filter((partner) => partner !== undefined)
       : [];
+      const matchRepresentatives =
+      item.fieldData["participants-affiliated-institutions"] && item.fieldData["participants-affiliated-institutions"].length > 0
+        ? item.fieldData["participants-affiliated-institutions"]
+            .map((partnerId) =>
+              arrayPartners.find((partner) => partner.id === partnerId)
+            )
+            .filter((partner) => partner !== undefined)
+        : [];
   const matchOrganisers =
     item.fieldData.organisers && item.fieldData.organisers.length > 0
       ? item.fieldData.organisers
@@ -69,7 +74,6 @@ export default function eventMapper(
           )
           .filter((partner) => partner !== undefined)
       : [];
-
   const matchProgrammes =
     item.fieldData["related-programme-s"] &&
     item.fieldData["related-programme-s"].length > 0
@@ -82,9 +86,7 @@ export default function eventMapper(
   const programmeLabelCleaned = matchProgrammes
     .map((prog) => (prog ? prog.fieldData.name : ""))
     .filter((name): name is string => name !== undefined);
-
     const fakeSource  = {name : programmeLabelCleaned[0], arabicName: matchProgrammes[0]?.fieldData["field-arabic"]|| 'N/A', slug: "N/A"}
-
   return {
     pushToGr: item.fieldData["push-to-gr"] || false,
     programmeLabel: programmeLabelCleaned[0] || "",
@@ -93,17 +95,14 @@ export default function eventMapper(
       .map((prog) => (prog ? prog.fieldData.name : ""))
       .filter((name): name is string => name !== undefined),
     thumbnail: {
- 
       url: item.fieldData.thumbnail?.url || "",
       alt: item.fieldData.thumbnail?.alt || '',
     },
     heroImage: {
-    
       url: item.fieldData["hero-image"]?.url || "",
       alt: item.fieldData["hero-image"]?.alt || '',
     },
     openGraphImage: {
-
       url: item.fieldData["open-graph-image"]?.url || "",
       alt: item.fieldData["open-graph-image"]?.alt || '',
     },
@@ -131,7 +130,7 @@ export default function eventMapper(
     rsvpLink: item.fieldData["rsvp-link"] || "",
     collectionName: "event",
     trailerLivestreamHighlightsVideoLink:
-      item.fieldData["trailer-livestream-highlights-video-link"] || "",
+      item.fieldData["trailer-livestream-highlights-video-link"].metadata.html || "",
     video2: item.fieldData["video-2"] || "",
     video3: item.fieldData["video-3"] || "",
     tags: item.fieldData.tags || [],
@@ -158,9 +157,18 @@ export default function eventMapper(
         },
       };
     }),
-
     participantsAffiliatedInstitutions:
-      item.fieldData["participants-affiliated-institutions"] || [],
+    matchRepresentatives.map((organiser) => {
+      return {
+        name: organiser?.fieldData.name || "",
+        slug: organiser?.fieldData.slug || "",
+        website: organiser?.fieldData.website || "",
+        logo: {
+          url: organiser?.fieldData.logo?.url || "",
+          alt: organiser?.fieldData.logo?.alt || "",
+        },
+      };
+    }),
     richText: item.fieldData["rich-text"] || "",
     imageGallery: imagesCarousel || [],
     galleryPhotoCredits: item.fieldData["gallery-photo-credits"] || "",

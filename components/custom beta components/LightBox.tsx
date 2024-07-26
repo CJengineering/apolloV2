@@ -82,12 +82,16 @@ const Lightbox: React.FC<LightboxProps> = ({
           <div className={` mono w-[90%] md:w-full text-white overflow-auto max-h-1/4 `}>
             <div dangerouslySetInnerHTML={{ __html: image.description }} />
           </div>
+          {image.year && (
           <div className="h-[1px] my-2 w-[90%] md:w-full px-4 bg-slate-50"></div>
+        )}
           <div className="flex w-[90%] md:w-full flex-wrap gap-x-3 ">
+          {image.year && (
             <div className="flex items-center gap-x-3 text-white mono text-sm whitespace-nowrap">
               <CalendarDaysIcon width={16} />
               <p className="">{image.year}</p>
             </div>
+          )}
             {image.programmeLabel.name && (
               <div className="flex items-center gap-x-3 text-white mono text-sm">
                 <CpuChipIcon width={16} />
