@@ -120,9 +120,7 @@ export default async function EventPage({
           height={100}
         />
 
-
-
-    <div className="flex flex-col items-center pt-6 space-y-12">
+    <div className="flex flex-col items-center pt-6">
       <div className="prose prose-xl dark:prose-dark serif">
         <div
           dangerouslySetInnerHTML={{
@@ -130,6 +128,19 @@ export default async function EventPage({
           }}
         ></div>
       </div>
+
+      {eventSingleDataCleaned.rsvpLink && (
+            <div className="pb-12 pt-3">
+              <a
+                href={eventSingleDataCleaned.rsvpLink}
+                target="_blank"
+                className="inline-block px-4 py-2 text-sm font-medium text-white bg-blue-800 rounded hover:bg-blue-950"
+              >
+                <span className="mono uppercase">{eventSingleDataCleaned.buttonCtaText}</span>
+              </a>
+            </div>
+          )}
+
       <div className="flex w-full justify-center">
         <div
           dangerouslySetInnerHTML={{

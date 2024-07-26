@@ -3,7 +3,8 @@ import React, { useState, useEffect } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import {
   CheckIcon,
-  MagnifyingGlassIcon,
+  MagnifyingGlassIcon, 
+  ChevronDownIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { usePostContext } from "@/app/[locale]/(website)/news/post-context";
@@ -84,7 +85,22 @@ export const FilterComponentForPosts: React.FC = () => {
 
   return (
     <div className="w-full">
-      <div className="flex space-x-4 mb-4">
+      <div className="flex space-x-4">
+      <div className="w-full mb-1">
+          <label
+            htmlFor="news-search"
+            className="block text-sm font-medium text-gray-700"
+          >
+          </label>
+          <input
+            id="news-search"
+            type="text"
+            placeholder="Search..."
+            value={postQuery}
+            onChange={(e) => setPostQuery(e.target.value)}
+            className="mono font-normal mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+          />
+        </div>
         <div className="w-1/2">
           <Combobox
             value={queryProgramme}
@@ -93,13 +109,12 @@ export const FilterComponentForPosts: React.FC = () => {
             {({ open }) => (
               <>
                 <Combobox.Label className="block text-sm font-medium text-gray-700">
-                  Select Programme
                 </Combobox.Label>
                 <div className="mt-1 relative">
                   <div className="relative w-full text-left bg-white rounded-lg cursor-default overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
                     <Combobox.Input
-                      className="w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      placeholder="Search programme..."
+                      className="mono font-normal w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      placeholder="Lab"
                       onChange={(event) =>
                         setQueryProgramme(event.target.value)
                       }
@@ -108,7 +123,7 @@ export const FilterComponentForPosts: React.FC = () => {
                       }
                     />
                     <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
-                      <MagnifyingGlassIcon
+                      <ChevronDownIcon
                         className="w-5 h-5 text-gray-400"
                         aria-hidden="true"
                       />
@@ -183,18 +198,17 @@ export const FilterComponentForPosts: React.FC = () => {
             {({ open }) => (
               <>
                 <Combobox.Label className="block text-sm font-medium text-gray-700">
-                  Select Person
                 </Combobox.Label>
                 <div className="mt-1 relative">
                   <div className="relative w-full text-left bg-white rounded-lg cursor-default overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
                     <Combobox.Input
-                      className="w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      placeholder="Search person..."
+                      className="mono font-normal w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      placeholder="Person"
                       onChange={(event) => setQueryPerson(event.target.value)}
                       displayValue={(person: RelatedCollection) => person.name}
                     />
                     <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
-                      <MagnifyingGlassIcon
+                      <ChevronDownIcon
                         className="w-5 h-5 text-gray-400"
                         aria-hidden="true"
                       />
@@ -259,38 +273,22 @@ export const FilterComponentForPosts: React.FC = () => {
             )}
           </Combobox>
         </div>
-        <div className="w-full mb-4">
-          <label
-            htmlFor="news-search"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Search News
-          </label>
-          <input
-            id="news-search"
-            type="text"
-            placeholder="Type to search..."
-            value={postQuery}
-            onChange={(e) => setPostQuery(e.target.value)}
-            className="mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-          />
-        </div>
+
       </div>
 
-      <div className="mt-4">
-        <h2 className="text-lg font-medium text-gray-700">Selected Items</h2>
+      <div className="mt-1 mb-9">
         <div className="mt-2 flex flex-wrap gap-2">
           {selectedProgrammes.map((programme) => (
             <div
               key={programme.id}
               className="flex items-center justify-between p-2 bg-blue-200 rounded-md"
             >
-              <span>{programme.name}</span>
+              <span className="mono text-xs font-medium">{programme.name}</span>
               <button
                 onClick={() => handleRemove(programme.id, "programme")}
                 className="ml-4 text-red-600 hover:text-red-800 focus:outline-none"
               >
-                <XMarkIcon className="h-5 w-5" />
+                <XMarkIcon className="h-3 w-3" />
               </button>
             </div>
           ))}
@@ -299,12 +297,12 @@ export const FilterComponentForPosts: React.FC = () => {
               key={person.id}
               className="flex items-center justify-between p-2 bg-green-200 rounded-md"
             >
-              <span>{person.name}</span>
+              <span className="mono text-xs font-medium">{person.name}</span>
               <button
                 onClick={() => handleRemove(person.id, "person")}
                 className="ml-4 text-red-600 hover:text-red-800 focus:outline-none"
               >
-                <XMarkIcon className="h-5 w-5" />
+                <XMarkIcon className="h-3 w-3" />
               </button>
             </div>
           ))}

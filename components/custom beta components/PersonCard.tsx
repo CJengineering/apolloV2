@@ -25,7 +25,7 @@ const PersonalCard = ({ author, socialPlatforms }: PersonalCardProps) => {
               {author.name}
           </h3>
           <div>
-            <p className="mono text-xs font-normal uppercase leading-tight">{author.position}</p>
+            <p className="sans-serif text-sm font-normal leading-tight">{author.position}</p>
           </div>
         </div>
         

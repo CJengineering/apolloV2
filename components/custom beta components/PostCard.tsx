@@ -35,7 +35,7 @@ export default function PostCard({ content }: { content: PostFieldsCleaned }) {
 
           {/* PUBLISHED DATE START */}
           <div className="text-left">
-            <p className="mono text-xs font- uppercase">
+            <p className="sans-serif text-sm font-normal">
               <time dateTime={content.datePublished}>{content.datePublished}</time>
             </p>
           </div>
