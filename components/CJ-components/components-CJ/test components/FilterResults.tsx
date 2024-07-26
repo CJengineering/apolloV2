@@ -171,30 +171,150 @@ const FilterResults: React.FC<FilterResultsProps> = ({
   const filtredProgrammesMaped = filteredProgrammes.map((value) =>
     agnosticMapper(value)
   );
+  const [rotate, setRotate] = useState(false);
   const router = useRouter();
   const refreshPage = () => {
     setKeyword("");
     router.push(window.location.pathname);
+    setRotate(true);
+    setTimeout(() => setRotate(false), 500); // Adjust the timeout duration as needed
   };
 
   return (
     <div className="min-h-screen ">
-      <div className="flex items-center ">
+      <div className="flex items-center pb-6">
 
-      <input
-        type="text"
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-        placeholder="Search..."
-        className=" p-2 border border-gray-300 w-1/3 rounded"
-      />
-       <button onClick={refreshPage} className=" p-2 mx-2  bg-slate-700 rounded transition ease-in-out delay-50 text-white  hover:bg-slate-600 hover:text-orange-700 dark:hover:text-orange-400"><ArrowPathIcon  className="h-6 w-6 "></ArrowPathIcon></button>
+        <input
+          type="text"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+          placeholder="Search..."
+          className="p-2 border mono border-gray-300 text-base text-slate-400 dark:text-white w-1/3 rounded focus:outline-none focus:border-1 focus:border-orange-700 focus:text-black"
+        />
+        <button
+          onClick={refreshPage}
+          className="p-2 mx-2 bg-slate-700 rounded transition ease-in-out delay-50 text-white hover:bg-slate-900 hover:text-orange-300 dark:hover:text-orange-400"
+        >
+          <ArrowPathIcon
+            className={`h-6 w-6 p-1 transition-transform duration-500 ${rotate ? 'rotate-180' : ''}`}
+          />
+        </button>
       </div>
-              
+
+      {(newsParam || noParams) && (
+        <PostAccordion
+          title="News"
+          isOpen={searchParams.get('open') === 'true'}
+          itemsCount={`${filtredNewsMaped.length}`}
+        >
+          {filtredNewsMaped.map((value) => (
+            <AgnosticComponentProvider content={value}>
+              <AgnosticComponentTextColumn>
+                <AgnosticComponentProgramLabel />
+                <AgnosticComponentTitle />
+                <AgnosticComponentShortDescription />
+                <AgnosticComponentDateAndSourceContainer>
+                  <AgnosticComponentDatePublished />
+                  <span className="mono text-xs font-normal uppercase">•</span>
+                  <AgnosticComponentSource />
+                </AgnosticComponentDateAndSourceContainer>
+              </AgnosticComponentTextColumn>
+            </AgnosticComponentProvider>
+          ))}
+        </PostAccordion>
+      )}
+      {(eventParam || noParams) && (
+        <PostAccordion
+          title="Events"
+          isOpen={searchParams.get('open') === 'true'}
+          itemsCount={`${filtredEventsMaped.length}`}
+        >
+          {filtredEventsMaped.map((value) => (
+            <AgnosticComponentProvider content={value}>
+              <AgnosticComponentTextColumn>
+                <AgnosticComponentProgramLabel />
+                <AgnosticComponentTitle />
+                <AgnosticComponentShortDescription />
+                <AgnosticComponentDateAndSourceContainer>
+                  <AgnosticComponentDatePublished />
+                  <span className="mono text-xs font-normal uppercase">•</span>
+                  <AgnosticComponentSource />
+                </AgnosticComponentDateAndSourceContainer>
+              </AgnosticComponentTextColumn>
+            </AgnosticComponentProvider>
+          ))}
+        </PostAccordion>
+      )}
+      {(pressParam || noParams) && (
+        <PostAccordion
+          title="Press"
+          isOpen={searchParams.get('open') === 'true'}
+          itemsCount={`${filteredPosts.length}`}
+        >
+          {filtredPostsMaped.map((value) => (
+            <AgnosticComponentProvider content={value}>
+              <AgnosticComponentTextColumn>
+                <AgnosticComponentProgramLabel />
+                <AgnosticComponentTitle />
+                <AgnosticComponentShortDescription />
+                <AgnosticComponentDateAndSourceContainer>
+                  <AgnosticComponentDatePublished />
+                  <span className="mono text-xs font-normal uppercase">•</span>
+                  <AgnosticComponentSource />
+                </AgnosticComponentDateAndSourceContainer>
+              </AgnosticComponentTextColumn>
+            </AgnosticComponentProvider>
+          ))}
+        </PostAccordion>
+      )}
+      {(publicationParam || noParams) && (
+        <PostAccordion
+          title="Publications"
+          isOpen={searchParams.get('open') === 'true'}
+          itemsCount={`${filtredPublicationsMaped.length}`}
+        >
+          {filtredPublicationsMaped.map((value) => (
+            <AgnosticComponentProvider content={value}>
+              <AgnosticComponentTextColumn>
+                <AgnosticComponentProgramLabel />
+                <AgnosticComponentTitle />
+                <AgnosticComponentShortDescription />
+                <AgnosticComponentDateAndSourceContainer>
+                  <AgnosticComponentDatePublished />
+                  <span className="mono text-xs font-normal uppercase">•</span>
+                  <AgnosticComponentSource />
+                </AgnosticComponentDateAndSourceContainer>
+              </AgnosticComponentTextColumn>
+            </AgnosticComponentProvider>
+          ))}
+        </PostAccordion>
+      )}
+      {(multimediaParam || noParams) && (
+        <PostAccordion
+          title="Multimedia"
+          isOpen={searchParams.get('open') === 'true'}
+          itemsCount={`${filtredMultimediaMaped.length}`}
+        >
+          {filtredMultimediaMaped.map((value) => (
+            <AgnosticComponentProvider content={value}>
+              <AgnosticComponentTextColumn>
+                <AgnosticComponentProgramLabel />
+                <AgnosticComponentTitle />
+                <AgnosticComponentShortDescription />
+                <AgnosticComponentDateAndSourceContainer>
+                  <AgnosticComponentDatePublished />
+                  <span className="mono text-xs font-normal uppercase">•</span>
+                  <AgnosticComponentSource />
+                </AgnosticComponentDateAndSourceContainer>
+              </AgnosticComponentTextColumn>
+            </AgnosticComponentProvider>
+          ))}
+        </PostAccordion>
+      )}
       {(peopleParam || noParams) && (
         <PostAccordion
-         isOpen={searchParams.get('open') === 'true' ? true : false}
           title="People"
+          isOpen={searchParams.get('open') === 'true'}
           itemsCount={`${filtredPeopleMaped.length}`}
         >
           {filtredPeopleMaped.map((value) => (
@@ -216,7 +336,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
       {(programmeParam || noParams) && (
         <PostAccordion
           title="Programmes"
-          isOpen={searchParams.get('open') === 'true' ? true : false}
+          isOpen={searchParams.get('open') === 'true'}
           itemsCount={`${filtredProgrammesMaped.length}`}
         >
           {filtredProgrammesMaped.map((value) => (
@@ -227,7 +347,6 @@ const FilterResults: React.FC<FilterResultsProps> = ({
                 <AgnosticComponentShortDescription />
                 <AgnosticComponentDateAndSourceContainer>
                   <AgnosticComponentDatePublished />
-               
                   <AgnosticComponentSource />
                 </AgnosticComponentDateAndSourceContainer>
               </AgnosticComponentTextColumn>
@@ -235,118 +354,6 @@ const FilterResults: React.FC<FilterResultsProps> = ({
           ))}
         </PostAccordion>
       )}
-      {(newsParam || noParams) && (
-        <PostAccordion
-          title="News"
-          isOpen={searchParams.get('open') === 'true' ? true : false}
-          itemsCount={`${filtredNewsMaped.length}`}
-        >
-          {filtredNewsMaped.map((value) => (
-            <AgnosticComponentProvider content={value}>
-              <AgnosticComponentTextColumn>
-                <AgnosticComponentProgramLabel />
-                <AgnosticComponentTitle />
-                <AgnosticComponentShortDescription />
-                <AgnosticComponentDateAndSourceContainer>
-                  <AgnosticComponentDatePublished />
-                  <span className="mono text-xs font-normal uppercase">•</span>
-                  <AgnosticComponentSource />
-                </AgnosticComponentDateAndSourceContainer>
-              </AgnosticComponentTextColumn>
-            </AgnosticComponentProvider>
-          ))}
-        </PostAccordion>
-      )}
-      {(pressParam || noParams) && (
-        <PostAccordion
-          title="Press"
-          isOpen={searchParams.get('open') === 'true' ? true : false}
-          itemsCount={`${filteredPosts.length}`}
-        >
-          {filtredPostsMaped.map((value) => (
-            <AgnosticComponentProvider content={value}>
-              <AgnosticComponentTextColumn>
-                <AgnosticComponentProgramLabel />
-                <AgnosticComponentTitle />
-                <AgnosticComponentShortDescription />
-                <AgnosticComponentDateAndSourceContainer>
-                  <AgnosticComponentDatePublished />
-                  <span className="mono text-xs font-normal uppercase">•</span>
-                  <AgnosticComponentSource />
-                </AgnosticComponentDateAndSourceContainer>
-              </AgnosticComponentTextColumn>
-            </AgnosticComponentProvider>
-          ))}
-        </PostAccordion>
-      )}
-      {(multimediaParam || noParams) && (
-        <PostAccordion
-          title="Multimedia"
-          isOpen={searchParams.get('open') === 'true' ? true : false}
-          itemsCount={`${filtredMultimediaMaped.length}`}
-        >
-          {filtredMultimediaMaped.map((value) => (
-            <AgnosticComponentProvider content={value}>
-              <AgnosticComponentTextColumn>
-                <AgnosticComponentProgramLabel />
-                <AgnosticComponentTitle />
-                <AgnosticComponentShortDescription />
-                <AgnosticComponentDateAndSourceContainer>
-                  <AgnosticComponentDatePublished />
-                  <span className="mono text-xs font-normal uppercase">•</span>
-                  <AgnosticComponentSource />
-                </AgnosticComponentDateAndSourceContainer>
-              </AgnosticComponentTextColumn>
-            </AgnosticComponentProvider>
-          ))}
-        </PostAccordion>
-      )}
-      {(publicationParam || noParams) && (
-        <PostAccordion
-        isOpen={searchParams.get('open') === 'true' ? true : false}
-          title="Publications"
-          itemsCount={`${filtredPublicationsMaped.length}`}
-        >
-          {filtredPublicationsMaped.map((value) => (
-            <AgnosticComponentProvider content={value}>
-              <AgnosticComponentTextColumn>
-                <AgnosticComponentProgramLabel />
-                <AgnosticComponentTitle />
-                <AgnosticComponentShortDescription />
-                <AgnosticComponentDateAndSourceContainer>
-                  <AgnosticComponentDatePublished />
-                  <span className="mono text-xs font-normal uppercase">•</span>
-                  <AgnosticComponentSource />
-                </AgnosticComponentDateAndSourceContainer>
-              </AgnosticComponentTextColumn>
-            </AgnosticComponentProvider>
-          ))}
-        </PostAccordion>
-      )}
-      {(eventParam || noParams) && (
-        <PostAccordion
-        isOpen={searchParams.get('open') === 'true' ? true : false}
-          title="Events"
-          itemsCount={`${filtredEventsMaped.length}`}
-        >
-          {filtredEventsMaped.map((value) => (
-            <AgnosticComponentProvider content={value}>
-              <AgnosticComponentTextColumn>
-                <AgnosticComponentProgramLabel />
-                <AgnosticComponentTitle />
-                <AgnosticComponentShortDescription />
-                <AgnosticComponentDateAndSourceContainer>
-                  <AgnosticComponentDatePublished />
-                  <span className="mono text-xs font-normal uppercase">•</span>
-                  <AgnosticComponentSource />
-                </AgnosticComponentDateAndSourceContainer>
-              </AgnosticComponentTextColumn>
-            </AgnosticComponentProvider>
-          ))}
-        </PostAccordion>
-      )}
-     
-    
     </div>
   );
 };
