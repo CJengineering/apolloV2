@@ -1,4 +1,5 @@
 import { EventFieldData } from "@/app/interfaces";
+import ContentPhotos from "@/components/CJ-components/components-CJ/test components/content-photos";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
@@ -9,6 +10,7 @@ import { filterRelatedPosts } from "@/functions/filters/filterRelatedPosts";
 import eventMapper from "@/functions/transformers/eventMapper";
 import peopleMapper from "@/functions/transformers/peopleMapper";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
+import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcollectionToLIghtBox";
 import Image from "next/image";
 import React from "react";
 
@@ -74,10 +76,30 @@ export default async function EventPage({
     )
   );
 
+  const cleanRelatedImages = eventSingleDataCleaned.imageGallery.map(
+    photoNotFromCollectionMapper
+  );
+
   return (
-    <MainContainer isSideBar={true}>
-      <ContentContainer>
-        <h1>{eventSingleDataCleaned.seoTitle}</h1>
+    <ContentContainer width="full" desktopWidth="medium">
+         <div className="py-12 flex flex-col items-center justify-center">
+          <div className="w-full pb-2 md:w-1/2">
+            <h1 className="text-center text-4xl serif font-bold">
+            {eventSingleDataCleaned.name}
+            </h1>
+          </div>
+          <div className="flex justify-center space-x-4">
+      <div className="p-4">
+        <p className="sans-serif text-base font-normal">{eventSingleDataCleaned.eventDate}</p>
+      </div>
+      <div className="p-4">
+        <p className="">time</p>
+      </div>
+      <div className="p-4">
+        <p className="">location</p>
+      </div>
+    </div>
+          </div>
         <Image
           className="w-full"
           src={eventSingleDataCleaned.heroImage.url}
@@ -85,15 +107,27 @@ export default async function EventPage({
           width={100}
           height={100}
         />
-        <SectionBanter title="Synopsis">
-          <div className="prose mx-auto sm:prose-lg first-letter:text-4xl first-letter:font-bold first-letter:tracking-[.15em] prose-a:transition prose-a:duration-300 prose-a:ease-in-out hover:prose-a:text-red-700 prose-img:rounded-xl">
+       <div className="flex justify-center pt-12">
+          <div className="prose prose-xl dark:prose-dark serif">
             <div
               dangerouslySetInnerHTML={{
                 __html: eventSingleDataCleaned.shortDescription2,
               }}
             ></div>
+          </div> 
+
           </div>
-        </SectionBanter>
+
+          <div>
+          <div className="">
+            <div className="w-max-[100px]"
+              dangerouslySetInnerHTML={{
+                __html: eventSingleDataCleaned.trailerLivestreamHighlightsVideoLink,
+              }}
+            ></div>
+          </div>
+  
+          </div>
         <SectionBanter title="Participants">
           {relatedPeopleDataCleaned.map((person) => (
             <div key={person.name}>
@@ -109,7 +143,7 @@ export default async function EventPage({
           ))}
         </SectionBanter>
         <SectionBanter title="Organisers">
-          {eventSingleDataCleaned.organisers.map((organiser) => (
+        {eventSingleDataCleaned.organisers.map((organiser) => (
             <div key={organiser.name}>
               <Image
                 src={organiser.logo.url}
@@ -117,17 +151,16 @@ export default async function EventPage({
                 width={100}
                 height={100}
               />
-         
             </div>
           ))}
  
         </SectionBanter>
         <SectionBanter title="Partners">
-        {eventSingleDataCleaned.partners.map((organiser) => (
-            <div key={organiser.name}>
+        {eventSingleDataCleaned.partners.map((partners) => (
+            <div key={partners.name}>
               <Image
-                src={organiser.logo.url}
-                alt={organiser.logo.alt || ""}
+                src={partners.logo.url}
+                alt={partners.logo.alt || ""}
                 width={100}
                 height={100}
               />
@@ -136,15 +169,28 @@ export default async function EventPage({
           ))}
         </SectionBanter>
         
-        <SectionBanter title="With representatives from ">
-          <div></div>
+        <SectionBanter title="With representatives from">
+        {eventSingleDataCleaned.participantsAffiliatedInstitutions.map((organiser) => (
+            <div key={organiser.name}>
+              <Image
+                src={organiser.logo.url}
+                alt={organiser.logo.alt || ""}
+                width={100}
+                height={100}
+              />
+            </div>
+          ))}
         </SectionBanter>
         <SectionBanter title="Gallery">
-          <div></div>
+        <div className="pb-12">
+              {eventSingleDataCleaned.imageGallery.length > 0 &&
+                eventSingleDataCleaned.imageGallery[0].url !== "" && (
+                  <ContentPhotos images={cleanRelatedImages} />
+                )}
+            </div>
         </SectionBanter>
         
         
       </ContentContainer>
-    </MainContainer>
   );
 }

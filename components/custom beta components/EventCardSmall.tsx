@@ -10,7 +10,7 @@ const EventCardSmall: React.FC<{ article: EventFieldDataCleaned }> = ({ article 
       key={article.slug}
       className="group relative flex flex-col flex-wrap"
     >
-      <div className="relative z-20 w-full h-72 overflow-hidden">
+      <div className="relative w-full h-72 overflow-hidden">
         <Image
           src={article.thumbnail.url}
           alt={article.thumbnail.alt || article.name}
@@ -18,28 +18,28 @@ const EventCardSmall: React.FC<{ article: EventFieldDataCleaned }> = ({ article 
           layout="fill"
         />
       </div>
-      <div className="flex w-full flex-1 flex-col justify-between">
+      <div className="flex w-full flex-1 flex-col justify-between pb-6">
         <div>
           {/* EVENT TITLE */}
           <div className="py-2">
-            <h3 className="serif text-1xl font-medium group-hover:text-blue-800 transition-colors">
+            <h3 className="serif text-1xl font-medium duration-300 group-hover:underline">
               {article.name}
             </h3>
           </div>
-          <div className="">
+          <div className="pb-1">
             <div className="flex space-x-1">
               <div>
-                <p className="mono text-xs font-normal uppercase">
+                <p className="sans-serif text-sm font-normal">
                   {article.eventDate}
                 </p>
               </div>
               {article.endDate && (
                 <>
                   <div>
-                    <p className="mono text-xs font-normal uppercase"> – </p>
+                    <p className="sans-serif text-sm font-normal"> – </p>
                   </div>
                   <div>
-                    <p className="mono text-xs font-normal uppercase">
+                    <p className="sans-serif text-sm font-normal">
                       {article.endDate}
                     </p>
                   </div>
@@ -47,16 +47,20 @@ const EventCardSmall: React.FC<{ article: EventFieldDataCleaned }> = ({ article 
               )}
             </div>
           </div>
+          <div className="pb-1">
           {article.time && (
-            <p className="mono text-xs font-normal uppercase">
+            <p className="sans-serif text-sm font-normal">
               {article.time}
             </p>
           )}
+          </div>
+          <div>
           {article.address && (
-            <p className="mono text-xs font-normal uppercase">
+            <p className="sans-serif text-sm font-normal">
               {article.address}
             </p>
           )}
+          </div>
         </div>
         {/* <div className="mt-5 flex items-center sm:mt-6">
           {article.rsvpLink && (
