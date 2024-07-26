@@ -28,8 +28,8 @@ import Search from "@/components/ui/search";
 import EventCard from "@/components/custom beta components/EventCard";
 import { getData } from "@/functions/api/getData";
 import eventMapper from "@/functions/transformers/eventMapper";
-
-import EventCardV1 from "@/components/custom beta components/EventCardV1";
+import EventCardLarge from "@/components/custom beta components/EventCardLarge";
+import EventCardSmall from "@/components/custom beta components/EventCardSmall";
 import {
   EventFieldData,
   Item,
@@ -41,6 +41,7 @@ import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import { get } from "http";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
+
 const articleData: NewsMainProps = {
   arabicTitle: "تكنولوجيا",
   tag: "Technology",
@@ -214,35 +215,36 @@ export default async function WhatsOnContent({
     (event) => new Date(event.endDate) < new Date() && !event.isDraft
   );
   return (
-    <MainContainer isSideBar={false}>
-      <ContentContainer>
-        <HeroBanter content={heroProps} />
-
-        <SectionBanter title={"Featured"}>
-          <div className="flex  gap-6 justify-center ">
+      <ContentContainer width="full" desktopWidth="medium">
+        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">Events</h1>
+        <div>
+        <div className="flex w-full pb-2">
             {eventsFeatured.map((article, index) => (
-              <EventCardV1 key={index} article={article} />
+              <EventCardLarge key={index} article={article} />
             ))}
           </div>
-        </SectionBanter>
+          <div className="py-12"><div className="w-full h-px bg-slate-200"></div></div>
         {eventFuture.length > 0 && (
-          <SectionBanter title={"Upcoming events"}>
-            <div className="grid md:grid-cols-3 gap-6">
+          <div className="">
+        <div className="pb-3"><h2 className="serif font-semibold text-3xl">Upcoming events</h2></div>
+              <div className="grid md:grid-cols-3 gap-6">
               {eventFuture.map((article, index) => (
-                <EventCardV1 key={index} article={article} />
+                <EventCardSmall key={index} article={article} />
               ))}
             </div>
-          </SectionBanter>
+            </div>
         )}
-
-        <SectionBanter title={"Past events"}>
+      <div>
+      <div className="py-12"><div className="w-full h-px bg-slate-200"></div></div>
+      <div className="pb-3"><h2 className="serif font-semibold text-3xl">Past events</h2></div>
           <div className="grid md:grid-cols-3 gap-6">
             {eventPast.map((article, index) => (
-              <EventCardV1 key={index} article={article} />
+              <EventCardSmall key={index} article={article} />
             ))}
           </div>
-        </SectionBanter>
+          </div>
+</div>
+
       </ContentContainer>
-    </MainContainer>
   );
 }

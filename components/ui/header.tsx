@@ -4,6 +4,7 @@ import Search from "./search";
 import LanguageChanger from "../custom beta components/LanguageChanger";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Hamburger from "./hamburger";
+import { Link } from "lucide-react";
 
 export default function Header() {
   return (
@@ -33,9 +34,11 @@ export default function Header() {
                 <ThemeToggle />
               </li>
               <li>
+                <a href="/search">
                 <div className="h-4 w-4">
                   <MagnifyingGlassIcon />
                 </div>
+                </a>
               </li>
             </ul>
           </nav>
