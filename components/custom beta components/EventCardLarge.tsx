@@ -29,31 +29,25 @@ const EventCardLarge: React.FC<{ article: EventFieldDataCleaned }> = ({ article 
             </Link>
           </div>
           <div className="">
-            <div className="flex space-x-1">
-              <div>
-                <p className="sans-serif uppercase text-sm font-normal">
-                  {article.eventDate}
-                </p>
-              </div>
-              {article.endDate && (
-                <>
-                  <div>
-                    <p className="sans-serif uppercase text-sm font-normal"> – </p>
-                  </div>
-                  <div>
-                    <p className="sans-serif uppercase text-sm font-normal">
-                      {article.endDate}
-                    </p>
-                  </div>
-                </>
-              )}
-            </div>
+          <div className="flex space-x-1 pb-1">
+          <p className="sans-serif text-base font-normal">
+          {article.eventDate}
+          </p>
+          {(article.endDate !== article.eventDate) && (
+          <>
+          <p className="sans-serif text-base font-normal"> – </p>
+        <p className="sans-serif text-base font-normal">
+        {article.endDate}
+      </p>
+    </>
+  )}
+</div>
           </div>
           {article.time && (
-            <p className="sans-serif uppercase text-sm font-normal">{article.time}</p>
+            <p className="sans-serif py-1 text-base font-normal">{article.time}</p>
           )}
           {article.address && (
-            <p className="sans-serif uppercase text-sm font-normal">
+            <p className="sans-serif py-1 text-base font-normal">
               {article.address}
             </p>
           )}
