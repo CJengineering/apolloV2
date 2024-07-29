@@ -7,6 +7,8 @@ import CardSquaredImage from "../basic components/CardSquared";
 import Stats from "../basic components/Stats";
 import SocialMediaList from "../basic components/SocialMediaList";
 import ButtonCJ from "../basic components/ButtonCJ";
+import FeatureCardTable from "../test components/FeatureCardTable";
+import { title } from "process";
 
 interface TableRowSingleProps {
   repository: RowData["repository"];
@@ -68,7 +70,6 @@ export default function TableRowSingle({
                     text={repository.content.button.text}
                   />
                 )}
-           
               </div>
             </div>
           </div>
@@ -140,10 +141,16 @@ export default function TableRowSingle({
           <div>
             <div className="pt-4 pb-8 grid grid-cols-3 gap-3">
               {repository.content.features.map((feature, index) => (
-                <CardSquaredImage
-                  key={index}
-                  type={feature.image.type}
-                  imageUrl={feature.image.imageUrl}
+                <FeatureCardTable
+                  image={{
+                    imageUrl: feature.image.imageUrl,
+                    type: feature.image.type,
+                    title: feature.title,
+                  }}
+                  title={feature.title}
+                  isLightBox={true}
+                  isTab={feature.isTab}
+                  customLink={feature.customLink}
                 />
               ))}
             </div>

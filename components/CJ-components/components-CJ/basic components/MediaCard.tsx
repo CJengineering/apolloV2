@@ -1,33 +1,39 @@
-import { MediaCardProps } from "@/app/interfaces";
+import React from "react";
 import {
   VideoCameraIcon,
   DocumentIcon,
   CameraIcon,
   MicrophoneIcon,
+  PlayCircleIcon,
+  PhotoIcon,
+  BeakerIcon,
 } from "@heroicons/react/24/solid";
-
 import Image from "next/image";
 import Link from "next/link";
+import { MediaCardProps } from "@/app/interfaces";
+import { t } from "i18next";
 
 const MediaCard = ({
   imageUrl,
   datePublished,
   alt,
   programme,
+  type,
   source,
   name,
   slug,
 }: MediaCardProps) => {
-  const getIcon = (source: string) => {
-    switch (source) {
+  const getIcon = (type: string) => {
+    switch (type) {
       case "video":
-        return <VideoCameraIcon className="h-4 w-4 text-white" />;
+        return <PlayCircleIcon className="h-4 w-4 text-white" />;
       case "audio":
         return <MicrophoneIcon className="h-4 w-4 text-white" />;
       case "photo":
-        return <CameraIcon className="h-4 w-4 text-white" />;
+        return <PhotoIcon className="h-4 w-4 text-white" />;
       default:
-        return <DocumentIcon className="h-4 w-4 text-white" />;
+        return <BeakerIcon
+        className="h-4 w-4 text-white" />;
     }
   };
 
@@ -48,7 +54,7 @@ const MediaCard = ({
           />
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="absolute left-4 top-4">
-            {/* Add getIcon(source) logic here if needed */}
+            {getIcon(type)}
           </div>
         </div>
 
@@ -73,7 +79,7 @@ const MediaCard = ({
             {/* PUBLISHED DATE */}
             <div className="text-left">
               <p className="sans-serif font-normal text-sm">
-                <time dateTime="2024-07-22">{datePublished}</time>
+                <time dateTime={datePublished}>{datePublished}</time>
               </p>
             </div>
             {/* SOURCES */}

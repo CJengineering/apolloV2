@@ -27,6 +27,7 @@ export interface CardProgrammeProps {
 export type CardHorizontalImageProps = {
   imageUrl: StaticImageData | string;
   type?: string;
+  title?:string;
 };
 
 export interface ListContentProps {
@@ -98,6 +99,10 @@ export interface RowContentData {
     | {
         image: CardHorizontalImageProps;
         title: string;
+        isLightBox: boolean;
+        isTab: boolean;
+        customLink: string;
+        
       }[]
     | [];
 }
@@ -769,6 +774,7 @@ export interface MultimediaCleanedFields {
 export interface FeatureRawFields {
   "name-arabic"?: string;
   "top-feature"?: boolean;
+  "lightbox-video-or-image"?: boolean
   order?: number;
   "custom-link"?: string;
   "new-tab"?: boolean;
@@ -792,6 +798,7 @@ export interface FeatureCleanedFields {
   topFeature: boolean;
   order: number;
   customLink: string;
+  ligthBoxVideoOrImage: boolean;
   newTab: boolean;
   label: string;
   labelArabic: string;
@@ -841,6 +848,7 @@ export interface MediaCardProps {
   alt: string;
   source: string;
   datePublished: string;
+  type: string;
   programme: { name: string; slug: string };
   name: string;
   slug: string;

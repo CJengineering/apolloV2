@@ -23,12 +23,7 @@ export default function LogoLoader() {
         alt="logo"
         style={{ width: "100px" }}
       />
-      <h1 className="text-3xl py-3 costa">
-        Loading
-        <span className={`dot ${dots >= 1 ? 'visible' : ''}`}>.</span>
-        <span className={`dot ${dots >= 2 ? 'visible' : ''}`}>.</span>
-        <span className={`dot ${dots >= 3 ? 'visible' : ''}`}>.</span>
-      </h1>
+
       <style jsx>{`
         .dot {
           opacity: 0;

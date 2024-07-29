@@ -64,8 +64,13 @@ export function mapProgrammeToRowData(programme: ProgrammeCleanedFields, feature
                 image: <CardHorizontalImageProps>{
                   imageUrl: feature.square.url,
                   type: feature.type,
+                  
                 },
                 title: feature.name,
+                isLightBox: feature.ligthBoxVideoOrImage,
+                isTab: feature.newTab,
+                customLink: feature.customLink,
+
               })  
             )
             : [],

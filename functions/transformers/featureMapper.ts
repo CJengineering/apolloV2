@@ -126,6 +126,7 @@ import {
         labelArabic: fieldData["label-arabic"] || "",
         shortText: fieldData["short-text"] || "",
         shortTextArabic: fieldData["short-text-arabic"] || "",
+        ligthBoxVideoOrImage: fieldData["lightbox-video-or-image"] || false,
         type:  fieldData.type ?  getNameById(fieldData.type) : "",
         square: {
           url: fieldData.square?.url || "",
