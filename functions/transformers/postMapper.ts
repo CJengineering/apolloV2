@@ -45,7 +45,7 @@ export default function postMapper(
         })
       : [{ url: "", alt: "" }];
   const relatedTags =
-    fieldData["theme-3"] && fieldData["theme-3"].length > 0
+    fieldData["theme-3"] && fieldData["theme-3"].length > 0 
       ? fieldData["theme-3"].map((tagId) => {
           const tagMatch = categories.find((tag) => tag.id === tagId);
           return tagMatch

@@ -74,7 +74,7 @@ export default async function page({
     <ContentContainer width="full" desktopWidth="small">
       <LanguageChanger></LanguageChanger>
       <div className={params.locale === "ar" ? "rtl" : ""}>
-        <div className="pb-12 flex flex-col items-center justify-center">
+        <div className="pb-12 pt-12 flex flex-col items-center justify-center">
           <div className="w-full pb-2 md:w-1/2">
             <h1 className="text-center text-4xl serif font-bold">
               {memberName}

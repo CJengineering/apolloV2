@@ -138,9 +138,8 @@ export default async function AnnouncementsContent({
   }));
 
   return (
-    <MainContainer isSideBar={false}>
-      <ContentContainer width="full" desktopWidth="small">
-      <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
+    <ContentContainer width="full" desktopWidth="medium">
+        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
           News
         </h1>
         <PostProvider
@@ -148,12 +147,11 @@ export default async function AnnouncementsContent({
           people={peopleForFilter}
           postsClean={posts}
         >
-          <div className=" relative mb-4">
+          <div className=" relative">
             <FilterComponentForPosts />
           </div>
           <PostsDisplay />
         </PostProvider>
       </ContentContainer>
-    </MainContainer>
   );
 }

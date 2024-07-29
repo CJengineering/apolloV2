@@ -78,8 +78,8 @@ export default async function page({
   }));
 
   return (
-    <MainContainer isSideBar={true}>
-      <ContentContainer>
+
+    <ContentContainer width="full" desktopWidth="medium">
         <div className="pb-12">
           <ArticleBanter post={cleanPost} />
         </div>
@@ -106,6 +106,6 @@ export default async function page({
           </>
         )}
       </ContentContainer>
-    </MainContainer>
+
   );
 }

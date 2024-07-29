@@ -5,8 +5,8 @@ import React from "react";
 
 const EventCardLarge: React.FC<{ article: EventFieldDataCleaned }> = ({ article }) => {
   return (
-    <div className="relative flex flex-row w-full group">
-      <div className="w-2/3 relative">
+    <div className="relative flex flex-col md:flex-row w-full group">
+      <div className="w-full md:w-2/3 relative">
         <Link href={`${article.slug}`}>
           <div className="relative w-full h-0 pb-[50%] overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-full transition-transform duration-1000 ease-linear group-hover:scale-105">
@@ -20,7 +20,7 @@ const EventCardLarge: React.FC<{ article: EventFieldDataCleaned }> = ({ article 
           </div>
         </Link>
       </div>
-      <div className="w-1/3 flex flex-col pl-6">
+      <div className="w-full md:w-1/3 flex flex-col pt-2 md:pl-6">
         <div className="">
           {/* EVENT TITLE */}
           <div className="pb-3">

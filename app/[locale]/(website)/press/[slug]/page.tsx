@@ -77,21 +77,29 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
             {/* <span className="mr-2 text-xl">&lsaquo;</span> */}
             {/* <span className="uppercase">back to news</span> */}
           </Link>
+          
+
+          <div className="w-full">
+          <div className="md:pt-12 flex flex-col items-start md:w-5/6">
+          <div className="pb-2"><span className="mono text-sm font-normal uppercase bg-slate-100 px-1">{newsItem.programme.name}</span></div>
+            <h1 className="text-left text-2xl md:text-4xl serif font-medium" title={params.locale === "ar" ? newsItem.arabicTitle : newsItem.name}>
+              {params.locale === "ar" ? newsItem.arabicTitle : newsItem.name}
+            </h1>
+          </div>
+            <div className="flex items-start">
+        <div className="flex mb-12 mt-2 space-x-3">
+          <div><p className="sans-serif text-base font-normal">{newsItem.sources.name}</p></div>
+          <div><p className="sans-serif text-base font-normal">|</p></div>
+          <div><p className="sans-serif text-base font-normal">{newsItem.datePublished}</p></div>
+        </div>
+      </div>
+          <div>
           <img
             src={newsItem.heroImage.url}
             alt={title}
             className="w-full h-auto mb-6"
           />
-
-          <div className="w-full">
-            <h1 className="serif text-2xl md:text-6xl font-medium leading-tight" title={params.locale === "ar" ? newsItem.arabicTitle : newsItem.name}>
-              {params.locale === "ar" ? newsItem.arabicTitle : newsItem.name}
-            </h1>
-            <div className="mb-6 flex items-center space-x-2 mt-6">
-        <div className="mono uppercase text-sm font-normal">{newsItem.sources.name}</div>
-        <span>•</span>
-        <div className="mono uppercase text-sm font-normal">{newsItem.datePublished}</div>
-      </div>
+          </div>
             <div className="md:hidden w-full md:w-1/3 mt-0 md:mt-0">
               <NewsRightContent
                 source={newsItem.sources.name}
