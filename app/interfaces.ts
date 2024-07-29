@@ -487,7 +487,6 @@ export interface ImageLightbox {
   year: string;
   people: string;
   programme2: string;
-
   nameArabic: string;
   mainImage: { fileId: string; url: string; alt: string };
   altText: string;
