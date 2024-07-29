@@ -52,7 +52,7 @@ export default function CardSquaredImage({ type, imageUrl }: CardHorizontalImage
         )}
       </div>
     </div>
-    <div className="pt-1"><p className="sans-serif text-base font-medium">Replace text with dynamic Feature title</p></div>
+    <div className=""></div>
     </div>
   )
 }
