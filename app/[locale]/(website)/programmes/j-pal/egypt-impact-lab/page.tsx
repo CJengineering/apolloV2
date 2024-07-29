@@ -32,7 +32,6 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { get } from "http";
 import { Divide } from "lucide-react";
 import React from "react";
-import ContentPhotos from "../../../../../components/CJ-components/components-CJ/test components/content-photos";
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
@@ -263,7 +262,7 @@ export default async function Programme19page({
         <div>
           <PostAccordion title={"Events"}>
             <div className="grid grid-cols-3 gap-5">
-              {eventProps.map((item) => (
+              {cleanRelatedEvents.map((item) => (
                 <>
                   <EventCard article={item}></EventCard>
                 </>

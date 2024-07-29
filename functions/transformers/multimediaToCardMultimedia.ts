@@ -6,6 +6,7 @@ export function mapMultimediaToMediaCard(multimedia: MultimediaCleanedFields): M
         source: multimedia.sources.name,
         datePublished: multimedia.datePublished,
         programme: {name: multimedia.programmeLabel.shortname ||'test', slug: multimedia.relatedProgrammes[0].slug},
+        type: multimedia.type,
 
         imageUrl: multimedia.thumbnail.url,
         alt: multimedia.thumbnail.alt,

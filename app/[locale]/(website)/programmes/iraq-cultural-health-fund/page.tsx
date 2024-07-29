@@ -263,7 +263,7 @@ export default async function Programme30page({
         <div>
           <PostAccordion title={"Events"}>
             <div className="grid grid-cols-3 gap-5">
-              {eventProps.map((item) => (
+              {cleanRelatedEvents.map((item) => (
                 <>
                   <EventCard article={item}></EventCard>
                 </>
