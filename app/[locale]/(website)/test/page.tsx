@@ -1,9 +1,9 @@
-import SectionBanter from "@/components/custom beta components/SectionBanter";
-
-import ContentContainer from "@/components/custom beta components/ContentContainer";
 import LogoLoader from "@/components/CJ-components/components-CJ/test components/LogoLoader";
+import ContentContainer from "@/components/custom beta components/ContentContainer";
+import SectionBanter from "@/components/custom beta components/SectionBanter";
+import React from "react";
 
-export default function NewsContentSkeleton() {
+export default function page() {
   return (
     <ContentContainer>
       <div className=" lg:min-w-[900px]">
