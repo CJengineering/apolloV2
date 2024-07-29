@@ -4,7 +4,7 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 
 export default function Footer() {
   return (
-    <ContentContainer width="full" desktopWidth="large">
+    <ContentContainer width="full">
       <footer className="border-t ml-64 dark:bg-slate-900 bg-white border-gray-200 dark:border-slate-700 pt-8">
         <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="mb-4 md:mb-0">

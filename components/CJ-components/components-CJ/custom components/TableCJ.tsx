@@ -128,7 +128,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                   </div>
                   <div className="mt-6">
                     <div
-                      className="serif text-xl md:w-11/12 md:text-3xl leading font-normal"
+                      className="sans-serif text-xl md:w-11/12 md:text-3xl leading font-normal"
                       dangerouslySetInnerHTML={{
                         __html: isArabic
                           ? repository.content.fullDescriptionArabic
@@ -199,7 +199,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                               imageUrl={feature.image.imageUrl}
                               type={feature.image.type}
                             />
-                            <p className="text-xs mono uppercase font-medium mt-2">
+                            <p className="text-base sans-serif font-medium mt-2">
                               {feature.title}
                             </p>
                           </div>
