@@ -12,6 +12,14 @@ module.exports = {
   darkMode: "class", // Enable class-based dark mode
   theme: {
     extend: {
+
+      textShadow: {
+        'default': '0 2px 4px rgba(0, 0, 0, 0.3)',
+        'md': '0 4px 8px rgba(0, 0, 0, 0.4)',
+        'lg': '0 6px 12px rgba(0, 0, 0, 0.7)',
+        'xl': '0 8px 16px rgba(0, 0, 0, 1)',
+      },
+
       typography: (theme: any) => ({
         DEFAULT: {
           css: {
@@ -129,5 +137,6 @@ module.exports = {
     require("@tailwindcss/typography"),
     headlessuiPlugin,
     require("@headlessui/tailwindcss")({ prefix: "ui" }),
+    require('tailwindcss-textshadow'),
   ],
 };

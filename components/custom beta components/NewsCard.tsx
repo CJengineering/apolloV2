@@ -41,7 +41,7 @@ export default function NewsCard({
 
           {/* TITLE OF POST ITEM START */}
           <div className="text-left">
-            <h3 className="text-base serif font-medium">
+            <h3 className="text-base serif font-medium group-hover:underline">
               {locale == "ar" ? content.arabicTitle : content.name}
             </h3>
           </div>

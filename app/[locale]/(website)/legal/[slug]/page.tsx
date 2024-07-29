@@ -19,14 +19,14 @@ export default async function LegalPage({
   const cleanSingleLegalData = legalMapper(singleLegalData);
 
   return (
-    <ContentContainer width="full" desktopWidth="small">
-          <div className="py-12 flex flex-col items-center justify-center">
-        <div className="w-full pb-2 md:w-1/2">
+    <ContentContainer width="full" desktopWidth="medium">
+          <div className="py-12 md:py-24 flex flex-col items-center justify-center">
+        <div className="w-full md:w-1/2">
           <h1 className="text-center text-4xl serif font-bold">{cleanSingleLegalData.name}</h1>
         </div>
       </div>
-      <div className="flex justify-center pt-12">
-        <div className="w-full md:w-2/3 prose dark:prose-dark serif font-semibold"
+      <div className="flex justify-center">
+        <div className="w-full prose prose-lg dark:prose-dark serif font-semibold"
           dangerouslySetInnerHTML={{ __html: cleanSingleLegalData.body }}
         ></div>
       </div>

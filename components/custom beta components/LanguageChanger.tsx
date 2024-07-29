@@ -53,8 +53,8 @@ export default function LanguageChanger() {
   const derivedLocale = getLocaleFromPathname(currentPathname);
 
   return (
-    <div className="flex justify-center items-center">
-      <div className="bg-slate-100 py-1 px-2 rounded mt-3">
+    <div className="absolute top-24 right-4 flex justify-center items-center">
+      <div className="bg-slate-100 py-1 px-2 rounded">
         {derivedLocale === 'en' ? (
           <span
             onClick={() => handleChange('ar')}
