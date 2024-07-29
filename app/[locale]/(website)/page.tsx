@@ -27,95 +27,48 @@ import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import { NewsMainProps } from "../../interfaces";
 import PostAccordion from "@/components/mdx/accordion";
+import CanvasAnimation from "@/components/CJ-components/components-CJ/custom components/CanvasAnimation";
+import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 
-const articleData: NewsMainProps = {
-  tag: "Technology",
-  arabicTitle: "تكنولوجيا",
-  title: "Apple to Turn IPhones Into Payment Terminals in Fintech Push",
-  description:
-    "Apple Inc is introducing a new feature that will allow businesses to accept credit card and digital payments with just a tap on their iPhones, bypassing hardware systems such as Block Inc's Square terminals.",
-  source: "Mark Jack",
-  datePublished: "2021-12-16",
-  readTime: "6 min",
-  postLink: "post.html",
-  categoryLink: "category.html",
-  authorLink: "author.html",
-  postImage: cancerImage.src,
-  authorImage:
-    "https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.jpg",
-};
-const articles = [
+// START THE DATA FOR CARDS
+
+const cardData = [
   {
-    id: "1",
-    title: "Prepare to Shell Out for Warehouse Space -- If You Can Find It",
-    description:
-      "The demand for warehouse space is skyrocketing as e-commerce continues to grow.",
-    category: "Economic outlook",
-    imageUrl: "https://via.placeholder.com/600x400.png?text=Warehouse+Space",
-    author: {
-      name: "Taylor Adams",
-      imageUrl: "https://via.placeholder.com/150.png?text=Taylor+Adams",
-      date: "2023-05-29",
-      readTime: "5 min read",
-    },
+    imageUrl: '/images/EMPTY_QUARTER_BG.jpg',
+    alt: 'Sample Image 1',
+    title: 'Life-saving care for mothers and children evacuated from Gaza',
+    subtitle: 'Egyptian paramedics are receiving specialist training from Save the Children, supported by Community Jameel, to help them deliver life-saving care to pregnant mothers, newborn babies and wounded children evacuated from Gaza.',
+    link: 'https://www.communityjameel.org',
+    openInNewTab: false,
   },
   {
-    id: "2",
-    title: "Tech Giants are Investing in Renewable Energy",
-    description:
-      "Tech companies are leading the way in renewable energy investments to combat climate change.",
-    category: "Technology",
-    imageUrl: "https://via.placeholder.com/600x400.png?text=Renewable+Energy",
-    author: {
-      name: "Jordan Lee",
-      imageUrl: "https://via.placeholder.com/150.png?text=Jordan+Lee",
-      date: "2023-05-28",
-      readTime: "7 min read",
-    },
+    imageUrl: '/images/EMPTY_QUARTER_BG.jpg',
+    alt: 'Sample Image 2',
+    title: 'Bill Gates and Fady Jameel host food security meeting at COP28',
+    subtitle: 'Scientists, farmers and chefs convene for the \'Farming for our future\' breakfast event.',
+    link: 'https://www.communityjameel.org/post/bill-gates-and-fady-jameel-discuss-food-and-farming-with-scientists-farmers-and-chefs-at-the-farming-for-our-future-breakfast-event-on-the-sidelines-of-cop28-in-dubai',
+    openInNewTab: false,
   },
   {
-    id: "3",
-    title: "The Future of Remote Work",
-    description:
-      "Remote work is here to stay. Learn how companies are adapting to this new trend.",
-    category: "Workplace",
-    imageUrl: "https://via.placeholder.com/600x400.png?text=Remote+Work",
-    author: {
-      name: "Alex Morgan",
-      imageUrl: "https://via.placeholder.com/150.png?text=Alex+Morgan",
-      date: "2023-05-27",
-      readTime: "6 min read",
-    },
+    imageUrl: '/images/EMPTY_QUARTER_BG.jpg',
+    alt: 'Sample Image 3',
+    title: 'CLIMAVORE x Jameel at RCA announces 2024 Food Action Awards',
+    subtitle: 'CLIMAVORE x Jameel at the Royal College of Art (RCA) is offering two awards to advance projects that respond to food in the new seasons of the climate crisis, such as drought, polluted oceans or fertiliser runoff.',
+    link: 'https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards',
+    openInNewTab: false,
   },
   {
-    id: "4",
-    title: "Advancements in AI Technology",
-    description:
-      "AI technology is evolving rapidly, impacting various industries around the world.",
-    category: "Artificial Intelligence",
-    imageUrl: "https://via.placeholder.com/600x400.png?text=AI+Technology",
-    author: {
-      name: "Sam Taylor",
-      imageUrl: "https://via.placeholder.com/150.png?text=Sam+Taylor",
-      date: "2023-05-26",
-      readTime: "8 min read",
-    },
-  },
-  {
-    id: "5",
-    title: "How to Improve Cybersecurity in Your Organization",
-    description:
-      "Cybersecurity is more important than ever. Here are some tips to keep your organization safe.",
-    category: "Cybersecurity",
-    imageUrl: "https://via.placeholder.com/600x400.png?text=Cybersecurity",
-    author: {
-      name: "Morgan Brown",
-      imageUrl: "https://via.placeholder.com/150.png?text=Morgan+Brown",
-      date: "2023-05-25",
-      readTime: "5 min read",
-    },
+    imageUrl: '/images/EMPTY_QUARTER_BG.jpg',
+    alt: 'Sample Image 3',
+    title: 'CLIMAVORE x Jameel at RCA announces 2024 Food Action Awards',
+    subtitle: 'CLIMAVORE x Jameel at the Royal College of Art (RCA) is offering two awards to advance projects that respond to food in the new seasons of the climate crisis, such as drought, polluted oceans or fertiliser runoff.',
+    link: 'https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards',
+    openInNewTab: false,
   },
 ];
+// END THE DATA FOR CARDS
+
+
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
@@ -148,61 +101,29 @@ export default async function SinglePost({
     locale: string;
   };
 }) {
-  const post = {
-    title: "Community  Jameel",
-    summary:
-      "A deep dive into how async/await works in JavaScript, with examples and best practices.",
-    topic: {
-      name: "Home",
-      slug: "javascript",
-    },
-    prev: {
-      name: "Promises in JavaScript",
-      slug: "promises-in-javascript",
-    },
-    next: {
-      name: "JavaScript Event Loop",
-      slug: "javascript-event-loop",
-    },
-  };
-  const heroProps = {
-    backgroundImageUrl: image.src,
-    overlayColor: "bg-gray-400/80",
-    subTitle: "Community Jameel",
-    title: "Advancing science and learning for communities to thrive",
-  };
-  const heroPropsArabic = {
-    backgroundImageUrl: image.src,
-    overlayColor: "bg-gray-400/80",
-    subTitle: "Community Jameel",
-    title: "AImagine its in arabic",
-  };
+
+
   const heroProps2 = {
     backgroundImageUrl: porgrammeImage.src,
     overlayColor: "",
     subTitle: "",
     title: "",
   };
-  if (!post) notFound();
 
   return (
-    <MainContainer isSideBar={false}>
-      <ContentContainer>
-        <HeroBanter
-          content={params.locale === "en" ? heroProps : heroPropsArabic}
-        />
-        <HomeIcons />
 
-        <PostAccordion title={"Accordion that we have "}>
-          <div>Hi, I am the accordion built in the template </div>
-          <div>You Can remove me </div>
-        </PostAccordion>
-        <SectionBanter title={"Features"}>
-          <div className="grid  gap-6 grid-cols-1 md:grid-cols-3 ">
-            <p className="text-4xl"> Add Feature CARD HERE </p>
+      <ContentContainer width="full" desktopWidth="large">
+        <div className="pt-36 flex flex-col justify-center">
+          <h1 className="costa lg:w-5/6 font-bold text-left text-4xl md:text-6xl lg:text-7xl">
+          Advancing science and learning for communities to thrive
+          </h1>
+          <div className="pt-6">
+            <p className="serif lg:w-5/6 text-xl font-normal md:text-2x text-left">An independent, global organisation, Community Jameel launched in 2003 to continue the tradition of philanthropy and community service established by the Jameel family of Saudi Arabia in 1945.</p>
+            </div>
+        </div>
+        <div className="py-6 md:py-12">
+            <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
           </div>
-        </SectionBanter>
-        <SectionBanter title="Programmes">
           <div className="relative w-full ">
             <Image
               className="h-full w-full object-cover"
@@ -212,27 +133,41 @@ export default async function SinglePost({
               height={1080}
             />
           </div>
-        </SectionBanter>
-        <SectionBanter title={"News"}>
-          <div className="mx-auto max-w-2xl lg:flex lg:max-w-screen-2xl lg:items-start lg:space-x-8">
-            {/* Sticky Main Article Container */}
+          <div className="py-6 md:py-12">
+            <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+          </div>
+         
+        <div className="flex justify-center">
+        <div className="md:w-5/6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {cardData.map((card, index) => (
+          <HomeCard
+            key={index}
+            imageUrl={card.imageUrl}
+            alt={card.alt}
+            title={card.title}
+            subtitle={card.subtitle}
+            link={card.link}
+            openInNewTab={card.openInNewTab}
+          />
+        ))}
+      </div>
+      </div>
 
-            {/* Scrollable Recent News Container */}
-            <div className="mt-12 sm:mt-16 lg:ml-12 lg:mt-0 lg:w-1/2 xl:ml-16 ">
-              <h3 className="relative border-b border-gray-300/70 pb-2.5 text-2xl font-medium text-gray-900 before:absolute before:-bottom-px before:left-0 before:h-px before:w-24 before:bg-red-600 before:content-['']">
-                Recent news
-              </h3>
+      <div className="py-6 md:py-12">
+            <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+          </div>
 
-              {/* Articles Container */}
-              <div className="grid lg:gap-x-5 xl:grid-cols-1"></div>
+          <div className="grid grid-col-1  md:grid-cols-3 md:col-span-12">
+            <div className="grid md:row-span-3">
+              <h2 className="serif font-semibold text-3xl">News</h2>
+            </div>
+            <div className="grid md:row-span-3">
+              <h2 className="serif font-semibold text-3xl">Press</h2>
+            </div>
+            <div className="grid md:row-span-3">
+              <h2 className="serif font-semibold text-3xl">Events</h2>
             </div>
           </div>
-        </SectionBanter>
-        <TrandingTopics />
-        <SectionBanter title={"Events"}>
-          <EventSection />
-        </SectionBanter>
       </ContentContainer>
-    </MainContainer>
   );
 }
