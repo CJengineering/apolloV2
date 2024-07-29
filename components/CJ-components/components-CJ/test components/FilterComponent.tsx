@@ -110,7 +110,7 @@ const FilterComponent: React.FC = () => {
 
   return (
     <div className="w-full">
-      <div className="flex space-x-4 mt-12">
+      <div className="flex space-x-4 mt-6">
         <div className="w-full">
           <input
             id="news-search"
@@ -129,9 +129,9 @@ const FilterComponent: React.FC = () => {
             {({ open }) => (
               <>
                 <div className="mt-1 relative">
-                  <div className="relative w-full text-left bg-white rounded-lg cursor-default overflow-hidden focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                  <div className="relative w-full text-left bg-white rounded-lg cursor-default focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
                     <Combobox.Input
-                      className="mono font-normal block w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      className="mono font-normal w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       placeholder="Lab"
                       onChange={(event) =>
                         setQueryProgramme(event.target.value)
@@ -216,9 +216,9 @@ const FilterComponent: React.FC = () => {
             {({ open }) => (
               <>
                 <div className="mt-1 relative">
-                  <div className="relative w-full text-left bg-white rounded-lg cursor-default overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
+                  <div className="relative w-full text-left bg-white rounded-lg cursor-default focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
                     <Combobox.Input
-                      className="w-full mono font-normal block pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      className="mono font-normal w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       placeholder="Source"
                       onChange={(event) => setQuerySource(event.target.value)}
                       displayValue={(source: RelatedCollection) => source.name}

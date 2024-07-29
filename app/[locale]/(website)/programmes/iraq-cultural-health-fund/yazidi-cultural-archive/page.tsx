@@ -37,7 +37,7 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 
-export default async function Programme16page({
+export default async function Programme11page({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -81,7 +81,7 @@ export default async function Programme16page({
   {
     /**Get the single programme by id from webflow */
   }
-  const jwafsId = "630f7f4b4cd649c47cb8beca";
+  const jwafsId = "636627a926b9af602935310f";
   const jwafsSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
     (item) => item.id === jwafsId

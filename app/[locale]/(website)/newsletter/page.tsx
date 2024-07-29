@@ -1,49 +1,57 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
+import ContentContainer from '@/components/custom beta components/ContentContainer';
+import ButtonCJ from '@/components/CJ-components/components-CJ/basic components/ButtonCJ';
 
-export default function page() {
-    
+export default function Page() {
   return (
-    <div className="min-h-screen max-h-[100vh] flex">
-    <div className="w-1/2 ">
-      <img src="your-image-url.jpg" alt="Full Image" className="object-cover mt-8 h-full w-full" />
+    <ContentContainer width="full" desktopWidth="medium">
+    <div
+      className="min-h-96 flex items-center justify-center bg-cover bg-center"
+      style={{ backgroundImage: "url('/images/EMPTY_QUARTER_BG.jpg')" }}
+    >
+      <div className="max-w-xl w-full p-8 rounded-lg shadow-md">
+   
+       
+      </div>
     </div>
-    <div className="w-1/2 flex items-center justify-center bg-gray-100">
-      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign In</h2>
-        <form>
-          <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
-              Email
-            </label>
+
+    <div className="flex flex-col items-center justify-center bg-cover bg-center"> 
+    <h1 className="text-3xl serif font-bold py-12 text-center text-black">Sign up to Community Jameel's newsletter</h1>
+    <div className="max-w-xl w-full p-8 rounded-lg">
+      <form>
+
+          <div className="mb-6">
+            {/* <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
+            </label> */}
             <input
-              type="email"
-              id="email"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="text"
+              placeholder='Full name'
+              id="name"
+              className="appearance-none mono font-normal border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-indigo-500 focus:shadow-outline"
               required
             />
           </div>
-          <div className="mb-6">
-            <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
-              Name
-            </label>
+          <div className="mb-4">
+            {/* <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
+            </label> */}
             <input
-              type="text"
-              id="name"
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              type="email"
+              id="email"
+              placeholder='Email'
+              className="appearance-none mono font-normal border border-gray-300 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-indigo-500 focus:shadow-outline"
               required
             />
           </div>
           <div className="flex items-center justify-between">
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Submit
-            </button>
+          <ButtonCJ
+                    href={`www.communityjameel.org`}
+                    text={`sign up`}
+                  />
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  )
+          
+        </form></div>
+        </div>
+  </ContentContainer>
+  );
 }
