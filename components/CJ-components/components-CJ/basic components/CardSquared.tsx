@@ -31,6 +31,7 @@ export default function CardSquaredImage({ type, imageUrl }: CardHorizontalImage
   const IconComponent = type && iconMapping[type as IconType] ? iconMapping[type as IconType] : null;
 
   return (
+    <div>
     <div className="relative w-full">
       <div className="aspect-square overflow-hidden">
         <Image
@@ -45,11 +46,13 @@ export default function CardSquaredImage({ type, imageUrl }: CardHorizontalImage
         <div className="absolute inset-0 bg-black opacity-50"></div>
         
         {IconComponent && (
-          <div className="absolute left-4 top-4 h-4 w-4 text-white">
+          <div className="absolute left-3 top-3 h-5 w-5 text-white">
             <IconComponent />
           </div>
         )}
       </div>
+    </div>
+    <div className="pt-1"><p className="sans-serif text-base font-medium">Replace text with dynamic Feature title</p></div>
     </div>
   )
 }

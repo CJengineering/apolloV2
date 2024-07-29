@@ -64,7 +64,7 @@ const MediaCard = ({
 
           {/* TITLE OF POST ITEM START */}
           <div className="text-left">
-            <h3 className="text-base serif font-medium">{name}</h3>
+            <h3 className="text-base serif font-medium group-hover:underline">{name}</h3>
           </div>
           {/* TITLE OF POST ITEM END */}
 
@@ -72,16 +72,16 @@ const MediaCard = ({
           <div className="flex space-x-2">
             {/* PUBLISHED DATE */}
             <div className="text-left">
-              <p className="mono text-xs font-normal uppercase">
+              <p className="sans-serif font-normal text-sm">
                 <time dateTime="2024-07-22">{datePublished}</time>
               </p>
             </div>
             {/* SOURCES */}
             <div className="text-left">
-              <p className="mono text-xs font-normal uppercase">•</p>
+              <p className="sans-serif font-normal text-sm">|</p>
             </div>
             <div className="text-left">
-              <p className="mono text-xs font-normal uppercase">{source}</p>
+              <p className="sans-serif font-normal text-sm">{source}</p>
             </div>
           </div>
           {/* END PUBLISHED DATE AND SOURCES CONTAINER */}

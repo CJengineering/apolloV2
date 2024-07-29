@@ -13,12 +13,11 @@ export const NewsDisplay: React.FC<{ locale: string }> = ({ locale }) => {
     return (
       <>
 
-        <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
-   
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-1">
           <Suspense>
             {filteredNews.map((news, index) => (
               <NewsCardV2Provider key={index} content={news}>
-                <NewsCardV2ImageColumn />
+                {/* <NewsCardV2ImageColumn /> */}
                 <NewsCardV2TextColumn>
                   <NewsCardV2ProgrammeLabel />
                   <NewsCardV2Title />

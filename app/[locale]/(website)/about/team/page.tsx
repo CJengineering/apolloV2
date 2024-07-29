@@ -69,7 +69,7 @@ export default async function PeopleContent({
   
   return (
 <>
-      <ContentContainer width="full" desktopWidth="large">
+      <ContentContainer width="full" desktopWidth="medium">
       <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
           Team
         </h1>   
@@ -86,7 +86,7 @@ export default async function PeopleContent({
           </div>
         </div>
     <div className="flex flex-col py-6">
-    <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
+    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div> {/* Separation Bar */}
     </div>
         <div className="">
           <h2 className="serif font-semibold text-3xl pb-6">Advisory Committee</h2>
@@ -102,7 +102,7 @@ export default async function PeopleContent({
         </div>
 
         <div className="flex flex-col py-6">
-      <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
+      <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div> {/* Separation Bar */}
     </div>
         <div>
           <h2 className="serif font-semibold text-3xl">Jameel Family</h2>

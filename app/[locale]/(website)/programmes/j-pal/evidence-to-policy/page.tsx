@@ -32,7 +32,7 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { get } from "http";
 import { Divide } from "lucide-react";
 import React from "react";
-import ContentPhotos from "../../../../../components/CJ-components/components-CJ/test components/content-photos";
+import ContentPhotos from "../../../../../../components/CJ-components/components-CJ/test components/content-photos";
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";

@@ -135,7 +135,7 @@ export const FilterComponentForPosts: React.FC = () => {
                 <Combobox.Label className="block text-sm font-medium text-gray-700">
                 </Combobox.Label>
                 <div className="mt-1 relative">
-                  <div className="relative w-full text-left bg-white rounded-lg cursor-default  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
+                  <div className="relative w-full text-left bg-white rounded-lg cursor-default focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
                     <Combobox.Input
                       className="mono font-normal w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       placeholder="Lab"

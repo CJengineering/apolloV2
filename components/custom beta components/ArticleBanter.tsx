@@ -14,17 +14,15 @@ export default function ArticleBanter({ post }: ArticleBanterProps) {
   return (
 <>
 
-      <div className="pt-3 md:pt-12 flex flex-col items-start md:w-5/6">
+      <div className="md:pt-12 flex flex-col items-start md:w-5/6">
+      <div className="pb-2"><span className="mono text-sm font-normal uppercase bg-slate-100 px-1">{post.programme.name}</span></div>
       <h1 className="text-left text-2xl md:text-4xl serif font-medium">{post.name}</h1>
       </div>
       <div className="flex items-start">
-  <div className="flex mt-3 mb-12 md:mt-6">
-    <span className="mono text-sm font-normal uppercase bg-slate-100 px-1 mr-3">{post.programme.name}</span>
-  {/* <span className="mono text-sm font-normal uppercase">news</span> */}
-  {/* <span className="sans-serif text-sm font-normal mx-3">|</span> */}
-    <div className="sans-serif text-sm font-normal">{post.datePublished}</div>
-  </div>
-</div>
+        <div className="flex flex-col mb-12 mt-2">
+          <div className="sans-serif text-base font-normal">{post.datePublished}</div>
+        </div>
+      </div>
         <Image
           className=""
           src={post.mainImage.url}

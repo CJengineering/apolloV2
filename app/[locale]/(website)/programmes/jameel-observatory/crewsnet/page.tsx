@@ -32,12 +32,12 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { get } from "http";
 import { Divide } from "lucide-react";
 import React from "react";
-import ContentPhotos from "../../../../../components/CJ-components/components-CJ/test components/content-photos";
+import ContentPhotos from "../../../../../../components/CJ-components/components-CJ/test components/content-photos";
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 
-export default async function Programme29page({
+export default async function Programme16page({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -81,7 +81,7 @@ export default async function Programme29page({
   {
     /**Get the single programme by id from webflow */
   }
-  const jwafsId = "61ee828a15a318865fbde644";
+  const jwafsId = "630f7f4b4cd649c47cb8beca";
   const jwafsSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
     (item) => item.id === jwafsId
