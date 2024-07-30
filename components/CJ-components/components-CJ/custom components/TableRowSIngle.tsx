@@ -68,6 +68,7 @@ export default function TableRowSingle({
                   <ButtonCJ
                     href={repository.content.button.href}
                     text={repository.content.button.text}
+                    styleType="primary"
                   />
                 )}
               </div>
