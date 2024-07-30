@@ -29,7 +29,7 @@ export default function peopleMapper(
             arabicName: programmeMatch.fieldData["name-arabic"] || "",
             slug: programmeMatch.fieldData.slug || "",
           }
-        : { name: "N/A", slug: "N/A",arabicName: "N/A"};
+        : { name: "N/A", slug: "N/A", arabicName: "N/A" };
     }) || [];
 
   const relatedPeople =
@@ -38,10 +38,10 @@ export default function peopleMapper(
       return peopleMatch
         ? {
             name: peopleMatch.fieldData.name || "",
-            arabicName  : peopleMatch.fieldData["name-arabic"] || "",
+            arabicName: peopleMatch.fieldData["name-arabic"] || "",
             slug: peopleMatch.fieldData.slug || "",
           }
-        : { name: "N/A", slug: "N/A",arabicName: "N/A"};
+        : { name: "N/A", slug: "N/A", arabicName: "N/A" };
     }) || [];
   const relatedMultimedia =
     fieldData["multimedia"] && fieldData["multimedia"].length > 0
@@ -55,7 +55,7 @@ export default function peopleMapper(
                 arabicName: multimediaMatch.fieldData["name-arabic"] || "",
                 slug: multimediaMatch.fieldData.slug || "",
               }
-            : { name: "N/A", slug: "N/A" ,arabicName: "N/A"};
+            : { name: "N/A", slug: "N/A", arabicName: "N/A" };
         })
       : [];
   const partnerOrganisation =
@@ -67,7 +67,7 @@ export default function peopleMapper(
             arabicName: orgMatch.fieldData["arabic-name"] || "",
             slug: orgMatch.fieldData.slug || "",
           }
-        : { name: "N/A", slug: "N/A", arabicName  : "N/A" };
+        : { name: "N/A", slug: "N/A", arabicName: "N/A" };
     }) || [];
 
   const photos =
@@ -89,12 +89,29 @@ export default function peopleMapper(
         url: fieldData["profile-picture"].url || "",
       }
     : { alt: "", url: "" };
-
+  const relatedSingleProgramme = programmes.find(
+    (programmes) => programmes.id === fieldData["related-programme"]
+  );
+  const relatedProgrammeFinal = relatedSingleProgramme
+    ? {
+        name: relatedSingleProgramme.fieldData.name || "N/A",
+        slug: relatedSingleProgramme.fieldData.slug || "N/A",
+        arabicName: relatedSingleProgramme.fieldData["name-arabic"] || "N/A",
+        shortname: relatedSingleProgramme.fieldData.shortname || "N/A",
+        url: relatedSingleProgramme.fieldData.website || "N/A",
+      }
+    : {
+        name: "N/A",
+        slug: "N/A",
+        arabicName: "N/A",
+        shortname: "N/A",
+        url: "N/A",
+      };
   return {
     name: fieldData.name || "N/A",
     nameArabic: fieldData["name-arabic"] || "N/A",
     hero: fieldData.hero || false,
-    relatedProgramme: fieldData["related-programme"] || "N/A",
+    relatedProgramme: relatedProgrammeFinal,
     collectionName: "people",
     relatedProgrammes: relatedProgrammes,
     color: fieldData.color || "N/A",
@@ -130,7 +147,11 @@ export default function peopleMapper(
     hideEventsRichText: fieldData["hide-events-rich-text"] || false,
     multimedia: relatedMultimedia,
     tag:
-      fieldData.tag?.map((tag) => ({ name: tag || "N/A", slug: "N/A", arabicName: 'NA' })) || [],
+      fieldData.tag?.map((tag) => ({
+        name: tag || "N/A",
+        slug: "N/A",
+        arabicName: "NA",
+      })) || [],
     order: fieldData.order || 0,
     country: fieldData.country || "N/A",
     slug: `/people/${fieldData.slug}` || "N/A",

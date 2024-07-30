@@ -38,6 +38,10 @@ import MediaCard from "@/components/CJ-components/components-CJ/basic components
 import { mapMultimediaToMediaCard } from "@/functions/transformers/multimediaToCardMultimedia";
 import NewsCard from "@/components/custom beta components/NewsCard";
 import PostCard from "@/components/custom beta components/PostCard";
+import filterRelatedPublications from "@/functions/filters/filterRelatedPublications";
+import publicationMapper from "@/functions/transformers/publicationMapper";
+import { AgnosticComponentDateAndSourceContainer, AgnosticComponentDatePublished, AgnosticComponentProgramLabel, AgnosticComponentProgramLabel, AgnosticComponentProvider, AgnosticComponentShortDescription, AgnosticComponentSource, AgnosticComponentTextColumn, AgnosticComponentTitle } from "@/components/CJ-components/components-CJ/test components/AgnosticComponent";
+import agnosticMapper from "@/functions/transformers/agnosticMapper";
 
 export default async function PeoplePage({
   params,
@@ -57,6 +61,7 @@ export default async function PeoplePage({
   const sourcesCollectionID = getIdByDisplayName("Sources");
   const tagsCollectionID = getIdByDisplayName("Tags");
   const categoriesCollectionID = getIdByDisplayName("Categories");
+  const publicationsCollectionID = getIdByDisplayName("Publications");
   {
     /**Get the data from the collection */
   }
@@ -70,6 +75,7 @@ export default async function PeoplePage({
   const sourcesDataRaw = await getData(sourcesCollectionID);
   const tagsDataRaw = await getData(tagsCollectionID);
   const categoriesDataRaw = await getData(categoriesCollectionID);
+  const publicationsDataRaw = await getData(publicationsCollectionID);
 
   {
     /**Get the single item */
@@ -95,6 +101,11 @@ export default async function PeoplePage({
     people: peopleDataItemRaw.id,
   });
 
+  const realtedPublications = filterRelatedPublications(
+    publicationsDataRaw.items,
+    { people: peopleDataItemRaw.id }
+  );
+
   {
     /**Get the item mapped and cleaned */
   }
@@ -105,6 +116,14 @@ export default async function PeoplePage({
     programmeDataRaw.items,
     postsDataRaw.items,
     multimediaDataRaw.items
+  );
+  const cleanPublications = realtedPublications.map((item) =>
+    publicationMapper(
+      item,
+      programmeDataRaw.items,
+      peopleDataRaw.items,
+      partnersDataRaw.items
+    )
   );
 
   {
@@ -158,6 +177,7 @@ export default async function PeoplePage({
       peopleDataRaw.items
     )
   );
+  const agnosticpublications =cleanPublications.map((item) => ( agnosticMapper(item)))
 
   return (
     <div>
@@ -212,11 +232,29 @@ export default async function PeoplePage({
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {cleanMultimediaTransformed.map((item) => (
                   <div key={item.alt} className="">
-                    <MediaCard
-                   
-                      {...item}
-                    />
+                    <MediaCard {...item} />
                   </div>
+                ))}
+              </div>
+            </PostAccordion>
+          </div>
+          <div className="">
+            <PostAccordion title={"Publications"}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {agnosticpublications.map((item) => (
+                   <AgnosticComponentProvider content={item}>
+                   <AgnosticComponentTextColumn>
+                     <AgnosticComponentProgramLabel />
+                     <AgnosticComponentTitle />
+                     <AgnosticComponentShortDescription />
+                     <AgnosticComponentDateAndSourceContainer>
+                       <AgnosticComponentDatePublished />
+                       <span className="mono text-xs font-normal uppercase">•</span>
+                       <AgnosticComponentSource />
+                     </AgnosticComponentDateAndSourceContainer>
+                   </AgnosticComponentTextColumn>
+                 </AgnosticComponentProvider>
+               ))}
                 ))}
               </div>
             </PostAccordion>
@@ -282,7 +320,6 @@ export default async function PeoplePage({
           <SectionBanter title={"Images"}>
             <ContentPhotos images={cleanRelatedImages} />
           </SectionBanter>*/}
-         
         </ContentContainer>
       </MainContainer>
     </div>

@@ -677,7 +677,7 @@ export interface PeopleCleanedFields {
   nameArabic: string;
   hero: boolean;
   collectionName: "people";
-  relatedProgramme: string;
+  relatedProgramme: RelatedColection;
   relatedProgrammes: RelatedColection[];
   color: string;
   role: string;
