@@ -14,6 +14,7 @@ import {
   SocialMediaLinks,
   StatProps,
 } from "@/app/interfaces";
+import FeatureCardTable from "../test components/FeatureCardTable";
 
 interface TableRowProps {
   repository: RowData["repository"];
@@ -194,15 +195,18 @@ function TableRow({ repository, locale }: TableRowProps) {
                     {repository.content.features.length > 0 && (
                       <div className="pt-4 pb-8 grid grid-cols-3 gap-3">
                         {repository.content.features.map((feature, index) => (
-                          <div key={index}>
-                            <CardSquaredImage
-                              imageUrl={feature.image.imageUrl}
-                              type={feature.image.type}
-                            />
-                            <p className="text-base sans-serif font-medium mt-2">
-                              {feature.title}
-                            </p>
-                          </div>
+                          <FeatureCardTable
+                            image={{
+                              imageUrl: feature.image.imageUrl,
+                              type: feature.image.type,
+                              title: feature.title,
+                            }}
+                            title={feature.title}
+                            clickAction={feature.clickAction}
+                            customLink={feature.customLink}
+                            isLightBox={false}
+                            isTab={false}
+                          />
                         ))}
                       </div>
                     )}

@@ -26,6 +26,7 @@ export default function Header() {
           <nav className="flex">
             {/* Right side elements links */}
             <div className=" flex md:hidden ">
+              <ThemeToggle />
               <Hamburger />
             </div>
             <ul className="md:flex hidden gap-4  grow justify-between flex-wrap items-center">

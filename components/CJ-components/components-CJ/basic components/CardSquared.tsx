@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import type { StaticImageData } from "next/image";
@@ -61,11 +62,11 @@ export default function CardSquaredImage({
       : null;
 
   return (
-    <div>
-      <div className="relative w-full">
-        <div className="aspect-square overflow-hidden">
+    <div className="group ">
+      <div className="relative w-full ">
+        <div className="aspect-square overflow-hidden ">
           <Image
-            className="h-full w-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 ease-linear group-hover:scale-105 "
             src={imageUrl}
             alt=""
             width={400}
@@ -83,7 +84,7 @@ export default function CardSquaredImage({
         </div>
       </div>
       <div className="pt-1">
-        <p className="sans-serif text-base font-medium">{titleToUse}</p>
+        <p className="sans-serif text-base group-hover:underline font-medium ">{titleToUse}</p>
       </div>
     </div>
   );
