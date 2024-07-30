@@ -30,40 +30,14 @@ import PostAccordion from "@/components/mdx/accordion";
 import CanvasAnimation from "@/components/CJ-components/components-CJ/custom components/CanvasAnimation";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 
-import {
-  TeamMember,
-  EventFieldDataCleaned,
-  ProgrammeCleanedFields,
-  PostFieldsCleaned,
-  PeopleCleanedFields,
-  MultimediaCleanedFields,
-  FeatureCleanedFields,
-  NewsCleanedFields,
-  PublicationsCleanedFields,
-} from "@/app/interfaces";
-
-import agnosticMapper from "@/functions/transformers/agnosticMapper";
-
-import {
-  AgnosticComponentCollectionName,
-  AgnosticComponentDateAndSourceContainer,
-  AgnosticComponentDatePublished,
-  AgnosticComponentImageColumn,
-  AgnosticComponentProgramLabel,
-  AgnosticComponentProvider,
-  AgnosticComponentShortDescription,
-  AgnosticComponentSource,
-  AgnosticComponentTextColumn,
-  AgnosticComponentTitle,
-} from "./AgnosticComponent";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 
 // INTERFACE FOR THE DATA START
-
-
 
 // INTERFACE FOR THE DATA END
 
 // START THE DATA FOR CARDS
+
 const cardData = [
   {
     imageUrl: '/images/EMPTY_QUARTER_BG.jpg',
@@ -190,15 +164,21 @@ export default async function SinglePost({
           <p className="pt-6 serif text-lg sm:text-xl font-normal md:text-2x text-left">
             An independent, global organisation, Community Jameel launched in 2003 to continue the tradition of philanthropy and community service established by the Jameel family of Saudi Arabia in 1945.
           </p>
-        </div>
+          <div className="pt-8"><ButtonCJ
+                            href={"/community"}
+                            text={"community"}
+                            openInNewTab={false}
+                          /></div>
       </div>
+        </div>
+        
       <div className="flex justify-center">
-  <div className="py-6 w-full lg:w-5/6 md:py-12">
+  <div className="pt-6 pb-3 w-full lg:w-5/6 sm:py-12">
     <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
   </div>
 </div>
-<div className="flex justify-center">
-      <div className="relative w-full md:w-5/6">
+<div className="flex justify-center pb-2">
+      <div className="hidden sm:block relative w-full md:w-5/6">
         <Image
           className="h-full w-full object-cover"
           src={porgrammeImage.src}
@@ -209,12 +189,12 @@ export default async function SinglePost({
       </div>
       </div>
       <div className="flex justify-center">
-  <div className="py-6 w-full lg:w-5/6 md:py-12">
+  <div className="hidden sm:block w-full xl:w-5/6  py-6 md:py-12">
     <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
   </div>
 </div>
       <div className="flex justify-center">
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="w-full xl:w-5/6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cardData.map((card, index) => (
             <HomeCard
               key={index}
@@ -230,13 +210,13 @@ export default async function SinglePost({
       </div>
       
       <div className="flex justify-center">
-  <div className="w-full sm:w-5/6 py-6 md:py-12">
+  <div className="w-full xl:w-5/6 py-6 md:py-12">
     <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
   </div>
 </div>
 
       <div className="flex justify-center">
-      <div className="w-full sm:w-5/6 grid grid-col-1 md:grid-cols-3 md:col-span-12">
+      <div className="w-full xl:w-5/6 grid grid-col-1 md:grid-cols-3 md:col-span-12">
         <div className="grid md:row-span-3">
           <h2 className="serif font-semibold text-3xl">News</h2>
           {/* {transformedEventData.map((value, index) => (

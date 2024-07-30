@@ -341,9 +341,9 @@ export default function Sidebar2() {
             aria-hidden="true"
           ></div>
           {/* The navigational part on postion fixed */}
-          <div className="fixed top-0 bottom-0 w-[272px] px-4 sm:px-6 md:pl-2 md:pr-8 overflow-y-auto scrollbar">
-            <div className="pt-24 md:pt-[84px] pb-8">
-            <nav className="md:block w-53 text-sm">
+          <div className="fixed top-0 bottom-0 w-full sm:w-[272px] px-4 sm:px-6 md:pl-2 md:pr-8 overflow-y-auto scrollbar">
+            <div className="pt-20 sm:pt-[84px] pb-8">
+            <nav className="sm:block w-full sm:w-53 text-sm">
                 {/* This is navigational Link consider it as a link  you can find this on component on top of the file */}
                 <NavLink href="/community" icon={<GlobeAltIcon className="h-4 w-4 text-gray-500 dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />}>
                   Community

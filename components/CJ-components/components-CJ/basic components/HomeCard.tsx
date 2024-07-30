@@ -14,7 +14,7 @@ interface CardProps {
 const HomeCard: React.FC<CardProps> = ({ imageUrl, alt, title, subtitle, link, openInNewTab = false }) => {
   return (
     <Link href={link} passHref>
-      <div className="block overflow-hidden group cursor-pointer">
+      <div className="pb-6 block overflow-hidden group cursor-pointer">
         <div className="relative w-full pb-[100%]">
           <Image
             className="absolute top-0 left-0 w-full h-full object-cover"
