@@ -251,7 +251,7 @@ export default async function JpalPage({
         <div>
           <h2> related events </h2>
           <div>
-            {eventProps.map((item) => (
+            {cleanRelatedEvents.map((item) => (
               <>
                 <EventCard article={item}></EventCard>
               </>
