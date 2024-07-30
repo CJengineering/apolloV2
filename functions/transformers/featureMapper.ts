@@ -26,6 +26,24 @@ import {
       return "Invalid Date";
     }
   };
+  const actionsOptions: Option[] =  [
+    {
+      "name": "External link",
+      "id": "3bc4782a3799bf2d17b3461f92a42f4a"
+    },
+    {
+      "name": "Internal link",
+      "id": "bf44ddc6fdd3d743e367e47069dccba7"
+    },
+    {
+      "name": "Video embed code",
+      "id": "dcb0bb8b677255006dd810462abb8bc8"
+    },
+    {
+      "name": "Image link",
+      "id": "184e74ec7843ded973047f492a97ad4d"
+    }
+  ]
   const options: Option[] = [
     {
       "name": "Announcement",
@@ -85,6 +103,10 @@ import {
     const option = options.find((option) => option.id === id);
     return option ? option.name : "";
   }
+  function getActionNameById(id: string): string {
+    const option = actionsOptions.find((option) => option.id === id);
+    return option ? option.name : "";
+  }
   export default function featureMapper(
     item: Item<FeatureRawFields>,
   
@@ -124,6 +146,7 @@ import {
         newTab: fieldData["new-tab"] || false,
         label: fieldData.label || "",
         labelArabic: fieldData["label-arabic"] || "",
+        clickAction: fieldData["click-action"] ? getActionNameById(fieldData["click-action"]) : "",
         shortText: fieldData["short-text"] || "",
         shortTextArabic: fieldData["short-text-arabic"] || "",
         ligthBoxVideoOrImage: fieldData["lightbox-video-or-image"] || false,

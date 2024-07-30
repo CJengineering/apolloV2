@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 interface ImageLightbox {
@@ -20,25 +20,32 @@ const LightboxSingle: React.FC<LightboxSingleProps> = ({ image, onClose }) => {
         onClick={onClose}
       >
         <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-        {image.src.toString()}
       </button>
       <div className="relative w-full max-w-6xl mx-auto p-4 overflow-hidden rounded-lg">
         <div className="flex flex-col items-center justify-center w-full">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/watch?v=Qm6_it7i004"
-
-            title="YouTube video player"
-            allow="accelerometer; 
-  autoplay; 
-  clipboard-write; 
-  encrypted-media; 
-  gyroscope; 
-  picture-in-picture; 
-  web-share"
-            allowFullScreen
-          ></iframe>
+          {image.type === "video" ? (
+            <iframe
+              width="960"
+              height="615"
+              src={image.src}
+              title="YouTube video player"
+              allow="accelerometer; 
+                autoplay; 
+                clipboard-write; 
+                encrypted-media; 
+                gyroscope; 
+                picture-in-picture; 
+                web-share"
+              allowFullScreen
+            ></iframe>
+          ) : (
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="max-w-full h-auto"
+              style={{ maxWidth: "560px", maxHeight: "315px" }}
+            />
+          )}
         </div>
       </div>
     </div>

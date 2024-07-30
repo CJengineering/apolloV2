@@ -10,14 +10,14 @@ interface FeatureCardTableProps {
   title: string;
   isLightBox: boolean;
   isTab: boolean;
+  clickAction: string;
   customLink: string;
 }
 
 export default function FeatureCardTable({
   image,
   title,
-  isLightBox,
-  isTab,
+ clickAction,
   customLink,
 }: FeatureCardTableProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -32,9 +32,26 @@ export default function FeatureCardTable({
     setLightboxOpen(false);
   };
 
-  if (isLightBox) {
+  if (clickAction === "Video embed code") {
     return (
       <div>
+ 
+        <div onClick={handleOpenLightbox} className="cursor-pointer">
+          <CardSquaredImage imageUrl={imageUrl} type={type} title={title} />
+        </div>
+        {lightboxOpen && (
+          <LightboxSingle
+            image={{ type: 'video', src: customLink, alt: title }}
+            onClose={handleCloseLightbox}
+          />
+        )}
+      </div>
+    );
+  }
+  if (clickAction === "Image link") {
+    return (
+      <div>
+       
         <div onClick={handleOpenLightbox} className="cursor-pointer">
           <CardSquaredImage imageUrl={imageUrl} type={type} title={title} />
         </div>
@@ -48,25 +65,28 @@ export default function FeatureCardTable({
     );
   }
 
-  if (isTab) {
+  if (clickAction === "Internal link") {
     return (
-      <Link href={link} target="_blank">
+      <Link href={link} >
+       
         <CardSquaredImage imageUrl={imageUrl} type={type} title={title} />
       </Link>
     );
   }
-
+if(clickAction === "External link") {
   return (
-    <div>
+    <Link href={customLink } target="_blank">
       <div onClick={handleOpenLightbox} className="cursor-pointer">
         <CardSquaredImage imageUrl={imageUrl} type={type} title={title} />
       </div>
-      {lightboxOpen && (
-        <LightboxSingle
-          image={{ type: 'video', src: customLink, alt: title }}
-          onClose={handleCloseLightbox}
-        />
-      )}
-    </div>
+
+    </Link>
   );
+}
+return (
+    <div onClick={handleOpenLightbox} className="cursor-pointer">
+  
+        <CardSquaredImage imageUrl={imageUrl} type={type} title={title} />
+    </div>
+    );
 }
