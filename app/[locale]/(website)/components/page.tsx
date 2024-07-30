@@ -3,7 +3,7 @@ import CardHorizontalImage from "@/components/CJ-components/components-CJ/basic 
 import MediaCard from "@/components/CJ-components/components-CJ/basic components/MediaCard";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import EventCard from "@/components/custom beta components/EventCard";
-import EventCardV1 from "@/components/custom beta components/EventCardV1";
+
 import FeatureCard from "@/components/custom beta components/FeatureCard";
 import NewsCard from "@/components/custom beta components/NewsCard";
 import NewsRightContent from "@/components/custom beta components/NewsRightContent";
@@ -299,12 +299,7 @@ export default async function HomeSecond({
       description: "Is used inside posts which will be news  ",
       component: <PostCard content={postCleanedAll[0]} />,
     },
-    {
-      name: "EventCard",
-      width: "400px",
-      description: "Is used inside event  page  ",
-      component: <EventCardV1 article={eventCleanedAll[0]} />,
-    },
+
     {
       name: "MediaCard",
       width: "400px",
@@ -315,6 +310,7 @@ export default async function HomeSecond({
           alt={mediaCleanedAll[0].thumbnail.alt}
           datePublished={mediaCleanedAll[0].datePublished}
           programme={{ name: "", slug: "" }}
+          type="video"
           source={mediaCleanedAll[0].sources.name}
           name={mediaCleanedAll[0].name}
           slug={mediaCleanedAll[0].slug}
