@@ -40,7 +40,7 @@ import NewsCard from "@/components/custom beta components/NewsCard";
 import PostCard from "@/components/custom beta components/PostCard";
 import filterRelatedPublications from "@/functions/filters/filterRelatedPublications";
 import publicationMapper from "@/functions/transformers/publicationMapper";
-import { AgnosticComponentDateAndSourceContainer, AgnosticComponentDatePublished, AgnosticComponentProgramLabel, AgnosticComponentProgramLabel, AgnosticComponentProvider, AgnosticComponentShortDescription, AgnosticComponentSource, AgnosticComponentTextColumn, AgnosticComponentTitle } from "@/components/CJ-components/components-CJ/test components/AgnosticComponent";
+import { AgnosticComponentDateAndSourceContainer, AgnosticComponentDatePublished, AgnosticComponentProvider, AgnosticComponentShortDescription, AgnosticComponentSource, AgnosticComponentTextColumn, AgnosticComponentTitle } from "@/components/CJ-components/components-CJ/test components/AgnosticComponent";
 import agnosticMapper from "@/functions/transformers/agnosticMapper";
 
 export default async function PeoplePage({
@@ -252,7 +252,7 @@ export default async function PeoplePage({
                 {agnosticpublications.map((item) => (
                    <AgnosticComponentProvider content={item}>
                    <AgnosticComponentTextColumn>
-                     <AgnosticComponentProgramLabel />
+           
                      <AgnosticComponentTitle />
                      <AgnosticComponentShortDescription />
                      <AgnosticComponentDateAndSourceContainer>
@@ -263,7 +263,7 @@ export default async function PeoplePage({
                    </AgnosticComponentTextColumn>
                  </AgnosticComponentProvider>
                ))}
-                ))}
+                
               </div>
             </PostAccordion>
           </div>
