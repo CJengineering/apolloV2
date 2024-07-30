@@ -29,7 +29,7 @@ export default function PostCard({ content }: { content: PostFieldsCleaned }) {
 
           {/* TITLE OF POST ITEM START */}
           <div className="text-left">
-            <h3 className="text-base serif font-medium">{content.name}</h3>
+            <h3 className="text-base serif font-medium group-hover:underline">{content.name}</h3>
           </div>
           {/* TITLE OF POST ITEM END */}
 

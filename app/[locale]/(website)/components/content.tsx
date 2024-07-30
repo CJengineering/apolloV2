@@ -381,7 +381,7 @@ export default async function HomeComponents() {
             <div className="flex gap-5">
               <div className="w-[400px]">
                 <div className="">
-                  <ButtonCJ href={"#"} text={"Click Me"} />
+                  <ButtonCJ href={"#"} text={"Click Me"} styleType="primary" />
                 </div>
               </div>
               <div className="flex">

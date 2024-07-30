@@ -53,7 +53,7 @@ const MediaCard = ({
             unoptimized
           />
           <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="absolute left-4 top-4">
+          <div className="absolute left-2 top-2">
             {getIcon(type)}
           </div>
         </div>

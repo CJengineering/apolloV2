@@ -180,35 +180,43 @@ export default async function PeoplePage({
   const agnosticpublications =cleanPublications.map((item) => ( agnosticMapper(item)))
 
   return (
-    <div>
-      <MainContainer isSideBar={true}>
-        <ContentContainer>
-          <SectionBanter title={"Biography"}>
-            <div className="flex flex-col md:flex-row items-center md:items-start  bg-white rounded-lg">
-              <div className="w-full md:w-1/3">
-                <img
-                  src={peopleDataItem.profilePicture.url}
-                  alt="Profile"
-                  className="w-full h-auto rounded-full md:rounded-lg"
-                />
-              </div>
-              <div className="w-full md:w-2/3 mt-4 md:mt-0 md:ml-6">
-                <h2 className="text-2xl font-bold mb-2">
-                  {peopleDataItem.name}
-                </h2>
-                <div className="prose mx-auto sm:prose-lg first-letter:text-4xl first-letter:font-bold first-letter:tracking-[.15em] prose-a:transition prose-a:duration-300 prose-a:ease-in-out hover:prose-a:text-red-700 prose-img:rounded-xl">
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: peopleDataItem.biography,
-                    }}
-                  ></div>
-                </div>
-              </div>
-              <div className="sticky top-10 self-start">
-                <SecondaryNav />
-              </div>
-            </div>
-          </SectionBanter>
+<ContentContainer width="full" desktopWidth="medium">
+<div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:mt-24">
+  <div className="col-span-12 md:col-span-4 flex justify-center md:justify-end">
+    <div className="w-full">
+      <img
+        src={peopleDataItem.profilePicture.url}
+        alt="Profile"
+        className="w-full h-auto"
+      />
+    </div>
+  </div>
+  <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
+    <div className="w-full pb-2">
+      <h1 className="text-left text-4xl serif font-bold">
+        {peopleDataItem.name}
+      </h1>
+    </div>
+    <div className="w-full">
+      <p className="text-left sans-serif text-base font-normal">
+        {peopleDataItem.role}, {programmeDataRaw.items.find((item) => item.id === peopleDataItem.relatedProgramme).fieldData.name}  
+      </p>
+    </div>
+    <div className="w-full mt-6">
+      <div className="prose prose-xl dark:prose-dark serif">
+        <div
+          dangerouslySetInnerHTML={{
+            __html: peopleDataItem.biography,
+          }}
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
+
           <div className="">
             <PostAccordion title={"News"}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -321,7 +329,5 @@ export default async function PeoplePage({
             <ContentPhotos images={cleanRelatedImages} />
           </SectionBanter>*/}
         </ContentContainer>
-      </MainContainer>
-    </div>
   );
 }
