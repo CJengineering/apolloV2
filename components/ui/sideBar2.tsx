@@ -54,6 +54,14 @@ const navItems: NavItem[] = [
       { name: "News", href: "/news" },
       { name: "Events", href: "/events" },
       { name: "Newsletter", href: "/newsletter" },
+      {name:'Stories', children:[
+        {name:'GCC Heat Tracker', href:'/stories/gcc-heat-tracker'},
+        {name:'Harvesting Hope', href:'/stories/harvesting-hope'},
+        {name:'Jameel Centre', href:'/stories/jameel-centre'},
+        {name:'KSA Healthcare Timeiline', href:'/stories/ksa-healthcare-timeline'},
+      ]},
+
+      
     ],
   },
   {
