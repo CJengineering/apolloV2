@@ -31,8 +31,24 @@ import CanvasAnimation from "@/components/CJ-components/components-CJ/custom com
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
+import { getData } from "@/functions/api/getData";
+import programmeMapper from "@/functions/transformers/programmeMapper";
+import eventMapper from "@/functions/transformers/eventMapper";
+import peopleMapper from "@/functions/transformers/peopleMapper";
+import featureMapper from "@/functions/transformers/featureMapper";
+import newsMapper from "@/functions/transformers/newsMapper";
+import multimediaMapper from "@/functions/transformers/multimediaMapper";
+import teamProfileMapper from "@/functions/transformers/teamProfileMapper";
+import publicationMapper from "@/functions/transformers/publicationMapper";
+import postMapper from "@/functions/transformers/postMapper";
+import agnosticMapper from "@/functions/transformers/agnosticMapper";
+import { AgnosticComponentDateAndSourceContainer, AgnosticComponentDatePublished, AgnosticComponentProgramLabel, AgnosticComponentProvider, AgnosticComponentShortDescription, AgnosticComponentSource, AgnosticComponentTextColumn, AgnosticComponentTitle } from "@/components/CJ-components/components-CJ/test components/AgnosticComponent";
+import { event } from "cypress/types/jquery";
 
 // INTERFACE FOR THE DATA START
+const postsId = getIdByDisplayName("Posts")
+
 
 // INTERFACE FOR THE DATA END
 
@@ -46,6 +62,7 @@ const cardData = [
     subtitle: 'Egyptian paramedics are receiving specialist training from Save the Children, supported by Community Jameel, to help them deliver life-saving care to pregnant mothers, newborn babies and wounded children evacuated from Gaza.',
     link: 'https://www.communityjameel.org',
     openInNewTab: false,
+    clickAction: "Internal Link",
   },
   {
     imageUrl: '/images/EMPTY_QUARTER_BG.jpg',
@@ -54,6 +71,8 @@ const cardData = [
     subtitle: 'Scientists, farmers and chefs convene for the \'Farming for our future\' breakfast event.',
     link: 'https://www.communityjameel.org/post/bill-gates-and-fady-jameel-discuss-food-and-farming-with-scientists-farmers-and-chefs-at-the-farming-for-our-future-breakfast-event-on-the-sidelines-of-cop28-in-dubai',
     openInNewTab: false,
+    clickAction: "Internal Link",
+
   },
   {
     imageUrl: '/images/EMPTY_QUARTER_BG.jpg',
@@ -62,6 +81,7 @@ const cardData = [
     subtitle: 'CLIMAVORE x Jameel at the Royal College of Art (RCA) is offering two awards to advance projects that respond to food in the new seasons of the climate crisis, such as drought, polluted oceans or fertiliser runoff.',
     link: 'https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards',
     openInNewTab: false,
+    clickAction: "Internal Link",
   },
   {
     imageUrl: '/images/EMPTY_QUARTER_BG.jpg',
@@ -70,14 +90,16 @@ const cardData = [
     subtitle: 'Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.',
     link: 'https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards',
     openInNewTab: false,
+    clickAction: "Internal Link",
   },
   {
     imageUrl: '/images/EMPTY_QUARTER_BG.jpg',
     alt: 'Sample Image 5',
     title: 'Jameel 75',
     subtitle: 'Celebrate the Jameel family\'s\ 75th anniversary of business and philanthropy.',
-    link: 'https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards',
+    link: 'https://storage.googleapis.com/behna-archives/23_EFC_1945_Nour%20al-Din%20and%20the%20Three%20Sailors.webp',
     openInNewTab: false,
+    clickAction: "Image link",
   },
   {
     imageUrl: '/images/EMPTY_QUARTER_BG.jpg',
@@ -86,6 +108,7 @@ const cardData = [
     subtitle: 'As part of Community Jameel\'s\ participation at COP28 in Dubai it co-produced a six-part podcast series with afikra on climate change, arts & health, early warning systems, oceans and the economics of cuisine.',
     link: 'https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards',
     openInNewTab: false,
+    clickAction: "Internal Link",
   },
   {
     imageUrl: '/images/EMPTY_QUARTER_BG.jpg',
@@ -94,6 +117,7 @@ const cardData = [
     subtitle: 'The lab aims to radically improve global health through arts-related research and advocacy to drive policy.',
     link: 'https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards',
     openInNewTab: false,
+    clickAction: "Internal Link",
   },
   {
     imageUrl: '/images/EMPTY_QUARTER_BG.jpg',
@@ -102,14 +126,16 @@ const cardData = [
     subtitle: 'Laura Mekhail, the 2021 Andrea Bocelli Foundation-Community Jameel Scholar at the Royal College of Music, performs with Andrea Bocelli at Maraya theatre in AlUla, Saudi Arabia',
     link: 'https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards',
     openInNewTab: false,
+    clickAction: "External link",
   },
   {
     imageUrl: '/images/EMPTY_QUARTER_BG.jpg',
     alt: 'Jameel Management Centre Building in Cairo',
     title: 'A Cairo Cornerstone',
     subtitle: 'The Jameel Centre: Downtown Cairo\'s Mamluk-inspired 1980s architectural masterpiece. By Ebrahim Bahaa-Eldin & Sabrina Gilby',
-    link: 'https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards',
+    link: 'https://www.youtube.com/embed/CGRzfUccmNE?si=dfqHYqp_P9Nfda2G',
     openInNewTab: false,
+    clickAction: "Video embed code",
   },
 ];
 // END THE DATA FOR CARDS
@@ -152,8 +178,104 @@ export default async function SinglePost({
     subTitle: "",
     title: "",
   };
+  const porgrammeId = getIdByDisplayName("Programmes");
+  const peopleId = getIdByDisplayName("People");
+  const featureId = getIdByDisplayName("Features");
+  const publicationId = getIdByDisplayName("Publications");
+  const eventId = getIdByDisplayName("Events");
+  const newsId = getIdByDisplayName("News");
+  const postsId = getIdByDisplayName("Posts");
+  const multimediaId = getIdByDisplayName("Multimedia");
+  const teamId = getIdByDisplayName("Team");
+  const partnersId = getIdByDisplayName("Partners");
+  const sourceId = getIdByDisplayName("Sources");
+  const tagsId = getIdByDisplayName("Tags");
+  const categroriesId = getIdByDisplayName("Categories");
 
+  const programmeRaw = await getData(porgrammeId);
+  const peopleRaw = await getData(peopleId);
+  const featureRaw = await getData(featureId);
+  const publicationRaw = await getData(publicationId);
+  const eventRaw = await getData(eventId);
+  const newsRaw = await getData(newsId);
+  const postsRaw = await getData(postsId);
+  const multimediaRaw = await getData(multimediaId);
+  const teamRaw = await getData(teamId);
+  const partnersRaw = await getData(partnersId);
+  const sourcesRaw = await getData(sourceId);
+  const tagRaw = await getData(tagsId);
+  const categoriesRaw = await getData(categroriesId);
 
+  const programmeClean = programmeRaw.items.map((item) =>
+    programmeMapper(
+      item,
+      peopleRaw.items,
+      partnersRaw.items,
+      programmeRaw.items
+    )
+  );
+  const eventClean = eventRaw.items.map((item) =>
+    eventMapper(item, partnersRaw.items, programmeRaw.items, peopleRaw.items)
+  );
+  const peopleClean = peopleRaw.items.map((item) =>
+    peopleMapper(
+      item,
+      partnersRaw.items,
+      eventRaw.items,
+      programmeRaw.items,
+      peopleRaw.items,
+      multimediaRaw.items
+    )
+  );
+  const featureClean = featureRaw.items.map((item) =>
+    featureMapper(
+      item,
+
+      programmeRaw.items
+    )
+  );
+  const newsClean = newsRaw.items.map((item) =>
+    newsMapper(
+      item,
+
+      programmeRaw.items,
+      peopleRaw.items,
+      sourcesRaw.items,
+      tagRaw.items,
+      eventRaw.items
+    )
+  );
+
+  const cleanMultimedia = multimediaRaw.items.map((item) =>
+    multimediaMapper(
+      item,
+      programmeRaw.items,
+      eventRaw.items,
+      sourcesRaw.items,
+      peopleRaw.items
+    )
+  );
+  const postsClean = postsRaw.items.map((item) =>
+    postMapper(
+      item,
+      categoriesRaw.items,
+      eventRaw.items,
+      programmeRaw.items,
+      peopleRaw.items
+    )
+  );
+  const teamsClean = teamRaw.items.map((item) => teamProfileMapper(item));
+  const publicationsClean = publicationRaw.items.map((item) =>
+    publicationMapper(
+      item,
+      programmeRaw.items,
+      peopleRaw.items,
+      partnersRaw.items
+    )
+  );
+  const postsAgnostic = postsClean.map((item) => (agnosticMapper(item)));
+  const newsAgnostic =  newsClean.map((item)=>(agnosticMapper(item)))
+  const eventsAgnostic = eventClean.map((item)=>(agnosticMapper(item)))
   return (
     <ContentContainer width="full" desktopWidth="large">
       <div className="pt-12 sm:pt-36 flex flex-col justify-center">
@@ -200,10 +322,11 @@ export default async function SinglePost({
               key={index}
               imageUrl={card.imageUrl}
               alt={card.alt}
-              title={card.title}
+              title={card.title}           
               subtitle={card.subtitle}
               link={card.link}
               openInNewTab={card.openInNewTab}
+              clickAction={card.clickAction||''}
             />
           ))}
         </div>
@@ -219,6 +342,20 @@ export default async function SinglePost({
       <div className="w-full xl:w-5/6 grid grid-col-1 md:grid-cols-3 md:col-span-12">
         <div className="grid md:row-span-3">
           <h2 className="serif font-semibold text-3xl">News</h2>
+          {postsAgnostic.slice(1,6).map((value, index) => (
+                    <AgnosticComponentProvider content={value}>
+                    <AgnosticComponentTextColumn>
+                      <AgnosticComponentProgramLabel />
+                      <AgnosticComponentTitle />
+                      <AgnosticComponentShortDescription />
+                      <AgnosticComponentDateAndSourceContainer>
+                        <AgnosticComponentDatePublished />
+                        <span className="mono text-xs font-normal uppercase">•</span>
+                        <AgnosticComponentSource />
+                      </AgnosticComponentDateAndSourceContainer>
+                    </AgnosticComponentTextColumn>
+                  </AgnosticComponentProvider>
+          ))}
           {/* {transformedEventData.map((value, index) => (
             <AgnosticComponentProvider key={index} content={value}>
               <AgnosticComponentTextColumn>
@@ -236,9 +373,37 @@ export default async function SinglePost({
         </div>
         <div className="grid md:row-span-3">
           <h2 className="serif font-semibold text-3xl">Press</h2>
+          {newsAgnostic.slice(1,6).map((value, index) => (
+                    <AgnosticComponentProvider content={value}>
+                    <AgnosticComponentTextColumn>
+                      <AgnosticComponentProgramLabel />
+                      <AgnosticComponentTitle />
+                      <AgnosticComponentShortDescription />
+                      <AgnosticComponentDateAndSourceContainer>
+                        <AgnosticComponentDatePublished />
+                        <span className="mono text-xs font-normal uppercase">•</span>
+                        <AgnosticComponentSource />
+                      </AgnosticComponentDateAndSourceContainer>
+                    </AgnosticComponentTextColumn>
+                  </AgnosticComponentProvider>
+          ))}
         </div>
         <div className="grid md:row-span-3">
           <h2 className="serif font-semibold text-3xl">Events</h2>
+          {eventsAgnostic.slice(1,6).map((value, index) => (
+                    <AgnosticComponentProvider content={value}>
+                    <AgnosticComponentTextColumn>
+                      <AgnosticComponentProgramLabel />
+                      <AgnosticComponentTitle />
+                      <AgnosticComponentShortDescription />
+                      <AgnosticComponentDateAndSourceContainer>
+                        <AgnosticComponentDatePublished />
+                        <span className="mono text-xs font-normal uppercase">•</span>
+                        <AgnosticComponentSource />
+                      </AgnosticComponentDateAndSourceContainer>
+                    </AgnosticComponentTextColumn>
+                  </AgnosticComponentProvider>
+          ))}
         </div>
       </div>
       </div>

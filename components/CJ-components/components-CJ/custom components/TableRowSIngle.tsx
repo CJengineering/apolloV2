@@ -140,6 +140,7 @@ export default function TableRowSingle({
           <div className="py-4"></div>
           <div>
             <div className="pt-4 pb-8 grid grid-cols-3 gap-3">
+         
               {repository.content.features.map((feature, index) => (
                 <FeatureCardTable
                   image={{
@@ -148,10 +149,8 @@ export default function TableRowSingle({
                     title: feature.title,
                   }}
                   title={feature.title}
-                  isLightBox={true}
-                  isTab={feature.isTab}
-                  customLink={feature.customLink}
-                />
+                  clickAction={feature.clickAction}
+                  customLink={feature.customLink} isLightBox={false} isTab={false}                />
               ))}
             </div>
           </div>

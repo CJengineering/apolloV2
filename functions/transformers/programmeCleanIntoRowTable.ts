@@ -67,6 +67,7 @@ export function mapProgrammeToRowData(programme: ProgrammeCleanedFields, feature
                   
                 },
                 title: feature.name,
+                clickAction: feature.clickAction,
                 isLightBox: feature.ligthBoxVideoOrImage,
                 isTab: feature.newTab,
                 customLink: feature.customLink,

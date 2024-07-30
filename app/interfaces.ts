@@ -99,8 +99,7 @@ export interface RowContentData {
     | {
         image: CardHorizontalImageProps;
         title: string;
-        isLightBox: boolean;
-        isTab: boolean;
+       clickAction: string;
         customLink: string;
         
       }[]
@@ -775,6 +774,7 @@ export interface FeatureRawFields {
   "top-feature"?: boolean;
   "lightbox-video-or-image"?: boolean
   order?: number;
+  "click-action"?: string;
   "custom-link"?: string;
   "new-tab"?: boolean;
   label?: string;
@@ -800,6 +800,7 @@ export interface FeatureCleanedFields {
   ligthBoxVideoOrImage: boolean;
   newTab: boolean;
   label: string;
+  clickAction: string;
   labelArabic: string;
   shortText: string;
   shortTextArabic: string;
