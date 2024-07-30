@@ -75,7 +75,7 @@ const ShortDescription = () => {
   if (!shortDescription) return null;
   return (
     <div className="text-left">
-      <p className="mono text-xs font-normal uppercase">{shortDescription} </p>
+      <p className="sans-serif text-sm font-normal">{shortDescription}</p>
     </div>
   );
 }
@@ -87,7 +87,7 @@ const ProgramLabel = () => {
   if (!programShortname) return null;
   return (
     <div className="text-left">
-      <span className="mono text-xs  font-normal uppercase p-1 bg-red-100 dark:bg-slate-800">
+      <span className="mono text-xs font-normal uppercase p-1 bg-red-100 dark:bg-slate-800">
         {collectionName}
       </span>
       <span className="mono text-xs ml-2 font-normal uppercase p-1 bg-slate-100 dark:bg-slate-800">
@@ -115,7 +115,7 @@ const Title = () => {
   if (!title) return null;
   return (
     <div className="text-left">
-      <h3 className="text-base serif font-medium">{title}</h3>
+      <h3 className="text-lg serif font-medium">{title}</h3>
     </div>
   );
 };
@@ -126,7 +126,7 @@ const DatePublished = () => {
   if (!datePublished) return null;
   return (
     <div className="text-left">
-      <p className="mono text-xs font-normal uppercase">
+      <p className="sans-serif text-sm font-normal">
         <time dateTime={datePublished}>{datePublished}</time>
       </p>
     </div>
@@ -139,14 +139,14 @@ const Source = () => {
   if (!source) return null;
   return (
     <div className="text-left">
-      <p className="mono text-xs font-normal uppercase">{source}</p>
+      <p className="sans-serif text-sm font-normal">{source}</p>
     </div>
   );
 };
 Source.displayName = "Source";
 
 const TextColumn = ({ children }: PropsWithChildren) => (
-  <div className="col-span-2 flex flex-col justify-center space-y-2">
+  <div className="col-span-2 flex flex-col justify-center space-y-1">
     {children}
   </div>
 );
@@ -158,7 +158,7 @@ const DateAndSourceContainer = ({ children }: PropsWithChildren) => {
   return <div className="flex space-x-2">{children}</div>;
 };
 
-const DotDivider = () => <span className="text-xs font-normal">•</span>;
+const DotDivider = () => <span className="text-sm sans-serif font-normal">|</span>;
 DotDivider.displayName = "DotDivider";
 
 DateAndSourceContainer.displayName = "DateAndSourceContainer";
