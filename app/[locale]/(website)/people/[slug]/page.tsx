@@ -32,6 +32,12 @@ import {
   PostCardTitle,
 } from "@/components/CJ-components/components-CJ/test components/CompoundPostCard";
 import postMapper from "@/functions/transformers/postMapper";
+import PostAccordion from "@/components/mdx/accordion";
+import EventCard from "@/components/custom beta components/EventCard";
+import MediaCard from "@/components/CJ-components/components-CJ/basic components/MediaCard";
+import { mapMultimediaToMediaCard } from "@/functions/transformers/multimediaToCardMultimedia";
+import NewsCard from "@/components/custom beta components/NewsCard";
+import PostCard from "@/components/custom beta components/PostCard";
 
 export default async function PeoplePage({
   params,
@@ -130,6 +136,9 @@ export default async function PeoplePage({
       peopleDataRaw.items
     )
   );
+  const cleanMultimediaTransformed = cleanMultimedia.map(
+    mapMultimediaToMediaCard
+  );
   const cleanNews = relatedNews.map((item) =>
     newsMapper(
       item,
@@ -180,7 +189,70 @@ export default async function PeoplePage({
               </div>
             </div>
           </SectionBanter>
-          <SectionBanter title={"Multimedia"}>
+          <div className="">
+            <PostAccordion title={"News"}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {cleanPosts.map((post) => (
+                  <PostCard key={post.name} content={post} />
+                ))}
+              </div>
+            </PostAccordion>
+          </div>
+          <div className="">
+            <PostAccordion title={"Press"}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {cleanNews.map((item) => (
+                  <NewsCard content={item} locale={params} />
+                ))}
+              </div>
+            </PostAccordion>
+          </div>
+          <div className="">
+            <PostAccordion title={"Multimedia"}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {cleanMultimediaTransformed.map((item) => (
+                  <div key={item.alt} className="">
+                    <MediaCard
+                   
+                      {...item}
+                    />
+                  </div>
+                ))}
+              </div>
+            </PostAccordion>
+          </div>
+
+          {/* 
+
+        <div>
+          <h2> related features </h2>
+          <div>
+            {cleanedFeatures.map((feature, index) => (
+              <>
+                <div key={index}>
+                  <div>{feature.name}</div>
+                  <div>{feature.dateDisplay}</div>
+                  <div>
+                    <img className="w-48" src={feature.square.url} alt="" />
+                  </div>
+                </div>
+              </>
+            ))}
+          </div>
+        </div> */}
+
+          <div>
+            <PostAccordion title={"Events"}>
+              <div className="grid grid-cols-3 gap-5">
+                {cleanEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
+              </div>
+            </PostAccordion>
+          </div>
+          {/*  <SectionBanter title={"Multimedia"}>
             <div className="grid grid-cols-3">
               {cleanMultimedia.map((item) => (
                 <CompoundUnifiedComponent data={item}>
@@ -209,7 +281,8 @@ export default async function PeoplePage({
           </SectionBanter>
           <SectionBanter title={"Images"}>
             <ContentPhotos images={cleanRelatedImages} />
-          </SectionBanter>
+          </SectionBanter>*/}
+         
         </ContentContainer>
       </MainContainer>
     </div>
