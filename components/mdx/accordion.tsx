@@ -28,7 +28,7 @@ export default function PostAccordion({
   }, [isOpen,accordion]);
 
   return (
-    <div className="border-b border-slate-200 dark:border-slate-700 py-4 px prose-p:m-0">
+    <div className="border-b border-slate-200 dark:border-slate-700 py-4">
       <button
         className="flex items-center justify-between w-full text-left"
         onClick={(e) => {
