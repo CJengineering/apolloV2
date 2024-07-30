@@ -310,6 +310,7 @@ export default async function SinglePost({
               href={"/community"}
               text={"community"}
               openInNewTab={false}
+              styleType="primary"
             />
           </div>
         </div>
@@ -372,28 +373,22 @@ export default async function SinglePost({
                   <AgnosticComponentShortDescription />
                   <AgnosticComponentDateAndSourceContainer>
                     <AgnosticComponentDatePublished />
-                    <span className="mono text-xs font-normal uppercase">
-                      •
+                    <span className="sans-serif text-sm font-normal">
+                      |
                     </span>
                     <AgnosticComponentSource />
                   </AgnosticComponentDateAndSourceContainer>
                 </AgnosticComponentTextColumn>
               </AgnosticComponentProvider>
             ))}
-            {/* {transformedEventData.map((value, index) => (
-            <AgnosticComponentProvider key={index} content={value}>
-              <AgnosticComponentTextColumn>
-                <AgnosticComponentProgramLabel />
-                <AgnosticComponentTitle />
-                <AgnosticComponentShortDescription />
-                <AgnosticComponentDateAndSourceContainer>
-                  <AgnosticComponentDatePublished />
-                  <span className="mono text-xs font-normal uppercase">•</span>
-                  <AgnosticComponentSource />
-                </AgnosticComponentDateAndSourceContainer>
-              </AgnosticComponentTextColumn>
-            </AgnosticComponentProvider>
-          ))} */}
+          <div className="pt-0">
+            <ButtonCJ
+              href={"/news"}
+              text={"all news"}
+              openInNewTab={false}
+              styleType="secondary"
+            />
+          </div>
           </div>
           <div className="grid md:row-span-3">
             <h2 className="serif font-semibold text-3xl">Press</h2>
@@ -405,14 +400,22 @@ export default async function SinglePost({
                   <AgnosticComponentShortDescription />
                   <AgnosticComponentDateAndSourceContainer>
                     <AgnosticComponentDatePublished />
-                    <span className="mono text-xs font-normal uppercase">
-                      •
+                    <span className="sans-serif text-sm font-normal uppercase">
+                      |
                     </span>
                     <AgnosticComponentSource />
                   </AgnosticComponentDateAndSourceContainer>
                 </AgnosticComponentTextColumn>
               </AgnosticComponentProvider>
             ))}
+          <div className="pt-0">
+            <ButtonCJ
+              href={"/press"}
+              text={"all press"}
+              openInNewTab={false}
+              styleType="secondary"
+            />
+          </div>
           </div>
           <div className="grid md:row-span-3">
             <h2 className="serif font-semibold text-3xl">Events</h2>
@@ -424,14 +427,22 @@ export default async function SinglePost({
                   <AgnosticComponentShortDescription />
                   <AgnosticComponentDateAndSourceContainer>
                     <AgnosticComponentDatePublished />
-                    <span className="mono text-xs font-normal uppercase">
-                      •
+                    <span className="sans-serif text-sm font-normal">
+                      |
                     </span>
                     <AgnosticComponentSource />
                   </AgnosticComponentDateAndSourceContainer>
                 </AgnosticComponentTextColumn>
               </AgnosticComponentProvider>
             ))}
+            <div className="pt-0">
+            <ButtonCJ
+              href={"/events"}
+              text={"all events"}
+              openInNewTab={false}
+              styleType="secondary"
+            />
+          </div>
           </div>
         </div>
       </div>

@@ -152,11 +152,13 @@ function TableRow({ repository, locale }: TableRowProps) {
                           <ButtonCJ
                             href={repository.content.button.href}
                             text={repository.content.button.text}
+                            styleType="primary"
                           />
                         )}
                         <ButtonCJ
                           href={`/programmes/${repository.top.slug}`}
                           text="learn more"
+                          styleType="primary"
                         />
                       </div>
                     </div>
