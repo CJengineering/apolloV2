@@ -109,7 +109,8 @@ export default async function SearchPage() {
       item,
       programmeRaw.items,
       peopleRaw.items,
-      partnersRaw.items
+      partnersRaw.items,
+      sourcesRaw.items
     )
   );
 

@@ -40,8 +40,17 @@ import NewsCard from "@/components/custom beta components/NewsCard";
 import PostCard from "@/components/custom beta components/PostCard";
 import filterRelatedPublications from "@/functions/filters/filterRelatedPublications";
 import publicationMapper from "@/functions/transformers/publicationMapper";
-import { AgnosticComponentDateAndSourceContainer, AgnosticComponentDatePublished, AgnosticComponentProvider, AgnosticComponentShortDescription, AgnosticComponentSource, AgnosticComponentTextColumn, AgnosticComponentTitle } from "@/components/CJ-components/components-CJ/test components/AgnosticComponent";
+import {
+  AgnosticComponentDateAndSourceContainer,
+  AgnosticComponentDatePublished,
+  AgnosticComponentProvider,
+  AgnosticComponentShortDescription,
+  AgnosticComponentSource,
+  AgnosticComponentTextColumn,
+  AgnosticComponentTitle,
+} from "@/components/CJ-components/components-CJ/test components/AgnosticComponent";
 import agnosticMapper from "@/functions/transformers/agnosticMapper";
+import PublicationsCard from "@/components/custom beta components/PublicationCard";
 
 export default async function PeoplePage({
   params,
@@ -122,7 +131,8 @@ export default async function PeoplePage({
       item,
       programmeDataRaw.items,
       peopleDataRaw.items,
-      partnersDataRaw.items
+      partnersDataRaw.items,
+      sourcesDataRaw.items
     )
   );
 
@@ -177,128 +187,90 @@ export default async function PeoplePage({
       peopleDataRaw.items
     )
   );
-  const agnosticpublications =cleanPublications.map((item) => ( agnosticMapper(item)))
+  const agnosticpublications = cleanPublications.map((item) =>
+    agnosticMapper(item)
+  );
 
   return (
-<ContentContainer width="full" desktopWidth="medium">
-<div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:mt-24">
-  <div className="col-span-12 md:col-span-4 flex justify-center md:justify-end">
-    <div className="w-full">
-      <img
-        src={peopleDataItem.profilePicture.url}
-        alt="Profile"
-        className="w-full h-auto"
-      />
-    </div>
-  </div>
-  <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
-    <div className="w-full pb-2">
-      <h1 className="text-left text-4xl serif font-bold">
-        {peopleDataItem.name}
-      </h1>
-    </div>
-    <div className="w-full">
-      <p className="text-left sans-serif text-base font-normal">
-        {peopleDataItem.role}, {programmeDataRaw.items.find((item) => item.id === peopleDataItem.relatedProgramme).fieldData.name}  
-      </p>
-    </div>
-    <div className="w-full mt-6">
-      <div className="prose prose-xl dark:prose-dark serif">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: peopleDataItem.biography,
-          }}
-        ></div>
+    <ContentContainer width="full" desktopWidth="medium">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:mt-24">
+        <div className="col-span-12 md:col-span-4 flex justify-center md:justify-end">
+          <div className="w-full">
+            <img
+              src={peopleDataItem.profilePicture.url}
+              alt="Profile"
+              className="w-full h-auto"
+            />
+          </div>
+        </div>
+        <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
+          <div className="w-full pb-2">
+            <h1 className="text-left text-4xl serif font-bold">
+              {peopleDataItem.name}
+            </h1>
+          </div>
+          <div className="w-full">
+            <p className="text-left sans-serif text-base font-normal"></p>
+          </div>
+          <div className="w-full mt-6">
+            <div className="prose prose-xl dark:prose-dark serif">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: peopleDataItem.biography,
+                }}
+              ></div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-
-
-<div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
-
-          <div className="">
-            <PostAccordion title={"News"}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {cleanPosts.map((post) => (
-                  <PostCard key={post.name} content={post} />
-                ))}
+      <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
+      <PostAccordion title={"News"}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {cleanPosts.map((post) => (
+            <PostCard key={post.name} content={post} />
+          ))}
+        </div>
+      </PostAccordion>
+      <PostAccordion title={"Press"}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {cleanNews.map((item) => (
+            <NewsCard content={item} locale={params} />
+          ))}
+        </div>
+      </PostAccordion>
+      <div className="">
+        <PostAccordion title={"Multimedia"}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {cleanMultimediaTransformed.map((item) => (
+              <div key={item.alt} className="">
+                <MediaCard {...item} />
               </div>
-            </PostAccordion>
+            ))}
           </div>
-          <div className="">
-            <PostAccordion title={"Press"}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {cleanNews.map((item) => (
-                  <NewsCard content={item} locale={params} />
-                ))}
-              </div>
-            </PostAccordion>
+        </PostAccordion>
+      </div>
+      <div className="">
+        <PostAccordion title={"Publications"}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {cleanPublications.map((item) => (
+              <PublicationsCard content={item} />
+            ))}
           </div>
-          <div className="">
-            <PostAccordion title={"Multimedia"}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {cleanMultimediaTransformed.map((item) => (
-                  <div key={item.alt} className="">
-                    <MediaCard {...item} />
-                  </div>
-                ))}
-              </div>
-            </PostAccordion>
-          </div>
-          <div className="">
-            <PostAccordion title={"Publications"}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {agnosticpublications.map((item) => (
-                   <AgnosticComponentProvider content={item}>
-                   <AgnosticComponentTextColumn>
-           
-                     <AgnosticComponentTitle />
-                     <AgnosticComponentShortDescription />
-                     <AgnosticComponentDateAndSourceContainer>
-                       <AgnosticComponentDatePublished />
-                       <span className="mono text-xs font-normal uppercase">•</span>
-                       <AgnosticComponentSource />
-                     </AgnosticComponentDateAndSourceContainer>
-                   </AgnosticComponentTextColumn>
-                 </AgnosticComponentProvider>
-               ))}
-                
-              </div>
-            </PostAccordion>
-          </div>
+        </PostAccordion>
+      </div>
 
-          {/* 
 
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
+        <PostAccordion title={"Events"}>
+          <div className="grid grid-cols-3 gap-5">
+            {cleanEvents.map((item) => (
               <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
+                <EventCard article={item}></EventCard>
               </>
             ))}
           </div>
-        </div> */}
-
-          <div>
-            <PostAccordion title={"Events"}>
-              <div className="grid grid-cols-3 gap-5">
-                {cleanEvents.map((item) => (
-                  <>
-                    <EventCard article={item}></EventCard>
-                  </>
-                ))}
-              </div>
-            </PostAccordion>
-          </div>
-          {/*  <SectionBanter title={"Multimedia"}>
+        </PostAccordion>
+ 
+      {/*  <SectionBanter title={"Multimedia"}>
             <div className="grid grid-cols-3">
               {cleanMultimedia.map((item) => (
                 <CompoundUnifiedComponent data={item}>
@@ -328,6 +300,6 @@ export default async function PeoplePage({
           <SectionBanter title={"Images"}>
             <ContentPhotos images={cleanRelatedImages} />
           </SectionBanter>*/}
-        </ContentContainer>
+    </ContentContainer>
   );
 }

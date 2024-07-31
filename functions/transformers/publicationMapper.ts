@@ -1,4 +1,4 @@
-import { Item, PublicationsRawFields, PublicationsCleanedFields, ProgrammeRawFields, PeopleRawFields, PartnersRawFields } from "@/app/interfaces";
+import { Item, PublicationsRawFields, PublicationsCleanedFields,SourceRawFields, ProgrammeRawFields, PeopleRawFields, PartnersRawFields } from "@/app/interfaces";
 import { formatDate } from "../utils/formDate";
 type Option = {
   name: string;
@@ -43,10 +43,12 @@ export default function publicationMapper(
   item: Item<PublicationsRawFields>,
   programmes: Item<ProgrammeRawFields>[],
   people: Item<PeopleRawFields>[],
-  partners: Item<PartnersRawFields>[]
+  partners: Item<PartnersRawFields>[],
+  sources: Item<SourceRawFields>[]
 ): PublicationsCleanedFields {
   const { fieldData } = item;
-
+  const sourceMatch = sources.find((source) => source.id === fieldData["source-2"]);
+  const sourceMatchName = sourceMatch?.fieldData.name || "";
   const relatedProgrammes = fieldData["programme-s"]
     ? fieldData["programme-s"].map((programmeId) => {
         const programmeMatch = programmes.find(
@@ -95,7 +97,7 @@ export default function publicationMapper(
       url: fieldData.document?.url || "",
       alt: fieldData.document?.alt || ""
     },
-    source2: fieldData["source-2"] || "",
+    source2: sourceMatchName,
     sources: validateSource  ,
     collectionName: 'publications',
     programmeS: relatedProgrammes,
