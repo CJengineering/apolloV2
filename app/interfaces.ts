@@ -36,7 +36,7 @@ export interface ListContentProps {
   date: string | Date;
 }
 export interface ListSmallProps {
-  data?: { [key: string]: string[] };
+  data?: { [key: string]: {name:string,url:string}[] };
 }
 
 export interface StatProps {

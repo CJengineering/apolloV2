@@ -174,7 +174,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                           data &&
                           Object.keys(data).length > 0 &&
                           data[Object.keys(data)[0]].length > 0 &&
-                          data[Object.keys(data)[0]][0] !== "" && (
+                          data[Object.keys(data)[0]][0].name !== "" && (
                             <div key={index}>
                               <ListSmall data={data} />
                             </div>

@@ -258,18 +258,15 @@ export default async function PeoplePage({
           </div>
         </PostAccordion>
       </div>
-
-
-        <PostAccordion title={"Events"}>
-          <div className="grid grid-cols-3 gap-5">
-            {cleanEvents.map((item) => (
-              <>
-                <EventCard article={item}></EventCard>
-              </>
-            ))}
-          </div>
-        </PostAccordion>
- 
+      <PostAccordion title={"Events"}>
+        <div className="grid grid-cols-3 gap-5">
+          {cleanEvents.map((item) => (
+            <>
+              <EventCard article={item}></EventCard>
+            </>
+          ))}
+        </div>
+      </PostAccordion>
       {/*  <SectionBanter title={"Multimedia"}>
             <div className="grid grid-cols-3">
               {cleanMultimedia.map((item) => (
@@ -317,79 +314,13 @@ export default async function PeoplePage({
 
 
 {/* <div className="w-full h-px bg-slate-200"></div> Separation Bar */}
-
-
-<div>
-          <div className="">
-            <PostAccordion title={"News"}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {cleanPosts.map((post) => (
-                  <PostCard key={post.name} content={post} />
-                ))}
-              </div>
-            </PostAccordion>
-          </div>
-          <div className="">
-            <PostAccordion title={"Press"}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {cleanNews.map((item) => (
-                  <NewsCard content={item} locale={params} />
-                ))}
-              </div>
-            </PostAccordion>
-          </div>
-          <div className="">
-            <PostAccordion title={"Multimedia"}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {cleanMultimediaTransformed.map((item) => (
-                  <div key={item.alt} className="">
-                    <MediaCard {...item} />
-                  </div>
-                ))}
-              </div>
-            </PostAccordion>
-          </div>
-          <div className="">
-            <PostAccordion title={"Publications"}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                {agnosticpublications.map((item) => (
-                   <AgnosticComponentProvider content={item}>
-                   <AgnosticComponentTextColumn>
-                     <AgnosticComponentTitle />
-                     <AgnosticComponentShortDescription />
-                     <AgnosticComponentDateAndSourceContainer>
-                       <AgnosticComponentDatePublished />
-                       <span className="sans-serif text-sm font-normal">|
-                       </span>
-                       <AgnosticComponentSource />
-                     </AgnosticComponentDateAndSourceContainer>
-                   </AgnosticComponentTextColumn>
-                 </AgnosticComponentProvider>
-               ))}
-                
-              </div>
-            </PostAccordion>
-          </div>
-          <div>
-            <PostAccordion title={"Events"}>
-              <div className="grid grid-cols-3 gap-5">
-                {cleanEvents.map((item) => (
-                  <>
-                    <EventCard article={item}></EventCard>
-                  </>
-                ))}
-              </div>
-            </PostAccordion>
-          </div>
-          <div> 
+      <div>
+        <div>
           <PostAccordion title={"Photos"}>
-              <ContentPhotos images={cleanRelatedImages} />
-            </PostAccordion>
-            </div>
-          </div>
-
-        </ContentContainer>
+            <ContentPhotos images={cleanRelatedImages} />
+          </PostAccordion>
+        </div>
+      </div>
+    </ContentContainer>
   );
-   
-
 }

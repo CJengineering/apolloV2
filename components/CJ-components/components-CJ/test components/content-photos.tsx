@@ -6,9 +6,10 @@ import React, { useState } from "react";
 
 interface ContentPhotosProps {
   images: ImageLightbox[];
+  numberColumns?: string;
 }
 
-export default function ContentPhotos({ images }: ContentPhotosProps) {
+export default function ContentPhotos({ images, numberColumns }: ContentPhotosProps) {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
     null
   );
@@ -37,7 +38,7 @@ export default function ContentPhotos({ images }: ContentPhotosProps) {
 
   return (
     <>
-      <MasonryGrid images={images} onImageClick={handleImageClick} />
+      <MasonryGrid images={images} onImageClick={handleImageClick} columnsNumber={numberColumns}/>
       {selectedImageIndex !== null && (
         <Lightbox
           image={images[selectedImageIndex]}

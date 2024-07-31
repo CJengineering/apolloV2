@@ -61,11 +61,7 @@ export default function PublicationsCard({ content }: { content: PublicationsCle
           {/* PUBLISHED DATE END */}
 
           {/* SUMMARY ARABIC START */}
-          <div className="text-left">
-            <p className="sans-serif text-sm font-normal">
-              {content.summaryArabic}
-            </p>
-          </div>
+   
           {/* SUMMARY ARABIC END */}
 
         </div>
