@@ -6,14 +6,18 @@ export default function PublicationsCard({ content }: { content: PublicationsCle
   return (
     <Link href={content.slug} className="group relative block overflow-hidden">
       <article className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center pb-2">
-        {/* Image Column */}
-        <div className="col-span-1 relative hidden md:block" style={{ paddingBottom: "100%" }}>
+        {/* Image Column 
+        
+        
+              <div className="col-span-1 relative hidden md:block" style={{ paddingBottom: "100%" }}>
           <img
             className="absolute top-0 left-0 w-full h-full object-cover object-center transition duration-300 ease-in-out group-hover:scale-140"
             src={content.thumbnail.url}
             alt="Publication cover"
           />
         </div>
+        */}
+  
 
         {/* TEXT COLUMN START */}
         <div className="col-span-2 flex flex-col justify-center space-y-2">
