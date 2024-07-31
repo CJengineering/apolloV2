@@ -138,7 +138,7 @@ export default async function OverviewContent({
           <p className="text-xl serif font-medium group-hover:underline">Community</p>
           <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
         </Link>
-        <Link href="/people" className="flex items-center group">
+        <Link href="/about/team" className="flex items-center group">
           <p className="text-xl serif font-medium group-hover:underline">Team</p>
           <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
         </Link>
