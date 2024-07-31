@@ -337,7 +337,7 @@ export default async function SinglePost({
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
       </div>
-      <div><iframe src="https://benderlidze.github.io/mapbox-custom-marker-div/" style={{width:"100%", height:"600px",border:"0px;"}}></iframe></div>
+      {/* <div><iframe src="https://benderlidze.github.io/mapbox-custom-marker-div/" style={{width:"100%", height:"600px",border:"0px;"}}></iframe></div> */}
       <div className="flex justify-center">
         <div className="w-full xl:w-5/6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cardData.map((card, index) => (

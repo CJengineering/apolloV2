@@ -199,7 +199,7 @@ export default async function PeoplePage({
     </div>
     <div className="w-full">
       <p className="text-left sans-serif text-base font-normal">
-        {peopleDataItem.role}, {programmeDataRaw.items.find((item) => item.id === peopleDataItem.relatedProgramme).fieldData.name}  
+        {peopleDataItem.role}, {peopleDataItem.relatedProgramme.name} 
       </p>
     </div>
     <div className="w-full mt-6">
@@ -215,8 +215,10 @@ export default async function PeoplePage({
 </div>
 
 
-<div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
+{/* <div className="w-full h-px bg-slate-200"></div> Separation Bar */}
 
+
+<div>
           <div className="">
             <PostAccordion title={"News"}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -252,12 +254,12 @@ export default async function PeoplePage({
                 {agnosticpublications.map((item) => (
                    <AgnosticComponentProvider content={item}>
                    <AgnosticComponentTextColumn>
-           
                      <AgnosticComponentTitle />
                      <AgnosticComponentShortDescription />
                      <AgnosticComponentDateAndSourceContainer>
                        <AgnosticComponentDatePublished />
-                       <span className="mono text-xs font-normal uppercase">•</span>
+                       <span className="sans-serif text-sm font-normal">|
+                       </span>
                        <AgnosticComponentSource />
                      </AgnosticComponentDateAndSourceContainer>
                    </AgnosticComponentTextColumn>
@@ -267,26 +269,6 @@ export default async function PeoplePage({
               </div>
             </PostAccordion>
           </div>
-
-          {/* 
-
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
-
           <div>
             <PostAccordion title={"Events"}>
               <div className="grid grid-cols-3 gap-5">
@@ -298,36 +280,13 @@ export default async function PeoplePage({
               </div>
             </PostAccordion>
           </div>
-          {/*  <SectionBanter title={"Multimedia"}>
-            <div className="grid grid-cols-3">
-              {cleanMultimedia.map((item) => (
-                <CompoundUnifiedComponent data={item}>
-                  <UnifiedComponentTitle />
-                  <UnifiedComponentThumbnail />
-                  <UnifiedComponentSlug />
-                  <UnifiedComponentCollection />
-                  <UnifiedComponentRelatedProgrammes />
-                </CompoundUnifiedComponent>
-              ))}
+          <div> 
+          <PostAccordion title={"Photos"}>
+              <ContentPhotos images={cleanRelatedImages} />
+            </PostAccordion>
             </div>
-          </SectionBanter>
-          <SectionBanter title={"Related Posts"}>
-            <div className="grid grid-cols-3">
-              {cleanPosts.map((content) => (
-                <PostCardProvider content={content}>
-                  <PostCardImageColumn />
-                  <PostCardTextColumn>
-                    <PostCardProgrammeLabel />
-                    <PostCardTitle />
-                    <PostCardDatePublished />
-                  </PostCardTextColumn>
-                </PostCardProvider>
-              ))}
-            </div>
-          </SectionBanter>
-          <SectionBanter title={"Images"}>
-            <ContentPhotos images={cleanRelatedImages} />
-          </SectionBanter>*/}
+          </div>
+
         </ContentContainer>
   );
 }
