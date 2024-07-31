@@ -19,7 +19,7 @@ export default function Footer() {
             <SocialMediaList
               socialMediaLinks={{
                 instagram: { name: "instagram", url: "https://www.instagram.com/communityjameel/?hl=en" },
-                linkedin: { name: "linkedin", url: "https://www.linkedin.com/company/commission-junction/" },
+                linkedin: { name: "linkedin", url: "https://www.linkedin.com/company/communityjameel/" },
                 twitter: { name: "twitter", url: "https://x.com/communityjameel" },
                 youtube: { name: "youtube", url: "https://www.youtube.com/c/CommunityJameel" },
               }}

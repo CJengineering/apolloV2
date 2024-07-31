@@ -287,7 +287,8 @@ export default async function SinglePost({
       item,
       programmeRaw.items,
       peopleRaw.items,
-      partnersRaw.items
+      partnersRaw.items,
+      sourcesRaw.items,
     )
   );
   const postsAgnostic = postsClean.map((item) => agnosticMapper(item));
