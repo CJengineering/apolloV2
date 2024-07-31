@@ -70,8 +70,8 @@ const navItems: NavItem[] = [
       {
         "name": "J-PAL",
         "children": [
-          { "name": "Overview", "href": "/programmes/jameel-poverty-action-lab", "current": false },
-          { "name": "J-PAL MENA", "href": "/programmes/jameel-poverty-action-lab-middle-east-and-north-africa", "current": false },
+          { "name": "Overview", "href": "/programmes/j-pal", "current": false },
+          { "name": "J-PAL MENA", "href": "/programmes/j-pal/j-pal-mena", "current": false },
           {
             "name": "People",
             "href": "/search?people=jameel-poverty-action-lab&open=true"
@@ -83,7 +83,7 @@ const navItems: NavItem[] = [
         "children": [
           { "name": "Overview", "href": "/programmes/j-wafs", "current": false },
           { "name": "FACT Alliance", "href": "/programmes/j-wafs/fact-alliance", "current": false },
-          { "name": "Jameel Index", "href": "/programmes/j-wafs/jameel-index", "current": false },
+         // { "name": "Jameel Index", "href": "/programmes/j-wafs/jameel-index", "current": false },
           {
             "name": "People",
             "href": "/search?people=j-wafs&open=true"
@@ -95,10 +95,10 @@ const navItems: NavItem[] = [
         "name": "Jameel-Clinic",
         "children": [
           { "name": "Overview", "href": "/programmes/jameel-clinic", "current": false },
-          { "name": "Press", "href": "/programmes", "current": false },
-          { "name": "AI/ML tools", "href": "/programmes", "current": false },
-          { "name": "Hospital Network", "href": "/programmes", "current": false },
-          { "name": "MIT-Takeda Programme", "href": "/programmes", "current": false },
+          // { "name": "Press", "href": "/programmes", "current": false },
+          // { "name": "AI/ML tools", "href": "/programmes", "current": false },
+          // { "name": "Hospital Network", "href": "/programmes", "current": false },
+          // { "name": "MIT-Takeda Programme", "href": "/programmes", "current": false },
           {
             "name": "Events",
             "href": "/search?event=jameel-clinic&open=true"
@@ -131,8 +131,8 @@ const navItems: NavItem[] = [
           {
             "name": "Food Security Early Action",
             "children": [
-              { "name": "Overview", "href": "/programmes", "current": false },
-              { "name": "Reports", "href": "/programmes", "current": false },
+              { "name": "Overview", "href": "/programmes/jameel-observatory/for-food-security-early-action", "current": false },
+             // { "name": "Reports", "href": "/programmes", "current": false },
               {
                 "name": "Events",
                 "href": "/search?event=jameel-observatory&open=true"
@@ -143,7 +143,7 @@ const navItems: NavItem[] = [
               }
             ]
           },
-          { "name": "CREWSNET", "href": "/programmes/jameel-observatory-crewsnet", "current": false }
+          { "name": "CREWSNET", "href": "/programmes/jameel-observatory/crewsnet", "current": false }
         ]
       },
       {
@@ -174,8 +174,8 @@ const navItems: NavItem[] = [
             "name": "Events",
             "href": "/search?event=jameel-house-of-traditional-arts-in-cairo&open=true"
           },
-          { "name": "Gallery", "href": "/programmes", "current": false },
-          { "name": "Graduates", "href": "/programmes", "current": false }
+         // { "name": "Gallery", "href": "/programmes", "current": false },
+          //{ "name": "Graduates", "href": "/programmes", "current": false }
         ]
       },
       {
@@ -186,11 +186,11 @@ const navItems: NavItem[] = [
         "name": "Climate Labs",
         "children": [
           { "name": "Overview", "href": "/programmes/climate-labs", "current": false },
-          { "name": "J-PAL Air, Water & Energy Lab", "href": "/programmes/jpal-air-and-water-labs", "current": false },
-          { "name": "Jameel C40 Urban Climate Lab", "href": "/programmes/jameel-c40-urban-planning-climate-labs", "current": false }
+          //{ "name": "J-PAL Air, Water & Energy Lab", "href": "/programmes/jpal-air-and-water-labs", "current": false },
+          //{ "name": "Jameel C40 Urban Climate Lab", "href": "/programmes/jameel-c40-urban-planning-climate-labs", "current": false }
         ]
       },
-      { "name": "Ejada", "href": "/programmes", "current": false },
+      { "name": "Ejada", "href": "/programmes/ejada", "current": false },
       {
         "name": "Funds",
         "children": [
@@ -204,21 +204,21 @@ const navItems: NavItem[] = [
         "name": "Bocelli-Jameel Scholarship",
         "children": [
           { "name": "Overview", "href": "/programmes/bocelli-jameel-scholarship", "current": false },
-          {
-            "name": "Scholars",
-            "children": [
-              { "name": "Clara Barbier Serrano (2020)", "href": "/programmes" },
-              { "name": "Laura Mekhail (2021)", "href": "/programmes" },
-              { "name": "Seonwoo Lee (2022)", "href": "/programmes" },
-              { "name": "Anastasia Koorn (2023)", "href": "/programmes" },
-              { "name": "Henna Mun (2023)", "href": "/programmes" }
-            ]
-          },
+          // {
+          //   "name": "Scholars",
+          //   "children": [
+          //     { "name": "Clara Barbier Serrano (2020)", "href": "/programmes" },
+          //     { "name": "Laura Mekhail (2021)", "href": "/programmes" },
+          //     { "name": "Seonwoo Lee (2022)", "href": "/programmes" },
+          //     { "name": "Anastasia Koorn (2023)", "href": "/programmes" },
+          //     { "name": "Henna Mun (2023)", "href": "/programmes" }
+          //   ]
+          // },
           {
             "name": "Performances",
             "href": "/search?event=bocelli-jameel-scholarship&open=true"
           },
-          { "name": "Gallery", "href": "/programmes", "current": false }
+          //{ "name": "Gallery", "href": "/programmes", "current": false }
         ]
       },
       { "name": "Voxel Lab", "href": "/programmes/voxel-lab", "current": false }
