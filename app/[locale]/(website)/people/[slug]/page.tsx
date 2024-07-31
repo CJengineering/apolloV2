@@ -281,25 +281,115 @@ export default async function PeoplePage({
                   <UnifiedComponentRelatedProgrammes />
                 </CompoundUnifiedComponent>
               ))}
+<ContentContainer width="full" desktopWidth="medium">
+<div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:mt-24">
+  <div className="col-span-12 md:col-span-4 flex justify-center md:justify-end">
+    <div className="w-full">
+      <img
+        src={peopleDataItem.profilePicture.url}
+        alt="Profile"
+        className="w-full h-auto"
+      />
+    </div>
+  </div>
+  <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
+    <div className="w-full pb-2">
+      <h1 className="text-left text-4xl serif font-bold">
+        {peopleDataItem.name}
+      </h1>
+    </div>
+    <div className="w-full">
+      <p className="text-left sans-serif text-base font-normal">
+        {peopleDataItem.role}, {peopleDataItem.relatedProgramme.name} 
+      </p>
+    </div>
+    <div className="w-full mt-6">
+      <div className="prose prose-xl dark:prose-dark serif">
+        <div
+          dangerouslySetInnerHTML={{
+            __html: peopleDataItem.biography,
+          }}
+        ></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{/* <div className="w-full h-px bg-slate-200"></div> Separation Bar */}
+
+
+<div>
+          <div className="">
+            <PostAccordion title={"News"}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {cleanPosts.map((post) => (
+                  <PostCard key={post.name} content={post} />
+                ))}
+              </div>
+            </PostAccordion>
+          </div>
+          <div className="">
+            <PostAccordion title={"Press"}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {cleanNews.map((item) => (
+                  <NewsCard content={item} locale={params} />
+                ))}
+              </div>
+            </PostAccordion>
+          </div>
+          <div className="">
+            <PostAccordion title={"Multimedia"}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {cleanMultimediaTransformed.map((item) => (
+                  <div key={item.alt} className="">
+                    <MediaCard {...item} />
+                  </div>
+                ))}
+              </div>
+            </PostAccordion>
+          </div>
+          <div className="">
+            <PostAccordion title={"Publications"}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {agnosticpublications.map((item) => (
+                   <AgnosticComponentProvider content={item}>
+                   <AgnosticComponentTextColumn>
+                     <AgnosticComponentTitle />
+                     <AgnosticComponentShortDescription />
+                     <AgnosticComponentDateAndSourceContainer>
+                       <AgnosticComponentDatePublished />
+                       <span className="sans-serif text-sm font-normal">|
+                       </span>
+                       <AgnosticComponentSource />
+                     </AgnosticComponentDateAndSourceContainer>
+                   </AgnosticComponentTextColumn>
+                 </AgnosticComponentProvider>
+               ))}
+                
+              </div>
+            </PostAccordion>
+          </div>
+          <div>
+            <PostAccordion title={"Events"}>
+              <div className="grid grid-cols-3 gap-5">
+                {cleanEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
+              </div>
+            </PostAccordion>
+          </div>
+          <div> 
+          <PostAccordion title={"Photos"}>
+              <ContentPhotos images={cleanRelatedImages} />
+            </PostAccordion>
             </div>
-          </SectionBanter>
-          <SectionBanter title={"Related Posts"}>
-            <div className="grid grid-cols-3">
-              {cleanPosts.map((content) => (
-                <PostCardProvider content={content}>
-                  <PostCardImageColumn />
-                  <PostCardTextColumn>
-                    <PostCardProgrammeLabel />
-                    <PostCardTitle />
-                    <PostCardDatePublished />
-                  </PostCardTextColumn>
-                </PostCardProvider>
-              ))}
-            </div>
-          </SectionBanter>
-          <SectionBanter title={"Images"}>
-            <ContentPhotos images={cleanRelatedImages} />
-          </SectionBanter>*/}
-    </ContentContainer>
+          </div>
+
+        </ContentContainer>
   );
+   
+
 }
