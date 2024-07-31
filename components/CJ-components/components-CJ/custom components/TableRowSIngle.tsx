@@ -26,13 +26,15 @@ export default function TableRowSingle({
       <div className="grid px-2 md:grid-cols-2 md:gap-16">
         <div>
           <div>
-            <Image
-              className="dark:hidden object-fit w-64 py-9"
-              width={400}
-              height={300}
-              src={repository.content.logo?.url || ""}
-              alt={repository.content.logo?.alt || ""}
-            />
+            {repository.content.logo?.url && (
+              <Image
+                className="dark:hidden object-fit w-64 py-9"
+                width={400}
+                height={300}
+                src={repository.content.logo?.url || ""}
+                alt={repository.content.logo?.alt || ""}
+              />
+            )}
           </div>
           <div>
             <Image
@@ -141,7 +143,6 @@ export default function TableRowSingle({
           <div className="py-4"></div>
           <div>
             <div className="pt-4 pb-8 grid grid-cols-3 gap-3">
-         
               {repository.content.features.map((feature, index) => (
                 <FeatureCardTable
                   image={{
@@ -151,7 +152,10 @@ export default function TableRowSingle({
                   }}
                   title={feature.title}
                   clickAction={feature.clickAction}
-                  customLink={feature.customLink} isLightBox={false} isTab={false}                />
+                  customLink={feature.customLink}
+                  isLightBox={false}
+                  isTab={false}
+                />
               ))}
             </div>
           </div>
