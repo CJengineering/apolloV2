@@ -464,11 +464,7 @@ export default async function HomeComponents() {
               </div>
             </div>
             <div className=" gap-5">
-              <div className="w-full">
-                <div className="">
-                  <ListSmall data={data} />
-                </div>
-              </div>
+              <div className="w-full"></div>
             </div>
           </li>
           <li className="py-9">
@@ -664,9 +660,7 @@ export default async function HomeComponents() {
             <div className=" gap-5">
               <div className="w-full ">
                 <div className=" flex p-4 border-dotted border-r-gray-100 border-2 ">
-                  <div className="grid grid-cols-2 gap-3">
-            
-                  </div>
+                  <div className="grid grid-cols-2 gap-3"></div>
                 </div>
               </div>
             </div>
@@ -682,9 +676,7 @@ export default async function HomeComponents() {
             </div>
             <div className=" gap-5">
               <div className="w-full ">
-                <div className="  p-4 border-dotted border-r-gray-100 border-2 ">
-             
-                </div>
+                <div className="  p-4 border-dotted border-r-gray-100 border-2 "></div>
               </div>
             </div>
           </li>

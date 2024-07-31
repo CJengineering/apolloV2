@@ -6,24 +6,28 @@ export default function ListSmall({ data }: ListSmallProps) {
     return null;
   }
 
-
   return (
     <>
       {Object.keys(data).map((key) => {
-        const items = data[key]; 
+        const items = data[key];
 
         return (
           <div key={key}>
-        
             <h6 className="text-xs font-normal mono uppercase">
-              {(items && items.length > 0) && (items && items[0] !=="")  ? key : ''}
+              {(items && items.length > 0) && (items && items[0].name !== "") ? key : ''}
             </h6>
 
-            <div>
+            <div className='flex flex-col'>
               {items && items.map((item, index) => (
-                <div className="text-small serif font-normal" key={index}>
-                  {item}
-                </div>
+                item.url ? (
+                  <a href={item.url} className="text-small serif font-normal underline cursor-pointer" key={index}>
+                    {item.name}
+                  </a>
+                ) : (
+                  <div className="text-small serif font-normal" key={index}>
+                    {item.name}
+                  </div>
+                )
               ))}
             </div>
           </div>
