@@ -65,7 +65,7 @@ const postsId = getIdByDisplayName("Posts");
 
 const cardData = [
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
+    imageUrl: "/images/01.jpg",
     alt: "Sample Image 1",
     title: "Life-saving care for mothers and children evacuated from Gaza",
     subtitle:
@@ -75,7 +75,7 @@ const cardData = [
     clickAction: "Internal Link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
+    imageUrl: "/images/02.jpg",
     alt: "Sample Image 2",
     title: "Bill Gates and Fady Jameel host food security meeting at COP28",
     subtitle:
@@ -85,7 +85,7 @@ const cardData = [
     clickAction: "Internal Link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
+    imageUrl: "/images/03.jpg",
     alt: "Sample Image 3",
     title: "CLIMAVORE x Jameel at RCA announces 2024 Food Action Awards",
     subtitle:
@@ -95,7 +95,7 @@ const cardData = [
     clickAction: "Internal Link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
+    imageUrl: "/images/04.jpg",
     alt: "Sample Image 4",
     title: "Climate Labs with C40 and J-PAL",
     subtitle:
@@ -105,7 +105,7 @@ const cardData = [
     clickAction: "Internal Link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
+    imageUrl: "/images/05.jpg",
     alt: "Sample Image 5",
     title: "Jameel 75",
     subtitle:
@@ -115,7 +115,7 @@ const cardData = [
     clickAction: "Image link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
+    imageUrl: "/images/06.jpg",
     alt: "Sample Image 6",
     title: "Community Jameel x afikra COP28 Conversation Series",
     subtitle:
@@ -125,7 +125,7 @@ const cardData = [
     clickAction: "Internal Link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
+    imageUrl: "/images/07.jpg",
     alt: "Sample Image 7",
     title: "Jameel Arts & Health Lab",
     subtitle:
@@ -135,7 +135,7 @@ const cardData = [
     clickAction: "Internal Link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
+    imageUrl: "/images/08.jpg",
     alt: "Andrea Bocelli and Laura Mekhail sing 'Canto della terra' in AlUla",
     title: "Andrea Bocelli and Laura Mekhail sing 'Canto della terra' in AlUla",
     subtitle:
@@ -145,7 +145,7 @@ const cardData = [
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
+    imageUrl: "/images/09.jpg",
     alt: "Jameel Management Centre Building in Cairo",
     title: "A Cairo Cornerstone",
     subtitle:

@@ -88,7 +88,7 @@ export default async function EventPage({
           {eventSingleDataCleaned.name}
         </h1>
       </div>
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-start md:justify-left md:space-x-4 w-full">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-start md:justify-left md:space-x-4 w-full mb-12">
         <div className="flex items-start md:items-center space-x-1 w-full md:w-auto">
           <p className="sans-serif text-base font-normal">
             {eventSingleDataCleaned.eventDate}
@@ -153,20 +153,23 @@ export default async function EventPage({
     <div className="pt-12">
       <h2 className="serif font-semibold text-3xl mb-6">Participants</h2>
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {relatedPeopleDataCleaned.map((person) => (
-          <div key={person.name} className="text-left">
-            <Image
-              src={person.profilePicture.url}
-              alt={person.profilePicture.alt || ""}
-              width={330}
-              height={330}
-              className="mx-auto"
-            />
-            <h2 className="mt-2 font-medium serif text-lg">{person.name}</h2>
-            <p className="mt-1 sans-serif text-sm font-normal text-left text-gray-600">{person.shortDescription}</p>
-          </div>
-        ))}
+  {relatedPeopleDataCleaned.map((person) => (
+    <div key={person.name} className="text-left">
+      <div className="relative w-full pb-[100%]"> {/* Aspect ratio box */}
+        <Image
+          src={person.profilePicture.url}
+          alt={person.profilePicture.alt || ""}
+          layout="fill"
+          objectFit="cover" // Ensure the image covers the div
+          className="absolute top-0 left-0 w-full h-full" // Position it to fill the container
+        />
       </div>
+      <h2 className="mt-2 font-medium serif text-lg">{person.name}</h2>
+      <p className="mt-1 sans-serif text-sm font-normal text-left text-gray-600">{person.shortDescription}</p>
+    </div>
+  ))}
+</div>
+
     </div>
     </ContentContainer>
 
