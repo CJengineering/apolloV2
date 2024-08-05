@@ -11,6 +11,6 @@ export function mapMultimediaToMediaCard(multimedia: MultimediaCleanedFields): M
         imageUrl: multimedia.thumbnail.url,
         alt: multimedia.thumbnail.alt,
    
-        slug : `/multimedia/${multimedia.slug}`
+        slug : `${multimedia.slug}`
     };
   }

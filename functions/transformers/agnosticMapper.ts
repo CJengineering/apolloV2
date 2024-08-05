@@ -101,9 +101,9 @@ export default function agnosticMapper(
     title = data.name;
     slug = data.slug;
     collectionName = data.collectionName;
-    programShortname = 'programme pub' || "";
+    programShortname = data.programeShortname ;
     datePublished = data.datePublished;
-    source = 'data.programmeS[0].shortname' || "";
+    source =data.source2 || "";
   }
   if (isPeopleCleanedFields(data)) {
     imageSrc = data.profilePicture.url;
@@ -115,15 +115,7 @@ export default function agnosticMapper(
     source = "";
     shortDescription = data.shortDescription || 'test';
   }
-  if (isPostFieldsCleaned(data)) {
-    imageSrc = data.thumbnail.url;
-    title = data.name || 'test';
-    slug = data.slug;
-    collectionName = data.collectionName;
-    programShortname = data.programme.shortname || "";
-    datePublished = data.datePublished;
-    source = data.programme.shortname || "";
-    }
+
   return {
     title: title,
     slug: slug,

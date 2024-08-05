@@ -77,7 +77,6 @@ export interface RowTopData {
 export interface RowContentData {
   research?: ListSmallProps;
   researchArabic?: ListSmallProps;
-
   established?: ListSmallProps;
   logo?: { url: string; alt: string };
   logoDark?: { url: string; alt: string };
@@ -739,7 +738,7 @@ export interface MultimediaRawFields {
   type?: "video" | "audio" | "photo" | "other";
   source?: string;
   "original-link"?: string;
-  "video-link"?: string;
+  "video-link"?: {metadata: {html: string}};
   "link-audio"?: string;
   name: string;
   slug: string;
@@ -895,6 +894,7 @@ export interface PublicationsCleanedFields {
   thumbnail: ImageProps;
   text: string;
   collectionName: "publications";
+  programeShortname: string;
   summaryArabic: string;
   pushToGr: boolean;
   externalLink: string;

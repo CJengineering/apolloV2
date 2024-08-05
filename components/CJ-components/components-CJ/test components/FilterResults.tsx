@@ -203,7 +203,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
 
       {(newsParam || noParams) && (
         <PostAccordion
-          title="News"
+          title="Press"
           isOpen={searchParams.get('open') === 'true'}
           itemsCount={`${filtredNewsMaped.length}`}
         >
@@ -247,7 +247,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
       )}
       {(pressParam || noParams) && (
         <PostAccordion
-          title="Press"
+          title="News"
           isOpen={searchParams.get('open') === 'true'}
           itemsCount={`${filteredPosts.length}`}
         >
