@@ -117,6 +117,7 @@ export default function multimediaMapper(
 
   // Ensure `type` field is one of the allowed values
   const allowedTypes = ["video", "audio", "photo", "other"];
+  const iframe = fieldData["video-link"]?.metadata.html || "";
 
   return {
     nameArabic: fieldData["name-arabic"] || "N/A",
@@ -138,9 +139,9 @@ export default function multimediaMapper(
     type: fieldData.type ? getNameById(fieldData.type) : "other",
     sources: source,
     originalLink: fieldData["original-link"] || "N/A",
-    videoLink: fieldData["video-link"] || "N/A",
+    videoLink: iframe || "N/A",
     linkAudio: fieldData["link-audio"] || "N/A",
     name: fieldData["name"] || "N/A",
-    slug:`/multimedia/${fieldData.slug}`  || "N/A",
+    slug: `/multimedia/${fieldData.slug}` || "N/A",
   };
 }
