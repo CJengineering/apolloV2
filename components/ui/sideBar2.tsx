@@ -25,6 +25,7 @@ import SidebarLink from "./sidebar-link";
 import SidebarLinkGroup from "./sidebar-link-group";
 import SidebarLinkSubgroup from "./sidebar-link-subgroup";
 import { AcademicCapIcon, GlobeAltIcon, BeakerIcon, ChevronRightIcon, CpuChipIcon } from '@heroicons/react/24/outline';
+import SidebarLinkSubChildren from "./sidebar-link-sub-children";
 
 
 type NavItem = {
@@ -32,6 +33,7 @@ type NavItem = {
   href?: string;
   current?: boolean;
   children?: NavItem[];
+  subChildren?: NavItem[];
 };
 
 const navItems: NavItem[] = [
@@ -130,7 +132,7 @@ const navItems: NavItem[] = [
           { "name": "Overview", "href": "/programmes/jameel-observatory", "current": false },
           {
             "name": "Food Security Early Action",
-            "children": [
+            "subChildren": [
               { "name": "Overview", "href": "/programmes/jameel-observatory/for-food-security-early-action", "current": false },
              // { "name": "Reports", "href": "/programmes", "current": false },
               {
@@ -253,7 +255,7 @@ const NavGroup = ({ title, children, icon }: { title: string; children: React.Re
           e.preventDefault();
           handleClick();
         }}
-        className="relative flex w-[240px] justify-between items-center font-normal mono text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+        className="relative  flex md:w-[240px] justify-between items-center font-normal mono text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
       >
         <div className="flex uppercase items-center hover:text-orange-700 dark:hover:text-orange-400">
 
@@ -299,19 +301,53 @@ export default function Sidebar2() {
     return () => document.removeEventListener("keydown", keyHandler);
   });
 
+  // const renderNavItems = (navItems: NavItem[]) => {
+  //   return navItems.map((item) => (
+  //     <div className="mt-3" key={item.name}>
+  //       {item.href ? (
+  //         <SidebarLink href={item.href}>{item.name}</SidebarLink>
+  //       ) : (
+  //         <SidebarLinkSubgroup title={item.name} open={useSelectedLayoutSegments().includes(item.name)}>
+  //           {renderNavItems(item.children || [])}
+  //         </SidebarLinkSubgroup>
+  //       )}
+  //     </div>
+  //   ));
+  // };
   const renderNavItems = (navItems: NavItem[]) => {
     return navItems.map((item) => (
       <div className="mt-3" key={item.name}>
         {item.href ? (
-          <SidebarLink href={item.href}>{item.name}</SidebarLink>
+          // Ensure href is defined before rendering SidebarLink
+          <SidebarLink href={item.href ?? '#'}>{item.name}</SidebarLink>
         ) : (
+          // First level group (children) case
           <SidebarLinkSubgroup title={item.name} open={useSelectedLayoutSegments().includes(item.name)}>
-            {renderNavItems(item.children || [])}
+            {item.children?.map((child) =>
+              child.subChildren ? (
+                // Render subChildren inside SidebarLinkSubChildren
+                <SidebarLinkSubChildren title={child.name} open={useSelectedLayoutSegments().includes(child.name)} key={child.name}>
+                  {renderNavItems(child.subChildren)}
+                </SidebarLinkSubChildren>
+              ) : (
+                // Render SidebarLink if href is present, otherwise handle undefined href
+                child.href ? (
+                  <SidebarLink href={child.href}>{child.name}</SidebarLink>
+                ) : (
+                  <div key={child.name}>{child.name}</div> // Handle cases without href
+                )
+              )
+            )}
           </SidebarLinkSubgroup>
         )}
       </div>
     ));
   };
+  
+  
+  
+  
+  
 
   return (
     <>

@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { ChevronRightIcon } from '@heroicons/react/24/solid';
 
-interface SidebarLinkSubgroupProps {
+interface SidebarLinkSubChildrenProps {
   children: React.ReactNode;
   title: string;
   open: boolean;
 }
 
-export default function SidebarLinkSubgroup({
+export default function SidebarLinkSubChildren({
   children,
   title,
   open,
-}: SidebarLinkSubgroupProps) {
+}: SidebarLinkSubChildrenProps) {
   const [linkOpen, setLinkOpen] = useState<boolean>(open);
 
   return (
-    <div className="mt-3 pr-2 md:pr-0  md:w-[205px]">
+    <div className="mt-3 pr-2 w-[331px] md:w-auto md:pr-0 ">
       <a
         className="flex   items-center justify-between text-black font-normal dark:text-white hover:text-orange-700 dark:hover:text-orange-400"
         href="#0"
