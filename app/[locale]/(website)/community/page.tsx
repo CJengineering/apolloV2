@@ -101,7 +101,7 @@ export default async function SinglePost({
   return (
     <ContentContainer width="full" desktopWidth="medium">
       <LanguageChanger />
-      <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
+      <h1 className="sans-serif font-bold sm:leading-10 text-3xl md:text-4xl lg:text-5xl py-12 sm:py-16 text-center">
         Community
       </h1>
       <div className="w-min-full]">

@@ -75,7 +75,7 @@ const ShortDescription = () => {
   if (!shortDescription) return null;
   return (
     <div className="text-left">
-      <p className="sans-serif text-sm font-normal">{shortDescription}</p>
+      <p className="sans text-sm font-normal">{shortDescription}</p>
     </div>
   );
 }
@@ -87,10 +87,10 @@ const ProgramLabel = () => {
   if (!programShortname) return null;
   return (
     <div className="text-left">
-      <span className="mono text-xs font-normal uppercase p-1 bg-red-100 dark:bg-slate-800">
+      <span className="font-mono text-xs font-normal uppercase p-1 bg-red-100 dark:bg-slate-800">
         {collectionName}
       </span>
-      <span className="mono text-xs ml-2 font-normal uppercase p-1 bg-slate-100 dark:bg-slate-800">
+      <span className="font-mono leading-loose text-xs ml-2 font-normal uppercase p-1 bg-slate-100 dark:bg-slate-800">
         {programShortname}
       </span>
     </div>
@@ -102,7 +102,7 @@ const CollectionName = () => {
   if (!collectionName) return null;
   return (
     <div className="text-left">
-      <span className="mono text-xs font-normal uppercase p-1 bg-red-100 dark:bg-slate-800">
+      <span className="font-mono text-xs font-normal uppercase p-1 bg-red-100 dark:bg-slate-800">
         {collectionName}
       </span>
     </div>
@@ -114,8 +114,8 @@ const Title = () => {
   const { title } = useAgnosticComponentContext();
   if (!title) return null;
   return (
-    <div className="text-left">
-      <h3 className="text-lg serif font-medium">{title}</h3>
+    <div className="text-left py-2">
+      <h3 className="text-lg sans leading-tight font-medium">{title}</h3>
     </div>
   );
 };
@@ -126,7 +126,7 @@ const DatePublished = () => {
   if (!datePublished) return null;
   return (
     <div className="text-left">
-      <p className="sans-serif text-sm font-normal">
+      <p className="sans text-sm font-normal">
         <time dateTime={datePublished}>{datePublished}</time>
       </p>
     </div>
@@ -139,7 +139,7 @@ const Source = () => {
   if (!source) return null;
   return (
     <div className="text-left">
-      <p className="sans-serif text-sm font-normal">{source}</p>
+      <p className="sans text-sm font-normal">{source}</p>
     </div>
   );
 };
@@ -158,7 +158,7 @@ const DateAndSourceContainer = ({ children }: PropsWithChildren) => {
   return <div className="flex space-x-2">{children}</div>;
 };
 
-const DotDivider = () => <span className="text-sm sans-serif font-normal">|</span>;
+const DotDivider = () => <span className="text-sm sans font-normal">|</span>;
 DotDivider.displayName = "DotDivider";
 
 DateAndSourceContainer.displayName = "DateAndSourceContainer";
