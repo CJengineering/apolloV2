@@ -63,7 +63,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                     open ? "opacity-0" : "opacity-100"
                   }`}
                 >
-                  <div className="text-sm serif font-normal leading-5">
+                  <div className="text-sm sans font-normal leading-5">
                     {isArabic
                       ? repository.top.missionArabic
                       : repository.top.mission}
@@ -75,7 +75,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                     open ? "opacity-0" : "opacity-100"
                   }`}
                 >
-                  <div className="text-sm serif font-normal leading-5">
+                  <div className="text-sm sans font-normal leading-5">
                     {repository.top.year}
                   </div>
                 </div>
@@ -85,7 +85,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                     open ? "opacity-0" : "opacity-100"
                   }`}
                 >
-                  <div className="text-sm serif font-normal leading-5">
+                  <div className="text-sm sans font-normal leading-5">
                     {isArabic
                       ? repository.top.partnersArabic.join(", ")
                       : repository.top.partners.join(", ")}

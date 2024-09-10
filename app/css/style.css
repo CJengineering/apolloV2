@@ -26,9 +26,10 @@
     @apply text-xl font-bold text-gray-900;
 }
 }
-html{
+html {
     overflow-y: scroll; 
 }
+
 .sans-serif {
     font-family: var(--font-ibm-plex-sans)
 }
