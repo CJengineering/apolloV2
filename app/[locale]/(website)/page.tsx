@@ -298,10 +298,10 @@ export default async function SinglePost({
     <ContentContainer width="full" desktopWidth="large">
       <div className="pt-12 sm:pt-36 flex flex-col justify-center">
         <div className="w-full md:w-full lg:w-3/4 xl:w-4/6 mx-auto">
-          <h1 className="costa font-bold text-left text-4xl md:text-6xl lg:text-7xl">
+          <h1 className="sans-serif font-bold text-left sm:leading-10text-3xl md:text-4xl lg:text-5xl">
             Advancing science and learning for communities to thrive
           </h1>
-          <p className="pt-6 serif text-lg sm:text-xl font-normal md:text-2x text-left">
+          <p className="pt-6 sans text-lg sm:text-xl font-normal md:text-2x text-left">
             An independent, global organisation, Community Jameel launched in
             2003 to continue the tradition of philanthropy and community service
             established by the Jameel family of Saudi Arabia in 1945.
@@ -309,7 +309,7 @@ export default async function SinglePost({
           <div className="pt-8">
             <ButtonCJ
               href={"/community"}
-              text={"community"}
+              text={"discover"}
               openInNewTab={false}
               styleType="primary"
             />
@@ -340,7 +340,7 @@ export default async function SinglePost({
       </div>
       {/* <div><iframe src="https://benderlidze.github.io/mapbox-custom-marker-div/" style={{width:"100%", height:"600px",border:"0px;"}}></iframe></div> */}
       <div className="flex justify-center">
-        <div className="w-full xl:w-5/6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="w-full xl:w-5/6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
           {cardData.map((card, index) => (
             <HomeCard
               key={index}
@@ -363,22 +363,22 @@ export default async function SinglePost({
       </div>
 
       <div className="flex justify-center">
-        <div className="w-full xl:w-5/6 grid grid-col-1 md:grid-cols-3 md:col-span-12">
+        <div className="w-full xl:w-5/6 grid grid-cols-1 col-span-12 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 ">
           <div className="grid md:row-span-3">
-            <h2 className="serif font-semibold text-3xl">News</h2>
+            <h2 className="sans font-semibold text-3xl">News</h2>
             {postsAgnostic.slice(1, 6).map((value, index) => (
               <AgnosticComponentProvider content={value}>
                 <AgnosticComponentTextColumn>
                   <AgnosticComponentProgramLabel />
                   <AgnosticComponentTitle />
                   <AgnosticComponentShortDescription />
-                  <AgnosticComponentDateAndSourceContainer>
+                  {/* <AgnosticComponentDateAndSourceContainer> */}
                     <AgnosticComponentDatePublished />
-                    <span className="sans-serif text-sm font-normal">
+                    {/* <span className="sans-serif text-sm font-normal">
                       |
-                    </span>
-                    <AgnosticComponentSource />
-                  </AgnosticComponentDateAndSourceContainer>
+                    </span> */}
+                    {/* <AgnosticComponentSource /> */}
+                  {/* </AgnosticComponentDateAndSourceContainer> */}
                 </AgnosticComponentTextColumn>
               </AgnosticComponentProvider>
             ))}
@@ -391,8 +391,8 @@ export default async function SinglePost({
             />
           </div>
           </div>
-          <div className="grid md:row-span-3">
-            <h2 className="serif font-semibold text-3xl">Press</h2>
+          <div className="grid">
+            <h2 className="sans font-semibold text-3xl">Press</h2>
             {newsAgnostic.slice(1, 6).map((value, index) => (
               <AgnosticComponentProvider content={value}>
                 <AgnosticComponentTextColumn>
@@ -419,7 +419,7 @@ export default async function SinglePost({
           </div>
           </div>
           <div className="grid md:row-span-3">
-            <h2 className="serif font-semibold text-3xl">Events</h2>
+            <h2 className="sans font-semibold text-3xl">Events</h2>
             {eventsAgnostic.slice(1, 6).map((value, index) => (
               <AgnosticComponentProvider content={value}>
                 <AgnosticComponentTextColumn>
@@ -428,10 +428,10 @@ export default async function SinglePost({
                   <AgnosticComponentShortDescription />
                   <AgnosticComponentDateAndSourceContainer>
                     <AgnosticComponentDatePublished />
-                    <span className="sans-serif text-sm font-normal">
+                    {/* <span className="sans-serif text-sm font-normal">
                       |
-                    </span>
-                    <AgnosticComponentSource />
+                    </span> */}
+                    {/* <AgnosticComponentSource /> */}
                   </AgnosticComponentDateAndSourceContainer>
                 </AgnosticComponentTextColumn>
               </AgnosticComponentProvider>
