@@ -728,11 +728,11 @@ export interface MultimediaRawFields {
   "innovation-related"?: string[];
   "related-people"?: string[];
   "related-event"?: string[];
-  thumbnail?: { url: string; alt: string };
+  thumbnail?: { url: string ; alt: string };
   "hero-video-audio"?: { url: string; alt: string };
   "square-listen-1x2"?: { url: string; alt: string };
   "no-embed-code"?: boolean;
-  "embed-code"?: string;
+  "embed-code"?: string;  
   description?: string;
   date?: string;
   type?: "video" | "audio" | "photo" | "other";

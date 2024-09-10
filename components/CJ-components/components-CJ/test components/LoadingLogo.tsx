@@ -2,6 +2,7 @@ import SectionBanter from "@/components/custom beta components/SectionBanter";
 
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import LogoLoader from "@/components/CJ-components/components-CJ/test components/LogoLoader";
+import Spinner from "../custom components/Spinner";
 
 export default function LoadingLogo() {
   return (
@@ -11,7 +12,8 @@ export default function LoadingLogo() {
           <div className="ml-20 md:ml-0 md:mt-10">
             <SectionBanter title={""}>
               <div className=" min-h-screen flex justify-center items-center">
-                <LogoLoader />
+                {/* <LogoLoader /> */}
+                <Spinner />
               </div>
             </SectionBanter>
           </div>

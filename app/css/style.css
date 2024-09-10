@@ -112,5 +112,56 @@ html{
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-
+  #map {
+   
+    top: 0;
+    bottom: 0;
+    width: 100%;
+  }
   
+  .text-container {
+    font-family: "IBM Plex Mono", monospace;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: fit-content;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    margin: 20px;
+    position: relative; /* Ensure the text container is properly positioned */
+  }
+  
+  .text-container div {
+    width: 100%;
+  }
+  
+  .text-container a {
+    display: block;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .text-container a:hover {
+    text-decoration: underline;
+  }
+  
+  .text-container > .city {
+    color: red;
+  }
+  
+  .marker-container {
+    width: fit-content;
+    position: absolute; /* Ensure the marker container is properly positioned */
+    transform: translateY(-90%); /* Center the marker vertically */
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
