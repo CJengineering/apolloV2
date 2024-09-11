@@ -94,8 +94,8 @@ export default async function page({
             <div className="pb-9">
               <hr className="border-gray-200" />
             </div>
-            <div className="pb-3">
-              <h2 className="serif font-medium text-2xl">Related</h2>
+            <div className="pb-6">
+              <h2 className="header-section">Related</h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-4">

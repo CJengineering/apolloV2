@@ -83,12 +83,12 @@ export default async function EventPage({
   return (
     <ContentContainer width="full" desktopWidth="medium">
       <div className="flex flex-col justify-center items-center w-full">
-      <div className="pt-12 pb-3 w-full">
-        <h1 className="text-left text-4xl serif font-bold">
-          {eventSingleDataCleaned.name}
-        </h1>
-      </div>
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-start md:justify-left md:space-x-4 w-full">
+        <div className="flex items-center justify-center">
+          <div className="pt-12 pb-3 w-full">
+            <h1 className="header-article w-full leading-tight">{eventSingleDataCleaned.name}</h1>
+          </div>
+        </div>
+      <div className="flex flex-col pb-6 md:flex-row items-start md:items-center justify-start md:justify-left md:space-x-4 w-full">
         <div className="flex items-start md:items-center space-x-1 w-full md:w-auto">
           <p className="sans-serif text-base font-normal">
             {eventSingleDataCleaned.eventDate}
@@ -121,7 +121,7 @@ export default async function EventPage({
         />
 
     <div className="flex flex-col items-center pt-6">
-      <div className="prose prose-xl dark:prose-dark serif">
+      <div className="prose prose-xl sans-serif dark:prose-dark">
         <div
           dangerouslySetInnerHTML={{
             __html: eventSingleDataCleaned.shortDescription2,
@@ -151,7 +151,7 @@ export default async function EventPage({
     </div>
     <ContentContainer width="lg" desktopWidth="medium">
     <div className="pt-12">
-      <h2 className="serif font-semibold text-3xl mb-6">Participants</h2>
+      <h2 className="header-section pb-6">Participants</h2>
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {relatedPeopleDataCleaned.map((person) => (
           <div key={person.name} className="text-left">
@@ -162,7 +162,7 @@ export default async function EventPage({
               height={330}
               className="mx-auto"
             />
-            <h2 className="mt-2 font-medium serif text-lg">{person.name}</h2>
+            <h2 className="mt-2 font-medium sans-serif text-lg">{person.name}</h2>
             <p className="mt-1 sans-serif text-sm font-normal text-left text-gray-600">{person.shortDescription}</p>
           </div>
         ))}
@@ -173,7 +173,7 @@ export default async function EventPage({
     <ContentContainer width="lg" desktopWidth="medium">
     <div>
       {eventSingleDataCleaned.organisers.length > 0 && (
-        <h2 className="serif font-semibold text-3xl mb-6">Organisers</h2>
+        <h2 className="header-section pb-6">Organisers</h2>
       )}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {eventSingleDataCleaned.organisers.map((organiser) => (
@@ -190,7 +190,7 @@ export default async function EventPage({
     </div>
         <div>
       {eventSingleDataCleaned.partners.length > 0 && (
-        <h2 className="serif font-semibold text-3xl mb-6">Partners</h2>
+        <h2 className="header-section pb-6">Partners</h2>
       )}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {eventSingleDataCleaned.partners.map((partner) => (
@@ -209,7 +209,7 @@ export default async function EventPage({
 
     <div>
       {eventSingleDataCleaned.participantsAffiliatedInstitutions.length > 0 && (
-        <h2 className="serif font-semibold text-3xl mb-6">With representatives from</h2>
+        <h2 className="header-section pb-6">With representatives from</h2>
       )}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {eventSingleDataCleaned.participantsAffiliatedInstitutions.map((representatives) => (
