@@ -21,11 +21,11 @@ const PersonalCard = ({ author, socialPlatforms }: PersonalCardProps) => {
           />
         </div>
         <div className="block w-2/3 pl-3">
-          <h3 className="serif font-medium text-xl hover:underline">
+          <h3 className="sans-serif font-medium text-xl hover:underline">
               {author.name}
           </h3>
           <div>
-            <p className="sans-serif text-sm font-normal leading-tight">{author.position}</p>
+            <p className="sans-serif text-baser font-normal leading-tight">{author.position}</p>
           </div>
         </div>
         

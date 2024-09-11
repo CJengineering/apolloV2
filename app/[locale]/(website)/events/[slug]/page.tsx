@@ -136,7 +136,7 @@ export default async function EventPage({
                 target="_blank"
                 className="inline-block px-4 py-2 text-sm font-medium text-white bg-blue-800 rounded hover:bg-blue-950"
               >
-                <span className="mono uppercase">{eventSingleDataCleaned.buttonCtaText}</span>
+                <span className="sans-serif">{eventSingleDataCleaned.buttonCtaText}</span>
               </a>
             </div>
           )}

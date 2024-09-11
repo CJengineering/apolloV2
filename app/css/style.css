@@ -31,7 +31,7 @@ html {
 }
 
 .sans-serif {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .sans-serif-ar {
   font-family: var(--font-noto-sans-arabic)

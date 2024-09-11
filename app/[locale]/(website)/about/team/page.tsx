@@ -70,11 +70,11 @@ export default async function PeopleContent({
   return (
 <>
       <ContentContainer width="full" desktopWidth="medium">
-      <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
-          Team
-        </h1>   
+      <h1 className="sans-serif font-bold text-3xl md:text-4xl lg:text-6xl py-12 text-center">
+        Team
+      </h1>  
       <div className="pb-6">
-          <h2 className="serif font-semibold text-3xl pb-6">Core</h2>
+          <h2 className="sans-serif font-regular text-3xl pb-6">Core</h2>
           <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
             {team.map((member) => (
               <PersonalCard
@@ -89,7 +89,7 @@ export default async function PeopleContent({
     <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div> {/* Separation Bar */}
     </div>
         <div className="">
-          <h2 className="serif font-semibold text-3xl pb-6">Advisory Committee</h2>
+          <h2 className="sans-serif font-regular text-3xl pb-6">Advisory Committee</h2>
           <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {advisoryCommittee.map((member) => (
               <PersonalCard
@@ -105,8 +105,8 @@ export default async function PeopleContent({
       <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div> {/* Separation Bar */}
     </div>
         <div>
-          <h2 className="serif font-semibold text-3xl">Jameel Family</h2>
-          <p className="serif font-normal text-base mb-6">
+          <h2 className="sans-serif font-regular text-3xl pb-6">Jameel Family</h2>
+          <p className="sans-serif font-normal text-base mb-6">
               Check out a selection of <a href="https://www.communityjameel.org/about/people/family-album" className="underline">archival photos</a> of the Jameel family from across the history of Community Jameel.
             </p>
           <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

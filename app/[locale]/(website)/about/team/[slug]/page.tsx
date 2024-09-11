@@ -76,12 +76,12 @@ export default async function page({
       <div className={params.locale === "ar" ? "rtl" : ""}>
         <div className="pb-12 pt-12 flex flex-col items-center justify-center">
           <div className="w-full pb-2 md:w-1/2">
-            <h1 className="text-center text-4xl serif font-bold">
-              {memberName}
-            </h1>
+          <h1 className="sans-serif font-bold text-3xl md:text-4xl lg:text-6xl pt-12 text-center">
+        {memberName}
+      </h1>
           </div>
           <div className="w-full md:w-1/3">
-            <p className="text-center sans-serif text-base font-normal">
+            <p className="text-center sans-serif text-lg font-normal">
               {memberPosition}
             </p>
           </div>
@@ -97,7 +97,7 @@ export default async function page({
         </div>
         <div className="flex justify-center pt-12">
           <div
-            className="prose prose-xl dark:prose-dark serif"
+            className="prose sans-serif prose-xl dark:prose-dark"
             dangerouslySetInnerHTML={{
               __html: memberBiography ? memberBiography : "",
             }}
@@ -109,7 +109,8 @@ export default async function page({
           <div className="flex flex-col py-6">
             <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
           </div>
-          <h2 className="serif font-semibold text-3xl">Related</h2>
+          <div className="pb-6"><h2 className="sans-serif font-bold text-3xl">Related</h2></div>
+          
         </>
       )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
