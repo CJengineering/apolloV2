@@ -19,13 +19,32 @@
 }
 /* Add any styling  here : 1 - give a name  then add @apply and your tailwind classes */
 @layer components{
+
 .custom-heading {
     @apply text-2xl font-bold text-gray-900;
-}
+  }
 .custom-paragraph {
     @apply text-xl font-bold text-gray-900;
+  }
+
+.header-section {
+    @apply sans-serif text-2xl sm:text-3xl;
+  }
+    
+.title-list {
+    @apply sans-serif text-base;
+  }
+.header-page {
+    @apply sans-serif font-bold text-3xl sm:text-4xl lg:text-6xl;
+  } 
+
+.header-article {
+  @apply sans-serif text-3xl sm:text-4xl lg:text-6xl;
+} 
+
 }
-}
+
+
 html {
     overflow-y: scroll; 
 }

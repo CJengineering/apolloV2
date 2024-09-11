@@ -48,7 +48,7 @@ export default function TableRowSingle({
           </div>
           <div className="mt-6">
             <div
-              className="sans-serif text-xl md:w-11/12 md:text-3xl leading font-normal"
+              className="sans-serif text-xl md:w-11/12 sm:text-2xl leading-normal"
               dangerouslySetInnerHTML={{
                 __html: isArabic
                   ? repository.content.fullDescriptionArabic
@@ -60,13 +60,13 @@ export default function TableRowSingle({
           <div className="py-6"></div>
 
           <div className="grid grid-cols-2  py-4">
-            <div className="flex    items-center">
+            <div className="flex items-center">
               <div>
                 <SocialMediaList
                   socialMediaLinks={repository.content.socialMediaLinks}
                 />
               </div>
-              <div className="ml-3   flex space-x-4">
+              <div className="ml-3 flex space-x-4">
                 {repository.content.button.text && (
                   <ButtonCJ
                     href={repository.content.button.href}
