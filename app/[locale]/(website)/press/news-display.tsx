@@ -37,6 +37,7 @@ import {
   NewsCardSourceTextColumn,
   NewsCardSourceTitle,
 } from "@/components/CJ-components/components-CJ/test components/NewsCardSource";
+import NewsCard from "@/components/custom beta components/NewsCard";
 
 export const NewsDisplay: React.FC<{ locale: string }> = ({ locale }) => {
   const { filteredNews } = useNewsContext();
@@ -56,7 +57,7 @@ export const NewsDisplay: React.FC<{ locale: string }> = ({ locale }) => {
              */}
       <div className="grid gap-6 grid-cols-1 md:grid-cols-1">
         <Suspense>
-          {filteredNews.map((news, index) => (
+          {/* {filteredNews.map((news, index) => (
             <NewsCardSourceProvider key={index} content={news}>
               <NewsCardSourceTextColumn>
                 <NewsCardSourceProgrammeLabel />
@@ -69,7 +70,11 @@ export const NewsDisplay: React.FC<{ locale: string }> = ({ locale }) => {
               
               </NewsCardSourceTextColumn>
             </NewsCardSourceProvider>
-          ))}
+          ))} */}
+          {filteredNews.map((news, index) => (
+            <NewsCard content={news} locale={""} />)
+          )
+            }
         </Suspense>
       </div>
     </>
