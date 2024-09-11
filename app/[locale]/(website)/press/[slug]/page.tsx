@@ -112,7 +112,7 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
 
           <div className="flex flex-col md:flex-row">
             <div className="w-full md:w-2/3 pr-6">
-              <article className="leading-7 text-black dark:text-white prose prose-xl serif font-normal dark:prose-invert prose-p:mx-0 prose-p:px-0">
+              <article className="leading-7 text-black dark:text-white prose prose-xl  font-normal dark:prose-invert prose-p:mx-0 sans-serif prose-p:px-0">
                 <div
                   dangerouslySetInnerHTML={{ __html: newsItem.summary }}
                 ></div>
