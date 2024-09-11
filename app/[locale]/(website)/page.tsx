@@ -301,7 +301,7 @@ export default async function SinglePost({
           <h1 className="sans-serif font-bold text-left sm:leading-10text-3xl md:text-4xl lg:text-5xl">
             Advancing science and learning for communities to thrive
           </h1>
-          <p className="pt-6 sans text-lg sm:text-xl font-normal md:text-2x text-left">
+          <p className="pt-6 sans-serif text-lg sm:text-xl font-normal md:text-2x text-left">
             An independent, global organisation, Community Jameel launched in
             2003 to continue the tradition of philanthropy and community service
             established by the Jameel family of Saudi Arabia in 1945.

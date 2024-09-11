@@ -11,6 +11,7 @@ module.exports = {
   ],
   darkMode: "class", // Enable class-based dark mode
   theme: {
+
     extend: {
 
       textShadow: {
@@ -28,6 +29,9 @@ module.exports = {
               color: "inherit",
               textDecorationLine: "underline",
               textDecorationThickness: "from-font",
+              '&:hover': {
+                color: theme('colors.blue.700'),
+              },
             },
             p: {
               fontWeight: "400",
@@ -94,8 +98,10 @@ module.exports = {
         xlc: "1500px",
       },
       fontSize: {
-        tiny: "0.813rem",
-        md: "1.063rem",
+        base: "1rem",
+        lg: "1.25rem",
+        tiny: "0.8rem",
+        md: "1.1rem",
         "5xl": "2.65rem",
         "6xl": "2.75rem",
       },

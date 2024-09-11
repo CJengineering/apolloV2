@@ -242,7 +242,7 @@ const navItems: NavItem[] = [
 const NavLink = ({ href, children, icon }: { href: string; children: React.ReactNode; icon?: React.ReactNode }) => (
   <Link
     href={href}
-    className="relative flex items-center font-normal mono text-black py-2 pr-2 uppercase hover:text-orange-700 dark:hover:text-orange-400 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200">
+    className="relative flex items-center font-normal sans-serif text-black py-2 pr-2 hover:text-orange-700 dark:hover:text-orange-400 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200">
     {icon && <span className="mr-3">{icon}</span>}
     {children}
   </Link>
@@ -261,9 +261,9 @@ const NavGroup = ({ title, children, icon }: { title: string; children: React.Re
           e.preventDefault();
           handleClick();
         }}
-        className="relative  flex md:w-[240px] justify-between items-center font-normal mono text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+        className="relative flex md:w-[240px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
       >
-        <div className="flex uppercase items-center hover:text-orange-700 dark:hover:text-orange-400">
+        <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
 
           {icon && <span className="mr-3">{icon}</span>}
           {title}
@@ -274,7 +274,7 @@ const NavGroup = ({ title, children, icon }: { title: string; children: React.Re
           }`}
         />
       </div>
-      <div className={`mb-3 ml-[7px] pl-5 border-l mono font-normal border-slate-200 dark:border-slate-800 ${!open && "hidden"}`}>
+      <div className={`mb-3 ml-[7px] pl-5 border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${!open && "hidden"}`}>
         {children}
       </div>
     </>

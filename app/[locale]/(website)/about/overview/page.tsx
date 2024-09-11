@@ -60,29 +60,29 @@ export default async function OverviewContent({
   return (
     <>
       <ContentContainer width="full" desktopWidth="small">
-        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:pt-36 text-center">
-          Overview
-        </h1>
+      <h1 className="sans-serif font-bold text-3xl md:text-4xl lg:text-6xl pt-12 text-center">
+        Overview
+      </h1>
         <div className="flex justify-center">
           <article className="mx-auto leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
             <div className="text-rich-text w-richtext">
-              <p className="prose prose-2xl text-black dark:text-white font-medium">
+              <p className="prose prose-2xl sans-serif leading-normal text-black dark:text-white font-medium">
                 Community Jameel advances science and learning for communities
                 to thrive.
               </p>
-              <p>
+              <p className="prose text-lg sans-serif leading-normal  dark:text-white">
                 An independent, global organisation, Community Jameel launched
                 in 2003 to continue the tradition of philanthropy and community
                 service established by the Jameel family of Saudi Arabia in
                 1945.
               </p>
-              <p>
+              <p className="prose text-lg sans-serif leading-normal dark:text-white">
                 We support scientists, humanitarians, technologists and
                 creatives to understand and address pressing human challenges.
                 The work enabled and supported by Community Jameel has led to
                 significant breakthroughs, including the{" "}
                 <a href="https://www.jclinic.mit.edu/" className="link">
-                  MIT&nbsp;Jameel Clinic
+                  MIT Jameel Clinic
                 </a>
                 's discovery of the new antibiotics halicin and abaucin,
                 critical modelling of the spread of COVID-19 conducted by the{" "}
@@ -96,11 +96,11 @@ export default async function OverviewContent({
                 experimental approach to alleviating global poverty championed
                 by the co-founders of the{" "}
                 <a href="https://www.povertyactionlab.org/" className="link">
-                  Abdul Latif Jameel Poverty Action&nbsp;Lab
+                  Abdul Latif Jameel Poverty Action Lab
                 </a>{" "}
                 (J-PAL).
               </p>
-              <p>
+              <p className="prose text-lg sans-serif leading-normal  dark:text-white">
                 Community Jameel is separate and distinct<strong> </strong>
                 from{" "}
                 <a href="https://www.communityjameelsaudi.org/">
@@ -110,22 +110,14 @@ export default async function OverviewContent({
                 the Ministry of Human Resources and Social Development in the
                 Kingdom of Saudi Arabia.{" "}
               </p>
-              <p className="prose prose-2xl text-black dark:text-white font-medium">
-                A tradition since 1945
+              <p className="prose sans-serif prose-2xl text-black dark:text-white font-medium dark:text-white">
+                A tradition since 1945...
               </p>
-              <p>
+              <p className="prose text-lg sans-serif leading-normal  dark:text-white">
                 In 2020, the Jameel family marked 75 years of business and
                 philanthropy by committing to advancing the United Nations
                 Sustainable Development Goals. For more about the past 75 years,
-                and the family's vision for the future, visit&nbsp;
-                <a
-                  href="http://www.jameel75.com"
-                  target="_blank"
-                  className="link"
-                >
-                  jameel75.com
-                </a>
-                .
+                and the family's vision for the future, visit <a href="http://www.jameel75.com" target="_blank" className="link">jameel75.com</a>.
               </p>
             </div>
           </article>
@@ -135,15 +127,15 @@ export default async function OverviewContent({
         <div className="flex justify-center py-6">
       <div className="flex justify-between items-center w-full max-w-lg">
         <Link href="/community" className="flex items-center group">
-          <p className="text-xl serif font-medium group-hover:underline">Community</p>
+          <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline ">Community</p>
           <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
         </Link>
         <Link href="/about/team" className="flex items-center group">
-          <p className="text-xl serif font-medium group-hover:underline">Team</p>
+          <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline">Team</p>
           <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
         </Link>
         <Link href="https://jameel75.com/en" target="_blank" className="flex items-center group">
-          <p className="text-xl serif font-medium group-hover:underline">Jameel 75</p>
+          <p className="prose sans-serif prose-2xl  dark:text-white group-hover:underline">Jameel 75</p>
           <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
         </Link>
       </div>
