@@ -31,7 +31,7 @@ html {
 }
 
 .sans-serif {
-    font-family: var(--font-ibm-plex-sans)
+    font-family: var(--font-arial)
 }
 .sans-serif-ar {
   font-family: var(--font-noto-sans-arabic)
@@ -80,7 +80,7 @@ html {
         padding: 16px;                 
         border-radius: 8px;           
          
-        max-width: 350px;            
+             
         
         }
 
