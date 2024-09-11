@@ -22,7 +22,7 @@ const EventCardSmall: React.FC<{ article: EventFieldDataCleaned }> = ({ article 
         <div>
           {/* EVENT TITLE */}
           <div className="py-2">
-            <h3 className="serif text-1xl font-medium duration-300 group-hover:underline">
+            <h3 className="sans-serif text-1xl font-medium duration-300 group-hover:underline">
               {article.name}
             </h3>
           </div>

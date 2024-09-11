@@ -216,17 +216,17 @@ export default async function WhatsOnContent({
   );
   return (
       <ContentContainer width="full" desktopWidth="medium">
-        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">Events</h1>
+        <h1 className="header-page py-12 text-center">Events</h1>
         <div>
-        <div className="flex w-full pb-2">
+        <div className="flex w-full">
             {eventsFeatured.map((article, index) => (
               <EventCardLarge key={index} article={article} />
             ))}
           </div>
-          <div className="pb-12 pt-16"><div className="w-full h-px bg-slate-200"></div></div>
+          <div className="pb-6"><div className="w-full h-px bg-slate-200"></div></div>
         {eventFuture.length > 0 && (
           <div className="">
-        <div className="pb-3"><h2 className="serif font-semibold text-3xl">Upcoming events</h2></div>
+        <div className="pb-3"><h2 className="header-section pb-3">Upcoming events</h2></div>
               <div className="grid md:grid-cols-3 gap-6">
               {eventFuture.map((article, index) => (
                 <EventCardSmall key={index} article={article} />
@@ -235,8 +235,8 @@ export default async function WhatsOnContent({
             </div>
         )}
       <div>
-      <div className="pt-9 pb-12"><div className="w-full h-px bg-slate-200"></div></div>
-      <div className="pb-3"><h2 className="serif font-semibold text-3xl">Past events</h2></div>
+      <div className="pb-6"><div className="w-full h-px bg-slate-200"></div></div>
+      <div className="pb-3"><h2 className="header-section pb-3">Past events</h2></div>
           <div className="grid md:grid-cols-3 gap-6">
             {eventPast.map((article, index) => (
               <EventCardSmall key={index} article={article} />
