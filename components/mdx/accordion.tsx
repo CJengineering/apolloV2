@@ -39,7 +39,7 @@ export default function PostAccordion({
       >
         <div className="flex justify-between w-full">
 
-          <h2 className="serif font-medium text-xl lg:text-2xl">
+          <h2 className="sans-serif text-xl lg:text-2xl">
             {title}
           </h2>
           {itemsCount && <span className="mono font-normal flex items-center mr-4 text-slate-400 dark">{itemsCount}</span>}

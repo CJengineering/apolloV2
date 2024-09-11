@@ -76,7 +76,7 @@ export default async function page({
       <div className={params.locale === "ar" ? "rtl" : ""}>
         <div className="pb-12 pt-12 flex flex-col items-center justify-center">
           <div className="w-full pb-2 md:w-1/2">
-          <h1 className="sans-serif font-bold text-3xl md:text-4xl lg:text-6xl pt-12 text-center">
+          <h1 className="header-page text-center pt-6">
         {memberName}
       </h1>
           </div>
@@ -109,7 +109,7 @@ export default async function page({
           <div className="flex flex-col py-6">
             <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
           </div>
-          <div className="pb-6"><h2 className="sans-serif font-bold text-3xl">Related</h2></div>
+          <div className="pb-6"><h2 className="header-section pb-3">Related content</h2></div>
           
         </>
       )}

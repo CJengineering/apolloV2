@@ -13,19 +13,19 @@ const EventCardLarge: React.FC<{ article: EventFieldDataCleaned }> = ({ article 
               <Image
                 src={article.heroImage.url}
                 alt={article.heroImage.alt || article.name}
-                className="object-cover"
+                className="object-contain"
                 layout="fill"
               />
             </div>
           </div>
         </Link>
       </div>
-      <div className="w-full md:w-1/3 flex flex-col pt-2 md:pl-6">
+      <div className="w-full md:w-1/3 flex flex-col pt-2 sm:pl-6">
         <div className="">
           {/* EVENT TITLE */}
           <div className="pb-3">
             <Link href={`${article.slug}`}>
-            <h3 className="serif text-3xl font-medium transition duration-300 group-hover:underline">{article.name}</h3>
+            <h3 className="sans-serif text-2xl sm:text-3xl font-medium transition duration-300 group-hover:underline">{article.name}</h3>
             </Link>
           </div>
           <div className="">

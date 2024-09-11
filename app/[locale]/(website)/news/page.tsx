@@ -139,9 +139,11 @@ export default async function AnnouncementsContent({
 
   return (
     <ContentContainer width="full" desktopWidth="medium">
-        <h1 className="costa font-bold text-5xl md:text-7xl py-12 md:py-24 text-center">
+        <div className="py-0">
+        <h1 className="header-page py-12">
           News
         </h1>
+        </div>
         <PostProvider
           programmes={programmesForFilter}
           people={peopleForFilter}
