@@ -87,7 +87,7 @@ module.exports = {
         },
       }),
       fontFamily: {
-        aspekta: ["var(--font-aspekta)", "sans-serif"],
+        arial: ["var(--font-arial)", "sans-serif"],
         nycd: ["var(--font-nycd)", "cursive"],
       },
       screens: {

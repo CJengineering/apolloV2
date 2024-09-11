@@ -36,9 +36,12 @@ const nycd = Nothing_You_Could_Do({
 
 const arial = localFont({
   src: [
-    {path:"../../../public/fonts/arial/ArialMdm.ttf",
+    {path:"../../../public/fonts/arial/ArialCE.ttf",
     weight: "400",
     },
+    {path:"../../../public/fonts/arial/ArialMdm.ttf",
+      weight: "600",
+      },
   ],
   variable: "--font-arial",
   display: "swap",
