@@ -62,6 +62,12 @@ const navItems: NavItem[] = [
         {name:'Jameel Centre', href:'/stories/jameel-centre'},
         {name:'KSA Healthcare Timeiline', href:'/stories/ksa-healthcare-timeline'},
       ]},
+      {name:'Films', children:[
+        {name:'Ankur', href:'/films/ankur'},
+        {name:'The Collectors', href:'/films/the-collectors'},
+
+      ]},
+
 
       
     ],
@@ -315,24 +321,24 @@ export default function Sidebar2() {
   //   ));
   // };
   const renderNavItems = (navItems: NavItem[]) => {
-    return navItems.map((item) => (
+    return navItems.map((item, index) => (
       <div className="mt-3" key={item.name}>
         {item.href ? (
           // Ensure href is defined before rendering SidebarLink
           <SidebarLink href={item.href ?? '#'}>{item.name}</SidebarLink>
         ) : (
           // First level group (children) case
-          <SidebarLinkSubgroup title={item.name} open={useSelectedLayoutSegments().includes(item.name)}>
+          <SidebarLinkSubgroup key={index} title={item.name} open={useSelectedLayoutSegments().includes(item.name)}>
             {item.children?.map((child) =>
               child.subChildren ? (
                 // Render subChildren inside SidebarLinkSubChildren
-                <SidebarLinkSubChildren title={child.name} open={useSelectedLayoutSegments().includes(child.name)} key={child.name}>
+                <SidebarLinkSubChildren  title={child.name} open={useSelectedLayoutSegments().includes(child.name)} key={child.name}>
                   {renderNavItems(child.subChildren)}
                 </SidebarLinkSubChildren>
               ) : (
                 // Render SidebarLink if href is present, otherwise handle undefined href
                 child.href ? (
-                  <SidebarLink href={child.href}>{child.name}</SidebarLink>
+                  <SidebarLink key={index} href={child.href}>{child.name}</SidebarLink>
                 ) : (
                   <div key={child.name}>{child.name}</div> // Handle cases without href
                 )

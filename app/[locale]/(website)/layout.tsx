@@ -34,7 +34,15 @@ const nycd = Nothing_You_Could_Do({
   display: "swap",
 });
 
-
+const arial = localFont({
+  src: [
+    {path:"../../../public/fonts/arial/ArialMdm.ttf",
+    weight: "400",
+    },
+  ],
+  variable: "--font-arial",
+  display: "swap",
+});
 const aspekta = localFont({
   src: [
     {
@@ -97,7 +105,7 @@ export default async function RootLayout({
     <html lang="en" className="scroll-smooth " suppressHydrationWarning>
       {/* suppressHydrationWarning: https://github.com/vercel/next.js/issues/44343 */}
       <body
-        className={`${nycd.variable}${zain.variable} ${aspekta.variable} ${costa.variable} ${ibm_plex_mono.variable} ${ibm_plex_sans.variable} ${ibm_plex_serif.variable} ${vollkorn.variable} ${libre_baskerville.variable} ${eb_garamond.variable} font-aspekta antialiased text-slate-800 font-[350] bg-white dark:bg-slate-900 dark:text-slate-200`}
+        className={`${nycd.variable}${zain.variable} ${aspekta.variable} ${costa.variable} ${ibm_plex_mono.variable} ${ibm_plex_sans.variable} ${ibm_plex_serif.variable} ${vollkorn.variable} ${arial.variable}  ${libre_baskerville.variable} ${eb_garamond.variable} font-aspekta antialiased text-slate-800 font-[350] bg-white dark:bg-slate-900 dark:text-slate-200`}
       >
         <Theme>
           <AppProvider>

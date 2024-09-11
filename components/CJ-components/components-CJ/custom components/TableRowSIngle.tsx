@@ -9,6 +9,7 @@ import SocialMediaList from "../basic components/SocialMediaList";
 import ButtonCJ from "../basic components/ButtonCJ";
 import FeatureCardTable from "../test components/FeatureCardTable";
 import { title } from "process";
+import { divide } from "cypress/types/lodash";
 
 interface TableRowSingleProps {
   repository: RowData["repository"];
@@ -82,15 +83,17 @@ export default function TableRowSingle({
           <div className="py-4"></div>
           <div>
             <div className="grid grid-cols-2 gap-x-9 gap-y-6 lg:grid-cols-2">
-              <div>
-                <ListSmall
-                  data={
-                    isArabic
-                      ? repository.content.researchArabic?.data
-                      : repository.content.research?.data
-                  }
-                />
-              </div>
+              {repository.content.research?.data?.research[0].name !== "" && (
+                <div>
+                  <ListSmall
+                    data={
+                      isArabic
+                        ? repository.content.researchArabic?.data
+                        : repository.content.research?.data
+                    }
+                  />
+                </div>
+              )}
               <div>
                 <ListSmall
                   data={

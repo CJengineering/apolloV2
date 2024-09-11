@@ -1,3 +1,4 @@
+import MediaCard from "@/components/CJ-components/components-CJ/basic components/MediaCard";
 import TableRowSingle from "@/components/CJ-components/components-CJ/custom components/TableRowSIngle";
 
 import EventCard from "@/components/custom beta components/EventCard";
@@ -31,9 +32,11 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { get } from "http";
 import { Divide } from "lucide-react";
 import React from "react";
-
-import MediaCard from "@/components/CJ-components/components-CJ/basic components/MediaCard";
 import ContentPhotos from "../../../../../components/CJ-components/components-CJ/test components/content-photos";
+import PostAccordion from "@/components/mdx/accordion";
+import LanguageChanger from "@/components/custom beta components/LanguageChanger";
+import ContentContainer from "@/components/custom beta components/ContentContainer";
+import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 
 export default async function JpalPage({
   params,
@@ -81,8 +84,9 @@ export default async function JpalPage({
   }
   const jpalId = "61ee828a15a318c663bde6fb";
   const jwafsId = "61ee828a15a3182b72bde63d";
+  const jwafsSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
-    (item) => item.id === jwafsId
+    (item) => item.id === jpalId
   );
 
   {
@@ -183,10 +187,13 @@ export default async function JpalPage({
 
   const multimediaProps = cleanRelatedMultimedia.map(mapMultimediaToMediaCard);
   const newsProps: any[] = relatedNews.map((item) =>
-    mapItemToNewsMainProps(
-      item as any,
+    newsMapper(
+      item,
+      programmesRawData.items,
+      peopleRawData.items,
       sourcesRawData.items,
-      programmesRawData.items
+      tagsRawData.items,
+      eventsRawData.items
     )
   );
   const postProps = cleanRelatedPosts;
@@ -198,38 +205,48 @@ export default async function JpalPage({
   );
 
   return (
-    <MainContainer>
-      <div className="pt-24">
+    <ContentContainer width="full" desktopWidth="large">
+      <div className="pt-12">
+        <LanguageChanger />
         <TableRowSingle
           repository={dataForRow.repository}
           locale={params.locale}
         />
-        <div className=" p-6 ">
-          <h2>Related multimedia</h2>
-          <div className="grid grid-cols-3 gap-5 w-1/2 mx-auto">
-            {multimediaProps.map((item) => (
-              <div key={item.alt} className="">
-                <MediaCard {...item} />
-              </div>
-            ))}
-          </div>
+
+        <div className="">
+          <PostAccordion title={"News"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {postProps.slice(0, 8).map((post) => (
+                <PostCard key={post.name} content={post} />
+              ))}
+            </div>
+          </PostAccordion>
         </div>
-        <div className=" p-6 ">
-          <h2>Related News</h2>
-          <div className="grid grid-cols-3 gap-5">
-            {/* {newsProps.slice(2, 5).map((item) => (
-              <NewsCard content={item} locale={params} />
-            ))} */}
-          </div>
+        <div className="">
+          <PostAccordion title={"Press"}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {newsProps.slice(2, 5).map((item) => (
+                <NewsCard content={item} locale={params} />
+              ))}
+            </div>
+          </PostAccordion>
         </div>
-        <div className=" p-6 ">
-          <h2>Related Posts </h2>
-          <div className="grid grid-cols-3 gap-5">
-            {postProps.slice(0, 8).map((post) => (
-              <PostCard key={post.name} content={post} />
-            ))}
-          </div>
+        <div className="">
+          <PostAccordion title={"Multimedia"}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+   
+
+              {multimediaProps.map((item) => (
+                <div key={item.alt} className="">
+                  <MediaCard {...item} />
+                </div>
+              ))}
+           
+            </div>
+          </PostAccordion>
         </div>
+
+        {/* 
 
         <div>
           <h2> related features </h2>
@@ -246,25 +263,29 @@ export default async function JpalPage({
               </>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div>
-          <h2> related events </h2>
-          <div>
-            {cleanRelatedEvents.map((item) => (
-              <>
-                <EventCard article={item}></EventCard>
-              </>
-            ))}
-          </div>
+          <PostAccordion title={"Events"}>
+            <div className="">
+            <CarousselForComponents>
+              {cleanRelatedEvents.map((item) => (
+                <>
+                  <EventCard article={item}></EventCard>
+                </>
+              ))}
+            </CarousselForComponents>
+            </div>
+          </PostAccordion>
         </div>
-        <div>
+        {/* <div>
           <h2> related photos by programme</h2>
           <div>
-            <ContentPhotos images={cleanedRelatedPhotos} />
+          <ContentPhotos images={cleanedRelatedPhotos} />
+       
           </div>
-        </div>
+        </div> */}
       </div>
-    </MainContainer>
+    </ContentContainer>
   );
 }

@@ -36,6 +36,7 @@ import ContentPhotos from "../../../../../components/CJ-components/components-CJ
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 
 export default async function Programme26page({
   params,
@@ -261,13 +262,15 @@ export default async function Programme26page({
         </div> */}
 
         <div>
-          <PostAccordion title={"Events"}>
-            <div className="grid grid-cols-3 gap-5">
+        <PostAccordion title={"Events"}>
+            <div className="">
+            <CarousselForComponents>
               {cleanRelatedEvents.map((item) => (
                 <>
                   <EventCard article={item}></EventCard>
                 </>
               ))}
+            </CarousselForComponents>
             </div>
           </PostAccordion>
         </div>
