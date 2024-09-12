@@ -28,7 +28,7 @@
   }
 
 .header-section {
-    @apply sans-serif text-2xl sm:text-3xl;
+    @apply sans-serif text-2xl font-bold sm:text-3xl;
   }
     
 .title-list {
