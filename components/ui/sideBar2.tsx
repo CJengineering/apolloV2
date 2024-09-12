@@ -338,7 +338,8 @@ export default function Sidebar2() {
               ) : (
                 // Render SidebarLink if href is present, otherwise handle undefined href
                 child.href ? (
-                  <SidebarLink key={index} href={child.href}>{child.name}</SidebarLink>
+                  <div className=" mt-3"><SidebarLink  key={index} href={child.href}>{child.name}</SidebarLink></div>
+                  
                 ) : (
                   <div key={child.name}>{child.name}</div> // Handle cases without href
                 )
