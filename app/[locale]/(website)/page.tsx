@@ -65,57 +65,57 @@ const postsId = getIdByDisplayName("Posts");
 
 const cardData = [
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
-    alt: "Sample Image 1",
+    imageUrl: "/images/GRID_01.jpg",
+    alt: "Life-saving care for mothers and children evacuated from Gaza",
     title: "Life-saving care for mothers and children evacuated from Gaza",
     subtitle:
       "Egyptian paramedics are receiving specialist training from Save the Children, supported by Community Jameel, to help them deliver life-saving care to pregnant mothers, newborn babies and wounded children evacuated from Gaza.",
-    link: "https://www.communityjameel.org",
+    link: "https://www.youtube.com/embed/Aq2pvQWUeWA?si=VhyQ0_B7lUi1TJFs",
     openInNewTab: false,
-    clickAction: "Internal Link",
+    clickAction: "Video embed code",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
-    alt: "Sample Image 2",
+    imageUrl: "/images/GRID_02.jpg",
+    alt: "Bill Gates and Fady Jameel host food security meeting at COP28",
     title: "Bill Gates and Fady Jameel host food security meeting at COP28",
     subtitle:
       "Scientists, farmers and chefs convene for the 'Farming for our future' breakfast event.",
-    link: "https://www.communityjameel.org/post/bill-gates-and-fady-jameel-discuss-food-and-farming-with-scientists-farmers-and-chefs-at-the-farming-for-our-future-breakfast-event-on-the-sidelines-of-cop28-in-dubai",
+    link: "news/bill-gates-and-fady-jameel-discuss-food-and-farming-with-scientists-farmers-and-chefs-at-the-farming-for-our-future-breakfast-event-on-the-sidelines-of-cop28-in-dubai",
     openInNewTab: false,
     clickAction: "Internal Link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
-    alt: "Sample Image 3",
+    imageUrl: "/images/GRID_03.jpg",
+    alt: "CLIMAVORE x Jameel at RCA announces 2024 Food Action Awards",
     title: "CLIMAVORE x Jameel at RCA announces 2024 Food Action Awards",
     subtitle:
       "CLIMAVORE x Jameel at the Royal College of Art (RCA) is offering two awards to advance projects that respond to food in the new seasons of the climate crisis, such as drought, polluted oceans or fertiliser runoff.",
-    link: "https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards",
+    link: "/news/climavore-x-jameel-at-rca-announces-2024-food-action-awards",
     openInNewTab: false,
     clickAction: "Internal Link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
-    alt: "Sample Image 4",
+    imageUrl: "/images/GRID_04.jpg",
+    alt: "Climate Labs with C40 and J-PAL",
     title: "Climate Labs with C40 and J-PAL",
     subtitle:
       "Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.",
-    link: "https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards",
+    link: "programmes/climate-labs",
     openInNewTab: false,
     clickAction: "Internal Link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
-    alt: "Sample Image 5",
+    imageUrl: "/images/GRID_05.jpg",
+    alt: "Jameel 75",
     title: "Jameel 75",
     subtitle:
       "Celebrate the Jameel family's 75th anniversary of business and philanthropy.",
-    link: "https://storage.googleapis.com/behna-archives/23_EFC_1945_Nour%20al-Din%20and%20the%20Three%20Sailors.webp",
+    link: "https://jameel75.com/en",
     openInNewTab: false,
-    clickAction: "Image link",
+    clickAction: "External Link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
+    imageUrl: "/images/GRID_06.jpg",
     alt: "Sample Image 6",
     title: "Community Jameel x afikra COP28 Conversation Series",
     subtitle:
@@ -125,34 +125,34 @@ const cardData = [
     clickAction: "Internal Link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
-    alt: "Sample Image 7",
+    imageUrl: "/images/GRID_07.jpg",
+    alt: "Jameel Arts & Health Lab",
     title: "Jameel Arts & Health Lab",
     subtitle:
       "The lab aims to radically improve global health through arts-related research and advocacy to drive policy.",
-    link: "https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards",
+    link: "/programmes/jameel-arts-and-health-lab",
     openInNewTab: false,
     clickAction: "Internal Link",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
-    alt: "Andrea Bocelli and Laura Mekhail sing 'Canto della terra' in AlUla",
-    title: "Andrea Bocelli and Laura Mekhail sing 'Canto della terra' in AlUla",
+    imageUrl: "/images/GRID_08.jpg",
+    alt: "Andrea Bocelli and Henna Mun sing 'Tace il labbro'",
+    title: "Andrea Bocelli and Henna Mun sing 'Tace il labbro'",
     subtitle:
-      "Laura Mekhail, the 2021 Andrea Bocelli Foundation-Community Jameel Scholar at the Royal College of Music, performs with Andrea Bocelli at Maraya theatre in AlUla, Saudi Arabia",
-    link: "https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards",
+      "Henna Mun, the 2023 Andrea Bocelli Foundation-Community Jameel Scholar at the Royal College of Music, performs with Andrea Bocelli at Hyde Park, London",
+    link: "https://www.youtube.com/embed/VLiZ7XFAtBg?si=SKS4gVEp6F5REqvw",
     openInNewTab: false,
-    clickAction: "External link",
+    clickAction: "Video embed code",
   },
   {
-    imageUrl: "/images/EMPTY_QUARTER_BG.jpg",
+    imageUrl: "/images/GRID_09.jpg",
     alt: "Jameel Management Centre Building in Cairo",
     title: "A Cairo Cornerstone",
     subtitle:
       "The Jameel Centre: Downtown Cairo's Mamluk-inspired 1980s architectural masterpiece. By Ebrahim Bahaa-Eldin & Sabrina Gilby",
-    link: "https://www.youtube.com/embed/CGRzfUccmNE?si=dfqHYqp_P9Nfda2G",
+    link: "/stories/a-cairo-cornerstone",
     openInNewTab: false,
-    clickAction: "Video embed code",
+    clickAction: "Internal Link",
   },
 ];
 // END THE DATA FOR CARDS
@@ -296,7 +296,7 @@ export default async function SinglePost({
   const eventsAgnostic = eventClean.map((item) => agnosticMapper(item));
   return (
     <ContentContainer width="full" desktopWidth="large">
-      <div className="pt-12 sm:pt-36 flex flex-col justify-center">
+      <div className="pt-12 sm:pt-20 flex flex-col justify-center">
         <div className="w-full md:w-full lg:w-3/4 xl:w-4/6 mx-auto">
           <h1 className="sans-serif font-bold text-left sm:leading-10text-3xl md:text-4xl lg:text-5xl">
             Advancing science and learning for communities to thrive
@@ -365,7 +365,7 @@ export default async function SinglePost({
       <div className="flex justify-center">
         <div className="w-full xl:w-5/6 grid grid-cols-1 col-span-12 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 ">
           <div className="grid md:row-span-3">
-            <h2 className="sans font-semibold text-3xl">News</h2>
+            <h2 className="header-section pb-3">News</h2>
             {postsAgnostic.slice(1, 6).map((value, index) => (
               <AgnosticComponentProvider content={value}>
                 <AgnosticComponentTextColumn>
@@ -392,7 +392,7 @@ export default async function SinglePost({
           </div>
           </div>
           <div className="grid">
-            <h2 className="sans font-semibold text-3xl">Press</h2>
+            <h2 className="header-section pb-3">Press</h2>
             {newsAgnostic.slice(1, 6).map((value, index) => (
               <AgnosticComponentProvider content={value}>
                 <AgnosticComponentTextColumn>
@@ -419,7 +419,7 @@ export default async function SinglePost({
           </div>
           </div>
           <div className="grid md:row-span-3">
-            <h2 className="sans font-semibold text-3xl">Events</h2>
+            <h2 className="header-section pb-3">Events</h2>
             {eventsAgnostic.slice(1, 6).map((value, index) => (
               <AgnosticComponentProvider content={value}>
                 <AgnosticComponentTextColumn>
