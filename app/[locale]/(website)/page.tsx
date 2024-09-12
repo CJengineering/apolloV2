@@ -55,6 +55,9 @@ import {
 } from "@/components/CJ-components/components-CJ/test components/AgnosticComponent";
 import { event } from "cypress/types/jquery";
 import { Suspense } from "react";
+import NewsCard from "@/components/custom beta components/NewsCard";
+import EventsCardHome from "@/components/CJ-components/components-CJ/test components/EventsCardHome";
+import PressCardHome from "@/components/CJ-components/components-CJ/test components/PressCardHome";
 
 // INTERFACE FOR THE DATA START
 const postsId = getIdByDisplayName("Posts");
@@ -366,21 +369,8 @@ export default async function SinglePost({
         <div className="w-full xl:w-5/6 grid grid-cols-1 col-span-12 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 ">
           <div className="grid md:row-span-3">
             <h2 className="header-section pb-3">News</h2>
-            {postsAgnostic.slice(1, 6).map((value, index) => (
-              <AgnosticComponentProvider content={value}>
-                <AgnosticComponentTextColumn>
-                  <AgnosticComponentProgramLabel />
-                  <AgnosticComponentTitle />
-                  <AgnosticComponentShortDescription />
-                  {/* <AgnosticComponentDateAndSourceContainer> */}
-                    <AgnosticComponentDatePublished />
-                    {/* <span className="sans-serif text-sm font-normal">
-                      |
-                    </span> */}
-                    {/* <AgnosticComponentSource /> */}
-                  {/* </AgnosticComponentDateAndSourceContainer> */}
-                </AgnosticComponentTextColumn>
-              </AgnosticComponentProvider>
+            {postsClean.slice(1, 6).map((value, index) => (
+              <PressCardHome content={value} locale="en" />
             ))}
           <div className="pt-0">
             <ButtonCJ
@@ -393,21 +383,9 @@ export default async function SinglePost({
           </div>
           <div className="grid">
             <h2 className="header-section pb-3">Press</h2>
-            {newsAgnostic.slice(1, 6).map((value, index) => (
-              <AgnosticComponentProvider content={value}>
-                <AgnosticComponentTextColumn>
-                  <AgnosticComponentProgramLabel />
-                  <AgnosticComponentTitle />
-                  <AgnosticComponentShortDescription />
-                  <AgnosticComponentDateAndSourceContainer>
-                    <AgnosticComponentDatePublished />
-                    <span className="sans-serif text-sm font-normal uppercase">
-                      |
-                    </span>
-                    <AgnosticComponentSource />
-                  </AgnosticComponentDateAndSourceContainer>
-                </AgnosticComponentTextColumn>
-              </AgnosticComponentProvider>
+            {newsClean.slice(1, 6).map((value, index) => (
+             
+             <NewsCard content={value} locale="en" />
             ))}
           <div className="pt-0">
             <ButtonCJ
@@ -420,21 +398,8 @@ export default async function SinglePost({
           </div>
           <div className="grid md:row-span-3">
             <h2 className="header-section pb-3">Events</h2>
-            {eventsAgnostic.slice(1, 6).map((value, index) => (
-              <AgnosticComponentProvider content={value}>
-                <AgnosticComponentTextColumn>
-                  <AgnosticComponentProgramLabel />
-                  <AgnosticComponentTitle />
-                  <AgnosticComponentShortDescription />
-                  <AgnosticComponentDateAndSourceContainer>
-                    <AgnosticComponentDatePublished />
-                    {/* <span className="sans-serif text-sm font-normal">
-                      |
-                    </span> */}
-                    {/* <AgnosticComponentSource /> */}
-                  </AgnosticComponentDateAndSourceContainer>
-                </AgnosticComponentTextColumn>
-              </AgnosticComponentProvider>
+            {eventClean.slice(1, 6).map((value, index) => (
+           <EventsCardHome content={value} locale="en" />
             ))}
             <div className="pt-0">
             <ButtonCJ

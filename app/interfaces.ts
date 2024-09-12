@@ -243,6 +243,7 @@ export interface EventFieldData {
 export interface EventFieldDataCleaned {
   pushToGr: boolean;
   programmeLabel: string;
+  programmeLabelShort?: string;
   sources: RelatedColection;
   collectionName: "event";
   isDraft: boolean;
