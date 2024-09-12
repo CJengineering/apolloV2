@@ -55,6 +55,7 @@ import {
 } from "@/components/CJ-components/components-CJ/test components/AgnosticComponent";
 import { event } from "cypress/types/jquery";
 import { Suspense } from "react";
+import MediaCardHome from "@/components/custom beta components/MediaCardHome";
 
 // INTERFACE FOR THE DATA START
 const postsId = getIdByDisplayName("Posts");
@@ -298,7 +299,7 @@ export default async function SinglePost({
     <ContentContainer width="full" desktopWidth="large">
       <div className="pt-12 sm:pt-20 flex flex-col justify-center">
         <div className="w-full md:w-full lg:w-3/4 xl:w-4/6 mx-auto">
-          <h1 className="sans-serif font-bold text-left sm:leading-10text-3xl md:text-4xl lg:text-5xl">
+          <h1 className="sans-serif font-bold text-left text-3xl sm:leading-10text-3xl md:text-4xl lg:text-5xl">
             Advancing science and learning for communities to thrive
           </h1>
           <p className="pt-6 sans-serif text-lg sm:text-xl font-normal md:text-2x text-left">
@@ -364,12 +365,13 @@ export default async function SinglePost({
 
       <div className="flex justify-center">
         <div className="w-full xl:w-5/6 grid grid-cols-1 col-span-12 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 ">
-          <div className="grid md:row-span-3">
-            <h2 className="header-section pb-3">News</h2>
+          <div className="">
+            
+            <h2 className="header-section pb-6">News</h2>
             {postsAgnostic.slice(1, 6).map((value, index) => (
               <AgnosticComponentProvider content={value}>
                 <AgnosticComponentTextColumn>
-                  <AgnosticComponentProgramLabel />
+                  {/* <AgnosticComponentProgramLabel /> */}
                   <AgnosticComponentTitle />
                   <AgnosticComponentShortDescription />
                   {/* <AgnosticComponentDateAndSourceContainer> */}
@@ -391,23 +393,11 @@ export default async function SinglePost({
             />
           </div>
           </div>
-          <div className="grid">
-            <h2 className="header-section pb-3">Press</h2>
-            {newsAgnostic.slice(1, 6).map((value, index) => (
-              <AgnosticComponentProvider content={value}>
-                <AgnosticComponentTextColumn>
-                  <AgnosticComponentProgramLabel />
-                  <AgnosticComponentTitle />
-                  <AgnosticComponentShortDescription />
-                  <AgnosticComponentDateAndSourceContainer>
-                    <AgnosticComponentDatePublished />
-                    <span className="sans-serif text-sm font-normal uppercase">
-                      |
-                    </span>
-                    <AgnosticComponentSource />
-                  </AgnosticComponentDateAndSourceContainer>
-                </AgnosticComponentTextColumn>
-              </AgnosticComponentProvider>
+          <div className="">
+          <div className="py-6 sm:hidden"><div className="w-full h-[1px] bg-gray-300 block sm:hidden"></div></div>
+            <h2 className="header-section pb-6">In the media</h2>
+            {newsClean.slice(1, 6).map((value, index) => (
+             <MediaCardHome content={value} locale="en" />
             ))}
           <div className="pt-0">
             <ButtonCJ
@@ -418,12 +408,14 @@ export default async function SinglePost({
             />
           </div>
           </div>
-          <div className="grid md:row-span-3">
-            <h2 className="header-section pb-3">Events</h2>
+          <div className="">
+          <div className="py-6 sm:hidden"><div className="w-full h-[1px] bg-gray-300 block sm:hidden"></div></div>
+          
+            <h2 className="header-section pb-6">Events</h2>
             {eventsAgnostic.slice(1, 6).map((value, index) => (
               <AgnosticComponentProvider content={value}>
                 <AgnosticComponentTextColumn>
-                  <AgnosticComponentProgramLabel />
+                  {/* <AgnosticComponentProgramLabel /> */}
                   <AgnosticComponentTitle />
                   <AgnosticComponentShortDescription />
                   <AgnosticComponentDateAndSourceContainer>
