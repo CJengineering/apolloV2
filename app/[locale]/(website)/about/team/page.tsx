@@ -73,7 +73,7 @@ export default async function PeopleContent({
       <h1 className="header-page py-12 text-center">
         Team
       </h1>  
-      <div className="pb-6">
+      <div className="">
           <h2 className="header-section pb-6">Core</h2>
           <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
             {team.map((member) => (
@@ -85,7 +85,7 @@ export default async function PeopleContent({
             ))}
           </div>
         </div>
-    <div className="flex flex-col py-6">
+    <div className="flex flex-col py-12">
     <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div> {/* Separation Bar */}
     </div>
         <div className="">
@@ -101,7 +101,7 @@ export default async function PeopleContent({
           </div>
         </div>
 
-        <div className="flex flex-col py-6">
+        <div className="flex flex-col py-12">
       <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div> {/* Separation Bar */}
     </div>
         <div>

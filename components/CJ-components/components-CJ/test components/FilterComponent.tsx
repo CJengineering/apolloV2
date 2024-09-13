@@ -110,7 +110,7 @@ const FilterComponent: React.FC = () => {
 
   return (
     <div className="w-full">
-      <div className="flex space-x-4 mt-6">
+      <div className="flex space-x-4">
         <div className="w-full">
           <input
             id="news-search"
@@ -118,7 +118,7 @@ const FilterComponent: React.FC = () => {
             placeholder="Search..."
             value={newsQuery}
             onChange={(e) => setNewsQuery(e.target.value)}
-            className="mt-1 mono font-normal block w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 sans-serif text-base block w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
         </div>
         <div className="hidden md:block w-1/2">
@@ -131,7 +131,7 @@ const FilterComponent: React.FC = () => {
                 <div className="mt-1 relative">
                   <div className="relative w-full text-left bg-white rounded-lg cursor-default focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
                     <Combobox.Input
-                      className="mono font-normal w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      className="sans-serif text-base w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       placeholder="Lab"
                       onChange={(event) =>
                         setQueryProgramme(event.target.value)
@@ -218,7 +218,7 @@ const FilterComponent: React.FC = () => {
                 <div className="mt-1 relative">
                   <div className="relative w-full text-left bg-white rounded-lg cursor-default focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
                     <Combobox.Input
-                      className="mono font-normal w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      className="sans-serif text-base w-full border border-gray-300 rounded-md pl-3 pr-10 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       placeholder="Source"
                       onChange={(event) => setQuerySource(event.target.value)}
                       displayValue={(source: RelatedCollection) => source.name}
@@ -266,9 +266,9 @@ const FilterComponent: React.FC = () => {
           {selectedProgrammes.map((programme) => (
             <div
               key={programme.id}
-              className="flex items-center justify-between p-2 bg-blue-200 rounded-md"
+              className="flex items-center justify-between px-2 py-2 bg-blue-200 rounded-md"
             >
-              <span className="mono text-xs font-medium">{programme.name}</span>
+              <span className="mono text-xs uppercase font-medium">{programme.name}</span>
               <button
                 onClick={() => handleRemove(programme.id, "programme")}
                 className="ml-4 text-red-600 hover:text-red-800 focus:outline-none"
@@ -280,9 +280,9 @@ const FilterComponent: React.FC = () => {
           {selectedSources.map((source) => (
             <div
               key={source.id}
-              className="flex items-center justify-between p-2 bg-green-200 rounded-md"
+              className="flex items-center justify-between px-2 py-2 bg-green-200 rounded-md"
             >
-              <span>{source.name}</span>
+              <span className="mono text-xs uppercase font-medium">{source.name}</span>
               <button
                 onClick={() => handleRemove(source.id, "source")}
                 className="ml-4 text-red-600 hover:text-red-800 focus:outline-none"

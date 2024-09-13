@@ -28,7 +28,7 @@ export default function ArticleBanter({ post }: ArticleBanterProps) {
           width={1920}
         />
 
-      <div className="flex justify-around min-h-screen">
+      <div className="flex justify-around">
         <div className="">
           <div className="mx-auto pt-3">
           <div className="py-3">

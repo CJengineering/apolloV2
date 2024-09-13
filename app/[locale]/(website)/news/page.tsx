@@ -140,7 +140,7 @@ export default async function AnnouncementsContent({
   return (
     <ContentContainer width="full" desktopWidth="medium">
         <div className="py-0">
-        <h1 className="header-page py-12">
+        <h1 className="header-page py-12 lg:text-center">
           News
         </h1>
         </div>

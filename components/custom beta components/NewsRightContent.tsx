@@ -31,8 +31,24 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
         <span>•</span>
         <div className="mono uppercase text-sm font-normal">{datePublished}</div>
       </div> */}
+
+<div className="mb-6">
+        <div className="text-xs font-normal mono uppercase">media outlet</div>
+        <div className="sans-serif text-base font-normal">
+          <ul>
+            {relatedProgrammes.map((programme, index) => (
+              <li key={index}>
+                <p>
+                  {source}
+                  </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
       <div className="mb-6">
-        <div className="text-xs font-normal mono uppercase">lab(s)</div>
+        <div className="text-xs font-normal mono uppercase">lab</div>
         <div className="sans-serif text-base font-normal">
           <ul>
             {relatedProgrammes.map((programme, index) => (

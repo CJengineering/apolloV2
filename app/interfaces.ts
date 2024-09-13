@@ -54,6 +54,7 @@ export interface SocialMediaLinks {
   facebook?: SocialMediaLink;
   twitter?: SocialMediaLink;
   github?: SocialMediaLink;
+  website?: SocialMediaLink;
 }
 export interface Image {
   url: string;
@@ -139,6 +140,7 @@ export interface TeamMember {
   metaDescription?: string;
   altTextImage?: string;
   photo?: TeamMemberPhoto;
+  photoHiRes?: string;
   filter?: string;
 }
 interface TeamMemberPhoto {
@@ -156,11 +158,11 @@ export interface FieldDataTeamProfile {
   name: string;
   slug: string;
   filter: string;
+  "photo-hires"?: string
   order: number;
   "name-arabic": string;
   "biography-arabic": string;
   "position-arabic": string;
-
   "paragraph-description": string;
   "meta-decscription": string;
   photo: Image;
