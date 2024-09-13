@@ -114,8 +114,8 @@ const Title = () => {
   const { title } = useAgnosticComponentContext();
   if (!title) return null;
   return (
-    <div className="text-left py-2">
-      <h3 className="text-lg sans leading-tight font-medium">{title}</h3>
+    <div className="text-left">
+      <h3 className="text-lg sans-serif leading-snug group-hover:underline">{title}</h3>
     </div>
   );
 };

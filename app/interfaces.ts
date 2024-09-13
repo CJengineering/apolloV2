@@ -54,6 +54,7 @@ export interface SocialMediaLinks {
   facebook?: SocialMediaLink;
   twitter?: SocialMediaLink;
   github?: SocialMediaLink;
+  website?: SocialMediaLink;
 }
 export interface Image {
   url: string;
@@ -162,7 +163,6 @@ export interface FieldDataTeamProfile {
   "name-arabic": string;
   "biography-arabic": string;
   "position-arabic": string;
-
   "paragraph-description": string;
   "meta-decscription": string;
   photo: Image;
