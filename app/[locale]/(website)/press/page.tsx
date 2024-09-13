@@ -186,9 +186,9 @@ export default async function NewsContent({
   return (
       <ContentContainer width="full" desktopWidth="medium">
         <div>
-        <h1 className="sans-serif font-bold text-3xl md:text-4xl lg:text-6xl py-12">
-        Press
-      </h1>
+          <h1 className="header-page py-12 lg:text-center">
+            In the media
+          </h1>
         </div>
         {/* <HeroBanter content={heroProps} /> */}
         {/* <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">

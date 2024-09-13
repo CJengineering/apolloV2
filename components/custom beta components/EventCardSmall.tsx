@@ -22,19 +22,19 @@ const EventCardSmall: React.FC<{ article: EventFieldDataCleaned }> = ({ article 
         <div>
           {/* EVENT TITLE */}
           <div className="py-2">
-            <h3 className="sans-serif text-1xl font-medium duration-300 group-hover:underline">
+            <h3 className="sans-serif text-lg duration-300 group-hover:underline">
               {article.name}
             </h3>
           </div>
           <div className="pb-1">
           <div className="flex space-x-1">
-          <p className="sans-serif text-sm font-normal">
+          <p className="sans-serif text-base font-normal">
           {article.eventDate}
           </p>
           {(article.endDate !== article.eventDate) && (
           <>
-          <p className="sans-serif text-sm font-normal"> – </p>
-        <p className="sans-serif text-sm font-normal">
+          <p className="sans-serif text-base font-normal"> – </p>
+        <p className="sans-serif text-base font-normal">
         {article.endDate}
       </p>
     </>
@@ -43,14 +43,14 @@ const EventCardSmall: React.FC<{ article: EventFieldDataCleaned }> = ({ article 
           </div>
           <div className="pb-1">
           {article.time && (
-            <p className="sans-serif text-sm font-normal">
+            <p className="sans-serif text-base font-normal">
               {article.time}
             </p>
           )}
           </div>
           <div>
           {article.address && (
-            <p className="sans-serif text-sm font-normal">
+            <p className="sans-serif text-base font-normal">
               {article.address}
             </p>
           )}

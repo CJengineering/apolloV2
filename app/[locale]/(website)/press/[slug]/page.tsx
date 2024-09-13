@@ -80,34 +80,36 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
           
 
           <div className="w-full">
-          <div className="md:pt-12 flex flex-col items-start md:w-5/6">
-          <div className="pb-2"><span className="mono text-sm font-normal uppercase bg-slate-100 px-1">{newsItem.programme.name}</span></div>
-            <h1 className="text-left text-2xl md:text-4xl serif font-medium" title={params.locale === "ar" ? newsItem.arabicTitle : newsItem.name}>
+          <div className="pt-6 sm:pt-12 sm:w-2/3 md:w-1/2">
+          <div><p className="sans-serif text-3xl font-bold pb-1">{newsItem.sources.name}</p></div>
+            <h1 className="sans-serif text-2xl leading-tight text-left pb-2" title={params.locale === "ar" ? newsItem.arabicTitle : newsItem.name}>
               {params.locale === "ar" ? newsItem.arabicTitle : newsItem.name}
             </h1>
           </div>
             <div className="flex items-start">
-        <div className="flex mb-12 mt-2 space-x-3">
-          <div><p className="sans-serif text-base font-normal">{newsItem.sources.name}</p></div>
-          <div><p className="sans-serif text-base font-normal">|</p></div>
-          <div><p className="sans-serif text-base font-normal">{newsItem.datePublished}</p></div>
+            <div><p className="sans-serif text-base font-normal">{newsItem.datePublished}</p></div>
+        <div className="flex mb-3 mt-2 space-x-3">
+          
+          {/* <div><p className="sans-serif text-base font-normal">|</p></div> */}
+          
         </div>
       </div>
           <div>
-          <img
+          {/* <img
             src={newsItem.heroImage.url}
             alt={title}
             className="w-full h-auto mb-6"
-          />
+          /> */}
           </div>
-            <div className="md:hidden w-full md:w-1/3 mt-0 md:mt-0">
+            <div className="md:hidden w-full sm:w-1/3 mt-0 md:mt-0">
               <NewsRightContent
                 source={newsItem.sources.name}
                 datePublished={newsItem.datePublished}
                 relatedProgrammes={newsItem.programmeS}
-                relatedPeople={newsItem.people}
+                relatedPeople={newsItem.people}   
               />
             </div>
+            
           </div>
 
           <div className="flex flex-col md:flex-row">
@@ -127,6 +129,7 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
                   </>
                 )}
               </article>
+              {/* <div className="pb-2"><span className="mono text-sm font-normal uppercase bg-slate-100 px-1">{newsItem.programme.name}</span></div> */}
             </div>
             <div className="hidden md:block md:w-1/3 mt-0 md:mt-0">
               <NewsRightContent
@@ -140,11 +143,11 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
 
           {relatedNewsClean.length > 0 && (
             <>
-              <div className="w-full h-px bg-slate-200 mb-12 mt-6"></div>
-              <h2 className="serif font-medium text-2xl md:text-3xl mb-6">Related </h2>
+              <div className="w-full h-px bg-slate-200 mb-9 mt-4"></div>
+              <h2 className="header-section mb-6">Related </h2>
             </>
           )}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sd:grid-cols-1 gap-6">
             {relatedNewsClean.map((item) => (
               <NewsCard key={item.slug} content={item} locale={params.locale} />
             ))}

@@ -25,7 +25,7 @@ export default function TabsCJ({ rowData, cardData }: TabsCJProps) {
       </Tab.List>
       <Tab.Panels>
         <Tab.Panel>
-          <div className="mt-3 w-full grid lg:grid-cols-2 gap-4">
+          <div className="mt-3 w-full grid lg:grid-cols-3 gap-4">
             {cardData.map((item, index) => (
               <CardProgramme
                 key={index}

@@ -82,14 +82,16 @@ const Lightbox: React.FC<LightboxProps> = ({
           <div className={` sans-serif w-[90%] md:w-full text-white overflow-auto max-h-1/4 `}>
             <div dangerouslySetInnerHTML={{ __html: image.description }} />
           </div>
-          <div className="h-[1px] my-2 w-[90%] md:w-full px-4 bg-slate-50"></div>
+          <div className="h-[0.25px] my-2 w-[90%] md:w-full px-4 bg-slate-500"></div>
           <div className="flex w-[90%] md:w-full flex-wrap gap-x-3 ">
-            <div className="flex items-center gap-x-3 text-white sans-serif text-sm whitespace-nowrap">
-              <CalendarDaysIcon width={16} />
-              <p className="">{image.year}</p>
-            </div>
+          {image.year && (
+  <div className="flex items-center gap-x-2 text-white sans-serif text-sm whitespace-nowrap">
+    <CalendarDaysIcon width={16} />
+    <p>{image.year}</p>
+  </div>
+)}
             {image.programmeLabel.name && (
-              <div className="flex items-center gap-x-3 text-white sans-serif text-sm">
+              <div className="flex items-center gap-x-2 text-white sans-serif text-sm">
                 <CpuChipIcon width={16} />
                 <Link
                   href={image.programmeLabel.slug}
@@ -100,7 +102,7 @@ const Lightbox: React.FC<LightboxProps> = ({
               </div>
             )}
             {image.peopleMultiReference.length > 0 && (
-              <div className="flex items-center gap-x-3 text-white sans-serif text-sm">
+              <div className="flex items-center gap-x-2 text-white sans-serif text-sm">
                 <UsersIcon width={16} />
                 <div className="flex ">
                   {image.peopleMultiReference.map((person, index) => (

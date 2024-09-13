@@ -53,7 +53,7 @@ const MediaCard = ({
             unoptimized
           />
           <div className="absolute inset-0 bg-black opacity-50"></div>
-          <div className="absolute left-4 top-4">
+          <div className="absolute left-2 top-2">
             {getIcon(type)}
           </div>
         </div>
@@ -70,7 +70,7 @@ const MediaCard = ({
 
           {/* TITLE OF POST ITEM START */}
           <div className="text-left">
-            <h3 className="text-base serif font-medium group-hover:underline">{name}</h3>
+            <h3 className="text-base sans-serif font-medium group-hover:underline">{name}</h3>
           </div>
           {/* TITLE OF POST ITEM END */}
 

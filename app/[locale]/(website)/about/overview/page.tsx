@@ -60,23 +60,24 @@ export default async function OverviewContent({
   return (
     <>
       <ContentContainer width="full" desktopWidth="large">
+      <div className="flex flex-col">
       <h1 className="sans-serif font-bold text-3xl md:text-4xl lg:text-6xl pt-12 text-left">
         Overview
       </h1>
-        <div className="flex justify-center">
-          <article className=" leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
+        
+          <article className="leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
             <div className="text-rich-text w-richtext">
-              <p className="prose prose-2xl sans-serif leading-normal text-black dark:text-white font-medium">
+              <p className="prose prose-2xl sans-serif leading-normal text-black dark:text-white">
                 Community Jameel advances science and learning for communities
                 to thrive.
               </p>
-              <p className="prose text-lg sans-serif leading-normal  dark:text-white">
+              <p className="prose prose-lg sans-serif leading-normal  dark:text-white">
                 An independent, global organisation, Community Jameel launched
                 in 2003 to continue the tradition of philanthropy and community
                 service established by the Jameel family of Saudi Arabia in
                 1945.
               </p>
-              <p className="prose text-lg sans-serif leading-normal dark:text-white">
+              <p className="prose prose-lg sans-serif leading-normal dark:text-white">
                 We support scientists, humanitarians, technologists and
                 creatives to understand and address pressing human challenges.
                 The work enabled and supported by Community Jameel has led to
@@ -100,7 +101,7 @@ export default async function OverviewContent({
                 </a>{" "}
                 (J-PAL).
               </p>
-              <p className="prose text-lg sans-serif leading-normal  dark:text-white">
+              <p className="prose prose-lg sans-serif leading-normal  dark:text-white">
                 Community Jameel is separate and distinct<strong> </strong>
                 from{" "}
                 <a href="https://www.communityjameelsaudi.org/">
@@ -110,10 +111,10 @@ export default async function OverviewContent({
                 the Ministry of Human Resources and Social Development in the
                 Kingdom of Saudi Arabia.{" "}
               </p>
-              <p className="prose sans-serif prose-2xl text-black dark:text-white font-medium dark:text-white">
+              <p className="prose sans-serif prose-2xl text-black font-medium dark:text-white">
                 A tradition since 1945...
               </p>
-              <p className="prose text-lg sans-serif leading-normal  dark:text-white">
+              <p className="prose prose-lg sans-serif leading-normal  dark:text-white">
                 In 2020, the Jameel family marked 75 years of business and
                 philanthropy by committing to advancing the United Nations
                 Sustainable Development Goals. For more about the past 75 years,
@@ -125,7 +126,7 @@ export default async function OverviewContent({
 
 <article>
         <div className="flex justify-center py-6">
-      <div className="flex justify-between items-center w-full max-w-lg">
+      <div className="flex justify-between items-start w-full max-w-lg">
         <Link href="/community" className="flex items-center group">
           <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline ">Community</p>
           <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
