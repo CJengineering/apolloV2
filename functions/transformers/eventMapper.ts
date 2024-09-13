@@ -89,6 +89,9 @@ export default function eventMapper(
   const programmeLabelCleaned = matchProgrammes
     .map((prog) => (prog ? prog.fieldData.name : ""))
     .filter((name): name is string => name !== undefined);
+  const programmeLabelShortCleaned = matchProgrammes
+    .map((prog) => (prog ? prog.fieldData.shortname : ""))
+    .filter((name): name is string => name !== undefined);
   const fakeSource = {
     name: programmeLabelCleaned[0],
     arabicName: matchProgrammes[0]?.fieldData["field-arabic"] || "N/A",
@@ -97,6 +100,7 @@ export default function eventMapper(
   return {
     pushToGr: item.fieldData["push-to-gr"] || false,
     programmeLabel: programmeLabelCleaned[0] || "",
+    programmeLabelShort: programmeLabelShortCleaned[0] || "",
     sources: fakeSource,
     relatedProgrammes: matchProgrammes
       .map((prog) => (prog ? prog.fieldData.name : ""))

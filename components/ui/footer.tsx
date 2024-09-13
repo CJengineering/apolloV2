@@ -3,10 +3,11 @@ import Link from "next/link";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import SocialMediaLinks from "../custom beta components/SocialMediaLinks";
 import SocialMediaList from "../CJ-components/components-CJ/basic components/SocialMediaList";
+import ContentFooterContainer from "../CJ-components/components-CJ/custom components/ContentContainerFooter";
 
 export default function Footer() {
   return (
-    <ContentContainer width="full" desktopWidth="large">
+    <ContentFooterContainer width="full" desktopWidth="large">
       <footer className="border-t sm:ml-64 dark:bg-slate-900 bg-white border-gray-200 dark:border-slate-700 pt-8">
         <div className="flex sm:flex-auto items-start justify-between">
           <div className="sm:mb-0">
@@ -56,6 +57,6 @@ export default function Footer() {
           </Link>
         </div>
       </footer>
-    </ContentContainer>
+    </ContentFooterContainer>
   );
 }

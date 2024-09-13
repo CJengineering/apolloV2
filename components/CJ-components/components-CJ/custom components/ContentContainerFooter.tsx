@@ -1,5 +1,4 @@
 import React from "react";
-import Sidebar2 from "../ui/sideBar2";
 
 interface ContentContainerProps {
   children: React.ReactNode;
@@ -7,7 +6,7 @@ interface ContentContainerProps {
   desktopWidth?: "full" | "small" | "medium" | "large";
 }
 
-export default function ContentContainer({
+export default function ContentFooterContainer({
   children,
   width = "full",
   desktopWidth,
@@ -56,16 +55,7 @@ export default function ContentContainer({
     <div
       className={`mx-auto md:mt-8 mt-4 lg:px-4 2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px]`}
     >
-      <div className=" flex justify-between  mb-6">
-        <div className="max-w-[250px]">
-          <div className="sticky top-20  h-screen overflow-auto overflow-x-hidden side-scroll-bar  bg-blak">
-            <Sidebar2 />
-          </div>
-        </div>
-        <div className=" 2xl:max-w-[1280px] xl:max-w-[1030px]  lg:max-w-[774px] px-4">
-          {children}
-        </div>
-      </div>
+      <div className=" flex justify-between  mb-6">{children}</div>
     </div>
   );
 }
