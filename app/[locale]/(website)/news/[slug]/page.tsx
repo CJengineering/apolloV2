@@ -78,34 +78,36 @@ export default async function page({
   }));
 
   return (
+<ContentContainer width="full" desktopWidth="medium">
+  <div className="">
+    <ArticleBanter post={cleanPost} />
+  </div>
 
-    <ContentContainer width="full" desktopWidth="medium">
-        <div className="pb-12">
-          <ArticleBanter post={cleanPost} />
-        </div>
-        {relatedPostsCleaned.length > 0 && (
-          <>
-            <div className="pb-12">
-              {cleanPost.imageCarousel.length > 0 &&
-                cleanPost.imageCarousel[0].url !== "" && (
-                  <ContentPhotos images={cleanRelatedImages} />
-                )}
-            </div>
-            <div className="pb-9">
-              <hr className="border-gray-200" />
-            </div>
-            <div className="pb-6">
-              <h2 className="header-section">Related</h2>
-            </div>
+  {relatedPostsCleaned.length > 0 && (
+    <>
+      <div className="w-full mx-auto pt-9">
+        {cleanPost.imageCarousel.length > 0 &&
+          cleanPost.imageCarousel[0].url !== "" && (
+            <ContentPhotos images={cleanRelatedImages} />
+          )}
+      </div>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              {relatedPostsCleaned.map((post) => (
-                <PostCard key={post.name} content={post} />
-              ))}
-            </div>
-          </>
-        )}
-      </ContentContainer>
+      <div className="py-9">
+        <hr className="border-gray-200" />
+      </div>
+
+      <div className="pb-6">
+        <h2 className="header-section">Related</h2>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        {relatedPostsCleaned.map((post) => (
+          <PostCard key={post.name} content={post} />
+        ))}
+      </div>
+    </>
+  )}
+</ContentContainer>
 
   );
 }

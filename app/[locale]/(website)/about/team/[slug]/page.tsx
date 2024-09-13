@@ -113,7 +113,7 @@ export default async function page({
           
         </>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 gap-3">
         {relatedNewsToTeamMember.map((item) => (
           <NewsCard key={item.slug} content={item} locale={params.locale} />
         ))}

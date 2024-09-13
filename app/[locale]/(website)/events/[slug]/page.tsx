@@ -82,36 +82,14 @@ export default async function EventPage({
 
   return (
     <ContentContainer width="full" desktopWidth="medium">
-      <div className="flex flex-col justify-center items-center w-full">
-        <div className="flex items-center justify-center">
-          <div className="pt-12 pb-3 w-full">
-            <h1 className="header-article w-full leading-tight">{eventSingleDataCleaned.name}</h1>
-          </div>
-        </div>
-      <div className="flex flex-col pb-6 md:flex-row items-start md:items-center justify-start md:justify-left md:space-x-4 w-full">
-        <div className="flex items-start md:items-center space-x-1 w-full md:w-auto">
-          <p className="sans-serif text-base font-normal">
-            {eventSingleDataCleaned.eventDate}
-          </p>
-          {(eventSingleDataCleaned.endDate !== eventSingleDataCleaned.eventDate) && (
-            <>
-              <p className="sans-serif text-base font-normal"> – </p>
-              <p className="sans-serif text-base font-normal">
-                {eventSingleDataCleaned.endDate}
-              </p>
-            </>
-          )}
-        </div>
-        <div className="hidden md:block mx-2">|</div>
-        <div className="flex items-start text-left mt-2 md:mt-0 md:px-2 w-full md:w-auto">
-          <p className="sans-serif text-base font-normal">{eventSingleDataCleaned.time}</p>
-        </div>
-        <div className="hidden md:block mx-2">|</div>
-        <div className="flex items-start text-left mt-2 md:mt-0 md:px-2 w-full md:w-auto">
-          <p className="sans-serif text-base font-normal">{eventSingleDataCleaned.address}</p>
-        </div>
+      <div className="">
+        <div className="text-left">
+        <div className="pt-6 w-5/6 mb-6">
+      <h1 className="header-article leading-tight text-left">{eventSingleDataCleaned.name}</h1>
       </div>
+        </div>
     </div>
+    <div className="pb-6">
         <Image
           className="w-full"
           src={eventSingleDataCleaned.heroImage.url}
@@ -119,9 +97,34 @@ export default async function EventPage({
           width={100}
           height={100}
         />
+    </div>
 
-    <div className="flex flex-col items-center pt-6">
-      <div className="prose prose-xl sans-serif dark:prose-dark">
+
+    <div className="flex flex-col items-center">
+
+    <div className="prose prose-xl sans-serif dark:prose-dark">
+      <div className="w-full">
+        {eventSingleDataCleaned.eventDate && (
+        <div className="sans-serif text-base font-normal">
+      {eventSingleDataCleaned.eventDate}
+      {(eventSingleDataCleaned.endDate && eventSingleDataCleaned.endDate !== eventSingleDataCleaned.eventDate) && (
+        <> - {eventSingleDataCleaned.endDate}</>
+      )}
+    </div>
+  )}
+
+  {eventSingleDataCleaned.time && (
+    <div className="sans-serif text-base font-normal">
+      {eventSingleDataCleaned.time}
+    </div>
+  )}
+
+  {eventSingleDataCleaned.address && (
+    <div className="sans-serif text-base font-normal">
+      {eventSingleDataCleaned.address}
+    </div>
+  )}
+</div>
         <div
           dangerouslySetInnerHTML={{
             __html: eventSingleDataCleaned.shortDescription2,
@@ -150,7 +153,8 @@ export default async function EventPage({
       </div>
     </div>
     <ContentContainer width="lg" desktopWidth="medium">
-    <div className="pt-12">
+    <div className="pb-6"><div className="w-full h-[1px] bg-gray-300 block"></div></div>  
+    <div className="">
       <h2 className="header-section pb-6">Participants</h2>
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {relatedPeopleDataCleaned.map((person) => (
@@ -163,7 +167,7 @@ export default async function EventPage({
               className="mx-auto"
             />
             <h2 className="mt-2 font-medium sans-serif text-lg">{person.name}</h2>
-            <p className="mt-1 sans-serif text-sm font-normal text-left text-gray-600">{person.shortDescription}</p>
+            <p className="mt-1 sans-serif text-base font-normal text-left">{person.shortDescription}</p>
           </div>
         ))}
       </div>
@@ -171,13 +175,14 @@ export default async function EventPage({
     </ContentContainer>
 
     <ContentContainer width="lg" desktopWidth="medium">
+    <div className="pb-6"><div className="w-full h-[1px] bg-gray-300 block"></div></div> 
     <div>
       {eventSingleDataCleaned.organisers.length > 0 && (
         <h2 className="header-section pb-6">Organisers</h2>
       )}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {eventSingleDataCleaned.organisers.map((organiser) => (
-          <div key={organiser.name} className="flex justify-center">
+          <div key={organiser.name} className="">
             <Image
               src={organiser.logo.url}
               alt={organiser.logo.alt || ""}
@@ -189,6 +194,7 @@ export default async function EventPage({
       </div>
     </div>
         <div>
+        <div className="py-6"><div className="w-full h-[1px] bg-gray-300 block"></div></div> 
       {eventSingleDataCleaned.partners.length > 0 && (
         <h2 className="header-section pb-6">Partners</h2>
       )}
