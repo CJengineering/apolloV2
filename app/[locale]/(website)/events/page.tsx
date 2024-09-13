@@ -218,11 +218,16 @@ export default async function WhatsOnContent({
       <ContentContainer width="full" desktopWidth="medium">
         <h1 className="header-page py-12 text-center">Events</h1>
         <div>
-        <div className="flex w-full">
-            {eventsFeatured.map((article, index) => (
-              <EventCardLarge key={index} article={article} />
+         
+          <div className="">
+        <div className="pb-3"><h2 className="header-section pb-3">Featured</h2></div>
+              <div className="grid md:grid-cols-3 gap-6">
+              {eventsFeatured.map((article, index) => (
+              <EventCardSmall key={index} article={article} />
             ))}
-          </div>
+            </div>
+            </div>
+          
           <div className="pb-6"><div className="w-full h-px bg-slate-200"></div></div>
         {eventFuture.length > 0 && (
           <div className="">

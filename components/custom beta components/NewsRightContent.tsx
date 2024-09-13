@@ -33,14 +33,14 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
       </div> */}
       <div className="mb-6">
         <div className="text-xs font-normal mono uppercase">lab(s)</div>
-        <div className="serif text-base font-normal">
+        <div className="sans-serif text-base font-normal">
           <ul>
             {relatedProgrammes.map((programme, index) => (
               <li key={index}>
                 <Link
                   key={index}
                   href={`/programmes/${programme.slug}`}
-                  className="underline hover:cursor-pointer mt-0"
+                  className="hover:cursor-pointer hover:underline mt-0"
                 >
                   {programme.name}
                 </Link>
@@ -52,14 +52,14 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
       {relatedPeople.length > 0 && (
         <div className="mb-3">
           <div className="text-xs font-normal mono uppercase">people</div>
-          <div className="serif text-base font-normal">
+          <div className="sans-serif text-base font-normal">
             <ul>
               {relatedPeople.map((person, index) => (
                 <li key={index}>
                   <Link
                     key={index}
                     href={`/people/${person.slug}`}
-                    className="underline hover:cursor-pointer mt-0"
+                    className="hover:cursor-pointer hover:underline mt-0"
                   >
                     {person.name}
                   </Link>

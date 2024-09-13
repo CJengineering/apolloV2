@@ -14,14 +14,11 @@ export default function ArticleBanter({ post }: ArticleBanterProps) {
   return (
 <>
 
-      <div className="md:pt-12 flex flex-col items-start md:w-5/6">
-      
-      <h1 className="text-left text-2xl sm:text-4xl sans-serif">{post.name}</h1>
+      <div className="pt-6 w-full sm:pt-6 sm:w-5/6 mb-3">
+      <h1 className="header-article leading-tight text-left">{post.name}</h1>
       </div>
       <div className="flex items-start">
-        <div className="flex flex-col mb-12 mt-2">
-          <div className="flex gap-3"><div className="sans-serif text-base font-normal">{post.datePublished}</div><div className="sans-serif text-base font-normal">|</div><div className="pb-2"><span className="sans-serif text-base">{post.programme.name}</span></div></div>
-        </div>
+
       </div>
         <Image
           className=""
@@ -32,15 +29,19 @@ export default function ArticleBanter({ post }: ArticleBanterProps) {
         />
 
       <div className="flex justify-around min-h-screen">
-        <div className="lg:px-0">
-          <div className="mx-auto pt-12 text-lg">            
+        <div className="">
+          <div className="mx-auto pt-3">
+          <div className="py-3">
+            <div className="sans-serif text-base font-normal">{post.datePublished}</div>
+            </div>            
             <div>
-              <div className="mono text-sm font-normal uppercase">{post.location === 'N/A' ? '': post.location }</div>
+              <div className="sans-serif text-base sm:text-base font-normal">{post.location === 'N/A' ? '': post.location }</div>
               <div className="mx-auto leading-7 text-black dark:text-white prose prose-xl sans-serif font-normal dark:prose-invert">
                 <div dangerouslySetInnerHTML={{ __html: post.body }}></div>
               </div>
             </div>
           </div>  
+          <div className="pb-2"><span className="sans-serif text-base px-1 bg-slate-100">{post.programme.name}</span></div>
         </div>
         
         {/* <div className="sticky top-20 self-start">
