@@ -8,6 +8,7 @@ export default function teamProfileMapper(
     id: item.id,
     name: item.fieldData.name,
     nameArabic: item.fieldData["name-arabic"],
+    photoHiRes: item.fieldData["photo-hires"]||"",
     postionArabic: item.fieldData["position-arabic"],
     biographyArabic: item.fieldData["biography-arabic"],
     imageUrl: item.fieldData.photo.url,

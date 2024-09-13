@@ -139,6 +139,7 @@ export interface TeamMember {
   metaDescription?: string;
   altTextImage?: string;
   photo?: TeamMemberPhoto;
+  photoHiRes?: string;
   filter?: string;
 }
 interface TeamMemberPhoto {
@@ -156,6 +157,7 @@ export interface FieldDataTeamProfile {
   name: string;
   slug: string;
   filter: string;
+  "photo-hires"?: string
   order: number;
   "name-arabic": string;
   "biography-arabic": string;

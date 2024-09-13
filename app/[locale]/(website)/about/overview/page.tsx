@@ -59,12 +59,12 @@ export default async function OverviewContent({
 
   return (
     <>
-      <ContentContainer width="full" desktopWidth="small">
-      <h1 className="sans-serif font-bold text-3xl md:text-4xl lg:text-6xl pt-12 text-center">
+      <ContentContainer width="full" desktopWidth="large">
+      <h1 className="sans-serif font-bold text-3xl md:text-4xl lg:text-6xl pt-12 text-left">
         Overview
       </h1>
         <div className="flex justify-center">
-          <article className="mx-auto leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
+          <article className=" leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
             <div className="text-rich-text w-richtext">
               <p className="prose prose-2xl sans-serif leading-normal text-black dark:text-white font-medium">
                 Community Jameel advances science and learning for communities

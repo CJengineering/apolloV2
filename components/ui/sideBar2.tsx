@@ -261,7 +261,7 @@ const NavGroup = ({ title, children, icon }: { title: string; children: React.Re
           e.preventDefault();
           handleClick();
         }}
-        className="relative flex md:w-[240px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+        className="relative flex md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
       >
         <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
 
@@ -360,7 +360,7 @@ export default function Sidebar2() {
     <>
       {/* Backdrop This is for Mobile */}
       <Transition
-        className="md:hidden fixed inset-0 z-10 bg-slate-900 bg-opacity-20 transition-opacity"
+        className="md:hidden  inset-0 z-10 bg-slate-900 bg-opacity-20 transition-opacity"
         show={sidebarOpen}
         enter="transition ease-out duration-200"
         enterFrom="opacity-0"
@@ -378,7 +378,7 @@ export default function Sidebar2() {
     unmount={false}
     as="aside"
     id="sidebar"
-    className="fixed left-0 top-0 bottom-0 w-full md:w-[250px] h-screen border-r border-slate-200 md:shrink-0 z-10 md:!opacity-100 md:!block dark:border-slate-800 dark:bg-slate-900"
+    className=" left-0 top-0 bottom-0 w-full lg:w-[230px] h-screen lg:shrink-0 z-10 lg:!opacity-100 lg:!block  dark:bg-slate-900"
     enter="transition ease-out duration-200 transform"
     enterFrom="opacity-0 -translate-x-full"
     enterTo="opacity-100 translate-x-0"
@@ -387,14 +387,14 @@ export default function Sidebar2() {
     leaveTo="opacity-0"
   >
           {/* Gradient bg displaying on light layout only background mask */}
-          <div
-            className="absolute inset-0 -left-[9999px] bg-gradient-to-b from-slate-50 to-white pointer-events-none -z-10 dark:hidden"
+          {/* <div
+            className="absolute  bg-blackinset-0 -left-[9999px] bg-gradient-to-b from-slate-50 to-white pointer-events-none -z-10 dark:hidden"
             aria-hidden="true"
-          ></div>
+          ></div> */}
           {/* The navigational part on postion fixed */}
-          <div className="fixed top-0 bottom-0 w-full sm:w-[272px] px-4 sm:px-6 md:pl-2 md:pr-8 overflow-y-auto scrollbar">
-            <div className="pt-20 sm:pt-[84px] pb-8">
-            <nav className="sm:block w-full sm:w-53 text-sm">
+          <div className="   w-full sm:w-[200px] px-4 sm:px-6 md:pl-2 md:pr-8 " >
+            <div className="">
+            <nav className="sm:block w-full   text-sm">
                 {/* This is navigational Link consider it as a link  you can find this on component on top of the file */}
                 <NavLink href="/community" icon={<GlobeAltIcon className="h-4 w-4 text-gray-500 dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />}>
                   Community
