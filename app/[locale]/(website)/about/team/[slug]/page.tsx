@@ -13,6 +13,7 @@ import mapItemToNewsMainProps from "@/functions/transformers/newsTransformer";
 import teamProfileMapper from "@/functions/transformers/teamProfileMapper";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { getDisplayName } from "next/dist/shared/lib/utils";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import React from "react";
 
 export default async function page({
@@ -62,6 +63,7 @@ export default async function page({
     )
   );
 
+  const hiresPhoto = member.photoHiRes;
   const memberName = params.locale === "ar" ? member.nameArabic : member.name;
   const memberPosition =
     params.locale === "ar" ? member.postionArabic : member.position;
@@ -71,39 +73,43 @@ export default async function page({
       : member.paragraphDescription;
 
   return (
-    <ContentContainer width="full" desktopWidth="small">
+    <ContentContainer width="full" desktopWidth="medium">
       <LanguageChanger></LanguageChanger>
       <div className={params.locale === "ar" ? "rtl" : ""}>
-        <div className="pb-12 pt-12 flex flex-col items-center justify-center">
-          <div className="w-full pb-2 md:w-1/2">
-          <h1 className="header-page text-center pt-6">
-        {memberName}
-      </h1>
-          </div>
-          <div className="w-full md:w-1/3">
-            <p className="text-center sans-serif text-lg font-normal">
-              {memberPosition}
-            </p>
-          </div>
-        </div>
-        <div className="flex justify-center">
-          <div className="w-full md:w-1/3">
-            <img
-              src={member.imageUrl}
-              alt={member.altTextImage}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-        <div className="flex justify-center pt-12">
-          <div
-            className="prose sans-serif prose-xl dark:prose-dark"
-            dangerouslySetInnerHTML={{
-              __html: memberBiography ? memberBiography : "",
-            }}
-          ></div>
-        </div>
-      </div>
+  
+  <div className="flex pt-3 items-center gap-x-3"><div><p className="sans-serif underline hover:text-blue-800"><a href="/about/team">Team</a></p></div><div><p className="sans-serif"><ChevronRightIcon className="w-4 h-4 text-gray-500" /></p></div><div><p className="sans-serif">{memberName}</p></div></div>
+  <div className="pb-6 pt-12 flex flex-col">
+    <div className="w-full pb-2 md:w-1/2">
+      <h1 className="header-page">{memberName}</h1>
+    </div>
+    <div className="w-full lg:w-1/3">
+      <p className="sans-serif text-lg font-normal">{memberPosition}</p>
+    </div>
+  </div>
+
+  {/* Flex container to align the image with text wrapping */}
+  <div className="flex-col">
+    <div className="w-[330px] float-left mr-6 mb-6">
+      <img
+        src={member.imageUrl}
+        alt={member.altTextImage}
+        className="w-full h-auto object-cover"
+      />
+      <p className="text-xs font-normal uppercase mono hover:underline hover:text-blue-800 cursor-pointer"><a href={hiresPhoto}>Download high-resolution photograph</a></p>
+    </div>
+      {/* Biography text with prose for rich text formatting */}
+  <div className="pl-0 prose sans-serif prose-2xl dark:prose-dark">
+    <div
+      dangerouslySetInnerHTML={{
+        __html: memberBiography ? memberBiography : "",
+      }}
+    ></div>
+  </div>
+  </div>
+
+
+</div>
+
       {relatedNewsToTeamMember.length > 0 && (
         <>
           <div className="flex flex-col py-6">

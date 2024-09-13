@@ -53,7 +53,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                     open ? "opacity-100" : "opacity-100"
                   }`}
                 >
-                  <h2 className="mono align-middle font-semibold text-xl md:text-1xl uppercase pl-2">
+                  <h2 className="sans-serif align-middle text-xl md:text-1xl uppercase">
                     {isArabic ? repository.top.nameArabic : repository.top.name}
                   </h2>
                 </div>
@@ -63,7 +63,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                     open ? "opacity-0" : "opacity-100"
                   }`}
                 >
-                  <div className="text-sm sans font-normal leading-5">
+                  <div className="text-sm sans-serif leading-5">
                     {isArabic
                       ? repository.top.missionArabic
                       : repository.top.mission}
@@ -75,7 +75,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                     open ? "opacity-0" : "opacity-100"
                   }`}
                 >
-                  <div className="text-sm sans font-normal leading-5">
+                  <div className="text-sm sans-serif leading-5">
                     {repository.top.year}
                   </div>
                 </div>
@@ -85,7 +85,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                     open ? "opacity-0" : "opacity-100"
                   }`}
                 >
-                  <div className="text-sm sans font-normal leading-5">
+                  <div className="text-sm sans-serif leading-5">
                     {isArabic
                       ? repository.top.partnersArabic.join(", ")
                       : repository.top.partners.join(", ")}
@@ -105,12 +105,12 @@ function TableRow({ repository, locale }: TableRowProps) {
             </Disclosure.Button>
 
             <Disclosure.Panel className="mb-4">
-              <div className="grid px-2 md:grid-cols-2 md:gap-16">
+              <div className="grid xl:grid-cols-2 xl:gap-16">
                 <div>
                   <div>
                     {repository.content.logo?.url && (
                       <Image
-                        className="dark:hidden object-fit w-64 py-9"
+                        className="dark:hidden object-fit w-64 py-3"
                         width={400}
                         height={300}
                         src={repository.content.logo?.url || ""}
@@ -129,7 +129,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                   </div>
                   <div className="mt-6">
                     <div
-                      className="sans-serif text-xl md:w-11/12 md:text-3xl leading font-normal"
+                      className="sans-serif text-xl md:w-11/12 md:text-2xl leading font-normal"
                       dangerouslySetInnerHTML={{
                         __html: isArabic
                           ? repository.content.fullDescriptionArabic
@@ -138,16 +138,17 @@ function TableRow({ repository, locale }: TableRowProps) {
                     ></div>
                   </div>
 
-                  <div className="py-6"></div>
+                  <div className="py-3"></div>
 
                   <div className=" py-4">
-                    <div className="flex  items-center">
-                      <div>
+                    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-start">
+                      <div className="pb-3 lg:pb-0">
                         <SocialMediaList
                           socialMediaLinks={repository.content.socialMediaLinks}
                         />
                       </div>
-                      <div className="ml-3 flex flex-grow gap-x-3  ">
+
+                        <div className="pb-3 lg:pb-0 lg:pl-3">
                         {repository.content.button.text && (
                           <ButtonCJ
                             href={repository.content.button.href}
@@ -155,12 +156,15 @@ function TableRow({ repository, locale }: TableRowProps) {
                             styleType="primary"
                           />
                         )}
+                        </div>
+                        <div className="lg:pl-3">
                         <ButtonCJ
                           href={`/programmes/${repository.top.slug}`}
                           text="learn more"
                           styleType="primary"
                         />
-                      </div>
+                        </div>
+
                     </div>
                   </div>
                 </div>
@@ -195,7 +199,7 @@ function TableRow({ repository, locale }: TableRowProps) {
 
                   <div>
                     {repository.content.features.length > 0 && (
-                      <div className="pt-4 pb-8 grid grid-cols-3 gap-3">
+                      <div className="pt-4 pb-8 grid lg:grid-cols-3 gap-3">
                         {repository.content.features.map((feature, index) => (
                           <FeatureCardTable
                             image={{

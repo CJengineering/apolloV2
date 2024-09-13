@@ -104,7 +104,7 @@ export default async function SinglePost({
       <h1 className="sans-serif font-bold text-3xl md:text-4xl lg:text-6xl py-12 text-center">
         Community
       </h1>
-      <div className="w-min-full]">
+      <div className="w-min-full">
         <TabsCJ rowData={dataForTable} cardData={cardData} />
       </div>
     </ContentContainer>

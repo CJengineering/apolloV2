@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
 
 interface CarouselProps {
   children: React.ReactNode[]
@@ -28,31 +29,31 @@ const CarouselForComponent = ({ children }: CarouselProps) => {
   }
 
   return (
-    <div className="relative  2xl:w-full ">
+    <div className="relative 2xl:w-full">
       {/* Arrows Container: Positioned at the top center */}
       <div className="top-0 left-0 right-0 z-10 flex justify-end space-x-4 mt-4">
         <button
           onClick={scrollLeft}
-          className="rounded-full  p-2 text-gray-500"
+          className="rounded-full p-2 text-gray-500"
         >
-          &#10094;
+          <ChevronLeftIcon className="w-6 h-6" />
         </button>
         <button
           onClick={scrollRight}
-          className="rounded-full  p-2 text-gray-500"
+          className="rounded-full p-2 text-gray-500"
         >
-          &#10095;
+          <ChevronRightIcon className="w-6 h-6" />
         </button>
       </div>
 
       <div
         ref={carouselRef}
-        className="carousel flex carousel-center bg-neutral rounded-box custom-scrollbar gap-4 overflow-x-auto "
+        className="carousel flex carousel-center bg-neutral rounded-box custom-scrollbar gap-4 overflow-x-auto"
       >
         {children.map((child, index) => (
           <div
             key={index}
-            className="2xl:min-w-[350px] xl:min-w-[350px] lg:min-w-[300px] md:min-w-[250px] min-w-[300px] bg-white  "
+            className="2xl:min-w-[350px] xl:min-w-[350px] lg:min-w-[300px] md:min-w-[250px] min-w-[300px] bg-white"
           >
             {child}
           </div>

@@ -81,9 +81,9 @@ const cardData = [
     title: "Bill Gates and Fady Jameel host food security meeting at COP28",
     subtitle:
       "Scientists, farmers and chefs convene for the 'Farming for our future' breakfast event.",
-    link: "news/bill-gates-and-fady-jameel-discuss-food-and-farming-with-scientists-farmers-and-chefs-at-the-farming-for-our-future-breakfast-event-on-the-sidelines-of-cop28-in-dubai",
+    link: "/news/bill-gates-and-fady-jameel-discuss-food-and-farming-with-scientists-farmers-and-chefs-at-the-farming-for-our-future-breakfast-event-on-the-sidelines-of-cop28-in-dubai",
     openInNewTab: false,
-    clickAction: "Internal Link",
+    clickAction: "Internal link",
   },
   {
     imageUrl: "/images/GRID_03.jpg",
@@ -93,7 +93,7 @@ const cardData = [
       "CLIMAVORE x Jameel at the Royal College of Art (RCA) is offering two awards to advance projects that respond to food in the new seasons of the climate crisis, such as drought, polluted oceans or fertiliser runoff.",
     link: "/news/climavore-x-jameel-at-rca-announces-2024-food-action-awards",
     openInNewTab: false,
-    clickAction: "Internal Link",
+    clickAction: "Internal link",
   },
   {
     imageUrl: "/images/GRID_04.jpg",
@@ -103,7 +103,7 @@ const cardData = [
       "Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.",
     link: "programmes/climate-labs",
     openInNewTab: false,
-    clickAction: "Internal Link",
+    clickAction: "Internal link",
   },
   {
     imageUrl: "/images/GRID_05.jpg",
@@ -113,7 +113,7 @@ const cardData = [
       "Celebrate the Jameel family's 75th anniversary of business and philanthropy.",
     link: "https://jameel75.com/en",
     openInNewTab: false,
-    clickAction: "External Link",
+    clickAction: "External link",
   },
   {
     imageUrl: "/images/GRID_06.jpg",
@@ -123,7 +123,7 @@ const cardData = [
       "As part of Community Jameel's participation at COP28 in Dubai it co-produced a six-part podcast series with afikra on climate change, arts & health, early warning systems, oceans and the economics of cuisine.",
     link: "https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards",
     openInNewTab: false,
-    clickAction: "Internal Link",
+    clickAction: "Internal link",
   },
   {
     imageUrl: "/images/GRID_07.jpg",
@@ -133,7 +133,7 @@ const cardData = [
       "The lab aims to radically improve global health through arts-related research and advocacy to drive policy.",
     link: "/programmes/jameel-arts-and-health-lab",
     openInNewTab: false,
-    clickAction: "Internal Link",
+    clickAction: "Internal link",
   },
   {
     imageUrl: "/images/GRID_08.jpg",
@@ -153,7 +153,7 @@ const cardData = [
       "The Jameel Centre: Downtown Cairo's Mamluk-inspired 1980s architectural masterpiece. By Ebrahim Bahaa-Eldin & Sabrina Gilby",
     link: "/stories/a-cairo-cornerstone",
     openInNewTab: false,
-    clickAction: "Internal Link",
+    clickAction: "Internal link",
   },
 ];
 // END THE DATA FOR CARDS
@@ -298,7 +298,7 @@ export default async function SinglePost({
   return (
     <ContentContainer width="full" desktopWidth="large">
       <div className="pt-12 sm:pt-20 flex flex-col justify-center">
-        <div className="w-full md:w-full lg:w-3/4 xl:w-4/6 mx-auto">
+        <div className="w-full lg:w-2/3 mx-auto">
           <h1 className="sans-serif font-bold text-left text-3xl sm:leading-10text-3xl md:text-4xl lg:text-5xl">
             Advancing science and learning for communities to thrive
           </h1>
@@ -319,12 +319,12 @@ export default async function SinglePost({
       </div>
 
       <div className="flex justify-center">
-        <div className="pt-6 pb-3 w-full lg:w-5/6 sm:py-12">
+        <div className="pt-6 pb-3 w-full sm:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
       </div>
       <div className="flex justify-center pb-2">
-        <div className="hidden sm:block relative w-full md:w-5/6">
+        <div className="hidden sm:block relative w-full">
           <Image
             className="h-full w-full object-cover"
             src={porgrammeImage.src}
@@ -335,13 +335,13 @@ export default async function SinglePost({
         </div>
       </div>
       <div className="flex justify-center">
-        <div className="hidden sm:block w-full xl:w-5/6  py-6 md:py-12">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        <div className="hidden sm:block w-full py-6 md:py-12">
+          <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
         </div>
       </div>
       {/* <div><iframe src="https://benderlidze.github.io/mapbox-custom-marker-div/" style={{width:"100%", height:"600px",border:"0px;"}}></iframe></div> */}
       <div className="flex justify-center">
-        <div className="w-full xl:w-5/6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cardData.map((card, index) => (
             <HomeCard
               key={index}
@@ -358,13 +358,13 @@ export default async function SinglePost({
       </div>
 
       <div className="flex justify-center">
-        <div className="w-full xl:w-5/6 py-6 md:py-12">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        <div className="w-full py-6 md:py-12">
+          <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
         </div>
       </div>
 
       <div className="flex justify-center">
-        <div className="w-full xl:w-5/6 grid grid-cols-1 col-span-12 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 ">
+        <div className="w-full grid grid-cols-1 col-span-12 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 ">
           <div className="">
             
             <h2 className="header-section pb-6">News</h2>
@@ -392,9 +392,11 @@ export default async function SinglePost({
               styleType="secondary"
             />
           </div>
+          <div className="lg:hidden w-full py-6 md:py-12">
+          <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
+        </div>
           </div>
           <div className="">
-          <div className="py-6 sm:hidden"><div className="w-full h-[1px] bg-gray-300 block sm:hidden"></div></div>
             <h2 className="header-section pb-6">In the media</h2>
             {newsClean.slice(1, 6).map((value, index) => (
              <MediaCardHome content={value} locale="en" />
@@ -407,10 +409,12 @@ export default async function SinglePost({
               styleType="secondary"
             />
           </div>
+          <div className="lg:hidden w-full py-6 md:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
           </div>
           <div className="">
-          <div className="py-6 sm:hidden"><div className="w-full h-[1px] bg-gray-300 block sm:hidden"></div></div>
-          
+    
             <h2 className="header-section pb-6">Events</h2>
             {eventsAgnostic.slice(1, 6).map((value, index) => (
               <AgnosticComponentProvider content={value}>
