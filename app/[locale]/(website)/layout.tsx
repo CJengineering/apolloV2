@@ -36,12 +36,8 @@ const nycd = Nothing_You_Could_Do({
 
 const arial = localFont({
   src: [
-    {path:"../../../public/fonts/arial/ArialCE.ttf",
-    weight: "400",
-    },
-    {path:"../../../public/fonts/arial/ArialMdm.ttf",
-      weight: "600",
-      },
+    { path: "../../../public/fonts/arial/ArialCE.ttf", weight: "400" },
+    { path: "../../../public/fonts/arial/ArialMdm.ttf", weight: "600" },
   ],
   variable: "--font-arial",
   display: "swap",
@@ -93,7 +89,6 @@ const zain = localFont({
   display: "swap",
 });
 
-
 export const metadata = {
   title: "Community Jameel",
   description: "Advancing science and learning for communities to thrive",
@@ -117,22 +112,19 @@ export default async function RootLayout({
               <Header />
 
               {/*  Page content */}
-              <main className="grow  ">
+              <main className="grow  b">
                 <div className="relative">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none -z-10"></div>
+                  
 
                   <div className="max-w-12xl mx-auto md:px-0 md:pr-3 sm:px-6">
                     <div>
-                      <Sidebar2 />
-
                       {/* Page container */}
-                      <div className="md:grow md:pl-64 lg:pr-6 xl:pr-0">
-                        <div className="pt-12  md:pt-12 pb-8 md:pl-6 lg:pl-6">
-                          <Suspense fallback={<LoadingLogo/>}>
-                      
-
-                          {children}
-                          </Suspense>
+                      <div className=" ">
+                        <div className=" pt-12 mx-auto  md:pt-12 pb-8">
+                    
+                        <Suspense fallback={<LoadingLogo />}>
+                            {children}
+                          </Suspense> 
                         </div>
                       </div>
                     </div>
