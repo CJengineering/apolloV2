@@ -77,9 +77,9 @@ export default async function page({
       <LanguageChanger></LanguageChanger>
       <div className={params.locale === "ar" ? "rtl" : ""}>
   
-  <div className="flex pt-3 items-center gap-x-3"><div><p className="sans-serif underline hover:text-blue-800"><a href="/about/team">Team</a></p></div><div><p className="sans-serif"><ChevronRightIcon className="w-4 h-4 text-gray-500" /></p></div><div><p className="sans-serif">{memberName}</p></div></div>
-  <div className="pb-6 pt-12 flex flex-col">
-    <div className="w-full pb-2 md:w-1/2">
+  <div className="flex pt-7 items-center gap-x-3"><div><p className="sans-serif underline hover:text-blue-800"><a href="/about/team">Team</a></p></div><div><p className="sans-serif"><ChevronRightIcon className="w-4 h-4 text-gray-500" /></p></div><div><p className="sans-serif">{memberName}</p></div></div>
+  <div className="pb-6 pt-10 flex flex-col">
+    <div className="w-full pb-2 lg:w-2/3">
       <h1 className="header-page">{memberName}</h1>
     </div>
     <div className="w-full lg:w-1/3">
@@ -89,7 +89,7 @@ export default async function page({
 
   {/* Flex container to align the image with text wrapping */}
   <div className="flex-col">
-    <div className="w-[330px] float-left mr-6 mb-6">
+    <div className="w-full lg:w-[330px] lg:float-left mr-6 mb-6">
       <img
         src={member.imageUrl}
         alt={member.altTextImage}
@@ -112,7 +112,7 @@ export default async function page({
 
       {relatedNewsToTeamMember.length > 0 && (
         <>
-          <div className="flex flex-col py-6">
+          <div className="flex flex-col pt-24 pb-6">
             <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
           </div>
           <div className="pb-6"><h2 className="header-section pb-3">Related content</h2></div>

@@ -274,7 +274,7 @@ const NavGroup = ({ title, children, icon }: { title: string; children: React.Re
           }`}
         />
       </div>
-      <div className={`mb-3 ml-[7px] pl-5 border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${!open && "hidden"}`}>
+      <div className={`mb-3 ml-[7px] pl-4  border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${!open && "hidden"}`}>
         {children}
       </div>
     </>
@@ -378,7 +378,7 @@ export default function Sidebar2() {
     unmount={false}
     as="aside"
     id="sidebar"
-    className=" left-0 top-0 bottom-0 w-full lg:w-[230px] h-screen lg:shrink-0 z-10 lg:!opacity-100 lg:!block  dark:bg-slate-900"
+    className="left-0 top-20 bottom-0 w-full lg:w-[233px] h-screen lg:shrink-0 z-10 lg:!opacity-100 lg:!block  dark:bg-slate-900"
     enter="transition ease-out duration-200 transform"
     enterFrom="opacity-0 -translate-x-full"
     enterTo="opacity-100 translate-x-0"
@@ -394,7 +394,7 @@ export default function Sidebar2() {
           {/* The navigational part on postion fixed */}
           <div className="   w-full sm:w-[200px] px-4 sm:px-6 md:pl-2 md:pr-8 " >
             <div className="">
-            <nav className="sm:block w-full   text-sm">
+            <nav className="sm:block w-full text-sm">
                 {/* This is navigational Link consider it as a link  you can find this on component on top of the file */}
                 <NavLink href="/community" icon={<GlobeAltIcon className="h-4 w-4 text-gray-500 dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />}>
                   Community

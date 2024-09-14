@@ -21,7 +21,7 @@ export default async function page() {
   return (
     <div>
       <ContentContainer width="full" desktopWidth="large">
-      <h1 className="header-page py-12 text-center">
+      <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">
         Family album
       </h1>
           <ContentFamily images={photos} />

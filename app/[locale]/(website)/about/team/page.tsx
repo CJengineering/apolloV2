@@ -70,9 +70,7 @@ export default async function PeopleContent({
   return (
 <>
       <ContentContainer width="full" desktopWidth="medium">
-      <h1 className="header-page py-12 text-center">
-        Team
-      </h1>  
+      <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">Team</h1>  
       <div className="">
           <h2 className="header-section pb-6">Core</h2>
           <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
@@ -85,7 +83,7 @@ export default async function PeopleContent({
             ))}
           </div>
         </div>
-    <div className="flex flex-col py-12">
+    <div className="flex flex-col pt-12 pb-10">
     <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div> {/* Separation Bar */}
     </div>
         <div className="">
@@ -101,13 +99,13 @@ export default async function PeopleContent({
           </div>
         </div>
 
-        <div className="flex flex-col py-12">
+        <div className="flex flex-col pt-12 pb-10">
       <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div> {/* Separation Bar */}
     </div>
         <div>
           <h2 className="header-section pb-6">Jameel Family</h2>
           <p className="sans-serif font-normal text-base mb-6">
-              Check out a selection of <a href="https://www.communityjameel.org/about/people/family-album" className="underline">archival photos</a> of the Jameel family from across the history of Community Jameel.
+              Check out a selection of <a href="/about/family-album" className="underline">archival photos</a> of the Jameel family from across the history of Community Jameel.
             </p>
           <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {leadership.map((member) => (
