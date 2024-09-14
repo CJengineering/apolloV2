@@ -15,9 +15,9 @@ export default function SidebarLinkSubgroup({
   const [linkOpen, setLinkOpen] = useState<boolean>(open);
 
   return (
-    <div className="mt-3 pr-2 md:pr-0   md:w-[199px] ">
+    <div className="mt-3 pr-2 md:pr-0 md:w-[194px] ">
       <a
-        className="flex   items-center justify-between text-black font-normal dark:text-white hover:text-orange-700 dark:hover:text-orange-400"
+        className="flex  items-center justify-between text-black font-normal dark:text-white hover:text-orange-700 dark:hover:text-orange-400"
         href="#0"
         onClick={(e) => {
           e.preventDefault();

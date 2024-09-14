@@ -10,11 +10,11 @@ export default function Header() {
   return (
     <header className="fixed w-full z-30">
       <div
-        className="absolute inset-0 bg-white bg-opacity-70 border-b border-slate-200 backdrop-blur -z-10 dark:bg-slate-900 dark:border-slate-800"
+        className="absolute inset-0 bg-white bg-opacity-70 backdrop-blur -z-10 dark:bg-slate-900 dark:border-slate-800"
         aria-hidden="true"
       />
-      <div className="max-w-12xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+      <div className="max-w-[1563px] mx-auto px-4 lg:px-4 pt-4 lg:pt-0">
+        <div className="flex space-betweem items-center h-12 sm:h-16">
           {/* Site branding */}
           <div className="grow">
             <div className="flex items-center">

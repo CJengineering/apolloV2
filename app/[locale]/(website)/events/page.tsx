@@ -216,7 +216,7 @@ export default async function WhatsOnContent({
   );
   return (
       <ContentContainer width="full" desktopWidth="medium">
-        <h1 className="header-page py-12 text-center">Events</h1>
+        <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">Events</h1>
         <div>
          
           <div className="">

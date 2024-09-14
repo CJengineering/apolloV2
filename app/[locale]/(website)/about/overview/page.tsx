@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
-
 import Link from "next/link";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import { ArrowRightIcon } from "@heroicons/react/24/solid"; 
@@ -59,9 +58,9 @@ export default async function OverviewContent({
 
   return (
     <>
-      <ContentContainer width="full" desktopWidth="large">
-      <div className="flex flex-col">
-      <h1 className="sans-serif font-bold text-3xl md:text-4xl lg:text-6xl pt-12 text-left">
+       <ContentContainer width="full" desktopWidth="medium">
+      <div className="w-min-full">
+      <h1 className="header-page pb-3 pt-12 lg:pb-6 lg:pt-7 text-left">
         Overview
       </h1>
         
@@ -125,7 +124,7 @@ export default async function OverviewContent({
         </div>
 
 <article>
-        <div className="flex justify-center py-6">
+        <div className="flex justify-start py-6">
       <div className="flex justify-between items-start w-full max-w-lg">
         <Link href="/community" className="flex items-center group">
           <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline ">Community</p>

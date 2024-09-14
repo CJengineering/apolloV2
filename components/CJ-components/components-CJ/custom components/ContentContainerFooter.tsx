@@ -55,7 +55,7 @@ export default function ContentFooterContainer({
     <div
       className={`mx-auto md:mt-8 mt-4 lg:px-4 2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px]`}
     >
-      <div className=" flex justify-between  mb-6">{children}</div>
+      <div className="flex mb-3 px-5">{children}</div>
     </div>
   );
 }

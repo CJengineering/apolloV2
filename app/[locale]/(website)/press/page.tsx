@@ -186,7 +186,7 @@ export default async function NewsContent({
   return (
       <ContentContainer width="full" desktopWidth="medium">
         <div>
-          <h1 className="header-page py-12 lg:text-center">
+          <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">
             Media
           </h1>
         </div>

@@ -120,7 +120,7 @@ export default async function RootLayout({
                     <div>
                       {/* Page container */}
                       <div className=" ">
-                        <div className=" pt-12 mx-auto  md:pt-12 pb-8">
+                        <div className="pt-3 mx-auto lg:pt-6 pb-8">
                     
                         <Suspense fallback={<LoadingLogo />}>
                             {children}

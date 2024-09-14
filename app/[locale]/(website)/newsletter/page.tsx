@@ -47,11 +47,11 @@ export default function Page() {
   };
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
+<ContentContainer width="full" desktopWidth="medium">
 
-<div className="flex flex-col items-center justify-center bg-cover bg-center min-h-[90vh]">
-  <h1 className="header-page py-6">Join the community</h1>
-  <div className="max-w-xl w-full p-8 rounded-lg">
+<div className="w-min-full">
+  <h1 className="header-page pb-3 pt-12 lg:pb-6 lg:pt-7 text-left">Join the community</h1>
+  <div className="w-full rounded-lg">
     {loading ? (
       <LogoLoader /> // Display LogoLoader while loading
     ) : (
