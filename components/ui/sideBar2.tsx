@@ -360,7 +360,7 @@ export default function Sidebar2() {
     <>
       {/* Backdrop This is for Mobile */}
       <Transition
-        className="md:hidden  inset-0 z-10 bg-slate-900 bg-opacity-20 transition-opacity"
+        className="md:hidden inset-0 z-10 bg-slate-900 bg-opacity-20 transition-opacity"
         show={sidebarOpen}
         enter="transition ease-out duration-200"
         enterFrom="opacity-0"
@@ -378,7 +378,7 @@ export default function Sidebar2() {
     unmount={false}
     as="aside"
     id="sidebar"
-    className="left-0 top-20 bottom-0 w-full lg:w-[233px] h-screen lg:shrink-0 z-10 lg:!opacity-100 lg:!block  dark:bg-slate-900"
+    className="left-0 bottom-0 w-full pt-6 lg:w-[233px] h-screen lg:shrink-0 z-10 lg:!opacity-100 lg:!block  dark:bg-slate-900"
     enter="transition ease-out duration-200 transform"
     enterFrom="opacity-0 -translate-x-full"
     enterTo="opacity-100 translate-x-0"
@@ -392,7 +392,7 @@ export default function Sidebar2() {
             aria-hidden="true"
           ></div> */}
           {/* The navigational part on postion fixed */}
-          <div className="   w-full sm:w-[200px] px-4 sm:px-6 md:pl-2 md:pr-8 " >
+          <div className="w-full sm:w-[200px] px-4 sm:px-6 md:pl-2 md:pr-8 " >
             <div className="">
             <nav className="sm:block w-full text-sm">
                 {/* This is navigational Link consider it as a link  you can find this on component on top of the file */}

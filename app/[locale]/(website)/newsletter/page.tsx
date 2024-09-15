@@ -50,7 +50,11 @@ export default function Page() {
 <ContentContainer width="full" desktopWidth="medium">
 
 <div className="w-min-full">
-  <h1 className="header-page pb-3 pt-12 lg:pb-6 lg:pt-7 text-left">Join the community</h1>
+  <div className="pb-6">
+<h1 className="header-page pb-3 pt-12 lg:pb-6 lg:pt-7 text-left">
+        Join the community
+      </h1>
+      </div>
   <div className="w-full rounded-lg">
     {loading ? (
       <LogoLoader /> // Display LogoLoader while loading

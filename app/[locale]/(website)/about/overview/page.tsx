@@ -39,7 +39,7 @@ export default async function OverviewContent({
   const post = {
     title: "Community Jameel",
     summary:
-      "A deep dive into how async/await works in JavaScript, with examples and best practices.",
+      "Community Jameel advances science and learning for communities to thrive.  ",
     topic: {
       name: "Home",
       slug: "javascript",
@@ -124,8 +124,8 @@ export default async function OverviewContent({
         </div>
 
 <article>
-        <div className="flex justify-start py-6">
-      <div className="flex justify-between items-start w-full max-w-lg">
+      <div className="flex justify-start py-6">
+      <div className="flex flex-col lg:flex-row justify-between items-start w-full max-w-lg">
         <Link href="/community" className="flex items-center group">
           <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline ">Community</p>
           <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
