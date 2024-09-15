@@ -219,26 +219,21 @@ export default async function WhatsOnContent({
         <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">Events</h1>
         <div>
          
-          <div className="">
-        <div className="pb-3"><h2 className="header-section pb-3">Featured</h2></div>
-              <div className="grid md:grid-cols-3 gap-6">
-              {eventsFeatured.map((article, index) => (
-              <EventCardSmall key={index} article={article} />
-            ))}
-            </div>
-            </div>
-          
-          <div className="pb-6"><div className="w-full h-px bg-slate-200"></div></div>
-        {eventFuture.length > 0 && (
-          <div className="">
-        <div className="pb-3"><h2 className="header-section pb-3">Upcoming events</h2></div>
-              <div className="grid md:grid-cols-3 gap-6">
-              {eventFuture.map((article, index) => (
-                <EventCardSmall key={index} article={article} />
-              ))}
-            </div>
-            </div>
-        )}
+        <div className="">
+  
+  <div className="grid md:grid-cols-3 gap-6">
+    {/* Map over the featured events first */}
+    {eventsFeatured.map((article, index) => (
+      <EventCardSmall key={`featured-${index}`} article={article} />
+    ))}
+
+    {/* Then map over the future events */}
+    {eventFuture.map((article, index) => (
+      <EventCardSmall key={`upcoming-${index}`} article={article} />
+    ))}
+  </div>
+</div>
+
       <div>
       <div className="pb-6"><div className="w-full h-px bg-slate-200"></div></div>
       <div className="pb-3"><h2 className="header-section pb-3">Past events</h2></div>
