@@ -8,12 +8,12 @@ import { Link } from "lucide-react";
 
 export default function Header() {
   return (
-    <header className="fixed w-full z-30">
+    <header className="fixed w-full z-30  ">
       <div
         className="absolute inset-0 bg-white bg-opacity-70 backdrop-blur -z-10 dark:bg-slate-900 dark:border-slate-800"
         aria-hidden="true"
       />
-      <div className="max-w-[1563px] mx-auto px-4 lg:px-4 pt-4 lg:pt-0">
+      <div className="  mx-auto px-4 lg:px- pt-4 lg:pt-0 2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px]  ">
         <div className="flex space-betweem items-center h-12 sm:h-16">
           {/* Site branding */}
           <div className="grow">
@@ -25,11 +25,11 @@ export default function Header() {
           {/* Desktop navigation */}
           <nav className="flex">
             {/* Right side elements links */}
-            <div className=" flex md:hidden ">
+            <div className=" flex lg:hidden ">
               <ThemeToggle />
               <Hamburger />
             </div>
-            <ul className="md:flex hidden gap-4  grow justify-between flex-wrap items-center">
+            <ul className="lg:flex hidden gap-4  grow justify-between flex-wrap items-center">
               {/* Lights switch */}
               <li>
                 <ThemeToggle />

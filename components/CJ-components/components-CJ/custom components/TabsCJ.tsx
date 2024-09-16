@@ -6,13 +6,16 @@ import TableCJ from "./TableCJ";
 import { CardProgrammeProps, RowData } from "@/app/interfaces";
 import { getCookie } from "@/functions/utils/cookies";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
+import { useParams } from "next/navigation";
 const tableCount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 interface TabsCJProps {
   rowData: RowData[];
   cardData: CardProgrammeProps[];
 }
 export default function TabsCJ({ rowData, cardData }: TabsCJProps) {
-  const locale =  "en";
+  const params = useParams();
+  const locale = params.locale as string 
+
   return (
     <Tab.Group>
       <Tab.List className="flex justify-between gap-4">

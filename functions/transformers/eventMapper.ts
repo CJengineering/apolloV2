@@ -101,6 +101,7 @@ export default function eventMapper(
     pushToGr: item.fieldData["push-to-gr"] || false,
     programmeLabel: programmeLabelCleaned[0] || "",
     programmeLabelShort: programmeLabelShortCleaned[0] || "",
+    inTheMedia: item.fieldData["in-the-media"] || '',
     sources: fakeSource,
     relatedProgrammes: matchProgrammes
       .map((prog) => (prog ? prog.fieldData.name : ""))

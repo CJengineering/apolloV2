@@ -370,7 +370,7 @@ export default async function SinglePost({
           <div className="grid md:row-span-3">
             <h2 className="header-section pb-3">News</h2>
             {postsClean.slice(1, 6).map((value, index) => (
-              <PressCardHome content={value} locale="en" />
+              <PressCardHome content={value} locale="en" key={index+'pressCard'} />
             ))}
           <div className="pt-0">
             <ButtonCJ
@@ -388,7 +388,7 @@ export default async function SinglePost({
             <h2 className="header-section pb-3">Press</h2>
             {newsClean.slice(1, 6).map((value, index) => (
              
-             <NewsCard content={value} locale="en" />
+             <NewsCard content={value} locale="en" key={index+'newsCard'} />
             ))}
           <div className="pt-0">
             <ButtonCJ
@@ -405,7 +405,7 @@ export default async function SinglePost({
           <div className="grid md:row-span-3">
             <h2 className="header-section pb-3">Events</h2>
             {eventClean.slice(1, 6).map((value, index) => (
-           <EventsCardHome content={value} locale="en" />
+           <EventsCardHome content={value} locale="en" key={index+'eventCard'} />
             ))}
             <div className="pt-0">
             <ButtonCJ

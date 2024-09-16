@@ -189,6 +189,7 @@ export interface EventFieldData {
   "push-to-gr": boolean;
   "programme-label": string;
   "related-programme-s": string[];
+  "in-the-media": string;
   thumbnail: {
     fileId: string;
     url: string;
@@ -246,6 +247,7 @@ export interface EventFieldDataCleaned {
   pushToGr: boolean;
   programmeLabel: string;
   programmeLabelShort?: string;
+  inTheMedia: string;
   sources: RelatedColection;
   collectionName: "event";
   isDraft: boolean;

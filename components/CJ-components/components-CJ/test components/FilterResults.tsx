@@ -181,7 +181,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
   };
 
   return (
-    <div className="">
+    <div className="2xl:w-[1283px] xl:w-[1030px] lg:w-[774px] pl-4 ">
       <div className="flex items-center pb-6">
         <input
           type="text"

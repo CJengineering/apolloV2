@@ -3,7 +3,7 @@ import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
-import { ArrowRightIcon } from "@heroicons/react/24/solid"; 
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -58,15 +58,15 @@ export default async function OverviewContent({
 
   return (
     <>
-       <ContentContainer width="full" desktopWidth="medium">
-      <div className="w-min-full">
-      <h1 className="header-page pb-3 pt-12 lg:pb-6 lg:pt-7 text-left">
-        Overview
-      </h1>
-        
-          <article className="leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
+      <ContentContainer width="full" desktopWidth="large">
+        <div className="w-full   ">
+          <h1 className="header-page pb-3 pt-12 lg:pb-6 lg:pt-7 text-left">
+            Overview
+          </h1>
+
+          <article className="leading-7  text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
             <div className="text-rich-text w-richtext">
-              <p className="prose prose-2xl sans-serif leading-normal text-black dark:text-white">
+              <p className="prose prose-2xl sans-serif leading-normal text-black dark:text-white ">
                 Community Jameel advances science and learning for communities
                 to thrive.
               </p>
@@ -117,30 +117,48 @@ export default async function OverviewContent({
                 In 2020, the Jameel family marked 75 years of business and
                 philanthropy by committing to advancing the United Nations
                 Sustainable Development Goals. For more about the past 75 years,
-                and the family's vision for the future, visit <a href="http://www.jameel75.com" target="_blank" className="link">jameel75.com</a>.
+                and the family's vision for the future, visit{" "}
+                <a
+                  href="http://www.jameel75.com"
+                  target="_blank"
+                  className="link"
+                >
+                  jameel75.com
+                </a>
+                .
               </p>
             </div>
           </article>
         </div>
 
-<article>
-      <div className="flex justify-start py-6">
-      <div className="flex flex-col lg:flex-row justify-between items-start w-full max-w-lg">
-        <Link href="/community" className="flex items-center group">
-          <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline ">Community</p>
-          <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
-        </Link>
-        <Link href="/about/team" className="flex items-center group">
-          <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline">Team</p>
-          <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
-        </Link>
-        <Link href="https://jameel75.com/en" target="_blank" className="flex items-center group">
-          <p className="prose sans-serif prose-2xl  dark:text-white group-hover:underline">Jameel 75</p>
-          <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
-        </Link>
-      </div>
-    </div>
-    </article>
+        <article>
+          <div className="flex justify-start py-6">
+            <div className="flex flex-col lg:flex-row justify-between items-start w-full max-w-lg">
+              <Link href="/community" className="flex items-center group">
+                <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline ">
+                  Community
+                </p>
+                <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
+              </Link>
+              <Link href="/about/team" className="flex items-center group">
+                <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline">
+                  Team
+                </p>
+                <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
+              </Link>
+              <Link
+                href="https://jameel75.com/en"
+                target="_blank"
+                className="flex items-center group"
+              >
+                <p className="prose sans-serif prose-2xl  dark:text-white group-hover:underline">
+                  Jameel 75
+                </p>
+                <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
+              </Link>
+            </div>
+          </div>
+        </article>
         <div className="py-24"></div>
       </ContentContainer>
     </>
