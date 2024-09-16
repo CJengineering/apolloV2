@@ -322,26 +322,26 @@ export default function Sidebar2() {
   // };
   const renderNavItems = (navItems: NavItem[]) => {
     return navItems.map((item, index) => (
-      <div className="mt-3" key={item.name}>
+      <div className="mt-3" key={item.name + '-top'+ index}>
         {item.href ? (
           // Ensure href is defined before rendering SidebarLink
-          <SidebarLink href={item.href ?? '#'}>{item.name}</SidebarLink>
+          <SidebarLink href={item.href ?? '#'} key={item.name+'-link'+ index}>{item.name}</SidebarLink>
         ) : (
           // First level group (children) case
-          <SidebarLinkSubgroup key={index} title={item.name} open={useSelectedLayoutSegments().includes(item.name)}>
+          <SidebarLinkSubgroup key={item.name + '-group'+ index}  title={item.name} open={useSelectedLayoutSegments().includes(item.name)}>
             {item.children?.map((child) =>
               child.subChildren ? (
                 // Render subChildren inside SidebarLinkSubChildren
-                <SidebarLinkSubChildren  title={child.name} open={useSelectedLayoutSegments().includes(child.name)} key={child.name}>
+                <SidebarLinkSubChildren  title={child.name} open={useSelectedLayoutSegments().includes(child.name)}  key={child.name + '-sub'+ index}>
                   {renderNavItems(child.subChildren)}
                 </SidebarLinkSubChildren>
               ) : (
                 // Render SidebarLink if href is present, otherwise handle undefined href
                 child.href ? (
-                  <div className=" mt-3"><SidebarLink  key={index} href={child.href}>{child.name}</SidebarLink></div>
+                  <div className=" mt-3 " key={index+'div-index'+child.name}><SidebarLink  key={index+'b'+child.name} href={child.href}>{child.name}</SidebarLink></div>
                   
                 ) : (
-                  <div key={child.name}>{child.name}</div> // Handle cases without href
+                  <div key={child.name +'a'+ index}>{child.name}</div> // Handle cases without href
                 )
               )
             )}

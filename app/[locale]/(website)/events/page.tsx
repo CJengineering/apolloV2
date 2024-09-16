@@ -16,9 +16,7 @@ import EventSection from "@/components/custom beta components/eventSection";
 import HeroBanter from "@/components/custom beta components/HeroBanter";
 import image from "@/public/images/mapCJ.webp";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
-import NewsMain, {
-
-} from "@/components/custom beta components/NewsMain";
+import NewsMain from "@/components/custom beta components/NewsMain";
 import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";
 import FeatureCard from "@/components/custom beta components/FeatureCard";
 import NewsSmall from "@/components/custom beta components/NewsSmall";
@@ -41,6 +39,9 @@ import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import { get } from "http";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
+import { EventProvider } from "./event-context";
+import FilterComponentForEvents from "@/components/CJ-components/components-CJ/test components/FilterComponentForEvents";
+import EventsDisplay from "./event-display";
 
 const articleData: NewsMainProps = {
   arabicTitle: "تكنولوجيا",
@@ -201,7 +202,7 @@ export default async function WhatsOnContent({
   const programmeRaw: Item<ProgrammeRawFields>[] = programmeData.items;
   const partnersRaw: Item<PartnersRawFields>[] = partnersData.items;
   const eventsClean = eventsRaw.map((event) =>
-    eventMapper(event, partnersRaw, programmeRaw,peopleData.items)
+    eventMapper(event, partnersRaw, programmeRaw, peopleData.items)
   );
   const eventsFeatured = eventsClean.filter((event) => event.featured);
 
@@ -209,42 +210,63 @@ export default async function WhatsOnContent({
     (event) =>
       new Date(event.endDate) > new Date() && !event.featured && !event.isDraft
   );
-
+  interface RelatedCollection {
+    id: string;
+    name: string;
+  }
+  const programmesForFilter: RelatedCollection[] = programmeData.items.map(
+    (item) => ({
+      id: item.id || "",
+      name: item.fieldData.shortname || "",
+    })
+  );
   // Filter past events and check isDraft is false
   const eventPast = eventsClean.filter(
     (event) => new Date(event.endDate) < new Date() && !event.isDraft
   );
   return (
-      <ContentContainer width="full" desktopWidth="medium">
-        <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">Events</h1>
-        <div>
-         
-        <div className="">
-  
-  <div className="grid md:grid-cols-3 gap-6">
-    {/* Map over the featured events first */}
-    {eventsFeatured.map((article, index) => (
-      <EventCardSmall key={`featured-${index}`} article={article} />
-    ))}
-
-    {/* Then map over the future events */}
-    {eventFuture.map((article, index) => (
-      <EventCardSmall key={`upcoming-${index}`} article={article} />
-    ))}
-  </div>
-</div>
-
+    <ContentContainer width="full" desktopWidth="medium">
+      <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">
+        Events
+      </h1>
       <div>
-      <div className="pb-6"><div className="w-full h-px bg-slate-200"></div></div>
-      <div className="pb-3"><h2 className="header-section pb-3">Past events</h2></div>
+        <div className="">
           <div className="grid md:grid-cols-3 gap-6">
+            {/* Map over the featured events first */}
+            {eventsFeatured.map((article, index) => (
+              <EventCardSmall key={`featured-${index}`} article={article} />
+            ))}
+
+            {/* Then map over the future events */}
+            {eventFuture.map((article, index) => (
+              <EventCardSmall key={`upcoming-${index}`} article={article} />
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div className="pb-6">
+            <div className="w-full h-px bg-slate-200"></div>
+          </div>
+          <div className="pb-3">
+            <h2 className="header-section pb-3">Past events</h2>
+          </div>
+            <EventProvider
+              programmes={programmesForFilter}
+              EventsClean={eventPast}
+            >
+              <div className=" relative">
+                <FilterComponentForEvents />
+              </div>
+              <EventsDisplay />
+            </EventProvider>
+          {/* <div className="grid md:grid-cols-3 gap-6">
             {eventPast.map((article, index) => (
               <EventCardSmall key={index} article={article} />
             ))}
-          </div>
-          </div>
-</div>
-
-      </ContentContainer>
+          </div> */}
+        </div>
+      </div>
+    </ContentContainer>
   );
 }

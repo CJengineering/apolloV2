@@ -100,10 +100,13 @@ export default async function SinglePost({
 
   return (
     <ContentContainer width="full" desktopWidth="medium">
-      <LanguageChanger />
+      <div className="flex justify-between">
+
       <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">
         Community
       </h1>
+      <LanguageChanger />
+      </div>
       <div className="w-min-full">
         <TabsCJ rowData={dataForTable} cardData={cardData} />
       </div>

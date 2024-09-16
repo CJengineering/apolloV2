@@ -116,7 +116,7 @@ export default async function RootLayout({
                 <div className="relative">
                   
 
-                  <div className="max-w-12xl mx-auto md:px-0 md:pr-3 sm:px-6">
+                  <div className="max-w-12xl mx-auto md:px-0  ">
                     <div>
                       {/* Page container */}
                       <div className=" ">
@@ -129,7 +129,7 @@ export default async function RootLayout({
                       </div>
                     </div>
                   </div>
-                  <Footer />
+        
                 </div>
               </main>
             </div>

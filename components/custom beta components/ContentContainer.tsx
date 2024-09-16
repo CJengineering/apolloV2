@@ -1,5 +1,6 @@
 import React from "react";
 import Sidebar2 from "../ui/sideBar2";
+import Footer from "../ui/footer";
 
 interface ContentContainerProps {
   children: React.ReactNode;
@@ -54,18 +55,19 @@ export default function ContentContainer({
 
   return (
     <div
-      className={`mx-auto md:mt-8 mt-4 lg:px-4 2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px]`}
+      className={`mx-auto md:mt-8 px-4 2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px]`}
     >
       <div className="flex mb-6">
-        <div className="max-w-[250px]">
-          <div className="sticky h-screen overflow-auto overflow-x-hidden side-scroll-bar">
+        <div className="w-[250px] hidden  lg:block">
+          <div className="sticky  top-[64px] overflow-auto overflow-x-hidden side-scroll-bar">
             <Sidebar2 />
           </div>
         </div>
-        <div className="2xl:max-w-[1280px] xl:max-w-[1030px] lg:max-w-[774px] px-4 lg:px-12">
+        <div className="2xl:max-w-[1283px] xl:max-w-[1030px] lg:max-w-[774px] pl-4 ">
           {children}
         </div>
       </div>
+          <Footer />
     </div>
   );
 }
