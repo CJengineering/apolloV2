@@ -138,8 +138,11 @@ export default async function SearchPage() {
   };
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
-      <div className="pt-12">
+    <ContentContainer width="full" desktopWidth="medium">
+      <div>
+        <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">Search</h1>
+      </div>
+      <div className="w-full">
         <FilterResults
           teamMembers={teamsClean}
           events={eventClean}
