@@ -34,13 +34,16 @@ export default function PostCard({ content }: { content: PostFieldsCleaned }) {
           {/* TITLE OF POST ITEM END */}
 
           {/* PUBLISHED DATE START */}
+          <div className="flex gap-2">
           <div className="text-left">
             <p className="sans-serif text-sm">
               <time dateTime={content.datePublished}>{content.datePublished}</time>
             </p>
           </div>
+          <div><p className="sans-serif text-sm">|</p></div>
+          <div><p className="sans-serif text-sm">{content.programme.shortname}</p></div>
           {/* PUBLISHED DATE END */}
-
+          </div>
         </div>
         {/* TEXT COLUMN END */}
 

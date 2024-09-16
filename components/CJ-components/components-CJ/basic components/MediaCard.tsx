@@ -39,7 +39,7 @@ const MediaCard = ({
 
   return (
     <Link href={slug} className="group relative block overflow-hidden">
-      <article className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center pb-2">
+      <article className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center pb-6">
         {/* Image Column */}
         <div
           className="col-span-1 relative hidden md:block"
@@ -62,9 +62,9 @@ const MediaCard = ({
         <div className="col-span-2 flex flex-col justify-center space-y-2">
           {/* PROGRAM LABEL START */}
           <div className="text-left">
-            <span className="mono text-xs font-normal uppercase p-1 bg-slate-100 dark:bg-slate-800">
-              {programme.name}
-            </span>
+          <p className="sans-serif text-2xl font-bold">
+                {source}
+              </p>
           </div>
           {/* PROGRAM LABEL END */}
 
@@ -87,7 +87,7 @@ const MediaCard = ({
               <p className="sans-serif font-normal text-sm">|</p>
             </div>
             <div className="text-left">
-              <p className="sans-serif font-normal text-sm">{source}</p>
+              <p className="sans-serif font-normal text-sm">{programme.name}</p>
             </div>
           </div>
           {/* END PUBLISHED DATE AND SOURCES CONTAINER */}

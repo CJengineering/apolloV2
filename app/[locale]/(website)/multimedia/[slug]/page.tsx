@@ -166,102 +166,120 @@ export default async function MultimediaPage({
 
   return (
     <ContentContainer width="full" desktopWidth="medium">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:mt-24">
-        <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
-          <div>
-         
-            <p className="text-left sans-serif text-base text-slate-700 font-normal mono uppercase ">
-              {multimediaItem.type}
-            </p>
-            {multimediaItem.videoLink && (   <div
-                dangerouslySetInnerHTML={{
-                  __html:multimediaItem.videoLink,
-                }}
-              ></div>
-)}
-         
-          </div>
-          <div className="w-full pb-2">
-            <h1 className="text-left text-4xl serif font-bold">
-              {multimediaItem.name}
-            </h1>
-          </div>
-          <div className="w-full mt-6">
-            <div className="prose prose-xl dark:prose-dark serif">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html:multimediaItem.description,
-                }}
-              ></div>
-            </div>
-          </div>
-        </div>
+                <h1 className="header-page pb-3 pt-12 lg:pb-6 lg:pt-7 text-left">
+          {multimediaItem.name}
+        </h1>
+        <div className="grid grid-cols-12 lg:grid-cols-12 lg:gap-12 w-full">
+  {/* Left Column: Multimedia Item + Description (9 columns on large screens) */}
+  <div className="col-span-12 lg:col-span-8 flex flex-col justify-center">
+    <div>
+      {/* Uncomment if you want to display the multimedia item type */}
+      {/* <p className="text-left sans-serif text-base text-slate-700 font-normal mono uppercase">
+        {multimediaItem.type}
+      </p> */}
+      {multimediaItem.videoLink && (
+        <div
+          dangerouslySetInnerHTML={{
+            __html: multimediaItem.videoLink,
+          }}
+        ></div>
+      )}
+    </div>
+
+    <div className="w-full">
+      <div className="prose sans-serif prose-2xl">
+        <div
+          dangerouslySetInnerHTML={{
+            __html: multimediaItem.description,
+          }}
+        ></div>
       </div>
+    </div>
+  </div>
+
+  {/* Right Column: ListSmall Items (3 columns on large screens) */}
+  <div className="col-span-12 lg:col-span-4">
+    <div className="grid grid-cols-1">
+      <div className="space-y-4">
+        <ListSmall
+          data={{
+            "people": multimediaItem.relatedPeople.map((item) => ({
+              name: item.name,
+              url: item.slug,
+            })),
+          }}
+        />
+
+        <ListSmall
+          data={{
+            "date": [
+              { name: multimediaItem.datePublished, url: "" },
+            ],
+          }}
+        />
+
+        <ListSmall
+          data={{ source: [{ name: multimediaItem.sources.name, url: "" }] }}
+        />
+      </div>
+
+      <div className="py-4 space-y-4">
+        <ListSmall
+          data={{
+            "related programme": multimediaItem.relatedProgrammes.map(
+              (item) => ({
+                name: item.name,
+                url: `/programmes/${item.slug}`,
+              })
+            ),
+          }}
+        />
+
+        <ListSmall
+          data={{
+            "Link": [
+              {
+                name: "Go to external link",
+                url: multimediaItem.originalLink,
+              },
+            ],
+          }}
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{cleanMediaRelated.length > 0 && (
+  <div>
+    <div className="py-6">
       <div className="w-full h-px bg-slate-200"></div>
-      <div className="py-6">
-        <h2 className="serif font-medium text-xl lg:text-2xl">Details</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="py-4 space-y-4">
-            <ListSmall
-              data={{
-                "realted people": multimediaItem.relatedPeople.map((item) => ({
-                  name: item.name,
-                  url: item.slug,
-                })),
-              }}
-            />
+    </div>
 
-            <ListSmall
-              data={{
-                "publication date": [
-                  { name: multimediaItem.datePublished, url: "" },
-                ],
-              }}
-            />
+    <div className="pb-3">
+      <h2 className="header-section pb-3">Related multimedia</h2>
+    </div>
 
-            <ListSmall
-              data={{ source: [{ name: multimediaItem.sources.name, url: "" }] }}
-            />
-          </div>
-          <div className="py-4 space-y-4">
-            <ListSmall
-              data={{
-                "related programme": multimediaItem.relatedProgrammes.map((item) => ({
-                  name: item.name,
-                  url: `/programmes/${item.slug}`,
-                })),
-              }}
-            />
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {cleanCardMedia.length > 0 &&
+        cleanCardMedia.map((item) => (
+          <MediaCard key={item.id} {...item} />
+        ))}
+    </div>
 
-            <ListSmall
-              data={{
-                "Link to publication": [
-                  {
-                    name: "External link ->",
-                    url: multimediaItem.originalLink,
-                  },
-                ],
-              }}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
-      <div>
-        <div className="grid grid-cols-3 mt-4">
+    {/* Related Publications */}
+    {/* Uncomment if needed */}
+    {/* 
+      <PostAccordion title={"Photos"}>
+        <ContentPhotos images={cleanRelatedImages} />
+      </PostAccordion> 
+    */}
+  </div>
+)}
 
-        {cleanMediaRelated.length > 0 &&
-          cleanCardMedia.map((item) => (
-            <MediaCard {...item} />
-          ))}
-        </div>
-        {/* Related Publications
-        
-         <PostAccordion title={"Photos"}>
-            <ContentPhotos images={cleanRelatedImages} />
-          </PostAccordion>
-        */}
-      </div>
     </ContentContainer>
   );
 }

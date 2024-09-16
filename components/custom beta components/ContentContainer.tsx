@@ -62,7 +62,7 @@ export default function ContentContainer({
             <Sidebar2 />
           </div>
         </div>
-        <div className="2xl:max-w-[1280px] xl:max-w-[1030px] lg:max-w-[774px] px-4 lg:px-12">
+        <div className="2xl:max-w-[1280px] xl:max-w-[1030px] lg:max-w-[774px] pl-4">
           {children}
         </div>
       </div>

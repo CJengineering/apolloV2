@@ -385,7 +385,7 @@ export default async function SinglePost({
         </div>
           </div>
           <div className="grid">
-            <h2 className="header-section pb-3">Press</h2>
+            <h2 className="header-section pb-3">In the media</h2>
             {newsClean.slice(1, 6).map((value, index) => (
              
              <NewsCard content={value} locale="en" />
