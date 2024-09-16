@@ -181,19 +181,18 @@ const FilterResults: React.FC<FilterResultsProps> = ({
   };
 
   return (
-    <div className="min-h-screen ">
+    <div className="">
       <div className="flex items-center pb-6">
-
         <input
           type="text"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
           placeholder="Search..."
-          className="p-2 border mono border-gray-300 text-base text-slate-400 dark:text-white w-1/3 rounded focus:outline-none focus:border-1 focus:border-orange-700 focus:text-black"
+          className="w-full border sans-serif text-base border-gray-300  text-slate-400 dark:text-white rounded focus:outline-none focus:border-1 focus:border-blue-700 focus:text-black"
         />
         <button
           onClick={refreshPage}
-          className="p-2 mx-2 bg-slate-700 rounded transition ease-in-out delay-50 text-white hover:bg-slate-900 hover:text-orange-300 dark:hover:text-orange-400"
+          className="p-2 mx-2 bg-blue-700 rounded transition ease-in-out delay-50 text-white hover:bg-blue-900 hover:text-orange-300 dark:hover:text-orange-400"
         >
           <ArrowPathIcon
             className={`h-6 w-6 p-1 transition-transform duration-500 ${rotate ? 'rotate-180' : ''}`}
