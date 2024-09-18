@@ -15,7 +15,7 @@ export default function EventsCardHome({
 }) {
   return (
     <Link href={content.slug} className="group relative block overflow-hidden">
-      <article className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center pb-2">
+      <article className="grid grid-cols-1 gap-6 items-center pb-2">
         {/* Image Column */}
         {/* <div className="col-span-1 relative hidden md:block" style={{ paddingBottom: "100%" }}>
           <Image
@@ -27,7 +27,7 @@ export default function EventsCardHome({
         </div> */}
 
         {/* TEXT COLUMN START */}
-        <div className="col-span-2 flex flex-col justify-center space-y-2">
+        <div className="col-span-2 flex flex-col justify-center space-y-1">
           
           {/* PROGRAM LABEL START */}
           {/* <div className="text-left">
