@@ -224,16 +224,16 @@ export default async function JpalPage({
         </div>
         <div className="">
           <PostAccordion title={"Press"}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
-                <NewsCard content={item} locale={params} />
-              ))}
-            </div>
+          <div className="grid grid-cols-1 gap-5">
+      {newsProps.map((item) => (
+        <NewsCard content={item} locale={params} key={item.id} />
+      ))}
+    </div>
           </PostAccordion>
         </div>
         <div className="">
           <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-9">
    
 
               {multimediaProps.map((item) => (

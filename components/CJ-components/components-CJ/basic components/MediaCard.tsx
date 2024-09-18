@@ -61,11 +61,11 @@ const MediaCard = ({
         {/* TEXT COLUMN START */}
         <div className="col-span-2 flex flex-col justify-center space-y-2">
           {/* PROGRAM LABEL START */}
-          <div className="text-left">
+          {/* <div className="text-left">
             <span className="mono text-xs font-normal uppercase p-1 bg-slate-100 dark:bg-slate-800">
               {programme.name}
             </span>
-          </div>
+          </div> */}
           {/* PROGRAM LABEL END */}
 
           {/* TITLE OF POST ITEM START */}

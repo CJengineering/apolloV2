@@ -48,7 +48,7 @@ export default async function OverviewContent({
   return (
     <>
       <ContentContainer width="full" desktopWidth="large">
-        <div className="w-full   ">
+        <div className="w-full">
           <h1 className="header-page pb-3 pt-12 lg:pb-6 lg:pt-7 text-left">
             Overview
           </h1>
