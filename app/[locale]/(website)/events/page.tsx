@@ -42,7 +42,18 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { EventProvider } from "./event-context";
 import FilterComponentForEvents from "@/components/CJ-components/components-CJ/test components/FilterComponentForEvents";
 import EventsDisplay from "./event-display";
+import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+export const metadata: Metadata = customMetaDataGenerator({
+  title: "Events",
+  description:
+    "Community Jameel hosts and collaborates on events across the globe. Check out what's on and look back at some of our past events.",
+  ogType: "website",
+  ogImage: 'https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61e6f19f486905791dcc1b27_JAMEEL_FAMILY_ARCHIVE_PHOTO.jpg',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community"],
 
+})
 const articleData: NewsMainProps = {
   arabicTitle: "تكنولوجيا",
   tag: "Technology",
@@ -132,28 +143,7 @@ const events = [
   },
 ];
 
-export async function generateStaticParams() {
-  return allPosts.map((post) => ({
-    slug: post.slug,
-  }));
-}
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata | undefined> {
-  const post = allPosts.find((post) => post.slug === params.slug);
-
-  if (!post) return;
-
-  const { title, summary: description } = post;
-
-  return {
-    title,
-    description,
-  };
-}
 
 export default async function WhatsOnContent({
   params,
@@ -251,15 +241,17 @@ export default async function WhatsOnContent({
           <div className="pb-3">
             <h2 className="header-section pb-3">Past events</h2>
           </div>
-            <EventProvider
-              programmes={programmesForFilter}
-              EventsClean={eventPast}
-            >
+          <EventProvider
+            programmes={programmesForFilter}
+            EventsClean={eventPast}
+          >
+            <ContainerFixedWidth>
               <div className=" relative">
                 <FilterComponentForEvents />
               </div>
               <EventsDisplay />
-            </EventProvider>
+            </ContainerFixedWidth>
+          </EventProvider>
           {/* <div className="grid md:grid-cols-3 gap-6">
             {eventPast.map((article, index) => (
               <EventCardSmall key={index} article={article} />

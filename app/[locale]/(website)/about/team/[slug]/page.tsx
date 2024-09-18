@@ -1,4 +1,4 @@
-import { NewsRawFields } from "@/app/interfaces";
+import { FieldDataTeamProfile, Item, NewsRawFields } from "@/app/interfaces";
 import FiltredNews from "@/components/CJ-components/components-CJ/FiltredNews";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
@@ -15,6 +15,41 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { getDisplayName } from "next/dist/shared/lib/utils";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import React from "react";
+import { Metadata, ResolvingMetadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+type Props = {
+  params: { slug : string, locale: string };
+
+}
+ 
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug= params.slug
+  const locale = params.locale;
+
+ 
+ 
+  const productTest = await getData("61ee828a15a3182ecebde53f");
+  const teamMembersRaw = productTest.items;
+  const memberRaw :Item<FieldDataTeamProfile>[] = teamMembersRaw.filter(
+    (item) => item.fieldData.slug === slug
+  );
+  const name = locale === 'ar'? memberRaw[0].fieldData["name-arabic"] : memberRaw[0].fieldData.name;
+  const description = locale=== 'ar'? memberRaw[0].fieldData["meta-description-arabic"] : memberRaw[0].fieldData["meta-description"];
+  // optionally access and extend (rather than replace) parent metadata
+  
+ 
+  return customMetaDataGenerator({
+      title: name,
+      description: description,
+      ogImage: memberRaw[0].fieldData.photo.url,
+    })
+ 
+  
+}
 
 export default async function page({
   params,

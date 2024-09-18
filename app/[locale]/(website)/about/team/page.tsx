@@ -12,6 +12,9 @@ import teamProfileMapper from "@/functions/transformers/teamProfileMapper";
 import { cp } from "fs";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import Head from "next/head";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 
 const author = {
   name: "First Lastname",
@@ -19,7 +22,16 @@ const author = {
   position: "Senior position",
   order: 1,
 };
+export const metadata: Metadata = customMetaDataGenerator({
+  title: "Team",
+  description:
+    "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",
+  ogType: "website",
+  ogImage: 'https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61e6f19f486905791dcc1b27_JAMEEL_FAMILY_ARCHIVE_PHOTO.jpg',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community"],
 
+})
 export default async function PeopleContent({
   params,
 }: {
@@ -49,7 +61,8 @@ export default async function PeopleContent({
   {
     /* DATA FETCHING */
   }
-
+ 
+   
   const data = await getData("61ee828a15a3182ecebde53f");
   const teamMembersRaw = data.items;
   const teamMembers = teamMembersRaw.map((item) => teamProfileMapper(item));
@@ -66,26 +79,30 @@ export default async function PeopleContent({
     .filter((member) => member.position === "Alumnus")
     .sort((a, b) => a.order - b.order);
   const sortedTeamMembers = [...teamMembers].sort((a, b) => a.order - b.order);
-  
+
   return (
-<>
+    <>
+     
       <ContentContainer width="full" desktopWidth="medium">
-      <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">Team</h1>  
-      <div className="">
+        <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">
+          Team
+        </h1>
+        <div className="">
           <h2 className="header-section pb-6">Core</h2>
           <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
             {team.map((member) => (
               <PersonalCard
-              key={member.order}
-              author={member}
-              socialPlatforms={[]}
+                key={member.order}
+                author={member}
+                socialPlatforms={[]}
               ></PersonalCard>
             ))}
           </div>
         </div>
-    <div className="flex flex-col pt-12 pb-10">
-    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div> {/* Separation Bar */}
-    </div>
+        <div className="flex flex-col pt-12 pb-10">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>{" "}
+          {/* Separation Bar */}
+        </div>
         <div className="">
           <h2 className="header-section pb-6">Advisory Committee</h2>
           <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
@@ -100,13 +117,18 @@ export default async function PeopleContent({
         </div>
 
         <div className="flex flex-col pt-12 pb-10">
-      <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div> {/* Separation Bar */}
-    </div>
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>{" "}
+          {/* Separation Bar */}
+        </div>
         <div>
           <h2 className="header-section pb-6">Jameel Family</h2>
           <p className="sans-serif font-normal text-base mb-6">
-              Check out a selection of <a href="/about/family-album" className="underline">archival photos</a> of the Jameel family from across the history of Community Jameel.
-            </p>
+            Check out a selection of{" "}
+            <a href="/about/family-album" className="underline">
+              archival photos
+            </a>{" "}
+            of the Jameel family from across the history of Community Jameel.
+          </p>
           <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {leadership.map((member) => (
               <PersonalCard
@@ -117,10 +139,8 @@ export default async function PeopleContent({
             ))}
           </div>
         </div>
-            <div className="pb-24"></div>
-
+        <div className="pb-24"></div>
       </ContentContainer>
-  
-      </>
+    </>
   );
 }

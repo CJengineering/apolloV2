@@ -57,6 +57,10 @@ import {
   MultimediaRawFields,
   PublicationsRawFields,
 } from "@/app/interfaces";
+const metadata = {
+  title: "Multimedia",
+  description: "Multimedia",
+};
 
 export default async function MultimediaPage({
   params,

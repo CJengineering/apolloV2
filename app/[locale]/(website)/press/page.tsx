@@ -68,6 +68,8 @@ import {
 import { NewsProvider } from "./news-contect";
 import FiltredNews from "@/components/CJ-components/components-CJ/FiltredNews";
 import { NewsDisplay } from "./news-display";
+import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -75,22 +77,16 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata | undefined> {
-  const post = allPosts.find((post) => post.slug === params.slug);
+export const metadata: Metadata = customMetaDataGenerator({
+  title: "Media",
+  description:
+    "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",
+  ogType: "website",
+  ogImage: 'https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61f09bfb80bd7c62387c6c9c_COMMUNITY_JAMEEL_PRESS_HEADER.jpg',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community"],
 
-  if (!post) return;
-
-  const { title, summary: description } = post;
-
-  return {
-    title,
-    description,
-  };
-}
+})
 
 export default async function NewsContent({
   params,
@@ -181,17 +177,15 @@ export default async function NewsContent({
     })
   );
 
-
-
   return (
-      <ContentContainer width="full" desktopWidth="medium">
-        <div>
-          <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">
-            Media
-          </h1>
-        </div>
-        {/* <HeroBanter content={heroProps} /> */}
-        {/* <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
+    <ContentContainer width="full" desktopWidth="medium">
+      <div>
+        <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">
+          Media
+        </h1>
+      </div>
+      {/* <HeroBanter content={heroProps} /> */}
+      {/* <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
           <div className="pb-6 col-span-12">
             {newsArrayCleaned.slice(0, 1).map((news, index) => (
               <CompoundNewsCard key={index} locale={params.locale} content={news}>
@@ -215,7 +209,7 @@ export default async function NewsContent({
             ))}
           </div>
           </div> */}
-          {/* <div className="lg:col-span-6 lg:pl-6">
+      {/* <div className="lg:col-span-6 lg:pl-6">
             <Suspense fallback={<Loading />}>
               {newsArrayCleaned.slice(2, 7).map((news, index) => (
                 <CompoundNewsSmall key={index} content={news} locale={params.locale}>
@@ -232,19 +226,20 @@ export default async function NewsContent({
             </Suspense>
           </div> */}
 
-        {/* <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
+      {/* <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-6">
           <div className="pb-6 lg:col-span-6"></div>
         </div> */}
 
-        
-          <NewsProvider
-            programmes={programmesForFilter}
-            sources={sourcesForFilter}
-            newsArrayCleaned={newsArrayCleaned}
-          >
-            <FilterComponent></FilterComponent>
-            <NewsDisplay locale={params.locale} />
-          </NewsProvider>
-      </ContentContainer>
+      <NewsProvider
+        programmes={programmesForFilter}
+        sources={sourcesForFilter}
+        newsArrayCleaned={newsArrayCleaned}
+      >
+        <ContainerFixedWidth>
+          <FilterComponent></FilterComponent>
+          <NewsDisplay locale={params.locale} />
+        </ContainerFixedWidth>
+      </NewsProvider>
+    </ContentContainer>
   );
 }

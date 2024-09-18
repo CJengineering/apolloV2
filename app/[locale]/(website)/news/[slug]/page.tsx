@@ -13,6 +13,41 @@ import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcolle
 import { findRelatedPosts } from "@/functions/findFunctions/findRelatedPostsFromPosts";
 import PostCard from "@/components/custom beta components/PostCard";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
+import { Metadata, ResolvingMetadata } from "next";
+import { FieldsPostRaw, Item, NewsRawFields } from "@/app/interfaces";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+type Props = {
+  params: { slug : string, locale: string };
+
+}
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug= params.slug
+  const locale = params.locale;
+
+ 
+  const newsId = getIdByDisplayName("Posts");
+  const productTest = await getData(newsId);
+  const teamMembersRaw = productTest.items;
+  const memberRaw :Item<FieldsPostRaw>[] = teamMembersRaw.filter(
+    (item) => item.fieldData.slug === slug
+  );
+  const name = locale === 'ar'? memberRaw[0].fieldData["arabic-title"] : memberRaw[0].fieldData.name;
+  const description = 'Latest news ';
+  // optionally access and extend (rather than replace) parent metadata
+  
+ 
+  return customMetaDataGenerator({
+      title: name || '',
+      description: description,
+      ogImage: memberRaw[0].fieldData["open-graph-image"]?.url || '',
+    })
+ 
+  
+}
 const addType = (items: any[], type: string) =>
   items.map((item) => ({ ...item, type }));
 

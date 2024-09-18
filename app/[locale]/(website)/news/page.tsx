@@ -44,6 +44,8 @@ import { PostProvider } from "./post-context";
 import FilterComponent from "@/components/CJ-components/components-CJ/test components/FilterComponent";
 import { sources } from "next/dist/compiled/webpack/webpack";
 import FilterComponentForPosts from "@/components/CJ-components/components-CJ/test components/FilterComponentForPosts";
+import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -51,22 +53,16 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata | undefined> {
-  const post = allPosts.find((post) => post.slug === params.slug);
+export const metadata: Metadata = customMetaDataGenerator({
+  title: "News",
+  description:
+    "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",
+  ogType: "website",
+  ogImage: 'https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61e6a124e31b0c9e6d00c791_TERMS_OF_USE.jpg',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community"],
 
-  if (!post) return;
-
-  const { title, summary: description } = post;
-
-  return {
-    title,
-    description,
-  };
-}
+})
 
 export default async function AnnouncementsContent({
   params,
@@ -139,21 +135,25 @@ export default async function AnnouncementsContent({
 
   return (
     <ContentContainer width="full" desktopWidth="medium">
-        <div className="py-0">
+      <div className="py-0">
         <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">
           News
         </h1>
-        </div>
-        <PostProvider
-          programmes={programmesForFilter}
-          people={peopleForFilter}
-          postsClean={posts}
-        >
+      </div>
+
+      <PostProvider
+        programmes={programmesForFilter}
+        people={peopleForFilter}
+        postsClean={posts}
+      >
+        <ContainerFixedWidth>
           <div className=" relative">
             <FilterComponentForPosts />
           </div>
+
           <PostsDisplay />
-        </PostProvider>
-      </ContentContainer>
+        </ContainerFixedWidth>
+      </PostProvider>
+    </ContentContainer>
   );
 }
