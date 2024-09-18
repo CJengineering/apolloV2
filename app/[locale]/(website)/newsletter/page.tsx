@@ -6,17 +6,7 @@ import ButtonCJ from '@/components/CJ-components/components-CJ/basic components/
 import LogoLoader from '@/components/CJ-components/components-CJ/test components/LogoLoader';
 import { Metadata } from 'next';
 import { customMetaDataGenerator } from '@/functions/utils/customMetadataGenerator';
-export const metadata: Metadata = customMetaDataGenerator({
-  title: "Sign up to Community Jameel's Newsletter",
-  useRawTitle: true,
-  description:
-    "",
-  ogType: "website",
-  ogImage: '',
-  twitterCard: "summary_large_image",
-  keywords: ["Community Jameel", "Jameel", "Community"],
 
-})
 
 export default function Page() {
   const [status, setStatus] = useState('');
