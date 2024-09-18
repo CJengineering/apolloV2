@@ -30,7 +30,7 @@ export default function CardProgramme({
         <div className="absolute inset-0 bg-blue-950 mix-blend-screen opacity-0 transition-opacity duration-[3000ms] group-hover:opacity-100"></div>
 
         <div className="absolute bottom-6 left-6 right-6">
-          <div className="sans-serif text-2xl text-white sm:text-3xl md:text-4xl">
+          <div className="sans-serif text-2xl text-white lg:text-4xl">
             {programmeTitle}
           </div>
           <div className="mono text-medium uppercase text-white">

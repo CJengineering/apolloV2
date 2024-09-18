@@ -299,7 +299,7 @@ export default async function SinglePost({
   const eventsAgnostic = eventClean.map((item) => agnosticMapper(item));
   return (
     <ContentContainer width="full" desktopWidth="large">
-      <div className="pt-12 sm:pt-20 flex flex-col justify-center">
+      <div className="pt-16 sm:pt-20 flex flex-col justify-center">
         <div className="w-full lg:w-2/3 mx-auto">
           <h1 className="sans-serif font-bold text-left text-3xl sm:leading-10text-3xl md:text-4xl lg:text-5xl">
             Advancing science and learning for communities to thrive
@@ -309,7 +309,7 @@ export default async function SinglePost({
             2003 to continue the tradition of philanthropy and community service
             established by the Jameel family of Saudi Arabia in 1945.
           </p>
-          <div className="pt-8">
+          <div className="pt-4 lg:pt-8">
             <ButtonCJ
               href={"/community"}
               text={"discover"}
@@ -321,7 +321,7 @@ export default async function SinglePost({
       </div>
 
       <div className="flex justify-center">
-        <div className="pt-6 pb-3 w-full sm:py-12">
+        <div className="w-full py-6 lg:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
       </div>
@@ -341,7 +341,7 @@ export default async function SinglePost({
           <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
         </div>
       </div>
-      {/* <div><iframe src="https://benderlidze.github.io/mapbox-custom-marker-div/" style={{width:"100%", height:"600px",border:"0px;"}}></iframe></div> */}
+
       <div className="flex justify-center">
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cardData.map((card, index) => (
@@ -360,64 +360,76 @@ export default async function SinglePost({
       </div>
 
       <div className="flex justify-center">
-        <div className="w-full py-6 md:py-12">
+        <div className="w-full py-6 lg:py-12">
           <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
         </div>
       </div>
 
-      <div className="flex justify-center">
-        <div className="w-full xl:w-5/6 grid grid-cols-1 col-span-12 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 ">
-          <div className="grid md:row-span-3">
-            <h2 className="header-section pb-3">News</h2>
-            {postsClean.slice(1, 6).map((value, index) => (
-              <PressCardHome content={value} locale="en" key={index+'pressCard'} />
-            ))}
-          <div className="pt-0">
-            <ButtonCJ
-              href={"/news"}
-              text={"all news"}
-              openInNewTab={false}
-              styleType="secondary"
-            />
-          </div>
-          <div className="lg:hidden w-full py-6 md:py-12">
-          <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
-        </div>
-          </div>
-          <div className="grid">
-            <h2 className="header-section pb-3">Press</h2>
-            {newsClean.slice(1, 6).map((value, index) => (
-             
-             <NewsCard content={value} locale="en" key={index+'newsCard'} />
-            ))}
-          <div className="pt-0">
-            <ButtonCJ
-              href={"/press"}
-              text={"all press"}
-              openInNewTab={false}
-              styleType="secondary"
-            />
-          </div>
-          <div className="lg:hidden w-full py-6 md:py-12">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-        </div>
-          </div>
-          <div className="grid md:row-span-3">
-            <h2 className="header-section pb-3">Events</h2>
-            {eventClean.slice(1, 6).map((value, index) => (
-           <EventsCardHome content={value} locale="en" key={index+'eventCard'} />
-            ))}
-            <div className="pt-0">
-            <ButtonCJ
-              href={"/events"}
-              text={"all events"}
-              openInNewTab={false}
-              styleType="secondary"
-            />
-          </div>
-          </div>
-        </div>
+{/* 3 column system */}      
+
+  <div className="w-full grid lg:grid-cols-12 lg:gap-x-12">
+    {/* News Column */}
+    <div className="col-span-12 lg:col-span-4">
+      <h2 className="header-section pb-3">News</h2>
+      <div className="w-full space-y-6">
+        {postsClean.slice(1, 6).map((value, index) => (
+          <PressCardHome content={value} locale="en" key={index + 'pressCard'} />
+        ))}
       </div>
+      <div className="pt-0 mt-auto">
+        <ButtonCJ
+          href={"/news"}
+          text={"all news"}
+          openInNewTab={false}
+          styleType="secondary"
+        />
+      </div>
+      <div className="lg:hidden w-full py-6 md:py-12">
+        <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
+      </div>
+    </div>
+
+    {/* Press Column */}
+    <div className="col-span-12 lg:col-span-4">
+      <h2 className="header-section pb-3">Press</h2>
+      <div className="w-full space-y-6">
+        {newsClean.slice(1, 6).map((value, index) => (
+          <NewsCard content={value} locale="en" key={index + 'newsCard'} />
+        ))}
+      </div>
+      <div className="pt-0 mt-auto">
+        <ButtonCJ
+          href={"/press"}
+          text={"all press"}
+          openInNewTab={false}
+          styleType="secondary"
+        />
+      </div>
+      <div className="lg:hidden w-full py-6 md:py-12">
+        <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+      </div>
+    </div>
+
+    {/* Events Column */}
+    <div className="col-span-12 lg:col-span-4">
+      <h2 className="header-section pb-3">Events</h2>
+      <div className="w-full space-y-6">
+        {eventClean.slice(1, 6).map((value, index) => (
+          <EventsCardHome content={value} locale="en" key={index + 'eventCard'} />
+        ))}
+      </div>
+      <div className="pt-0 mt-auto">
+        <ButtonCJ
+          href={"/events"}
+          text={"all events"}
+          openInNewTab={false}
+          styleType="secondary"
+        />
+      </div>
+    </div>
+  </div>
+
+
     </ContentContainer>
   );
 }
