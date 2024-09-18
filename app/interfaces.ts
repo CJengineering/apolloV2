@@ -27,7 +27,7 @@ export interface CardProgrammeProps {
 export type CardHorizontalImageProps = {
   imageUrl: StaticImageData | string;
   type?: string;
-  title?:string;
+  title?: string;
 };
 
 export interface ListContentProps {
@@ -36,7 +36,7 @@ export interface ListContentProps {
   date: string | Date;
 }
 export interface ListSmallProps {
-  data?: { [key: string]: {name:string,url:string}[] };
+  data?: { [key: string]: { name: string; url: string }[] };
 }
 
 export interface StatProps {
@@ -99,9 +99,8 @@ export interface RowContentData {
     | {
         image: CardHorizontalImageProps;
         title: string;
-       clickAction: string;
+        clickAction: string;
         customLink: string;
-        
       }[]
     | [];
 }
@@ -158,13 +157,14 @@ export interface FieldDataTeamProfile {
   name: string;
   slug: string;
   filter: string;
-  "photo-hires"?: string
+  "photo-hires"?: string;
   order: number;
   "name-arabic": string;
+  "meta-description-arabic": string;
   "biography-arabic": string;
   "position-arabic": string;
   "paragraph-description": string;
-  "meta-decscription": string;
+  "meta-description": string;
   photo: Image;
 }
 
@@ -223,7 +223,7 @@ export interface EventFieldData {
   "contact-details": string;
   "button-cta-text": string;
   "rsvp-link": string;
-  "trailer-livestream-highlights-video-link": {metadata: {html: string}};
+  "trailer-livestream-highlights-video-link": { metadata: { html: string } };
   "video-2": string;
   "video-3": string;
   tags: string[];
@@ -291,7 +291,7 @@ export interface EventFieldDataCleaned {
     website: string;
     logo: ImageProps;
   }[];
-  participantsAffiliatedInstitutions:  {
+  participantsAffiliatedInstitutions: {
     name: string;
     slug: string;
     website: string;
@@ -526,7 +526,7 @@ export interface FieldsPostRaw {
   "programmes-multiple"?: string[];
   thumbnail?: { url: string; alt: string };
   "main-image"?: { url: string; alt: string };
-  "open-graph-image"?: string;
+  "open-graph-image"?: { fileId: string; url: string; alt: string | null };
   "date-published"?: string;
   location?: string;
   "location-arabic"?: string;
@@ -733,17 +733,17 @@ export interface MultimediaRawFields {
   "innovation-related"?: string[];
   "related-people"?: string[];
   "related-event"?: string[];
-  thumbnail?: { url: string ; alt: string };
+  thumbnail?: { url: string; alt: string };
   "hero-video-audio"?: { url: string; alt: string };
   "square-listen-1x2"?: { url: string; alt: string };
   "no-embed-code"?: boolean;
-  "embed-code"?: string;  
+  "embed-code"?: string;
   description?: string;
   date?: string;
   type?: "video" | "audio" | "photo" | "other";
   source?: string;
   "original-link"?: string;
-  "video-link"?: {metadata: {html: string}};
+  "video-link"?: { metadata: { html: string } };
   "link-audio"?: string;
   name: string;
   slug: string;
@@ -776,7 +776,7 @@ export interface MultimediaCleanedFields {
 export interface FeatureRawFields {
   "name-arabic"?: string;
   "top-feature"?: boolean;
-  "lightbox-video-or-image"?: boolean
+  "lightbox-video-or-image"?: boolean;
   order?: number;
   "click-action"?: string;
   "custom-link"?: string;
@@ -1084,17 +1084,17 @@ export interface UnifiedComponentProps {
   data: UnifiedFields;
 }
 export type AgnosticFields =
-| PostFieldsCleaned
-| MultimediaCleanedFields
-| NewsCleanedFields
-| EventFieldDataCleaned
-| PublicationsCleanedFields
-| PeopleCleanedFields;
+  | PostFieldsCleaned
+  | MultimediaCleanedFields
+  | NewsCleanedFields
+  | EventFieldDataCleaned
+  | PublicationsCleanedFields
+  | PeopleCleanedFields;
 
 export interface AgnosticComponentProps {
   data: AgnosticFields;
 }
-export interface AgnosticCardProps{
+export interface AgnosticCardProps {
   slug: string;
   imageSrc: string;
   programShortname: string;
@@ -1103,5 +1103,4 @@ export interface AgnosticCardProps{
   collectionName: string;
   source: string;
   shortDescription?: string;
-
 }

@@ -10,6 +10,41 @@ import newsMapper from "@/functions/transformers/newsMapper";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { findRelatedNews } from "@/functions/findFunctions/findRelatedNewsFromNews";
 import NewsCard from "@/components/custom beta components/NewsCard";
+import { Metadata, ResolvingMetadata } from "next";
+import { Item, NewsRawFields } from "@/app/interfaces";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+type Props = {
+  params: { slug : string, locale: string };
+
+}
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug= params.slug
+  const locale = params.locale;
+
+ 
+  const newsId = getIdByDisplayName("News");
+  const productTest = await getData(newsId);
+  const teamMembersRaw = productTest.items;
+  const memberRaw :Item<NewsRawFields>[] = teamMembersRaw.filter(
+    (item) => item.fieldData.slug === slug
+  );
+  const name = locale === 'ar'? memberRaw[0].fieldData["arabic-title"] : memberRaw[0].fieldData.name;
+  const description = memberRaw[0].fieldData.summary;
+  // optionally access and extend (rather than replace) parent metadata
+  
+ 
+  return customMetaDataGenerator({
+      title: name || '',
+      description: description,
+      ogImage: memberRaw[0].fieldData["hero-image"]?.url || '',
+    })
+ 
+  
+}
 
 export default async function NewsPage({
   params,

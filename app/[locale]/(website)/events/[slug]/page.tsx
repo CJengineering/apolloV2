@@ -1,4 +1,4 @@
-import { EventFieldData } from "@/app/interfaces";
+import { EventFieldData, Item } from "@/app/interfaces";
 import ContentPhotos from "@/components/CJ-components/components-CJ/test components/content-photos";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import MainContainer from "@/components/custom beta components/MainContainer";
@@ -14,6 +14,40 @@ import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcolle
 import Image from "next/image";
 import React from "react";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { Metadata, ResolvingMetadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+type Props = {
+  params: { slug : string, locale: string };
+
+}
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug= params.slug
+  const locale = params.locale;
+
+ 
+  const eventId = getIdByDisplayName("Events");
+  const productTest = await getData(eventId);
+  const teamMembersRaw = productTest.items;
+  const memberRaw :Item<EventFieldData>[] = teamMembersRaw.filter(
+    (item) => item.fieldData.slug === slug
+  );
+  const name = locale === 'ar'? memberRaw[0].fieldData["arabic-title"] : memberRaw[0].fieldData.name;
+  const description =  memberRaw[0].fieldData["seo-meta-description"] ;
+  // optionally access and extend (rather than replace) parent metadata
+  
+ 
+  return customMetaDataGenerator({
+      title: name,
+      description: description,
+      ogImage: memberRaw[0].fieldData["open-graph-image"].url,
+    })
+ 
+  
+}
 
 export default async function EventPage({ 
   params,

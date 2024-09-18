@@ -129,7 +129,7 @@ export default function postMapper(
           alt: fieldData["main-image"].alt || "",
         }
       : { url: "", alt: "" },
-    openGraphImage: fieldData["open-graph-image"] || "N/A",
+    openGraphImage: fieldData["open-graph-image"]?.url || "N/A",
     datePublished: formatDate(fieldData["date-published"] || ""),
     location: fieldData["location"] || "N/A",
     locationArabic: fieldData["location-arabic"] || "N/A",

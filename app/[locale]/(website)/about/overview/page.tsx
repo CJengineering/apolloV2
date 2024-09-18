@@ -4,29 +4,18 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 
-export async function generateStaticParams() {
-  return allPosts.map((post) => ({
-    slug: post.slug,
-  }));
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata | undefined> {
-  const post = allPosts.find((post) => post.slug === params.slug);
-
-  if (!post) return;
-
-  const { title, summary: description } = post;
-
-  return {
-    title,
-    description,
-  };
-}
+export const metadata: Metadata = customMetaDataGenerator({
+  title: "Overview",
+  description:
+    "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",
+  ogType: "website",
+  ogImage:
+    "https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61e6a0e2e87bc0f8945a1f63_COPYRIGHT.jpg",
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community"],
+});
 
 export default async function OverviewContent({
   params,

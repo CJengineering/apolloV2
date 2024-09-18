@@ -27,6 +27,17 @@ import test from "node:test";
 import featureMapper from "@/functions/transformers/featureMapper";
 import filterRelatedFeatures from "@/functions/filters/filterRelatedFeatures";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+export const metadata: Metadata = customMetaDataGenerator({
+  title: "Our Community",
+  description:
+    "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",
+  ogType: "website",
+  ogImage: 'https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61b37423f32e603212069d44_COMMUNITY_JAMEEL_PORTFOLIO_BANNER.png',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community"],
+
+})
 
 export default async function SinglePost({
   params,
