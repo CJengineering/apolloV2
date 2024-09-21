@@ -181,7 +181,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
   };
 
   return (
-    <div className="2xl:w-[1283px] xl:w-[1030px] lg:w-[774px] pl-4 ">
+    <div className="2xl:w-[1283px] xl:w-[1030px] lg:w-[774px]">
       <div className="flex items-center pb-6">
         <input
           type="text"
@@ -192,7 +192,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
         />
         <button
           onClick={refreshPage}
-          className="p-2 mx-2 bg-blue-700 rounded transition ease-in-out delay-50 text-white hover:bg-blue-900 hover:text-orange-300 dark:hover:text-orange-400"
+          className="p-2 ml-3 bg-blue-700 rounded transition ease-in-out delay-50 text-white hover:bg-blue-900 hover:text-orange-300 dark:hover:text-orange-400"
         >
           <ArrowPathIcon
             className={`h-6 w-6 p-1 transition-transform duration-500 ${rotate ? 'rotate-180' : ''}`}

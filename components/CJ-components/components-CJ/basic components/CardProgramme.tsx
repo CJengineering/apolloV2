@@ -24,13 +24,13 @@ export default function CardProgramme({
         />
 
         {/* Overlay with blend mode and transition */}
-        <div className="absolute inset-0 bg-black opacity-60 transition-opacity duration-[3000ms] group-hover:opacity-35"></div>
+        <div className="absolute inset-0 bg-black opacity-60 transition-opacity duration-[2100ms] group-hover:opacity-35"></div>
 
         {/* Color dodge-like effect */}
-        <div className="absolute inset-0 bg-blue-950 mix-blend-screen opacity-0 transition-opacity duration-[3000ms] group-hover:opacity-100"></div>
+        <div className="absolute inset-0 bg-blue-950 mix-blend-screen opacity-0 transition-opacity duration-[2100ms] group-hover:opacity-100 "></div>
 
         <div className="absolute bottom-6 left-6 right-6">
-          <div className="sans-serif text-2xl text-white lg:text-4xl">
+          <div className="sans-serif text-2xl text-white lg:text-4xl group-hover:underline">
             {programmeTitle}
           </div>
           <div className="mono text-medium uppercase text-white">

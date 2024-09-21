@@ -29,7 +29,7 @@ const ColourTable: FC = () => {
       <table className="w-full lg:w-2/3 table-auto border-collapse">
         <thead>
           <tr>
-            <th className="pl-3 py-3 border-b border-t border-gray-200 text-left sans-serif text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="py-3 border-b border-t border-gray-200 text-left sans-serif text-xs font-medium text-gray-500 uppercase tracking-wider">
               Colour
             </th>
             <th className="pl-3 py-3 border-b border-t border-gray-200 text-left sans-serif text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -44,11 +44,11 @@ const ColourTable: FC = () => {
           {rows.map((row, index) => (
             <tr key={index}>
               <td
-                className="pl-3 py-4 border-b border-gray-200"
+                className="pl-3 py-4 border-gray-200"
                 style={{ backgroundColor: row.bgColor }}
               ></td>
-              <td className="pl-3 py-4 border-b border-gray-200">{row.hex}</td>
-              <td className="pl-3 py-4 border-b border-gray-200">{row.rgb}</td>
+              <td className="pl-3 py-4 border-gray-200">{row.hex}</td>
+              <td className="pl-3 py-4 border-gray-200">{row.rgb}</td>
             </tr>
           ))}
         </tbody>
@@ -74,10 +74,11 @@ export default async function Page() {
 
         {/* Logo Section */}
         <div className="pb-6">
-          <div className="pb-3">
+          <div className="pb-6">
             <h2 className="header-section">Logo</h2>
           </div>
           <div><Logo></Logo></div>
+          <br />
           <p className="text-base sans-serif w-full lg:w-2/3">
             Our logo was inspired by our founder and chairman, Mohammed Jameel KBE. The heart-shaped Arabic calligram reads <span className="font-bold">لأننا نحبكم</span>, which translates to English as <span className="font-bold">Because we love you</span>.
             <br /><br />
@@ -102,7 +103,7 @@ export default async function Page() {
           <p className="text-base sans-serif w-full lg:w-2/3">
             For digital and print communications, we use Arial. It is clear and modern and, as a standard font, is available on PCs and Macs and translates well across formats.
             <br /><br />
-            If you want to make an implicit connection to our brand, use Costa Bold. This is the font in our logo and is synonymous with our identity. It should be used sparingly and principally for headings.
+            If you want to make an implicit connection to our brand, use <span className="costa font-bold">Costa Bold</span>. This is the font in our logo and is synonymous with our identity. It should be used sparingly and principally for headings.
           </p>
         </div>
 
@@ -112,9 +113,9 @@ export default async function Page() {
             <h2 className="header-section">Colours</h2>
           </div>
           <p className="text-base sans-serif w-full lg:w-2/3">
-            Our main colour is a dark red (HEX: #ad243a | RGB: 173,36,58) to reflect the heart that underpins our identity.
-            <br /><br />
-            We also use colours that evoke the long dawns and dusks on the shores of the Red Sea in Jeddah.
+          Our main colour is a <span className="font-bold text-[#ad243a]">dark red</span> (HEX: #ad243a | RGB: 173,36,58) to reflect the heart that underpins our identity.
+          <br /><br />
+          We also use colours that evoke the long dawns and dusks on the shores of the Red Sea in Jeddah.
           </p>
         </div>
 
