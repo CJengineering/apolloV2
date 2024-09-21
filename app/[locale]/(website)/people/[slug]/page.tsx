@@ -193,7 +193,7 @@ export default async function PeoplePage({
 
   return (
     <ContentContainer width="full" desktopWidth="medium">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:mt-24">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-12 lg:pb-6 lg:pt-7">
         <div className="col-span-12 md:col-span-4 flex justify-center md:justify-end">
           <div className="w-full">
             <img
@@ -205,15 +205,15 @@ export default async function PeoplePage({
         </div>
         <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
           <div className="w-full pb-2">
-            <h1 className="text-left text-4xl serif font-bold">
-              {peopleDataItem.name}
-            </h1>
+          <h1 className="header-page text-left">
+          {peopleDataItem.name}
+        </h1>
           </div>
           <div className="w-full">
             <p className="text-left sans-serif text-base font-normal"></p>
           </div>
           <div className="w-full mt-6">
-            <div className="prose prose-xl dark:prose-dark serif">
+            <div className="prose sans-serif dark:prose-dark">
               <div
                 dangerouslySetInnerHTML={{
                   __html: peopleDataItem.biography,

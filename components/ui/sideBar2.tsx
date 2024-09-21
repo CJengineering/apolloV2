@@ -43,6 +43,7 @@ const navItems: NavItem[] = [
       { name: "Overview", href: "/about/overview" },
       { name: "Team", href: "/about/team" },
       { name: "Family album", href: "/about/family-album" },
+      { name: "Brand", href: "/about/brand" },
     ],
   },
   {
