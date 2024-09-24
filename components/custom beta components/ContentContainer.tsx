@@ -59,7 +59,7 @@ export default function ContentContainer({
     >
       <div className="flex mb-6">
         <div className="w-[250px] hidden  lg:block">
-          <div className="sticky  top-[64px] overflow-auto overflow-x-hidden side-scroll-bar">
+          <div className="sticky hidden md:block top-[64px] overflow-auto overflow-x-hidden side-scroll-bar">
             <Sidebar2 />
           </div>
         </div>

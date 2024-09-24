@@ -1,3 +1,4 @@
+import Spinner from "@/components/CJ-components/components-CJ/custom components/Spinner";
 import LogoLoader from "@/components/CJ-components/components-CJ/test components/LogoLoader";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import MainContainer from "@/components/custom beta components/MainContainer";
@@ -8,17 +9,14 @@ import React from "react";
 export default function loadingArticle() {
   return (
     <ContentContainer>
-    <div className=" lg:min-w-[900px]">
-      <div className="min-w-0">
-        <div className="ml-20 md:ml-0 md:mt-10">
-          <SectionBanter title={""}>
-            <div className=" min-h-screen flex justify-center items-center">
-              <LogoLoader />
-            </div>
-          </SectionBanter>
+        <div className=" lg:min-w-[900px]">
+        <div className="min-w-0">
+          <div className=" min-h-screen flex justify-center items-center">
+            <Spinner />
+          </div>
         </div>
       </div>
-    </div>
+
   </ContentContainer>
   );
 }

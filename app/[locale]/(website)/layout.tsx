@@ -121,7 +121,10 @@ export default async function RootLayout({
                       {/* Page container */}
                       <div className=" ">
                         <div className="pt-3 mx-auto lg:pt-6 pb-8">
-                    
+                          <div className="lg:hidden">
+
+                        <Sidebar2 />
+                          </div>
                         <Suspense fallback={<LoadingLogo />}>
                             {children}
                           </Suspense> 

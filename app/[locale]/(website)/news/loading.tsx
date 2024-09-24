@@ -7,14 +7,10 @@ import Spinner from "@/components/CJ-components/components-CJ/custom components/
 export default function NewsContentSkeleton() {
   return (
     <ContentContainer>
-      <div className=" lg:min-w-[900px]">
+          <div className=" lg:min-w-[900px]">
         <div className="min-w-0">
-          <div className="ml-20 md:ml-0 md:mt-10">
-            <SectionBanter title={""}>
-              <div className=" min-h-screen flex justify-center items-center">
-              <Spinner />
-              </div>
-            </SectionBanter>
+          <div className=" min-h-screen flex justify-center items-center">
+            <Spinner />
           </div>
         </div>
       </div>

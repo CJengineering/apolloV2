@@ -58,6 +58,7 @@ import { Suspense } from "react";
 import NewsCard from "@/components/custom beta components/NewsCard";
 import EventsCardHome from "@/components/CJ-components/components-CJ/test components/EventsCardHome";
 import PressCardHome from "@/components/CJ-components/components-CJ/test components/PressCardHome";
+import Spinner from "@/components/CJ-components/components-CJ/custom components/Spinner";
 
 // INTERFACE FOR THE DATA START
 const postsId = getIdByDisplayName("Posts");
@@ -291,7 +292,7 @@ export default async function SinglePost({
       programmeRaw.items,
       peopleRaw.items,
       partnersRaw.items,
-      sourcesRaw.items,
+      sourcesRaw.items
     )
   );
   const postsAgnostic = postsClean.map((item) => agnosticMapper(item));
@@ -365,71 +366,78 @@ export default async function SinglePost({
         </div>
       </div>
 
-{/* 3 column system */}      
-
-  <div className="w-full grid lg:grid-cols-12 lg:gap-x-12">
-    {/* News Column */}
-    <div className="col-span-12 lg:col-span-4">
-      <h2 className="header-section pb-3">News</h2>
-      <div className="w-full space-y-6">
-        {postsClean.slice(1, 6).map((value, index) => (
-          <PressCardHome content={value} locale="en" key={index + 'pressCard'} />
-        ))}
-      </div>
-      <div className="pt-0 mt-auto">
-        <ButtonCJ
-          href={"/news"}
-          text={"all news"}
-          openInNewTab={false}
-          styleType="secondary"
-        />
-      </div>
-      <div className="lg:hidden w-full py-6 md:py-12">
-        <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
-      </div>
-    </div>
-
-    {/* Press Column */}
-    <div className="col-span-12 lg:col-span-4">
-      <h2 className="header-section pb-3">Press</h2>
-      <div className="w-full space-y-6">
-        {newsClean.slice(1, 6).map((value, index) => (
-          <NewsCard content={value} locale="en" key={index + 'newsCard'} />
-        ))}
-      </div>
-      <div className="pt-0 mt-auto">
-        <ButtonCJ
-          href={"/press"}
-          text={"all press"}
-          openInNewTab={false}
-          styleType="secondary"
-        />
-      </div>
-      <div className="lg:hidden w-full py-6 md:py-12">
-        <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-      </div>
-    </div>
-
-    {/* Events Column */}
-    <div className="col-span-12 lg:col-span-4">
-      <h2 className="header-section pb-3">Events</h2>
-      <div className="w-full space-y-6">
-        {eventClean.slice(1, 6).map((value, index) => (
-          <EventsCardHome content={value} locale="en" key={index + 'eventCard'} />
-        ))}
-      </div>
-      <div className="pt-0 mt-auto">
-        <ButtonCJ
-          href={"/events"}
-          text={"all events"}
-          openInNewTab={false}
-          styleType="secondary"
-        />
-      </div>
-    </div>
-  </div>
+      {/* 3 column system */}
 
 
+      <div className="w-full grid lg:grid-cols-12 lg:gap-x-12">
+        {/* News Column */}
+        <div className="col-span-12 lg:col-span-4">
+          <h2 className="header-section pb-3">News</h2>
+          <div className="w-full space-y-6">
+            {postsClean.slice(1, 6).map((value, index) => (
+              <PressCardHome
+                content={value}
+                locale="en"
+                key={index + "pressCard"}
+              />
+            ))}
+          </div>
+          <div className="pt-0 mt-auto">
+            <ButtonCJ
+              href={"/news"}
+              text={"all news"}
+              openInNewTab={false}
+              styleType="secondary"
+            />
+          </div>
+          <div className="lg:hidden w-full py-6 md:py-12">
+            <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
+          </div>
+        </div>
+
+        {/* Press Column */}
+        <div className="col-span-12 lg:col-span-4">
+          <h2 className="header-section pb-3">Press</h2>
+          <div className="w-full space-y-6">
+            {newsClean.slice(1, 6).map((value, index) => (
+              <NewsCard content={value} locale="en" key={index + "newsCard"} />
+            ))}
+          </div>
+          <div className="pt-0 mt-auto">
+            <ButtonCJ
+              href={"/press"}
+              text={"all press"}
+              openInNewTab={false}
+              styleType="secondary"
+            />
+          </div>
+          <div className="lg:hidden w-full py-6 md:py-12">
+            <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+          </div>
+        </div>
+
+        {/* Events Column */}
+        <div className="col-span-12 lg:col-span-4">
+          <h2 className="header-section pb-3">Events</h2>
+          <div className="w-full space-y-6">
+            {eventClean.slice(1, 6).map((value, index) => (
+              <EventsCardHome
+                content={value}
+                locale="en"
+                key={index + "eventCard"}
+              />
+            ))}
+          </div>
+          <div className="pt-0 mt-auto">
+            <ButtonCJ
+              href={"/events"}
+              text={"all events"}
+              openInNewTab={false}
+              styleType="secondary"
+            />
+          </div>
+        </div>
+      </div>
     </ContentContainer>
   );
 }
