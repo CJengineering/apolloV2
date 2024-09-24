@@ -60,7 +60,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
   const programmeParam = searchParams.get("programme");
   const newsParam = searchParams.get("news");
   const multimediaParam = searchParams.get("multimedia");
-  const pressParam = searchParams.get("press");
+  const pressParam = searchParams.get("media");
   const publicationParam = searchParams.get("publication");
   const noParams =
     !eventParam &&
@@ -71,7 +71,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
     !pressParam &&
     !publicationParam;
   useEffect(() => {
-    const urlKeyword = searchParams.get("event")|| searchParams.get("people") || searchParams.get("programme") || searchParams.get("news") || searchParams.get("multimedia") || searchParams.get("press") || searchParams.get("publication");
+    const urlKeyword = searchParams.get("event")|| searchParams.get("people") || searchParams.get("programme") || searchParams.get("news") || searchParams.get("multimedia") || searchParams.get("media") || searchParams.get("publication");
     if (urlKeyword) {
       setKeyword(urlKeyword);
     }
@@ -181,14 +181,14 @@ const FilterResults: React.FC<FilterResultsProps> = ({
   };
 
   return (
-    <div className="2xl:w-[1283px] xl:w-[1030px] lg:w-[774px]">
-      <div className="flex items-center pb-6">
+    <div className="  2xl:w-[1283px] xl:w-[1030px] md:w-[774px]   ">
+      <div className="flex items-center pb-6 w-full ">
         <input
           type="text"
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
           placeholder="Search..."
-          className="w-full border sans-serif text-base border-gray-300  text-slate-400 dark:text-white rounded focus:outline-none focus:border-1 focus:border-blue-700 focus:text-black"
+          className=" flex-grow border sans-serif text-base border-gray-300  text-slate-400 dark:text-white rounded focus:outline-none focus:border-1 focus:border-blue-700 focus:text-black"
         />
         <button
           onClick={refreshPage}
@@ -202,7 +202,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
 
       {(newsParam || noParams) && (
         <PostAccordion
-          title="Press"
+          title="Media"
           isOpen={searchParams.get('open') === 'true'}
           itemsCount={`${filtredNewsMaped.length}`}
         >
@@ -246,7 +246,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
       )}
       {(pressParam || noParams) && (
         <PostAccordion
-          title="News"
+          title="Media"
           isOpen={searchParams.get('open') === 'true'}
           itemsCount={`${filteredPosts.length}`}
         >
