@@ -160,6 +160,6 @@ export default function newsMapper(
     tags: relatedTags,
     removeFromNewsGrid: fieldData["remove-from-news-grid"] || false,
     name: fieldData.name || "",
-    slug: `/press/${fieldData.slug}` || "",
+    slug: `/media/${fieldData.slug}` || "",
   };
 }

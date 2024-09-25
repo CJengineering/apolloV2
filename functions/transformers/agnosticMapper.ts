@@ -54,7 +54,7 @@ export default function agnosticMapper(
   if (isMultimediaCleanedFields(data)) {
     imageSrc = data.thumbnail.url;
     title = data.name;
-    slug = data.slug;
+    slug = `/media/${data.slug}`;
     collectionName = data.collectionName;
     programShortname = data.programmeLabel.shortname || "";
     datePublished = data.datePublished;
@@ -73,7 +73,7 @@ export default function agnosticMapper(
     imageSrc = data.thumbnail.url;
     title = data.name;
     slug = data.slug;
-    collectionName = data.collectionName;
+    collectionName = 'MEDIA';
     programShortname = data.programme.shortname || "";
     datePublished = data.datePublished;
     source = data.sources.name;
