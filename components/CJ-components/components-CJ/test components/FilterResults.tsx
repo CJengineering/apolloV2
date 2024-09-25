@@ -246,7 +246,7 @@ const FilterResults: React.FC<FilterResultsProps> = ({
       )}
       {(pressParam || noParams) && (
         <PostAccordion
-          title="Media"
+          title="News"
           isOpen={searchParams.get('open') === 'true'}
           itemsCount={`${filteredPosts.length}`}
         >
