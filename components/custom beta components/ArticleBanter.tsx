@@ -14,8 +14,8 @@ export default function ArticleBanter({ post }: ArticleBanterProps) {
   return (
 <>
 
-      <div className="pt-6 w-full sm:pt-6 sm:w-5/6 mb-3">
-      <h1 className="header-article leading-tight text-left">{post.name}</h1>
+      <div className="pt-6 w-full mb-4">
+      <h1 className="header-article leading-none pb-0 pt-12 lg:pb-4 lg:pt-4 lg:text-left">{post.name}</h1>
       </div>
       <div className="flex items-start">
 

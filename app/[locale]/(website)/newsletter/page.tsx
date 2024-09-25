@@ -53,7 +53,7 @@ export default function Page() {
 
 <div className="w-min-full">
   <div className="pb-6">
-<h1 className="header-page pb-3 pt-12 lg:pb-6 lg:pt-7 text-left">
+<h1 className="header-page pb-8 pt-20 lg:pb-6 lg:pt-10 lg:text-left">
         Join the community
       </h1>
       </div>

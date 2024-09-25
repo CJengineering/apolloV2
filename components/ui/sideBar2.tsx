@@ -60,7 +60,7 @@ const navItems: NavItem[] = [
   {
     name: "Discover",
     children: [
-      { name: "Press", href: "/press" },
+      { name: "Media", href: "/media" },
       { name: "News", href: "/news" },
       { name: "Events", href: "/events" },
       { name: "Newsletter", href: "/newsletter" },

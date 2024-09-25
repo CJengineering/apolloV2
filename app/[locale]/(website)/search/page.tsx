@@ -140,7 +140,7 @@ export default async function SearchPage() {
   return (
     <ContentContainer width="full" desktopWidth="medium">
       <div>
-        <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">Search</h1>
+        <h1 className="header-page pb-10 pt-20 lg:pb-10 lg:pt-10 lg:text-left">Search</h1>
       </div>
       <div className="w-full min-h-[90vh] ">
         <FilterResults

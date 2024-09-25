@@ -34,8 +34,8 @@ export default async function page() {
 
   return (
     <div>
-      <ContentContainer width="full" desktopWidth="large">
-        <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">
+      <ContentContainer>
+        <h1 className="header-page pb-10 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
           Family album
         </h1>
         <ContentFamily images={photos} />

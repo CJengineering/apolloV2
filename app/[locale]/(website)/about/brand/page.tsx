@@ -68,7 +68,7 @@ export default async function Page() {
   return (
     <ContentContainer>
       <div className="w-full">
-        <h1 className="header-page pb-3 pt-12 lg:pb-6 lg:pt-7 text-left">
+        <h1 className="header-page pb-10 pt-20 lg:pb-12 lg:pt-10 lg:text-left">
           Brand
         </h1>
 

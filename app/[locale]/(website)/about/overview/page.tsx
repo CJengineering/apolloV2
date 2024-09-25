@@ -47,13 +47,14 @@ export default async function OverviewContent({
 
   return (
     <>
-      <ContentContainer width="full" desktopWidth="large">
+      <ContentContainer>
         <div className="w-full">
-          <h1 className="header-page pb-3 pt-12 lg:pb-6 lg:pt-7 text-left">
+          <div>
+          <h1 className="header-page pb-0 pt-20 lg:pb-0 lg:pt-10 lg:text-left">
             Overview
           </h1>
-
-          <article className="leading-7  text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
+          </div>
+          <article className="leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
             <div className="text-rich-text w-richtext">
               <p className="prose prose-2xl sans-serif leading-normal text-black dark:text-white ">
                 Community Jameel advances science and learning for communities
@@ -118,6 +119,9 @@ export default async function OverviewContent({
               </p>
             </div>
           </article>
+
+
+          
         </div>
 
         <article>
