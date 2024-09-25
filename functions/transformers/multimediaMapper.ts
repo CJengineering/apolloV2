@@ -142,6 +142,6 @@ export default function multimediaMapper(
     videoLink: iframe || "N/A",
     linkAudio: fieldData["link-audio"] || "N/A",
     name: fieldData["name"] || "N/A",
-    slug: `/multimedia/${fieldData.slug}` || "N/A",
+    slug: `multimedia/${fieldData.slug}` || "N/A",
   };
 }
