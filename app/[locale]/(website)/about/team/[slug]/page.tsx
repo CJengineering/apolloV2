@@ -109,45 +109,53 @@ export default async function page({
 
   return (
     <ContentContainer width="full" desktopWidth="medium">
-      <LanguageChanger></LanguageChanger>
+      
       <div className={params.locale === "ar" ? "rtl" : ""}>
   
-  <div className="flex pt-7 items-center gap-x-3"><div><p className="sans-serif underline hover:text-blue-800"><a href="/about/team">Team</a></p></div><div><p className="sans-serif"><ChevronRightIcon className="w-4 h-4 text-gray-500" /></p></div><div><p className="sans-serif">{memberName}</p></div></div>
-  <div className="pb-6 pt-10 flex flex-col">
+  
+  <div className="pb-6 pt-16 lg:pt-10 flex flex-col">
+  <div className="flex items-center gap-x-3 pb-3 lg:pb-6">
+    <div><p className={`underline hover:text-blue-800 ${params.locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}><a href="/about/team">{params.locale === "ar" ? "فريق" : "Team"}</a></p></div><div><p className={`${params.locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}><ChevronRightIcon className="w-4 h-4 text-gray-500" /></p></div><div><p className={`sans-serif ${params.locale === "ar" ? "sans-serif-ar" : ""}`}>{memberName}</p></div></div>
+    <div className="flex justify-between">
     <div className="w-full pb-2 lg:w-2/3">
-      <h1 className="header-page">{memberName}</h1>
+      <h1 className={`header-page ${params.locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}>{memberName}</h1>
+      
+    </div>
+    <LanguageChanger></LanguageChanger>
     </div>
     <div className="w-full lg:w-1/3">
-      <p className="sans-serif text-lg font-normal">{memberPosition}</p>
+      <p className={`sans-serif text-lg font-normal ${params.locale === "ar" ? "sans-serif-ar" : ""}`}>{memberPosition}</p>
     </div>
   </div>
 
   {/* Flex container to align the image with text wrapping */}
   <div className="flex-col">
-    <div className="w-full lg:w-[330px] lg:float-left mr-6 mb-6">
-      <img
-        src={member.imageUrl}
-        alt={member.altTextImage}
-        className="w-full h-auto object-cover"
-      />
-      <p className="text-xs font-normal uppercase mono hover:underline hover:text-blue-800 cursor-pointer"><a href={hiresPhoto}>Download high-resolution photograph</a></p>
-    </div>
-      {/* Biography text with prose for rich text formatting */}
-  <div className="pl-0 prose sans-serif prose-2xl dark:prose-dark">
+  <div className={`w-full lg:w-[330px] mr-6 mb-6 ${params.locale === "ar" ? "mr-0 lg:w-[330px] lg:mr-0" : ""}`}>
+    <img
+      src={member.imageUrl}
+      alt={member.altTextImage}
+      className="w-full h-auto object-cover"
+    />
+    <p className={`text-xs font-normal uppercase hover:underline hover:text-blue-900 cursor-pointer pt-1 ${params.locale === "ar" ? "sans-serif-ar" : "mono"}`}>
+      <a href={hiresPhoto}>{params.locale === "ar" ? "تنزيل صورة عالية الدقة" : "Download high-resolution photograph"}</a>
+    </p>
+  </div>
+  {/* Biography text with prose for rich text formatting */}
+  <div className={`pl-0 prose prose-2xl dark:prose-dark ${params.locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}>
     <div
       dangerouslySetInnerHTML={{
         __html: memberBiography ? memberBiography : "",
       }}
     ></div>
   </div>
-  </div>
+</div>
 
 
 </div>
 
       {relatedNewsToTeamMember.length > 0 && (
         <>
-          <div className="flex flex-col pt-24 pb-6">
+          <div className="flex flex-col pt-3 pb-6">
             <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
           </div>
           <div className="pb-6"><h2 className="header-section pb-3">Related content</h2></div>

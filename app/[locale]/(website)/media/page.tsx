@@ -78,7 +78,7 @@ export async function generateStaticParams() {
 }
 
 export const metadata: Metadata = customMetaDataGenerator({
-  title: "Media",
+  title: "Media | Community Jameel",
   description:
     "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",
   ogType: "website",
@@ -178,9 +178,9 @@ export default async function NewsContent({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
+    <ContentContainer>
       <div>
-        <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">
+        <h1 className="header-page pb-8 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
           Media
         </h1>
       </div>

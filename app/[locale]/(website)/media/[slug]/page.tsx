@@ -102,7 +102,7 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
   if (!newsItem) notFound();
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
+    <ContentContainer>
       <div>
         <Suspense fallback={<Loading />}>
           <Link
@@ -115,35 +115,18 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
           
 
           <div className="w-full">
-          <div className="pt-6 sm:pt-12 sm:w-2/3 md:w-1/2">
-          <div><p className="sans-serif text-3xl font-bold pb-1">{newsItem.sources.name}</p></div>
-            <h1 className="sans-serif text-2xl leading-tight text-left pb-2" title={params.locale === "ar" ? newsItem.arabicTitle : newsItem.name}>
-              {params.locale === "ar" ? newsItem.arabicTitle : newsItem.name}
+          <div className="lg:w-2/3">
+          {/* <div><p className="sans-serif text-3xl font-bold pb-1">{newsItem.sources.name}</p></div> */}
+            <h1 className="header-page leading-none pb-3 pt-20 lg:pb-3 lg:pt-10 lg:text-left">
+              {newsItem.name}
             </h1>
           </div>
             <div className="flex items-start">
             <div><p className="sans-serif text-base font-normal">{newsItem.datePublished}</p></div>
-        <div className="flex mb-3 mt-2 space-x-3">
-          
-          {/* <div><p className="sans-serif text-base font-normal">|</p></div> */}
+        <div className="flex mb-6 mt-2 space-x-3">
           
         </div>
       </div>
-          <div>
-          {/* <img
-            src={newsItem.heroImage.url}
-            alt={title}
-            className="w-full h-auto mb-6"
-          /> */}
-          </div>
-            <div className="md:hidden w-full sm:w-1/3 mt-0 md:mt-0">
-              <NewsRightContent
-                source={newsItem.sources.name}
-                datePublished={newsItem.datePublished}
-                relatedProgrammes={newsItem.programmeS}
-                relatedPeople={newsItem.people}   
-              />
-            </div>
             
           </div>
 
@@ -164,9 +147,8 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
                   </>
                 )}
               </article>
-              {/* <div className="pb-2"><span className="mono text-sm font-normal uppercase bg-slate-100 px-1">{newsItem.programme.name}</span></div> */}
-            </div>
-            <div className="hidden md:block md:w-1/3 mt-0 md:mt-0">
+              
+              <div className="md:block md:w-1/3 mt-0 md:mt-0">
               <NewsRightContent
                 source={newsItem.sources.name}
                 datePublished={newsItem.datePublished}
@@ -174,11 +156,13 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
                 relatedPeople={newsItem.people}
               />
             </div>
+              {/* <div className="pb-2"><span className="mono text-sm font-normal uppercase bg-slate-100 px-1">{newsItem.programme.name}</span></div> */}
+            </div>
           </div>
 
           {relatedNewsClean.length > 0 && (
             <>
-              <div className="w-full h-px bg-slate-200 mb-9 mt-4"></div>
+              <div className="w-full h-px bg-slate-200 mb-6 mt-4 lg:w-2/3"></div>
               <h2 className="header-section mb-6">Related </h2>
             </>
           )}

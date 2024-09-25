@@ -302,7 +302,7 @@ export default async function SinglePost({
     <ContentContainer width="full" desktopWidth="large">
       <div className="pt-16 sm:pt-20 flex flex-col justify-center">
         <div className="w-full lg:w-2/3 mx-auto">
-          <h1 className="sans-serif font-bold text-left text-3xl sm:leading-10text-3xl md:text-4xl lg:text-5xl">
+          <h1 className="header-page">
             Advancing science and learning for communities to thrive
           </h1>
           <p className="pt-6 sans-serif text-lg sm:text-xl font-normal md:text-2x text-left">

@@ -134,9 +134,9 @@ export default async function AnnouncementsContent({
   }));
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
+    <ContentContainer>
       <div className="py-0">
-        <h1 className="header-page pb-3 pt-12 lg:pb-12 lg:pt-7 text-left">
+        <h1 className="header-page pb-8 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
           News
         </h1>
       </div>
