@@ -210,7 +210,7 @@ export default async function MultimediaPage({
               data={{
                 "realted people": multimediaItem.relatedPeople.map((item) => ({
                   name: item.name,
-                  url: item.slug,
+                  url: `/people/${item.slug}`,
                 })),
               }}
             />
