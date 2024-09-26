@@ -15,6 +15,7 @@ import {
   StatProps,
 } from "@/app/interfaces";
 import FeatureCardTable from "../test components/FeatureCardTable";
+import { socialListChecker } from "@/functions/utils/social-list-checker";
 
 interface TableRowProps {
   repository: RowData["repository"];
@@ -149,13 +150,9 @@ function TableRow({ repository, locale }: TableRowProps) {
                       </div>
 
                       <div
-                        className={`pb-3 lg:pb-0 ${
-                          repository.content.socialMediaLinks &&
-                          repository.content.socialMediaLinks.length > 0
-                            ? "lg:pl-3"
-                            : ""
-                        }`}
+                        className={`pb-3 lg:pb-0 `}
                       >
+                    
                         {repository.content.button.text && (
                           <ButtonCJ
                             href={repository.content.button.href}
@@ -164,7 +161,7 @@ function TableRow({ repository, locale }: TableRowProps) {
                           />
                         )}
                       </div>
-                      <div className="lg:pl-3">
+                      <div className={`${socialListChecker(repository.content.socialMediaLinks) ? 'lg:pl-3': ''}`}>
                         <ButtonCJ
                           href={`/programmes/${repository.top.slug}`}
                           text="learn more"

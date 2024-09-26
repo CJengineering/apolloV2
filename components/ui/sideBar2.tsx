@@ -469,13 +469,13 @@ export default function Sidebar2() {
                 </SidebarLinkSubChildren>
               ) : // Render SidebarLink if href is present, otherwise handle undefined href
               child.href ? (
-                <div className=" mt-3 " key={index + "div-index" + child.name}>
-                  <SidebarLink key={index + "b" + child.name} href={child.href}>
+                <div className=" mt-3 " key={index + Math.random() + "div-index" + child.name}>
+                  <SidebarLink key={index + "b" + child.name+ Math.random()} href={child.href}>
                     {child.name}
                   </SidebarLink>
                 </div>
               ) : (
-                <div key={child.name + "a" + index}>{child.name}</div> // Handle cases without href
+                <div key={child.name + "a"+ Math.random() + index}>{child.name}</div> // Handle cases without href
               )
             )}
           </SidebarLinkSubgroup>
