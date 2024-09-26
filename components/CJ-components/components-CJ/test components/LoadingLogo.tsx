@@ -6,7 +6,7 @@ import Spinner from "../custom components/Spinner";
 
 export default function LoadingLogo() {
   return (
-    <ContentContainer>
+    <>
       <div className=" lg:min-w-[900px] ">
         <div className="min-w-0">
           <div className=" md:ml-0 md:mt-10">
@@ -19,6 +19,6 @@ export default function LoadingLogo() {
           </div>
         </div>
       </div>
-    </ContentContainer>
+      </>
   );
 }
