@@ -10,7 +10,17 @@ export default function page() {
     <div className=" lg:min-w-[100vh]">
     <div className="min-w-0">
       <div className=" min-h-screen flex justify-center items-center">
-        <Spinner />
+        {/* <Spinner /> */}
+        <iframe
+                width="300"
+                height="315"
+                src="https://www.youtube.com/embed/hDRgtbx_eJs?si=sSmTQfD1Nl8SY7vh"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
       </div>
     </div>
   </div>
