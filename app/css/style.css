@@ -47,8 +47,10 @@
 }
 
 
-html {
-    overflow-y: scroll; 
+@media (min-width: 768px) {
+  html {
+    overflow-y: scroll;
+  }
 }
 
 .side-scroll-bar {
