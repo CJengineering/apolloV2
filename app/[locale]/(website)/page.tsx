@@ -301,7 +301,7 @@ export default async function SinglePost({
   const eventsAgnostic = eventClean.map((item) => agnosticMapper(item));
   return (
     <>
-      <div className="pt-16 sm:pt-20 flex flex-col justify-center">
+      <div className="pt-20 sm:pt-20 flex flex-col justify-center">
         <div className="w-full lg:w-2/3 mx-auto">
           <h1 className="header-page">
             Advancing science and learning for communities to thrive
