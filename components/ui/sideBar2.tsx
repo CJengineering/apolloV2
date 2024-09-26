@@ -521,13 +521,7 @@ export default function Sidebar2() {
           ></div> */}
           {/* The navigational part on postion fixed */}
           <div className="w-full sm:w-[200px] px-4 sm:px-6 md:pl-2 md:pr-8 ">
-            <button
-              onClick={() => setSidebarOpen(false)}
-              className="absolute lg:hidden top-4 right-4 hoober:cursor text-gray-500 dark:text-white"
-            >
-              <XMarkIcon className="h-6 w-6" />
-            </button>
-            <div className="relative z-30">
+          <div className="relative z-30">
               <nav className="sm:block w-full text-sm">
                 {/* This is navigational Link consider it as a link  you can find this on component on top of the file */}
                 <NavLink
