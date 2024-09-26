@@ -400,19 +400,6 @@ const NavGroup = ({
 export default function Sidebar2() {
   const sidebar = useRef<HTMLDivElement>(null);
   const { sidebarOpen, setSidebarOpen } = useAppProvider();
-  useEffect(() => {
-    const updateHeight = () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    };
-  
-    // Call updateHeight on load
-    updateHeight();
-    window.addEventListener('resize', updateHeight);
-  
-    // Clean up the event listener on unmount
-    return () => window.removeEventListener('resize', updateHeight);
-  }, []);
 
   // close on click outside
   // useEffect(() => {
@@ -521,7 +508,7 @@ export default function Sidebar2() {
   };
 
   return (
-    <div className=" overflow-y-scroll lg:max-h-screen">
+    <div className=" overflow-y-scroll  lg:max-h-screen">
       {/* Backdrop This is for Mobile */}
       <Transition
         className="md:hidden  fixed sm:static inset-0 z-0 bg-opacity-20 transition-opacity"
@@ -536,14 +523,14 @@ export default function Sidebar2() {
       />
 
       {/* Sidebar here you can change the side bar width etc */}
-      <div ref={sidebar} className="overflow-y-auto">
+      <div ref={sidebar} className="">
         <Transition
           show={sidebarOpen}
           unmount={false}
           as="aside"
-          style={{ height: `calc(var(--vh, 1vh) * 100)` }} 
+         
           id="sidebar"
-          className="left-0 fixed lg:static top-[64px] lg:top-0 lg:bottom-0 w-full pt-6 bg-white lg:w-[233px] min-h-screen  md:h-full   lg:shrink-0 z-0 lg:overflow-x-hidden   lg:!opacity-100 lg:!block  dark:bg-slate-900"
+          className="left-0 fixed lg:static top-[64px] lg:top-0 lg:bottom-0 side-scroll-bar  w-full pt-6 bg-white lg:w-[233px] h-screen overflow-y-auto md:h-full   lg:shrink-0 z-50 lg:overflow-x-hidden   lg:!opacity-100 lg:!block  dark:bg-slate-900"
           enter="transition ease-out duration-200 transform"
           enterFrom="opacity-0 -translate-x-full"
           enterTo="opacity-100 translate-x-0"
