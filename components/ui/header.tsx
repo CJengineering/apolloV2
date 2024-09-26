@@ -13,7 +13,7 @@ export default function Header() {
         className="absolute inset-0 bg-white bg-opacity-70 backdrop-blur -z-10 dark:bg-slate-900 dark:border-slate-800"
         aria-hidden="true"
       />
-      <div className=" mx-auto px-4 lg:px-0 pt-4 lg:pt-0 2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px] border-b border-gray-100">
+      <div className=" mx-auto px-4 lg:px-0 pt-4 lg:pt-0 2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px] border-b border-gray-100 dark:border-slate-800">
         <div className="flex space-betweem items-center h-12 pb-2 lg:pb-0 sm:h-16">
           {/* Site branding */}
           <div className="grow">

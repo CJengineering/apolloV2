@@ -16,7 +16,7 @@ export default function ArticleBanter({ post, styleType }: ArticleBanterProps) {
 <>
 
       <div className="pt-6 w-full mb-4">
-      <h1 className="header-article leading-none pb-0 pt-12 lg:pb-4 lg:pt-4 lg:text-left">{post.name}</h1>
+      <h1 className="header-article leading-7 sm:leading-none pb-0 pt-12 lg:pb-4 lg:pt-4 lg:text-left">{post.name}</h1>
       </div>
       <div className="flex items-start">
 
@@ -33,10 +33,10 @@ export default function ArticleBanter({ post, styleType }: ArticleBanterProps) {
         <div className="">
           <div className="mx-auto pt-3">
           <div className="py-3">
-            <div className="sans-serif text-base font-normal">{post.datePublished}</div>
+            <div className="sans-serif text-lg">{post.datePublished}</div>
             </div>            
             <div>
-              <div className="sans-serif text-base sm:text-base font-normal">{post.location === 'N/A' ? '': post.location }</div>
+              <div className="sans-serif text-lg">{post.location === 'N/A' ? '': post.location }</div>
               <div className="mx-auto leading-7 text-black dark:text-white prose prose-xl sans-serif font-normal dark:prose-invert">
                 <div dangerouslySetInnerHTML={{ __html: post.body }}></div>
               </div>
@@ -46,7 +46,7 @@ export default function ArticleBanter({ post, styleType }: ArticleBanterProps) {
 
           <div className="flex items-center">
   <div className="flex items-center bg-slate-100 px-1">
-    <span className="text-base sans-serif pr-1">To learn more visit</span>
+    {/* <span className="text-base sans-serif pr-1">To learn more visit</span> */}
     <div className="underline pr-1 hover:text-blue-800 hover:cursor-pointer">
       <Link href={`/programmes/${post.programme.slug}`}>{post.programme.name}</Link>
     </div>
