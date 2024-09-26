@@ -59,6 +59,7 @@ import NewsCard from "@/components/custom beta components/NewsCard";
 import EventsCardHome from "@/components/CJ-components/components-CJ/test components/EventsCardHome";
 import PressCardHome from "@/components/CJ-components/components-CJ/test components/PressCardHome";
 import Spinner from "@/components/CJ-components/components-CJ/custom components/Spinner";
+import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 
 // INTERFACE FOR THE DATA START
 const postsId = getIdByDisplayName("Posts");
@@ -342,7 +343,23 @@ export default async function SinglePost({
           <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
         </div>
       </div>
-
+{/* <div className="w-full">
+      <CarousselForComponents>   
+          {cardData.map((card, index) => (
+            <HomeCard
+              key={index}
+              imageUrl={card.imageUrl}
+              alt={card.alt}
+              title={card.title}
+              subtitle={card.subtitle}
+              link={card.link}
+              openInNewTab={card.openInNewTab}
+              clickAction={card.clickAction || ""}
+            />
+          ))}
+   </CarousselForComponents>
+   </div>
+       */}
       <div className="flex justify-center">
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cardData.map((card, index) => (
