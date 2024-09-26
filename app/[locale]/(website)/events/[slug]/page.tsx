@@ -119,7 +119,7 @@ export default async function EventPage({
 <>
       <div className="">
         <div className="text-left">
-        <div className="pt-6 w-5/6 mb-6">
+        <div className="pt-16 lg:pt-10 w-5/6 mb-6">
         <h1 className="header-article leading-tight text-left">{eventSingleDataCleaned.name}</h1>
       </div>
         </div>

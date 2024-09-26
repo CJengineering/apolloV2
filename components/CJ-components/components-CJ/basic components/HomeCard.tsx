@@ -47,7 +47,7 @@ const HomeCard: React.FC<CardProps> = ({
           </div>
           <div className="pt-3">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-            <p className="text-black text-base sans font-normal">{subtitle}</p>
+            <p className="text-base sans-serif">{subtitle}</p>
           </div>
         </div>
         {lightboxOpen && (
@@ -74,7 +74,7 @@ const HomeCard: React.FC<CardProps> = ({
           </div>
           <div className="pt-3">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-            <p className="sans-serif text-base">{subtitle}</p>
+            <p className="text-base sans-serif">{subtitle}</p>
           </div>
         </div>
         {lightboxOpen && (
@@ -101,7 +101,7 @@ const HomeCard: React.FC<CardProps> = ({
           </div>
           <div className="pt-3">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-            <p className="text-black text-base sans font-normal">{subtitle}</p>
+            <p className="text-base sans-serif">{subtitle}</p>
           </div>
         </div>
       </Link>
@@ -122,7 +122,7 @@ const HomeCard: React.FC<CardProps> = ({
           </div>
           <div className="pt-3">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-            <p className="text-black text-base sans font-normal">{subtitle}</p>
+            <p className="text-base sans-serif">{subtitle}</p>
           </div>
  
       </Link>
@@ -141,7 +141,7 @@ const HomeCard: React.FC<CardProps> = ({
       </div>
       <div className="pt-3">
         <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-        <p className="text-black text-base sans font-normal">{subtitle}</p>
+        <p className="text-base sans-serif">{subtitle}</p>
       </div>
     </div>
   );

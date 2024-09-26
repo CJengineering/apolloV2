@@ -84,11 +84,11 @@ export default async function PeopleContent({
     <>
      
 
-        <h1 className="header-page pb-10 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
-          Team
-        </h1>
+     <h1 className="header-page pb-0 pt-20 lg:pb-0 lg:pt-10 lg:text-left">
+            Team
+          </h1>
         <div className="">
-          <h2 className="header-section pb-6">Core</h2>
+          <h2 className="header-section py-6">Core</h2>
           <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3">
             {team.map((member) => (
               <PersonalCard
