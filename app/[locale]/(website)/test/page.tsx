@@ -6,24 +6,12 @@ import React from "react";
 
 export default function page() {
   return (
-
-    <div className=" lg:min-w-[100vh]">
-    <div className="min-w-0">
-      <div className=" min-h-screen flex justify-center items-center">
-        {/* <Spinner /> */}
-        <iframe
-                width="300"
-                height="315"
-                src="https://www.youtube.com/embed/hDRgtbx_eJs?si=sSmTQfD1Nl8SY7vh"
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              ></iframe>
+    <div className=" lg:min-w-[100vh]  flex justify-center min-w-[400px]  ">
+      <div className="min-h-screen w-full  flex justify-center items-center">
+        <div className="flex justify-center items-center w-full h-full">
+          <Spinner />
+        </div>
       </div>
     </div>
-  </div>
- 
   );
 }

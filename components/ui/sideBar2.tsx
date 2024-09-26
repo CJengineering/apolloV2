@@ -506,7 +506,7 @@ export default function Sidebar2() {
           unmount={false}
           as="aside"
           id="sidebar"
-          className="left-0 fixed lg:static top-[64px] lg:top-0 lg:bottom-0 w-full pt-6 bg-white lg:w-[233px]  lg:shrink-0 z-10 lg:!opacity-100 lg:!block  dark:bg-slate-900"
+          className="left-0 fixed lg:static top-[64px] lg:top-0 lg:bottom-0 w-full pt-6 bg-white lg:w-[233px] h-screen md:h-full lg:shrink-0 z-10 lg:!opacity-100 lg:!block  dark:bg-slate-900"
           enter="transition ease-out duration-200 transform"
           enterFrom="opacity-0 -translate-x-full"
           enterTo="opacity-100 translate-x-0"
