@@ -18,7 +18,7 @@ export default function SidebarLinkSubgroup({
   return (
     <div className="mt-3 pr-2 md:pr-0 md:w-[194px] ">
       <Link
-        className="flex  items-center justify-between text-black font-normal dark:text-white hover:text-orange-700 dark:hover:text-orange-400"
+        className="flex items-center justify-between text-black font-normal dark:text-white hover:text-orange-700 dark:hover:text-orange-400"
         href="#0"
         onClick={(e) => {
           e.preventDefault();
@@ -27,11 +27,13 @@ export default function SidebarLinkSubgroup({
         aria-expanded={linkOpen}
       >
         <span className="text-black dark:text-white ">{title}</span>
+        <div>
         <ChevronRightIcon
           className={`h-3 w-3 text-black dark:text-white transition-transform duration-200 ${
             linkOpen ? "rotate-90" : ""
           }`}
         />
+        </div>
       </Link>
       <div
         className={`mb-3 ml-1 pl-4 border-l border-slate-200 dark:border-slate-800 ${

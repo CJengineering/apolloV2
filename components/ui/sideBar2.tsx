@@ -377,14 +377,16 @@ const NavGroup = ({
               {icon && <span className="mr-3">{icon}</span>}
               {title}
             </div>
+            <div>
             <ChevronRightIcon
               className={`h-3 w-3 text-black dark:text-white shrink-0 ml-2 transition-transform duration-200 ${
                 open ? "rotate-90" : ""
               }`}
             />
+            </div>
           </div>
           <div
-            className={`mb-3 ml-[7px] pl-4  border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${
+            className={`mb-3 ml-[11px] pl-4 border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${
               !open && "hidden"
             }`}
           >
