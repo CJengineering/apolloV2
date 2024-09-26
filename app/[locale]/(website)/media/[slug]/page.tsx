@@ -102,7 +102,7 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
   if (!newsItem) notFound();
 
   return (
-    <ContentContainer>
+    <>
       <div>
         <Suspense fallback={<Loading />}>
           <Link
@@ -173,6 +173,6 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
           </div>
         </Suspense>
       </div>
-    </ContentContainer>
+    </>
   );
 }

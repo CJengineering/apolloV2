@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronRightIcon } from '@heroicons/react/24/solid';
+import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
 interface SidebarLinkSubgroupProps {
@@ -27,11 +27,13 @@ export default function SidebarLinkSubgroup({
         aria-expanded={linkOpen}
       >
         <span className="text-black dark:text-white ">{title}</span>
-        <ChevronRightIcon
-          className={`h-3 w-3 text-black dark:text-white transition-transform duration-200 ${
-            linkOpen ? "rotate-90" : ""
-          }`}
-        />
+        <div>
+          <ChevronRightIcon
+            className={`h-3 w-3 text-black dark:text-white transition-transform duration-200 ${
+              linkOpen ? "rotate-90" : ""
+            }`}
+          />
+        </div>
       </Link>
       <div
         className={`mb-3 ml-1 pl-4 border-l border-slate-200 dark:border-slate-800 ${

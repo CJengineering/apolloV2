@@ -26,6 +26,7 @@ import Theme from "@/app/theme-provider";
 import AppProvider from "@/app/app-provider";
 import { Suspense } from "react";
 import LoadingLogo from "@/components/CJ-components/components-CJ/test components/LoadingLogo";
+import ContentContainer from "@/components/custom beta components/ContentContainer";
 
 const nycd = Nothing_You_Could_Do({
   subsets: ["latin"],
@@ -114,25 +115,23 @@ export default async function RootLayout({
               {/*  Page content */}
               <main className="grow  b">
                 <div className="relative">
-                  
-
                   <div className="max-w-12xl mx-auto md:px-0  ">
                     <div>
                       {/* Page container */}
                       <div className=" ">
                         <div className="pt-3 mx-auto lg:pt-6 pb-8">
                           <div className="lg:hidden">
-
-                        <Sidebar2 />
+                            <Sidebar2 />
                           </div>
-                        <Suspense fallback={<LoadingLogo />}>
-                            {children}
-                          </Suspense> 
+                          <ContentContainer>
+                            <Suspense fallback={<LoadingLogo />}>
+                              <div className="px-4">{children}</div>
+                            </Suspense>
+                          </ContentContainer>
                         </div>
                       </div>
                     </div>
                   </div>
-        
                 </div>
               </main>
             </div>

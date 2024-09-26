@@ -6,7 +6,7 @@ import Spinner from "@/components/CJ-components/components-CJ/custom components/
 
 export default function NewsContentSkeleton() {
   return (
-    <ContentContainer>
+    <>
           <div className=" lg:min-w-[900px]">
         <div className="min-w-0">
           <div className=" min-h-screen flex justify-center items-center">
@@ -14,6 +14,6 @@ export default function NewsContentSkeleton() {
           </div>
         </div>
       </div>
-    </ContentContainer>
+    </>
   );
 }

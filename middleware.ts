@@ -8,7 +8,7 @@ import { revalidatePath } from 'next/cache';
 
 export function middleware(request: NextRequest) {
   const redirects: { [key: string]: string } = {
-    '/test': '/',
+    '/tes': '/',
     'https://ar.communityjameel.org/team/mohammed-jameel': '/ar/about/team/mohammed-jameel',
   };
   const { pathname } = request.nextUrl;

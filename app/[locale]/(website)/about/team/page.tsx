@@ -83,7 +83,7 @@ export default async function PeopleContent({
   return (
     <>
      
-      <ContentContainer width="full" desktopWidth="medium">
+
         <h1 className="header-page pb-10 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
           Team
         </h1>
@@ -140,7 +140,7 @@ export default async function PeopleContent({
           </div>
         </div>
         <div className="pb-24"></div>
-      </ContentContainer>
+
     </>
   );
 }

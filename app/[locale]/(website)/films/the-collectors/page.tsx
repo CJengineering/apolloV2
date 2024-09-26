@@ -9,7 +9,7 @@ export default async function Page({
   params: { slug: string; locale: string };
 }) {
   return (
-    <ContentContainer width="full" desktopWidth="medium">
+    <>
       <div className="py-12 md:py-24 flex flex-col items-center justify-center">
         <div className="w-full md:w-1/2">
           <h1 className="text-center text-4xl serif font-bold"><TrailerModalButton videoUrl={"https://www.youtube.com/embed/Mziv6XjvYT8?si=s44bYfOaDGZadoNs"} /></h1>
@@ -37,6 +37,6 @@ export default async function Page({
           </p>
         </div>
       </div>
-    </ContentContainer>
+    </>
   );
 }

@@ -384,7 +384,7 @@ const NavGroup = ({
             />
           </div>
           <div
-            className={`mb-3 ml-[7px] pl-4  border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${
+            className={`mb-3 ml-[11px] pl-4 z-50 border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${
               !open && "hidden"
             }`}
           >

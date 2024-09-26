@@ -158,7 +158,7 @@ export default async function PeoplePage({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
+    <>
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:mt-24">
         <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
           <div>
@@ -244,6 +244,6 @@ export default async function PeoplePage({
           </PostAccordion>
         */}
       </div>
-    </ContentContainer>
+    </>
   );
 }

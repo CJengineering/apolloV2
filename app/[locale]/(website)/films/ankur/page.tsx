@@ -15,7 +15,7 @@ export default async function AnkurPage({
  
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
+    <>
         <Image src={ankurImage} alt="Ankur" />
           <div className="py-12 md:py-24 flex flex-col items-center justify-center">
         <div className="w-full md:w-1/2">
@@ -27,6 +27,6 @@ export default async function AnkurPage({
     
         ><p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque enim maiores nisi quibusdam incidunt quod nostrum eum quae assumenda ratione, eveniet animi, temporibus cupiditate rerum voluptates labore exercitationem dolores consequatur?</p></div>
       </div>
-    </ContentContainer>
+    </>
   );
 }

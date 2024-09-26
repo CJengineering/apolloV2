@@ -204,7 +204,7 @@ export default async function Programme33page({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
+    <>
       <div className="pt-6">
         <h1 className="header-page">Jameel Institute</h1>
         {/* <LanguageChanger /> */}
@@ -283,6 +283,6 @@ export default async function Programme33page({
           </div>
         </div> */}
       </div>
-    </ContentContainer>
+    </>
   );
 }

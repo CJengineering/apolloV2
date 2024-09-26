@@ -202,7 +202,7 @@ export default async function Programme18page({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
+    <>
       <div className="pt-12">
         <LanguageChanger />
         <TableRowSingle
@@ -278,6 +278,6 @@ export default async function Programme18page({
           </div>
         </div> */}
       </div>
-    </ContentContainer>
+    </>
   );
 }

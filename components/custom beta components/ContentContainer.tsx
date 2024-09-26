@@ -55,7 +55,7 @@ export default function ContentContainer({
 
   return (
     <div
-      className={`mx-auto md:mt-8 px-4 2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px] `}
+      className={`mx-auto md:mt-8  2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px] `}
     >
       <div className="flex mb-6">
         <div className="w-[250px] hidden  lg:block">

@@ -108,7 +108,7 @@ export default async function page({
       : member.paragraphDescription;
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
+    <>
       
       <div className={params.locale === "ar" ? "rtl" : ""}>
   
@@ -167,6 +167,6 @@ export default async function page({
           <NewsCard key={item.slug} content={item} locale={params.locale} />
         ))}
       </div>
-    </ContentContainer>
+      </>
   );
 }

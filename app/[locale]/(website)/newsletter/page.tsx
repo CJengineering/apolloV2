@@ -49,7 +49,7 @@ export default function Page() {
   };
 
   return (
-<ContentContainer width="full" desktopWidth="medium">
+<>
 
 <div className="w-min-full">
   <div className="pb-6">
@@ -99,6 +99,6 @@ export default function Page() {
     )}
   </div>
 </div>
-    </ContentContainer>
+    </>
   );
 }

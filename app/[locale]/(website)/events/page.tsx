@@ -215,7 +215,7 @@ export default async function WhatsOnContent({
     (event) => new Date(event.endDate) < new Date() && !event.isDraft
   );
   return (
-    <ContentContainer width="full" desktopWidth="medium">
+    <>
       <h1 className="header-page pb-8 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
         Events
       </h1>
@@ -259,6 +259,6 @@ export default async function WhatsOnContent({
           </div> */}
         </div>
       </div>
-    </ContentContainer>
+    </>
   );
 }

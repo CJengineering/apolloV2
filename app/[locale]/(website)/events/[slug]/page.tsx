@@ -116,7 +116,7 @@ export default async function EventPage({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
+<>
       <div className="">
         <div className="text-left">
         <div className="pt-6 w-5/6 mb-6">
@@ -296,6 +296,6 @@ export default async function EventPage({
 )}
 
         
-      </ContentContainer>
+</>
   );
 }

@@ -66,8 +66,8 @@ export default async function Page() {
   // const cleanLegalData = getDatalegal.items.map((item) => legalMapper(item));
 
   return (
-    <ContentContainer>
-      <div className="w-full">
+   
+       <div className="w-full">
         <h1 className="header-page pb-10 pt-20 lg:pb-12 lg:pt-10 lg:text-left">
           Brand
         </h1>
@@ -122,6 +122,6 @@ export default async function Page() {
         {/* Colour Table */}
         <ColourTable />
       </div>
-    </ContentContainer>
+
   );
 }

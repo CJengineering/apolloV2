@@ -205,7 +205,7 @@ export default async function JpalPage({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
+    <>
       <div className="pt-12">
         <LanguageChanger />
         <TableRowSingle
@@ -286,6 +286,6 @@ export default async function JpalPage({
           </div>
         </div> */}
       </div>
-    </ContentContainer>
+    </>
   );
 }
