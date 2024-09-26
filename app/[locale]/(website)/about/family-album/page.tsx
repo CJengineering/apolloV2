@@ -33,7 +33,7 @@ export default async function page() {
   );
 
   return (
-    <div>
+    <div className="min-h-screen">
     
         <h1 className="header-page pb-10 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
           Family album
