@@ -400,6 +400,19 @@ const NavGroup = ({
 export default function Sidebar2() {
   const sidebar = useRef<HTMLDivElement>(null);
   const { sidebarOpen, setSidebarOpen } = useAppProvider();
+  useEffect(() => {
+    const updateHeight = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+  
+    // Call updateHeight on load
+    updateHeight();
+    window.addEventListener('resize', updateHeight);
+  
+    // Clean up the event listener on unmount
+    return () => window.removeEventListener('resize', updateHeight);
+  }, []);
 
   // close on click outside
   // useEffect(() => {
@@ -425,6 +438,29 @@ export default function Sidebar2() {
     document.addEventListener("keydown", keyHandler);
     return () => document.removeEventListener("keydown", keyHandler);
   });
+  useEffect(() => {
+    // Handle ESC key to close sidebar
+    const keyHandler = ({ keyCode }: { keyCode: number }): void => {
+      if (!sidebarOpen || keyCode !== 27) return;
+      setSidebarOpen(false);
+    };
+  
+    // Prevent scrolling of background when sidebar is open
+    if (sidebarOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+  
+    // Add event listener for ESC key
+    document.addEventListener("keydown", keyHandler);
+  
+    return () => {
+      // Clean up event listener and remove overflow-hidden class on unmount
+      document.removeEventListener("keydown", keyHandler);
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [sidebarOpen, setSidebarOpen]);
 
   // const renderNavItems = (navItems: NavItem[]) => {
   //   return navItems.map((item) => (
@@ -485,7 +521,7 @@ export default function Sidebar2() {
   };
 
   return (
-    <>
+    <div className=" overflow-y-scroll lg:max-h-screen">
       {/* Backdrop This is for Mobile */}
       <Transition
         className="md:hidden  fixed sm:static inset-0 z-0 bg-opacity-20 transition-opacity"
@@ -500,13 +536,14 @@ export default function Sidebar2() {
       />
 
       {/* Sidebar here you can change the side bar width etc */}
-      <div ref={sidebar}>
+      <div ref={sidebar} className="overflow-y-auto">
         <Transition
           show={sidebarOpen}
           unmount={false}
           as="aside"
+          style={{ height: `calc(var(--vh, 1vh) * 100)` }} 
           id="sidebar"
-          className="left-0 fixed lg:static top-[64px] lg:top-0 lg:bottom-0 w-full pt-6 bg-white lg:w-[233px] h-screen md:h-full lg:shrink-0 z-10 lg:!opacity-100 lg:!block  dark:bg-slate-900"
+          className="left-0 fixed lg:static top-[64px] lg:top-0 lg:bottom-0 w-full pt-6 bg-white lg:w-[233px] min-h-screen  md:h-full   lg:shrink-0 z-0 lg:overflow-x-hidden   lg:!opacity-100 lg:!block  dark:bg-slate-900"
           enter="transition ease-out duration-200 transform"
           enterFrom="opacity-0 -translate-x-full"
           enterTo="opacity-100 translate-x-0"
@@ -522,7 +559,7 @@ export default function Sidebar2() {
           {/* The navigational part on postion fixed */}
           <div className="w-full sm:w-[200px] px-4 sm:px-6 md:pl-2 md:pr-8 ">
           <div className="relative z-30">
-              <nav className="sm:block w-full text-sm">
+              <nav className="sm:block w-full text-sm ">
                 {/* This is navigational Link consider it as a link  you can find this on component on top of the file */}
                 <NavLink
                   href="/community"
@@ -562,6 +599,6 @@ export default function Sidebar2() {
           </div>
         </Transition>
       </div>
-    </>
+    </div>
   );
 }
