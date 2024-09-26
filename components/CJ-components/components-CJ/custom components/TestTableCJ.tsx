@@ -22,16 +22,7 @@ import { rowDataExample } from "@/app/fake data/fakeProgrammes";
 
 function TableRow({ repository }: RowData) {
   const data = { news: ["name one", "name two"] };
-  const socialMediaData: SocialMediaLinks = {
-    instagram: {
-      url: "https://instagram.com/yourprofile",
-      name: "Instagram",
-    },
-    youtube: {
-      url: "https://youtube.com/yourchannel",
-      name: "YouTube",
-    },
-  };
+
   return (
     <div className="border-b-[1px]">
       <Disclosure>
