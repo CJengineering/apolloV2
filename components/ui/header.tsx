@@ -25,7 +25,7 @@ export default function Header() {
           {/* Desktop navigation */}
           <nav className="flex items-center">
             {/* Right side elements links */}
-            <div className="flex pb-1 lg:hidden">
+            <div className="flex pb-1 lg:hidden items-center">
               <ThemeToggle />
               <Hamburger />
             </div>
