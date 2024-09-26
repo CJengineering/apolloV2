@@ -29,7 +29,7 @@ const CarouselForComponent = ({ children }: CarouselProps) => {
   }
 
   return (
-    <div className="relative 2xl:w-full">
+    <div className="relative w-full">
       {/* Arrows Container: Positioned at the top center */}
       <div className="top-0 left-0 right-0 z-10 flex justify-end space-x-4 mt-4">
         <button
