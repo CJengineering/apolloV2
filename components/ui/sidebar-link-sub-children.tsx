@@ -19,7 +19,11 @@ export default function SidebarLinkSubChildren({
       <div
         className="flex   items-center justify-between text-black font-normal dark:text-white hover:text-orange-700 dark:hover:text-orange-400"
  
-        onClick={(e) => {
+        onMouseDown={(e) => {
+          e.preventDefault();
+          setLinkOpen(!linkOpen);
+        }}
+        onTouchStart={(e) => {
           e.preventDefault();
           setLinkOpen(!linkOpen);
         }}
