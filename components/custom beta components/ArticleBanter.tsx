@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { CalendarIcon, ClockIcon } from "@heroicons/react/24/outline";
+import { ArrowRightIcon, CalendarIcon, ClockIcon } from "@heroicons/react/24/outline";
 import { Share } from "./Share";
 import { SocialButton } from "./SocialButtons";
 import { ArticleProps } from "@/app/interfaces";
@@ -8,9 +8,10 @@ import { PostFieldsCleaned } from "@/app/interfaces";
 import SecondaryNav from "../ui/secondary-nav";
 import ContentContainer from "./ContentContainer";
 interface ArticleBanterProps {
-  post: PostFieldsCleaned
+  post: PostFieldsCleaned,
+  styleType?: string
 }
-export default function ArticleBanter({ post }: ArticleBanterProps) {
+export default function ArticleBanter({ post, styleType }: ArticleBanterProps) {
   return (
 <>
 
@@ -41,7 +42,23 @@ export default function ArticleBanter({ post }: ArticleBanterProps) {
               </div>
             </div>
           </div>  
-          <div className="pb-2"><span className="sans-serif text-base px-1 bg-slate-100">{post.programme.name}</span></div>
+          <div className="pb-2">
+
+          <div className="flex items-center">
+  <div className="flex items-center bg-slate-100 px-1">
+    <span className="text-base sans-serif pr-1">To learn more visit</span>
+    <div className="underline pr-1 hover:text-blue-800 hover:cursor-pointer">
+      <Link href={`/programmes/${post.programme.slug}`}>{post.programme.name}</Link>
+    </div>
+    <div>
+    <ArrowRightIcon className="h-4 w-4" />
+  </div>
+  </div>
+
+</div>
+
+
+          </div>
         </div>
         
         {/* <div className="sticky top-20 self-start">

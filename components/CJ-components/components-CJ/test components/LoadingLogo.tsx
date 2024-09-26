@@ -20,5 +20,6 @@ export default function LoadingLogo() {
         </div>
       </div>
     </>
+      </>
   );
 }

@@ -56,11 +56,15 @@ export default function Page() {
 <h1 className="header-page pb-8 pt-20 lg:pb-6 lg:pt-10 lg:text-left">
         Join the community
       </h1>
+      <div className="w-ful lg:w-2/3">
+      <p className="text-base sans-serif">Community Jameel is a global network of scientists, technologists, humanitarians and creatives advancing science and learning for communities to thrive. To receive regular updates from the community please sign up to our quarterly newsletter.</p>
       </div>
-  <div className="w-full rounded-lg">
+      </div>
+  <div className="w-full lg:w-2/3">
     {loading ? (
       <LogoLoader /> // Display LogoLoader while loading
     ) : (
+      
       <form onSubmit={handleSubmit}>
         <div className="mb-6">
           <input
