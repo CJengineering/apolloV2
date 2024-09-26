@@ -39,7 +39,7 @@ const MediaCard = ({
 
   return (
     <Link href={slug} className="group relative block overflow-hidden">
-      <article className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center pb-2">
+      <article className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center lg:pb-6">
         {/* Image Column */}
         <div
           className="col-span-1 relative hidden md:block"
