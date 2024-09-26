@@ -21,7 +21,7 @@ const LightboxSingle: React.FC<LightboxSingleProps> = ({ image, onClose }) => {
       >
         <XMarkIcon className="h-6 w-6" aria-hidden="true" />
       </button>
-      <div className="relative w-full max-w-6xl mx-auto p-4 overflow-hidden rounded-lg bg-white">
+      <div className="relative w-full max-w-6xl mx-auto p-4 overflow-hidden rounded-lg ">
         <div className="flex flex-col items-center justify-center w-full">
           {image.type === "video" ? (
             <iframe
