@@ -385,7 +385,7 @@ export default async function SinglePost({
           <div className="pt-0 mt-auto">
             <ButtonCJ
               href={"/news"}
-              text={"all news"}
+              text={"All News"}
               openInNewTab={false}
               styleType="secondary"
             />
@@ -406,7 +406,7 @@ export default async function SinglePost({
           <div className="pt-0 mt-auto">
             <ButtonCJ
               href={"/press"}
-              text={"all press"}
+              text={"All Press"}
               openInNewTab={false}
               styleType="secondary"
             />
@@ -431,7 +431,7 @@ export default async function SinglePost({
           <div className="pt-0 mt-auto">
             <ButtonCJ
               href={"/events"}
-              text={"all events"}
+              text={"All Events"}
               openInNewTab={false}
               styleType="secondary"
             />
