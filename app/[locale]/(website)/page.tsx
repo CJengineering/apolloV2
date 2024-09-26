@@ -299,7 +299,7 @@ export default async function SinglePost({
   const newsAgnostic = newsClean.map((item) => agnosticMapper(item));
   const eventsAgnostic = eventClean.map((item) => agnosticMapper(item));
   return (
-    <ContentContainer width="full" desktopWidth="large">
+    <>
       <div className="pt-16 sm:pt-20 flex flex-col justify-center">
         <div className="w-full lg:w-2/3 mx-auto">
           <h1 className="header-page">
@@ -438,6 +438,6 @@ export default async function SinglePost({
           </div>
         </div>
       </div>
-    </ContentContainer>
+    </>
   );
 }
