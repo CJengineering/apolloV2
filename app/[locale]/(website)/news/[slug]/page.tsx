@@ -113,7 +113,7 @@ export default async function page({
   }));
 
   return (
-<ContentContainer width="full" desktopWidth="medium">
+<>
   <div className="">
     <ArticleBanter post={cleanPost} />
   </div>
@@ -142,7 +142,7 @@ export default async function page({
       </div>
     </>
   )}
-</ContentContainer>
+</>
 
   );
 }

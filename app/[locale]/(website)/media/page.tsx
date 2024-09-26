@@ -178,7 +178,7 @@ export default async function NewsContent({
   );
 
   return (
-    <ContentContainer>
+    <>
       <div>
         <h1 className="header-page pb-8 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
           Media
@@ -240,6 +240,6 @@ export default async function NewsContent({
           <NewsDisplay locale={params.locale} />
         </ContainerFixedWidth>
       </NewsProvider>
-    </ContentContainer>
+    </>
   );
 }

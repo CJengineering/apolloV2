@@ -47,7 +47,7 @@ export default async function OverviewContent({
 
   return (
     <>
-      <ContentContainer>
+  
         <div className="w-full">
           <div>
           <h1 className="header-page pb-0 pt-20 lg:pb-0 lg:pt-10 lg:text-left">
@@ -153,7 +153,7 @@ export default async function OverviewContent({
           </div>
         </article>
         <div className="py-24"></div>
-      </ContentContainer>
+
     </>
   );
 }

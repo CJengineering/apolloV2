@@ -192,7 +192,7 @@ export default async function PeoplePage({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
+    <>
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-12 lg:pb-6 lg:pt-7">
         <div className="col-span-12 md:col-span-4 flex justify-center md:justify-end">
           <div className="w-full">
@@ -321,6 +321,6 @@ export default async function PeoplePage({
           </PostAccordion>
         </div>
       </div>
-    </ContentContainer>
+    </>
   );
 }

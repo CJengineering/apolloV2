@@ -8,7 +8,8 @@ import React from "react";
 
 export default function loadingArticle() {
   return (
-    <ContentContainer>
+  
+  
         <div className=" lg:min-w-[900px]">
         <div className="min-w-0">
           <div className=" min-h-screen flex justify-center items-center">
@@ -17,6 +18,6 @@ export default function loadingArticle() {
         </div>
       </div>
 
-  </ContentContainer>
+  
   );
 }

@@ -166,24 +166,25 @@ export default async function MultimediaPage({
       peopleDataRaw.items
     )
   );
-  const cleanCardMedia =  cleanMediaRelated.map((item)=>mapMultimediaToMediaCard(item));
+  const cleanCardMedia = cleanMediaRelated.map((item) =>
+    mapMultimediaToMediaCard(item)
+  );
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
+    <>
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:mt-24">
         <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
           <div>
-         
             <p className="text-left sans-serif text-base text-slate-700 font-normal mono uppercase ">
               {multimediaItem.type}
             </p>
-            {multimediaItem.videoLink && (   <div
+            {multimediaItem.videoLink && (
+              <div
                 dangerouslySetInnerHTML={{
-                  __html:multimediaItem.videoLink,
+                  __html: multimediaItem.videoLink,
                 }}
               ></div>
-)}
-         
+            )}
           </div>
           <div className="w-full pb-2">
             <h1 className="text-left text-4xl serif font-bold">
@@ -194,7 +195,7 @@ export default async function MultimediaPage({
             <div className="prose prose-xl dark:prose-dark serif">
               <div
                 dangerouslySetInnerHTML={{
-                  __html:multimediaItem.description,
+                  __html: multimediaItem.description,
                 }}
               ></div>
             </div>
@@ -224,16 +225,20 @@ export default async function MultimediaPage({
             />
 
             <ListSmall
-              data={{ source: [{ name: multimediaItem.sources.name, url: "" }] }}
+              data={{
+                source: [{ name: multimediaItem.sources.name, url: "" }],
+              }}
             />
           </div>
           <div className="py-4 space-y-4">
             <ListSmall
               data={{
-                "related programme": multimediaItem.relatedProgrammes.map((item) => ({
-                  name: item.name,
-                  url: `/programmes/${item.slug}`,
-                })),
+                "related programme": multimediaItem.relatedProgrammes.map(
+                  (item) => ({
+                    name: item.name,
+                    url: `/programmes/${item.slug}`,
+                  })
+                ),
               }}
             />
 
@@ -253,11 +258,8 @@ export default async function MultimediaPage({
       <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
       <div>
         <div className="grid grid-cols-3 mt-4">
-
-        {cleanMediaRelated.length > 0 &&
-          cleanCardMedia.map((item) => (
-            <MediaCard {...item} />
-          ))}
+          {cleanMediaRelated.length > 0 &&
+            cleanCardMedia.map((item) => <MediaCard {...item} />)}
         </div>
         {/* Related Publications
         
@@ -266,6 +268,6 @@ export default async function MultimediaPage({
           </PostAccordion>
         */}
       </div>
-    </ContentContainer>
+    </>
   );
 }

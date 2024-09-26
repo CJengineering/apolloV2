@@ -5,7 +5,7 @@ import React from "react";
 
 export default function page() {
   return (
-    <ContentContainer>
+
       <div className=" lg:min-w-[900px]">
         <div className="min-w-0">
           <div className="ml-20 md:ml-0 md:mt-10">
@@ -17,6 +17,6 @@ export default function page() {
           </div>
         </div>
       </div>
-    </ContentContainer>
+ 
   );
 }

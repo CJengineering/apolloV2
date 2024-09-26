@@ -33,11 +33,11 @@ export const metadata: Metadata = customMetaDataGenerator({
   description:
     "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",
   ogType: "website",
-  ogImage: 'https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61b37423f32e603212069d44_COMMUNITY_JAMEEL_PORTFOLIO_BANNER.png',
+  ogImage:
+    "https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61b37423f32e603212069d44_COMMUNITY_JAMEEL_PORTFOLIO_BANNER.png",
   twitterCard: "summary_large_image",
   keywords: ["Community Jameel", "Jameel", "Community"],
-
-})
+});
 
 export default async function SinglePost({
   params,
@@ -76,7 +76,9 @@ export default async function SinglePost({
   const rawPartners = await getData(partnerId);
   const rawPeople = await getData(peopleId);
   const rawFeatures = await getData(feautureId);
-  rawProgrammes.items = rawProgrammes.items.filter((item) => item.fieldData.type !== "bb96b247f8c989b67ca5ada5b5cb10df");
+  rawProgrammes.items = rawProgrammes.items.filter(
+    (item) => item.fieldData.type !== "bb96b247f8c989b67ca5ada5b5cb10df"
+  );
   // get rid of Comunitu jameel in the arrays
   const cleanedFeature = rawFeatures.items.map((item) =>
     featureMapper(item, rawProgrammes.items)
@@ -110,15 +112,16 @@ export default async function SinglePost({
   );
 
   return (
-    <ContentContainer>
-      <div>
-      <h1 className="header-page pb-10 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
-        Community
-      </h1>
+    <>
+    
+      <div className="">
+        <h1 className="header-page pb-10 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
+          Community
+        </h1>
       </div>
       <div className="sm:w-full ">
         <TabsCJ rowData={dataForTable} cardData={cardData} />
       </div>
-    </ContentContainer>
+    </>
   );
 }
