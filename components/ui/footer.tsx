@@ -8,8 +8,8 @@ import ContentFooterContainer from "../CJ-components/components-CJ/custom compon
 export default function Footer() {
   return (
 
-      <footer className="border-t  dark:bg-slate-900 bg-white border-gray-200 dark:border-slate-700 pt-8">
-        <div className="flex sm:flex-auto items-start justify-between">
+      <footer className="mx-4 lg:mx-0 border-t dark:bg-slate-900 bg-white border-gray-200 dark:border-slate-700 pt-8">
+        <div className="flex sm:flex-auto items-center justify-between">
           <div className="sm:mb-0">
             <div className="flex">
               <Logo />
@@ -33,7 +33,7 @@ export default function Footer() {
           © Community Jameel
           <span>. All rights reserved.</span>
         </div>
-        <p className="text-sm mt-4 sans-serif">
+        <p className="text-sm mt-4 sans-serif dark:text-slate-500">
           Sign up Permission to use this site is granted strictly subject to the
           Terms of Use. The Community Jameel name and logotype are trademarks or
           registered trademarks of Abdul Latif Jameel IPR Company Limited.

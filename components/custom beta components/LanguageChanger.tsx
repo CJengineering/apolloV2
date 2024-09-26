@@ -54,7 +54,7 @@ export default function LanguageChanger() {
 
   return (
     <div className="flex justify-end items-center ">
-      <div className="bg-slate-100 py-1 px-2 rounded">
+      <div className="bg-slate-100 pb-1 px-3 rounded">
         {derivedLocale === 'en' ? (
           <span
             onClick={() => handleChange('ar')}
