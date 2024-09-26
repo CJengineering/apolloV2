@@ -48,6 +48,7 @@ export interface SocialMediaLink {
   name: string;
 }
 export interface SocialMediaLinks {
+  length: number;
   instagram?: SocialMediaLink;
   youtube?: SocialMediaLink;
   linkedin?: SocialMediaLink;
