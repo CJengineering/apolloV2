@@ -28,7 +28,7 @@ export default async function LegalPage({
           </h1>
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center te">
         <div
           className="w-full prose prose-lg dark:prose-dark serif font-semibold"
           dangerouslySetInnerHTML={{ __html: cleanSingleLegalData.body }}
