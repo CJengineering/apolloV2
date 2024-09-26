@@ -7,19 +7,13 @@ import Spinner from "../custom components/Spinner";
 export default function LoadingLogo() {
   return (
     <>
-      <div className="lg:min-w-[900px]">
-        <div className="min-w-0">
-          <div className="md:ml-0 md:mt-10">
-            <SectionBanter title={""}>
-              <div className="min-h-screen flex justify-center items-center">
-                {/* <LogoLoader /> */}
-                <Spinner />
-              </div>
-    
-            </SectionBanter>
-          </div>
+   <div className=" lg:min-w-[100vh]  flex justify-center min-w-[400px]  ">
+      <div className="min-h-screen w-full  flex justify-center items-center">
+        <div className="flex justify-center items-center w-full h-full">
+          <Spinner />
         </div>
       </div>
+    </div>
     </>
   );
 }
