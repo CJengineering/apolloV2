@@ -120,7 +120,7 @@ export default async function EventPage({
       <div className="">
         <div className="text-left">
         <div className="pt-6 w-5/6 mb-6">
-      <h1 className="header-article pb-0 pt-12 lg:pb-4 lg:pt-4 lg:text-left">{eventSingleDataCleaned.name}</h1>
+        <h1 className="header-article leading-tight text-left">{eventSingleDataCleaned.name}</h1>
       </div>
         </div>
     </div>
@@ -190,7 +190,7 @@ export default async function EventPage({
     
     {relatedPeopleDataCleaned.length > 0 && (
   <div>
-    <div className="pt-6 pb-9">
+    <div className="pt-12 pb-9">
       <div className="w-full h-[1px] bg-gray-300 block"></div>
     </div>  
     <h2 className="header-section pb-6">Participants</h2>

@@ -30,8 +30,7 @@ import {
   BeakerIcon,
   ChevronRightIcon,
   CpuChipIcon,
-  XMarkIcon
-
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
 import SidebarLinkSubChildren from "./sidebar-link-sub-children";
 
@@ -377,11 +376,13 @@ const NavGroup = ({
               {icon && <span className="mr-3">{icon}</span>}
               {title}
             </div>
-            <ChevronRightIcon
-              className={`h-3 w-3 text-black dark:text-white shrink-0 ml-2 transition-transform duration-200 ${
-                open ? "rotate-90" : ""
-              }`}
-            />
+            <div>
+              <ChevronRightIcon
+                className={`h-3 w-3 text-black dark:text-white shrink-0 ml-2 transition-transform duration-200 ${
+                  open ? "rotate-90" : ""
+                }`}
+              />
+            </div>
           </div>
           <div
             className={`mb-3 ml-[11px] pl-4 z-50 border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${

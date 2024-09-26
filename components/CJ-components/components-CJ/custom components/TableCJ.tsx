@@ -46,14 +46,14 @@ function TableRow({ repository, locale }: TableRowProps) {
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="w-full hover:bg-slate-100 dark:hover:bg-slate-800">
+            <Disclosure.Button className="w-full hover:bg-slate-100 dark:hover:bg-slate-800 group">
               <div className="min-w-full items-center grid grid-cols-12 md:gap-9 md:grid md:grid-cols-12 border-gray-300">
                 <div
                   className={`py-3 text-left col-span-11 md:col-span-5 ${
                     open ? "opacity-100" : "opacity-100"
                   }`}
                 >
-                  <h2 className="sans-serif align-middle text-xl md:text-1xl uppercase">
+                  <h2 className="sans-serif align-middle text-xl md:text-1xl uppercase pl-2 group-hover:underline">
                     {isArabic ? repository.top.nameArabic : repository.top.name}
                   </h2>
                 </div>
@@ -148,7 +148,14 @@ function TableRow({ repository, locale }: TableRowProps) {
                         />
                       </div>
 
-                        <div className="pb-3 lg:pb-0 lg:pl-3">
+                      <div
+                        className={`pb-3 lg:pb-0 ${
+                          repository.content.socialMediaLinks &&
+                          repository.content.socialMediaLinks.length > 0
+                            ? "lg:pl-3"
+                            : ""
+                        }`}
+                      >
                         {repository.content.button.text && (
                           <ButtonCJ
                             href={repository.content.button.href}
@@ -156,15 +163,14 @@ function TableRow({ repository, locale }: TableRowProps) {
                             styleType="primary"
                           />
                         )}
-                        </div>
-                        <div className="lg:pl-3">
+                      </div>
+                      <div className="lg:pl-3">
                         <ButtonCJ
                           href={`/programmes/${repository.top.slug}`}
                           text="learn more"
                           styleType="primary"
                         />
-                        </div>
-
+                      </div>
                     </div>
                   </div>
                 </div>

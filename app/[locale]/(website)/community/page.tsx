@@ -114,10 +114,12 @@ export default async function SinglePost({
   return (
     <>
     
-      <div className="">
-        <h1 className="header-page pb-10 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
-          Community
-        </h1>
+      <div className="flex justify-between items-center pb-10 pt-20 lg:pb-10 lg:pt-10">
+   
+      <h1 className="header-page lg:text-left">
+        Community
+      </h1>
+      <LanguageChanger></LanguageChanger>
       </div>
       <div className="sm:w-full ">
         <TabsCJ rowData={dataForTable} cardData={cardData} />
