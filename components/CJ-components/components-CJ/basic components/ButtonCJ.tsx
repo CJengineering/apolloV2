@@ -17,7 +17,7 @@ const ButtonCJ: React.FC<ButtonCJProps> = ({
   styleType = "primary",
 }) => {
   const styles = {
-    primary: "text-tiny sans-serif rounded-lg border-2 border-blue-700 bg-transparent px-8 py-2 font-bold uppercase text-blue-800 transition duration-150 ease-in-out hover:border-orange-600 hover:text-orange-600",
+    primary: "text-tiny sans-serif rounded-lg border-2 border-blue-700 bg-transparent px-8 py-2 font-bold uppercase text-blue-800 transition duration-150 ease-in-out hover:border-orange-600 hover:text-orange-600 dark:border-blue-400 dark:text-blue-400",
     secondary: "text-tiny sans-serif bg-transparent font-bold text-blue transition duration-150 ease-in-out hover:underline flex items-center space-x-2 group",
   };
 

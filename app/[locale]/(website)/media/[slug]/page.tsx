@@ -117,7 +117,7 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
           <div className="w-full">
           <div className="lg:w-2/3">
           {/* <div><p className="sans-serif text-3xl font-bold pb-1">{newsItem.sources.name}</p></div> */}
-            <h1 className="header-page leading-none pb-3 pt-20 lg:pb-3 lg:pt-10 lg:text-left">
+            <h1 className="header-article leading-none pb-3 pt-20 lg:pb-3 lg:pt-10 lg:text-left">
               {newsItem.name}
             </h1>
           </div>
