@@ -205,7 +205,7 @@ export default async function JpalPage({
 
   return (
     <>
-      <div className="pt-12">
+      <div className="pt-12 ">
         <LanguageChanger />
         <TableRowSingle
           repository={dataForRow.repository}
