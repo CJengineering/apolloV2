@@ -32,6 +32,7 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { get } from "http";
 import { Divide } from "lucide-react";
 import React from "react";
+import Image from "next/image";
 import ContentPhotos from "../../../../../components/CJ-components/components-CJ/test components/content-photos";
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
@@ -41,80 +42,61 @@ import { Container } from "@/components/CJ-components/components-CJ/Container";
 import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 
 
 // START THE DATA FOR CARDS
 
 const cardData = [
   {
-    imageUrl: "/images/GRID_01.jpg",
+    imageUrl: "/images/labs/j-pal/J-PAL_MENA.jpg",
     alt: "J-PAL MENA",
     title: "J-PAL MENA",
     subtitle:
       "J-PAL Middle East and North Africa (MENA), based at the American University in Cairo, leads J-PAL\’s work in the Middle East and North Africa region. J-PAL MENA conducts randomized evaluations, builds partnerships for evidence-informed policymaking, and helps partners scale up effective programs.",
-    link: "https://www.youtube.com/embed/Aq2pvQWUeWA?si=VhyQ0_B7lUi1TJFs",
+    link: "https://www.povertyactionlab.org/middle-east-and-north-africa",
     openInNewTab: false,
-    clickAction: "Video embed code",
+    clickAction: "External link",
   },
   {
-    imageUrl: "/images/GRID_02.jpg",
+    imageUrl: "/images/labs/j-pal/Evidence_To_Policy.jpg",
     alt: "Evidence to policy",
     title: "Evidence to Policy",
     subtitle:
       "Evidence from randomized evaluations is changing how we understand and address problems related to poverty. Policymakers, practitioners, and funders worldwide are increasingly applying this learning to social policies and programs.",
-    link: "/news/bill-gates-and-fady-jameel-discuss-food-and-farming-with-scientists-farmers-and-chefs-at-the-farming-for-our-future-breakfast-event-on-the-sidelines-of-cop28-in-dubai",
+    link: "https://www.povertyactionlab.org/evidence-policy",
     openInNewTab: false,
-    clickAction: "Internal link",
+    clickAction: "External link",
   },
   {
-    imageUrl: "/images/GRID_03.jpg",
+    imageUrl: "/images/labs/j-pal/ESII.jpg",
     alt: "European Social Inclusion Initiatve",
     title: "European Social Inclusion Initiatve (ESII)",
     subtitle:
       "The European Social Inclusion Initiative (ESII) is a partnership between J-PAL Europe and the European Commission to support the design and evaluation of social policies in Europe. ESII aims to generate high-quality evidence on the effectiveness of social programs and policies, and to build the capacity of policymakers and practitioners to use evidence in decision-making.",
-    link: "/news/climavore-x-jameel-at-rca-announces-2024-food-action-awards",
+    link: "https://www.povertyactionlab.org/initiative/european-social-inclusion-initiative",
     openInNewTab: false,
-    clickAction: "Internal link",
+    clickAction: "External link",
   },
   {
-    imageUrl: "/images/GRID_04.jpg",
+    imageUrl: "/images/labs/j-pal/HAPIE.jpg",
     alt: "Hub of Adbvanced Policy Innovation for the Environment (HAPIE)",
-    title: "Hub of Adbvanced Policy Innovation for the Environment (HAPIE)L",
+    title: "Hub of Adbvanced Policy Innovation for the Environment (HAPIE)",
     subtitle:
       "HAPIE is J-PAL's Air and Water Lab in Egypt, launched by NIGSD, J-PAL MENA, and Community Jameel. It extends EIL's environmental work to improve air and water access by generating evidence for government policy. HAPIE enables researchers to collaborate with J-PAL MENA and government partners on evidence-based policies.",
-    link: "programmes/climate-labs",
+    link: "https://www.povertyactionlab.org/page/hub-advanced-policy-innovation-environment-hapie",
     openInNewTab: false,
-    clickAction: "Internal link",
+    clickAction: "External link",
   },
   {
-    imageUrl: "/images/GRID_04.jpg",
+    imageUrl: "/images/labs/j-pal/air-water-labs.jpg",
     alt: "Air and Water Labs",
     title: "Solutions and  Advancements through Research for Air and Water (SARWA)",
     subtitle:
       "Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.",
-    link: "programmes/climate-labs",
+    link: "https://www.povertyactionlab.org/page/air-and-water-labs",
     openInNewTab: false,
-    clickAction: "Internal link",
-  },
-  {
-    imageUrl: "/images/GRID_04.jpg",
-    alt: "Climate Labs with C40 and J-PAL",
-    title: "Climate Labs with C40 and J-PAL",
-    subtitle:
-      "Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.",
-    link: "programmes/climate-labs",
-    openInNewTab: false,
-    clickAction: "Internal link",
-  },
-  {
-    imageUrl: "/images/GRID_04.jpg",
-    alt: "Climate Labs with C40 and J-PAL",
-    title: "Climate Labs with C40 and J-PAL",
-    subtitle:
-      "Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.",
-    link: "programmes/climate-labs",
-    openInNewTab: false,
-    clickAction: "Internal link",
+    clickAction: "External link",
   },
 ];
 // END THE DATA FOR CARDS
@@ -287,7 +269,7 @@ export default async function JpalPage({
 
   return (
     <>
-      <div className="pt-12">
+      <div className="pt-20 lg:pt-12">
         {/* <LanguageChanger /> */}
         {/* <TableRowSingle
           repository={dataForRow.repository}
@@ -295,20 +277,56 @@ export default async function JpalPage({
         /> */}
 
        <ContainerFixedWidth>
-        {/* Header  */}
-        <div className="pb-6">
-        <h1 className="header-article">Abdul Latif Jameel Poverty Action Lab</h1>
-        </div>
+       <div className="flex flex-col items-center mx-auto text-center">
+  <div className="w-full flex justify-center pb-6 lg:pb-12">
+    <img src="/images/labs/j-pal/J-PAL_ORIGINAL_DARK.png" alt="Description" width={500} height={300} />
+  </div>
 
-        <div className="pb-12">
-          <p className="prose prose-xl leading-normal">The Abdul Latif Jameel Poverty Action Lab (J-PAL) is a global research centre aiming to reduce poverty through evidence-based policy. With over 290 affiliated professors and 8 offices worldwide, J-PAL conducts randomised impact evaluations to inform policies that have reached over 600 million people. In 2019, J-PAL&apos;s co-founders Esther Duflo, Abhijit Banerjee, and affiliate Michael Kremer won the Nobel Prize for Economics.</p>
-        </div>
-        
+  <div className="pb-6">
+    <h1 className="header-article">Abdul Latif Jameel Poverty Action Lab (J-PAL)</h1>
+  </div>
+
+  <div className="pb-12">
+    <p className="prose prose-xl leading-normal">
+      J-PAL is a global research centre aiming to reduce poverty through evidence-based policy. With over 290 affiliated professors and 8 offices worldwide, J-PAL conducts randomised impact evaluations to inform policies that have reached over 600 million people. In 2019, J-PAL&apos;s co-founders Esther Duflo, Abhijit Banerjee, and affiliate Michael Kremer won the Nobel Prize for Economics.
+    </p>
+  </div>
+</div>
+
         <div>
         <ResponsiveYouTubeEmbed embedId="4FLeNSqLxdQ?si=IBMZ4AHpawegC0e_" />
         </div>
         
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
 
+        <div className="pb-6">
+          <h2 className="header-section">Impact since 2003</h2>
+        </div>
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="">
+            <Stats title="600M" content="people reached" />
+          </div>
+          <div className="">
+            <Stats title="1200" content="impact evaluations" />
+          </div>
+          <div className="">
+            <Stats title="36" content="Government Partnerships" />
+          </div>
+          <div className="">
+            <Stats title="48" content="policty insights" />
+          </div>
+          <div className="">
+            <Stats title="290" content="affiliated professors" />
+          </div>
+          <div className="">
+            <Stats title="7" content="scholar programmes" />
+          </div>
+          <div className="">
+            <Stats title="180K" content="learners" />
+          </div>
+        </div>
 
         <div className="w-full py-6 lg:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
@@ -318,7 +336,7 @@ export default async function JpalPage({
           <h2 className="header-section">Supported initiatives</h2>
         </div>
 
-{/* <CarousselForComponents>
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cardData.map((card, index) => (
             <HomeCard
               key={index}
@@ -331,7 +349,7 @@ export default async function JpalPage({
               clickAction={card.clickAction || ""}
             />
           ))}
-</CarousselForComponents> */}
+      </div>
 
         <div className="">
           <PostAccordion title={"News"}>
@@ -343,7 +361,7 @@ export default async function JpalPage({
           </PostAccordion>
         </div>
         <div className="">
-          <PostAccordion title={"Press"}>
+          <PostAccordion title={"Media"}>
           <div className="grid grid-cols-1 gap-5">
       {newsProps.map((item) => (
         <NewsCard content={item} locale={params} key={item.id} />
