@@ -118,7 +118,7 @@ export default async function page({
     <div><p className={`underline hover:text-blue-800 ${params.locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}><a href="/about/team">{params.locale === "ar" ? "فريق" : "Team"}</a></p></div><div><p className={`${params.locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}><ChevronRightIcon className="w-4 h-4 text-gray-500" /></p></div><div><p className={`sans-serif ${params.locale === "ar" ? "sans-serif-ar" : ""}`}>{memberName}</p></div></div>
     <div className="flex justify-between">
     <div className="w-full pb-2 lg:w-2/3">
-      <h1 className={`header-page ${params.locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}>{memberName}</h1>
+      <h1 className={`header-article ${params.locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}>{memberName}</h1>
       
     </div>
     <LanguageChanger></LanguageChanger>
