@@ -366,12 +366,15 @@ const NavGroup = ({
       {(handleClick, open) => (
         <>
           <div
-       
+              // onMouseDown={(e) => {
+              //   e.preventDefault();
+              //   handleClick();
+              // }}
               onTouchStart={(e) => {
                 e.preventDefault();
                 handleClick();
               }}
-            className="relative flex md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+            className="relative flex lg:hidden md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
               {icon && <span className="mr-3">{icon}</span>}
@@ -385,6 +388,33 @@ const NavGroup = ({
               />
             </div>
           </div>
+
+
+          <div
+              onMouseDown={(e) => {
+                e.preventDefault();
+                handleClick();
+              }}
+              onTouchStart={(e) => {
+                e.preventDefault();
+                handleClick();
+              }}
+            className="hidden lg:flex relative md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+          >
+            <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
+              {icon && <span className="mr-3">{icon}</span>}
+              {title}
+            </div>
+            <div>
+              <ChevronRightIcon
+                className={`h-3 w-3 text-black dark:text-white shrink-0 ml-2 transition-transform duration-200 ${
+                  open ? "rotate-90" : ""
+                }`}
+              />
+            </div>
+          </div>
+
+
           <div
             className={`mb-3 ml-[11px] pl-4 z-50 border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${
               !open && "hidden"
