@@ -28,6 +28,7 @@ import { Suspense } from "react";
 import LoadingLogo from "@/components/CJ-components/components-CJ/test components/LoadingLogo";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 
+
 const nycd = Nothing_You_Could_Do({
   subsets: ["latin"],
   variable: "--font-nycd",
@@ -122,7 +123,9 @@ export default async function RootLayout({
                         <div className="pt-3 mx-auto lg:pt-6 pb-8">
                           <div className="lg:hidden">
                             <Sidebar2 />
+
                           </div>
+                       
                           <ContentContainer>
                             <Suspense fallback={<LoadingLogo />}>
                               <div className="px-4 min-h-screen">{children}</div>
