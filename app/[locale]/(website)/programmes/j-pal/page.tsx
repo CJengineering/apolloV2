@@ -37,6 +37,8 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import { Container } from "@/components/CJ-components/components-CJ/Container";
+import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
 
 export default async function JpalPage({
   params,
@@ -207,12 +209,14 @@ export default async function JpalPage({
   return (
     <>
       <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
+        {/* <LanguageChanger /> */}
+        {/* <TableRowSingle
           repository={dataForRow.repository}
           locale={params.locale}
-        />
+        /> */}
 
+       <ContainerFixedWidth>
+       
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -278,6 +282,7 @@ export default async function JpalPage({
             </div>
           </PostAccordion>
         </div>
+        </ContainerFixedWidth>
         {/* <div>
           <h2> related photos by programme</h2>
           <div>
