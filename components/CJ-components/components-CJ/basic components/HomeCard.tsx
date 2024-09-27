@@ -33,18 +33,26 @@ const HomeCard: React.FC<CardProps> = ({
     setLightboxOpen(false);
   };
 
+  // Updated ImageContainer with new overlay styles
+  const ImageContainer = ({ children }: { children: React.ReactNode }) => (
+    <div className="relative w-full pb-[100%] group hover:cursor-pointer">
+      {children}
+      <div className="absolute inset-0 bg-blue-950 mix-blend-screen opacity-0 transition-opacity duration-[2100ms] group-hover:opacity-100 z-10"></div>
+    </div>
+  );
+
   if (clickAction === "Video embed code") {
     return (
       <div>
         <div onClick={handleOpenLightbox} className="cursor-pointer pb-6 block overflow-hidden group">
-          <div className="relative w-full pb-[100%]">
+          <ImageContainer>
             <Image
-              className="absolute top-0 left-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover z-0"
               src={imageUrl}
               alt={alt}
               layout="fill"
             />
-          </div>
+          </ImageContainer>
           <div className="pt-3">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
             <p className="text-base sans-serif">{subtitle}</p>
@@ -64,14 +72,13 @@ const HomeCard: React.FC<CardProps> = ({
     return (
       <div>
         <div onClick={handleOpenLightbox} className="cursor-pointer pb-6 block overflow-hidden group">
-          <div className="relative w-full pb-[100%]">
+          <ImageContainer>
             <img
-              className="absolute top-0 left-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover z-0"
               src={imageUrl}
               alt={alt}
-           
             />
-          </div>
+          </ImageContainer>
           <div className="pt-3">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
             <p className="text-base sans-serif">{subtitle}</p>
@@ -91,14 +98,14 @@ const HomeCard: React.FC<CardProps> = ({
     return (
       <Link href={link} passHref>
         <div className="pb-6 block overflow-hidden group cursor-pointer">
-          <div className="relative w-full pb-[100%]">
+          <ImageContainer>
             <Image
-              className="absolute top-0 left-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover z-0"
               src={imageUrl}
               alt={alt}
               layout="fill"
             />
-          </div>
+          </ImageContainer>
           <div className="pt-3">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
             <p className="text-base sans-serif">{subtitle}</p>
@@ -110,35 +117,36 @@ const HomeCard: React.FC<CardProps> = ({
 
   if (clickAction === "External link") {
     return (
-      <Link href={link} target='_blank'>
-    
-          <div className="relative w-full pb-[100%]">
+      <Link href={link} target="_blank">
+        <div className="pb-6 block overflow-hidden group cursor-pointer">
+          <ImageContainer>
             <Image
-              className="absolute top-0 left-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover z-0"
               src={imageUrl}
               alt={alt}
               layout="fill"
             />
-          </div>
+          </ImageContainer>
           <div className="pt-3">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
             <p className="text-base sans-serif">{subtitle}</p>
           </div>
- 
+        </div>
       </Link>
     );
   }
 
+  // Default case
   return (
     <div onClick={handleOpenLightbox} className="cursor-pointer pb-6 block overflow-hidden group">
-      <div className="relative w-full pb-[100%]">
+      <ImageContainer>
         <Image
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover z-0"
           src={imageUrl}
           alt={alt}
           layout="fill"
         />
-      </div>
+      </ImageContainer>
       <div className="pt-3">
         <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
         <p className="text-base sans-serif">{subtitle}</p>
