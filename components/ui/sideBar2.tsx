@@ -539,7 +539,7 @@ export default function Sidebar2() {
   };
 
   return (
-    <div className=" overflow-y-auto  lg:max-h-screen pb-20">
+    <div className=" overflow-y-auto  lg:max-h-screen ">
       {/* Backdrop This is for Mobile */}
       <Transition
         className="md:hidden  fixed sm:static inset-0 z-0 bg-opacity-20 transition-opacity"
@@ -561,7 +561,7 @@ export default function Sidebar2() {
           as="aside"
          
           id="sidebar"
-          className="left-0 fixed lg:static top-[64px] lg:top-0 lg:bottom-0   w-full pt-6 bg-white lg:w-[233px] h-screen overflow-y-auto md:h-full   lg:shrink-0 z-50 lg:overflow-x-hidden   lg:!opacity-100 lg:!block  dark:bg-slate-900"
+          className="left-0 fixed lg:static top-[64px] lg:top-0 lg:bottom-0  pb-80  w-full pt-6 bg-white lg:w-[233px] h-screen overflow-y-auto md:h-full   lg:shrink-0 z-50 lg:overflow-x-hidden   lg:!opacity-100 lg:!block  dark:bg-slate-900"
           enter="transition ease-out duration-200 transform"
           enterFrom="opacity-0 -translate-x-full"
           enterTo="opacity-100 translate-x-0"
