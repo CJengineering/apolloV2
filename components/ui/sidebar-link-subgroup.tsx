@@ -17,7 +17,7 @@ export default function SidebarLinkSubgroup({
 
   return (
     <>
-    <div className="mt-3 pr-2 md:pr-0 md:w-[194px] block lg:hidden">
+    <div className="mt-3 pr-2 md:pr-0 md:w-[194px] block lg:hidden ">
       <Link
         className="flex items-center justify-between text-black font-normal dark:text-white hover:text-orange-700 dark:hover:text-orange-400"
         href="#0"
