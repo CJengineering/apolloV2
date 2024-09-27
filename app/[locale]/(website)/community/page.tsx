@@ -28,6 +28,7 @@ import featureMapper from "@/functions/transformers/featureMapper";
 import filterRelatedFeatures from "@/functions/filters/filterRelatedFeatures";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
 export const metadata: Metadata = customMetaDataGenerator({
   title: "Our Community",
   description:
@@ -113,7 +114,8 @@ export default async function SinglePost({
 
   return (
     <>
-    
+  
+
       <div className="flex justify-between items-center pb-10 pt-20 lg:pb-10 lg:pt-10">
    
       <h1 className="header-page lg:text-left">
@@ -124,6 +126,7 @@ export default async function SinglePost({
       <div className="sm:w-full ">
         <TabsCJ rowData={dataForTable} cardData={cardData} />
       </div>
+ 
     </>
   );
 }
