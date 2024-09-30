@@ -31,8 +31,8 @@ export default function ArticleBanter({ post, styleType }: ArticleBanterProps) {
 
       <div className="flex justify-around">
         <div className="">
-          <div className="mx-auto pt-3">
-          <div className="py-3">
+          <div className="mx-auto">
+          <div className="pt-6">
             <div className="sans-serif text-lg">{post.datePublished}</div>
             </div>            
             <div>

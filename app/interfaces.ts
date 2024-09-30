@@ -240,6 +240,7 @@ export interface EventFieldData {
   group: string;
   name: string;
   slug: string;
+  city?: string;
 }
 
 // EVENTS DATA START //
@@ -306,6 +307,7 @@ export interface EventFieldDataCleaned {
   group: string;
   name: string;
   slug: string;
+  city: string;
 }
 
 export interface EventCardProps {

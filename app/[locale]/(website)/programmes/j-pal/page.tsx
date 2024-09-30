@@ -324,7 +324,7 @@ export default async function JpalPage({
             <Stats title="7" content="scholar programmes" />
           </div>
           <div className="">
-            <Stats title="180K" content="learners" />
+            <Stats title="180K" content="learners" /> 
           </div>
         </div>
 
@@ -333,7 +333,7 @@ export default async function JpalPage({
         </div>
 
         <div className="pb-6">
-          <h2 className="header-section">Supported initiatives</h2>
+          <h2 className="header-section">Select initiatives</h2>
         </div>
 
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -369,7 +369,7 @@ export default async function JpalPage({
     </div>
           </PostAccordion>
         </div>
-        <div className="">
+        {/* <div className="">
           <PostAccordion title={"Multimedia"}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-9">
    
@@ -382,7 +382,7 @@ export default async function JpalPage({
            
             </div>
           </PostAccordion>
-        </div>
+        </div> */}
 
         {/* 
 
