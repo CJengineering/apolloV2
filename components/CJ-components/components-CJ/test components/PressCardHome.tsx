@@ -40,6 +40,16 @@ export default function PressCardHome({
           {/* PROGRAM LABEL END */}
 
           {/* TITLE OF POST ITEM START */}
+
+          <div className="text-left">
+        <p>
+      {content.programme.shortname && (
+        <span className="sans-serif text-2xl font-bold">
+          {content.programme.shortname}</span>
+        )}
+        </p>
+      </div>
+
           <div className="text-left">
             <h3 className="text-base sans-serif font-medium group-hover:underline">
               {locale == "ar" ? content.arabicTitle : content.name}
@@ -61,14 +71,6 @@ export default function PressCardHome({
                 |
               </p>
             </div> */}
-
-            <div className="text-left">
-  <p className="sans-serif font-normal text-sm">
-    {content.programme.shortname && (
-      <>{content.programme.shortname}</>
-    )}
-  </p>
-</div>
 
           </div>
           {/* END PUBLISHED DATE AND SOURCES CONTAINER */}

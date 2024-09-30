@@ -18,7 +18,14 @@ export default function PostCard({ content }: { content: PostFieldsCleaned }) {
         {/* TEXT COLUMN START */}
         <div className="col-span-2 flex flex-col justify-center">
           
-
+        <div className="text-left">
+        <p>
+      {content.programme.shortname && (
+        <span className="sans-serif text-2xl font-bold">
+          {content.programme.shortname}</span>
+        )}
+        </p>
+      </div>
           {/* TITLE OF POST ITEM START */}
           <div className="text-left pb-2">
             <h3 className="title-list group-hover:underline">{content.name}</h3>
@@ -34,12 +41,7 @@ export default function PostCard({ content }: { content: PostFieldsCleaned }) {
           {/* PUBLISHED DATE END */}
 
       {/* PROGRAM LABEL START */}
-      <div className="text-left">
-      {content.programme.shortname && (
-        <span className="sans-serif text-sm">
-          {content.programme.shortname}</span>
-        )}
-      </div>
+
        {/* PROGRAM LABEL END */}
         </div>
         {/* TEXT COLUMN END */}

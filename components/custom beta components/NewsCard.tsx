@@ -27,7 +27,7 @@ export default function NewsCard({
         </div> */}
 
         {/* TEXT COLUMN START */}
-        <div className="col-span-2 flex flex-col justify-center space-y-1">
+        <div className="col-span-2 flex flex-col justify-center">
           
           {/* PROGRAM LABEL START */}
           <div className="text-left">
@@ -41,7 +41,7 @@ export default function NewsCard({
 
           {/* TITLE OF POST ITEM START */}
           <div className="text-left">
-            <h3 className="text-base sans-serif font-medium group-hover:underline">
+            <h3 className="text-base sans-serif font-medium group-hover:underline pb-2">
               {locale == "ar" ? content.arabicTitle : content.name}
             </h3>
           </div>
@@ -51,19 +51,21 @@ export default function NewsCard({
           <div className="">
             {/* PUBLISHED DATE */}
             <div className="text-left">
-              <p className="sans-serif font-normal text-sm">
-                <time dateTime={content.datePublished}>{content.datePublished}</time>
-              </p>
-            </div>
+            <p className="sans-serif text-sm">
+              <time dateTime={content.datePublished}>{content.datePublished}</time>
+            </p>
+          </div>
+
             {/* SOURCES */}
 
             <div className="text-left">
-  <p className="sans-serif font-normal text-sm">
-    {content.programme.shortname && (
-      <>{content.programme.shortname}</>
-    )}
-  </p>
-</div>
+        <p>
+      {content.programme.shortname && (
+        <span className="sans-serif text-sm">
+          {content.programme.shortname}</span>
+        )}
+        </p>
+      </div>
 
           </div>
           {/* END PUBLISHED DATE AND SOURCES CONTAINER */}
