@@ -303,7 +303,7 @@ export default async function SinglePost({
     <>
       <div className="pt-20 sm:pt-20 flex flex-col justify-center">
         <div className="w-full lg:w-2/3 mx-auto">
-          <h1 className="header-page">
+          <h1 className="header-page leading-none">
             Advancing science and learning for communities to thrive
           </h1>
           <p className="pt-6 sans-serif text-lg sm:text-xl font-normal md:text-2x text-left">
@@ -314,7 +314,7 @@ export default async function SinglePost({
           <div className="pt-4 lg:pt-8">
             <ButtonCJ
               href={"/community"}
-              text={"discover"}
+              text={"explore community"}
               openInNewTab={false}
               styleType="primary"
             />
@@ -399,7 +399,7 @@ export default async function SinglePost({
               />
             ))}
           </div>
-          <div className="pt-0 mt-auto">
+          <div className="pt-2 mt-auto">
             <ButtonCJ
               href={"/news"}
               text={"All News"}
@@ -420,7 +420,7 @@ export default async function SinglePost({
               <NewsCard content={value} locale="en" key={index + "newsCard"} />
             ))}
           </div>
-          <div className="pt-0 mt-auto">
+          <div className="pt-2 mt-auto">
             <ButtonCJ
               href={"/press"}
               text={"All Press"}
@@ -445,7 +445,7 @@ export default async function SinglePost({
               />
             ))}
           </div>
-          <div className="pt-0 mt-auto">
+          <div className="pt-2 mt-auto">
             <ButtonCJ
               href={"/events"}
               text={"All Events"}

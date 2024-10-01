@@ -195,5 +195,6 @@ export default function eventMapper(
     group: item.fieldData.group || "",
     name: item.fieldData.name || "",
     slug: `/events/${item.fieldData.slug}` || "",
+    city: item.fieldData.city || "",
   };
 }

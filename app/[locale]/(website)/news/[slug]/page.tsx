@@ -120,7 +120,7 @@ export default async function page({
 
   {relatedPostsCleaned.length > 0 && (
     <>
-      <div className="w-full mx-auto pt-9">
+      <div className="w-full mx-auto">
         {cleanPost.imageCarousel.length > 0 &&
           cleanPost.imageCarousel[0].url !== "" && (
             <ContentPhotos images={cleanRelatedImages} />

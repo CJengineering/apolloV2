@@ -40,6 +40,11 @@ export default function EventsCardHome({
           {/* PROGRAM LABEL END */}
 
           {/* TITLE OF POST ITEM START */}
+         <div>
+         <span className="sans-serif text-2xl font-bold">
+          {content.city}
+          </span>
+         </div>
           <div className="text-left">
             <h3 className="text-base sans-serif font-medium group-hover:underline">
               {locale == "ar" ? content.arabicTitle : content.name}

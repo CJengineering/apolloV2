@@ -17,8 +17,8 @@ const ButtonCJ: React.FC<ButtonCJProps> = ({
   styleType = "primary",
 }) => {
   const styles = {
-    primary: "text-tiny sans-serif rounded-lg border-2 border-blue-700 bg-transparent px-8 py-2 font-bold uppercase text-blue-800 transition duration-150 ease-in-out hover:border-orange-600 hover:text-orange-600 dark:border-blue-400 dark:text-blue-400",
-    secondary: "text-tiny sans-serif bg-transparent font-bold text-blue transition duration-150 ease-in-out hover:underline flex items-center space-x-2 group",
+    primary: "text-tiny sans-serif rounded-lg border-2 border-[#ab2332] bg-transparent px-8 py-2 font-bold uppercase text-[#ab2332] transition duration-150 ease-in-out hover:border-orange-600 hover:text-orange-600 dark:border-blue-400 dark:text-blue-400",
+    secondary: "text-base sans-serif underline transition duration-150 ease-in-out hover:text-blue-800 flex items-center group",
     tertiary: "text-base sans-serif bg-transparent font-bold text-blue transition duration-150 ease-in-out hover:underline",
   };
 
@@ -27,7 +27,7 @@ const ButtonCJ: React.FC<ButtonCJProps> = ({
       <button className={styles[styleType]}>
         <span>{text}</span>
         {styleType === "secondary" && (
-          <ArrowRightIcon className="h-5 w-5 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
+          <ArrowRightIcon className="h-5 w-5 ml-1 transition-transform duration-200 ease-in-out group-hover:translate-x-1" />
         )}
       </button>
     </a>
