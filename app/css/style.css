@@ -50,6 +50,7 @@
 @media (min-width: 768px) {
   html {
     overflow-y: scroll;
+    scroll-behavior: smooth;
   }
 }
 
@@ -69,7 +70,7 @@
 }
 
 .side-scroll-bar::-webkit-scrollbar-thumb {
-  background-color: lightgray; /* Light gray color for the scrollbar thumb */
+  background-color: lightblue; /* Light gray color for the scrollbar thumb */
   border-radius: 10px; /* Rounded scrollbar thumb */
   border: 2px solid transparent; /* Adds a bit of space around the thumb */
   opacity: 0.3; /* Default low opacity */

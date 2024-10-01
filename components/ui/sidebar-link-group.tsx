@@ -21,7 +21,7 @@ export default function SidebarLinkGroup({
   }, [open])
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       {children(handleClick, openGroup)}
     </div>
   )
