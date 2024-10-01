@@ -301,6 +301,8 @@ export default async function SinglePost({
   const eventsAgnostic = eventClean.map((item) => agnosticMapper(item));
   return (
     <>
+      {JSON.stringify(eventRaw.items[0])}
+
       <div className="pt-20 sm:pt-20 flex flex-col justify-center">
         <div className="w-full lg:w-2/3 mx-auto">
           <h1 className="header-page leading-none">
@@ -343,7 +345,7 @@ export default async function SinglePost({
           <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
         </div>
       </div>
-{/* <div className="w-full">
+      {/* <div className="w-full">
       <CarousselForComponents>   
           {cardData.map((card, index) => (
             <HomeCard
@@ -385,13 +387,12 @@ export default async function SinglePost({
 
       {/* 3 column system */}
 
-
       <div className="w-full grid lg:grid-cols-12 lg:gap-x-12">
         {/* News Column */}
         <div className="col-span-12 lg:col-span-4">
           <h2 className="header-section pb-3">News</h2>
           <div className="w-full space-y-6">
-            {postsClean.slice(1, 6).map((value, index) => (
+            {postsClean.slice(0, 5).map((value, index) => (
               <PressCardHome
                 content={value}
                 locale="en"
@@ -416,7 +417,7 @@ export default async function SinglePost({
         <div className="col-span-12 lg:col-span-4">
           <h2 className="header-section pb-3">Press</h2>
           <div className="w-full space-y-6">
-            {newsClean.slice(1, 6).map((value, index) => (
+            {newsClean.slice(0, 5).map((value, index) => (
               <NewsCard content={value} locale="en" key={index + "newsCard"} />
             ))}
           </div>
@@ -437,7 +438,7 @@ export default async function SinglePost({
         <div className="col-span-12 lg:col-span-4">
           <h2 className="header-section pb-3">Events</h2>
           <div className="w-full space-y-6">
-            {eventClean.slice(1, 6).map((value, index) => (
+            {eventClean.slice(0, 5).map((value, index) => (
               <EventsCardHome
                 content={value}
                 locale="en"
