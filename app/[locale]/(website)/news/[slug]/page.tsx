@@ -16,6 +16,7 @@ import SectionBanter from "@/components/custom beta components/SectionBanter";
 import { Metadata, ResolvingMetadata } from "next";
 import { FieldsPostRaw, Item, NewsRawFields } from "@/app/interfaces";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import local from "next/font/local";
 type Props = {
   params: { slug : string, locale: string };
 
@@ -115,7 +116,7 @@ export default async function page({
   return (
 <>
   <div className="">
-    <ArticleBanter post={cleanPost} />
+    <ArticleBanter post={cleanPost} locale ={params.locale} />
   </div>
 
   {relatedPostsCleaned.length > 0 && (
@@ -137,7 +138,7 @@ export default async function page({
 
       <div className="grid md:grid-cols-2 gap-4">
         {relatedPostsCleaned.map((post) => (
-          <PostCard key={post.name} content={post} />
+          <PostCard key={post.name} content={post} isImage={false} isTitle={false} />
         ))}
       </div>
     </>
