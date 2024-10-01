@@ -138,7 +138,7 @@ export default async function page({
 
       <div className="grid md:grid-cols-2 gap-4">
         {relatedPostsCleaned.map((post) => (
-          <PostCard key={post.name} content={post} isImage={false} isTitle={false} />
+          <PostCard key={post.name} content={post} noImage={true} noTitle={true} />
         ))}
       </div>
     </>
