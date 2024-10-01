@@ -128,7 +128,7 @@ export default async function RootLayout({
                        
                           <ContentContainer>
                             <Suspense fallback={<LoadingLogo />}>
-                              <div className="px-4 min-h-screen">{children}</div>
+                              <div className=" min-h-screen">{children}</div>
                
                             </Suspense>
                           </ContentContainer>

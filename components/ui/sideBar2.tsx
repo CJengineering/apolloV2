@@ -16,7 +16,7 @@
 
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useAppProvider } from "@/app/app-provider";
 import { useSelectedLayoutSegments } from "next/navigation";
 import { Transition } from "@headlessui/react";
@@ -493,6 +493,41 @@ export default function Sidebar2() {
   //     </div>
   //   ));
   // };
+
+  // testing the size of the side bar 
+
+  const [divSizes, setDivSizes] = useState<{ sidebar: number; content: number }>({
+    sidebar: 0,
+    content: 0,
+  });
+
+  const sidebarRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // This useEffect will calculate the width of the sidebar and content divs
+  useEffect(() => {
+    const updateSizes = () => {
+      const sidebarHeight = sidebarRef.current?.offsetHeight || 0;
+      const contentWidth = contentRef.current?.offsetWidth || 0;
+
+      setDivSizes({
+        sidebar: sidebarHeight,
+        content: contentWidth,
+      });
+    };
+
+    // Call the function to set the initial sizes
+    updateSizes();
+
+    // Add an event listener to update sizes on window resize
+    window.addEventListener('resize', updateSizes);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', updateSizes);
+    };
+  }, []);
+
   const renderNavItems = (navItems: NavItem[]) => {
     return navItems.map((item, index) => (
       <div className="mt-3" key={item.name + "-top" + index}>
@@ -539,7 +574,7 @@ export default function Sidebar2() {
   };
 
   return (
-    <div className=" overflow-y-auto  lg:max-h-screen ">
+    <div ref={sidebarRef} className=" overflow-y-auto side-scroll-bar  lg:max-h-screen ">
       {/* Backdrop This is for Mobile */}
       <Transition
         className="md:hidden  fixed sm:static inset-0 z-0 bg-opacity-20 transition-opacity"
@@ -587,6 +622,7 @@ export default function Sidebar2() {
                 >
                   Community
                 </NavLink>
+                
                 {/* this is a component that is for the dropdown only and has a logo you can find this component on top */}
                 <NavGroup
                   title="About"

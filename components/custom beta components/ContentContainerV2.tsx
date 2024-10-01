@@ -55,15 +55,15 @@ export default function ContentContainer({
 
   return (
     <div
-      className={`mx-auto md:mt-8  2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px] px-4 lg:px-0`}
+      className={`mx-auto md:mt-8 bg-slate-200  2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px] `}
     >
-      <div className="flex mb-6">
-        <div className="w-[250px] hidden  lg:block">
-          <div className="sticky hidden md:block top-[64px]">
+      <div className="flex mb-6 ">
+        <div className=" hidden  lg:block">
+          <div className="sticky w-[250px] hidden md:block top-[64px] ">
             <Sidebar2 />
           </div>
         </div>
-        <div className="relative 2xl:max-w-[1313px] xl:max-w-[1030px] lg:max-w-[774px] lg:pl-4">
+        <div className="relative flex-grow 2xl:max-w-[1313px] xl:max-w-[1030px] lg:max-w-[774px] ">
           {children}
         </div>
       </div>
