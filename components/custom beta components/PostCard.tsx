@@ -6,18 +6,18 @@ import { is } from "cypress/types/bluebird";
 
 export default function PostCard({
   content,
-  isImage,
-  isTitle,
+  noImage,
+  noTitle,
 }: {
   content: PostFieldsCleaned;
-  isImage: boolean;
-  isTitle: boolean;
+  noImage?: boolean;
+  noTitle?: boolean;
 }) {
   return (
     <Link href={content.slug} className="group relative block overflow-hidden">
       <article className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center pb-2">
         {/* Image Column */}
-        {isImage && (
+        {!noImage && (
           <div
             className="col-span-1 relative hidden md:block"
             style={{ paddingBottom: "100%" }}
@@ -34,7 +34,7 @@ export default function PostCard({
 
         {/* TEXT COLUMN START */}
         <div className="col-span-2 flex flex-col justify-center">
-          {isTitle && ( <div className="text-left">
+          {!noTitle && ( <div className="text-left">
             <p>
               {content.programme.shortname && (
                 <span className="sans-serif text-2xl font-bold">
