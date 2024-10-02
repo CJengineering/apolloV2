@@ -36,8 +36,13 @@ export async function generateMetadata(
   const memberRaw :Item<FieldsPostRaw>[] = teamMembersRaw.filter(
     (item) => item.fieldData.slug === slug
   );
-  const name = locale === 'ar'? memberRaw[0].fieldData["arabic-title"] : memberRaw[0].fieldData.name;
-  const description = 'Latest news ';
+  const seoTitleArabic = memberRaw[0].fieldData["seo-title-arabic"] ? memberRaw[0].fieldData["seo-title-arabic"] : '';
+  const seoTitleEnglish = memberRaw[0].fieldData["seo-title"] ? memberRaw[0].fieldData["seo-title"] : '';
+  const name = locale === 'ar'? seoTitleArabic : seoTitleEnglish;
+
+  const seoDescriptionArabic = memberRaw[0].fieldData["seo-title-arabic"] ? memberRaw[0].fieldData["seo-meta-arabic"] : '';
+  const seoDescriptionEnglish = memberRaw[0].fieldData["seo-meta"] ? memberRaw[0].fieldData["seo-meta"] : '';
+  const description = locale === 'ar'? seoDescriptionArabic : seoDescriptionEnglish;
   // optionally access and extend (rather than replace) parent metadata
   
  
