@@ -23,13 +23,14 @@ const author = {
   order: 1,
 };
 export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
   title: "Team",
   description:
     "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",
   ogType: "website",
   ogImage: 'https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61e6f19f486905791dcc1b27_JAMEEL_FAMILY_ARCHIVE_PHOTO.jpg',
   twitterCard: "summary_large_image",
-  keywords: ["Community Jameel", "Jameel", "Community"],
+  keywords: ["Community Jameel", "Jameel", "Community", "Team"],
 
 })
 export default async function PeopleContent({

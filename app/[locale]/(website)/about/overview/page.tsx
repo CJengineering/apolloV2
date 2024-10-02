@@ -7,6 +7,7 @@ import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 
 export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
   title: "Overview",
   description:
     "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",
@@ -14,7 +15,7 @@ export const metadata: Metadata = customMetaDataGenerator({
   ogImage:
     "https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61e6a0e2e87bc0f8945a1f63_COPYRIGHT.jpg",
   twitterCard: "summary_large_image",
-  keywords: ["Community Jameel", "Jameel", "Community"],
+  keywords: ["Community Jameel", "Jameel", "Community", "Who we are", "Overview"],
 });
 
 export default async function OverviewContent({
