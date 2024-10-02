@@ -327,7 +327,7 @@ export default async function SinglePost({
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
       </div>
-      <div className="flex justify-center pb-2">
+      <div className="flex justify-center">
         <div className="hidden sm:block relative w-full">
           <Image
             className="h-full w-full object-cover"
@@ -386,7 +386,7 @@ export default async function SinglePost({
       {/* 3 column system */}
 
 
-      <div className="w-full grid lg:grid-cols-12 lg:gap-x-12">
+      <div className="w-full grid lg:grid-cols-12 lg:gap-x-12 pb-9">
         {/* News Column */}
         <div className="col-span-12 lg:col-span-4">
           <h2 className="header-section pb-3">News</h2>
