@@ -54,6 +54,7 @@ export async function generateStaticParams() {
 }
 
 export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
   title: "News",
   description:
     "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",

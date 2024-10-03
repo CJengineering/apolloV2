@@ -30,6 +30,7 @@ import LanguageChanger from "@/components/custom beta components/LanguageChanger
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
 export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
   title: "Our Community",
   description:
     "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",

@@ -43,6 +43,7 @@ export async function generateMetadata(
   
  
   return customMetaDataGenerator({
+    useRawTitle: true,
       title: name,
       description: description,
       ogImage: memberRaw[0].fieldData.photo.url,
