@@ -32,12 +32,17 @@ export async function generateMetadata(
   const memberRaw :Item<NewsRawFields>[] = teamMembersRaw.filter(
     (item) => item.fieldData.slug === slug
   );
-  const name = locale === 'ar'? memberRaw[0].fieldData["arabic-title"] : memberRaw[0].fieldData.name;
-  const description = memberRaw[0].fieldData.summary;
+  const seoTitleArabic = memberRaw[0].fieldData["arabic-title"] ? memberRaw[0].fieldData["arabic-title"] : '';
+  const seoTitleEnglish = memberRaw[0].fieldData.name ? memberRaw[0].fieldData.name : '';
+  const descriptionArabic = memberRaw[0].fieldData["summary-arabic"] ? memberRaw[0].fieldData["summary-arabic"] : '';
+  const descriptionEnglish = memberRaw[0].fieldData.summary ? memberRaw[0].fieldData.summary : '';
+  const name = locale === 'ar'? seoTitleArabic : seoTitleEnglish;
+  const description = locale=== 'ar'? descriptionArabic : descriptionEnglish;
   // optionally access and extend (rather than replace) parent metadata
   
  
   return customMetaDataGenerator({
+    useRawTitle: true,
       title: name || '',
       description: description,
       ogImage: memberRaw[0].fieldData["hero-image"]?.url || '',
