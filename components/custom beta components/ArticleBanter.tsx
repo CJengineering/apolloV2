@@ -44,7 +44,7 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
           <div className="">
             <div className="mx-auto">
               <div className="pt-6">
-                <div className="sans-serif text-lg">{post.datePublished}</div>
+                <div className="sans-serif text-lg">{locale === 'ar' ? post.datePublishedArabic : post.datePublished}</div>
               </div>
               <div>
                 <div className="sans-serif text-lg">

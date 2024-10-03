@@ -6,6 +6,7 @@ import {
   ProgrammeRawFields,
   PeopleRawFields,
 } from "@/app/interfaces";
+import { formatDateArabic } from "../utils/fromDateArabic";
 function calculateReadTime(text: string): string {
   const wordsPerMinute = 200;
   const numberOfWords = text ? text.split(/\s+/).length : 0;
@@ -129,9 +130,11 @@ export default function eventMapper(
     signupEmbed: item.fieldData["signup-embed"] || "",
     shortDescription2: item.fieldData["short-description-2"] || "",
     eventDate: formatDate(item.fieldData["event-date"] || ""),
+    eventDateArabic: formatDateArabic(item.fieldData["event-date"] || ""),
     endDate: formatDate(
       item.fieldData["end-date"] || item.fieldData["event-date"] || ""
     ),
+    endDateArabic: formatDateArabic(item.fieldData["end-date"] || ""),
     time: item.fieldData.time || "",
     address: item.fieldData.address || "",
     locationLink: item.fieldData["location-link"] || "",

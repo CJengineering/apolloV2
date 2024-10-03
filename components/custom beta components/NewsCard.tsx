@@ -52,7 +52,7 @@ export default function NewsCard({
             {/* PUBLISHED DATE */}
             <div className="text-left">
             <p className="sans-serif text-sm">
-              <time dateTime={content.datePublished}>{content.datePublished}</time>
+              <time dateTime={content.datePublished}>{locale==='ar' ?content.datePublishedArabic:content.datePublished}</time>
             </p>
           </div>
 
