@@ -45,6 +45,7 @@ import EventsDisplay from "./event-display";
 import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
   title: "Events",
   description:
     "Community Jameel hosts and collaborates on events across the globe. Check out what's on and look back at some of our past events.",

@@ -6,6 +6,19 @@ import Image from "next/image";
 import ankurImage from '@/public/images/Ankur Background Webpage.jpg'
 import React from "react";
 import TrailerModalButton from "@/components/CJ-components/components-CJ/custom components/TrailerModalButton";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Ankur",
+  description:
+    "Community Jameel hosts and collaborates on events across the globe. Check out what's on and look back at some of our past events.",
+  ogType: "website",
+  ogImage: 'https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61e6f19f486905791dcc1b27_JAMEEL_FAMILY_ARCHIVE_PHOTO.jpg',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community"],
+
+})
 
 export default async function AnkurPage({
   params,

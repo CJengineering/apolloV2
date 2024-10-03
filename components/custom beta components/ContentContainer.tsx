@@ -63,11 +63,11 @@ export default function ContentContainer({
             <Sidebar2 />
           </div>
         </div>
-        <div className="relative 2xl:max-w-[1313px] xl:max-w-[1030px] lg:max-w-[774px] lg:pl-4">
+        <div className="relative flex-grow 2xl:max-w-[1313px] xl:max-w-[1030px] lg:max-w-[774px] lg:pl-4">
           {children}
         </div>
       </div>
-          <Footer />
+      <Footer />
     </div>
   );
 }
