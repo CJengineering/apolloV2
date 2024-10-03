@@ -1,27 +1,16 @@
 import { notFound } from "next/navigation";
-import Hamburger from "@/components/ui/hamburger";
-import Footer from "@/components/ui/footer";
-import HeroBanter from "@/components/custom beta components/HeroBanter";
+
 import image from "@/public/images/mapCJ.webp";
-import fady from "@/public/images/fadyCJ.jpeg";
-import SectionBanter from "@/components/custom beta components/SectionBanter";
+
 import PersonalCard from "@/components/custom beta components/PersonCard";
-import Article from "@/components/mdx/article";
+
 import { getData } from "@/functions/api/getData";
 import teamProfileMapper from "@/functions/transformers/teamProfileMapper";
-import { cp } from "fs";
-import MainContainer from "@/components/custom beta components/MainContainer";
-import ContentContainer from "@/components/custom beta components/ContentContainer";
-import Head from "next/head";
+
 import { Metadata } from "next";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 
-const author = {
-  name: "First Lastname",
-  imageUrl: fady.src,
-  position: "Senior position",
-  order: 1,
-};
+
 export const metadata: Metadata = customMetaDataGenerator({
   useRawTitle: true,
   title: "Team",

@@ -215,6 +215,7 @@ export default async function SinglePost({
   const categroriesId = getIdByDisplayName("Categories");
 
   const programmeRaw = await getData(porgrammeId);
+  
   const peopleRaw = await getData(peopleId);
   const featureRaw = await getData(featureId);
   const publicationRaw = await getData(publicationId);
@@ -299,9 +300,12 @@ export default async function SinglePost({
   const postsAgnostic = postsClean.map((item) => agnosticMapper(item));
   const newsAgnostic = newsClean.map((item) => agnosticMapper(item));
   const eventsAgnostic = eventClean.map((item) => agnosticMapper(item));
+  const fiveFirstPosts =postsClean.slice(0, 5);
+  const fiveFirstNews = newsClean.slice(0, 5);
+  const fiveFirstEvents = eventClean.slice(0, 5);
   return (
     <>
-      {JSON.stringify(eventRaw.items[0])}
+
 
       <div className="pt-20 sm:pt-20 flex flex-col justify-center">
         <div className="w-full lg:w-2/3 mx-auto">
@@ -392,7 +396,7 @@ export default async function SinglePost({
         <div className="col-span-12 lg:col-span-4">
           <h2 className="header-section pb-3">News</h2>
           <div className="w-full space-y-6">
-            {postsClean.slice(0, 5).map((value, index) => (
+            {fiveFirstPosts.map((value, index) => (
               <PressCardHome
                 content={value}
                 locale="en"
@@ -417,7 +421,7 @@ export default async function SinglePost({
         <div className="col-span-12 lg:col-span-4">
           <h2 className="header-section pb-3">Press</h2>
           <div className="w-full space-y-6">
-            {newsClean.slice(0, 5).map((value, index) => (
+            {fiveFirstNews.slice(0, 5).map((value, index) => (
               <NewsCard content={value} locale="en" key={index + "newsCard"} />
             ))}
           </div>
@@ -438,7 +442,7 @@ export default async function SinglePost({
         <div className="col-span-12 lg:col-span-4">
           <h2 className="header-section pb-3">Events</h2>
           <div className="w-full space-y-6">
-            {eventClean.slice(0, 5).map((value, index) => (
+            {fiveFirstEvents.map((value, index) => (
               <EventsCardHome
                 content={value}
                 locale="en"
