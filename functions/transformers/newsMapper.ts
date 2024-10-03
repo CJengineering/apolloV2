@@ -9,6 +9,7 @@ import {
   EventFieldData,
 } from "@/app/interfaces";
 import { formatDate } from "../utils/formDate";
+import { formatDateArabic } from "../utils/fromDateArabic";
 
 export default function newsMapper(
   item: Item<NewsRawFields>,
@@ -132,6 +133,7 @@ export default function newsMapper(
     featured: fieldData.featured || false,
     externalLink: fieldData["external-link"] || "",
     datePublished: formatDate(fieldData["date-published"] || "") || "",
+    datePublishedArabic: formatDateArabic(fieldData["date-published"] || "") || "",
     sources: source,
     programme: programme,
     programmeS: relatedProgrammes,

@@ -267,6 +267,8 @@ export interface EventFieldDataCleaned {
   signupEmbed: string;
   shortDescription2: string;
   eventDate: string;
+  eventDateArabic: string;
+  endDateArabic: string;
   endDate: string;
   time: string;
   address: string;
@@ -616,6 +618,7 @@ export interface PostFieldsCleaned {
   sources: RelatedColection;
   openGraphImage: string;
   datePublished: string;
+  datePublishedArabic: string;
   location: string;
   locationArabic: string;
   seoTitle: string;
@@ -830,6 +833,7 @@ export interface NewsCleanedFields {
   featured: boolean;
   externalLink: string;
   datePublished: string;
+  datePublishedArabic: string;
   sources: RelatedColection;
   programme: RelatedColection;
   programmeS: RelatedColection[];
