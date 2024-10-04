@@ -8,12 +8,18 @@ export default function CardProgramme({
   imageUrl,
   programmeTitle,
   programmeType,
+  arabicProgrammeTitle,
+  arabicProgrammeType,
   altText,
   slug,
+  locale,
   order
 }: CardProgrammeProps) {
+  const programmeTitleArabic =  arabicProgrammeTitle
+  const programmeTypeArabic = arabicProgrammeType
   return (
-    <Link href={`/programmes/${slug}`} className="relative w-full">
+    <Link href={`/programmes/${slug}`} className={`relative w-full ${locale ==='ar' ?  'rtl':''}` }>
+   
       <div className="aspect-square overflow-hidden group">
         <Image
           className="h-full w-full object-cover"
@@ -31,10 +37,10 @@ export default function CardProgramme({
 
         <div className="absolute bottom-6 left-6 right-6">
           <div className="sans-serif text-2xl text-white lg:text-4xl group-hover:underline">
-            {programmeTitle}
+            {locale==='ar' ? programmeTitleArabic : programmeTitle}
           </div>
           <div className="mono text-medium uppercase text-white">
-            {programmeType}
+            {locale === 'ar' ? programmeTypeArabic : programmeType}
           </div>
         </div>
       </div>
