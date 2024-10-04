@@ -29,6 +29,7 @@ import filterRelatedFeatures from "@/functions/filters/filterRelatedFeatures";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
+import { ArabicProvider } from "@/components/custom beta components/ArabicContext";
 export const metadata: Metadata = customMetaDataGenerator({
   useRawTitle: true,
   title: "Our Community",
@@ -47,6 +48,7 @@ export default async function SinglePost({
   params: {
     topic: string;
     slug: string;
+    locale: string;
   };
 }) {
   const post = {
@@ -115,19 +117,21 @@ export default async function SinglePost({
 
   return (
     <>
-  
-
-      <div className="flex justify-between items-center pb-10 pt-20 lg:pb-10 lg:pt-10">
-   
-      <h1 className="header-page lg:text-left">
-        Community
-      </h1>
-      <LanguageChanger></LanguageChanger>
-      </div>
-      <div className="sm:w-full ">
-        <TabsCJ rowData={dataForTable} cardData={cardData} />
-      </div>
- 
+      <ArabicProvider locale={params.locale}>
+        <div
+          className={`flex justify-between items-center pb-10 pt-20 lg:pb-10 lg:pt-10 ${
+            params.locale === "ar" ? "rtl" : ""
+          }`}
+        >
+          <h1 className="header-page lg:text-left">
+            {params.locale === "ar" ? "المجتمع" : "Community"}
+          </h1>
+          <LanguageChanger></LanguageChanger>
+        </div>
+        <div className="sm:w-full ">
+          <TabsCJ rowData={dataForTable} cardData={cardData} />
+        </div>
+      </ArabicProvider>
     </>
   );
 }

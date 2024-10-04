@@ -18,6 +18,9 @@ export interface ButtonCJProps {
 }
 export interface CardProgrammeProps {
   imageUrl: string;
+  locale?:string
+  arabicProgrammeTitle?: string;
+  arabicProgrammeType?: string;
   programmeTitle: string;
   programmeType: string;
   order: string;

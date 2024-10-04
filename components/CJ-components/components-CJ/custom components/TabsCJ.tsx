@@ -8,17 +8,22 @@ import { getCookie } from "@/functions/utils/cookies";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import { useParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { useArabicContext } from "@/components/custom beta components/ArabicContext";
 const tableCount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 interface TabsCJProps {
   rowData: RowData[];
   cardData: CardProgrammeProps[];
+  
 }
 export default function TabsCJ({ rowData, cardData }: TabsCJProps) {
+
+  const {locale} = useArabicContext()
+
   const [screenWidth, setScreenWidth] = useState(0);
   const parentRef = useRef<HTMLDivElement>(null)
   const [parentWidth, setParentWidth] = useState(0);
   const params = useParams();
-  const locale = params.locale as string 
+  //const locale = params.locale as string 
   useEffect(() => {
     // Set the screen width when the component mounts
     const updateWidth = () => {
@@ -66,11 +71,14 @@ export default function TabsCJ({ rowData, cardData }: TabsCJProps) {
             {cardData.map((item, index) => (
               <CardProgramme
                 key={index}
+                locale ={locale}
                 imageUrl={item.imageUrl}
                 programmeTitle={item.programmeTitle}
                 programmeType={""}
                 slug={item.slug}
-                altText={item.altText}    
+                altText={item.altText}   
+                arabicProgrammeTitle={item.arabicProgrammeTitle}
+                arabicProgrammeType={item.arabicProgrammeType} 
                 order ={item.order}        />
             ))}
           </div>

@@ -15,14 +15,14 @@ export function middleware(request: NextRequest) {
   const host = request.headers.get('host')
 
   // Check if the request is for '/ar/about/overview' and set the locale cookie
-  if (pathname === '/ar/about/overview') {
+  // if (pathname === '/ar/about/overview') {
     
 
-    // Create a response with a redirect
-    const response = NextResponse.redirect(new URL('/about/overview', request.url));
-    response.cookies.set('NEXT_LOCALE', 'en', { path: '/' }); // Ensure the cookie is set for all paths
-    return response;
-  }
+  //   // Create a response with a redirect
+  //   const response = NextResponse.redirect(new URL('/about/overview', request.url));
+  //   response.cookies.set('NEXT_LOCALE', 'en', { path: '/' }); // Ensure the cookie is set for all paths
+  //   return response;
+  // }
   if (redirects[pathname]) {
     const redirectUrl = redirects[pathname];
 
