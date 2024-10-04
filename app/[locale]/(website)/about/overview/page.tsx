@@ -162,13 +162,15 @@ export default async function OverviewContent({
     );
 
   return (
-    < div className="min-h-[110vh]">
+    <div className="min-h-[110vh]">
       <div className="w-full">
-        <div>
-          <h1 className="header-page pb-0 pt-20 lg:pb-0 lg:pt-10 lg:text-left">
+        <div className="flex items-center  ">
+          <h1 className="header-page pb-0 pt-20 lg:pb-0 mr-8 lg:pt-10 lg:text-left">
             Overview
           </h1>
-          <LanguageChanger />
+          <div className="pb-0 pt-20 lg:pb-0 lg:pt-10 ">
+            <LanguageChanger />
+          </div>
         </div>
         <article className="leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
           <div className="text-rich-text w-richtext">
