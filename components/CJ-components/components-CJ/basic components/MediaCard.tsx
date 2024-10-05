@@ -75,7 +75,7 @@ const MediaCard = ({
           {/* TITLE OF POST ITEM END */}
 
           {/* PUBLISHED DATE AND SOURCES CONTAINER */}
-          <div className="flex space-x-2">
+          <div className="">
             {/* PUBLISHED DATE */}
             <div className="text-left">
               <p className="sans-serif font-normal text-sm">
@@ -83,9 +83,9 @@ const MediaCard = ({
               </p>
             </div>
             {/* SOURCES */}
-            <div className="text-left">
+            {/* <div className="text-left">
               <p className="sans-serif font-normal text-sm">|</p>
-            </div>
+            </div> */}
             <div className="text-left">
               <p className="sans-serif font-normal text-sm">{source}</p>
             </div>

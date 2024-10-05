@@ -128,7 +128,7 @@ export default async function SinglePost({
           </h1>
           <LanguageChanger></LanguageChanger>
         </div>
-        <div className="sm:w-full ">
+        <div className="sm:w-full pb-12">
           <TabsCJ rowData={dataForTable} cardData={cardData} />
         </div>
       </ArabicProvider>

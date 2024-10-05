@@ -37,6 +37,7 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import Image from "next/image";
 
 export default async function JpalPage({
   params,
@@ -82,10 +83,10 @@ export default async function JpalPage({
   {
     /**Get the single programme by id from webflow */
   }
-  const jwafsId = "61ee828a15a3182b72bde63d";
+  const programmeId = "61ee828a15a3182b72bde63d";
   const jwafsSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
-    (item) => item.id === jwafsId
+    (item) => item.id === programmeId
   );
 
   {
@@ -206,11 +207,24 @@ export default async function JpalPage({
   return (
     <>
       <div className="pt-12 ">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+
+      <div className="flex flex-col text-left">
+  <div className="w-full flex pb-6 lg:pb-12">
+
+<img className="dark:hidden" src="/images/labs/j-wafs/J-WAFS_DARK_SVG_1000WIDTH.png" width="360"></img>
+<img className="hidden dark:block" src="/images/labs/j-wafs/J-WAFS_LIGHT_SVG_1000WIDTH.png" width="360"></img>
+  </div>
+                 
+  <div className="pb-6">
+    <h1 className="header-article">MIT Abdul Latif Jameel Water and Food Systems Lab</h1>
+  </div>
+
+  <div className="pb-12">
+    <p className="prose prose-xl leading-normal dark:text-white">
+      J-PAL is a global research centre aiming to reduce poverty through evidence-based policy. With over 290 affiliated professors and 8 offices worldwide, J-PAL conducts randomised impact evaluations to inform policies that have reached over 600 million people. In 2019, J-PAL&apos;s co-founders Esther Duflo, Abhijit Banerjee, and affiliate Michael Kremer won the Nobel Prize for Economics.
+    </p>
+  </div>
+</div>
 
         <div className="">
           <PostAccordion title={"News"}>
