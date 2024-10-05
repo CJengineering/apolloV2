@@ -59,16 +59,6 @@ const cardData = [
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/labs/j-pal/Evidence_To_Policy.jpg",
-    alt: "Evidence to policy",
-    title: "Evidence to Policy",
-    subtitle:
-      "Evidence from randomized evaluations is changing how we understand and address problems related to poverty. Policymakers, practitioners, and funders worldwide are increasingly applying this learning to social policies and programs.",
-    link: "https://www.povertyactionlab.org/evidence-policy",
-    openInNewTab: false,
-    clickAction: "External link",
-  },
-  {
     imageUrl: "/images/labs/j-pal/ESII.jpg",
     alt: "European Social Inclusion Initiatve",
     title: "European Social Inclusion Initiatve (ESII)",
@@ -91,7 +81,7 @@ const cardData = [
   {
     imageUrl: "/images/labs/j-pal/air-water-labs.jpg",
     alt: "Air and Water Labs",
-    title: "Solutions and  Advancements through Research for Air and Water (SARWA)",
+    title: "J-PAL Air and Water Labs",
     subtitle:
       "Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.",
     link: "https://www.povertyactionlab.org/page/air-and-water-labs",
@@ -276,10 +266,10 @@ export default async function JpalPage({
           locale={params.locale}
         /> */}
 
-       <ContainerFixedWidth>
-       <div className="flex flex-col items-center mx-auto text-center">
-  <div className="w-full flex justify-center pb-6 lg:pb-12">
-    <img src="/images/labs/j-pal/J-PAL_ORIGINAL_DARK.png" alt="Description" width={500} height={300} />
+
+  <div className="flex flex-col text-left">
+  <div className="w-full flex pb-6 lg:pb-12">
+    <img src="/images/labs/j-pal/J-PAL_ORIGINAL_DARK.png" alt="Description" width={360} />
   </div>
 
   <div className="pb-6">
@@ -293,7 +283,7 @@ export default async function JpalPage({
   </div>
 </div>
 
-        <div>
+        <div className="w-2/3">
         <ResponsiveYouTubeEmbed embedId="4FLeNSqLxdQ?si=IBMZ4AHpawegC0e_" />
         </div>
         
@@ -336,7 +326,8 @@ export default async function JpalPage({
           <h2 className="header-section">Select initiatives</h2>
         </div>
 
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+         
           {cardData.map((card, index) => (
             <HomeCard
               key={index}
@@ -349,6 +340,7 @@ export default async function JpalPage({
               clickAction={card.clickAction || ""}
             />
           ))}
+
       </div>
 
         <div className="">
@@ -416,7 +408,7 @@ export default async function JpalPage({
             </div>
           </PostAccordion>
         </div>
-        </ContainerFixedWidth>
+
         {/* <div>
           <h2> related photos by programme</h2>
           <div>

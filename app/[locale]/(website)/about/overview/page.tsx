@@ -3,7 +3,7 @@ import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 
@@ -58,25 +58,25 @@ export default async function OverviewContent({
     return (
       <div className="rtl min-h-[110vh]">
         <div className="w-full">
-          <div className="flex items-center ">
-            <h1 className="header-page pb-0 pt-20 lg:pb-0 lg:pt-10 lg:text-right ml-8">
+          <div className="flex justify-between items-center pb-6 mt-20 lg:mt-10 lg:pb-0">
+            <h1 className="header-page sans-serif-ar lg:text-left">
               نظرة عامة
             </h1>
-            <div className="pb-0 pt-20 lg:pb-0 lg:pt-10 ">
+            <div className="">
               <LanguageChanger />
             </div>
           </div>
-          <article className="leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
+          <article className="leading-7 text-black dark:text-white prose prose-lg font-normal dark:prose-invert">
             <div className="text-rich-text w-richtext">
-              <p className="prose prose-2xl sans-serif leading-normal text-black dark:text-white ">
+              <p className="prose prose-2xl sans-serif-ar leading-normal text-black dark:text-white ">
                 مجتمع جميل يطور العلم والتعلم من أجل ازدهار المجتمعات.
               </p>
-              <p className="prose prose-lg sans-serif leading-normal  dark:text-white">
+              <p className="prose prose-lg sans-serif-ar leading-normal  dark:text-white">
                 منظمة عالمية مستقلة، تأسس مجتمع جميل في عام 2003 لمواصلة تقاليد
                 العمل الخيري وخدمة المجتمع التي أسستها عائلة جميل في المملكة
                 العربية السعودية عام 1945.
               </p>
-              <p className="prose prose-lg sans-serif leading-normal dark:text-white">
+              <p className="prose prose-lg sans-serif-ar leading-normal dark:text-white">
                 نحن ندعم العلماء والعاملين في المجال الإنساني والتقنيين
                 والمبدعين لفهم التحديات الإنسانية الملحة ومعالجتها. وقد أدى
                 العمل الذي مكّنه مجتمع جميل ودعمه إلى تحقيق إنجازات مهمة، بما في
@@ -99,7 +99,7 @@ export default async function OverviewContent({
                 </a>{" "}
                 (J-PAL).
               </p>
-              <p className="prose prose-lg sans-serif leading-normal  dark:text-white">
+              <p className="prose prose-lg sans-serif-ar leading-normal  dark:text-white">
                 مجتمع جميل منفصل ومتميز<strong> </strong>
                 عن{" "}
                 <a href="https://www.communityjameelsaudi.org/">
@@ -108,10 +108,10 @@ export default async function OverviewContent({
                 ، وهي منظمة مجتمع مدني مسجلة برقم 59 لدى وزارة الموارد البشرية
                 والتنمية الاجتماعية في المملكة العربية السعودية.{" "}
               </p>
-              <p className="prose sans-serif prose-2xl text-black font-medium dark:text-white">
+              <p className="prose sans-serif-ar prose-2xl text-black font-medium dark:text-white">
                 تقليد متبع منذ عام 1945...
               </p>
-              <p className="prose prose-lg sans-serif leading-normal  dark:text-white">
+              <p className="prose prose-lg sans-serif-ar leading-normal  dark:text-white">
                 في عام 2020، احتفلت عائلة جميل بمرور 75 عاما على الأعمال
                 التجارية والخيرية والالتزام بالنهوض بأهداف الأمم المتحدة للتنمية
                 المستدامة. للمزيد حول السنوات ال 75 الماضية، ورؤية الأسرة
@@ -133,30 +133,30 @@ export default async function OverviewContent({
           <div className="flex justify-start py-6">
             <div className="flex flex-col lg:flex-row justify-between items-start w-full max-w-lg">
               <Link href="/community" className="flex items-center group">
-                <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline ">
+                <p className="prose sans-serif-ar prose-2xl dark:text-white group-hover:underline ">
                   المجتمع
                 </p>
-                <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
+                <ArrowLeftIcon className="w-5 h-5 mr-2 text-black dark:text-white" />
               </Link>
               <Link href="/about/team" className="flex items-center group">
-                <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline">
+                <p className="prose sans-serif-ar prose-2xl dark:text-white group-hover:underline">
                   الفريق
                 </p>
-                <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
+                <ArrowLeftIcon className="w-5 h-5 mr-2 text-black dark:text-white" />
               </Link>
               <Link
                 href="https://jameel75.com/en"
                 target="_blank"
                 className="flex items-center group"
               >
-                <p className="prose sans-serif prose-2xl  dark:text-white group-hover:underline">
+                <p className="prose sans-serif-ar prose-2xl dark:text-white group-hover:underline">
                   جميل 75
                 </p>
-                <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
+                <ArrowLeftIcon className="w-5 h-5 mr-2 text-black dark:text-white" />
               </Link>
             </div>
           </div>
-        </article>
+        </article>  
         <div className="py-24"></div>
       </div>
     );
@@ -164,11 +164,11 @@ export default async function OverviewContent({
   return (
     <div className="min-h-[110vh]">
       <div className="w-full">
-        <div className="flex items-center  ">
-          <h1 className="header-page pb-0 pt-20 lg:pb-0 mr-8 lg:pt-10 lg:text-left">
+        <div className="flex justify-between items-center mt-20 lg:mt-10 lg:pb-0">
+          <h1 className="header-page mr-8 lg:text-left">
             Overview
           </h1>
-          <div className="pb-0 pt-20 lg:pb-0 lg:pt-10 ">
+          <div className="">
             <LanguageChanger />
           </div>
         </div>
@@ -258,7 +258,7 @@ export default async function OverviewContent({
               target="_blank"
               className="flex items-center group"
             >
-              <p className="prose sans-serif prose-2xl  dark:text-white group-hover:underline">
+              <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline">
                 Jameel 75
               </p>
               <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
