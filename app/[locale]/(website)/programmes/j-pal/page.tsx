@@ -1,6 +1,6 @@
 import MediaCard from "@/components/CJ-components/components-CJ/basic components/MediaCard";
 import TableRowSingle from "@/components/CJ-components/components-CJ/custom components/TableRowSIngle";
-
+import { CardHorizontalImageProps, RowData, StatProps } from "@/app/interfaces";
 import EventCard from "@/components/custom beta components/EventCard";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import NewsCard from "@/components/custom beta components/NewsCard";
@@ -43,7 +43,6 @@ import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
-
 
 // START THE DATA FOR CARDS
 
@@ -269,18 +268,19 @@ export default async function JpalPage({
 
   <div className="flex flex-col text-left">
   <div className="w-full flex pb-6 lg:pb-12">
-    <img src="/images/labs/j-pal/J-PAL_ORIGINAL_DARK.png" alt="Description" width={360} />
+  <img className="dark:hidden" src="/images/labs/j-pal/J-PAL_ORIGINAL_DARK.png" width="360"></img>
+  <img className="hidden dark:block" src="/images/labs/j-pal/J-PAL_ORIGINAL_LIGHT.png" width="360"></img>
   </div>
 
   <div className="pb-6">
-    <h1 className="header-article">Abdul Latif Jameel Poverty Action Lab (J-PAL)</h1>
+    <h1 className="header-article">{singleProgramme.fieldData.name}</h1>
   </div>
 
-  <div className="pb-12">
-    <p className="prose prose-xl leading-normal">
-      J-PAL is a global research centre aiming to reduce poverty through evidence-based policy. With over 290 affiliated professors and 8 offices worldwide, J-PAL conducts randomised impact evaluations to inform policies that have reached over 600 million people. In 2019, J-PAL&apos;s co-founders Esther Duflo, Abhijit Banerjee, and affiliate Michael Kremer won the Nobel Prize for Economics.
-    </p>
-  </div>
+  <div className="pb-12 w-2/3">
+  <p className="prose prose-xl leading-normal dark:text-white"/>
+  The Abdul Latif Jameel Poverty Action Lab (J-PAL) is a global research centre aiming to reduce poverty through evidence-based policy. With over 290 affiliated professors and 8 offices worldwide, J-PAL conducts randomised impact evaluations to inform policies that have reached over 600 million people. In 2019, J-PAL’s co-founders Esther Duflo, Abhijit Banerjee, and affiliate Michael Kremer won the Nobel Prize for Economics.
+</div>
+
 </div>
 
         <div className="w-2/3">
@@ -342,6 +342,9 @@ export default async function JpalPage({
           ))}
 
       </div>
+      <div className="w-full mt-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
 
         <div className="">
           <PostAccordion title={"News"}>
