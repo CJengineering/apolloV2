@@ -14,8 +14,8 @@ import HomePageBeta from "@/components/custom beta components/homePageBeta";
 import TrandingTopics from "@/components/custom beta components/trandingTopics";
 import EventSection from "@/components/custom beta components/eventSection";
 import HeroBanter from "@/components/custom beta components/HeroBanter";
-import image from "@/public/images/mapCJ.webp";
-import porgrammeImage from "@/public/images/blueCJMap.png";
+import image from "@/public/images/to_sort/mapCJ.webp";
+import porgrammeImage from "@/public/images/home/blueCJMap.png";
 import Image from "next/image";
 
 import SectionBanter from "@/components/custom beta components/SectionBanter";
@@ -70,7 +70,7 @@ const postsId = getIdByDisplayName("Posts");
 
 const cardData = [
   {
-    imageUrl: "/images/GRID_01.jpg",
+    imageUrl: "/images/home/GRID_01.jpg",
     alt: "Life-saving care for mothers and children evacuated from Gaza",
     title: "Life-saving care for mothers and children evacuated from Gaza",
     subtitle:
@@ -80,7 +80,7 @@ const cardData = [
     clickAction: "Video embed code",
   },
   {
-    imageUrl: "/images/GRID_02.jpg",
+    imageUrl: "/images/home/GRID_02.jpg",
     alt: "Bill Gates and Fady Jameel host food security meeting at COP28",
     title: "Bill Gates and Fady Jameel host food security meeting at COP28",
     subtitle:
@@ -90,7 +90,7 @@ const cardData = [
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/GRID_03.jpg",
+    imageUrl: "/images/home/GRID_03.jpg",
     alt: "CLIMAVORE x Jameel at RCA announces 2024 Food Action Awards",
     title: "CLIMAVORE x Jameel at RCA announces 2024 Food Action Awards",
     subtitle:
@@ -100,7 +100,7 @@ const cardData = [
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/GRID_04.jpg",
+    imageUrl: "/images/home/GRID_04.jpg",
     alt: "Climate Labs with C40 and J-PAL",
     title: "Climate Labs with C40 and J-PAL",
     subtitle:
@@ -110,7 +110,7 @@ const cardData = [
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/GRID_05.jpg",
+    imageUrl: "/images/home/GRID_05.jpg",
     alt: "Jameel 75",
     title: "Jameel 75",
     subtitle:
@@ -120,7 +120,7 @@ const cardData = [
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/GRID_06.jpg",
+    imageUrl: "/images/home/GRID_06.jpg",
     alt: "Sample Image 6",
     title: "Community Jameel x afikra COP28 Conversation Series",
     subtitle:
@@ -130,7 +130,7 @@ const cardData = [
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/GRID_07.jpg",
+    imageUrl: "/images/home/GRID_07.jpg",
     alt: "Jameel Arts & Health Lab",
     title: "Jameel Arts & Health Lab",
     subtitle:
@@ -140,7 +140,7 @@ const cardData = [
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/GRID_08.jpg",
+    imageUrl: "/images/home/GRID_08.jpg",
     alt: "Andrea Bocelli and Henna Mun sing 'Tace il labbro'",
     title: "Andrea Bocelli and Henna Mun sing 'Tace il labbro'",
     subtitle:
@@ -150,7 +150,7 @@ const cardData = [
     clickAction: "Video embed code",
   },
   {
-    imageUrl: "/images/GRID_09.jpg",
+    imageUrl: "/images/home/GRID_09.jpg",
     alt: "Jameel Management Centre Building in Cairo",
     title: "A Cairo Cornerstone",
     subtitle:

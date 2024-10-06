@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import image from "@/public/images/mapCJ.webp";
+import image from "@/public/images/to_sort/mapCJ.webp";
 
 import PersonalCard from "@/components/custom beta components/PersonCard";
 

@@ -37,8 +37,45 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 
-export default async function Programme33page({
+// START "SELECT INITIATIVES"
+
+const selectInitiatives = [
+  {
+    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
+    alt: "MIT Jameel Clinic Hospital Network",
+    title: "MIT Jameel Clinic Hospital Network",
+    subtitle:"A global network of hospitals deploying MIT Jameel Clinic deep learning cancer prediction tools",
+    link: "https://www.google.com",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/j-wafs/JWAFS_SEED_GRANTS.jpg",
+    alt: "Mirai",
+    title: "Mirai",
+    subtitle:"Deep-learning breast cancer prediction tool",
+    link: "https://www.google.com",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/j-wafs/JWAFS_SOLUTIONS_PROGRAMME.jpg",
+    alt: "Sybil",
+    title: "Sybil",
+    subtitle: "Deep-learning prostate cancer prediction tool",
+    link: "https://www.google.com",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+];
+
+// END "SELECT INITIATIVES"
+
+export default async function JameelInstituteProgrammePage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -205,22 +242,77 @@ export default async function Programme33page({
 
   return (
     <>
-      <div className="pt-6">
-        <h1 className="header-page">Jameel Institute</h1>
-        {/* <LanguageChanger /> */}
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+<div className="pt-12">
+      <div className="flex flex-col text-left">
+  <div className="w-full flex pb-6 lg:pb-12">
 
-        <div className="">
-          <PostAccordion title={"News"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
-                <PostCard key={post.name} content={post} />
-              ))}
-            </div>
-          </PostAccordion>
+<img className="dark:hidden" src="/images/labs/jameel-clinic/JAMEEL_CLINIC_ORIGINAL_DARK.png" width="360"></img>
+<img className="hidden dark:block" src="/images/labs/jameel-clinic/JAMEEL_CLINIC_ORIGINAL_LIGHT.png" width="360"></img>
+  </div>
+                 
+  <div className="pb-6">
+    <h1 className="header-article">Jameel Institute</h1>
+  </div>
+
+  <div className="pb-12">
+    <p className="prose prose-xl leading-normal dark:text-white">
+    The MIT Jameel Clinic is developing AI technologies to revolutionise healthcare, including early diagnostics, drug discovery and care personalisation. Building on MIT’s history in AI and life sciences, the Clinic creates novel algorithms for modelling biological and clinical data, such as imaging, text and genomics utilising new advancements in machine learning, biology, chemistry and clinical sciences. The Jameel Clinic translates discoveries into technologies that improve lives, supporting AI healthcare research and education, and collaborating with hospitals and industry partners.
+    </p>
+  </div>
+</div>
+
+        <div className="w-2/3">
+          <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
+        </div>
+        
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Impact</h2>
+        </div>
+        <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="">
+            <Stats title="2" content="antibiotics discovered" />
+          </div>
+          <div className="">
+            <Stats title="2" content="deep learning tools" />
+          </div>
+          <div className="">
+            <Stats title="48" content="hospitals in network" />
+          </div>
+        </div>
+
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Select initiatives</h2>
+        </div>
+
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+         
+          {selectInitiatives.map((card, index) => (
+            <HomeCard
+              key={index}
+              imageUrl={card.imageUrl}
+              alt={card.alt}
+              title={card.title}
+              subtitle={card.subtitle}
+              link={card.link}
+              openInNewTab={card.openInNewTab}
+              clickAction={card.clickAction || ""}
+            />
+          ))}
+
+      </div>
+
+        <div>
+
+        <div className="w-full pt-6 lg:pt-12 lg:pb-0">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
         <div className="">
           <PostAccordion title={"Press"}>
@@ -242,26 +334,6 @@ export default async function Programme33page({
             </div>
           </PostAccordion>
         </div>
-
-        {/* 
-
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
-
         <div>
         <PostAccordion title={"Events"}>
             <div className="">
@@ -282,6 +354,7 @@ export default async function Programme33page({
        
           </div>
         </div> */}
+      </div>
       </div>
     </>
   );

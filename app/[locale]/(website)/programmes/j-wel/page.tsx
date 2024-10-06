@@ -37,6 +37,8 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 
 export default async function Programme35page({
   params,
@@ -82,10 +84,10 @@ export default async function Programme35page({
   {
     /**Get the single programme by id from webflow */
   }
-  const jwafsId = "61ee828a15a3180d48bde63e";
+  const programmeId = "61ee828a15a3180d48bde63e";
   const jwafsSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
-    (item) => item.id === jwafsId
+    (item) => item.id === programmeId
   );
 
   {
@@ -206,11 +208,52 @@ export default async function Programme35page({
   return (
     <>
       <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+
+      <div className="flex flex-col text-left">
+  <div className="w-full flex pb-6 lg:pb-12">
+
+<img className="dark:hidden" src="/images/labs/j-wel/J_WEL_DARK_ORIGNAL.png" width="360"></img>
+<img className="hidden dark:block" src="/images/labs/j-wel/J_WEL_LIGHT_ORIGINAL.png" width="360"></img>
+  </div>
+                 
+  <div className="pb-6">
+    <h1 className="header-article">MIT Abdul Latif Jameel World Education Lab (J-WEL)</h1>
+  </div>
+
+  <div className="pb-12">
+    <p className="prose prose-xl leading-normal dark:text-white">
+    The world faces a major challenge adapting to automation, globalisation, unemployment, and the global refugee crisis, rapidly altering the education paradigm. MIT and Community Jameel cofounded the MIT Jameel World Education Lab (J-WEL) in 2017 to spark a global renaissance in education. J-WEL promotes excellence and transformation in education at MIT and globally, engaging educators, technologists, policymakers, societal leaders, employers, and employees through online and in-person collaborations, workshops, research, and events.
+    </p>
+  </div>
+</div>
+
+<div className="w-2/3">
+        <ResponsiveYouTubeEmbed embedId="TGrW6u_oz38?si=toWb-detrLn82Rur" />
+        </div>
+        
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Impact</h2>
+        </div>
+        <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="">
+            <Stats title="20" content="institutional members" />
+          </div>
+          <div className="">
+            <Stats title="100+" content="research grants" />
+          </div>
+          <div className="">
+            <Stats title="840K" content="learners reached" />
+          </div>
+        </div>
+
+        <div className="w-full pt-6 lg:pt-12 lg:pb-0">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
 
         <div className="">
           <PostAccordion title={"News"}>
@@ -241,25 +284,6 @@ export default async function Programme35page({
             </div>
           </PostAccordion>
         </div>
-
-        {/* 
-
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
 
         <div>
         <PostAccordion title={"Events"}>

@@ -44,7 +44,7 @@ const HomeCard: React.FC<CardProps> = ({
   if (clickAction === "Video embed code") {
     return (
       <div>
-        <div onClick={handleOpenLightbox} className="cursor-pointer pb-6 block overflow-hidden group">
+        <div onClick={handleOpenLightbox} className="cursor-pointer block overflow-hidden group">
           <ImageContainer>
             <Image
               className="absolute inset-0 w-full h-full object-cover z-0"
@@ -97,7 +97,7 @@ const HomeCard: React.FC<CardProps> = ({
   if (clickAction === "Internal link") {
     return (
       <Link href={link} passHref>
-        <div className="pb-6 block overflow-hidden group cursor-pointer">
+        <div className="block overflow-hidden group cursor-pointer">
           <ImageContainer>
             <Image
               className="absolute inset-0 w-full h-full object-cover z-0"
@@ -118,7 +118,7 @@ const HomeCard: React.FC<CardProps> = ({
   if (clickAction === "External link") {
     return (
       <Link href={link} target="_blank">
-        <div className="pb-6 block overflow-hidden group cursor-pointer">
+        <div className="block overflow-hidden group cursor-pointer">
           <ImageContainer>
             <Image
               className="absolute inset-0 w-full h-full object-cover z-0"
