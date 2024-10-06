@@ -8,7 +8,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
-import imageUrl from '@/images/CJ_HEART_RED_PNG.png'
+import imageUrl from '@/images/cj_logo/CJ_HEART_RED_PNG.png'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')

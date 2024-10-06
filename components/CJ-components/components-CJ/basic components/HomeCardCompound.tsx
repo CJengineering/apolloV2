@@ -114,7 +114,7 @@ const CardImage = () => {
     const { link } = useCardContext();
     return (
       <Link href={link} passHref>
-        <div className="pb-6 block overflow-hidden group cursor-pointer">
+        <div className="block overflow-hidden group cursor-pointer">
           <CardImage />
           <CardTitle />
           <CardSubtitle />
@@ -128,7 +128,7 @@ const CardImage = () => {
     const { link, openInNewTab } = useCardContext();
     return (
       <Link href={link} passHref>
-        <a target={openInNewTab ? "_blank" : "_self"} rel="noopener noreferrer" className="pb-6 block overflow-hidden group cursor-pointer">
+        <a target={openInNewTab ? "_blank" : "_self"} rel="noopener noreferrer" className="block overflow-hidden group cursor-pointer">
           <CardImage />
           <CardTitle />
           <CardSubtitle />

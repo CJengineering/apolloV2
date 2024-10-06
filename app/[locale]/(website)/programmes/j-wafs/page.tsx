@@ -86,6 +86,22 @@ const cardData = [
 // END THE DATA FOR CARDS
 
 
+// STARTUP LOGOS START
+
+const spinoutsLogos = [
+  {
+    imageUrl: "/images/labs/j-wafs/spinouts/",
+    alt: "Jameel Index",
+    title: "Jameel Index",
+    subtitle:"",
+    link: "https://jameelindex.mit.edu/",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+];
+
+// STARTUP LOGOS END
+
 
 export default async function JwafsPage({
   params,
@@ -264,7 +280,7 @@ export default async function JwafsPage({
   </div>
                  
   <div className="pb-6">
-    <h1 className="header-article">MIT Abdul Latif Jameel Water and Food Systems Lab</h1>
+    <h1 className="header-article">MIT Abdul Latif Jameel Water and Food Systems Lab (J-WAFS)</h1>
   </div>
 
   <div className="pb-12">
@@ -283,7 +299,7 @@ export default async function JwafsPage({
         </div>
 
         <div className="pb-6">
-          <h2 className="header-section">Impact since 2003</h2>
+          <h2 className="header-section">Impact</h2>
         </div>
         <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="">
@@ -328,9 +344,31 @@ export default async function JwafsPage({
 
       </div>
 
-        <div className="w-full mt-12">
+        <div>
+        <div className="w-full pt-6 lg:pt-12 lg:pb-0">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
+        {/* <div className="pb-6">
+          <h2 className="header-section">Spinouts</h2>
+        </div>
+
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      {spinoutsLogos.map((card, index) => (
+        <div className="flex  items-center justify-center">
+          <HomeCard
+              key={index}
+              imageUrl={card.imageUrl}
+              alt={card.alt}
+              title={card.title}
+              subtitle={card.subtitle}
+              link={card.link}
+              openInNewTab={card.openInNewTab}
+              clickAction={card.clickAction || ""}
+            />
+        </div>
+      ))}
+    </div> */}
+  </div>
 
         <div className="">
           <PostAccordion title={"News"}>

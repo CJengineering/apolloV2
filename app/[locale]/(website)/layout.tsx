@@ -4,7 +4,7 @@ import { EB_Garamond, Nothing_You_Could_Do } from "next/font/google";
 import localFont from "next/font/local";
 
 import Image from "next/image";
-import Illustration from "@/public/images/hero-illustration.svg";
+import Illustration from "@/public/images/to_sort/hero-illustration.svg";
 import Header from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
 import Sidebar2 from "@/components/ui/sideBar2";
