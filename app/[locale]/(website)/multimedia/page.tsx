@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 
-import image from "@/public/images/mapCJ.webp";
+import image from "@/public/images/to_sort/mapCJ.webp";
 
 import { getData } from "@/functions/api/getData";
 import postMapper from "@/functions/transformers/postMapper";

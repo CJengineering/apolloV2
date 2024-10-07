@@ -3,7 +3,7 @@ import { getData } from "@/functions/api/getData";
 import legalMapper from "@/functions/transformers/legalMapper";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import Image from "next/image"; 
-import ankurImage from '@/public/images/Ankur Background Webpage.jpg'
+import ankurImage from '@/public/images/labs/ankur/Ankur Background Webpage.jpg'
 import React from "react";
 import TrailerModalButton from "@/components/CJ-components/components-CJ/custom components/TrailerModalButton";
 import { Metadata } from "next";

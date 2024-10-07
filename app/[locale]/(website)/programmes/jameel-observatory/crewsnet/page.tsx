@@ -37,8 +37,45 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 
-export default async function Programme16page({
+// START "SELECT INITIATIVES"
+
+const selectInitiatives = [
+  {
+    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
+    alt: "Tuberculosis Impact Assessment",
+    title: "Tuberculosis Impact Assessment",
+    subtitle:"",  
+    link: "https://www.google.com",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
+    alt: "Kenneth C. Griffin Initiative",
+    title: "Kenneth C. Griffin Initiative",
+    subtitle:"",
+    link: "https://www.google.com",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
+    alt: "Kenneth C. Griffin Initiative",
+    title: "Kenneth C. Griffin Initiative",
+    subtitle:"",
+    link: "https://www.google.com",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+];
+
+// END "SELECT INITIATIVES"
+
+export default async function joCrewsnetPage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -82,10 +119,10 @@ export default async function Programme16page({
   {
     /**Get the single programme by id from webflow */
   }
-  const jwafsId = "630f7f4b4cd649c47cb8beca";
-  const jwafsSlug = params.slug;
+  const joCrewsnetId = "630f7f4b4cd649c47cb8beca";
+  const joCrewsnetSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
-    (item) => item.id === jwafsId
+    (item) => item.id === joCrewsnetId
   );
 
   {
@@ -206,25 +243,90 @@ export default async function Programme16page({
   return (
     <>
       <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+      <div className="flex flex-col text-left">
+  <div className="w-full flex pb-6 lg:pb-12">
 
+<img className="dark:hidden" src="/images/labs/jameel-observatory/jo-crewsnet/JAMEEL_OBSERVATORY_ORIGINAL_DARK.png" width="360"></img>
+<img className="hidden dark:block" src="/images/labs/jameel-observatory/jo-crewsnet/JAMEEL_OBSERVATORY_ORIGINAL_LIGHT.png" width="360"></img>
+  </div>
+                 
+  <div className="pb-6">
+    <h1 className="header-article">Jameel Observatory-CREWSNET</h1>
+  </div>
+
+  <div className="pb-12">
+    <p className="prose prose-xl leading-normal dark:text-white">
+    The Jameel Observatory Climate Resilience Early Warning System Network (Jameel Observatory-CREWSnet), one of MIT’s five Climate Grand Challenges flagship projects, aims to empower communities worldwide, specifically within the agriculture sector, to adapt to climate shocks by combining state-of-the-art climate and socioeconomic forecasting techniques with technological solutions to support communities’ resilience and by launching collaborations across the public and private sectors, as well as civil society.
+    </p>
+  </div>
+</div>
+
+<div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
+        </div>
+        
+        {/* <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div> */}
+
+        {/* <div className="pb-6">
+          <h2 className="header-section">Impact</h2>
+        </div>
+        <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="">
+            <Stats title="2" content="antibiotics discovered" />
+          </div>
+          <div className="">
+            <Stats title="2" content="deep learning tools" />
+          </div>
+          <div className="">
+            <Stats title="48" content="hospitals in network" />
+          </div>
+        </div> */}
+
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Select initiatives</h2>
+        </div>
+
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+         
+          {selectInitiatives.map((card, index) => (
+            <HomeCard
+              key={index}
+              imageUrl={card.imageUrl}
+              alt={card.alt}
+              title={card.title}
+              subtitle={card.subtitle}
+              link={card.link}
+              openInNewTab={card.openInNewTab}
+              clickAction={card.clickAction || ""}
+            />
+          ))}
+
+      </div>
+
+        <div>
+
+        <div className="w-full pt-6 lg:pt-12 lg:pb-0">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
         <div className="">
+
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
+              {postProps.slice(0).map((post) => (
                 <PostCard key={post.name} content={post} />
               ))}
             </div>
           </PostAccordion>
-        </div>
-        <div className="">
+
           <PostAccordion title={"Press"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
+              {newsProps.slice(0).map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
             </div>
@@ -241,26 +343,6 @@ export default async function Programme16page({
             </div>
           </PostAccordion>
         </div>
-
-        {/* 
-
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
-
         <div>
         <PostAccordion title={"Events"}>
             <div className="">
@@ -274,13 +356,8 @@ export default async function Programme16page({
             </div>
           </PostAccordion>
         </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
+  
+      </div>
       </div>
     </>
   );

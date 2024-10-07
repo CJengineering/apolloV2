@@ -14,7 +14,7 @@ import HomePageBeta from "@/components/custom beta components/homePageBeta";
 import TrandingTopics from "@/components/custom beta components/trandingTopics";
 import EventSection from "@/components/custom beta components/eventSection";
 import HeroBanter from "@/components/custom beta components/HeroBanter";
-import image from "@/public/images/mapCJ.webp";
+import image from "@/public/images/to_sort/mapCJ.webp";
 import SectionBanter from "@/components/custom beta components/SectionBanter";
 import NewsMain from "@/components/custom beta components/NewsMain";
 import cancerImage from "@/public/images/imagesCJ/FACT Alliance_J-WAFS.png";

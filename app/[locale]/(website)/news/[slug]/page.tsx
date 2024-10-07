@@ -124,7 +124,12 @@ export default async function page({
   <div className="">
     <ArticleBanter post={cleanPost} locale ={params.locale} />
   </div>
-
+  <div className="pt-9 pb-7">
+        <hr className="border-gray-200" />
+      </div>
+  <div className="pb-6">
+        <h2 className="header-section">Photos</h2>
+      </div>
   {relatedPostsCleaned.length > 0 && (
     <>
       <div className="w-full mx-auto">
@@ -134,7 +139,7 @@ export default async function page({
           )}
       </div>
 
-      <div className="py-9">
+      <div className="pt-9 pb-7">
         <hr className="border-gray-200" />
       </div>
 

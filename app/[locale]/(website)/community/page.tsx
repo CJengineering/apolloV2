@@ -123,12 +123,12 @@ export default async function SinglePost({
             params.locale === "ar" ? "rtl" : ""
           }`}
         >
-          <h1 className="header-page lg:text-left">
+          <h1 className={`${params.locale === "ar" ? "sans-serif-ar header-page lg:text-left" : "header-page lg:text-left"}`}>
             {params.locale === "ar" ? "المجتمع" : "Community"}
           </h1>
           <LanguageChanger></LanguageChanger>
         </div>
-        <div className="sm:w-full ">
+        <div className="sm:w-full pb-12">
           <TabsCJ rowData={dataForTable} cardData={cardData} />
         </div>
       </ArabicProvider>
