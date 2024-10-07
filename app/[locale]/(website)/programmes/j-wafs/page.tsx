@@ -43,7 +43,7 @@ import ResponsiveYouTubeEmbed from "@/components/custom beta components/Responsi
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 
 
-// START THE DATA FOR CARDS
+// START INITIATIVES
 
 const cardData = [
   {
@@ -83,7 +83,7 @@ const cardData = [
     clickAction: "External link",
   },
 ];
-// END THE DATA FOR CARDS
+// END INITIATIVES
 
 
 // STARTUP LOGOS START
@@ -290,7 +290,7 @@ export default async function JwafsPage({
   </div>
 </div>
 
-<div className="w-2/3">
+<div className="w-full lg:w-2/3">
         <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
         </div>
         
@@ -400,25 +400,6 @@ export default async function JwafsPage({
           </PostAccordion>
         </div>
 
-        {/* 
-
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
-
         <div>
           <PostAccordion title={"Events"}>
             <div className="">
@@ -432,13 +413,6 @@ export default async function JwafsPage({
             </div>
           </PostAccordion>
         </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
       </div>
     </>
   );

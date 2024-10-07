@@ -227,7 +227,7 @@ export default async function Programme35page({
   </div>
 </div>
 
-<div className="w-2/3">
+<div className="w-full lg:w-2/3">
         <ResponsiveYouTubeEmbed embedId="TGrW6u_oz38?si=toWb-detrLn82Rur" />
         </div>
         

@@ -139,13 +139,8 @@ const navItems: NavItem[] = [
         name: "Jameel Observatory",
         children: [
           {
-            name: "Overview",
-            href: "/programmes/jameel-observatory",
-            current: false,
-          },
-          {
             name: "Food Security Early Action",
-            href: "/programmes/jameel-observatory/food-security-early-action",
+            href: "/programmes/jameel-observatory/for-food-security-early-action",
             current: false,
           },
           {

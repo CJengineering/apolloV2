@@ -46,27 +46,18 @@ import ResponsiveYouTubeEmbed from "@/components/custom beta components/Responsi
 const selectInitiatives = [
   {
     imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
-    alt: "MIT Jameel Clinic Hospital Network",
-    title: "MIT Jameel Clinic Hospital Network",
-    subtitle:"A global network of hospitals deploying MIT Jameel Clinic deep learning cancer prediction tools",
+    alt: "Tuberculosis Impact Assessment",
+    title: "Tuberculosis Impact Assessment",
+    subtitle:"",
     link: "https://www.google.com",
     openInNewTab: false,
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/labs/j-wafs/JWAFS_SEED_GRANTS.jpg",
-    alt: "Mirai",
-    title: "Mirai",
-    subtitle:"Deep-learning breast cancer prediction tool",
-    link: "https://www.google.com",
-    openInNewTab: false,
-    clickAction: "External link",
-  },
-  {
-    imageUrl: "/images/labs/j-wafs/JWAFS_SOLUTIONS_PROGRAMME.jpg",
-    alt: "Sybil",
-    title: "Sybil",
-    subtitle: "Deep-learning prostate cancer prediction tool",
+    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
+    alt: "Kenneth C. Griffin Initiative",
+    title: "Kenneth C. Griffin Initiative",
+    subtitle:"",
     link: "https://www.google.com",
     openInNewTab: false,
     clickAction: "External link",
@@ -119,10 +110,10 @@ export default async function JameelInstituteProgrammePage({
   {
     /**Get the single programme by id from webflow */
   }
-  const jwafsId = "61ee828a15a3189ea3bde640";
-  const jwafsSlug = params.slug;
+  const jameelInstituteId = "61ee828a15a3189ea3bde640";
+  const jameelInstituteSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
-    (item) => item.id === jwafsId
+    (item) => item.id === jameelInstituteId
   );
 
   {
@@ -246,8 +237,8 @@ export default async function JameelInstituteProgrammePage({
       <div className="flex flex-col text-left">
   <div className="w-full flex pb-6 lg:pb-12">
 
-<img className="dark:hidden" src="/images/labs/jameel-clinic/JAMEEL_CLINIC_ORIGINAL_DARK.png" width="360"></img>
-<img className="hidden dark:block" src="/images/labs/jameel-clinic/JAMEEL_CLINIC_ORIGINAL_LIGHT.png" width="360"></img>
+<img className="dark:hidden" src="/images/labs/jameel-institute/IMPERIAL_JAMEEL_INSTITUTE_ORIGINAL_DARK.png" width="360"></img>
+<img className="hidden dark:block" src="/images/labs/jameel-institute/IMPERIAL_JAMEEL_INSTITUTE_ORIGINAL_LIGHT.png" width="360"></img>
   </div>
                  
   <div className="pb-6">
@@ -261,7 +252,7 @@ export default async function JameelInstituteProgrammePage({
   </div>
 </div>
 
-        <div className="w-2/3">
+<div className="w-full lg:w-2/3">
           <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
         </div>
         
@@ -314,6 +305,16 @@ export default async function JameelInstituteProgrammePage({
         <div className="w-full pt-6 lg:pt-12 lg:pb-0">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
+          <div>         
+            <PostAccordion title={"News"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {postProps.slice(0).map((post) => (
+                <PostCard key={post.name} content={post} />
+              ))}
+            </div>
+          </PostAccordion>
+          </div>
+
         <div className="">
           <PostAccordion title={"Press"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -347,13 +348,7 @@ export default async function JameelInstituteProgrammePage({
             </div>
           </PostAccordion>
         </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
+  
       </div>
       </div>
     </>

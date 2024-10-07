@@ -261,7 +261,7 @@ export default async function mitJameelClinic({
   </div>
 </div>
 
-        <div className="w-2/3">
+<div className="w-full lg:w-2/3">
           <ResponsiveYouTubeEmbed embedId="4M4_73FqGI8?si=If4aApQytWnFp3Qi" />
         </div>
         
