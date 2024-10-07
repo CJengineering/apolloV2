@@ -46,8 +46,8 @@ import HomeCard from "@/components/CJ-components/components-CJ/basic components/
 const cardData = [
   {
     imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
-    alt: "Graduate Class 2024",
-    title: "Graduate Class 2024",
+    alt: "2024 catalogue",
+    title: "2024 catalogue",
     subtitle:"",
     link: "https://www.jameelartshealthlab.org/healing-arts",
     openInNewTab: false,
@@ -55,8 +55,8 @@ const cardData = [
   },
   {
     imageUrl: "/images/labs/j-wafs/JWAFS_SEED_GRANTS.jpg",
-    alt: "Graduate Class 2023",
-    title: "Graduate Class 2023",
+    alt: "2023 catalogue",
+    title: "2023 catalogue",
     subtitle:"",
     link: "https://jwafs.mit.edu/SeedGrants",
     openInNewTab: false,
@@ -235,11 +235,6 @@ export default async function JameelHouseCairoProgrammePage({
       <div className="pt-12 ">
 
 <div className="flex flex-col text-left">
-<div className="w-full flex pb-6 lg:pb-12">
-
-<img className="dark:hidden" src="/images/labs/jahl/JAHL_ORIGNAL_DARK.png" width="360"></img>
-<img className="hidden dark:block" src="/images/labs/jahl/JAHL_ORIGNAL_LIGHT.png" width="360"></img>
-</div>
            
 <div className="pb-6">
 <h1 className="header-article">Jameel House of Traditional Arts in Cairo</h1>
@@ -253,7 +248,7 @@ The Jameel House of Traditional Arts in Cairo offers classes in traditional geom
 </div>
 
 <div className="w-full lg:w-2/3">
-  <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
+  <ResponsiveYouTubeEmbed embedId="dn9mZchjKHw?si=_2VQzRq_rzQ7lqp4" />
   </div>
   
   <div className="w-full py-6 lg:py-12">
@@ -276,12 +271,12 @@ The Jameel House of Traditional Arts in Cairo offers classes in traditional geom
   </div>
 
 
-  <div className="w-full py-6 lg:py-12">
+  <div className="w-full py-12">
     <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
   </div>
 
   <div className="pb-6">
-    <h2 className="header-section">Select initiatives</h2>
+    <h2 className="header-section">Graduating classes</h2>
   </div>
 
 <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -301,7 +296,7 @@ The Jameel House of Traditional Arts in Cairo offers classes in traditional geom
 
 </div>
 
-  <div>
+
   <div className="w-full pt-6 lg:pt-12 lg:pb-0">
     <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
   </div>
@@ -325,7 +320,6 @@ The Jameel House of Traditional Arts in Cairo offers classes in traditional geom
   </div>
 ))}
 </div> */}
-</div>
 
   <div className="">
     <PostAccordion title={"News"}>
