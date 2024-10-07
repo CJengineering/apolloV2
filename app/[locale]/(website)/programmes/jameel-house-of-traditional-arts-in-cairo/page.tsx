@@ -40,6 +40,11 @@ import CarousselForComponents from "@/components/CJ-components/components-CJ/bas
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
+import { ImageLightbox } from "@/app/interfaces";
+import MansoryGrid from "@/components/custom beta components/MansoryGrid";
+import { Content } from "next/font/google";
+
+
 
 // START INITIATIVES
 
@@ -229,6 +234,83 @@ export default async function JameelHouseCairoProgrammePage({
     cleanSingleProgramme,
     cleanedFeatures
   );
+// array oh picturees
+const imageLightboxData: ImageLightbox[] = [
+  {
+    src: "/images/imagesCJ/background-auth.jpg",
+    alt: "Historic Event in City",
+    location: "",
+    year: "",
+    people: "",
+    programme2: "",
+    nameArabic: "",
+    mainImage: { fileId: "", url: "", alt: "" },
+    altText: "",
+    date: "",
+    description: "",
+    descriptionArabic: "",
+    source: "",
+    programmeLabel: { name: "", slug: "" },
+    programmesMultiReference: [],
+    tags: [],
+    peopleMultiReference: [],
+    location2: "",
+    locationArabic: "",
+    highResolution: "",
+    name: "",
+    slug: ""
+  },
+  {
+    src: "/images/home/GRID_01.jpg",
+    alt: "Environmental Workshop",
+    location: "",
+    year: "",
+    people: "",
+    programme2: "",
+    nameArabic: "",
+    mainImage: { fileId: "", url: "", alt: "" },
+    altText: "",
+    date: "",
+    description: "",
+    descriptionArabic: "",
+    source: "",
+    programmeLabel: { name: "", slug: "" },
+    programmesMultiReference: [],
+    tags: [],
+    peopleMultiReference: [],
+    location2: "",
+    locationArabic: "",
+    highResolution: "",
+    name: "",
+    slug: ""
+  },
+  {
+    src: "/images/home/GRID_02.jpg",
+    alt: "Healthcare Initiative Launch",
+    location: "",
+    year: "",
+    people: "",
+    programme2: "",
+    nameArabic: "",
+    mainImage: { fileId: "", url: "", alt: "" },
+    altText: "",
+    date: "",
+    description: "",
+    descriptionArabic: "",
+    source: "",
+    programmeLabel: { name: "", slug: "" },
+    programmesMultiReference: [],
+    tags: [],
+    peopleMultiReference: [],
+    location2: "",
+    locationArabic: "",
+    highResolution: "",
+    name: "",
+    slug: ""
+  }
+];
+
+
 
   return (
    < >
@@ -296,10 +378,19 @@ The Jameel House of Traditional Arts in Cairo offers classes in traditional geom
 
 </div>
 
-
-  <div className="w-full pt-6 lg:pt-12 lg:pb-0">
+<div className="w-full py-12">
     <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
   </div>
+
+  <div className="pb-6">
+    <h2 className="header-section">Photo Gallery</h2>
+  </div>
+
+  <div>
+ <ContentPhotos images={imageLightboxData} numberColumns= "1" />
+  </div>
+
+
   {/* <div className="pb-6">
     <h2 className="header-section">Spinouts</h2>
   </div>
@@ -334,7 +425,7 @@ The Jameel House of Traditional Arts in Cairo offers classes in traditional geom
     <PostAccordion title={"Press"}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {newsProps.slice(0).map((item) => (
-          <NewsCard content={item} locale={params} />
+          <NewsCard content={item} key={Math.random()} locale={params} />
         ))}
       </div>
     </PostAccordion>

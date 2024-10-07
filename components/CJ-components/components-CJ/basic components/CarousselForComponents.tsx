@@ -48,7 +48,7 @@ const CarouselForComponent = ({ children }: CarouselProps) => {
 
       <div
         ref={carouselRef}
-        className="carousel flex carousel-center bg-neutral custom-scrollbar gap-4 overflow-x-auto max-w-[340px] md:max-w-[960px] lg:max-w-[900px] xl:max-w-[1030px] "
+        className="carousel flex carousel-center bg-neutral custom-scrollbar gap-4 overflow-x-auto max-w-[340px] md:max-w-[960px] lg:max-w-[900px] xl:max-w-[1030px] 2xl:max-w-[1313px] "
       >
         {children.map((child, index) => (
           <div
