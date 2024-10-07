@@ -236,19 +236,10 @@ export default async function jhtac2023graduation({
 
 <div className="flex flex-col text-left">
            
-<div className="pb-6">
+<div className="">
 <h1 className="header-article w-2/3"><span className="font-bold">2023 Graduation Catalogue:</span> <br></br>
 Jameel House of Traditional Arts in Cairo</h1>
 </div>
-
-<div className="w-2/3">
-    <Image src="/images/labs/jameel-house-cairo/2023-catalogue/graduation-class/graduation-class.jpg" alt="Amira Khaled - Three of Life" width={1000} height={600} />
-  <div className="pt-1 text-xs">The 2023 graduating class of the Jameel House of Traditional Arts in Cairo at the graduation ceremony. Left to right: front row, Heba Amin*,
-Amira Mohamed*, Amira Khaled*, Manal Yosri*, Nada Al Morshidy*, Tuka El Safty*, Nada Kadri*, Alya Gamal; middle row, Amira Negm*, Aya
-Soliman*, Mariam Anwar*, Omnia Hosni*, Lamia Ismail*, Hany El Deeb*; back row, Mohamed ElShamy*, Ibrahim Waheed*, Ola Said, Basma
-Hamed, Dr Mamdouh Sakr, Delfina Bottisini, Dr Khaled Azzam, Mostafa Awad, Nagat Farouk, Cléa Daridan. (* Denotes graduating students.)
-</div>
-  </div>
 
 <div className="py-6">
 <p className="prose prose-xl leading-normal dark:text-white">At the Jameel House of Traditional Arts in Cairo, we immerse ourselves in the rich heritage of traditional arts, challenging ourselves to create original designs using timeless techniques. Since its inception in 2009, this collaborative programme between the Egyptian Ministry of Culture, The Prince’s Foundation School of Traditional Arts, and Community Jameel has trained over 200 artists and artisans. Many graduates are now building their own businesses, contributing to Egypt’s evolving art scene.
@@ -266,17 +257,17 @@ Hamed, Dr Mamdouh Sakr, Delfina Bottisini, Dr Khaled Azzam, Mostafa Awad, Nagat 
 
 <div>  
 <div><h2 className="header-section pb-6">Amira Negm</h2></div>
-<div className="flex grid-cols-1 lg:grid-cols-2">
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
   <div>
     <Image src="/images/labs/jameel-house-cairo/2023-catalogue/amera-negm/Amera_Negm_01.jpg" alt="Amera Negm" width={1000} height={600} />
   </div>
-  <div className="ml-6">
+  <div className="lg:lg:ml-6">
     
-    <div className="pb-3">
+    <div className="pt-6 pb-3">
     <p className="text-2xl">Panel</p>
     <p className="text-xl italic">120 x 70 cm</p>
     </div>
-<div><p className="prose prose-xl leading-normal dark:text-white">
+<div><p className="prose leading-normal dark:text-white">
 This window façade decoration is inspired by Istanbul’s
 Süleymaniye Mosque, the city’s second oldest royal mosque.
 The cuerda seca or dry rope technique was employed in this
@@ -290,16 +281,16 @@ turquoise and white.</p>
 </div>
 <div className="py-6"></div>
 
-<div className="flex grid-cols-1 lg:grid-cols-2">
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
 <div className="">
     <Image src="/images/labs/jameel-house-cairo/2023-catalogue/amera-negm/Amera_Negm_02.jpg" alt="Amera Negm" width={1000} height={600} />
   </div>
-<div className="ml-6">
+<div className="lg:ml-6">
     
-    <div className="pb-3">
+    <div className="pt-6 pb-3">
     <p className="text-2xl">Plate</p>
     </div>
-<div><p className="prose prose-xl leading-normal dark:text-white">
+<div><p className="prose leading-normal dark:text-white">
 Featuring a gazelle surrounded by
 botanical motifs, this design was
 created using the metallic lustre
@@ -321,17 +312,17 @@ smoke during the firing process.</p>
 
  <div>  
 <div><h2 className="header-section pb-6">Amira Khaled</h2></div>
-<div className="flex grid-cols-1 lg:grid-cols-2">
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
   <div>
     <Image src="/images/labs/jameel-house-cairo/2023-catalogue/amira-khaled/Amira_Khaled_04.jpg" alt="Amira Khaled - Three of Life" width={1000} height={600} />
   </div>
-  <div className="ml-6">
+  <div className="lg:ml-6">
     
-    <div className="pb-3">
+    <div className="pt-6 pb-3">
     <p className="text-2xl">Tree of Life</p>
     <p className="text-xl italic">105 x 67.5 cm</p>
     </div>
-<div><p className="prose prose-xl leading-normal dark:text-white">
+<div><p className="prose  leading-normal dark:text-white">
 Crafted from 28 hand-painted tiles using oxides and underglaze technique,
 this panel is inspired by the tree of life story. Drawing from traditional Islamic
 motifs, it showcases bulut, rumi, stylised flowers and animals as seen in the
@@ -341,16 +332,16 @@ Topkapı Palace.</p>
 </div>
 <div className="py-6"></div>
 
-<div className="flex grid-cols-1 lg:grid-cols-2">
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
 <div className="">
     <Image src="/images/labs/jameel-house-cairo/2023-catalogue/amera-negm/Amera_Negm_02.jpg" alt="Amera Negm" width={1000} height={600} />
   </div>
-<div className="ml-6">
+<div className="lg:ml-6">
     
-    <div className="pb-3">
+    <div className="pt-6 pb-3">
     <p className="text-2xl">Plate</p>
     </div>
-<div><p className="prose prose-xl leading-normal dark:text-white">
+<div><p className="prose leading-normal dark:text-white">
 Featuring a gazelle surrounded by
 botanical motifs, this design was
 created using the metallic lustre
@@ -372,17 +363,17 @@ smoke during the firing process.</p>
 
  <div>  
 <div><h2 className="header-section pb-6">Heba Amin</h2></div>
-<div className="flex grid-cols-1 lg:grid-cols-2">
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
   <div>
     <Image src="/images/labs/jameel-house-cairo/2023-catalogue/heba-amin/Heba_Amin_01.jpg" alt="Heba Amin - Brass box" width={1000} height={600} />
   </div>
-  <div className="ml-6">
+  <div className="lg:ml-6">
     
-    <div className="pb-3">
+    <div className="pt-6 pb-3">
     <p className="text-2xl">Brass Box</p>
     <p className="text-xl italic">16 x 21 cm</p>
     </div>
-<div><p className="prose prose-xl leading-normal dark:text-white">
+<div><p className="prose leading-normal dark:text-white">
 Inspired by Mamluk era food storage systems, this brass box
 features pen engravings used to create an hexagonal grid to
 distribute plant elements and combine quadrilateral geometric
@@ -403,23 +394,23 @@ decorations.</p>
 
  <div>  
 <div><h2 className="header-section pb-6">Amira Mohammed</h2></div>
-<div className="flex grid-cols-1 lg:grid-cols-2">
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
   <div>
     <Image src="/images/labs/jameel-house-cairo/2023-catalogue/amira-mohamed/Amira_Mohamed_01.jpg" alt="Amira Mohammed - Plate" width={1000} height={600} />
   </div>
-  <div className="ml-6">
+  <div className="lg:ml-6">
     
-    <div className="pb-3">
+    <div className="pt-6 pb-3">
     <p className="text-2xl">Plate</p>
     <p className="text-xl italic">35 cm</p>
     </div>
-<div><p className="prose prose-xl leading-normal dark:text-white">
+<div><p className="prose leading-normal dark:text-white">
 Inspired by 10th century Persian crafts, this ceramic has
 black, yellow, red and green colours under a clear glaze. It is
 decorated with delicate drawings containing birds, animals, floral
 and plant decorations, and Kufic letters, with black, yellow, red
 and green colours under a clear glaze.</p>
-<p className="prose prose-xl leading-normal dark:text-white">
+<p className="prose leading-normal dark:text-white">
 The drawings reflect the region of Nishapur and the
 range of festivals celebrated by Muslims and Zoroastrians,
 and also depict Christian symbols, giving it a character full of
@@ -430,16 +421,16 @@ life and different stories.</p>
 
 <div className="py-6"></div>
 
-<div className="flex grid-cols-1 lg:grid-cols-2">
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
   <div>
     <Image src="/images/labs/jameel-house-cairo/2023-catalogue/amira-mohamed/Amira_Mohammed-02.jpg" alt="Amira Mohammed - Panel" width={1000} height={600} />
   </div>
-  <div className="ml-6">
+  <div className="lg:ml-6">
     
-    <div className="pb-3">
+    <div className="pt-6 pb-3">
     <p className="text-2xl">Panel</p>
     </div>
-<div><p className="prose prose-xl leading-normal dark:text-white">
+<div><p className="prose leading-normal dark:text-white">
 Inspired by the Bibi Khanum Mosque dating to 1398 and 1405 in Samarkand, the design of this
 panel incorporates plain tiles alongside tiles adorned with botanical motifs. The fundamental
 structure is based on the ten-point star polygon, five-pointed star polygon, eight-pointed star
@@ -473,7 +464,7 @@ followed by assembling to achieve the final form.</p>
     <p className="text-2xl">Bench</p>
     <p className="text-xl italic">125 x 60 cm</p>
     </div>
-<p className="prose prose-xl leading-normal dark:text-white">
+<p className="prose leading-normal dark:text-white">
 This outdoor bench made of Hashemite stone is inspired by
 a Coptic-style ivory box that tells the story of a hero fighting
 enemies, with an engraving of a mythical winged animal on the
@@ -494,22 +485,22 @@ weather factors.</p>
 
  <div>  
 <div><h2 className="header-section pb-6">Hany El Deeb</h2></div>
-<div className="flex grid-cols-1 lg:grid-cols-2">
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
   <div>
     <Image src="/images/labs/jameel-house-cairo/2023-catalogue/hany-el-deeb/hany-el-deeb-01.jpg" alt="Amira Mohammed - Plate" width={1000} height={600} />
   </div>
-  <div className="ml-6">
+  <div className="lg:ml-6">
     
-    <div className="pb-3">
+    <div className="pt-6 pb-3">
     <p className="text-2xl">Panel</p>
     <p className="text-xl italic">35 cm</p>
     </div>
-<div><p className="prose prose-xl leading-normal dark:text-white">
+<div><p className="prose leading-normal dark:text-white">
 The first of its kind in Egypt, this project is inspired by the
 feather of Al-Ghamri’s pulpit located in the al-Ashraf Barsbay
 Khanqa in the Desert of the Mamluks in Cairo.
 </p><br></br>
-<p className="prose prose-xl leading-normal dark:text-white">
+<p className="prose leading-normal dark:text-white">
 Made of mahogany wood inlaid with ebony and brass work,
 it uses the zincograph technique.</p>
 </div>
@@ -541,7 +532,7 @@ it uses the zincograph technique.</p>
     <p className="text-2xl">Panel</p>
     <p className="text-xl italic">120 x 35 cm</p>
     </div>
-<p className="prose prose-xl leading-normal dark:text-white">
+<p className="prose leading-normal dark:text-white">
 Inspired by the tiles found on a 17th century balcony entryway
 at the Shrine of Fatima Al-Masumeh in Qom, Iran, this design
 utilises a network of hexagonal geometric shapes, known as
@@ -560,17 +551,17 @@ tasomah, intertwined with botanical decorations.</p>
 
  <div>  
 <div><h2 className="header-section pb-6">Lamia Ismail</h2></div>
-<div className="flex grid-cols-1 lg:grid-cols-2">
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
   <div>
     <Image src="/images/labs/jameel-house-cairo/2023-catalogue/lamia-ismael/Lamia_Ismael_04.jpg" alt="Lamia Ismael - Panel" width={1000} height={600} />
   </div>
-  <div className="ml-6">
+  <div className="lg:ml-6">
     
-    <div className="pb-3">
+    <div className="pt-6 pb-3">
     <p className="text-2xl">Panel</p>
     <p className="text-xl italic">110 x 58 cm</p>
     </div>
-<div><p className="prose prose-xl leading-normal dark:text-white">
+<div><p className="prose leading-normal dark:text-white">
 Inspired by the Gayer Anderson Museum fountain floor, this
 panel uses an hexagonal grid and repetitive triangles to form the
 dodecagon shape. The triangle unit was carved on gypsum to
@@ -581,7 +572,7 @@ create the tile mould.</p>
 
 <div className="py-6"></div>
 
-<div className="flex grid-cols-1 lg:grid-cols-2 gap-24">
+<div className="flex flex-col lg:flex-row lg:grid-cols-2 gap-24">
   <div>
     <Image src="/images/labs/jameel-house-cairo/2023-catalogue/lamia-ismael/Lamia_Ismael_01.jpg" alt="Amira Mohammed - Plate #1" width={500} height={600} />
   </div>
@@ -612,7 +603,7 @@ create the tile mould.</p>
     <p className="text-2xl">Bench</p>
     <p className="text-xl italic">119 x 65 cm</p>
     </div>
-<p className="prose prose-xl leading-normal dark:text-white">
+<p className="prose leading-normal dark:text-white">
 Inspired by ancient Quranic benches, this bench features wood
 inlay using camel bones as geometric decorations inspired by
 the Wikala of Sultan Qaytbay. Woodturning was used to build
@@ -631,17 +622,17 @@ the frame, and the lower portion is intended as a storage unit.</p>
 
 <div>  
 <div><h2 className="header-section pb-6">Mohamed ElShamy</h2></div>
-<div className="flex grid-cols-1 lg:grid-cols-2">
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
   <div>
     <Image src="/images/labs/jameel-house-cairo/2023-catalogue/mohamed-elshamy/mohamed-elshamy-01.jpg" alt="Mohamed ElShamy - Panel" width={1000} height={600} />
   </div>
-  <div className="ml-6">
+  <div className="lg:ml-6">
     
-    <div className="pb-3">
+    <div className="pt-6 pb-3">
     <p className="text-2xl">Panel</p>
     <p className="text-xl italic">90 x 60 cm</p>
     </div>
-<div><p className="prose prose-xl leading-normal dark:text-white">
+<div><p className="prose leading-normal dark:text-white">
 A ceramic panel inspired by Al-Aqsa Mosque and made using
 the cuerda seca technique.</p>
 </div>
@@ -661,17 +652,17 @@ the cuerda seca technique.</p>
 
 <div>  
 <div><h2 className="header-section pb-6">Mariam Anwar</h2></div>
-<div className="flex grid-cols-1 lg:grid-cols-2">
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
   <div>
     <Image src="/images/labs/jameel-house-cairo/2023-catalogue/mariam-anwar/Mariam_Anwar_01.jpg" alt="Mariam Anwar - Frame" width={1000} height={600} />
   </div>
-  <div className="ml-6">
+  <div className="lg:ml-6">
     
-    <div className="pb-3">
+    <div className="pt-6 pb-3">
     <p className="text-2xl">Frame</p>
     {/* <p className="text-xl italic">90 x 60 cm</p> */}
     </div>
-<div><p className="prose prose-xl leading-normal dark:text-white">
+<div><p className="prose leading-normal dark:text-white">
 This wooden frame for a door is inspired by a wall mural found
 in the Topkapı Palace in Istanbul. The concept is rooted in the
 Bauhinia tree, particularly inspired by the vibrancy of its leaves
@@ -682,6 +673,221 @@ and blossoms.</p>
 
 </div>
 {/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Nada Al Morshidy</h2></div>
+</div>
+<div className="w-full">
+<Image src="/images/labs/jameel-house-cairo/2023-catalogue/nada-elmorshidy/Nada_ElMorshidy_04.jpg" alt="Nada ElMorshidy - Panel" width={1600} height={600} />  
+</div>
+<div>
+<div className="pt-6 pb-3">
+    <p className="text-2xl">Panel</p>
+    <p className="text-xl italic">128 x 44 cm</p>
+    </div>
+<p className="prose leading-normal dark:text-white">
+A ceramic panel of tiles engraved with motifs from the Ibn
+Tulun Mosque. The tiles were painted using a transparent glaze
+mixed with manganese to give a stone feel.</p>
+</div>
+
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+ {/* STUDENT START */}
+
+ <div>  
+<div><h2 className="header-section pb-6">Nada Kadri</h2></div>
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2023-catalogue/nada-kadri/Nada_Kadri_01.jpg" alt="Nada Kadri - Panel" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Panel</p>
+    <p className="text-xl italic">100 x 60 cm</p>
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+Inspired by the Taj Mahal, this panel incorporates various styles
+and design techniques, such as arch shapes, marble works and
+stone carvings, to achieve a Mughal look.</p>
+</div>
+  </div>
+</div>
+
+<div className="py-6"></div>
+
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2023-catalogue/nada-kadri/Nada_Kadri_02.jpg" alt="Nada Kadri - Plate" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Plate</p>
+    <p className="text-xl italic">35 cm</p>
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+Inspired by an elegant 16th century plate based on two
+geometric networks, the design uses the same quadrilateral and
+pentagonal formations and is decorated using brush painting.</p>
+</div>
+  </div>
+</div>
+</div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Nourhane Elkady</h2></div>
+</div>
+<div className="w-full">
+<Image src="/images/labs/jameel-house-cairo/2023-catalogue/nourhane-elkady/Nourhane_ElKady_01.jpg" alt="Nourhane ElKady - Lighting unit" width={1600} height={600} />  
+</div>
+<div>
+<div className="pt-6 pb-3">
+    <p className="text-2xl">Lighting unit</p>
+    <p className="text-xl italic">28 cm front circle / 68 cm rear circle</p>
+    </div>
+<p className="prose leading-normal dark:text-white">
+This hand-engraved brass lighting unit is inspired
+by the two Mamluk era sconces exhibited at the
+Metropolitan Museum of Art.</p><br></br>
+<p className="prose leading-normal dark:text-white">
+The large platter is part of a set of trays upon
+which, traditionally, candlesticks were fixed to reflect
+candlelight, illuminating a room while higlighting the
+decorative details of the brass surface.</p><br></br>
+<p className="prose leading-normal dark:text-white">
+The project follows octagonal shape
+proportions, relying on a circular network
+of 21 solar motifs, featuring musicians,
+dancers and animals.</p>
+</div>
+
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Omnia Hosni</h2></div>
+</div>
+<div className="w-full">
+<Image src="/images/labs/jameel-house-cairo/2023-catalogue/omnia-hosni/Omnia_Hosni_01.jpg" alt="Omnia Hosni - Mirror" width={1600} height={600} />  
+</div>
+<div>
+<div className="pt-6 pb-3">
+    <p className="text-2xl">Mirror</p>
+    <p className="text-xl italic">63cm x 63cm</p>
+    </div>
+<p className="prose leading-normal dark:text-white">
+This hand-carved wooden mirror
+frame is a depiction of a hunting and
+harvesting scene. It contains oud players,
+hunters with their horses, various birds
+and bunches of grapes. The piece is
+inspired by a mirror from the Fatimid
+era exhibited at the Pergamon Museum
+in Berlin.</p>
+</div>
+
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Tuka El Safty</h2></div>
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2023-catalogue/tuka-el-safty/Tuka_El_Safty_01.jpg" alt="Tuka El Safty- Panel" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Panel</p>
+    <p className="text-xl italic">90 x 45cm</p>
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+This ceramic panel uses pigments and oxides similar to those
+used to decorate the Shah-i-Zinda Mausoleum in Samarkand,
+Uzbekistan. Blue and turquoise have been combined with
+yellow ochre, green and black to achieve a unique floral motif.</p>
+</div>
+  </div>
+</div>
+
+<div className="py-6"></div>
+
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2023-catalogue/tuka-el-safty/Tuka_El_Safty_02.jpg" alt="Tuka El Safty - Vase" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Vase</p>
+    {/* <p className="text-xl italic">35 cm</p> */}
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+Inspired by 13th century Ayyubid era crafts, this round, plump
+body holds a slender neck and is decorated with black dye
+under a turquoise glaze. Traditionally, this type of vase was used
+to store and transport spices, food ingredients and medical
+materials.</p>
+</div>
+  </div>
+</div>
+</div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+<div><h2 className="header-section pb-6">2023 Graduating Class</h2></div>
+<div className="w-2/3 pb-12">
+    <Image src="/images/labs/jameel-house-cairo/2023-catalogue/graduation-class/graduation-class.jpg" alt="Amira Khaled - Three of Life" width={1000} height={600} />
+  <div className="pt-1 text-xs">The 2023 graduating class of the Jameel House of Traditional Arts in Cairo at the graduation ceremony. Left to right: front row, Heba Amin*,
+Amira Mohamed*, Amira Khaled*, Manal Yosri*, Nada Al Morshidy*, Tuka El Safty*, Nada Kadri*, Alya Gamal; middle row, Amira Negm*, Aya
+Soliman*, Mariam Anwar*, Omnia Hosni*, Lamia Ismail*, Hany El Deeb*; back row, Mohamed ElShamy*, Ibrahim Waheed*, Ola Said, Basma
+Hamed, Dr Mamdouh Sakr, Delfina Bottisini, Dr Khaled Azzam, Mostafa Awad, Nagat Farouk, Cléa Daridan. (* Denotes graduating students.)
+</div>
+  </div>
 
 </div>
     </>

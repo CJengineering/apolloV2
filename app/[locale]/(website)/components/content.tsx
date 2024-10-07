@@ -246,7 +246,7 @@ const socialMediaLinks: SocialMediaLinks = {
   instagram: {
     url: "https://instagram.com/yourprofile",
     name: "Instagram",
-  },
+  }, 
   youtube: {
     url: "https://youtube.com/yourchannel",
     name: "YouTube",

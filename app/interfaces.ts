@@ -58,7 +58,7 @@ export interface SocialMediaLinks {
   linkedin?: SocialMediaLink;
   facebook?: SocialMediaLink;
   twitter?: SocialMediaLink;
-  tiktok: SocialMediaLink;
+  tiktok?: SocialMediaLink;
   github?: SocialMediaLink;
   website?: SocialMediaLink;
 }
