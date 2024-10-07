@@ -19,11 +19,12 @@ export default function Footer() {
           <div>
             <SocialMediaList
               socialMediaLinks={{
-                length: 4,
+                length: 5,
                 instagram: { name: "instagram", url: "https://www.instagram.com/communityjameel/?hl=en" },
                 linkedin: { name: "linkedin", url: "https://www.linkedin.com/company/communityjameel/" },
                 twitter: { name: "twitter", url: "https://x.com/communityjameel" },
                 youtube: { name: "youtube", url: "https://www.youtube.com/c/CommunityJameel" },
+                tiktok: { name: "tiktok", url: "https://www.tiktok.com/@communityjameel" },
               }}
             />
           </div>

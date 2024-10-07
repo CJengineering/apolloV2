@@ -51,12 +51,14 @@ export interface SocialMediaLink {
   name: string;
 }
 export interface SocialMediaLinks {
+  
   length: number;
   instagram?: SocialMediaLink;
   youtube?: SocialMediaLink;
   linkedin?: SocialMediaLink;
   facebook?: SocialMediaLink;
   twitter?: SocialMediaLink;
+  tiktok: SocialMediaLink;
   github?: SocialMediaLink;
   website?: SocialMediaLink;
 }
