@@ -37,8 +37,44 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 
-export default async function Programme8page({
+// START INITIATIVES
+
+const cardData = [
+  {
+    imageUrl: "/images/labs/jahl/UNGAHealingArts.jpg",
+    alt: "UNGA 2024 Healing Arts",
+    title: "UNGA 2024 Healing Arts",
+    subtitle:"",
+    link: "https://www.jameelartshealthlab.org/outreach/events/unga-healing-arts-week-2024",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/jahl/YazidiCulturalArchive.jpg",
+    alt: "Yazidi Cultural Archive",
+    title: "Yazidi Cultural Archive",
+    subtitle:"",
+    link: "https://artsandculture.google.com/story/ZwXB6qNf6NHmyA",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/jahl/LancetReport.jpg",
+    alt: "Lancet Global Series",
+    title: "Lancet Global Series",
+    subtitle: "",
+    link: "https://www.jameelartshealthlab.org/research/research-projects/lancet-global-series-on-health-benefits-of-the-arts",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+];
+// END INITIATIVES
+
+export default async function jameelArtsHealthLabProgrammePage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -82,10 +118,10 @@ export default async function Programme8page({
   {
     /**Get the single programme by id from webflow */
   }
-  const jwafsId = "63ced896230e6863c19094b1";
+  const jahlId = "63ced896230e6863c19094b1";
   const jwafsSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
-    (item) => item.id === jwafsId
+    (item) => item.id === jahlId
   );
 
   {
@@ -205,83 +241,107 @@ export default async function Programme8page({
 
   return (
     <>
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+<div className="pt-12 ">
 
-        <div className="">
-          <PostAccordion title={"News"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
-                <PostCard key={post.name} content={post} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Press"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
-                <NewsCard content={item} locale={params} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
+<div className="flex flex-col text-left">
+<div className="w-full flex pb-6 lg:pb-12">
 
-        {/* 
+<img className="dark:hidden" src="/images/labs/jahl/JAHL_ORIGNAL_DARK.png" width="360"></img>
+<img className="hidden dark:block" src="/images/labs/jahl/JAHL_ORIGNAL_LIGHT.png" width="360"></img>
+</div>
+           
+<div className="pb-6">
+<h1 className="header-article">Jameel Arts & Health Lab</h1>
+</div>
 
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
+<div className="pb-12">
+<p className="prose prose-xl leading-normal dark:text-white">
+The Jameel Arts & Health Lab has been established by the World Health Organization (WHO) Regional Office for Europe, the Steinhardt School at New York University, Community Jameel, and CULTURUNNERS. Focused on overlooked and underserved communities, the lab will coordinate and amplify scientific research into the effectiveness of the arts in improving health and wellbeing. Leveraging data, artist-led advocacy and a global Healing Arts campaign, the Lab will drive policy implementation across 193 UN member states.
+</p>
+</div>
+</div>
 
-        <div>
-        <PostAccordion title={"Events"}>
-            <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </CarousselForComponents>
-            </div>
-          </PostAccordion>
-        </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
+<div className="w-full lg:w-2/3">
+  <ResponsiveYouTubeEmbed embedId="dTLHb-oRiAM?si=qo0e2XBfgWokMpxK" />
+</div>
+  
+  <div className="w-full py-6 lg:py-12">
+    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+  </div>
+
+
+
+  <div className="pb-6">
+    <h2 className="header-section">Select initiatives</h2>
+  </div>
+
+<div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+   
+    {cardData.map((card, index) => (
+      <HomeCard
+        key={index}
+        imageUrl={card.imageUrl}
+        alt={card.alt}
+        title={card.title}
+        subtitle={card.subtitle}
+        link={card.link}
+        openInNewTab={card.openInNewTab}
+        clickAction={card.clickAction || ""}
+      />
+    ))}
+
+</div>
+
+  <div>
+  <div className="w-full pt-6 lg:pt-12 lg:pb-0">
+    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+  </div>
+</div>
+
+  <div className="">
+    <PostAccordion title={"News"}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {postProps.slice(0).map((post) => (
+          <PostCard key={post.name} content={post} />
+        ))}
       </div>
+    </PostAccordion>
+  </div>
+  <div className="">
+    <PostAccordion title={"Press"}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {newsProps.slice(0).map((item) => (
+          <NewsCard content={item} locale={params} />
+        ))}
+      </div>
+    </PostAccordion>
+  </div>
+  <div className="">
+    <PostAccordion title={"Multimedia"}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {multimediaProps.map((item) => (
+          <div key={item.alt} className="">
+            <MediaCard {...item} />
+          </div>
+        ))}
+      </div>
+    </PostAccordion>
+  </div>
+
+  <div>
+    <PostAccordion title={"Events"}>
+      <div className="">
+      <CarousselForComponents>
+        {cleanRelatedEvents.map((item) => (
+          <>
+            <EventCard article={item}></EventCard>
+          </>
+        ))}
+        </CarousselForComponents>
+      </div>
+    </PostAccordion>
+  </div>
+</div>
     </>
   );
 }

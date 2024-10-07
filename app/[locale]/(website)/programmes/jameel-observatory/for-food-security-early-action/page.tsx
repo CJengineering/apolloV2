@@ -36,8 +36,46 @@ import ContentPhotos from "../../../../../../components/CJ-components/components
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 
-export default async function Programme23page({
+// START "SELECT INITIATIVES"
+
+const selectInitiatives = [
+  {
+    imageUrl: "/images/labs/jameel-clinic/JAMEEL_CLINIC_HOSPITAL_NETWORK.jpg",
+    alt: "MIT Jameel Clinic Hospital Network",
+    title: "MIT Jameel Clinic Hospital Network",
+    subtitle:"A global network of hospitals deploying MIT Jameel Clinic deep learning cancer prediction tools",
+    link: "https://jclinic.mit.edu/hospital-network/",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/jameel-clinic/mirai.jpg",
+    alt: "MIRAI",
+    title: "MIRAI",
+    subtitle:"MIRAI is a deep learning model that can analyze a patient’s mammogram to accurately predict the patient’s risk of developing breast cancer in the next 5 years.",
+    link: "https://jclinic.mit.edu/mirai/",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/jameel-clinic/sybil.jpg",
+    alt: "SYBIL",
+    title: "SYBIL",
+    subtitle: "SYBIL is a deep learning model that can analyze a patient’s LDCT to accurately predict the patient’s risk of developing lung cancer in the next 6 years.",
+    link: "https://jclinic.mit.edu/sybil/",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+];
+
+// END "SELECT INITIATIVES"
+
+export default async function jofseaProgrammePage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -81,10 +119,10 @@ export default async function Programme23page({
   {
     /**Get the single programme by id from webflow */
   }
-  const jwafsId = "61ee828a15a31822dcbde700";
+  const jofseaId = "61ee828a15a31822dcbde700";
   const jwafsSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
-    (item) => item.id === jwafsId
+    (item) => item.id === jofseaId
   );
 
   {
@@ -205,16 +243,62 @@ export default async function Programme23page({
   return (
     <>
       <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+      <div className="flex flex-col text-left">
+  <div className="w-full flex pb-6 lg:pb-12">
 
+<img className="dark:hidden" src="/images/labs/jameel-observatory/jo-fsea/JAMEEL_OBSERVATORY_J-PAL_ORIGINAL_DARK.png" width="360"></img>
+<img className="hidden dark:block" src="/images/labs/jameel-observatory/jo-fsea/JAMEEL_OBSERVATORY_J-PAL_ORIGINAL_LIGHT.png" width="360"></img>
+  </div>
+                 
+  <div className="pb-6">
+    <h1 className="header-article">Jameel Observatory for Food Security Early Action</h1>
+  </div>
+
+  <div className="pb-12">
+    <p className="prose prose-xl leading-normal dark:text-white">
+    The Jameel Observatory focuses on using data and evidence to prepare for and act on environmental shocks as well as those impacts of climate change and variability which threaten human and environmental well-being. With a special focus on low and middle-income countries, the Jameel Observatory works at the interface of climate, natural disasters, agricultural and food systems, and health. It emphasises the need to incorporate local as well as scientific knowledge to prepare and act in anticipation of environmental shocks.
+    </p>
+  </div>
+</div>
+
+        <div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="4M4_73FqGI8?si=If4aApQytWnFp3Qi" />
+        </div>
+
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Select initiatives</h2>
+        </div>
+
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+         
+          {selectInitiatives.map((card, index) => (
+            <HomeCard
+              key={index}
+              imageUrl={card.imageUrl}
+              alt={card.alt}
+              title={card.title}
+              subtitle={card.subtitle}
+              link={card.link}
+              openInNewTab={card.openInNewTab}
+              clickAction={card.clickAction || ""}
+            />
+          ))}
+
+      </div>
+
+        <div>
+
+        <div className="w-full pt-6 lg:pt-12 lg:pb-0">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
         <div className="">
           <PostAccordion title={"News"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+              {postProps.slice(0).map((post) => (
                 <PostCard key={post.name} content={post} />
               ))}
             </div>
@@ -223,7 +307,7 @@ export default async function Programme23page({
         <div className="">
           <PostAccordion title={"Press"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
+              {newsProps.slice(0).map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
             </div>
@@ -241,43 +325,21 @@ export default async function Programme23page({
           </PostAccordion>
         </div>
 
-        {/* 
 
         <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
-
-        <div>
-          <PostAccordion title={"Events"}>
-            <div className="grid grid-cols-3 gap-5">
+        <PostAccordion title={"Events"}>
+            <div className="">
+            <CarousselForComponents>
               {cleanRelatedEvents.map((item) => (
                 <>
                   <EventCard article={item}></EventCard>
                 </>
               ))}
+            </CarousselForComponents>
             </div>
           </PostAccordion>
         </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
+      </div>
       </div>
     </>
   );

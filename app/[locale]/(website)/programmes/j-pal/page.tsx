@@ -283,7 +283,7 @@ export default async function JpalPage({
 
 </div>
 
-        <div className="w-2/3">
+<div className="w-full lg:w-2/3">
         <ResponsiveYouTubeEmbed embedId="4FLeNSqLxdQ?si=IBMZ4AHpawegC0e_" />
         </div>
         

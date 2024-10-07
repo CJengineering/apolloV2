@@ -37,8 +37,35 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 
-export default async function Programme14page({
+// START INITIATIVES
+
+const cardData = [
+  {
+    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
+    alt: "Graduate Class 2024",
+    title: "Graduate Class 2024",
+    subtitle:"",
+    link: "https://www.jameelartshealthlab.org/healing-arts",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/j-wafs/JWAFS_SEED_GRANTS.jpg",
+    alt: "Graduate Class 2023",
+    title: "Graduate Class 2023",
+    subtitle:"",
+    link: "https://jwafs.mit.edu/SeedGrants",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+];
+// END INITIATIVES
+
+export default async function JameelHouseCairoProgrammePage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -82,10 +109,10 @@ export default async function Programme14page({
   {
     /**Get the single programme by id from webflow */
   }
-  const jwafsId = "63440d3f2d8448b7438fc75d";
+  const jameelhousecairoId = "63440d3f2d8448b7438fc75d";
   const jwafsSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
-    (item) => item.id === jwafsId
+    (item) => item.id === jameelhousecairoId
   );
 
   {
@@ -205,83 +232,145 @@ export default async function Programme14page({
 
   return (
    < >
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+      <div className="pt-12 ">
 
-        <div className="">
-          <PostAccordion title={"News"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
-                <PostCard key={post.name} content={post} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Press"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
-                <NewsCard content={item} locale={params} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
+<div className="flex flex-col text-left">
+<div className="w-full flex pb-6 lg:pb-12">
 
-        {/* 
+<img className="dark:hidden" src="/images/labs/jahl/JAHL_ORIGNAL_DARK.png" width="360"></img>
+<img className="hidden dark:block" src="/images/labs/jahl/JAHL_ORIGNAL_LIGHT.png" width="360"></img>
+</div>
+           
+<div className="pb-6">
+<h1 className="header-article">Jameel House of Traditional Arts in Cairo</h1>
+</div>
 
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
+<div className="pb-12">
+<p className="prose prose-xl leading-normal dark:text-white">
+The Jameel House of Traditional Arts in Cairo offers classes in traditional geometry, drawing, colour harmony, and decorative floral patterns, as well as training in ceramics, glass, gypsum, metalwork, and woodwork. Located in Fustat, Historic Cairo, the Jameel House was launched in 2009 through a collaboration between The Prince’s Foundation School of Traditional Arts, Community Jameel, and the Cultural Development Fund of Egypt. With a mission to preserve Egypt’s oldest crafts, the Jameel House accepts 20 students annually on a two-year training programme by The Prince’s Foundation School.
+</p>
+</div>
+</div>
 
-        <div>
-        <PostAccordion title={"Events"}>
-            <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </CarousselForComponents>
-            </div>
-          </PostAccordion>
-        </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
+<div className="w-full lg:w-2/3">
+  <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
+  </div>
+  
+  <div className="w-full py-6 lg:py-12">
+    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+  </div>
+
+  <div className="pb-6">
+    <h2 className="header-section">Impact</h2>
+  </div>
+  <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="">
+      <Stats title="220" content="graduates" />
+    </div>
+    <div className="">
+      <Stats title="3000" content="applicants" />
+    </div>
+    <div className="">
+      <Stats title="70" content="startups founded by graduates" />
+    </div>
+  </div>
+
+
+  <div className="w-full py-6 lg:py-12">
+    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+  </div>
+
+  <div className="pb-6">
+    <h2 className="header-section">Select initiatives</h2>
+  </div>
+
+<div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+   
+    {cardData.map((card, index) => (
+      <HomeCard
+        key={index}
+        imageUrl={card.imageUrl}
+        alt={card.alt}
+        title={card.title}
+        subtitle={card.subtitle}
+        link={card.link}
+        openInNewTab={card.openInNewTab}
+        clickAction={card.clickAction || ""}
+      />
+    ))}
+
+</div>
+
+  <div>
+  <div className="w-full pt-6 lg:pt-12 lg:pb-0">
+    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+  </div>
+  {/* <div className="pb-6">
+    <h2 className="header-section">Spinouts</h2>
+  </div>
+
+<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+{spinoutsLogos.map((card, index) => (
+  <div className="flex  items-center justify-center">
+    <HomeCard
+        key={index}
+        imageUrl={card.imageUrl}
+        alt={card.alt}
+        title={card.title}
+        subtitle={card.subtitle}
+        link={card.link}
+        openInNewTab={card.openInNewTab}
+        clickAction={card.clickAction || ""}
+      />
+  </div>
+))}
+</div> */}
+</div>
+
+  <div className="">
+    <PostAccordion title={"News"}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {postProps.slice(0).map((post) => (
+          <PostCard key={post.name} content={post} />
+        ))}
       </div>
+    </PostAccordion>
+  </div>
+  <div className="">
+    <PostAccordion title={"Press"}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {newsProps.slice(0).map((item) => (
+          <NewsCard content={item} locale={params} />
+        ))}
+      </div>
+    </PostAccordion>
+  </div>
+  <div className="">
+    <PostAccordion title={"Multimedia"}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {multimediaProps.map((item) => (
+          <div key={item.alt} className="">
+            <MediaCard {...item} />
+          </div>
+        ))}
+      </div>
+    </PostAccordion>
+  </div>
+
+  <div>
+    <PostAccordion title={"Events"}>
+      <div className="">
+      <CarousselForComponents>
+        {cleanRelatedEvents.map((item) => (
+          <>
+            <EventCard article={item}></EventCard>
+          </>
+        ))}
+        </CarousselForComponents>
+      </div>
+    </PostAccordion>
+  </div>
+</div>
     </>
   );
 }
