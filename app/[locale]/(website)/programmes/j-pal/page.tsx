@@ -1,6 +1,6 @@
 import MediaCard from "@/components/CJ-components/components-CJ/basic components/MediaCard";
 import TableRowSingle from "@/components/CJ-components/components-CJ/custom components/TableRowSIngle";
-
+import { CardHorizontalImageProps, RowData, StatProps } from "@/app/interfaces";
 import EventCard from "@/components/custom beta components/EventCard";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import NewsCard from "@/components/custom beta components/NewsCard";
@@ -44,7 +44,6 @@ import ResponsiveYouTubeEmbed from "@/components/custom beta components/Responsi
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 
-
 // START THE DATA FOR CARDS
 
 const cardData = [
@@ -55,16 +54,6 @@ const cardData = [
     subtitle:
       "J-PAL Middle East and North Africa (MENA), based at the American University in Cairo, leads J-PAL\’s work in the Middle East and North Africa region. J-PAL MENA conducts randomized evaluations, builds partnerships for evidence-informed policymaking, and helps partners scale up effective programs.",
     link: "https://www.povertyactionlab.org/middle-east-and-north-africa",
-    openInNewTab: false,
-    clickAction: "External link",
-  },
-  {
-    imageUrl: "/images/labs/j-pal/Evidence_To_Policy.jpg",
-    alt: "Evidence to policy",
-    title: "Evidence to Policy",
-    subtitle:
-      "Evidence from randomized evaluations is changing how we understand and address problems related to poverty. Policymakers, practitioners, and funders worldwide are increasingly applying this learning to social policies and programs.",
-    link: "https://www.povertyactionlab.org/evidence-policy",
     openInNewTab: false,
     clickAction: "External link",
   },
@@ -91,7 +80,7 @@ const cardData = [
   {
     imageUrl: "/images/labs/j-pal/air-water-labs.jpg",
     alt: "Air and Water Labs",
-    title: "Solutions and  Advancements through Research for Air and Water (SARWA)",
+    title: "J-PAL Air and Water Labs",
     subtitle:
       "Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.",
     link: "https://www.povertyactionlab.org/page/air-and-water-labs",
@@ -276,24 +265,25 @@ export default async function JpalPage({
           locale={params.locale}
         /> */}
 
-       <ContainerFixedWidth>
-       <div className="flex flex-col items-center mx-auto text-center">
-  <div className="w-full flex justify-center pb-6 lg:pb-12">
-    <img src="/images/labs/j-pal/J-PAL_ORIGINAL_DARK.png" alt="Description" width={500} height={300} />
+
+  <div className="flex flex-col text-left">
+  <div className="w-full flex pb-6 lg:pb-12">
+  <img className="dark:hidden" src="/images/labs/j-pal/J-PAL_ORIGINAL_DARK.png" width="360"></img>
+  <img className="hidden dark:block" src="/images/labs/j-pal/J-PAL_ORIGINAL_LIGHT.png" width="360"></img>
   </div>
 
   <div className="pb-6">
-    <h1 className="header-article">Abdul Latif Jameel Poverty Action Lab (J-PAL)</h1>
+    <h1 className="header-article">{singleProgramme.fieldData.name}</h1>
   </div>
 
-  <div className="pb-12">
-    <p className="prose prose-xl leading-normal">
-      J-PAL is a global research centre aiming to reduce poverty through evidence-based policy. With over 290 affiliated professors and 8 offices worldwide, J-PAL conducts randomised impact evaluations to inform policies that have reached over 600 million people. In 2019, J-PAL&apos;s co-founders Esther Duflo, Abhijit Banerjee, and affiliate Michael Kremer won the Nobel Prize for Economics.
-    </p>
-  </div>
+  <div className="pb-12 w-2/3">
+  <p className="prose prose-xl leading-normal dark:text-white"/>
+  The Abdul Latif Jameel Poverty Action Lab (J-PAL) is a global research centre aiming to reduce poverty through evidence-based policy. With over 290 affiliated professors and 8 offices worldwide, J-PAL conducts randomised impact evaluations to inform policies that have reached over 600 million people. In 2019, J-PAL’s co-founders Esther Duflo, Abhijit Banerjee, and affiliate Michael Kremer won the Nobel Prize for Economics.
 </div>
 
-        <div>
+</div>
+
+<div className="w-full lg:w-2/3">
         <ResponsiveYouTubeEmbed embedId="4FLeNSqLxdQ?si=IBMZ4AHpawegC0e_" />
         </div>
         
@@ -336,7 +326,8 @@ export default async function JpalPage({
           <h2 className="header-section">Select initiatives</h2>
         </div>
 
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+         
           {cardData.map((card, index) => (
             <HomeCard
               key={index}
@@ -349,7 +340,11 @@ export default async function JpalPage({
               clickAction={card.clickAction || ""}
             />
           ))}
+
       </div>
+      <div className="w-full mt-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
 
         <div className="">
           <PostAccordion title={"News"}>
@@ -416,7 +411,7 @@ export default async function JpalPage({
             </div>
           </PostAccordion>
         </div>
-        </ContainerFixedWidth>
+
         {/* <div>
           <h2> related photos by programme</h2>
           <div>

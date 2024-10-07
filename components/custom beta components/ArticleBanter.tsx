@@ -23,11 +23,11 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
     <div className={locale === "ar" ? "rtl" : ""}>
     <div className="pt-6 w-full mb-4 flex">
     <div>
-    <h1 className={`header-article leading-7 sm:leading-none pb-0 pt-12 lg:pb-4 lg:pt-4 lg:text-left flex-grow ${locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}>
+    <h1 className={`header-article leading-7 sm:leading-none pb-0 pt-12 lg:pb-4 lg:pt-4 flex-grow ${locale === "ar" ? "sans-serif-ar text-right " : "sans-serif text-left"}`}>
       {locale === 'ar' ? post.arabicTitle : post.name}
     </h1>
     </div>
-    <div className={`pb-0 pt-12 lg:pb-4 lg:pt-4 ${locale === 'ar' ? 'mr-auto' : 'ml-auto'}`}>
+    <div className={`pb-0 pt-12 lg:pb-4 lg:pt-4 ${locale === 'ar' ? 'mr-6' : 'ml-6'}`}>
       <LanguageChanger />
     </div>
   </div>
@@ -44,11 +44,11 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
           <div className="">
             <div className="mx-auto">
               <div className="pt-6">
-                <div className="sans-serif text-lg">{locale === 'ar' ? post.datePublishedArabic : post.datePublished}</div>
+                <div className={`{locale === 'ar' ? 'sans-serif-ar : 'sans-serif text-lg'}`}>{locale === 'ar' ? post.datePublishedArabic : post.datePublished}</div>
               </div>
               <div>
-                <div className="sans-serif text-lg">
-                  {post.location === "N/A" ? "" : post.location}
+                <div className={`{locale === 'ar' ? 'sans-serif-ar : 'sans-serif text-lg'}`}>
+                  {locale === 'ar' ? post.locationArabic : post.location === "N/A" ? "" : post.location}
                 </div>
                 <div className={`pl-0 prose prose-2xl dark:prose-dark ${locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}>
                 <div dangerouslySetInnerHTML={{ __html: locale === 'ar' ? post.bodyArabic : post.body }}></div>

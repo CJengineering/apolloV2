@@ -1,8 +1,6 @@
 import React from "react";
 import {
   VideoCameraIcon,
-  DocumentIcon,
-  CameraIcon,
   MicrophoneIcon,
   PlayCircleIcon,
   PhotoIcon,
@@ -11,7 +9,6 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { MediaCardProps } from "@/app/interfaces";
-import { t } from "i18next";
 
 const MediaCard = ({
   imageUrl,
@@ -32,8 +29,7 @@ const MediaCard = ({
       case "photo":
         return <PhotoIcon className="h-4 w-4 text-white" />;
       default:
-        return <BeakerIcon
-        className="h-4 w-4 text-white" />;
+        return <BeakerIcon className="h-4 w-4 text-white" />;
     }
   };
 
@@ -52,7 +48,8 @@ const MediaCard = ({
             layout="fill"
             unoptimized
           />
-          <div className="absolute inset-0 bg-black opacity-50"></div>
+          {/* Overlay with opacity change on hover */}
+          <div className="absolute inset-0 bg-black opacity-50 transition-opacity duration-[1200ms] ease-in-out group-hover:opacity-0"></div>
           <div className="absolute left-2 top-2">
             {getIcon(type)}
           </div>
@@ -60,37 +57,19 @@ const MediaCard = ({
 
         {/* TEXT COLUMN START */}
         <div className="col-span-2 flex flex-col justify-center space-y-2">
-          {/* PROGRAM LABEL START */}
-          {/* <div className="text-left">
-            <span className="mono text-xs font-normal uppercase p-1 bg-slate-100 dark:bg-slate-800">
-              {programme.name}
-            </span>
-          </div> */}
-          {/* PROGRAM LABEL END */}
-
-          {/* TITLE OF POST ITEM START */}
           <div className="text-left">
             <h3 className="text-base sans-serif font-medium group-hover:underline">{name}</h3>
           </div>
-          {/* TITLE OF POST ITEM END */}
 
-          {/* PUBLISHED DATE AND SOURCES CONTAINER */}
-          <div className="flex space-x-2">
-            {/* PUBLISHED DATE */}
-            <div className="text-left">
-              <p className="sans-serif font-normal text-sm">
-                <time dateTime={datePublished}>{datePublished}</time>
-              </p>
-            </div>
-            {/* SOURCES */}
-            <div className="text-left">
-              <p className="sans-serif font-normal text-sm">|</p>
-            </div>
-            <div className="text-left">
-              <p className="sans-serif font-normal text-sm">{source}</p>
-            </div>
+          <div className="text-left">
+            <p className="sans-serif font-normal text-sm">
+              <time dateTime={datePublished}>{datePublished}</time>
+            </p>
           </div>
-          {/* END PUBLISHED DATE AND SOURCES CONTAINER */}
+
+          <div className="text-left">
+            <p className="sans-serif font-normal text-sm">{source}</p>
+          </div>
         </div>
         {/* TEXT COLUMN END */}
       </article>

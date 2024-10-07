@@ -29,7 +29,7 @@ const CarouselForComponent = ({ children }: CarouselProps) => {
   }
 
   return (
-    <div className="relative w-full  md:bg-transparent ">
+    <div className="relative w-full md:bg-transparent ">
       {/* Arrows Container: Positioned at the top center */}
       <div className="top-0 left-0 right-0 z-10 flex justify-end space-x-4 mt-4">
         <button
@@ -48,7 +48,7 @@ const CarouselForComponent = ({ children }: CarouselProps) => {
 
       <div
         ref={carouselRef}
-        className="carousel flex carousel-center bg-neutral  custom-scrollbar gap-4 overflow-x-auto max-w-[340px] md:max-w-[960px] lg:max-w-[774px]  xl:max-w-[1030px] "
+        className="carousel flex carousel-center bg-neutral custom-scrollbar gap-4 overflow-x-auto max-w-[340px] md:max-w-[960px] lg:max-w-[900px] xl:max-w-[1030px] "
       >
         {children.map((child, index) => (
           <div

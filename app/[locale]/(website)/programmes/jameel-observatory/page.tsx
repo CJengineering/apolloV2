@@ -38,7 +38,7 @@ import LanguageChanger from "@/components/custom beta components/LanguageChanger
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 
-export default async function Programme23page({
+export default async function jameelObservatoryProgrammePage({
   params,
 }: {
   params: { slug: string; locale: string };

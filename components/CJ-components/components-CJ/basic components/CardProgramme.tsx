@@ -36,12 +36,12 @@ export default function CardProgramme({
         <div className="absolute inset-0 bg-blue-950 mix-blend-screen opacity-0 transition-opacity duration-[2100ms] group-hover:opacity-100"></div>
 
         <div className="absolute bottom-6 left-6 right-6">
-          <div className="sans-serif text-2xl text-white lg:text-4xl group-hover:underline">
-            {locale==='ar' ? programmeTitleArabic : programmeTitle}
+          <div className={`${locale === "ar" ? "sans-serif-ar text-white text-2xl lg:text-4xl group-hover:underline" : "sans-serif text-white text-2xl lg:text-4xl group-hover:underline"}`}>
+          {locale ==='ar' ? programmeTitleArabic : programmeTitle}
           </div>
-          <div className="mono text-medium uppercase text-white">
+          {/* <div className="mono text-medium uppercase text-white">
             {locale === 'ar' ? programmeTypeArabic : programmeType}
-          </div>
+          </div> */}
         </div>
       </div>
     </Link>
