@@ -1,6 +1,5 @@
 import MediaCard from "@/components/CJ-components/components-CJ/basic components/MediaCard";
 import TableRowSingle from "@/components/CJ-components/components-CJ/custom components/TableRowSIngle";
-
 import EventCard from "@/components/custom beta components/EventCard";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import NewsCard from "@/components/custom beta components/NewsCard";
@@ -18,7 +17,6 @@ import featureMapper from "@/functions/transformers/featureMapper";
 import { mapEventFieldDataToEventCard } from "@/functions/transformers/mapEventFieldToEventCard";
 import multimediaMapper from "@/functions/transformers/multimediaMapper";
 import { mapMultimediaToMediaCard } from "@/functions/transformers/multimediaToCardMultimedia";
-
 import newsMapper from "@/functions/transformers/newsMapper";
 import { newsToNewsCard } from "@/functions/transformers/newsToNewsCard";
 import mapItemToNewsMainProps from "@/functions/transformers/newsTransformer";
