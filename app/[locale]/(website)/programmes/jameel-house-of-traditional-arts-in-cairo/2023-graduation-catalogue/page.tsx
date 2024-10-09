@@ -880,15 +880,14 @@ materials.</p>
 { /* DIVIDER END*/}
 
 <div><h2 className="header-section pb-6">2023 Graduating Class</h2></div>
-<div className="w-2/3 pb-12">
-    <Image src="/images/labs/jameel-house-cairo/2023-catalogue/graduation-class/graduation-class.jpg" alt="Amira Khaled - Three of Life" width={1000} height={600} />
-  <div className="pt-1 text-xs">The 2023 graduating class of the Jameel House of Traditional Arts in Cairo at the graduation ceremony. Left to right: front row, Heba Amin*,
+<div className="w-full flex flex-col lg:flex-row pb-12 grid-cols-12">
+  <div className="lg:col-span-8"><Image src="/images/labs/jameel-house-cairo/2023-catalogue/graduation-class/graduation-class.jpg" alt="Amira Khaled - Three of Life" width={1000} height={600} /></div>
+  <div className="pt-1 text-xs lg:col-span-4">The 2023 graduating class of the Jameel House of Traditional Arts in Cairo at the graduation ceremony. Left to right: front row, Heba Amin*,
 Amira Mohamed*, Amira Khaled*, Manal Yosri*, Nada Al Morshidy*, Tuka El Safty*, Nada Kadri*, Alya Gamal; middle row, Amira Negm*, Aya
 Soliman*, Mariam Anwar*, Omnia Hosni*, Lamia Ismail*, Hany El Deeb*; back row, Mohamed ElShamy*, Ibrahim Waheed*, Ola Said, Basma
 Hamed, Dr Mamdouh Sakr, Delfina Bottisini, Dr Khaled Azzam, Mostafa Awad, Nagat Farouk, Cléa Daridan. (* Denotes graduating students.)
 </div>
-  </div>
-
+</div>
 </div>
     </>
   );

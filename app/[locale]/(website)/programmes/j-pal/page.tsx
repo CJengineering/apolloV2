@@ -273,13 +273,11 @@ export default async function JpalPage({
   </div>
 
   <div className="pb-6">
-    <h1 className="header-article">{singleProgramme.fieldData.name}</h1>
+    <h1 className="header-article">{cleanSingleProgramme.name}</h1>
   </div>
-
   <div className="pb-12 w-2/3">
-  <p className="prose prose-xl leading-normal dark:text-white"/>
-  The Abdul Latif Jameel Poverty Action Lab (J-PAL) is a global research centre aiming to reduce poverty through evidence-based policy. With over 290 affiliated professors and 8 offices worldwide, J-PAL conducts randomised impact evaluations to inform policies that have reached over 600 million people. In 2019, J-PAL’s co-founders Esther Duflo, Abhijit Banerjee, and affiliate Michael Kremer won the Nobel Prize for Economics.
-</div>
+  <div className="prose prose-xl leading-normal dark:text-white" dangerouslySetInnerHTML={{__html:cleanSingleProgramme.text}} />
+  </div>
 
 </div>
 
@@ -296,25 +294,22 @@ export default async function JpalPage({
         </div>
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="">
-            <Stats title="600M" content="people reached" />
+            <Stats title={cleanSingleProgramme.impact01} content={cleanSingleProgramme.impact01Title} />
           </div>
           <div className="">
-            <Stats title="1200" content="impact evaluations" />
+          <Stats title={cleanSingleProgramme.impact02} content={cleanSingleProgramme.impact02Title} />
           </div>
           <div className="">
-            <Stats title="36" content="Government Partnerships" />
+          <Stats title={cleanSingleProgramme.impact03} content={cleanSingleProgramme.impact03Title} />
           </div>
           <div className="">
-            <Stats title="48" content="policty insights" />
+          <Stats title={cleanSingleProgramme.impact04} content={cleanSingleProgramme.impact04Title} />
           </div>
           <div className="">
-            <Stats title="290" content="affiliated professors" />
+          <Stats title={cleanSingleProgramme.impact05} content={cleanSingleProgramme.impact05Title} />
           </div>
           <div className="">
-            <Stats title="7" content="scholar programmes" />
-          </div>
-          <div className="">
-            <Stats title="180K" content="learners" /> 
+          <Stats title={cleanSingleProgramme.impact06} content={cleanSingleProgramme.impact06Title} />
           </div>
         </div>
 
