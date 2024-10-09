@@ -32,6 +32,7 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { get } from "http";
 import { Divide } from "lucide-react";
 import React from "react";
+import Image from "next/image";
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
@@ -40,31 +41,7 @@ import Stats from "@/components/CJ-components/components-CJ/basic components/Sta
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 
-// START INITIATIVES
-
-const cardData = [
-  {
-    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
-    alt: "2024 catalogue",
-    title: "2024 catalogue",
-    subtitle:"",
-    link: "https://www.jameelartshealthlab.org/healing-arts",
-    openInNewTab: false,
-    clickAction: "External link",
-  },
-  {
-    imageUrl: "/images/labs/j-wafs/JWAFS_SEED_GRANTS.jpg",
-    alt: "2023 catalogue",
-    title: "2023 catalogue",
-    subtitle:"",
-    link: "https://jwafs.mit.edu/SeedGrants",
-    openInNewTab: false,
-    clickAction: "External link",
-  },
-];
-// END INITIATIVES
-
-export default async function JameelHouseCairoProgrammePage({
+export default async function jhtac2024graduation({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -231,138 +208,855 @@ export default async function JameelHouseCairoProgrammePage({
 
   return (
    < >
-      <div className="pt-12 ">
+      <div className="pt-10">
 
 <div className="flex flex-col text-left">
            
-<div className="pb-6">
-<h1 className="header-article">Jameel House of Traditional Arts in Cairo</h1>
+<div className="">
+<h1 className="header-article w-2/3"><span className="font-bold">2024 Graduation Catalogue:</span> <br></br>
+Jameel House of Traditional Arts in Cairo</h1>
 </div>
 
-<div className="pb-12">
-<p className="prose prose-xl leading-normal dark:text-white">
-The Jameel House of Traditional Arts in Cairo offers classes in traditional geometry, drawing, colour harmony, and decorative floral patterns, as well as training in ceramics, glass, gypsum, metalwork, and woodwork. Located in Fustat, Historic Cairo, the Jameel House was launched in 2009 through a collaboration between The Prince’s Foundation School of Traditional Arts, Community Jameel, and the Cultural Development Fund of Egypt. With a mission to preserve Egypt’s oldest crafts, the Jameel House accepts 20 students annually on a two-year training programme by The Prince’s Foundation School.
+<div className="py-6">
+<p className="prose prose-xl leading-normal dark:text-white">The Jameel House of Traditional Arts in Cairo continues to impress with the outstanding work of its students, especially the 2024 graduating class. The programme, established in 2009 in collaboration with The King’s Foundation School of Traditional Arts, Community Jameel, and the Egyptian Ministry of Culture, offers intensive training in traditional arts and crafts.
+</p><br/>
+<p className="prose prose-xl leading-normal dark:text-white">This year introduced traditional joinery, known as gamiya, as a new specialisation alongside existing woodwork techniques like inlay, carving, and wood turning. Students also explored brasswork techniques for the first time.
+</p><br/>
+<p className="prose prose-xl leading-normal dark:text-white">Inspired by Islamic art from Cairo, Iran, and Central Asia, the class of 2024 produced intricate mangour screens, mother-of-pearl and bone-inlaid furniture, and carved wooden pieces. Their works form a stunning collection of furniture and home accessories.
+</p><br/>
+<p className="prose prose-xl leading-normal dark:text-white">Students in ceramics, metalwork, and gypsum carving also contributed remarkable pieces, creating a harmonious collection that showcases the richness of Egyptian craft.
+</p><br/>
+<p className="prose leading-normal dark:text-white">Mamdouh Sakr
 </p>
-</div>
-</div>
+<p className="prose leading-normal dark:text-white">Programme Manager
+</p>
+<p className="prose leading-normal dark:text-white">The Jameel House of Traditional Arts in Cairo
+</p>
 
-<div className="w-full lg:w-2/3">
-  <ResponsiveYouTubeEmbed embedId="dn9mZchjKHw?si=_2VQzRq_rzQ7lqp4" />
+</div>
+</div>
+<div className="w-full pt-3 pb-12">
+    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
   </div>
   
-  <div className="w-full py-6 lg:py-12">
-    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-  </div>
+ {/* STUDENT START */}
 
-  <div className="pb-6">
-    <h2 className="header-section">Impact</h2>
+<div>  
+<div><h2 className="header-section pb-6">Hagar Al Hariri</h2></div>
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/01_hagar-al-hariri/hagar-al-hariri_01.webp" alt="Amera Negm" width={1000} height={600} />
   </div>
-  <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div className="">
-      <Stats title="220" content="graduates" />
+  <div className="lg:lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Mirror frame</p>
+    <p className="text-xl italic">176 x 71 cm</p>
     </div>
-    <div className="">
-      <Stats title="3000" content="applicants" />
+<div><p className="prose leading-normal dark:text-white">
+This mirror frame serves as a tangible representation of growth
+and transformation. It is a piece that can be proudly displayed,
+not just for its functional beauty, but for the profound meaning
+it carries—a reminder of achievements made and the endless
+possibilities that lie ahead in the graduate’s future endeavours.</p>
+<br></br>
+<p className="prose leading-normal dark:text-white">
+The mirror itself, nestled within the warm embrace of the
+wooden frame, offers a clear reflection that invites you to gaze
+into its depths. It is not just a functional piece but a work of art
+that enhances any room it graces.</p>
+<br></br>
+<p className="prose leading-normal dark:text-white">
+Whether hung in a cosy living room, a serene bedroom or a
+rustic hallway, it becomes a focal point, drawing admiration and
+sparking conversations about its origins and the talent behind its
+creation.</p>
+</div>
+</div>
+</div>
+</div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+ {/* STUDENT START */}
+
+ <div>  
+<div><h2 className="header-section pb-6">Esraa Badawy</h2></div>
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/02_esraa-badawy/esraa-badawy-01.webp" alt="Amira Khaled - Three of Life" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Cuerda seca blue and turquoise ceramic wall panely</p>
+    <p className="text-xl italic">55 x 55 cm</p>
     </div>
-    <div className="">
-      <Stats title="70" content="startups founded by graduates" />
+<div><p className="prose  leading-normal dark:text-white">
+A panel inspired by the Qur’an of Sultan Baybars Al-Jashankir,
+one of the most important Qur’ans of the Mamluk era.</p>
+</div>
+  </div>
+</div>
+<div className="py-6"></div>
+
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+<div className="">
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/02_esraa-badawy/esraa-badawy-02.webp" alt="Amera Negm" width={1000} height={600} />
+  </div>
+<div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Painted ceramic plate</p>
+    <p className="text-xl italic">37cm</p>
     </div>
+<div><p className="prose leading-normal dark:text-white">
+The work is inspired by a painted plate representing the twelve zodiac signs made in 16th-century Iran.</p>
+</div>
+</div>
+</div>
+</div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+ {/* STUDENT START */}
+
+ <div>  
+<div><h2 className="header-section pb-6">Fatma Badawy</h2></div>
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/13_fatma-badawy/fatma-badawy_01.webp" alt="Heba Amin - Brass box" width={1000} height={600} />
   </div>
-
-
-  <div className="w-full py-12">
-    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Wooden side table in traditional Mamluk style</p>
+    <p className="text-xl italic">64 x 45 cm</p>
+    </div>
+<div>
+<p className="prose leading-normal dark:text-white">
+The beechwood side table is hexagonal in shape, inspired by a Mamluk-style
+dining chair and the Minbar of Al-Ghouri Mosque in Cairo.</p><br></br>
+<p className="prose leading-normal dark:text-white">
+At the top and bottom of the table, there are small inlaid pieces of bone and
+ebony in the form of hexagonal stars. The tabletop is also composed of inlaid
+bone and ebony in the same geometric pattern as the side elements.</p>
+</div>
   </div>
+</div>
+</div>
+{/* STUDENT END */}
 
-  <div className="pb-6">
-    <h2 className="header-section">Graduating classes</h2>
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Nermeen Badawy</h2></div>
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/03_nermeen-badawi/nermeen-badawi-01.webp" alt="Heba Amin - Brass box" width={1000} height={600} />
   </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Ibn Tulun mirror frame</p>
+    <p className="text-xl italic">108 x 66 x 13 cm</p>
+    </div>
+<div>
+<p className="prose leading-normal dark:text-white">
+The design of the mirror frame was inspired by the soffits of
+the multiple arches that surround the large courtyard in the
+Ahmad ibn Tulun Mosque, which are decorated with a wide
+variety of patterns.</p>
+<p className="prose leading-normal dark:text-white">
+At the top and bottom of the table, there are small inlaid pieces of bone and
+ebony in the form of hexagonal stars. The tabletop is also composed of inlaid
+bone and ebony in the same geometric pattern as the side elements.</p>
+</div>
+  </div>
+</div>
+</div>
+{/* STUDENT END */}
 
-<div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-   
-    {cardData.map((card, index) => (
-      <HomeCard
-        key={index}
-        imageUrl={card.imageUrl}
-        alt={card.alt}
-        title={card.title}
-        subtitle={card.subtitle}
-        link={card.link}
-        openInNewTab={card.openInNewTab}
-        clickAction={card.clickAction || ""}
-      />
-    ))}
 
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+ {/* STUDENT START */}
+
+ <div>  
+<div><h2 className="header-section pb-6">Bassant Darwish</h2></div>
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/04_bassant-darwish/bassant-darwish_02.webp" alt="Bassant Darwish - Iznik earthenware plate" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Iznik earthenware plate</p>
+    <p className="text-xl italic">35 cm diameter</p>
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+The slender, looped motifs at the
+centre of the decoration on this Iznik
+earthenware plate are derived from
+depictions of clouds in Chinese art. These
+features are typical of ceramics made in
+Iznik in the early 16th century.</p>
+<p className="prose leading-normal dark:text-white">
+The design was based on the highly
+stylised plant forms, knots and other
+patterns favoured by the Ottoman court.</p>
+</div>
+  </div>
 </div>
 
+<div className="py-6"></div>
 
-  <div className="w-full pt-6 lg:pt-12 lg:pb-0">
-    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-  </div>
-  {/* <div className="pb-6">
-    <h2 className="header-section">Spinouts</h2>
-  </div>
-
-<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-{spinoutsLogos.map((card, index) => (
-  <div className="flex  items-center justify-center">
-    <HomeCard
-        key={index}
-        imageUrl={card.imageUrl}
-        alt={card.alt}
-        title={card.title}
-        subtitle={card.subtitle}
-        link={card.link}
-        openInNewTab={card.openInNewTab}
-        clickAction={card.clickAction || ""}
-      />
-  </div>
-))}
-</div> */}
-
-  <div className="">
-    <PostAccordion title={"News"}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {postProps.slice(0).map((post) => (
-          <PostCard key={post.name} content={post} />
-        ))}
-      </div>
-    </PostAccordion>
-  </div>
-  <div className="">
-    <PostAccordion title={"Press"}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {newsProps.slice(0).map((item) => (
-          <NewsCard content={item} locale={params} />
-        ))}
-      </div>
-    </PostAccordion>
-  </div>
-  <div className="">
-    <PostAccordion title={"Multimedia"}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {multimediaProps.map((item) => (
-          <div key={item.alt} className="">
-            <MediaCard {...item} />
-          </div>
-        ))}
-      </div>
-    </PostAccordion>
-  </div>
-
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
   <div>
-    <PostAccordion title={"Events"}>
-      <div className="">
-      <CarousselForComponents>
-        {cleanRelatedEvents.map((item) => (
-          <>
-            <EventCard article={item}></EventCard>
-          </>
-        ))}
-        </CarousselForComponents>
-      </div>
-    </PostAccordion>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/04_bassant-darwish/bassant-darwish_01.webp" alt="Bassant Darwish - Tea set" width={1000} height={600} />
   </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Tea set</p>
+    <p className="text-xl italic">10 cm diameter</p>
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+A tea set inspired by nature using the stamp technique.</p>
+</div>
+  </div>
+</div>
+<div className="py-6"></div>
+
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/04_bassant-darwish/bassant-darwish_03.webp" alt="Bassant Darwish - Ancient manuscript ceramic tile panel" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Ancient manuscript ceramic tile panel</p>
+    <p className="text-xl italic">60 x 45 cm</p>
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+This ceramic tile panel takes inspiration from a cherished Moroccan Qur’an frontispiece
+from the Saadi dynasty era (16th – 17th century). The design features a lush, symmetrical
+arrangement of stylised foliage, with curling, flat, rounded and pointed leaves springing from a
+central stem. At the centre, the overlapping leaves coalesce into an elegant eight-pointed star
+motif, creating a geometric focal point amidst the organic forms. The vibrant oxide pigments
+and dyes result in a rich, harmonious palette that brings the botanical elements to life,
+capturing the masterful craftsmanship and artistic sensibilities of the Saadi period.</p>
+</div>
+  </div>
+</div>
+
+</div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Alia El Garhy</h2></div>
+
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+  <Image src="/images/labs/jameel-house-cairo/2024-catalogue/07_alia-el-garhy/alia-el-garhy_01.webp" alt="Alia El Garhy" width={1600} height={600} />  
+  </div>
+  <div className="lg:ml-6">
+    
+  <div className="pt-6 pb-3">
+    <p className="text-2xl">Hexagonal <span className="italic">kündekari</span> panel</p>
+    <p className="text-xl italic">44.5 x 77.2 cm</p>
+    </div>
+<div>
+<p className="prose leading-normal dark:text-white">
+This kündekari panel with hexagonal pattern is made of 183 pieces. It is an exquisite example of intricate
+woodcraft, showcasing mastery and precision of this traditional art.</p>
+<p className="prose leading-normal dark:text-white">
+Each piece of the panel is meticulously cut and fitted together without the use of nails or adhesives,
+demonstrating the high level of skill and craftsmanship involved.</p>
+<p className="prose leading-normal dark:text-white">
+The interlocking design not only ensures durability but also reflects the rich cultural heritage and artistic
+traditions from which kündekari originated.</p>
+<p className="prose leading-normal dark:text-white">
+Used as a decorative wall piece element, this panel stands as a testament to the timeless beauty and complexity
+of traditional woodworking techniques.</p>
+</div>
+  </div>
+</div>
+</div>
+{/* STUDENT END */}
+
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+ {/* STUDENT START */}
+
+ <div>  
+<div><h2 className="header-section pb-6">Sara El Sayed</h2></div>
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/hany-el-deeb/hany-el-deeb-01.jpg" alt="Amira Mohammed - Plate" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Panel</p>
+    <p className="text-xl italic">35 cm</p>
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+The first of its kind in Egypt, this project is inspired by the
+feather of Al-Ghamri’s pulpit located in the al-Ashraf Barsbay
+Khanqa in the Desert of the Mamluks in Cairo.
+</p><br></br>
+<p className="prose leading-normal dark:text-white">
+Made of mahogany wood inlaid with ebony and brass work,
+it uses the zincograph technique.</p>
+</div>
+  </div>
+</div>
+
+<div className="py-6"></div>
+</div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Alia El Garhy</h2></div>
+</div>
+<div className="w-full">
+<Image src="/images/labs/jameel-house-cairo/2024-catalogue/manal-yosri/Manal_Yosri_03.jpg" alt="Manal Yosri - Panel" width={1600} height={600} />  
+</div>
+<div>
+<div className="pt-6 pb-3">
+    <p className="text-2xl">Panel</p>
+    <p className="text-xl italic">120 x 35 cm</p>
+    </div>
+<p className="prose leading-normal dark:text-white">
+Inspired by the tiles found on a 17th century balcony entryway
+at the Shrine of Fatima Al-Masumeh in Qom, Iran, this design
+utilises a network of hexagonal geometric shapes, known as
+tasomah, intertwined with botanical decorations.</p>
+</div>
+
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+ {/* STUDENT START */}
+
+ <div>  
+<div><h2 className="header-section pb-6">Noha El Nady</h2></div>
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/lamia-ismael/Lamia_Ismael_04.jpg" alt="Lamia Ismael - Panel" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Panel</p>
+    <p className="text-xl italic">110 x 58 cm</p>
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+Inspired by the Gayer Anderson Museum fountain floor, this
+panel uses an hexagonal grid and repetitive triangles to form the
+dodecagon shape. The triangle unit was carved on gypsum to
+create the tile mould.</p>
+</div>
+  </div>
+</div>
+
+<div className="py-6"></div>
+
+<div className="flex flex-col lg:flex-row lg:grid-cols-2 gap-24">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/lamia-ismael/Lamia_Ismael_01.jpg" alt="Amira Mohammed - Plate #1" width={500} height={600} />
+  </div>
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/lamia-ismael/Lamia_Ismael_02.jpg" alt="Amira Mohammed - Plate #2" width={500} height={600} />
+  </div>
+</div>
+</div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Rawan El Taweel</h2></div>
+</div>
+<div className="w-full">
+<Image src="/images/labs/jameel-house-cairo/2024-catalogue/ibrahim-waheed/Ibrahim_Waheed_01.jpg" alt="Aya Soliman - Bench" width={1600} height={600} />  
+</div>
+<div>
+<div className="pt-6 pb-3">
+    <p className="text-2xl">Bench</p>
+    <p className="text-xl italic">119 x 65 cm</p>
+    </div>
+<p className="prose leading-normal dark:text-white">
+Inspired by ancient Quranic benches, this bench features wood
+inlay using camel bones as geometric decorations inspired by
+the Wikala of Sultan Qaytbay. Woodturning was used to build
+the frame, and the lower portion is intended as a storage unit.</p>
+</div>
+
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Hagar Etman</h2></div>
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/mohamed-elshamy/mohamed-elshamy-01.jpg" alt="Mohamed ElShamy - Panel" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Panel</p>
+    <p className="text-xl italic">90 x 60 cm</p>
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+A ceramic panel inspired by Al-Aqsa Mosque and made using
+the cuerda seca technique.</p>
+</div>
+  </div>
+</div>
+
+</div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Noha El Nady</h2></div>
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/mariam-anwar/Mariam_Anwar_01.jpg" alt="Mariam Anwar - Frame" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Frame</p>
+    {/* <p className="text-xl italic">90 x 60 cm</p> */}
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+This wooden frame for a door is inspired by a wall mural found
+in the Topkapı Palace in Istanbul. The concept is rooted in the
+Bauhinia tree, particularly inspired by the vibrancy of its leaves
+and blossoms.</p>
+</div>
+  </div>
+</div>
+
+</div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Doaa Fathy</h2></div>
+</div>
+<div className="w-full">
+<Image src="/images/labs/jameel-house-cairo/2024-catalogue/nada-elmorshidy/Nada_ElMorshidy_04.jpg" alt="Nada ElMorshidy - Panel" width={1600} height={600} />  
+</div>
+<div>
+<div className="pt-6 pb-3">
+    <p className="text-2xl">Panel</p>
+    <p className="text-xl italic">128 x 44 cm</p>
+    </div>
+<p className="prose leading-normal dark:text-white">
+A ceramic panel of tiles engraved with motifs from the Ibn
+Tulun Mosque. The tiles were painted using a transparent glaze
+mixed with manganese to give a stone feel.</p>
+</div>
+
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+ {/* STUDENT START */}
+
+ <div>  
+<div><h2 className="header-section pb-6">Wessam Ghanim</h2></div>
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/nada-kadri/Nada_Kadri_01.jpg" alt="Nada Kadri - Panel" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Panel</p>
+    <p className="text-xl italic">100 x 60 cm</p>
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+Inspired by the Taj Mahal, this panel incorporates various styles
+and design techniques, such as arch shapes, marble works and
+stone carvings, to achieve a Mughal look.</p>
+</div>
+  </div>
+</div>
+
+<div className="py-6"></div>
+
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/nada-kadri/Nada_Kadri_02.jpg" alt="Nada Kadri - Plate" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Plate</p>
+    <p className="text-xl italic">35 cm</p>
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+Inspired by an elegant 16th century plate based on two
+geometric networks, the design uses the same quadrilateral and
+pentagonal formations and is decorated using brush painting.</p>
+</div>
+  </div>
+</div>
+</div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Fatma Badawy</h2></div>
+</div>
+<div className="w-full">
+<Image src="/images/labs/jameel-house-cairo/2024-catalogue/nourhane-elkady/Nourhane_ElKady_01.jpg" alt="Nourhane ElKady - Lighting unit" width={1600} height={600} />  
+</div>
+<div>
+<div className="pt-6 pb-3">
+    <p className="text-2xl">Lighting unit</p>
+    <p className="text-xl italic">28 cm front circle / 68 cm rear circle</p>
+    </div>
+<p className="prose leading-normal dark:text-white">
+This hand-engraved brass lighting unit is inspired
+by the two Mamluk era sconces exhibited at the
+Metropolitan Museum of Art.</p><br></br>
+<p className="prose leading-normal dark:text-white">
+The large platter is part of a set of trays upon
+which, traditionally, candlesticks were fixed to reflect
+candlelight, illuminating a room while higlighting the
+decorative details of the brass surface.</p><br></br>
+<p className="prose leading-normal dark:text-white">
+The project follows octagonal shape
+proportions, relying on a circular network
+of 21 solar motifs, featuring musicians,
+dancers and animals.</p>
+</div>
+
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Somaya Wael Ismail</h2></div>
+</div>
+<div className="w-full">
+<Image src="/images/labs/jameel-house-cairo/2024-catalogue/omnia-hosni/Omnia_Hosni_01.jpg" alt="Omnia Hosni - Mirror" width={1600} height={600} />  
+</div>
+<div>
+<div className="pt-6 pb-3">
+    <p className="text-2xl">Mirror</p>
+    <p className="text-xl italic">63cm x 63cm</p>
+    </div>
+<p className="prose leading-normal dark:text-white">
+This hand-carved wooden mirror
+frame is a depiction of a hunting and
+harvesting scene. It contains oud players,
+hunters with their horses, various birds
+and bunches of grapes. The piece is
+inspired by a mirror from the Fatimid
+era exhibited at the Pergamon Museum
+in Berlin.</p>
+</div>
+
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+
+<div>  
+<div><h2 className="header-section pb-6">Lydia Malak</h2></div>
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/tuka-el-safty/Tuka_El_Safty_01.jpg" alt="Tuka El Safty- Panel" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Panel</p>
+    <p className="text-xl italic">90 x 45cm</p>
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+This ceramic panel uses pigments and oxides similar to those
+used to decorate the Shah-i-Zinda Mausoleum in Samarkand,
+Uzbekistan. Blue and turquoise have been combined with
+yellow ochre, green and black to achieve a unique floral motif.</p>
+</div>
+  </div>
+</div>
+
+<div className="py-6"></div>
+
+<div className="flex flex-col lg:flex-row lg:grid-cols-2">
+  <div>
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/tuka-el-safty/Tuka_El_Safty_02.jpg" alt="Tuka El Safty - Vase" width={1000} height={600} />
+  </div>
+  <div className="lg:ml-6">
+    
+    <div className="pt-6 pb-3">
+    <p className="text-2xl">Vase</p>
+    {/* <p className="text-xl italic">35 cm</p> */}
+    </div>
+<div><p className="prose leading-normal dark:text-white">
+Inspired by 13th century Ayyubid era crafts, this round, plump
+body holds a slender neck and is decorated with black dye
+under a turquoise glaze. Traditionally, this type of vase was used
+to store and transport spices, food ingredients and medical
+materials.</p>
+</div>
+  </div>
+</div>
+</div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+<div><h2 className="header-section pb-6">Sara Meghani</h2></div>
+<div className="w-2/3 pb-12">
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/graduation-class/graduation-class.jpg" alt="Amira Khaled - Three of Life" width={1000} height={600} />
+  <div className="pt-1 text-xs">The 2024 graduating class of the Jameel House of Traditional Arts in Cairo at the graduation ceremony. Left to right: front row, Heba Amin*,
+Amira Mohamed*, Amira Khaled*, Manal Yosri*, Nada Al Morshidy*, Tuka El Safty*, Nada Kadri*, Alya Gamal; middle row, Amira Negm*, Aya
+Soliman*, Mariam Anwar*, Omnia Hosni*, Lamia Ismail*, Hany El Deeb*; back row, Mohamed ElShamy*, Ibrahim Waheed*, Ola Said, Basma
+Hamed, Dr Mamdouh Sakr, Delfina Bottisini, Dr Khaled Azzam, Mostafa Awad, Nagat Farouk, Cléa Daridan. (* Denotes graduating students.)
+</div>
+  </div>
+{/* STUDENT END */}
+
+  {/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+  <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+<div><h2 className="header-section pb-6">Rana Meligui</h2></div>
+<div className="w-2/3 pb-12">
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/graduation-class/graduation-class.jpg" alt="Amira Khaled - Three of Life" width={1000} height={600} />
+  <div className="pt-1 text-xs">The 2024 graduating class of the Jameel House of Traditional Arts in Cairo at the graduation ceremony. Left to right: front row, Heba Amin*,
+Amira Mohamed*, Amira Khaled*, Manal Yosri*, Nada Al Morshidy*, Tuka El Safty*, Nada Kadri*, Alya Gamal; middle row, Amira Negm*, Aya
+Soliman*, Mariam Anwar*, Omnia Hosni*, Lamia Ismail*, Hany El Deeb*; back row, Mohamed ElShamy*, Ibrahim Waheed*, Ola Said, Basma
+Hamed, Dr Mamdouh Sakr, Delfina Bottisini, Dr Khaled Azzam, Mostafa Awad, Nagat Farouk, Cléa Daridan. (* Denotes graduating students.)
+</div>
+  </div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+<div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+<div><h2 className="header-section pb-6">Rana Meligui</h2></div>
+<div className="w-2/3 pb-12">
+    <Image src="/images/labs/jameel-house-cairo/2024-catalogue/graduation-class/graduation-class.jpg" alt="Amira Khaled - Three of Life" width={1000} height={600} />
+  <div className="pt-1 text-xs">The 2024 graduating class of the Jameel House of Traditional Arts in Cairo at the graduation ceremony. Left to right: front row, Heba Amin*,
+Amira Mohamed*, Amira Khaled*, Manal Yosri*, Nada Al Morshidy*, Tuka El Safty*, Nada Kadri*, Alya Gamal; middle row, Amira Negm*, Aya
+Soliman*, Mariam Anwar*, Omnia Hosni*, Lamia Ismail*, Hany El Deeb*; back row, Mohamed ElShamy*, Ibrahim Waheed*, Ola Said, Basma
+Hamed, Dr Mamdouh Sakr, Delfina Bottisini, Dr Khaled Azzam, Mostafa Awad, Nagat Farouk, Cléa Daridan. (* Denotes graduating students.)
+</div>
+  </div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+<div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+<div><h2 className="header-section pb-6">Gamila Mourad</h2></div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+<div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+<div><h2 className="header-section pb-6">Areeg Niazy</h2></div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+<div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+<div><h2 className="header-section pb-6">Heritage — Brass tray</h2></div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+<div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+<div><h2 className="header-section pb-6">Heritage — Carved wooden panel</h2></div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+<div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+<div><h2 className="header-section pb-6">Heritage — Ceramic panel</h2></div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+<div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+<div><h2 className="header-section pb-6">Heritage — Chandelier</h2></div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+<div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+<div><h2 className="header-section pb-6">Heritage — Coloured mirror</h2></div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+<div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+<div><h2 className="header-section pb-6">Heritage — Wooden box</h2></div>
+{/* STUDENT END */}
+
+{/* DIVIDER START */}
+<div className="w-full pt-16 pb-12">
+<div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+</div>
+{ /* DIVIDER END*/}
+
+{/* STUDENT START */}
+<div><h2 className="header-section pb-6">Heritage — Wooden cabinet panel</h2></div>
+{/* STUDENT END */}
+
+
 </div>
     </>
   );
