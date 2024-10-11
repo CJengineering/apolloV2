@@ -42,7 +42,6 @@ import Stats from "@/components/CJ-components/components-CJ/basic components/Sta
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 
-
 // START INITIATIVES
 
 const cardData = [
@@ -50,7 +49,7 @@ const cardData = [
     imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
     alt: "Jameel Index",
     title: "Jameel Index",
-    subtitle:"",
+    subtitle: "",
     link: "https://jameelindex.mit.edu/",
     openInNewTab: false,
     clickAction: "External link",
@@ -59,7 +58,7 @@ const cardData = [
     imageUrl: "/images/labs/j-wafs/JWAFS_SEED_GRANTS.jpg",
     alt: "Seed Grants",
     title: "Seed Grants",
-    subtitle:"",
+    subtitle: "",
     link: "https://jwafs.mit.edu/SeedGrants",
     openInNewTab: false,
     clickAction: "External link",
@@ -85,7 +84,6 @@ const cardData = [
 ];
 // END INITIATIVES
 
-
 // STARTUP LOGOS START
 
 const spinoutsLogos = [
@@ -93,7 +91,7 @@ const spinoutsLogos = [
     imageUrl: "/images/labs/j-wafs/spinouts/",
     alt: "Jameel Index",
     title: "Jameel Index",
-    subtitle:"",
+    subtitle: "",
     link: "https://jameelindex.mit.edu/",
     openInNewTab: false,
     clickAction: "External link",
@@ -101,7 +99,6 @@ const spinoutsLogos = [
 ];
 
 // STARTUP LOGOS END
-
 
 export default async function JwafsPage({
   params,
@@ -271,29 +268,44 @@ export default async function JwafsPage({
   return (
     <>
       <div className="pt-12 ">
+        <div className="flex flex-col text-left">
+          <div className="w-full flex pb-6 lg:pb-12">
+            <img
+              className="dark:hidden"
+              src="/images/labs/j-wafs/J-WAFS_DARK_SVG_1000WIDTH.png"
+              width="360"
+            ></img>
+            <img
+              className="hidden dark:block"
+              src="/images/labs/j-wafs/J-WAFS_LIGHT_SVG_1000WIDTH.png"
+              width="360"
+            ></img>
+          </div>
 
-      <div className="flex flex-col text-left">
-  <div className="w-full flex pb-6 lg:pb-12">
+          <div className="pb-6">
+            <h1 className="header-article">
+              MIT Abdul Latif Jameel Water and Food Systems Lab (J-WAFS)
+            </h1>
+          </div>
 
-<img className="dark:hidden" src="/images/labs/j-wafs/J-WAFS_DARK_SVG_1000WIDTH.png" width="360"></img>
-<img className="hidden dark:block" src="/images/labs/j-wafs/J-WAFS_LIGHT_SVG_1000WIDTH.png" width="360"></img>
-  </div>
-                 
-  <div className="pb-6">
-    <h1 className="header-article">MIT Abdul Latif Jameel Water and Food Systems Lab (J-WAFS)</h1>
-  </div>
-
-  <div className="pb-12">
-    <p className="prose prose-xl leading-normal dark:text-white">
-    The Abdul Latif Jameel Water and Food Systems Lab (J-WAFS) is an MIT-wide effort that fuels research, innovation and cross-disciplinary collaborations focused on water and food systems to meet human needs. Through early-stage research grants, support for technology commercialisation, sponsored research management, student funding and mentorship and events that convene local and global experts, J-WAFS leverages the world-class resources for which MIT is known.
-    </p>
-  </div>
-</div>
-
-<div className="w-full lg:w-2/3">
-        <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
+          <div className="pb-12">
+            <p className="prose prose-xl leading-normal dark:text-white">
+              The Abdul Latif Jameel Water and Food Systems Lab (J-WAFS) is an
+              MIT-wide effort that fuels research, innovation and
+              cross-disciplinary collaborations focused on water and food
+              systems to meet human needs. Through early-stage research grants,
+              support for technology commercialisation, sponsored research
+              management, student funding and mentorship and events that convene
+              local and global experts, J-WAFS leverages the world-class
+              resources for which MIT is known.
+            </p>
+          </div>
         </div>
-        
+
+        <div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
+        </div>
+
         <div className="w-full py-6 lg:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
@@ -319,16 +331,17 @@ export default async function JwafsPage({
           </div>
         </div>
 
+        {/* DIVIDER START */}
         <div className="w-full py-6 lg:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
+        {/* DIVIDER END */}
 
         <div className="pb-6">
           <h2 className="header-section">Select initiatives</h2>
         </div>
 
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-         
+        <div className="w-full grid grid-cols-1 lg:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {cardData.map((card, index) => (
             <HomeCard
               key={index}
@@ -341,34 +354,140 @@ export default async function JwafsPage({
               clickAction={card.clickAction || ""}
             />
           ))}
+        </div>
+          {/* <div className="hidden">
+        <CarousselForComponents>
+          {[
+            <div key="carousel-content" className="">
+              {cardData.map((card, index) => (
+                <HomeCard
+                  key={index}
+                  imageUrl={card.imageUrl}
+                  alt={card.alt}
+                  title={card.title}
+                  subtitle={card.subtitle}
+                  link={card.link}
+                  openInNewTab={card.openInNewTab}
+                  clickAction={card.clickAction || ""}
+                />
+              ))}
+            </div>
+          ]}
+        </CarousselForComponents>
+        </div> */}
 
-      </div>
-
-        <div>
-        <div className="w-full pt-6 lg:pt-12 lg:pb-0">
+        { /* DIVIDER START */}
+        <div className="w-full py-6 lg:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
-        {/* <div className="pb-6">
+        {/* DIVIDER END */}
+
+        <div className="pb-6">
           <h2 className="header-section">Spinouts</h2>
         </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* First Logo */}
 
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-      {spinoutsLogos.map((card, index) => (
-        <div className="flex  items-center justify-center">
-          <HomeCard
-              key={index}
-              imageUrl={card.imageUrl}
-              alt={card.alt}
-              title={card.title}
-              subtitle={card.subtitle}
-              link={card.link}
-              openInNewTab={card.openInNewTab}
-              clickAction={card.clickAction || ""}
-            />
+      {/* Second Logo */}
+      <div className="flex items-center justify-start py-6 lg:py-2">
+        <a href="https://www.xibus.systems/" target="_blank" rel="noopener noreferrer">
+          <Image
+            src="/images/labs/j-wafs/spinouts/xibus_systems_logo.png" // Replace with the actual path to your image
+            alt="Logo 2"
+            width={180} // Adjust the width as needed
+            height={100} // Adjust the height as needed
+            className="object-contain transition duration-300 hover:filter hover:grayscale"
+          />
+        </a>
+      </div>
+
+      {/* Third Logo */}
+      <div className="flex items-center justify-start py-6 lg:py-2">
+        <a href="https://viaseparations.com/" target="_blank" rel="noopener noreferrer">
+          <Image
+            src="/images/labs/j-wafs/spinouts/via_separations_logo.png" // Replace with the actual path to your image
+            alt="Logo 3"
+            width={200} // Adjust the width as needed
+            height={100} // Adjust the height as needed
+            className="object-contain transition duration-300 hover:filter hover:grayscale"
+          />
+        </a>
+      </div>
+
+      {/* Fourth Logo */}
+      <div className="flex items-center justify-start py-6 lg:py-2">
+        <a href="https://takachar.com/" target="_blank" rel="noopener noreferrer">
+          <Image
+            src="/images/labs/j-wafs/spinouts/takachar_logo.png" // Replace with the actual path to your image
+            alt="Logo 4"
+            width={200} // Adjust the width as needed
+            height={100} // Adjust the height as needed
+            className="object-contain transition duration-300 hover:filter hover:grayscale"
+          />
+        </a>
+      </div>
+
+      {/* Fifth Logo */}
+      <div className="flex items-center justify-start py-6 lg:py-2">
+        <a href="https://sitration.com/" target="_blank" rel="noopener noreferrer">
+          <Image
+            src="/images/labs/j-wafs/spinouts/sitration_svg_logo.png" // Replace with the actual path to your image
+            alt="Logo 5"
+            width={90} // Adjust the width as needed
+            height={100} // Adjust the height as needed
+            className="object-contain transition duration-300 hover:filter hover:grayscale"
+          />
+        </a>
+      </div>
+
+      {/* Sixth Logo */}
+      <div className="flex items-center justify-start py-6 lg:py-2">
+        <a href="https://www.detoxyfi.com/" target="_blank" rel="noopener noreferrer">
+          <Image
+            src="/images/labs/j-wafs/spinouts/detoxify_logo.png" // Replace with the actual path to your image
+            alt="Logo 6"
+            width={200} // Adjust the width as needed
+            height={100} // Adjust the height as needed
+            className="object-contain transition duration-300 hover:filter hover:grayscale"
+          />
+        </a>
+      </div>
+
+      {/* Seventh Logo */}
+      <div className="flex items-center justify-start py-6 lg:py-2">
+        <a href="https://www.coolveg.org/" target="_blank" rel="noopener noreferrer">
+          <Image
+            src="/images/labs/j-wafs/spinouts/cool_veg_logo.png" // Replace with the actual path to your image
+            alt="Logo 7"
+            width={160} // Adjust the width as needed
+            height={100} // Adjust the height as needed
+            className="object-contain transition duration-300 hover:filter hover:grayscale"
+          />
+        </a>
+      </div>
+
+      {/* Eighth Logo */}
+      <div className="flex items-center justify-start py-6 lg:py-2">
+        <a href="https://example.com/8" target="_blank" rel="noopener noreferrer">
+          <Image
+            src="/images/labs/j-wafs/spinouts/AgZen_logoGRADIENT.png" // Replace with the actual path to your image
+            alt="Logo 8"
+            width={145} // Adjust the width as needed
+            height={100} // Adjust the height as needed
+            className="object-contain transition duration-300 hover:filter hover:grayscale"
+          />
+        </a>
+      </div>
+    </div>
+        
+        { /* DIVIDER START */}
+        <div className="w-full mt-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>  
+        {/* DIVIDER END */} 
+        
         </div>
-      ))}
-    </div> */}
-  </div>
 
         <div className="">
           <PostAccordion title={"News"}>
@@ -403,16 +522,15 @@ export default async function JwafsPage({
         <div>
           <PostAccordion title={"Events"}>
             <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
+              <CarousselForComponents>
+                {cleanRelatedEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
               </CarousselForComponents>
             </div>
           </PostAccordion>
-        </div>
       </div>
     </>
   );

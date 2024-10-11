@@ -89,6 +89,7 @@ export default async function Page() {
               href="https://www.dropbox.com/scl/fi/tk11wnmossdb8osuojdfb/COMMUNITY_JAMEEL_LOGO_ALL.zip?rlkey=7mofvv6v2g6lrzwuoqd0fynzq&dl=0"
               target="_blank"
               rel="noopener noreferrer"
+              className="underline hover:text-blue-800"
             >
               here
             </a>.

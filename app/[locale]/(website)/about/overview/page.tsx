@@ -239,33 +239,34 @@ export default async function OverviewContent({
       </div>
 
       <article>
-        <div className="flex justify-start py-6">
-          <div className="flex flex-col lg:flex-row justify-between items-start w-full max-w-lg">
-            <Link href="/community" className="flex items-center group">
-              <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline ">
-                Community
-              </p>
-              <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
-            </Link>
-            <Link href="/about/team" className="flex items-center group">
-              <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline">
-                Team
-              </p>
-              <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
-            </Link>
-            <Link
-              href="https://jameel75.com/en"
-              target="_blank"
-              className="flex items-center group"
-            >
-              <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline">
-                Jameel 75
-              </p>
-              <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white" />
-            </Link>
-          </div>
-        </div>
-      </article>
+  <div className="flex justify-start py-6">
+    <div className="flex flex-col lg:flex-row justify-between items-start w-full max-w-lg">
+      <Link href="/community" className="flex items-center group">
+        <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline">
+          Community
+        </p>
+        <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white transition-transform duration-300 group-hover:translate-x-1" />
+      </Link>
+      <Link href="/about/team" className="flex items-center group">
+        <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline">
+          Team
+        </p>
+        <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white transition-transform duration-300 group-hover:translate-x-1" />
+      </Link>
+      <Link
+        href="https://jameel75.com/en"
+        target="_blank"
+        className="flex items-center group"
+      >
+        <p className="prose sans-serif prose-2xl dark:text-white group-hover:underline">
+          Jameel 75
+        </p>
+        <ArrowRightIcon className="w-5 h-5 ml-2 text-black dark:text-white transition-transform duration-300 group-hover:translate-x-1" />
+      </Link>
+    </div>
+  </div>
+</article>
+
       <div className="py-24"></div>
     </div>
   );
