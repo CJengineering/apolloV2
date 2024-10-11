@@ -185,14 +185,28 @@ const navItems: NavItem[] = [
           //{ "name": "Gallery", "href": "/programmes", "current": false }
         ],
       },
+
       {
         name: "Jameel House of Traditional Arts in Cairo",
-        href: "/programmes/jameel-house-of-traditional-arts-in-cairo",
-        current: false,
+        children: [
+          {
+            name: "Overview",
+            href: "/programmes/jameel-house-of-traditional-arts-in-cairo",
+          },
+          {
+            name: "Graduation collections",
+            subChildren: [
+              { "name": "2023", "href": "/programmes/jameel-house-of-traditional-arts-in-cairo/2023-graduation-catalogue"},
+              { "name": "2024", "href": "/programmes/jameel-house-of-traditional-arts-in-cairo/2024-graduation-catalogue"},
+            ]
+          },
+        ],
       },
+
+
       {
         name: "Pratham Jameel Second Chance Programme",
-        href: "/programmes/praatham-jameel-second-chance-programme",
+        href: "/programmes/pratham-jameel-second-chance-programme",
         current: false,
       },
       {
