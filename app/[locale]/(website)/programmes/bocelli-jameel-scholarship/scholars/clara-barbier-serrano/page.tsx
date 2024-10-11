@@ -36,6 +36,7 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import peopleMapper from "@/functions/transformers/peopleMapper";
 
 export default async function ClaraBarbierSerranoCustomPage({
   params,
@@ -81,39 +82,39 @@ export default async function ClaraBarbierSerranoCustomPage({
   {
     /**Get the single programme by id from webflow */
   }
-  const jwafsId = "61ee828a15a3189441bde67d";
-  const jwafsSlug = params.slug;
-  const singleProgramme = programmesRawData.items.find(
-    (item) => item.id === jwafsId
+  const claraBarbierSerranoId = "629cbfdeefc23d7d17fae7ad";
+
+  const claraBarbierSerranoRaw = peopleRawData.items.find(
+    (item) => item.id === claraBarbierSerranoId
   );
 
   {
     /**Related collections in raw state  */
   }
   const relatedMultimedia = filterRelatedMultimedia(multimediaRawData.items, {
-    programme: singleProgramme.id,
+    programme: claraBarbierSerranoRaw.id,
   });
   const relatedPost = filterRelatedPosts(postsRawData.items, {
-    programme: singleProgramme.id,
+    programme: claraBarbierSerranoRaw.id,
   });
   const relatedNews = filterRelatedNews(newsRawData.items, {
-    programme: singleProgramme.id,
+    programme: claraBarbierSerranoRaw.id,
   });
   const relatedEvents = filterRelatedEvents(eventsRawData.items, {
-    programme: singleProgramme.id,
+    programme: claraBarbierSerranoRaw.id,
   });
   const relatedFeatures = filterRelatedFeatures(
     featuresRawData.items,
-    singleProgramme.id
+    claraBarbierSerranoRaw.id
   );
   const relatedPrizes = filterRelatedPrizes(prizesRawData.items, {
-    people: singleProgramme.id,
+    people: claraBarbierSerranoRaw.id,
   });
   const relatedAwards = filterRelatedAwards(awardsRawData.items, {
-    programme: singleProgramme.id,
+    programme: claraBarbierSerranoRaw.id,
   });
   const relatedJobs = filterRelatedAwards(jobsRawData.items, {
-    programme: singleProgramme.id,
+    programme: claraBarbierSerranoRaw.id,
   });
   const relatedPhotos = photosRawData.items;
   {
@@ -172,15 +173,18 @@ export default async function ClaraBarbierSerranoCustomPage({
   {
     /**Clean Individual Programme */
   }
-  const cleanSingleProgramme = programmeMapper(
-    singleProgramme,
-    peopleRawData.items,
+  const cleanClaraBarbierSerrano = peopleMapper(
+    claraBarbierSerranoRaw,
     partnersRawData.items,
-    programmesRawData.items
+    eventsRawData.items,
+    programmesRawData.items,
+    peopleRawData.items,
+    multimediaRawData.items,
+
   );
 
   {
-    /*map in to interface of different compoenents   */
+    /*map in to interface of different components   */
   }
 
   const multimediaProps = cleanRelatedMultimedia.map(mapMultimediaToMediaCard);
@@ -197,20 +201,83 @@ export default async function ClaraBarbierSerranoCustomPage({
   const postProps = cleanRelatedPosts;
   const eventProps = cleanRelatedEvents.map(mapEventFieldDataToEventCard);
 
-  const dataForRow = mapProgrammeToRowData(
-    cleanSingleProgramme,
-    cleanedFeatures
-  );
+
 
   return (
     <>
       <div className="pt-12">
+            
         <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+       
+        <div className="p-6 bg-gray-50">
+      <h1 className="text-2xl font-bold mb-2">{cleanClaraBarbierSerrano.name}</h1>
+      <p className="text-lg text-gray-600 mb-4">{cleanClaraBarbierSerrano.nameArabic}</p>
+      
+      <div className="mb-6">
+        <p className="font-medium">Hero: <span className="font-normal">{cleanClaraBarbierSerrano.hero ? 'Yes' : 'No'}</span></p>
+        <p className="font-medium">Collection Name: <span className="font-normal">{cleanClaraBarbierSerrano.collectionName}</span></p>
+        <p className="font-medium">Role: <span className="font-normal">{cleanClaraBarbierSerrano.role}</span></p>
+        <p className="font-medium">Role (Arabic): <span className="font-normal">{cleanClaraBarbierSerrano.roleArabic}</span></p>
+      </div>
+      
+      <div className="mb-6">
+        <p className="font-medium">Short Description:</p>
+        <p className="text-gray-700">{cleanClaraBarbierSerrano.shortDescription}</p>
+        <p className="font-medium mt-4">Short Description (Arabic):</p>
+        <p className="text-gray-700">{cleanClaraBarbierSerrano.shortDescriptionArabic}</p>
+      </div>
 
+      <div className="mb-6">
+        <p className="font-medium">Biography:</p>
+        <p className="text-gray-700">{cleanClaraBarbierSerrano.biography}</p>
+        <p className="font-medium mt-4">Biography (Arabic):</p>
+        <p className="text-gray-700">{cleanClaraBarbierSerrano.biographyArabic}</p>
+      </div>
+
+      <div className="mb-6">
+        <p className="font-medium">Events:</p>
+        <p className="text-gray-700">{cleanClaraBarbierSerrano.events}</p>
+        <p className="font-medium mt-4">Events (Arabic):</p>
+        <p className="text-gray-700">{cleanClaraBarbierSerrano.eventsArabic}</p>
+      </div>
+
+      <div className="mb-6">
+        <p className="font-medium">Research Area:</p>
+        <p className="text-gray-700">{cleanClaraBarbierSerrano.researchAreaEnglish}</p>
+        <p className="font-medium mt-4">Research Area (Arabic):</p>
+        <p className="text-gray-700">{cleanClaraBarbierSerrano.researchAreasArabic}</p>
+      </div>
+
+      <div className="mb-6">
+        <p className="font-medium">Type: <span className="font-normal">{cleanClaraBarbierSerrano.type.name}</span></p>
+        <p className="font-medium">Country: <span className="font-normal">{cleanClaraBarbierSerrano.country}</span></p>
+        <p className="font-medium">Slug: <span className="font-normal">{cleanClaraBarbierSerrano.slug}</span></p>
+      </div>
+
+      <div className="mb-6 flex space-x-4">
+        <img className="w-24 h-24 object-cover rounded-lg" src={cleanClaraBarbierSerrano.heroImage.url} alt={cleanClaraBarbierSerrano.heroImage.alt} />
+        <img className="w-24 h-24 object-cover rounded-lg" src={cleanClaraBarbierSerrano.profilePicture.url} alt={cleanClaraBarbierSerrano.profilePicture.alt} />
+      </div>
+      
+      <div className="mb-6">
+        <h3 className="font-semibold text-xl mb-2">Social Links:</h3>
+        <div className="space-x-2">
+          <a className="text-blue-500 hover:underline" href={cleanClaraBarbierSerrano.instagramLink}>Instagram</a>
+          <a className="text-blue-500 hover:underline" href={cleanClaraBarbierSerrano.linkedinLink}>LinkedIn</a>
+          <a className="text-blue-500 hover:underline" href={cleanClaraBarbierSerrano.twitterLink}>Twitter</a>
+          <a className="text-blue-500 hover:underline" href={cleanClaraBarbierSerrano.facebook}>Facebook</a>
+          <a className="text-blue-500 hover:underline" href={cleanClaraBarbierSerrano.youtubeLink}>YouTube</a>
+          <a className="text-blue-500 hover:underline" href={cleanClaraBarbierSerrano.github}>GitHub</a>
+          <a className="text-blue-500 hover:underline" href={cleanClaraBarbierSerrano.websiteLink}>Website</a>
+          <a className="text-blue-500 hover:underline" href={cleanClaraBarbierSerrano.shop}>Shop</a>
+        </div>
+      </div>
+
+      <div className="mb-6">
+        <p className="font-medium">Push to GR: <span className="font-normal">{cleanClaraBarbierSerrano.pushToGr ? 'Yes' : 'No'}</span></p>
+        <p className="font-medium">Arabic On/Off: <span className="font-normal">{cleanClaraBarbierSerrano.arabicOnOff ? 'Enabled' : 'Disabled'}</span></p>
+      </div>
+    </div>
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
