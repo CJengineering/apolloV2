@@ -272,9 +272,12 @@ export default async function JameelFundProgrammePage({
           </div>
           <div><ButtonCJ href={"https://www.imperial.ac.uk/research-and-innovation/research-office/funder-information/funding-opportunities/internal-funding-opportunities/the-jameel-fund/"} text={"Learn more at Imperial College"} styleType="secondary"></ButtonCJ></div>
         </div>
+        
+        {/* START DIVIDER */}
         <div className="w-full py-6 lg:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
+        {/* END DIVIDER */}
 
         <div><h2 className="header-section pb-6">Documentary films</h2></div>
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

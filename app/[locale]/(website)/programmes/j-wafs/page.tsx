@@ -393,10 +393,10 @@ export default async function JwafsPage({
       <div className="flex items-center justify-start py-6 lg:py-2">
         <a href="https://www.xibus.systems/" target="_blank" rel="noopener noreferrer">
           <Image
-            src="/images/labs/j-wafs/spinouts/xibus_systems_logo.png" // Replace with the actual path to your image
+            src="/images/labs/j-wafs/spinouts/xibus_systems_logo.png" 
             alt="Logo 2"
-            width={180} // Adjust the width as needed
-            height={100} // Adjust the height as needed
+            width={180} 
+            height={100} 
             className="object-contain transition duration-300 hover:filter hover:grayscale"
           />
         </a>
@@ -406,10 +406,10 @@ export default async function JwafsPage({
       <div className="flex items-center justify-start py-6 lg:py-2">
         <a href="https://viaseparations.com/" target="_blank" rel="noopener noreferrer">
           <Image
-            src="/images/labs/j-wafs/spinouts/via_separations_logo.png" // Replace with the actual path to your image
+            src="/images/labs/j-wafs/spinouts/via_separations_logo.png" 
             alt="Logo 3"
-            width={200} // Adjust the width as needed
-            height={100} // Adjust the height as needed
+            width={200} 
+            height={100} 
             className="object-contain transition duration-300 hover:filter hover:grayscale"
           />
         </a>
@@ -419,10 +419,10 @@ export default async function JwafsPage({
       <div className="flex items-center justify-start py-6 lg:py-2">
         <a href="https://takachar.com/" target="_blank" rel="noopener noreferrer">
           <Image
-            src="/images/labs/j-wafs/spinouts/takachar_logo.png" // Replace with the actual path to your image
+            src="/images/labs/j-wafs/spinouts/takachar_logo.png" 
             alt="Logo 4"
-            width={200} // Adjust the width as needed
-            height={100} // Adjust the height as needed
+            width={200} 
+            height={100} 
             className="object-contain transition duration-300 hover:filter hover:grayscale"
           />
         </a>
@@ -432,10 +432,10 @@ export default async function JwafsPage({
       <div className="flex items-center justify-start py-6 lg:py-2">
         <a href="https://sitration.com/" target="_blank" rel="noopener noreferrer">
           <Image
-            src="/images/labs/j-wafs/spinouts/sitration_svg_logo.png" // Replace with the actual path to your image
+            src="/images/labs/j-wafs/spinouts/sitration_svg_logo.png" 
             alt="Logo 5"
-            width={90} // Adjust the width as needed
-            height={100} // Adjust the height as needed
+            width={90} 
+            height={100} 
             className="object-contain transition duration-300 hover:filter hover:grayscale"
           />
         </a>
@@ -445,10 +445,10 @@ export default async function JwafsPage({
       <div className="flex items-center justify-start py-6 lg:py-2">
         <a href="https://www.detoxyfi.com/" target="_blank" rel="noopener noreferrer">
           <Image
-            src="/images/labs/j-wafs/spinouts/detoxify_logo.png" // Replace with the actual path to your image
+            src="/images/labs/j-wafs/spinouts/detoxify_logo.png" 
             alt="Logo 6"
-            width={200} // Adjust the width as needed
-            height={100} // Adjust the height as needed
+            width={200} 
+            height={100} 
             className="object-contain transition duration-300 hover:filter hover:grayscale"
           />
         </a>
@@ -458,10 +458,10 @@ export default async function JwafsPage({
       <div className="flex items-center justify-start py-6 lg:py-2">
         <a href="https://www.coolveg.org/" target="_blank" rel="noopener noreferrer">
           <Image
-            src="/images/labs/j-wafs/spinouts/cool_veg_logo.png" // Replace with the actual path to your image
+            src="/images/labs/j-wafs/spinouts/cool_veg_logo.png" 
             alt="Logo 7"
-            width={160} // Adjust the width as needed
-            height={100} // Adjust the height as needed
+            width={160} 
+            height={100} 
             className="object-contain transition duration-300 hover:filter hover:grayscale"
           />
         </a>
@@ -471,10 +471,10 @@ export default async function JwafsPage({
       <div className="flex items-center justify-start py-6 lg:py-2">
         <a href="https://example.com/8" target="_blank" rel="noopener noreferrer">
           <Image
-            src="/images/labs/j-wafs/spinouts/AgZen_logoGRADIENT.png" // Replace with the actual path to your image
+            src="/images/labs/j-wafs/spinouts/AgZen_logoGRADIENT.png" 
             alt="Logo 8"
-            width={145} // Adjust the width as needed
-            height={100} // Adjust the height as needed
+            width={145} 
+            height={100} 
             className="object-contain transition duration-300 hover:filter hover:grayscale"
           />
         </a>
