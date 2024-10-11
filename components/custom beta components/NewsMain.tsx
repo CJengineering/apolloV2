@@ -1,7 +1,6 @@
 import { NewsCleanedFields } from "@/app/interfaces";
 import React from "react";
 
-
 export default function NewsMain({ content }: { content: NewsCleanedFields }) {
   return (
     <article className="relative  lg:sticky lg:top-24     lg:w-1/2 lg:self-start">
@@ -24,7 +23,7 @@ export default function NewsMain({ content }: { content: NewsCleanedFields }) {
           href={content.slug}
           className="transition-color relative text-sm font-medium uppercase tracking-widest text-red-700 duration-300 ease-in-out hover:text-red-600"
         >
-          {'tag to check'}
+          {"tag to check"}
         </a>
         <a href={content.slug} className="group mt-3 block">
           <h2 className="text-3xl font-medium tracking-normal text-gray-900 decoration-gray-800 decoration-3 transition duration-300 ease-in-out group-hover:underline md:tracking-tight lg:text-4xl lg:leading-tight">
@@ -38,7 +37,6 @@ export default function NewsMain({ content }: { content: NewsCleanedFields }) {
         </a>
 
         <div className="mt-4 flex items-center sm:mt-8">
-        
           <div className="">
             <a
               href={content.sources.slug}
@@ -51,7 +49,7 @@ export default function NewsMain({ content }: { content: NewsCleanedFields }) {
                 {content.datePublished}
               </time>
               <span aria-hidden="true"> &middot; </span>
-              <span>{'6 min'} read</span>
+              <span>{"6 min"} read</span>
             </p>
           </div>
         </div>
