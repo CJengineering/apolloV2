@@ -66,7 +66,7 @@ export default function Page() {
     ) : (
       
       <form onSubmit={handleSubmit}>
-        <div className="mb-6">
+       <div className="mb-4 w-1/2">
           <input
             type="text"
             name="FNAME"
@@ -76,7 +76,7 @@ export default function Page() {
             required
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-4 w-1/2">
           <input
             type="email"
             name="EMAIL"
@@ -86,10 +86,10 @@ export default function Page() {
             required
           />
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between"> 
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white sans-serif py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-blue-500 sans-serif hover:bg-blue-700 text-white sans-serif py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Sign Up
           </button>

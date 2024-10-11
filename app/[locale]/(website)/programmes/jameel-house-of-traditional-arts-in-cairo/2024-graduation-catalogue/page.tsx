@@ -226,14 +226,14 @@ export default async function jhtac2024graduation({
               Arts, Community Jameel, and the Egyptian Ministry of Culture,
               offers intensive training in traditional arts and crafts.
             </p>
-            <br />
+            
             <p className="prose prose-xl leading-normal dark:text-white mb-5">
               This year introduced traditional joinery, known as gamiya, as a
               new specialisation alongside existing woodwork techniques like
               inlay, carving, and wood turning. Students also explored brasswork
               techniques for the first time.
             </p>
-            <br />
+           
             <p className="prose prose-xl leading-normal dark:text-white mb-5">
               Inspired by Islamic art from Cairo, Iran, and Central Asia, the
               class of 2024 produced intricate mangour screens, mother-of-pearl
@@ -245,7 +245,7 @@ export default async function jhtac2024graduation({
               contributed remarkable pieces, creating a harmonious collection
               that showcases the richness of Egyptian craft.
             </p>
-            <br />
+            
             <div>
               <p className="prose prose-xl font-medium leading-normal dark:text-white">
                 Mamdouh Sakr
@@ -1111,11 +1111,11 @@ export default async function jhtac2024graduation({
             <Image
               src="/images/labs/jameel-house-cairo/2024-catalogue/16_sara-meghani/sara-meghani_01.webp"
               alt="Sara Meghani - ‘Words of wisdom’ vase"
-              width={900}
+              width={1000}
               height={600}
             />
           </div>
-          <div className="lg:pl-6">
+          <div className="lg:pl-6 lg:w-5/12">
             <div className="pt-6 lg:pt-0 pb-3">
               <p className="text-2xl">‘Words of wisdom’ vase</p>
               <p className="text-xl italic">8.3 x 17.5 x 8.3 cm</p>
@@ -1149,7 +1149,7 @@ export default async function jhtac2024graduation({
           <Image
             src="/images/labs/jameel-house-cairo/2024-catalogue/16_sara-meghani/sara-meghani_02.webp"
             alt="Sara Meghani - ‘Elegance’ potpourri bowl"
-            width={1000}
+            width={1600}
             height={600}
           />
           </div>
@@ -1375,7 +1375,7 @@ export default async function jhtac2024graduation({
         {/* HERITAGE PROJECT START */}
 
         <div>
-          <div>
+          <div className="w-3/5">
             <h2 className="header-section pb-6">
               Fatma Badawy, Alia El Garhy, Noha El Nady Rawan El Taweel, and
               Ashraf Salloum
@@ -1420,7 +1420,7 @@ export default async function jhtac2024graduation({
         {/* HERITAGE PROJECT START */}
 
         <div>
-          <div>
+        <div className="w-3/5">
             <h2 className="header-section pb-6">
               Wessam Ghanim, Sara Meghani, Gamila Mourad, Areej Niazy, and
               Somaya Wael Ismail
@@ -1463,7 +1463,7 @@ export default async function jhtac2024graduation({
         {/* HERITAGE PROJECT START */}
 
         <div>
-          <div>
+        <div className="w-3/5">
             <h2 className="header-section pb-6">
               Hager Al Hariri, Nermeen Badawy, Sara El Sayed and Rana Meligui
             </h2>
@@ -1504,7 +1504,7 @@ export default async function jhtac2024graduation({
         {/* HERITAGE PROJECT START */}
 
         <div>
-          <div>
+        <div className="w-3/5">
             <h2 className="header-section pb-6">
               Wessam Ghaniem, Sara Meghani, Gamila Mourad, Areej Niazy and
               Somaya Wael Ismail
@@ -1546,7 +1546,7 @@ export default async function jhtac2024graduation({
         {/* HERITAGE PROJECT START */}
 
         <div>
-          <div>
+        <div className="w-3/5">
             <h2 className="header-section pb-6">
               Hager Etman, Amira El Kadi and Doaa Fathy
             </h2>
@@ -1585,7 +1585,7 @@ export default async function jhtac2024graduation({
         {/* HERITAGE PROJECT START */}
 
         <div>
-          <div>
+        <div className="w-3/5">
             <h2 className="header-section pb-6">
               Hager Etman, Amira El Kadi and Doaa Fathy
             </h2>
