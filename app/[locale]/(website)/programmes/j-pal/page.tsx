@@ -52,7 +52,7 @@ const cardData = [
     alt: "J-PAL MENA",
     title: "J-PAL MENA",
     subtitle:
-      "J-PAL Middle East and North Africa (MENA), based at the American University in Cairo, leads J-PAL\’s work in the Middle East and North Africa region. J-PAL MENA conducts randomized evaluations, builds partnerships for evidence-informed policymaking, and helps partners scale up effective programs.",
+      "J-PAL Middle East and North Africa (MENA), based at the American University in Cairo, leads J-PAL’s work in the Middle East and North Africa region. J-PAL MENA conducts randomized evaluations, builds partnerships for evidence-informed policymaking, and helps partners scale up effective programs.",
     link: "https://www.povertyactionlab.org/middle-east-and-north-africa",
     openInNewTab: false,
     clickAction: "External link",
@@ -259,32 +259,35 @@ export default async function JpalPage({
   return (
     <>
       <div className="pt-20 lg:pt-12 lg:mb-12">
-        {/* <LanguageChanger /> */}
-        {/* <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        /> */}
+        <div className="flex flex-col text-left">
+          <div className="w-full flex pb-6 lg:pb-12">
+            <img
+              className="dark:hidden"
+              src="/images/labs/j-pal/J-PAL_ORIGINAL_DARK.png"
+              width="360"
+            ></img>
+            <img
+              className="hidden dark:block"
+              src="/images/labs/j-pal/J-PAL_ORIGINAL_LIGHT.png"
+              width="360"
+            ></img>
+          </div>
 
-
-  <div className="flex flex-col text-left">
-  <div className="w-full flex pb-6 lg:pb-12">
-  <img className="dark:hidden" src="/images/labs/j-pal/J-PAL_ORIGINAL_DARK.png" width="360"></img>
-  <img className="hidden dark:block" src="/images/labs/j-pal/J-PAL_ORIGINAL_LIGHT.png" width="360"></img>
-  </div>
-
-  <div className="pb-6">
-    <h1 className="header-article">{cleanSingleProgramme.name}</h1>
-  </div>
-  <div className="pb-12 w-2/3">
-  <div className="prose prose-xl leading-normal dark:text-white" dangerouslySetInnerHTML={{__html:cleanSingleProgramme.text}} />
-  </div>
-
-</div>
-
-<div className="w-full lg:w-2/3">
-        <ResponsiveYouTubeEmbed embedId="4FLeNSqLxdQ?si=IBMZ4AHpawegC0e_" />
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
+          <div className="pb-12 w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
         </div>
-        
+
+        <div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="4FLeNSqLxdQ?si=IBMZ4AHpawegC0e_" />
+        </div>
+
         <div className="w-full py-6 lg:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
@@ -294,22 +297,40 @@ export default async function JpalPage({
         </div>
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="">
-            <Stats title={cleanSingleProgramme.impact01} content={cleanSingleProgramme.impact01Title} />
+            <Stats
+              title={cleanSingleProgramme.impact01}
+              content={cleanSingleProgramme.impact01Title}
+            />
           </div>
           <div className="">
-          <Stats title={cleanSingleProgramme.impact02} content={cleanSingleProgramme.impact02Title} />
+            <Stats
+              title={cleanSingleProgramme.impact02}
+              content={cleanSingleProgramme.impact02Title}
+            />
           </div>
           <div className="">
-          <Stats title={cleanSingleProgramme.impact03} content={cleanSingleProgramme.impact03Title} />
+            <Stats
+              title={cleanSingleProgramme.impact03}
+              content={cleanSingleProgramme.impact03Title}
+            />
           </div>
           <div className="">
-          <Stats title={cleanSingleProgramme.impact04} content={cleanSingleProgramme.impact04Title} />
+            <Stats
+              title={cleanSingleProgramme.impact04}
+              content={cleanSingleProgramme.impact04Title}
+            />
           </div>
           <div className="">
-          <Stats title={cleanSingleProgramme.impact05} content={cleanSingleProgramme.impact05Title} />
+            <Stats
+              title={cleanSingleProgramme.impact05}
+              content={cleanSingleProgramme.impact05Title}
+            />
           </div>
           <div className="">
-          <Stats title={cleanSingleProgramme.impact06} content={cleanSingleProgramme.impact06Title} />
+            <Stats
+              title={cleanSingleProgramme.impact06}
+              content={cleanSingleProgramme.impact06Title}
+            />
           </div>
         </div>
 
@@ -321,8 +342,7 @@ export default async function JpalPage({
           <h2 className="header-section">Select initiatives</h2>
         </div>
 
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-         
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {cardData.map((card, index) => (
             <HomeCard
               key={index}
@@ -335,9 +355,8 @@ export default async function JpalPage({
               clickAction={card.clickAction || ""}
             />
           ))}
-
-      </div>
-      <div className="w-full mt-12">
+        </div>
+        <div className="w-full mt-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
 
@@ -352,11 +371,11 @@ export default async function JpalPage({
         </div>
         <div className="">
           <PostAccordion title={"Media"}>
-          <div className="grid grid-cols-1 gap-5">
-      {newsProps.map((item) => (
-        <NewsCard content={item} locale={params} key={item.id} />
-      ))}
-    </div>
+            <div className="grid grid-cols-1 gap-5">
+              {newsProps.map((item) => (
+                <NewsCard content={item} locale={params} key={item.id} />
+              ))}
+            </div>
           </PostAccordion>
         </div>
         {/* <div className="">
@@ -396,13 +415,13 @@ export default async function JpalPage({
         <div>
           <PostAccordion title={"Events"}>
             <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </CarousselForComponents>
+              <CarousselForComponents>
+                {cleanRelatedEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
+              </CarousselForComponents>
             </div>
           </PostAccordion>
         </div>

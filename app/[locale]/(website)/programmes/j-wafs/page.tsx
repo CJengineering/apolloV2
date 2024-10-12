@@ -283,22 +283,13 @@ export default async function JwafsPage({
           </div>
 
           <div className="pb-6">
-            <h1 className="header-article">
-              MIT Abdul Latif Jameel Water and Food Systems Lab (J-WAFS)
-            </h1>
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
           </div>
-
-          <div className="pb-12">
-            <p className="prose prose-xl leading-normal dark:text-white">
-              The Abdul Latif Jameel Water and Food Systems Lab (J-WAFS) is an
-              MIT-wide effort that fuels research, innovation and
-              cross-disciplinary collaborations focused on water and food
-              systems to meet human needs. Through early-stage research grants,
-              support for technology commercialisation, sponsored research
-              management, student funding and mentorship and events that convene
-              local and global experts, J-WAFS leverages the world-class
-              resources for which MIT is known.
-            </p>
+          <div className="pb-12 w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
           </div>
         </div>
 
@@ -355,7 +346,7 @@ export default async function JwafsPage({
             />
           ))}
         </div>
-          {/* <div className="hidden">
+        {/* <div className="hidden">
         <CarousselForComponents>
           {[
             <div key="carousel-content" className="">
@@ -376,7 +367,7 @@ export default async function JwafsPage({
         </CarousselForComponents>
         </div> */}
 
-        { /* DIVIDER START */}
+        {/* DIVIDER START */}
         <div className="w-full py-6 lg:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
@@ -385,152 +376,179 @@ export default async function JwafsPage({
         <div className="pb-6">
           <h2 className="header-section">Spinouts</h2>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-      {/* First Logo */}
+          {/* First Logo */}
 
-      {/* Second Logo */}
-      <div className="flex items-center justify-start py-6 lg:py-2">
-        <a href="https://www.xibus.systems/" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="/images/labs/j-wafs/spinouts/xibus_systems_logo.png" 
-            alt="Logo 2"
-            width={180} 
-            height={100} 
-            className="object-contain transition duration-300 hover:filter hover:grayscale"
-          />
-        </a>
-      </div>
+          {/* Second Logo */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://www.xibus.systems/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/xibus_systems_logo.png"
+                alt="Logo 2"
+                width={180}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
 
-      {/* Third Logo */}
-      <div className="flex items-center justify-start py-6 lg:py-2">
-        <a href="https://viaseparations.com/" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="/images/labs/j-wafs/spinouts/via_separations_logo.png" 
-            alt="Logo 3"
-            width={200} 
-            height={100} 
-            className="object-contain transition duration-300 hover:filter hover:grayscale"
-          />
-        </a>
-      </div>
+          {/* Third Logo */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://viaseparations.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/via_separations_logo.png"
+                alt="Logo 3"
+                width={200}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
 
-      {/* Fourth Logo */}
-      <div className="flex items-center justify-start py-6 lg:py-2">
-        <a href="https://takachar.com/" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="/images/labs/j-wafs/spinouts/takachar_logo.png" 
-            alt="Logo 4"
-            width={200} 
-            height={100} 
-            className="object-contain transition duration-300 hover:filter hover:grayscale"
-          />
-        </a>
-      </div>
+          {/* Fourth Logo */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://takachar.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/takachar_logo.png"
+                alt="Logo 4"
+                width={200}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
 
-      {/* Fifth Logo */}
-      <div className="flex items-center justify-start py-6 lg:py-2">
-        <a href="https://sitration.com/" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="/images/labs/j-wafs/spinouts/sitration_svg_logo.png" 
-            alt="Logo 5"
-            width={90} 
-            height={100} 
-            className="object-contain transition duration-300 hover:filter hover:grayscale"
-          />
-        </a>
-      </div>
+          {/* Fifth Logo */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://sitration.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/sitration_svg_logo.png"
+                alt="Logo 5"
+                width={90}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
 
-      {/* Sixth Logo */}
-      <div className="flex items-center justify-start py-6 lg:py-2">
-        <a href="https://www.detoxyfi.com/" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="/images/labs/j-wafs/spinouts/detoxify_logo.png" 
-            alt="Logo 6"
-            width={200} 
-            height={100} 
-            className="object-contain transition duration-300 hover:filter hover:grayscale"
-          />
-        </a>
-      </div>
+          {/* Sixth Logo */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://www.detoxyfi.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/detoxify_logo.png"
+                alt="Logo 6"
+                width={200}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
 
-      {/* Seventh Logo */}
-      <div className="flex items-center justify-start py-6 lg:py-2">
-        <a href="https://www.coolveg.org/" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="/images/labs/j-wafs/spinouts/cool_veg_logo.png" 
-            alt="Logo 7"
-            width={160} 
-            height={100} 
-            className="object-contain transition duration-300 hover:filter hover:grayscale"
-          />
-        </a>
-      </div>
+          {/* Seventh Logo */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://www.coolveg.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/cool_veg_logo.png"
+                alt="Logo 7"
+                width={160}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
 
-      {/* Eighth Logo */}
-      <div className="flex items-center justify-start py-6 lg:py-2">
-        <a href="https://example.com/8" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="/images/labs/j-wafs/spinouts/AgZen_logoGRADIENT.png" 
-            alt="Logo 8"
-            width={145} 
-            height={100} 
-            className="object-contain transition duration-300 hover:filter hover:grayscale"
-          />
-        </a>
-      </div>
-    </div>
-        
-        { /* DIVIDER START */}
+          {/* Eighth Logo */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://example.com/8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/AgZen_logoGRADIENT.png"
+                alt="Logo 8"
+                width={145}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+        </div>
+
+        {/* DIVIDER START */}
         <div className="w-full mt-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-        </div>  
-        {/* DIVIDER END */} 
-        
         </div>
+        {/* DIVIDER END */}
+      </div>
 
-        <div className="">
-          <PostAccordion title={"News"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0).map((post) => (
-                <PostCard key={post.name} content={post} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Press"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(0).map((item) => (
-                <NewsCard content={item} locale={params} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
+      <div className="">
+        <PostAccordion title={"News"}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {postProps.slice(0).map((post) => (
+              <PostCard key={post.name} content={post} />
+            ))}
+          </div>
+        </PostAccordion>
+      </div>
+      <div className="">
+        <PostAccordion title={"Press"}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {newsProps.slice(0).map((item) => (
+              <NewsCard content={item} locale={params} />
+            ))}
+          </div>
+        </PostAccordion>
+      </div>
+      <div className="">
+        <PostAccordion title={"Multimedia"}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {multimediaProps.map((item) => (
+              <div key={item.alt} className="">
+                <MediaCard {...item} />
+              </div>
+            ))}
+          </div>
+        </PostAccordion>
+      </div>
 
-        <div>
-          <PostAccordion title={"Events"}>
-            <div className="">
-              <CarousselForComponents>
-                {cleanRelatedEvents.map((item) => (
-                  <>
-                    <EventCard article={item}></EventCard>
-                  </>
-                ))}
-              </CarousselForComponents>
-            </div>
-          </PostAccordion>
+      <div>
+        <PostAccordion title={"Events"}>
+          <div className="">
+            <CarousselForComponents>
+              {cleanRelatedEvents.map((item) => (
+                <>
+                  <EventCard article={item}></EventCard>
+                </>
+              ))}
+            </CarousselForComponents>
+          </div>
+        </PostAccordion>
       </div>
     </>
   );

@@ -36,6 +36,7 @@ import ContentPhotos from "../../../../../components/CJ-components/components-CJ
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 
 export default async function Programme20page({
   params,
@@ -204,81 +205,100 @@ export default async function Programme20page({
 
   return (
     <>
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
-
-        <div className="">
-          <PostAccordion title={"News"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
-                <PostCard key={post.name} content={post} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Press"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
-                <NewsCard content={item} locale={params} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-
-        {/* 
-
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
+      <div className="pt-20 lg:pt-10 lg:mb-12">
+        <div className="flex flex-col text-left">
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
           </div>
-        </div> */}
-
-        <div>
-          <PostAccordion title={"Events"}>
-            <div className="grid grid-cols-3 gap-5">
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
+          <div className="pb-6 w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
           </div>
-        </div> */}
-      </div>
+          <div>
+            <ButtonCJ
+              href="https://www.imperial.ac.uk/giving/community/your-impact/united-against-covid-19/excellence-fund/projects-supported-by-the-excellence-fund/"
+              text={"Visit Imperial College London website"}
+              styleType="secondary"
+            ></ButtonCJ>{" "}
+          </div>
+        </div>
+
+        <div className="w-full pt-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="">
+            <PostAccordion title={"Awards"}>
+            <div className="w-full lg:w-1/2">
+            <p className="prose prose-xl font-bold leading-normal dark:text-white mb-5">
+              Evaluating the timing and extent of community spread of COVID-19 in North West London
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              <strong>Dr Edward Mullins</strong> and <strong>Professor Christl Donnelly</strong>, School of Public Health
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              The study will anonymously test existing serum samples that were taken as part of routine antenatal care for pregnant women in the region over the period from December 2019 to June 2020. The results will provide insights to community transmission risks over the course of the pandemic, as well as inform policy on the management of pregnant women in a future wave of the pandemic.
+            </p>
+            <p className="prose prose-xl font-bold leading-normal dark:text-white mb-5">
+              COVID-19 in human brain and its potential role in triggering long term neurological disease
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              <strong>Dr Javier Alegre-Abarrategui</strong>, Department of Brain Sciences
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              Neurological complications are common in respiratory viral infections, and there is growing concern that of the potential for COVID-19 to affect the nervous system as highlighted by reported symptoms such as a loss or change of taste and smell. <strong>Dr Alegre-Abarrategui</strong> will investigate the potential role that COVID-19 plays in neurological disease.
+            </p>
+            <p className="prose prose-xl font-bold leading-normal dark:text-white mb-5">
+              Identifying new therapies for severe COVID-19
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              <strong>Professor Ian Adcock</strong>, National Heart and Lung Institute
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              This research will investigate the key driving signatures of fibrosis and necrosis in the lungs in COVID-19 patients and relate these to drug-response signatures. The study uses lung samples obtained from the ongoing DeVENT trial. This will identify whether it is possible to repurpose current drugs to treat specific groups of patients with severe COVID-19 patients in ICU or define pathways that are likely to respond to other currently available therapies.
+            </p>
+            <p className="prose prose-xl font-bold leading-normal dark:text-white mb-5">
+              Understanding biological mechanisms underlying severe disease to identify potential new treatments
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              <strong>Dr James Peters</strong> and colleagues from the Centre for Inflammatory Disease and the Imperial NHS Trust Renal and Transplant Centre
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              This longitudinal study will look at patients with End-Stage Kidney Disease – a group at high risk of severe COVID-19 - measuring gene and protein expression signatures in immune cells to better understand the biological mechanisms underlying severe disease. The hope is that this might help identify existing drugs that could be repurposed as safer and more effective treatments for COVID-19 than dexamethasone, which is the only drug shown to reduce mortality in randomised trials to date.
+            </p>
+            <p className="prose prose-xl font-bold leading-normal dark:text-white mb-5">
+              Developing a clinical tool for predicting risk of deterioration in COVID-19 patients
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              <strong>Professor Brendan Delaney</strong>, Department of Surgery and Cancer
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              The difference in patient response to COVID-19 infection is stark from mild to fatal. <strong>Professor Delaney</strong> is looking to develop and validate a score for predicting risk of deterioration in COVID-19 patients. The tool would help identify patients who need closer monitoring and escalation of care in primary care settings, such as GP surgeries. The project is a collaboration with <strong>Professor Trisha Greenhalgh</strong> from the Nuffield Department of Primary Care, University of Oxford.
+            </p>
+            <p className="prose prose-xl font-bold leading-normal dark:text-white mb-5">
+              Developing a cheap, accurate, geo-tagged point-of-care test for COVID-19
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              <strong>Dr Jethro Herberg</strong>, Department of Infectious Disease, and <strong>Dr Pantelis Georgiou</strong>, Department of Electrical and Electronic Engineering, in partnership with the Rosetrees Trust
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              Using Lacewing technology - a mobile-phone-linked handheld molecular diagnostic system – <strong>Drs Herberg</strong> and <strong>Georgiou</strong> aim to create a cheap, accurate, geo-tagged point-of-care test for COVID-19. The uniqueness of their approach is that they will use the host response to discriminate a variety of infections with similar symptoms to COVID-19, in addition to SARS-CoV-2. This test will guide diagnosis, treatment and surveillance in the ongoing COVID-19 pandemic, producing rapid public health impact.
+            </p>
+            <p className="prose prose-xl font-bold leading-normal dark:text-white mb-5">
+              Innovative PPE – custom-made masks for frontline healthcare workers
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              <strong>Dr Connor Myant</strong>, Dyson School of Design Engineering
+            </p>
+            <p className="prose leading-normal dark:text-white mb-5">
+              This project will develop an automated design-through-manufacturing pipeline that would allow for custom-made masks to be deployed to frontline healthcare workers at scale. <strong>Dr Myant’s</strong> project will deliver a design platform that would see healthcare workers scanning their own face using a smartphone so that custom-fit PPE can be automatically designed for them. This aims to tackle the problem of poor-fitting PPE causing injury and discomfort to healthcare professionals and putting them at a greater risk of infection.
+            </p>
+            </div>
+            </PostAccordion>
+          </div>
+        </div>
     </>
   );
 }
