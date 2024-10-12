@@ -60,7 +60,7 @@ const cardData = [
     title: "Seed Grants",
     subtitle: "",
     link: "https://jwafs.mit.edu/SeedGrants",
-    openInNewTab: false,
+    openInNewTab: true,
     clickAction: "External link",
   },
   {
@@ -69,7 +69,7 @@ const cardData = [
     title: "J-WAFS Solutions Programme",
     subtitle: "",
     link: "https://jwafs.mit.edu/SolutionsGrants",
-    openInNewTab: false,
+    openInNewTab: true,
     clickAction: "External link",
   },
   {
@@ -78,7 +78,7 @@ const cardData = [
     title: "Graduate Student Fellowships",
     subtitle: "",
     link: "https://jwafs.mit.edu/FellowshipsWaterandFood",
-    openInNewTab: false,
+    openInNewTab: true,
     clickAction: "External link",
   },
 ];
