@@ -208,29 +208,35 @@ export default async function Programme35page({
   return (
     <>
       <div className="pt-12">
+        <div className="flex flex-col text-left">
+          <div className="w-full flex pb-6 lg:pb-12">
+            <img
+              className="dark:hidden"
+              src="/images/labs/j-wel/J_WEL_DARK_ORIGNAL.png"
+              width="360"
+            ></img>
+            <img
+              className="hidden dark:block"
+              src="/images/labs/j-wel/J_WEL_LIGHT_ORIGINAL.png"
+              width="360"
+            ></img>
+          </div>
 
-      <div className="flex flex-col text-left">
-  <div className="w-full flex pb-6 lg:pb-12">
-
-<img className="dark:hidden" src="/images/labs/j-wel/J_WEL_DARK_ORIGNAL.png" width="360"></img>
-<img className="hidden dark:block" src="/images/labs/j-wel/J_WEL_LIGHT_ORIGINAL.png" width="360"></img>
-  </div>
-                 
-  <div className="pb-6">
-    <h1 className="header-article">MIT Abdul Latif Jameel World Education Lab (J-WEL)</h1>
-  </div>
-
-  <div className="pb-12">
-    <p className="prose prose-xl leading-normal dark:text-white">
-    The world faces a major challenge adapting to automation, globalisation, unemployment, and the global refugee crisis, rapidly altering the education paradigm. MIT and Community Jameel cofounded the MIT Jameel World Education Lab (J-WEL) in 2017 to spark a global renaissance in education. J-WEL promotes excellence and transformation in education at MIT and globally, engaging educators, technologists, policymakers, societal leaders, employers, and employees through online and in-person collaborations, workshops, research, and events.
-    </p>
-  </div>
-</div>
-
-<div className="w-full lg:w-2/3">
-        <ResponsiveYouTubeEmbed embedId="TGrW6u_oz38?si=toWb-detrLn82Rur" />
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
+          <div className="pb-12 w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
         </div>
-        
+
+        <div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="TGrW6u_oz38?si=toWb-detrLn82Rur" />
+        </div>
+
         <div className="w-full py-6 lg:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
@@ -253,7 +259,6 @@ export default async function Programme35page({
         <div className="w-full pt-6 lg:pt-12 lg:pb-0">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
-
 
         <div className="">
           <PostAccordion title={"News"}>
@@ -286,15 +291,15 @@ export default async function Programme35page({
         </div>
 
         <div>
-        <PostAccordion title={"Events"}>
+          <PostAccordion title={"Events"}>
             <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </CarousselForComponents>
+              <CarousselForComponents>
+                {cleanRelatedEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
+              </CarousselForComponents>
             </div>
           </PostAccordion>
         </div>

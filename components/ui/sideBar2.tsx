@@ -216,6 +216,11 @@ const navItems: NavItem[] = [
       },
       { name: "Ejada", href: "/programmes/ejada", current: false },
       {
+        name: "Jameel Toyota Scholarship",
+        href: "/programmes/jameel-toyota-scholarship",
+        current: false,
+      },
+      {
         name: "Funds",
         children: [
           {
@@ -225,7 +230,7 @@ const navItems: NavItem[] = [
           },
           {
             name: "Iraq Cultural Health Fund",
-            href: "/programmes/iraq-cultural-health-fund",
+            href: "/programmes/funds/iraq-cultural-health-fund",
             current: false,
           },
           {
@@ -234,11 +239,6 @@ const navItems: NavItem[] = [
             current: false,
           },
         ],
-      },
-      {
-        name: "Jameel Toyota Scholarship",
-        href: "/programmes/jameel-toyota-scholarship",
-        current: false,
       },
 
     ],

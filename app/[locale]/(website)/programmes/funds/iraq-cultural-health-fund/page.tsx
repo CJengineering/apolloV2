@@ -36,8 +36,73 @@ import ContentPhotos from "../../../../../../components/CJ-components/components
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import Image from "next/image";
+import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 
-export default async function Programme30page({
+// START INITIATIVES
+
+const cardData = [
+  {
+    imageUrl: "/images/labs/iraq-cultural-health-fund/malaeen-painting.webp",
+    alt: "The Art of Surival",
+    title: "The Art of Surival",
+    subtitle: "Interactive online exhibition featuring the Yazidi Cultural Archive and hosted on the Google Arts & Culture platform",
+    link: "https://artsandculture.google.com/story/the-art-of-yazidi-survival-united-nations/PwURZsXemMfbcw?hl=en",
+    openInNewTab: true,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/iraq-cultural-health-fund/yazidi-archive-event-launch.webp",
+    alt: "Yazidi Cultural Archive launch",
+    title: "Yazidi Cultural Archive launch",
+    subtitle: "26 October 2022, Institut du Monde Arabe, Paris",
+    link: "/events/yazidi-cultural-archives-launch",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+  {
+    imageUrl: "/images/labs/iraq-cultural-health-fund/ark-re-imagined-poster.webp",
+    alt: "Ocean Space Iraq Pavilion 2021 Venice Biennale",
+    title: "2021 Venice Biennale",
+    subtitle: "Ocean Space hosts the Iraq Pavilion including 'Ark Re-imagine' at the International Architecture Exhibition of the 2021 Venice Biennale",
+    link: "https://www.ocean-space.org/activities/ark-re-imagined-the-expeditionary-pavilion-1",
+    openInNewTab: true,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/iraq-cultural-health-fund/ark-re-imagined-project-overview.webp",
+    alt: "Project overview",
+    title: "Project overview",
+    subtitle: "Exploring the Ancient Craft Traditions of Mesopotamia through Art and Design",
+    link: "/documents/iraq-cultural-health-fund/Ark Re-imagined_Overview-update_2021.pdf",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+  {
+    imageUrl: "/images/labs/iraq-cultural-health-fund/ark-re-imagine-documentary.webp",
+    alt: "Documentary film",
+    title: "Documentary film",
+    subtitle: "Ark Re-imagined: The Expeditionary Pavilion",
+    link: "https://www.youtube.com/watch?v=A0oQgpqR0fY",
+    openInNewTab: true,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/iraq-cultural-health-fund/agnes-flag-rasising.webp",
+    alt: "The future is fragile, handle with care",
+    title: "The future is fragile, handle with care",
+    subtitle: "Agnes Denes flag raising in venice",
+    link: "https://www.culturunners.com/events/flag-raising-in-venice",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+];
+// END INITIATIVES
+
+
+
+export default async function IraqCulturalArchivePage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -204,81 +269,307 @@ export default async function Programme30page({
 
   return (
     <>
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+      <div className="pt-20 lg:pt-10">
+        <div className="flex flex-col text-left">
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
+          <div className="w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+          {/* <div><ButtonCJ href={"https://www.imperial.ac.uk/research-and-innovation/research-office/funder-information/funding-opportunities/internal-funding-opportunities/the-jameel-fund/"} text={"Learn more at CULTURUNNERS"} styleType="secondary"></ButtonCJ></div> */}
+        </div>
+        <div className="py-3"></div>
 
-        <div className="">
-          <PostAccordion title={"News"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
-                <PostCard key={post.name} content={post} />
-              ))}
+        <div className="grid grid-cols-3 lg:grid-cols-6 gap-0">
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <div className="text-sm font-bold items-center">
+              IN <br></br>PARTNERSHIP<br></br> WITH
             </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Press"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
-                <NewsCard content={item} locale={params} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
+          </div>
+
+          {/* 1 */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a href="" target="" rel="">
+              <Image
+                src="/images/logos/yazda_logo.png"
+                alt="Yazda logo"
+                width={100}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* 2 */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://www.culturunners.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/logos/culturunners_logo.png"
+                alt="CULTURUNNERS logo"
+                width={100}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* 3 */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://www.imarabe.org/fr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/logos/institut-du-monde-arab_logo.svg"
+                alt="Institut du Monde Arab logo"
+                width={80}
+                height={80}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* 4 */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://www.un.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/logos/un-logo.svg"
+                alt="United Nations logo"
+                width={80}
+                height={80}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* 5 */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://artsandculture.google.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/logos/google-arts-and-culture_logo.svg"
+                alt="Google Arts & Culture logo"
+                width={100}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
         </div>
 
-        {/* 
+        {/* START DIVIDER */}
+        <div className="w-full py-6 lg:py-10">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+        {/* END DIVIDER */}
+
+        <div className="pb-6">
+          <h2 className="header-section">Programmes</h2>
+        </div>
+
+        {/* START PROGRAMME SECTION */}
+        <div className="flex flex-col lg:flex-row">
+          <div className="w-full lg:w-3/12">
+            <Image
+              src="/images/labs/iraq-cultural-health-fund/yazidi-cultural-archives.webp"
+              alt="Yazidi Cultural Archive"
+              width={1000}
+              height={1000}
+            />
+          </div>
+          <div className="lg:pl-6 lg:w-9/12">
+            <div>
+              <h3 className="text-2xl lg:text-3xl pb-6 mt-3 lg:mt-0">Yazidi Cultural Archive</h3>
+            </div>
+            <p className="prose leading-normal dark:text-white mb-5">
+              The Yazidi Cultural Archives, which are globally accessible and
+              available in English and Arabic, comprise four online exhibitions
+              created by 16 Yazidi women working in collaboration with Yazda, a
+              community-led organisation that protects and champions Yazidis and
+              other religious and ethnic minority communities, together with
+              Community Jameel,{" "}
+              <a href="https://www.culturunners.com/" target="_blank">
+                CULTURUNNERS
+              </a>
+              , the Office of the UN Secretary-General’s Envoy on Technology,{" "}
+              <a href="https://www.un.org/techenvoy/" target="_blank">
+                the Office of the UN Secretary-General’s Envoy on Technology
+              </a>
+              , and{" "}
+              <a href="https://www.nobodys-listening.com/" target="_blank">
+                Nobody’s Listening
+              </a>
+              . The archives are published by the UN on the{" "}
+              <a href="https://artsandculture.google.com/" target="_blank">
+                Google’s Arts and Culture platform
+              </a>
+              . An evaluation of the impact of the archives on the psychological
+              wellbeing of participants is being supported by{" "}
+              <a
+                href="https://steinhardt.nyu.edu/arts-health-nyu"
+                target="_blank"
+              >
+                New York University (NYU) Arts and Health initiative
+              </a>
+              and the{" "}
+              <a href="https://www.who.int/" target="_blank">
+                World Health Organisation (WHO) Arts and Health programme
+              </a>
+              .
+            </p>
+            <div>
+              <ButtonCJ
+                href="https://artsandculture.google.com/story/the-art-of-yazidi-survival-united-nations/PwURZsXemMfbcw?hl=en"
+                text={"Visit Google Arts & Culture"}
+                styleType="secondary"
+              ></ButtonCJ>{" "}
+            </div>
+          </div>
+        </div>
+
+        {/* END PROGRAMME SECTION */}
+
+        <div className="py-6"></div>
+
+        {/* START PROGRAMME SECTION */}
+
+        <div className="flex flex-col lg:flex-row">
+          <div className="w-full lg:w-3/12">
+            <Image
+              src="/images/labs/iraq-cultural-health-fund/ark-re-imagine.webp"
+              alt="Yazidi Cultural Archive"
+              width={1000}
+              height={1000}
+            />
+          </div>
+          <div className="lg:pl-6 lg:w-9/12">
+            <div>
+              <h3 className="text-2xl lg:text-3xl pb-6 mt-3 lg:mt-0">Ark Re-imagined</h3>
+            </div>
+            <p className="prose leading-normal dark:text-white mb-5">
+              'Ark Re-imagined: the Expeditionary Pavilion' – the first-ever
+              Iraqi national participation at the Biennale Architettura in
+              Venice – is a project by artist
+              <a
+                href="https://www.instagram.com/salimrashad/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Rashad Salim
+              </a>
+              , commissioned by the Ministry of Culture, Tourism and Antiquities
+              of Iraq, curated by
+              <a
+                href="https://www.safinaprojects.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Safina Projects
+              </a>
+              , and produced by Community Jameel and CULTURUNNERS as piloti del
+              padiglione.
+            </p>
+            <div>
+              <ButtonCJ
+                href="https://www.safinaprojects.org/ark-re-imagined"
+                text={"Visit Safina Projects to learn more"}
+                styleType="secondary"
+              ></ButtonCJ>{" "}
+            </div>
+          </div>
+        </div>
+
+        {/* END PROGRAMME SECTION */}
+
+        {/* START DIVIDER */}
+        <div className="w-full py-6 lg:py-10">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+        {/* END DIVIDER */}
 
         <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
+          <h2 className="header-section pb-6">Features</h2>
+        </div>
+
+        <div className="w-full grid grid-cols-1 lg:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {cardData.map((card, index) => (
+            <HomeCard
+              key={index}
+              imageUrl={card.imageUrl}
+              alt={card.alt}
+              title={card.title}
+              subtitle={card.subtitle}
+              link={card.link}
+              openInNewTab={card.openInNewTab}
+              clickAction={card.clickAction || ""}
+            />
+          ))}
+        </div>
+
+         {/* START DIVIDER */}
+         <div className="w-full pt-12 pb-0">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+        {/* END DIVIDER */}
+      </div>
+
+      <div className="">
+        <PostAccordion title={"News"}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {postProps.slice(0, 8).map((post) => (
+              <PostCard key={post.name} content={post} />
+            ))}
+          </div>
+        </PostAccordion>
+      </div>
+      <div className="">
+        <PostAccordion title={"Press"}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {newsProps.slice(2, 5).map((item) => (
+              <NewsCard content={item} locale={params} />
+            ))}
+          </div>
+        </PostAccordion>
+      </div>
+      <div className="">
+        <PostAccordion title={"Multimedia"}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {multimediaProps.map((item) => (
+              <div key={item.alt} className="">
+                <MediaCard {...item} />
+              </div>
+            ))}
+          </div>
+        </PostAccordion>
+      </div>
+      <div>
+        <PostAccordion title={"Events"}>
+          <div className="grid grid-cols-3 gap-5">
+            {cleanRelatedEvents.map((item) => (
               <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
+                <EventCard article={item}></EventCard>
               </>
             ))}
           </div>
-        </div> */}
-
-        <div>
-          <PostAccordion title={"Events"}>
-            <div className="grid grid-cols-3 gap-5">
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
+        </PostAccordion>
       </div>
+      <div className="py-12"></div>
     </>
   );
 }
