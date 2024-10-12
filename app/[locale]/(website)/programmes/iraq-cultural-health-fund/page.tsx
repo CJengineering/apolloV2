@@ -44,12 +44,30 @@ import HomeCard from "@/components/CJ-components/components-CJ/basic components/
 
 const cardData = [
   {
+    imageUrl: "/images/labs/iraq-cultural-health-fund/malaeen-painting.webp",
+    alt: "The Art of Surival",
+    title: "The Art of Surival",
+    subtitle: "Interactive online exhibition featuring the Yazidi Cultural Archive and hosted on the Google Arts & Culture platform",
+    link: "https://artsandculture.google.com/story/the-art-of-yazidi-survival-united-nations/PwURZsXemMfbcw?hl=en",
+    openInNewTab: true,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/iraq-cultural-health-fund/yazidi-archive-event-launch.webp",
+    alt: "Yazidi Cultural Archive launch",
+    title: "Yazidi Cultural Archive launch",
+    subtitle: "26 October 2022, Institut du Monde Arabe, Paris",
+    link: "/events/yazidi-cultural-archives-launch",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+  {
     imageUrl: "/images/labs/iraq-cultural-health-fund/ark-re-imagined-poster.webp",
     alt: "Ocean Space Iraq Pavilion 2021 Venice Biennale",
-    title: "Ocean Space x Iraq Pavilion",
-    subtitle: "Ocean Space hosts the Iraq Pavilion at the International Architecture Exhibition of the 2021 Venice Biennale",
+    title: "2021 Venice Biennale",
+    subtitle: "Ocean Space hosts the Iraq Pavilion including 'Ark Re-imagine' at the International Architecture Exhibition of the 2021 Venice Biennale",
     link: "https://www.ocean-space.org/activities/ark-re-imagined-the-expeditionary-pavilion-1",
-    openInNewTab: false,
+    openInNewTab: true,
     clickAction: "External link",
   },
   {
@@ -57,21 +75,32 @@ const cardData = [
     alt: "Project overview",
     title: "Project overview",
     subtitle: "Exploring the Ancient Craft Traditions of Mesopotamia through Art and Design",
-    link: "https://jwafs.mit.edu/SolutionsGrants",
+    link: "/documents/iraq-cultural-health-fund/Ark Re-imagined_Overview-update_2021.pdf",
     openInNewTab: false,
-    clickAction: "External link",
+    clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/labs/iraq-cultural-health-fund/fast.webp",
+    imageUrl: "/images/labs/iraq-cultural-health-fund/ark-re-imagine-documentary.webp",
     alt: "Documentary film",
     title: "Documentary film",
     subtitle: "Ark Re-imagined: The Expeditionary Pavilion",
     link: "https://www.youtube.com/watch?v=A0oQgpqR0fY",
+    openInNewTab: true,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/iraq-cultural-health-fund/agnes-flag-rasising.webp",
+    alt: "The future is fragile, handle with care",
+    title: "The future is fragile, handle with care",
+    subtitle: "Agnes Denes flag raising in venice",
+    link: "https://www.culturunners.com/events/flag-raising-in-venice",
     openInNewTab: false,
     clickAction: "External link",
   },
 ];
 // END INITIATIVES
+
+
 
 export default async function IraqCulturalArchivePage({
   params,
@@ -540,6 +569,7 @@ export default async function IraqCulturalArchivePage({
           </div>
         </PostAccordion>
       </div>
+      <div className="py-12"></div>
     </>
   );
 }
