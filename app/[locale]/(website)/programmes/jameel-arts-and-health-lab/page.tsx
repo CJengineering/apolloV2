@@ -39,7 +39,9 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import Image from "next/image";
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 
 // START INITIATIVES
 
@@ -48,7 +50,7 @@ const cardData = [
     imageUrl: "/images/labs/jahl/UNGAHealingArts.jpg",
     alt: "UNGA 2024 Healing Arts",
     title: "UNGA 2024 Healing Arts",
-    subtitle:"",
+    subtitle: "",
     link: "https://www.jameelartshealthlab.org/outreach/events/unga-healing-arts-week-2024",
     openInNewTab: false,
     clickAction: "External link",
@@ -57,7 +59,7 @@ const cardData = [
     imageUrl: "/images/labs/jahl/YazidiCulturalArchive.jpg",
     alt: "Yazidi Cultural Archive",
     title: "Yazidi Cultural Archive",
-    subtitle:"",
+    subtitle: "",
     link: "https://artsandculture.google.com/story/ZwXB6qNf6NHmyA",
     openInNewTab: false,
     clickAction: "External link",
@@ -241,107 +243,176 @@ export default async function jameelArtsHealthLabProgrammePage({
 
   return (
     <>
-<div className="pt-12 ">
-
-<div className="flex flex-col text-left">
-<div className="w-full flex pb-6 lg:pb-12">
-
-<img className="dark:hidden" src="/images/labs/jahl/JAHL_ORIGNAL_DARK.png" width="360"></img>
-<img className="hidden dark:block" src="/images/labs/jahl/JAHL_ORIGNAL_LIGHT.png" width="360"></img>
-</div>
-           
-<div className="pb-6">
-<h1 className="header-article">Jameel Arts & Health Lab</h1>
-</div>
-
-<div className="pb-12">
-<p className="prose prose-xl leading-normal dark:text-white">
-The Jameel Arts & Health Lab has been established by the World Health Organization (WHO) Regional Office for Europe, the Steinhardt School at New York University, Community Jameel, and CULTURUNNERS. Focused on overlooked and underserved communities, the lab will coordinate and amplify scientific research into the effectiveness of the arts in improving health and wellbeing. Leveraging data, artist-led advocacy and a global Healing Arts campaign, the Lab will drive policy implementation across 193 UN member states.
-</p>
-</div>
-</div>
-
-<div className="w-full lg:w-2/3">
-  <ResponsiveYouTubeEmbed embedId="dTLHb-oRiAM?si=qo0e2XBfgWokMpxK" />
-</div>
-  
-  <div className="w-full py-6 lg:py-12">
-    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-  </div>
-
-
-
-  <div className="pb-6">
-    <h2 className="header-section">Select initiatives</h2>
-  </div>
-
-<div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-   
-    {cardData.map((card, index) => (
-      <HomeCard
-        key={index}
-        imageUrl={card.imageUrl}
-        alt={card.alt}
-        title={card.title}
-        subtitle={card.subtitle}
-        link={card.link}
-        openInNewTab={card.openInNewTab}
-        clickAction={card.clickAction || ""}
-      />
-    ))}
-
-</div>
-
-  <div>
-  <div className="w-full pt-6 lg:pt-12 lg:pb-0">
-    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-  </div>
-</div>
-
-  <div className="">
-    <PostAccordion title={"News"}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {postProps.slice(0).map((post) => (
-          <PostCard key={post.name} content={post} />
-        ))}
-      </div>
-    </PostAccordion>
-  </div>
-  <div className="">
-    <PostAccordion title={"Press"}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {newsProps.slice(0).map((item) => (
-          <NewsCard content={item} locale={params} />
-        ))}
-      </div>
-    </PostAccordion>
-  </div>
-  <div className="">
-    <PostAccordion title={"Multimedia"}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {multimediaProps.map((item) => (
-          <div key={item.alt} className="">
-            <MediaCard {...item} />
+       <div className="pt-20 lg:pt-10">
+        <div className="flex flex-col text-left">
+          <div className="w-full flex pb-6 lg:pb-12">
+            <img
+              className="dark:hidden"
+              src="/images/labs/jahl/JAHL_ORIGNAL_DARK.png"
+              width="360"
+            ></img>
+            <img
+              className="hidden dark:block"
+              src="/images/labs/jahl/JAHL_ORIGNAL_LIGHT.png"
+              width="360"
+            ></img>
           </div>
-        ))}
-      </div>
-    </PostAccordion>
-  </div>
 
-  <div>
-    <PostAccordion title={"Events"}>
-      <div className="">
-      <CarousselForComponents>
-        {cleanRelatedEvents.map((item) => (
-          <>
-            <EventCard article={item}></EventCard>
-          </>
-        ))}
-        </CarousselForComponents>
-      </div>
-    </PostAccordion>
-  </div>
-</div>
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
+
+          <div className="pb-6">
+          <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            /></div>
+          </div>
+
+          <div className="pb-3">
+            <ButtonCJ
+              href={cleanSingleProgramme.website}
+              text={"Visit the website"}
+              styleType="secondary"
+              openInNewTab={true}
+            ></ButtonCJ>
+          </div>
+        </div>
+        {/* START PARTNERS GRID */}
+        <div className="text-sm font-bold items-center pt-6">
+          IN PARTNERSHIP WITH
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+         
+          {/* 1 */}
+          <div className="flex items-center justify-start py-6">
+            <a href="www.who.int" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/images/logos/who-europe_logo.svg"
+                alt="World Health Organization logo"
+                width={170}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* 2 */}
+          <div className="flex items-center justify-start py-6">
+            <a href="www.who.int" target="_blank" rel="noopener noreferrer">
+              <Image
+                src="/images/logos/nyu-steinhardt_logo.png"
+                alt="NYU Steinhardt logo"
+                width={200}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* 3 */}
+          <div className="flex items-center justify-start">
+            <Image
+              src="/images/cj_logo/CJ_LOGO_ENGLISH_RED_SVG.svg"
+              alt="Community Jameel logo"
+              width={170}
+              height={100}
+              className="object-contain transition duration-300 hover:filter hover:grayscale"
+            />
+          </div>
+
+          {/* 4 */}
+          <div className="flex items-center justify-start">
+            <Image
+              src="/images/logos/culturunners_logo.png"
+              alt="CULTURUNNERS logo"
+              width={120}
+              height={100}
+              className="object-contain transition duration-300 hover:filter hover:grayscale"
+            />
+          </div>
+        </div>
+
+<div className="py-3"></div>
+        {/* END PARTNERS GRID */}
+
+        <div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="dTLHb-oRiAM?si=qo0e2XBfgWokMpxK" />
+        </div>
+
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Select initiatives</h2>
+        </div>
+
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {cardData.map((card, index) => (
+            <HomeCard
+              key={index}
+              imageUrl={card.imageUrl}
+              alt={card.alt}
+              title={card.title}
+              subtitle={card.subtitle}
+              link={card.link}
+              openInNewTab={card.openInNewTab}
+              clickAction={card.clickAction || ""}
+            />
+          ))}
+        </div>
+
+        <div>
+          <div className="w-full pt-6 lg:pt-12 lg:pb-0">
+            <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+          </div>
+        </div>
+
+        <div className="">
+          <PostAccordion title={"News"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {postProps.slice(0).map((post) => (
+                <PostCard key={post.name} content={post} />
+              ))}
+            </div>
+          </PostAccordion>
+        </div>
+        <div className="">
+          <PostAccordion title={"Press"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {newsProps.slice(0).map((item) => (
+                <NewsCard content={item} locale={params} />
+              ))}
+            </div>
+          </PostAccordion>
+        </div>
+        {/* <div className="">
+          <PostAccordion title={"Multimedia"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {multimediaProps.map((item) => (
+                <div key={item.alt} className="">
+                  <MediaCard {...item} />
+                </div>
+              ))}
+            </div>
+          </PostAccordion>
+        </div> */}
+
+        <div>
+          <PostAccordion title={"Events"}>
+            <div className="">
+              <CarousselForComponents>
+                {cleanRelatedEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
+              </CarousselForComponents>
+            </div>
+          </PostAccordion>
+        </div>
+        <div className="py-12"></div>
     </>
   );
 }

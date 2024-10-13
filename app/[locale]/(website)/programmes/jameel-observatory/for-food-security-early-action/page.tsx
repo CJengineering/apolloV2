@@ -40,35 +40,53 @@ import CarousselForComponents from "@/components/CJ-components/components-CJ/bas
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import Image from "next/image";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 
 // START "SELECT INITIATIVES"
 
 const selectInitiatives = [
   {
-    imageUrl: "/images/labs/jameel-clinic/JAMEEL_CLINIC_HOSPITAL_NETWORK.jpg",
-    alt: "MIT Jameel Clinic Hospital Network",
-    title: "MIT Jameel Clinic Hospital Network",
-    subtitle:"A global network of hospitals deploying MIT Jameel Clinic deep learning cancer prediction tools",
-    link: "https://jclinic.mit.edu/hospital-network/",
-    openInNewTab: false,
+    imageUrl:
+      "/images/labs/jameel-observatory/jo-fsea/JAMEEL_OBSERVATORY_FSEA_CHANGE.jpg",
+    alt: "Managing risks in East Africa's drylands: Jameel Observatory for Food Security Early Action",
+    title: "Managing risks in East Africa's drylands: Jameel Observatory for Food Security Early Action",
+    subtitle:
+      "Pastoralism is vital for food security, economic stability, and environmental conservation in Africa's drylands, but communities face challenges from climate change and resource scarcity, requiring urgent, evidence-based interventions and collaborative efforts to ensure their resilience and sustainability.",
+    link: "https://www.youtube.com/watch?v=fBs6t5PXCJU",
+    openInNewTab: true,
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/labs/jameel-clinic/mirai.jpg",
-    alt: "MIRAI",
-    title: "MIRAI",
-    subtitle:"MIRAI is a deep learning model that can analyze a patient’s mammogram to accurately predict the patient’s risk of developing breast cancer in the next 5 years.",
-    link: "https://jclinic.mit.edu/mirai/",
-    openInNewTab: false,
+    imageUrl:
+      "/images/labs/jameel-observatory/jo-fsea/JAMEEL_OBSERVATORY_FSEA_DANGEROUS_DELAYS_2.jpg",
+    alt: "Dangerous Delays 2: The Cost of Inaction",
+    title: "Dangerous Delays 2: The Cost of Inaction",
+    subtitle:
+      "Estimates in 2022 revealed that across Ethiopia, Kenya and Somalia, on average one person died every 48 seconds from acute hunger linked to conflict, COVID-19, the climate crisis and market pressures.",
+    link: "https://www.youtube.com/watch?v=yA_QJfRgnXc",
+    openInNewTab: true,
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/labs/jameel-clinic/sybil.jpg",
-    alt: "SYBIL",
-    title: "SYBIL",
-    subtitle: "SYBIL is a deep learning model that can analyze a patient’s LDCT to accurately predict the patient’s risk of developing lung cancer in the next 6 years.",
-    link: "https://jclinic.mit.edu/sybil/",
-    openInNewTab: false,
+    imageUrl:
+      "/images/labs/jameel-observatory/jo-fsea/JAMEEL_OBSERVATORY_FSEA_ANTICIPATORY_ACTION.jpg",
+    alt: "Looking ahead in the midst of a crisis",
+    title: "Looking ahead in the midst of a crisis",
+    subtitle:
+      "2024 Report: Exploring the role of Anti-Anticipatory Action in a protracted drought",
+    link: "/documents/jameel-observatory-for-food-security-early-action/Roles_AA_in_Protracted_Crises.pdf",
+    openInNewTab: true,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/jameel-observatory/jo-fsea/JAMEEL_OBSERVATORY_FSEA_CHILD_WASTING.jpg",
+    alt: "Childhood wasting time series: Seasonality and survey timing impact",
+    title: "Childhood wasting time series: Seasonality and survey timing impact",
+    subtitle:
+      "Data for Children Collaborative in partnership with the Jameel Observatory for Food Security Early Action final report on how can we produce a time series of country level childhood wasting estimates, accounting for seasonality: exploring the impact of survey timing?",
+    link: "/documents/jameel-observatory-for-food-security-early-action/SEASNUT_Final_Report_apr2024.pdf",
+    openInNewTab: true,
     clickAction: "External link",
   },
 ];
@@ -242,27 +260,122 @@ export default async function jofseaProgrammePage({
 
   return (
     <>
-      <div className="pt-12">
-      <div className="flex flex-col text-left">
-  <div className="w-full flex pb-6 lg:pb-12">
+      <div className="pt-20 lg:pt-12 lg:mb-12">
+        <div className="flex flex-col text-left">
+          <div className="w-full flex pb-6 lg:pb-6">
+            <img
+              className="dark:hidden"
+              src="/images/labs/jameel-observatory/jo-fsea/JAMEEL_OBSERVATORY_J-PAL_ORIGINAL_DARK.png"
+              width="360"
+            ></img>
+            <img
+              className="hidden dark:block"
+              src="/images/labs/jameel-observatory/jo-fsea/JAMEEL_OBSERVATORY_J-PAL_ORIGINAL_LIGHT.png"
+              width="360"
+            ></img>
+          </div>
 
-<img className="dark:hidden" src="/images/labs/jameel-observatory/jo-fsea/JAMEEL_OBSERVATORY_J-PAL_ORIGINAL_DARK.png" width="360"></img>
-<img className="hidden dark:block" src="/images/labs/jameel-observatory/jo-fsea/JAMEEL_OBSERVATORY_J-PAL_ORIGINAL_LIGHT.png" width="360"></img>
-  </div>
-                 
-  <div className="pb-6">
-    <h1 className="header-article">Jameel Observatory for Food Security Early Action</h1>
-  </div>
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
 
-  <div className="pb-12">
-    <p className="prose prose-xl leading-normal dark:text-white">
-    The Jameel Observatory focuses on using data and evidence to prepare for and act on environmental shocks as well as those impacts of climate change and variability which threaten human and environmental well-being. With a special focus on low and middle-income countries, the Jameel Observatory works at the interface of climate, natural disasters, agricultural and food systems, and health. It emphasises the need to incorporate local as well as scientific knowledge to prepare and act in anticipation of environmental shocks.
-    </p>
-  </div>
-</div>
+          <div className="w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+          <div className="py-6">
+            <ButtonCJ
+              href={
+                "https://jameelobservatory.org/food-security-early-action/"
+              }
+              text={"Visit the website"}
+              styleType="secondary"
+              openInNewTab = {true}
+            ></ButtonCJ>
+          </div>
+        </div>
 
+        {/* START PARTNERS GRID */}
+        <div className="text-sm font-bold items-center pb-3 lg:pb-0">
+          IN PARTNERSHIP WITH
+        </div>
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-0">
+          {/* 1 */}
+          <div className="flex items-center justify-start py-2 lg:py-2">
+            <a
+              href="https://www.ed.ac.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/logos/university-of-edinburgh_logo.png"
+                alt="University of Edinburgh logo"
+                width={100}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* 2 */}
+          <div className="flex items-center justify-start py-2 lg:py-2">
+            <a
+              href="https://www.ilri.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/logos/ilri_logo.png"
+                alt="ILRI logo"
+                width={100}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* 3 */}
+          <div className="flex items-center justify-start py-2 lg:py-2">
+            <a
+              href="https://www.savethechildren.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/logos/save-the-children_logo.svg"
+                alt="Save the Children logo"
+                width={100}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* 4 */}
+          <div className="flex items-center justify-start py-2 lg:py-2">
+            <a
+              href="https://www.un.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/logos/j-pal-dark_logo.png"
+                alt="J-PAL logo"
+                width={250}
+                height={200}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+        </div>
+
+        {/* END PARTNERS GRIP */}
+
+        <div className="py-3"></div>
         <div className="w-full lg:w-2/3">
-          <ResponsiveYouTubeEmbed embedId="4M4_73FqGI8?si=If4aApQytWnFp3Qi" />
+          <ResponsiveYouTubeEmbed embedId="NT9QllV96Pw?si=sgB5MCfziV1p5nwh" />
         </div>
 
         <div className="w-full py-6 lg:py-12">
@@ -270,11 +383,10 @@ export default async function jofseaProgrammePage({
         </div>
 
         <div className="pb-6">
-          <h2 className="header-section">Select initiatives</h2>
+          <h2 className="header-section">Features</h2>
         </div>
 
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-         
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {selectInitiatives.map((card, index) => (
             <HomeCard
               key={index}
@@ -287,59 +399,57 @@ export default async function jofseaProgrammePage({
               clickAction={card.clickAction || ""}
             />
           ))}
-
-      </div>
+        </div>
 
         <div>
+          <div className="w-full pt-6 lg:pt-12 lg:pb-0">
+            <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+          </div>
+          <div className="">
+            <PostAccordion title={"News"}>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                {postProps.slice(0).map((post) => (
+                  <PostCard key={post.name} content={post} />
+                ))}
+              </div>
+            </PostAccordion>
+          </div>
+          <div className="">
+            <PostAccordion title={"Press"}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {newsProps.slice(0).map((item) => (
+                  <NewsCard content={item} locale={params} />
+                ))}
+              </div>
+            </PostAccordion>
+          </div>
+          {/* <div className="">
+            <PostAccordion title={"Multimedia"}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {multimediaProps.map((item) => (
+                  <div key={item.alt} className="">
+                    <MediaCard {...item} />
+                  </div>
+                ))}
+              </div>
+            </PostAccordion>
+          </div> */}
 
-        <div className="w-full pt-6 lg:pt-12 lg:pb-0">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+          <div>
+            <PostAccordion title={"Events"}>
+              <div className="">
+                <CarousselForComponents>
+                  {cleanRelatedEvents.map((item) => (
+                    <>
+                      <EventCard article={item}></EventCard>
+                    </>
+                  ))}
+                </CarousselForComponents>
+              </div>
+            </PostAccordion>
+          </div>
         </div>
-        <div className="">
-          <PostAccordion title={"News"}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-              {postProps.slice(0).map((post) => (
-                <PostCard key={post.name} content={post} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Press"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(0).map((item) => (
-                <NewsCard content={item} locale={params} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-
-
-        <div>
-        <PostAccordion title={"Events"}>
-            <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </CarousselForComponents>
-            </div>
-          </PostAccordion>
-        </div>
-      </div>
+        <div className="py-24"></div>
       </div>
     </>
   );

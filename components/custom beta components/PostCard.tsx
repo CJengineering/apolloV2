@@ -24,7 +24,7 @@ export default function PostCard({
           >
             <Image
               className="absolute top-0 left-0 w-full h-full object-cover object-center transition duration-300 ease-in-out group-hover:scale-140"
-              src={content.thumbnail.url}
+              src={content.mainImage.url}
               alt="Featured article"
               width={500}
               height={500}

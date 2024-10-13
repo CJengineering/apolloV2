@@ -40,6 +40,7 @@ import CarousselForComponents from "@/components/CJ-components/components-CJ/bas
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 
 // START "SELECT INITIATIVES"
 
@@ -242,7 +243,7 @@ export default async function mitJameelClinic({
 
   return (
     <>
-      <div className="pt-12">
+      <div className="pt-20 lg:pt-12">
       <div className="flex flex-col text-left">
   <div className="w-full flex pb-6 lg:pb-12">
 
@@ -251,17 +252,26 @@ export default async function mitJameelClinic({
   </div>
                  
   <div className="pb-6">
-    <h1 className="header-article">MIT Jameel Clinic</h1>
+    <h1 className="header-article">{cleanSingleProgramme.name}</h1>
   </div>
 
-  <div className="pb-12">
-    <p className="prose prose-xl leading-normal dark:text-white">
-    The MIT Jameel Clinic is developing AI technologies to revolutionise healthcare, including early diagnostics, drug discovery and care personalisation. Building on MIT’s history in AI and life sciences, the Clinic creates novel algorithms for modelling biological and clinical data, such as imaging, text and genomics utilising new advancements in machine learning, biology, chemistry and clinical sciences. The Jameel Clinic translates discoveries into technologies that improve lives, supporting AI healthcare research and education, and collaborating with hospitals and industry partners.
-    </p>
-  </div>
+  <div className="pb-6 w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+  <div className="pb-6">
+            <ButtonCJ
+              href={cleanSingleProgramme.website}
+              text={"Visit the website"}
+              styleType="secondary"
+              openInNewTab = {true}
+            ></ButtonCJ>
+          </div>
 </div>
 
-<div className="w-full lg:w-2/3">
+        <div className="w-full lg:w-2/3">
           <ResponsiveYouTubeEmbed embedId="4M4_73FqGI8?si=If4aApQytWnFp3Qi" />
         </div>
         

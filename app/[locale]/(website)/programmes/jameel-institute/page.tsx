@@ -40,27 +40,28 @@ import CarousselForComponents from "@/components/CJ-components/components-CJ/bas
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 
 // START "SELECT INITIATIVES"
 
 const selectInitiatives = [
   {
-    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
-    alt: "Tuberculosis Impact Assessment",
-    title: "Tuberculosis Impact Assessment",
-    subtitle:"",
-    link: "https://www.google.com",
+    imageUrl: "/images/labs/jameel-institute/jameelcast.jpg",
+    alt: "Jameel Cast",
+    title: "JameelCast",
+    subtitle:"Podcast exploring public health research with leading scientists",
+    link: "https://jameelcast.pinecast.co/",
     openInNewTab: false,
     clickAction: "External link",
   },
   {
     imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
-    alt: "Kenneth C. Griffin Initiative",
-    title: "Kenneth C. Griffin Initiative",
-    subtitle:"",
-    link: "https://www.google.com",
+    alt: "Jameel Institute-Kenneth C. Griffin Initiative",
+    title: "Jameel Institute-Kenneth C. Griffin Initiative",
+    subtitle:"The Jameel Institute-Kenneth C. Griffin Initiative for the Economics of Pandemic Preparedness",
+    link: "programmes/jameel-institute/kenneth-c-griffin-initiative-for-economics-of-pandemic-preparedness",
     openInNewTab: false,
-    clickAction: "External link",
+    clickAction: "Internal link",
   },
 ];
 
@@ -233,33 +234,49 @@ export default async function JameelInstituteProgrammePage({
 
   return (
     <>
-<div className="pt-12">
-      <div className="flex flex-col text-left">
-  <div className="w-full flex pb-6 lg:pb-12">
+ <div className="pt-20 lg:pt-10">
+<div className="flex flex-col text-left">
+          <div className="w-full flex pb-6 lg:pb-12">
+            <img
+              className="dark:hidden"
+              src="/images/labs/jameel-institute/IMPERIAL_JAMEEL_INSTITUTE_ORIGINAL_DARK.png"
+              width="360"
+            ></img>
+            <img
+              className="hidden dark:block"
+              src="/images/labs/jameel-institute/IMPERIAL_JAMEEL_INSTITUTE_ORIGINAL_LIGHT.png"
+              width="360"
+            ></img>
+          </div>
 
-<img className="dark:hidden" src="/images/labs/jameel-institute/IMPERIAL_JAMEEL_INSTITUTE_ORIGINAL_DARK.png" width="360"></img>
-<img className="hidden dark:block" src="/images/labs/jameel-institute/IMPERIAL_JAMEEL_INSTITUTE_ORIGINAL_LIGHT.png" width="360"></img>
-  </div>
-                 
-  <div className="pb-6">
-    <h1 className="header-article">Jameel Institute</h1>
-  </div>
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
 
-  <div className="pb-12">
-    <p className="prose prose-xl leading-normal dark:text-white">
-    The MIT Jameel Clinic is developing AI technologies to revolutionise healthcare, including early diagnostics, drug discovery and care personalisation. Building on MIT’s history in AI and life sciences, the Clinic creates novel algorithms for modelling biological and clinical data, such as imaging, text and genomics utilising new advancements in machine learning, biology, chemistry and clinical sciences. The Jameel Clinic translates discoveries into technologies that improve lives, supporting AI healthcare research and education, and collaborating with hospitals and industry partners.
-    </p>
-  </div>
-</div>
+          <div className="pb-6 w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+          <div className="pb-7">
+            <ButtonCJ
+              href={cleanSingleProgramme.website}
+              text={"Visit the website"}
+              styleType="secondary"
+              openInNewTab={true}
+            ></ButtonCJ>
+          </div>
+        </div>
 
 <div className="w-full lg:w-2/3">
-          <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
+          <ResponsiveYouTubeEmbed embedId="4jXocWvJOag?si=CMa4bj4i1D09Lrng" />
         </div>
         
-        <div className="w-full py-6 lg:py-12">
+        <div className="w-full py-6 lg:pt-12 lg:pb-9">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
-
+{/* 
         <div className="pb-6">
           <h2 className="header-section">Impact</h2>
         </div>
@@ -273,11 +290,7 @@ export default async function JameelInstituteProgrammePage({
           <div className="">
             <Stats title="48" content="hospitals in network" />
           </div>
-        </div>
-
-        <div className="w-full py-6 lg:py-12">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-        </div>
+        </div> */}
 
         <div className="pb-6">
           <h2 className="header-section">Select initiatives</h2>
@@ -318,13 +331,13 @@ export default async function JameelInstituteProgrammePage({
         <div className="">
           <PostAccordion title={"Press"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
+              {newsProps.slice(0).map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
             </div>
           </PostAccordion>
         </div>
-        <div className="">
+        {/* <div className="">
           <PostAccordion title={"Multimedia"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {multimediaProps.map((item) => (
@@ -334,7 +347,7 @@ export default async function JameelInstituteProgrammePage({
               ))}
             </div>
           </PostAccordion>
-        </div>
+        </div> */}
         <div>
         <PostAccordion title={"Events"}>
             <div className="">

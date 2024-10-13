@@ -36,6 +36,9 @@ import ContentPhotos from "../../../../../components/CJ-components/components-CJ
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import Image from "next/image";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 
 export default async function Programme25page({
   params,
@@ -204,13 +207,68 @@ export default async function Programme25page({
 
   return (
     <>
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+      <div className="pt-20 lg:pt-10">
 
+      <div className="flex flex-col text-left">
+          <div className="pb-3">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
+          <div>
+            <p className="prose prose-xl font-bold leading-normal dark:text-white mb-5">
+            </p>
+          </div>
+          <div className="w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+          <div className="pt-6">
+          </div>
+        </div>
+        {/* START PARTNERS GRID */}
+        <div className="text-sm font-bold items-center pb-3">
+              IN PARTNERSHIP WITH
+              </div>
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-0 pb-6">
+
+          {/* 1 */}
+          <div className="flex items-center justify-start">
+            <a href="" target="" rel="">
+              <Image
+                src="/images/logos/mit_logo.svg"
+                alt="MIT logo"
+                width={200}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+            {/* 2 */}
+            <div className="flex items-center justify-start">
+            <a href="" target="" rel="">
+              <Image
+                src="/images/cj_logo/CJ_LOGO_ENGLISH_RED_SVG.svg"
+                alt="Yazda logo"
+                width={170}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+        </div>
+
+        {/* END PARTNERS GRIP */}
+
+        <div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="89aK7v60jIA?si=YphydcRoIOoQDzJI" />
+        </div>
+      </div>
+
+      <div className="w-full mt-12">
+        <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+      </div>
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -229,7 +287,7 @@ export default async function Programme25page({
             </div>
           </PostAccordion>
         </div>
-        <div className="">
+        {/* <div className="">
           <PostAccordion title={"Multimedia"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {multimediaProps.map((item) => (
@@ -239,7 +297,7 @@ export default async function Programme25page({
               ))}
             </div>
           </PostAccordion>
-        </div>
+        </div> */}
 
         {/* 
 
@@ -278,7 +336,6 @@ export default async function Programme25page({
        
           </div>
         </div> */}
-      </div>
     </>
   );
 }

@@ -39,6 +39,7 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 
 export default async function Programme35page({
   params,
@@ -230,6 +231,14 @@ export default async function Programme35page({
               className="prose prose-xl leading-normal dark:text-white"
               dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
             />
+          </div>
+          <div className="pt-6">
+            <ButtonCJ
+              href={"https://www.jwel.mit.edu/"}
+              text={"Visit the MIT J-WEL website"}
+              styleType="secondary"
+              openInNewTab = {true}
+            ></ButtonCJ>
           </div>
         </div>
 

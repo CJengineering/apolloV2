@@ -37,8 +37,11 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import Image from "next/image";
 
-export default async function Programme1page({
+export default async function JameelC40UrbanPlanningClimateLabsPage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -205,12 +208,90 @@ export default async function Programme1page({
 
   return (
     <>
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+      <div className="pt-20 lg:pt-10">
+        <div className="flex flex-col text-left">
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
+          <div className="w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+          <div className="pt-6">
+            <ButtonCJ
+              href={cleanSingleProgramme.website}
+              text={"Visit the website"}
+              styleType="secondary"
+              openInNewTab={true}
+            ></ButtonCJ>
+          </div>
+          {/* START PARTNERS GRID */}
+          <div className="text-sm font-bold items-center pt-6">
+            IN PARTNERSHIP WITH
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-6 gap-0">
+            {/* 1 */}
+            <div className="flex items-center justify-start py-3">
+              <a
+                href="https://www.povertyactionlab.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/images/logos/j-pal-dark_logo.png"
+                  alt="J-PAL logo"
+                  width={220}
+                  height={100}
+                  className="object-contain transition duration-300 hover:filter hover:grayscale"
+                />
+              </a>
+            </div>
+
+            {/* 2 */}
+            <div className="flex items-center justify-start lg:justify-center py-3">
+              <a
+                href="https://www.c40.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/images/logos/c40_logo.png"
+                  alt="C40 Cities logo"
+                  width={100}
+                  height={100}
+                  className="object-contain transition duration-300 hover:filter hover:grayscale"
+                />
+              </a>
+            </div>
+
+            {/* 3 */}
+            <div className="flex items-center justify-start lg:justify-center py-3">
+              <Image
+                src="/images/cj_logo/CJ_LOGO_ENGLISH_RED_SVG.svg"
+                alt="Community Jameel logo"
+                width={170}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </div>
+          </div>
+
+          {/* END PARTNERS GRID */}
+          <div className="w-full lg:w-2/3 pt-6">
+            <ResponsiveYouTubeEmbed embedId="0g31Hu7RRrI?si=lcHv3ipn3RUHh_B-" />
+          </div>
+          <div className="w-full lg:w-2/3 pt-6">
+            <ResponsiveYouTubeEmbed embedId="46WXtuetDrA?si=BRoPb6Ob93Zlu8Ha" />
+          </div>
+        </div>
+
+        {/* START DIVIDER */}
+        <div className="w-full pt-9">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+        {/* END DIVIDER */}
 
         <div className="">
           <PostAccordion title={"News"}>
@@ -230,7 +311,7 @@ export default async function Programme1page({
             </div>
           </PostAccordion>
         </div>
-        <div className="">
+        {/* <div className="">
           <PostAccordion title={"Multimedia"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {multimediaProps.map((item) => (
@@ -240,7 +321,7 @@ export default async function Programme1page({
               ))}
             </div>
           </PostAccordion>
-        </div>
+        </div> */}
 
         {/* 
 
@@ -262,15 +343,15 @@ export default async function Programme1page({
         </div> */}
 
         <div>
-        <PostAccordion title={"Events"}>
+          <PostAccordion title={"Events"}>
             <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </CarousselForComponents>
+              <CarousselForComponents>
+                {cleanRelatedEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
+              </CarousselForComponents>
             </div>
           </PostAccordion>
         </div>
@@ -282,6 +363,7 @@ export default async function Programme1page({
           </div>
         </div> */}
       </div>
+      <div className="py-12"></div>
     </>
   );
 }

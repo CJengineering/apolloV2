@@ -43,6 +43,7 @@ import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 
 // START THE DATA FOR CARDS
 
@@ -276,11 +277,19 @@ export default async function JpalPage({
           <div className="pb-6">
             <h1 className="header-article">{cleanSingleProgramme.name}</h1>
           </div>
-          <div className="pb-12 w-full lg:w-2/3">
+          <div className="w-full lg:w-2/3">
             <div
               className="prose prose-xl leading-normal dark:text-white"
               dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
             />
+          </div>
+          <div className="py-6">
+            <ButtonCJ
+              href={"https://www.povertyactionlab.org/"}
+              text={"To learn more visit the J-PAL website"}
+              styleType="secondary"
+              openInNewTab = {true}
+            ></ButtonCJ>
           </div>
         </div>
 

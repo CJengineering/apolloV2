@@ -40,35 +40,37 @@ import CarousselForComponents from "@/components/CJ-components/components-CJ/bas
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import Image from "next/image";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 
 // START "SELECT INITIATIVES"
 
 const selectInitiatives = [
   {
-    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
-    alt: "Tuberculosis Impact Assessment",
-    title: "Tuberculosis Impact Assessment",
-    subtitle:"",  
-    link: "https://www.google.com",
-    openInNewTab: false,
+    imageUrl: "/images/labs/jameel-observatory/jo-crewsnet/JameelObservatory-CREWSnet_ClimateHouse_01.jpg",
+    alt: "Climate-resilient housing and storm shelters",
+    title: "Climate-resilient housing and storm shelters",
+    subtitle:"Extreme heat and storms will endanger lives in southwest Bangladesh, requiring accessible, sustainable shelters that address social barriers and protect assets, with a focus on community needs and future resilience.",  
+    link: "https://crewsnet.mit.edu/flagship-initiatives/sheltersclimate-resilient-housing",
+    openInNewTab: true,
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
-    alt: "Kenneth C. Griffin Initiative",
-    title: "Kenneth C. Griffin Initiative",
-    subtitle:"",
-    link: "https://www.google.com",
-    openInNewTab: false,
+    imageUrl: "/images/labs/jameel-observatory/jo-crewsnet/JameelObservatory-CREWSnet_Clinics_02.jpg",
+    alt: "Agriculture and adaptation clinics",
+    title: "Agriculture and adaptation clinics",
+    subtitle:"Adaptation clinics in southwest Bangladesh provide farmers with guidance on climate change impacts, helping them increase resilience by addressing agricultural and economic challenges through informed projections and support.",
+    link: "https://crewsnet.mit.edu/flagship-initiatives/water-security",
+    openInNewTab: true,
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
-    alt: "Kenneth C. Griffin Initiative",
-    title: "Kenneth C. Griffin Initiative",
-    subtitle:"",
-    link: "https://www.google.com",
-    openInNewTab: false,
+    imageUrl: "/images/labs/jameel-observatory/jo-crewsnet/JameelObservatory-CREWSnet_watersecurity_03.jpg",
+    alt: "Water Security",
+    title: "Water Security",
+    subtitle:"Saltwater intrusion threatens water security in coastal Bangladesh, and climate change will worsen the issue. To address this, Jameel Observatory-CREWSnet is developing models to forecast future risks and create scalable, evidence-based solutions that ensure equitable access to freshwater, engaging stakeholders to mobilize action.",
+    link: "https://crewsnet.mit.edu/flagship-initiatives/water-security",
+    openInNewTab: true,
     clickAction: "External link",
   },
 ];
@@ -242,58 +244,115 @@ export default async function joCrewsnetPage({
 
   return (
     <>
-      <div className="pt-12">
-      <div className="flex flex-col text-left">
-  <div className="w-full flex pb-6 lg:pb-12">
+      <div className="pt-20 lg:pt-12">
+        <div className="flex flex-col text-left">
+          <div className="w-full flex pb-6 lg:pb-12">
+            <img
+              className="dark:hidden"
+              src="/images/labs/jameel-observatory/jo-crewsnet/JO_CREWSNET_DARK.svg"
+              width="600"
+            ></img>
+            <img
+              className="hidden dark:block"
+              src="/images/labs/jameel-observatory/jo-crewsnet/JO_CREWSNET_WHITE.svg"
+              width="600"
+            ></img>
+          </div>
 
-<img className="dark:hidden" src="/images/labs/jameel-observatory/jo-crewsnet/JAMEEL_OBSERVATORY_ORIGINAL_DARK.png" width="360"></img>
-<img className="hidden dark:block" src="/images/labs/jameel-observatory/jo-crewsnet/JAMEEL_OBSERVATORY_ORIGINAL_LIGHT.png" width="360"></img>
-  </div>
-                 
-  <div className="pb-6">
-    <h1 className="header-article">Jameel Observatory-CREWSNET</h1>
-  </div>
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
 
-  <div className="pb-12">
-    <p className="prose prose-xl leading-normal dark:text-white">
-    The Jameel Observatory Climate Resilience Early Warning System Network (Jameel Observatory-CREWSnet), one of MIT’s five Climate Grand Challenges flagship projects, aims to empower communities worldwide, specifically within the agriculture sector, to adapt to climate shocks by combining state-of-the-art climate and socioeconomic forecasting techniques with technological solutions to support communities’ resilience and by launching collaborations across the public and private sectors, as well as civil society.
-    </p>
-  </div>
-</div>
-
-<div className="w-full lg:w-2/3">
-          <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
+          <div className="w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+          
+          <div className="py-6">
+            <ButtonCJ
+              href={"https://crewsnet.mit.edu/"}
+              text={"Visit the website"}
+              styleType="secondary"
+              openInNewTab = {true}
+            ></ButtonCJ>
+          </div>
         </div>
-        
-        {/* <div className="w-full py-6 lg:py-12">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-        </div> */}
 
-        {/* <div className="pb-6">
-          <h2 className="header-section">Impact</h2>
+        {/* START PARTNERS GRID */}
+        <div className="text-sm font-bold items-center pb-3 lg:pb-0">
+          IN PARTNERSHIP WITH
         </div>
-        <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="">
-            <Stats title="2" content="antibiotics discovered" />
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
+          {/* 1 */}
+          <div className="flex items-center justify-start py-2">
+            <a
+              href="https://www.ed.ac.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/logos/mit_logo.svg"
+                alt="MIT logo"
+                width={170}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
           </div>
-          <div className="">
-            <Stats title="2" content="deep learning tools" />
+
+          {/* 2 */}
+          <div className="flex items-center justify-start py-2">
+            <a
+              href="https://www.brac.net/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/logos/brac_logo.png"
+                alt="BRAC logo"
+                width={170}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
           </div>
-          <div className="">
-            <Stats title="48" content="hospitals in network" />
+
+          {/* 3 */}
+          <div className="flex items-center justify-start py-2">
+            <a
+              href="https://www.un.org"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/logos/j-pal-dark_logo.png"
+                alt="J-PAL logo"
+                width={210}
+                height={200}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
           </div>
-        </div> */}
+        </div>
+
+        {/* END PARTNERS GRIP */}
+
+        <div className="py-3"></div>
+        <div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="8ZrWM8rbtkA?si=JF3UrBUTY0T-MnHC" />
+        </div>
 
         <div className="w-full py-6 lg:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
 
         <div className="pb-6">
-          <h2 className="header-section">Select initiatives</h2>
+          <h2 className="header-section">Flagship initiatives</h2>
         </div>
 
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-         
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {selectInitiatives.map((card, index) => (
             <HomeCard
               key={index}
@@ -306,58 +365,57 @@ export default async function joCrewsnetPage({
               clickAction={card.clickAction || ""}
             />
           ))}
-
-      </div>
+        </div>
 
         <div>
+          <div className="w-full pt-6 lg:pt-12 lg:pb-0">
+            <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+          </div>
+          <div className="">
+            <PostAccordion title={"News"}>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                {postProps.slice(0).map((post) => (
+                  <PostCard key={post.name} content={post} />
+                ))}
+              </div>
+            </PostAccordion>
+          </div>
+          <div className="">
+            <PostAccordion title={"Press"}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {newsProps.slice(0).map((item) => (
+                  <NewsCard content={item} locale={params} />
+                ))}
+              </div>
+            </PostAccordion>
+          </div>
+          {/* <div className="">
+            <PostAccordion title={"Multimedia"}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {multimediaProps.map((item) => (
+                  <div key={item.alt} className="">
+                    <MediaCard {...item} />
+                  </div>
+                ))}
+              </div>
+            </PostAccordion>
+          </div> */}
 
-        <div className="w-full pt-6 lg:pt-12 lg:pb-0">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+          <div>
+            <PostAccordion title={"Events"}>
+              <div className="">
+                <CarousselForComponents>
+                  {cleanRelatedEvents.map((item) => (
+                    <>
+                      <EventCard article={item}></EventCard>
+                    </>
+                  ))}
+                </CarousselForComponents>
+              </div>
+            </PostAccordion>
+          </div>
         </div>
-        <div className="">
-
-          <PostAccordion title={"News"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0).map((post) => (
-                <PostCard key={post.name} content={post} />
-              ))}
-            </div>
-          </PostAccordion>
-
-          <PostAccordion title={"Press"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(0).map((item) => (
-                <NewsCard content={item} locale={params} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div>
-        <PostAccordion title={"Events"}>
-            <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </CarousselForComponents>
-            </div>
-          </PostAccordion>
-        </div>
-  
-      </div>
+        <div className="py-24"></div>
       </div>
     </>
   );

@@ -39,6 +39,8 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 import Image from "next/image";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
+import Carousel from "@/components/CJ-components/components-CJ/basic components/Caroussel";
+import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 
 // START INITIATIVES
 
@@ -47,13 +49,15 @@ const cardData = [
     imageUrl: "/images/labs/iraq-cultural-health-fund/malaeen-painting.webp",
     alt: "The Art of Surival",
     title: "The Art of Surival",
-    subtitle: "Interactive online exhibition featuring the Yazidi Cultural Archive and hosted on the Google Arts & Culture platform",
+    subtitle:
+      "Interactive online exhibition featuring the Yazidi Cultural Archive and hosted on the Google Arts & Culture platform",
     link: "https://artsandculture.google.com/story/the-art-of-yazidi-survival-united-nations/PwURZsXemMfbcw?hl=en",
     openInNewTab: true,
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/labs/iraq-cultural-health-fund/yazidi-archive-event-launch.webp",
+    imageUrl:
+      "/images/labs/iraq-cultural-health-fund/yazidi-archive-event-launch.webp",
     alt: "Yazidi Cultural Archive launch",
     title: "Yazidi Cultural Archive launch",
     subtitle: "26 October 2022, Institut du Monde Arabe, Paris",
@@ -62,25 +66,30 @@ const cardData = [
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/labs/iraq-cultural-health-fund/ark-re-imagined-poster.webp",
+    imageUrl:
+      "/images/labs/iraq-cultural-health-fund/ark-re-imagined-poster.webp",
     alt: "Ocean Space Iraq Pavilion 2021 Venice Biennale",
     title: "2021 Venice Biennale",
-    subtitle: "Ocean Space hosts the Iraq Pavilion including 'Ark Re-imagine' at the International Architecture Exhibition of the 2021 Venice Biennale",
+    subtitle:
+      "Ocean Space hosts the Iraq Pavilion including 'Ark Re-imagine' at the International Architecture Exhibition of the 2021 Venice Biennale",
     link: "https://www.ocean-space.org/activities/ark-re-imagined-the-expeditionary-pavilion-1",
     openInNewTab: true,
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/labs/iraq-cultural-health-fund/ark-re-imagined-project-overview.webp",
+    imageUrl:
+      "/images/labs/iraq-cultural-health-fund/ark-re-imagined-project-overview.webp",
     alt: "Project overview",
     title: "Project overview",
-    subtitle: "Exploring the Ancient Craft Traditions of Mesopotamia through Art and Design",
+    subtitle:
+      "Exploring the Ancient Craft Traditions of Mesopotamia through Art and Design",
     link: "/documents/iraq-cultural-health-fund/Ark Re-imagined_Overview-update_2021.pdf",
     openInNewTab: false,
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/labs/iraq-cultural-health-fund/ark-re-imagine-documentary.webp",
+    imageUrl:
+      "/images/labs/iraq-cultural-health-fund/ark-re-imagine-documentary.webp",
     alt: "Documentary film",
     title: "Documentary film",
     subtitle: "Ark Re-imagined: The Expeditionary Pavilion",
@@ -99,8 +108,6 @@ const cardData = [
   },
 ];
 // END INITIATIVES
-
-
 
 export default async function IraqCulturalArchivePage({
   params,
@@ -284,16 +291,20 @@ export default async function IraqCulturalArchivePage({
         </div>
         <div className="py-3"></div>
 
+        {/* START PARTNERS GRID */}
+        <div className="text-sm font-bold items-center pb-3">
+          IN PARTNERSHIP WITH
+        </div>
+
         <div className="grid grid-cols-3 lg:grid-cols-6 gap-0">
-          <div className="flex items-center justify-start py-6 lg:py-2">
-            <div className="text-sm font-bold items-center">
-              IN <br></br>PARTNERSHIP<br></br> WITH
-            </div>
-          </div>
 
           {/* 1 */}
           <div className="flex items-center justify-start py-6 lg:py-2">
-            <a href="" target="" rel="">
+          <a
+              href="https://www.yazda.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Image
                 src="/images/logos/yazda_logo.png"
                 alt="Yazda logo"
@@ -373,6 +384,8 @@ export default async function IraqCulturalArchivePage({
           </div>
         </div>
 
+        {/* END PARTNERS GRIP */}
+
         {/* START DIVIDER */}
         <div className="w-full py-6 lg:py-10">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
@@ -385,7 +398,7 @@ export default async function IraqCulturalArchivePage({
 
         {/* START PROGRAMME SECTION */}
         <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-3/12">
+          <div className="w-full lg:w-2/12">
             <Image
               src="/images/labs/iraq-cultural-health-fund/yazidi-cultural-archives.webp"
               alt="Yazidi Cultural Archive"
@@ -393,9 +406,11 @@ export default async function IraqCulturalArchivePage({
               height={1000}
             />
           </div>
-          <div className="lg:pl-6 lg:w-9/12">
+          <div className="lg:pl-6 lg:w-10/12">
             <div>
-              <h3 className="text-2xl lg:text-3xl pb-6 mt-3 lg:mt-0">Yazidi Cultural Archive</h3>
+              <h3 className="text-2xl lg:text-3xl pb-6 mt-3 lg:mt-0">
+                Yazidi Cultural Archive
+              </h3>
             </div>
             <p className="prose leading-normal dark:text-white mb-5">
               The Yazidi Cultural Archives, which are globally accessible and
@@ -450,7 +465,7 @@ export default async function IraqCulturalArchivePage({
         {/* START PROGRAMME SECTION */}
 
         <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-3/12">
+          <div className="w-full lg:w-2/12">
             <Image
               src="/images/labs/iraq-cultural-health-fund/ark-re-imagine.webp"
               alt="Yazidi Cultural Archive"
@@ -458,9 +473,11 @@ export default async function IraqCulturalArchivePage({
               height={1000}
             />
           </div>
-          <div className="lg:pl-6 lg:w-9/12">
+          <div className="lg:pl-6 lg:w-10/12">
             <div>
-              <h3 className="text-2xl lg:text-3xl pb-6 mt-3 lg:mt-0">Ark Re-imagined</h3>
+              <h3 className="text-2xl lg:text-3xl pb-6 mt-3 lg:mt-0">
+                Ark Re-imagined
+              </h3>
             </div>
             <p className="prose leading-normal dark:text-white mb-5">
               'Ark Re-imagined: the Expeditionary Pavilion' – the first-ever
@@ -504,26 +521,29 @@ export default async function IraqCulturalArchivePage({
         {/* END DIVIDER */}
 
         <div>
-          <h2 className="header-section pb-6">Features</h2>
+          <h2 className="header-section">Features</h2>
+        </div>
+        <div>
+          <CarousselForComponents>
+            {/* <div className="w-full grid grid-cols-1 lg:grid sm:grid-cols-2 lg:grid-cols-4 gap-6"> */}
+            {cardData.map((card, index) => (
+              <HomeCard
+                key={index}
+                imageUrl={card.imageUrl}
+                alt={card.alt}
+                title={card.title}
+                subtitle={card.subtitle}
+                link={card.link}
+                openInNewTab={card.openInNewTab}
+                clickAction={card.clickAction || ""}
+              />
+            ))}
+            {/* </div> */}
+          </CarousselForComponents>
         </div>
 
-        <div className="w-full grid grid-cols-1 lg:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {cardData.map((card, index) => (
-            <HomeCard
-              key={index}
-              imageUrl={card.imageUrl}
-              alt={card.alt}
-              title={card.title}
-              subtitle={card.subtitle}
-              link={card.link}
-              openInNewTab={card.openInNewTab}
-              clickAction={card.clickAction || ""}
-            />
-          ))}
-        </div>
-
-         {/* START DIVIDER */}
-         <div className="w-full pt-12 pb-0">
+        {/* START DIVIDER */}
+        <div className="w-full pt-12 pb-0">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
         {/* END DIVIDER */}
@@ -547,7 +567,7 @@ export default async function IraqCulturalArchivePage({
           </div>
         </PostAccordion>
       </div>
-      <div className="">
+      {/* <div className="">
         <PostAccordion title={"Multimedia"}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {multimediaProps.map((item) => (
@@ -557,7 +577,7 @@ export default async function IraqCulturalArchivePage({
             ))}
           </div>
         </PostAccordion>
-      </div>
+      </div> */}
       <div>
         <PostAccordion title={"Events"}>
           <div className="grid grid-cols-3 gap-5">
