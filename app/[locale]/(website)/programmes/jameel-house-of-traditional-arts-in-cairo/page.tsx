@@ -43,6 +43,7 @@ import HomeCard from "@/components/CJ-components/components-CJ/basic components/
 import { ImageLightbox } from "@/app/interfaces";
 import MansoryGrid from "@/components/custom beta components/MansoryGrid";
 import { Content } from "next/font/google";
+import Image from "next/image";
 
 
 
@@ -50,22 +51,22 @@ import { Content } from "next/font/google";
 
 const cardData = [
   {
-    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
+    imageUrl: "/images/labs/jameel-house-cairo/JameelHouseOfTraditionalArtsInCairo_Collection_2024.jpg",
     alt: "2024 catalogue",
-    title: "2024 catalogue",
+    title: "2024 Graduation Collection",
     subtitle:"",
-    link: "https://www.jameelartshealthlab.org/healing-arts",
+    link: "/programmes/jameel-house-of-traditional-arts-in-cairo/2024-graduation-collection",
     openInNewTab: false,
-    clickAction: "External link",
+    clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/labs/j-wafs/JWAFS_SEED_GRANTS.jpg",
+    imageUrl: "/images/labs/jameel-house-cairo/JameelHouseOfTraditionalArtsInCairo_Collection_2023.jpg",
     alt: "2023 catalogue",
-    title: "2023 catalogue",
+    title: "2023 Graduation Collection",
     subtitle:"",
-    link: "https://jwafs.mit.edu/SeedGrants",
+    link: "/programmes/jameel-house-of-traditional-arts-in-cairo/2023-graduation-collection",
     openInNewTab: false,
-    clickAction: "External link",
+    clickAction: "Internal link",
   },
 ];
 // END INITIATIVES
@@ -234,7 +235,8 @@ export default async function JameelHouseCairoProgrammePage({
     cleanSingleProgramme,
     cleanedFeatures
   );
-// array oh picturees
+
+  // array oh picturees
 const imageLightboxData: ImageLightbox[] = [
   {
     src: "/images/imagesCJ/background-auth.jpg",
@@ -314,7 +316,7 @@ const imageLightboxData: ImageLightbox[] = [
 
   return (
    < >
-      <div className="pt-12 ">
+      <div className="pt-20 lg:pt-10">
 
 <div className="flex flex-col text-left">
            
@@ -322,12 +324,80 @@ const imageLightboxData: ImageLightbox[] = [
 <h1 className="header-article">Jameel House of Traditional Arts in Cairo</h1>
 </div>
 
-<div className="pb-12">
+<div className="">
 <p className="prose prose-xl leading-normal dark:text-white">
 The Jameel House of Traditional Arts in Cairo offers classes in traditional geometry, drawing, colour harmony, and decorative floral patterns, as well as training in ceramics, glass, gypsum, metalwork, and woodwork. Located in Fustat, Historic Cairo, the Jameel House was launched in 2009 through a collaboration between The Prince’s Foundation School of Traditional Arts, Community Jameel, and the Cultural Development Fund of Egypt. With a mission to preserve Egypt’s oldest crafts, the Jameel House accepts 20 students annually on a two-year training programme by The Prince’s Foundation School.
 </p>
 </div>
 </div>
+
+{/* START PARTNERS GRID */}
+<div className="text-sm font-bold items-center pt-6">
+             IN PARTNERSHIP WITH
+            </div>
+<div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
+
+          {/* 1 */}
+          <div className="flex items-center justify-start pt-6 pb-2">
+          <a
+              href="https://www.kings-foundation.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/logos/kingsfoundation_logo.png"
+                alt="The King's Foundation logo"
+                width={180}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* 2 */}
+          <div className="flex items-center justify-start py-3">
+            <a
+              href="https://www.sis.gov.eg/Story/162445/Cultural-Development-Fund?lang=en-us"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/logos/cdfegypt_logo.png"
+                alt="Egypt's Cultural Development Fund logo"
+                width={180}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* 3 */}
+          <div className="flex items-center justify-start py-3">
+            <a
+              href=""
+              target=""
+              rel=""
+            >
+              <Image
+                src="/images/cj_logo/CJ_LOGO_ENGLISH_RED_SVG.svg"
+                alt="Community Jameel logo"
+                width={180}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+      
+          </div>
+        </div>
+
+        {/* END PARTNERS GRIP */}
+
+        {/* START DIVIDER */}
+      <div className="w-full py-6 lg:pb-7">
+        <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+      </div>
+      {/* END DIVIDER */}
 
 <div className="w-full lg:w-2/3">
   <ResponsiveYouTubeEmbed embedId="dn9mZchjKHw?si=_2VQzRq_rzQ7lqp4" />
@@ -358,7 +428,7 @@ The Jameel House of Traditional Arts in Cairo offers classes in traditional geom
   </div>
 
   <div className="pb-6">
-    <h2 className="header-section">Graduating classes</h2>
+    <h2 className="header-section">Graduating collections</h2>
   </div>
 
 <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -378,39 +448,18 @@ The Jameel House of Traditional Arts in Cairo offers classes in traditional geom
 
 </div>
 
-<div className="w-full py-12">
-    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-  </div>
-
-  <div className="pb-6">
-    <h2 className="header-section">Photo Gallery</h2>
-  </div>
-
-  <div>
- <ContentPhotos images={imageLightboxData} numberColumns= "1" />
-  </div>
-
 
   {/* <div className="pb-6">
-    <h2 className="header-section">Spinouts</h2>
-  </div>
+    <h2 className="header-section">Photo Gallery</h2>
+  </div> */}
 
-<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-{spinoutsLogos.map((card, index) => (
-  <div className="flex  items-center justify-center">
-    <HomeCard
-        key={index}
-        imageUrl={card.imageUrl}
-        alt={card.alt}
-        title={card.title}
-        subtitle={card.subtitle}
-        link={card.link}
-        openInNewTab={card.openInNewTab}
-        clickAction={card.clickAction || ""}
-      />
+  {/* <div>
+ <ContentPhotos images={imageLightboxData} numberColumns= "1" />
+  </div> */}
+
+  <div className="w-full pt-6 lg:pt-12">
+    <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
   </div>
-))}
-</div> */}
 
   <div className="">
     <PostAccordion title={"News"}>
@@ -430,7 +479,7 @@ The Jameel House of Traditional Arts in Cairo offers classes in traditional geom
       </div>
     </PostAccordion>
   </div>
-  <div className="">
+  {/* <div className="">
     <PostAccordion title={"Multimedia"}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {multimediaProps.map((item) => (
@@ -440,7 +489,7 @@ The Jameel House of Traditional Arts in Cairo offers classes in traditional geom
         ))}
       </div>
     </PostAccordion>
-  </div>
+  </div> */}
 
   <div>
     <PostAccordion title={"Events"}>
@@ -454,8 +503,8 @@ The Jameel House of Traditional Arts in Cairo offers classes in traditional geom
         </CarousselForComponents>
       </div>
     </PostAccordion>
-  </div>
-</div>
+  </div> 
+  <div className="py-12"></div> 
     </>
   );
 }

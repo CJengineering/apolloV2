@@ -90,25 +90,25 @@ const navItems: NavItem[] = [
       {
         name: "J-PAL",
         children: [
-          { name: "Overview", href: "/programmes/j-pal", current: false },
+          { name: "J-PAL Global", href: "/programmes/j-pal", current: false },
           {
             name: "J-PAL MENA",
-            href: "/programmes/j-pal/j-pal-mena",
+            href: "https://www.povertyactionlab.org/middle-east-and-north-africa",
             current: false,
           },
           {
             name: "ESII",
-            href: "/programmes/j-pal/esii",
+            href: "https://www.povertyactionlab.org/initiative/european-social-inclusion-initiative",
             current: false,
           },
           {
             name: "HAPIE",
-            href: "/programmes/j-pal/hapie",
+            href: "https://www.povertyactionlab.org/page/hub-advanced-policy-innovation-environment-hapie",
             current: false,
           },
           {
-            name: "J-PAL Air, Water & Energy Lab",
-            href: "/programmes/j-pal/air-water-and-energy-lab",
+            name: "J-PAL Air and Water Labs",
+            href: "https://www.povertyactionlab.org/programmes/j-pal/air-and-water-labs",
             current: false,
           },
         ],
@@ -132,8 +132,10 @@ const navItems: NavItem[] = [
       },
       {
         name: "Jameel Institute",
-        href: "/programmes/jameel-institute",
-        current: false,
+        children: [
+          { name: "Overview", href: "/programmes/jameel-institute", current: false },
+          { name: "Jameel Institute Kenneth C. Griffin Intitiative", href: "/programmes/jameel-institute/kenneth-c-griffin-initiative-for-economics-of-pandemic-preparedness", current: false },
+        ],
       },
       {
         name: "Jameel Observatory",
@@ -171,11 +173,11 @@ const navItems: NavItem[] = [
           {
             name: "Scholars",
             subChildren: [
-              { "name": "Clara Barbier Serrano (2020)", "href": "/programmes" },
-              { "name": "Laura Mekhail (2021)", "href": "/programmes" },
-              { "name": "Seonwoo Lee (2022)", "href": "/programmes" },
-              { "name": "Anastasia Koorn (2023)", "href": "/programmes" },
-              { "name": "Henna Mun (2023)", "href": "/programmes" }
+              { "name": "Clara Barbier Serrano (2020)", "href": "/people/clara-barbier-serrano" },
+              { "name": "Laura Mekhail (2021)", "href": "/people/laura-mekhail" },
+              { "name": "Seonwoo Lee (2022)", "href": "/people/seonwoo lee" },
+              { "name": "Anastasia Koorn (2023)", "href": "/people/anatasia-koorn" },
+              { "name": "Henna Mun (2023)", "href": "/people/henna-mun" }
             ]
           },
           {
@@ -196,8 +198,8 @@ const navItems: NavItem[] = [
           {
             name: "Graduation collections",
             subChildren: [
-              { "name": "2023", "href": "/programmes/jameel-house-of-traditional-arts-in-cairo/2023-graduation-catalogue"},
-              { "name": "2024", "href": "/programmes/jameel-house-of-traditional-arts-in-cairo/2024-graduation-catalogue"},
+              { "name": "2023", "href": "/programmes/jameel-house-of-traditional-arts-in-cairo/2023-graduation-collection"},
+              { "name": "2024", "href": "/programmes/jameel-house-of-traditional-arts-in-cairo/2024-graduation-collection"},
             ]
           },
         ],
@@ -206,12 +208,12 @@ const navItems: NavItem[] = [
 
       {
         name: "Pratham Jameel Second Chance Programme",
-        href: "/programmes/pratham-jameel-second-chance-programme",
+        href: "/programmes/pratham-jameel-second-chance",
         current: false,
       },
       {
-        name: "Jameel C40 Urban Climate Lab",
-        href: "/programmes/climate-labs",
+        name: "Jameel C40 Urban Planning Climate Labs",
+        href: "/programmes/jameel-c40-urban-planning-climate-labs",
         current: false,
       },
       { name: "Ejada", href: "/programmes/ejada", current: false },

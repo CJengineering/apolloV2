@@ -36,8 +36,10 @@ import ContentPhotos from "../../../../../components/CJ-components/components-CJ
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 
-export default async function Programme28page({
+export default async function EjadaPage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -204,17 +206,53 @@ export default async function Programme28page({
 
   return (
     <>
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+      <div className="pt-20 lg:pt-10 lg:mb-12">
+        <div className="flex flex-col text-left">
+        <div className="w-full flex pb-6 lg:pb-12">
+<img className="dark:hidden" src="/images/labs/ejada/ejada-full_logo.png" width="600"></img>
+  </div>
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
+          <div className="w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+        </div>
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Impact</h2>
+        </div>
+        <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="">
+            <Stats title={cleanSingleProgramme.impact01} content={cleanSingleProgramme.impact01Title} />
+          </div>
+          <div className="">
+            <Stats title={cleanSingleProgramme.impact02} content={cleanSingleProgramme.impact02Title} />
+          </div>
+          <div className="">
+            <Stats
+              title={cleanSingleProgramme.impact03}
+              content={cleanSingleProgramme.impact03Title}
+            />
+          </div>
+          <div className="">
+            <Stats title={cleanSingleProgramme.impact04} content={cleanSingleProgramme.impact04Title} />
+          </div>
+        </div>
+        <div className="w-full pt-6 lg:pt-12 lg:pb-0">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
 
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
+              {postProps.map((post) => (
                 <PostCard key={post.name} content={post} />
               ))}
             </div>
@@ -223,7 +261,7 @@ export default async function Programme28page({
         <div className="">
           <PostAccordion title={"Press"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
+              {newsProps.map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
             </div>

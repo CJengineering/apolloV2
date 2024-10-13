@@ -66,7 +66,7 @@ export default function Page() {
     ) : (
       
       <form onSubmit={handleSubmit}>
-       <div className="mb-4 w-1/2">
+       <div className="mb-4 lg:w-1/2">
           <input
             type="text"
             name="FNAME"
@@ -76,7 +76,7 @@ export default function Page() {
             required
           />
         </div>
-        <div className="mb-4 w-1/2">
+        <div className="mb-4 lg:w-1/2">
           <input
             type="email"
             name="EMAIL"

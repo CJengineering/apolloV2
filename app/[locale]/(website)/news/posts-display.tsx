@@ -6,7 +6,7 @@ import PostCard from '@/components/custom beta components/PostCard';
 export default function PostsDisplay() {
     const {filteredPosts} = usePostContext();
   return (
-    <div className="grid gap-x-9 gap-y-4 grid-cols-1 lg:grid-cols-2 ">
+    <div className="grid gap-x-9 gap-y-4 grid-cols-1 lg:grid-cols-2">
      
     <Suspense>
       {filteredPosts.map((post) => (

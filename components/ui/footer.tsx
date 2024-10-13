@@ -8,7 +8,7 @@ import ContentFooterContainer from "../CJ-components/components-CJ/custom compon
 export default function Footer() {
   return (
 
-      <footer className="mx-4 lg:mx-0 border-t dark:bg-slate-900 bg-white border-gray-200 dark:border-slate-700 pt-8">
+      <footer className="lg:mx-0 border-t dark:bg-slate-900 bg-white border-gray-200 dark:border-slate-700 pt-8">
         <div className="flex sm:flex-auto items-center justify-between">
           <div className="sm:mb-0">
             <div className="flex">

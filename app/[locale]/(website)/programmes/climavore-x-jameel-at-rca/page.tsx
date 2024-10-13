@@ -38,7 +38,7 @@ import LanguageChanger from "@/components/custom beta components/LanguageChanger
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 
-export default async function Programme6page({
+export default async function ClimavoreJameelPage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -205,8 +205,10 @@ export default async function Programme6page({
 
   return (
     <>
-      <div className="pt-12">
-        <LanguageChanger />
+      <div className="pt-20 lg:pt-10 lg:mb-12">
+      <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
         <TableRowSingle
           repository={dataForRow.repository}
           locale={params.locale}
@@ -224,13 +226,13 @@ export default async function Programme6page({
         <div className="">
           <PostAccordion title={"Press"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
+              {newsProps.map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
             </div>
           </PostAccordion>
         </div>
-        <div className="">
+        {/* <div className="">
           <PostAccordion title={"Multimedia"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {multimediaProps.map((item) => (
@@ -240,7 +242,7 @@ export default async function Programme6page({
               ))}
             </div>
           </PostAccordion>
-        </div>
+        </div> */}
 
         {/* 
 
