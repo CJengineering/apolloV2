@@ -17,43 +17,46 @@ import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/
 import { Metadata, ResolvingMetadata } from "next";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 type Props = {
-  params: { slug : string, locale: string };
-
-}
+  params: { slug: string; locale: string };
+};
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
-  const slug= params.slug
+  const slug = params.slug;
   const locale = params.locale;
 
- 
   const eventId = getIdByDisplayName("Events");
   const productTest = await getData(eventId);
   const teamMembersRaw = productTest.items;
-  const memberRaw :Item<EventFieldData>[] = teamMembersRaw.filter(
+  const memberRaw: Item<EventFieldData>[] = teamMembersRaw.filter(
     (item) => item.fieldData.slug === slug
   );
-  const seoTitleArabic = memberRaw[0].fieldData["arabic-title"] ? memberRaw[0].fieldData["arabic-title"] : '';
-  const seoTitleEnglish = memberRaw[0].fieldData["seo-title"] ? memberRaw[0].fieldData["seo-title"]: '';
-  const descriptionArabic = memberRaw[0].fieldData["arabic-title"] ? memberRaw[0].fieldData["arabic-title"] : '';
-  const descriptionEnglish = memberRaw[0].fieldData["seo-meta-description"] ? memberRaw[0].fieldData["seo-meta-description"] : '';
-  const name = locale === 'ar'? seoTitleArabic   : seoTitleEnglish;
-  const description = locale=== 'ar'? descriptionArabic : descriptionEnglish;
+  const seoTitleArabic = memberRaw[0].fieldData["arabic-title"]
+    ? memberRaw[0].fieldData["arabic-title"]
+    : "";
+  const seoTitleEnglish = memberRaw[0].fieldData["seo-title"]
+    ? memberRaw[0].fieldData["seo-title"]
+    : "";
+  const descriptionArabic = memberRaw[0].fieldData["arabic-title"]
+    ? memberRaw[0].fieldData["arabic-title"]
+    : "";
+  const descriptionEnglish = memberRaw[0].fieldData["seo-meta-description"]
+    ? memberRaw[0].fieldData["seo-meta-description"]
+    : "";
+  const name = locale === "ar" ? seoTitleArabic : seoTitleEnglish;
+  const description = locale === "ar" ? descriptionArabic : descriptionEnglish;
   // optionally access and extend (rather than replace) parent metadata
-  
- 
+
   return customMetaDataGenerator({
-      title: name,
-      description: description,
-      ogImage: memberRaw[0].fieldData["open-graph-image"].url,
-    })
- 
-  
+    title: name,
+    description: description,
+    ogImage: memberRaw[0].fieldData["open-graph-image"].url,
+  });
 }
 
-export default async function EventPage({ 
+export default async function EventPage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -64,7 +67,7 @@ export default async function EventPage({
   const peopleCollectionID = getIdByDisplayName("People");
   const programmeCollectionID = getIdByDisplayName("Programmes");
   const partnersCollectionID = getIdByDisplayName("Partners");
-  const  newsCollectionID = getIdByDisplayName("News");
+  const newsCollectionID = getIdByDisplayName("News");
   const eventsCollectionID = getIdByDisplayName("Events");
   const postsCollectionID = getIdByDisplayName("Posts");
   const multimediaCollectionID = getIdByDisplayName("Multimedia");
@@ -120,15 +123,17 @@ export default async function EventPage({
   );
 
   return (
-<>
+    <>
       <div className="">
         <div className="text-left">
-        <div className="pt-16 lg:pt-10 w-5/6 mb-6">
-        <h1 className="header-article leading-tight text-left">{eventSingleDataCleaned.name}</h1>
-      </div>
+          <div className="pt-16 lg:pt-10 w-5/6 mb-6">
+            <h1 className="header-article leading-tight text-left">
+              {eventSingleDataCleaned.name}
+            </h1>
+          </div>
         </div>
-    </div>
-    <div className="pb-6">
+      </div>
+      <div className="pb-6">
         <Image
           className="w-full"
           src={eventSingleDataCleaned.heroImage.url}
@@ -136,170 +141,185 @@ export default async function EventPage({
           width={100}
           height={100}
         />
-    </div>
-
-
-    <div className="flex flex-col">
-
-    <div className="prose prose-2xl sans-serif dark:prose-dark">
-      <div className="w-full">
-        {eventSingleDataCleaned.eventDate && (
-        <div className="sans-serif text-lg">
-      {eventSingleDataCleaned.eventDate}
-      {(eventSingleDataCleaned.endDate && eventSingleDataCleaned.endDate !== eventSingleDataCleaned.eventDate) && (
-        <> - {eventSingleDataCleaned.endDate}</>
-      )}
-    </div>
-  )}
-
-  {eventSingleDataCleaned.time && (
-    <div className="sans-serif text-lg">
-      {eventSingleDataCleaned.time}
-    </div>
-  )}
-
-  {eventSingleDataCleaned.address && (
-    <div className="sans-serif text-lg">
-      {eventSingleDataCleaned.address}
-    </div>
-  )}
-</div>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: eventSingleDataCleaned.shortDescription2,
-          }}
-        ></div>
       </div>
 
-      {eventSingleDataCleaned.rsvpLink && (
-            <div className="pb-8">
-              <ButtonCJ href={eventSingleDataCleaned.rsvpLink} text={eventSingleDataCleaned.buttonCtaText}></ButtonCJ>
-            </div>
-          )}
+      <div className="flex flex-col lg:flex-row">
+        <div className="prose prose-2xl sans-serif dark:prose-dark">
+          <div className="w-full">
+            {eventSingleDataCleaned.eventDate && (
+              <div className="sans-serif text-lg">
+                {eventSingleDataCleaned.eventDate}
+                {eventSingleDataCleaned.endDate &&
+                  eventSingleDataCleaned.endDate !==
+                    eventSingleDataCleaned.eventDate && (
+                    <> - {eventSingleDataCleaned.endDate}</>
+                  )}
+              </div>
+            )}
 
+            {eventSingleDataCleaned.time && (
+              <div className="sans-serif text-lg">
+                {eventSingleDataCleaned.time}
+              </div>
+            )}
 
-    </div>
+            {eventSingleDataCleaned.address && (
+              <div className="sans-serif text-lg">
+                {eventSingleDataCleaned.address}
+              </div>
+            )}
+          </div>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: eventSingleDataCleaned.shortDescription2,
+            }}
+          ></div>
+        </div>
+        <div className="relative"></div>
+        {eventSingleDataCleaned.signupEmbed && (
+          <div
+            className=" md:w-1/3 w-full relative  md:min-w-[400px] xl:min-w-[350px] lg:min-w-[260px]"
+            dangerouslySetInnerHTML={{
+              __html: eventSingleDataCleaned.signupEmbed,
+            }}
+          ></div>
+        )}
 
-{eventSingleDataCleaned.trailerLivestreamHighlightsVideoLink && (
-  <div className="flex w-full">
-    <div
-      className="w-full"
-      dangerouslySetInnerHTML={{
-        __html: eventSingleDataCleaned.trailerLivestreamHighlightsVideoLink,
-      }}
-    ></div>
-  </div>
-)}
+        {eventSingleDataCleaned.rsvpLink && (
+          <div className="pb-8">
+            <ButtonCJ
+              href={eventSingleDataCleaned.rsvpLink}
+              text={eventSingleDataCleaned.buttonCtaText}
+            ></ButtonCJ>
+          </div>
+        )}
+      </div>
 
-    
-    {relatedPeopleDataCleaned.length > 0 && (
-  <div>
-    <div className="pt-12 pb-9">
-      <div className="w-full h-[1px] bg-gray-300 block"></div>
-    </div>  
-    <h2 className="header-section pb-6">Participants</h2>
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-      {relatedPeopleDataCleaned.map((person) => (
-        <div key={person.name} className="text-left">
-          <Image
-            src={person.profilePicture.url}
-            alt={person.profilePicture.alt || ""}
-            width={330}
-            height={330}
-            className="mx-auto w-full"
-          />
-          <div className="mt-4">
-            <h2 className="font-medium sans-serif text-lg text-left">{person.name}</h2>
-            <p className="mt-1 sans-serif text-base font-normal text-left">{person.shortDescription}</p>
+      {eventSingleDataCleaned.trailerLivestreamHighlightsVideoLink && (
+        <div className="flex w-full">
+          <div
+            className="w-full"
+            dangerouslySetInnerHTML={{
+              __html:
+                eventSingleDataCleaned.trailerLivestreamHighlightsVideoLink,
+            }}
+          ></div>
+        </div>
+      )}
+
+      {relatedPeopleDataCleaned.length > 0 && (
+        <div>
+          <div className="pt-12 pb-9">
+            <div className="w-full h-[1px] bg-gray-300 block"></div>
+          </div>
+          <h2 className="header-section pb-6">Participants</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+            {relatedPeopleDataCleaned.map((person) => (
+              <div key={person.name} className="text-left">
+                <Image
+                  src={person.profilePicture.url}
+                  alt={person.profilePicture.alt || ""}
+                  width={330}
+                  height={330}
+                  className="mx-auto w-full"
+                />
+                <div className="mt-4">
+                  <h2 className="font-medium sans-serif text-lg text-left">
+                    {person.name}
+                  </h2>
+                  <p className="mt-1 sans-serif text-base font-normal text-left">
+                    {person.shortDescription}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-)}
+      )}
 
-    
-     
-{eventSingleDataCleaned.organisers.length > 0 && (
-  <div>
-    <div className="pt-12 pb-9">
-      <div className="w-full h-[1px] bg-gray-300 block"></div>
-    </div>
-    <h2 className="header-section pb-6">Organisers</h2>
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-      {eventSingleDataCleaned.organisers.map((organiser) => (
-        <div key={organiser.name} className="flex border border-gray-200 rounded-md items-center justify-center">
-          <Image
-            src={organiser.logo.url}
-            alt={organiser.logo.alt || ""}
-            width={200}
-            height={200}
-          />
+      {eventSingleDataCleaned.organisers.length > 0 && (
+        <div>
+          <div className="pt-12 pb-9">
+            <div className="w-full h-[1px] bg-gray-300 block"></div>
+          </div>
+          <h2 className="header-section pb-6">Organisers</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+            {eventSingleDataCleaned.organisers.map((organiser) => (
+              <div
+                key={organiser.name}
+                className="flex border border-gray-200 rounded-md items-center justify-center"
+              >
+                <Image
+                  src={organiser.logo.url}
+                  alt={organiser.logo.alt || ""}
+                  width={200}
+                  height={200}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-)}
+      )}
 
-{eventSingleDataCleaned.partners.length > 0 && (
-  <div>
-    <div className="pt-12 pb-9">
-      <div className="w-full h-[1px] bg-gray-300 block"></div>
-    </div>
-    <h2 className="header-section pb-6">Partners</h2>
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-      {eventSingleDataCleaned.partners.map((partner) => (
-        <div key={partner.name} className="flex border rounded-md items-center justify-center">
-          <Image
-            src={partner.logo.url}
-            alt={partner.logo.alt || ""}
-            width={200}
-            height={200}
-          />
+      {eventSingleDataCleaned.partners.length > 0 && (
+        <div>
+          <div className="pt-12 pb-9">
+            <div className="w-full h-[1px] bg-gray-300 block"></div>
+          </div>
+          <h2 className="header-section pb-6">Partners</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+            {eventSingleDataCleaned.partners.map((partner) => (
+              <div
+                key={partner.name}
+                className="flex border rounded-md items-center justify-center"
+              >
+                <Image
+                  src={partner.logo.url}
+                  alt={partner.logo.alt || ""}
+                  width={200}
+                  height={200}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-)}
+      )}
 
-
-
-
-{eventSingleDataCleaned.participantsAffiliatedInstitutions.length > 0 && (
-  <div>
-    <div className="pt-12 pb-9">
-      <div className="w-full h-[1px] bg-gray-300 block"></div>
-    </div>
-    <h2 className="header-section pb-6">With representatives from</h2>
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-      {eventSingleDataCleaned.participantsAffiliatedInstitutions.map((representatives) => (
-        <div key={representatives.name} className="flex justify-center">
-          <Image
-            src={representatives.logo.url}
-            alt={representatives.logo.alt || ""}
-            width={200}
-            height={200}
-          />
+      {eventSingleDataCleaned.participantsAffiliatedInstitutions.length > 0 && (
+        <div>
+          <div className="pt-12 pb-9">
+            <div className="w-full h-[1px] bg-gray-300 block"></div>
+          </div>
+          <h2 className="header-section pb-6">With representatives from</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {eventSingleDataCleaned.participantsAffiliatedInstitutions.map(
+              (representatives) => (
+                <div key={representatives.name} className="flex justify-center">
+                  <Image
+                    src={representatives.logo.url}
+                    alt={representatives.logo.alt || ""}
+                    width={200}
+                    height={200}
+                  />
+                </div>
+              )
+            )}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
-)}
+      )}
 
-{eventSingleDataCleaned.imageGallery.length > 0 &&
-  eventSingleDataCleaned.imageGallery[0].url !== "" && (
-  <div>
-    <div className="py-12">
-      <div className="w-full h-[1px] bg-gray-300 block"></div>
-    </div>
+      {eventSingleDataCleaned.imageGallery.length > 0 &&
+        eventSingleDataCleaned.imageGallery[0].url !== "" && (
+          <div>
+            <div className="py-12">
+              <div className="w-full h-[1px] bg-gray-300 block"></div>
+            </div>
 
-    <div>
-      <ContentPhotos images={cleanRelatedImages} />
-    </div>
-  </div>
-)}
-
-        
-</>
+            <div>
+              <ContentPhotos images={cleanRelatedImages} />
+            </div>
+          </div>
+        )}
+    </>
   );
 }
