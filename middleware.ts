@@ -10,6 +10,7 @@ export function middleware(request: NextRequest) {
   const redirects: { [key: string]: string } = {
     '/tes': '/',
     'https://ar.communityjameel.org/team/mohammed-jameel': '/ar/about/team/mohammed-jameel',
+    '/programmes/jameel-index': '/programmes/j-wafs/jameel-index',
   };
   const { pathname } = request.nextUrl;
   const host = request.headers.get('host')
