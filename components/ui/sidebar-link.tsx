@@ -15,7 +15,7 @@ export default function SidebarLink({
 }: SidebarLinkProps) {
 
   const pathname = usePathname()
-  console.log('this is the target',targetBlank)
+
   
   const { setSidebarOpen } = useAppProvider()  
   

@@ -53,7 +53,40 @@
     scroll-behavior: smooth;
   }
 }
+#mc_embed_shell{
+  position: relative;
+}
+#mc_embed_shell form {
+  position:absolute;
+  top: -95px;
 
+  padding: 0; 
+  margin: 0; 
+  font-size: 16px; 
+}
+
+@media screen and (max-width: 600px) {
+  #mc_embed_shell form {
+    position:absolute;
+  top: -95px;
+  left:-20px;
+  padding: 0; 
+  margin: 0; 
+  font-size: 16px; 
+  }
+  
+}
+
+#mc_embed_shell .mc-field-group > {
+  margin: 0; 
+  padding: 0; 
+}
+
+
+/* You can hide specific elements if needed */
+#mc_embed_signup .asterisk {
+  display: none; /* Hide the asterisk if not needed */
+}
 .side-scroll-bar {
   scrollbar-width: thin; /* For Firefox, use thin scrollbar */
   scrollbar-color: lightgray transparent; /* Light gray color */
