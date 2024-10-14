@@ -80,6 +80,16 @@ const cardData = [
     clickAction: "Video embed code",
   },
   {
+    imageUrl: "/images/home/GRID_06.jpg",
+    alt: "Jameel House of World Traditional Arts in Scotland",
+    title: "The Jameel House of World Traditional Arts in Scotland",
+    subtitle:
+      "The Jameel House in Scotland will be a global school for students of traditional arts worldwide. A new Jameel House Scholarship, set to launch in early 2025, will support Arab students of the traditional arts in Scotland, London, Cairo and Jeddah.",
+    link: "/news/jameel-house-of-world-traditional-arts-in-scotland-announced-at-dumfries-house-to-extend-global-partnership-between-the-kings-foundation-and-community-jameel-2",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+  {
     imageUrl: "/images/home/GRID_02.jpg",
     alt: "Bill Gates and Fady Jameel host food security meeting at COP28",
     title: "Bill Gates and Fady Jameel host food security meeting at COP28",
@@ -100,16 +110,6 @@ const cardData = [
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/home/GRID_04.jpg",
-    alt: "Climate Labs with C40 and J-PAL",
-    title: "Climate Labs with C40 and J-PAL",
-    subtitle:
-      "Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.",
-    link: "programmes/climate-labs",
-    openInNewTab: false,
-    clickAction: "Internal link",
-  },
-  {
     imageUrl: "/images/home/GRID_05.jpg",
     alt: "Jameel 75",
     title: "Jameel 75",
@@ -120,12 +120,12 @@ const cardData = [
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/home/GRID_06.jpg",
-    alt: "Sample Image 6",
-    title: "Community Jameel x afikra COP28 Conversation Series",
+    imageUrl: "/images/home/GRID_04.jpg",
+    alt: "Climate Labs with C40 and J-PAL",
+    title: "Climate Labs with C40 and J-PAL",
     subtitle:
-      "As part of Community Jameel's participation at COP28 in Dubai it co-produced a six-part podcast series with afikra on climate change, arts & health, early warning systems, oceans and the economics of cuisine.",
-    link: "https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards",
+      "Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.",
+    link: "programmes/jameel-c40-urban-planning-climate-labs",
     openInNewTab: false,
     clickAction: "Internal link",
   },

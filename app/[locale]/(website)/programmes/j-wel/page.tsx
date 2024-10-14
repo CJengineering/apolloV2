@@ -208,7 +208,7 @@ export default async function Programme35page({
 
   return (
     <>
-      <div className="pt-12">
+      <div className="pt-20 lg:pt-12 lg:mb-12">
         <div className="flex flex-col text-left">
           <div className="w-full flex pb-6 lg:pb-12">
             <img
@@ -226,13 +226,13 @@ export default async function Programme35page({
           <div className="pb-6">
             <h1 className="header-article">{cleanSingleProgramme.name}</h1>
           </div>
-          <div className="pb-12 w-full lg:w-2/3">
+          <div className="pb-6 w-full lg:w-2/3">
             <div
               className="prose prose-xl leading-normal dark:text-white"
               dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
             />
           </div>
-          <div className="pt-6">
+          <div className="pb-6">
             <ButtonCJ
               href={"https://www.jwel.mit.edu/"}
               text={"Visit the MIT J-WEL website"}
@@ -272,7 +272,7 @@ export default async function Programme35page({
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
+              {postProps.map((post) => (
                 <PostCard key={post.name} content={post} />
               ))}
             </div>
@@ -281,7 +281,7 @@ export default async function Programme35page({
         <div className="">
           <PostAccordion title={"Press"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
+              {newsProps.map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
             </div>
@@ -319,6 +319,7 @@ export default async function Programme35page({
        
           </div>
         </div> */}
+        <div className="py-6 lg:py-12"></div>
       </div>
     </>
   );

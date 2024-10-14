@@ -53,7 +53,7 @@ const CarouselForComponent = ({ children }: CarouselProps) => {
         {children.map((child, index) => (
           <div
             key={index}
-            className="2xl:min-w-[350px] xl:min-w-[350px] lg:min-w-[300px] md:min-w-[250px] min-w-[300px] bg-white"
+            className="2xl:min-w-[350px] xl:min-w-[350px] lg:min-w-[300px] md:min-w-[250px] min-w-[300px]"
           >
             {child}
           </div>

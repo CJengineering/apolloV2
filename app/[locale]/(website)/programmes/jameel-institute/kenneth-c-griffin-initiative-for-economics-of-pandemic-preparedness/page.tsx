@@ -226,9 +226,9 @@ export default async function KennethGriffinPage({
         <div className="text-sm font-bold items-center pt-6">
               IN PARTNERSHIP WITH
             </div>
-        <div className="grid grid-cols-1 lg:grid-cols-6 gap-0">
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-0">
           {/* 1 */}
-          <div className="flex items-center justify-start py-6">
+          <div className="flex items-center justify-start py-3">
             <a
               href="https://www.imperial.ac.uk/jameel-institute/"
               target="_blank"
@@ -245,7 +245,7 @@ export default async function KennethGriffinPage({
           </div>
 
           {/* 2 */}
-          <div className="flex items-center justify-start">
+          <div className="flex items-center justify-start py-3">
           <a
               href="https://www.imperial.ac.uk/school-public-health/"
               target="_blank"
@@ -262,7 +262,7 @@ export default async function KennethGriffinPage({
           </div>
 
           {/* 3 */}
-          <div className="flex items-center justify-start">
+          <div className="flex items-center justify-start py-3">
           <a
               href="https://www.ateneo.edu/"
               target="_blank"
@@ -279,7 +279,7 @@ export default async function KennethGriffinPage({
           </div>
 
           {/* 4 */}
-          <div className="flex items-center justify-start">
+          <div className="flex items-center justify-start py-3">
           <a
               href="https://www.imperial.ac.uk/school-public-health/"
               target="_blank"

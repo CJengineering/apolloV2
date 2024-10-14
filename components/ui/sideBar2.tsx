@@ -69,20 +69,17 @@ const navItems: NavItem[] = [
         children: [
           { name: "GCC Heat Tracker", href: "/stories/gcc-heat-tracker" },
           { name: "Harvesting Hope", href: "/stories/harvesting-hope" },
-          { name: "Jameel Centre", href: "/stories/jameel-centre" },
-          {
-            name: "KSA Healthcare Timeiline",
-            href: "/stories/ksa-healthcare-timeline",
-          },
+          { name: "Jameel Centre", href: "/stories/a-cairo-cornerstone" },
+          { name: "KSA Healthcare Timeiline", href: "/stories/ksa-healthcare-timeline"},
         ],
       },
-      {
-        name: "Films",
-        children: [
-          { name: "Ankur", href: "/films/ankur" },
-          { name: "The Collectors", href: "/films/the-collectors" },
-        ],
-      },
+      // {
+      //   name: "Films",
+      //   children: [
+      //     { name: "Ankur", href: "/films/ankur" },
+      //     { name: "The Collectors", href: "/films/the-collectors" },
+      //   ],
+      // },
     ],
   },
   {
@@ -124,6 +121,7 @@ const navItems: NavItem[] = [
         name: "J-WAFS",
         children: [
           { name: "Overview", href: "/programmes/j-wafs", current: false },
+          { name: "FACT Alliance", href: "https://jwafs.mit.edu/alliance", current: false, targetBlank: true },
           { name: "Jameel Index", href: "https://jameelindex.mit.edu", current: false, targetBlank: true },
         ],
         },
@@ -230,11 +228,21 @@ const navItems: NavItem[] = [
         current: false,
       },
       {
+        name: "Ankur",
+        href: "/programmes/ankur",
+        current: false,
+      },
+      {
+        name: "BRUVS Monaco",
+        href: "/programmes/bruvs-monaco",
+        current: false,
+      },
+      {
         name: "Funds",
         children: [
           {
             name: "Jameel Fund",
-            href: "/programmes/jameel-fund",
+            href: "/programmes/funds/jameel-fund",
             current: false,
           },
           {
@@ -244,7 +252,7 @@ const navItems: NavItem[] = [
           },
           {
             name: "Covid-19-Excellence Fund",
-            href: "/programmes/covid-19-excellence-fund",
+            href: "/programmes/funds/covid-19-excellence-fund",
             current: false,
           },
         ],

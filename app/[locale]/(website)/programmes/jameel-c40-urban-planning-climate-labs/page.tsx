@@ -219,14 +219,7 @@ export default async function JameelC40UrbanPlanningClimateLabsPage({
               dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
             />
           </div>
-          <div className="pt-6">
-            <ButtonCJ
-              href={cleanSingleProgramme.website}
-              text={"Visit the website"}
-              styleType="secondary"
-              openInNewTab={true}
-            ></ButtonCJ>
-          </div>
+
           {/* START PARTNERS GRID */}
           <div className="text-sm font-bold items-center pt-6">
             IN PARTNERSHIP WITH

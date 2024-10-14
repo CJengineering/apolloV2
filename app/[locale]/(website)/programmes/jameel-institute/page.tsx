@@ -240,12 +240,12 @@ export default async function JameelInstituteProgrammePage({
             <img
               className="dark:hidden"
               src="/images/labs/jameel-institute/IMPERIAL_JAMEEL_INSTITUTE_ORIGINAL_DARK.png"
-              width="360"
+              width="300"
             ></img>
             <img
               className="hidden dark:block"
               src="/images/labs/jameel-institute/IMPERIAL_JAMEEL_INSTITUTE_ORIGINAL_LIGHT.png"
-              width="360"
+              width="300"
             ></img>
           </div>
 
@@ -364,6 +364,7 @@ export default async function JameelInstituteProgrammePage({
   
       </div>
       </div>
+      <div className="w-full py-6 lg:py-12"></div>
     </>
   );
 }

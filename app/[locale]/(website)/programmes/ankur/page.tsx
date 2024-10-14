@@ -36,6 +36,7 @@ import ContentPhotos from "../../../../../components/CJ-components/components-CJ
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 
 export default async function Programme0page({
   params,
@@ -204,13 +205,22 @@ export default async function Programme0page({
 
   return (
     <>
-      <div className="pt-12">
+      <div className="pt-20 lg:pt-10 lg:mb-12">
+      <h1 className="header-article lg:pl-2">{cleanSingleProgramme.name}</h1>
         <LanguageChanger />
         <TableRowSingle
           repository={dataForRow.repository}
           locale={params.locale}
         />
+        <div className="py-6"></div>
+<div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="Mk12OIaap20?si=pYvXaV9BnXGJV9FE" />
+        </div>
 
+        <div className="w-full pt-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+    
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
