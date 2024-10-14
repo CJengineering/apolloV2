@@ -48,54 +48,126 @@ import { Metadata } from "next";
 
 const cardData = [
   {
-    imageUrl: "/images/labs/bocelli-jameel-scholarship/clara-barbier-serrano_1x1.jpg",
-    alt: "Clara Barbier Serrano",
-    title: "Clara Barbier Serrano",
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/henna-mun-bocelli_hydepark_1x1.jpg",
+    alt: "Maestro Andrea Bocelli and Henna Mun live duo at Hyde Park",
+    title: "Maestro Andrea Bocelli and Henna Mun live duo at Hyde Park",
     subtitle:
-      "France, 2020",
-    link: "/people/clara-barbier-serrano",
+    "On 5 July 2024, Maestro Andre Bocelli and Henna Mun perform 'Tace il labbro' at Hyde Park in London",
+    link: "https://www.youtube.com/embed/VLiZ7XFAtBg?si=aoDRlu6RZiFCNSA1",
     openInNewTab: false,
-    clickAction: "Internal link",
+    clickAction: "Video embed code",
   },
   {
     imageUrl: "/images/labs/bocelli-jameel-scholarship/laura-mekhail_1x1.jpg",
-    alt: "Laura Mekhail",
-    title: "Laura Mekhail",
-    subtitle:
-      "Egypt, 2021",
-    link: "/people/laura-mekhail",
+    alt: "Maestro Andrea Bocelli and Laura Mekhail sing 'Canto della terra' in AlUla",
+    title: "Maestro Andrea Bocelli and Laura Mekhail perform duo at AlUla",
+    subtitle:"On 27 January 2023, at the Maraya in AlUla, Saud Arabia, Andrea Bocelli and Laura Mekhail perform 'Canto della terra' as a duet",
+    link: "https://www.youtube.com/embed/I4Vs7YwgfCs?si=_yvdpGP9eGfxKkXo",
     openInNewTab: false,
-    clickAction: "Internal link",
+    clickAction: "Video embed code",
+  },
+  {
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/clara-barbier-serrano_lourdes_1x1.jpg",
+    alt: "Maestro Andrea Bocelli and Clara Barbier Serrano sing 'Panis angelicus' live at Lourdes",
+    title: "Maestro Andrea Bocelli and Clara Barbier Serrano sing 'Panis angelicus' live at Lourdes",
+    subtitle: "Performing live on 16 July 2023 at the Sanctuary of Our Lady of Lourdes in France",
+    link: "https://www.youtube.com/embed/M78msoCnWbM?si=KrCWZI-BpLQ0cxHl",
+    openInNewTab: false,
+    clickAction: "Video embed code",
+  },
+  {
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/laura-mekhail_hayy_1x1.jpg",
+    alt: "Laura Mekhail live at Hayy Jameel in Jeddah",
+    title: "Laura Mekhail live at Hayy Jameel in Jeddah",
+    subtitle: "28 January 2023, Laura Mekhail, the 2021 Bocelli-Jameel scholar, sings Fairuz and more at Hayy Jameel in Jeddah",  
+    link: "https://www.youtube.com/embed/rE4kW1kEloU?si=z3fB4Co4FiHLEz9e",
+    openInNewTab: false,
+    clickAction: "Video embed code",
+  },
+  {
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/laura-mekhail_pyramids_1x1.jpg",
+    alt: "Laura Mekhail live at the Pyramids of Giza in Egypt",
+    title: "Laura Mekhail live at the Pyramids of Giza in Egypt",
+    subtitle: "In shadow of the Pyramids of Giza on 4 October 2022, Laura Mekhail performs classical European and twentieth-century Arab composers, including 'Ya zahratan fi khayali' by Farid al-Atrash",
+    link: "https://www.youtube.com/embed/es754up3ggg?si=A-MrmC4MPs1qRKCo",
+    openInNewTab: false,
+    clickAction: "Video embed code",
+  },
+  {
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/clara-barbier-serrano_hayy_1x1.jpg",
+    alt: "Clara Barbier Serrano performs opera at Hayy Jameel in Jeddah",
+    title: "Clara Barbier Serrano performs opera at Hayy Jameel in Jeddah",
+    subtitle:"On 22 January 2022, Clara Barbier Serrano gave an unforgettable opera recital at Hayy Jameel, the new Art Jameel centre in Jeddah, Saudi Arabia.",
+    link: "https://www.youtube.com/embed/DN8T5-4LK0I?si=5eVP6m1okcDjjrlG",
+    openInNewTab: false,
+    clickAction: "Video embed code",
+  },
+  {
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/laura-clara_paris_1x1.jpg",
+    alt: "Clara Barbier Serrano and Laura Mekhail live beneath the Eiffel Tower in Paris",
+    title: "Clara Barbier Serrano and Laura Mekhail live beneath the Eiffel Tower in Paris",
+    subtitle:"Highlights of a recital by Clara Barbier Serrano and Laura Mekhail beneath the Eiffel Tower in Paris, France, on 24 June 2022.",
+    link: "https://www.youtube.com/embed/nAhRrmYAyao?si=62zzo0UxJxyaQExM",
+    openInNewTab: false,
+    clickAction: "Video embed code",
+  },
+  {
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/laura-mekhail_soloalula_1x1.jpg",
+    alt: "Laura Mekhail live solo at Maraya in AlUla",
+    title: "Laura Mekhail live solo at Maraya in AlUla",
+    subtitle:"Laura Mekhail performas 'What the world needs now is love' in AlUla",
+    link: "https://www.youtube.com/embed/-Nz8X8ralWw?si=UADiornBTRdwizVP",
+    openInNewTab: false,
+    clickAction: "Video embed code",
+  },
+  {
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/laura-mekhail_dubaiopera_1x1.jpg",
+    alt: "Laura Mekhail live at Dubai Opera",
+    title: "Laura Mekhail live at Dubai Opera",
+    subtitle:"Laura Mekhail sings Fairuz's 'Aatini al nay wa ghanni' at Dubai Opera",
+    link: "https://www.youtube.com/embed/fuoFBz6uHLY?si=DHbquFaqVWfQOBtM",
+    openInNewTab: false,
+    clickAction: "Video embed code",
+  },
+  {
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/laura-mekhail_film_1x1.jpg",
+    alt: "Laura Mekhail",
+    title: "Film: Laura Mekhail",
+    subtitle: "Documentary portrait film discovering Laura Mekahil the 2021 Bocelli-Jameel scholar from Al-Minya, Egypt.",
+    link: "https://www.youtube.com/embed/V2g97hsT-Gk?si=ubaV3mziQOnaTYhs",
+    openInNewTab: false,
+    clickAction: "Video embed code",
   },
   {
     imageUrl: "/images/labs/bocelli-jameel-scholarship/seonwoo-lee_1x1.jpg",
-    alt: "Seonwoo Lee",
-    title: "Seonwoo Lee",
-    subtitle: "South Korean, 2022",  
-    link: "/people/seonwoo-lee",
+    alt: "Film: Seonwoo Lee",
+    title: "Film: Seonwoo Lee",
+    subtitle: "Documentary protrait film peering into the life of South Korean soprano Seonwoo Lee, the 2022 Bocelli-Jameel scholar.",  
+    link: "https://www.youtube.com/embed/pwXppWajZz0?si=yN7MjqflNrkx1P7Z",
     openInNewTab: false,
-    clickAction: "Internal link",
+    clickAction: "Video embed code",
   },
   {
     imageUrl: "/images/labs/bocelli-jameel-scholarship/anastasia-koorn_1x1.jpg",
-    alt: "Anatasia Koorn",
-    title: "Anatasia Koorn",
+    alt: "Film: Anatasia Koorn",
+    title: "Film: Anatasia Koorn",
     subtitle:
-    "United States, 2023",
-    link: "/people/anastasia-koorn",
+    "Short documentary film exploring the life of Anastasia Koorn, the 2023 Bocelli-Jameel scholar from the United States.",
+    link: "https://www.youtube.com/embed/F-tUViVD5F8?si=XKHusrFe2BnQXU6n",
     openInNewTab: false,
-    clickAction: "Internal link",
+    clickAction: "Video embed code",
   },
   {
     imageUrl: "/images/labs/bocelli-jameel-scholarship/henna-mun_1x1.jpg",
-    alt: "Henna Mun",
-    title: "Henna Mun",
+    alt: "Film: Henna Munn",
+    title: "Film: Henna Munn",
     subtitle:
-    "South Korea, 2023",
-    link: "/people/henna-mun",
+    "'Opera is storytelling, moving people's emotions' | A portrait film about Henna Mun, the 2023 Bocelli-Jameel scholar from South Korea.",
+    link: "https://www.youtube.com/embed/LVb5AE75Y28?si=dCl5fIQ2MjWvoy9W",
     openInNewTab: false,
-    clickAction: "Internal link",
+    clickAction: "Video embed code",
   },
+
 ];
 // END THE DATA FOR CARDS
 
@@ -293,7 +365,7 @@ export default async function BocelliJameelScholarshipPerformancesPage({
       <div className="flex flex-col text-left">
 
           <div className="w-full lg:w-2/3 pb-6">
-            <h1 className="header-article">Bocelli-Jameel scholar performances</h1>
+            <h1 className="header-article">Bocelli-Jameel scholars performances and films</h1>
           </div>
           
         </div>
