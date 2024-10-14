@@ -121,40 +121,46 @@ export default async function page({
 
   return (
 <>
-  <div className="">
-    <ArticleBanter post={cleanPost} locale ={params.locale} />
-  </div>
-  <div className="pt-9 pb-7">
-        <hr className="border-gray-200" />
+      <div className="">
+        <ArticleBanter post={cleanPost} locale={params.locale} />
       </div>
-  <div className="pb-6">
-        <h2 className="header-section">Photos</h2>
-      </div>
-  {relatedPostsCleaned.length > 0 && (
-    <>
-      <div className="w-full mx-auto">
-        {cleanPost.imageCarousel.length > 0 &&
-          cleanPost.imageCarousel[0].url !== "" && (
-            <ContentPhotos images={cleanRelatedImages} />
-          )}
-      </div>
-
       <div className="pt-9 pb-7">
         <hr className="border-gray-200" />
       </div>
-
-      <div className="pb-6">
-        <h2 className="header-section">Related</h2>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-4">
-        {relatedPostsCleaned.map((post) => (
-          <PostCard key={post.name} content={post} noImage={true} noTitle={true} />
-        ))}
-      </div>
+      {cleanRelatedImages.length > 1 && (
+        <>
+          <div className="pb-6">
+            <h2 className="header-section">Photos</h2>
+          </div>
+          <div className="w-full mx-auto">
+            {cleanPost.imageCarousel.length > 0 &&
+              cleanPost.imageCarousel[0].url !== "" && (
+                <ContentPhotos images={cleanRelatedImages} />
+              )}
+          </div>
+          <div className="pt-9 pb-7">
+            <hr className="border-gray-200" />
+          </div>
+        </>
+      )}
+      {relatedPostsCleaned.length > 0 && (
+        <>
+          <div className="pb-6">
+            <h2 className="header-section">Related</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            {relatedPostsCleaned.map((post) => (
+              <PostCard
+                key={post.name}
+                content={post}
+                noImage={true}
+                noTitle={true}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </>
-  )}
-</>
 
   );
 }

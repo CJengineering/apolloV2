@@ -54,6 +54,7 @@ import PublicationsCard from "@/components/custom beta components/PublicationCar
 import { Metadata, ResolvingMetadata } from "next";
 import { Item, PeopleRawFields } from "@/app/interfaces";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 type Props = {
   params: { slug: string; locale: string };
 };
@@ -238,9 +239,17 @@ export default async function PeoplePage({
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-12 lg:pb-6 lg:pt-7">
-        <div className="col-span-12 md:col-span-4 flex justify-center md:justify-end">
-          <div className="w-full">
+      <div className="pt-20 lg:pt-10 lg:mb-3">
+        <div className="w-full">
+          <h1 className="header-article text-left">{peopleDataItem.name}</h1>
+        </div>
+        <div className="text-left text-base sans-serif font-normal">
+          {peopleDataItem.shortDescription}
+        </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 lg:pb-6">
+        <div className="col-span-12 md:col-span-3 flex justify-center md:justify-end">
+          <div className="w-full mt-6">
             <img
               src={peopleDataItem.profilePicture.url}
               alt="Profile"
@@ -249,13 +258,10 @@ export default async function PeoplePage({
           </div>
         </div>
         <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
-          <div className="w-full pb-2">
-            <h1 className="header-page text-left">{peopleDataItem.name}</h1>
-          </div>
           <div className="w-full">
             <p className="text-left sans-serif text-base font-normal"></p>
           </div>
-          <div className="w-full mt-6">
+          <div className="w-full">
             <div className="prose sans-serif dark:prose-dark">
               <div
                 dangerouslySetInnerHTML={{
@@ -266,104 +272,82 @@ export default async function PeoplePage({
           </div>
         </div>
       </div>
-      <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
-      <PostAccordion title={"News"}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {cleanPosts.map((post) => (
-            <PostCard key={post.name} content={post} />
-          ))}
-        </div>
-      </PostAccordion>
-      <PostAccordion title={"Press"}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          {cleanNews.map((item) => (
-            <NewsCard content={item} locale={params} />
-          ))}
-        </div>
-      </PostAccordion>
-      <div className="">
-        <PostAccordion title={"Multimedia"}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {cleanMultimediaTransformed.map((item) => (
-              <div key={item.alt} className="">
-                <MediaCard {...item} />
-              </div>
-            ))}
-          </div>
-        </PostAccordion>
-      </div>
-      <div className="">
-        <PostAccordion title={"Publications"}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {cleanPublications.map((item) => (
-              <PublicationsCard content={item} />
-            ))}
-          </div>
-        </PostAccordion>
-      </div>
-      <PostAccordion title={"Events"}>
-        <div className="grid grid-cols-3 gap-5">
-          {cleanEvents.map((item) => (
-            <>
-              <EventCard article={item}></EventCard>
-            </>
-          ))}
-        </div>
-      </PostAccordion>
-      {/*  <SectionBanter title={"Multimedia"}>
-            <div className="grid grid-cols-3">
-              {cleanMultimedia.map((item) => (
-                <CompoundUnifiedComponent data={item}>
-                  <UnifiedComponentTitle />
-                  <UnifiedComponentThumbnail />
-                  <UnifiedComponentSlug />
-                  <UnifiedComponentCollection />
-                  <UnifiedComponentRelatedProgrammes />
-                </CompoundUnifiedComponent>
-              ))}
-<ContentContainer width="full" desktopWidth="medium">
-<div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:mt-24">
-  <div className="col-span-12 md:col-span-4 flex justify-center md:justify-end">
-    <div className="w-full">
-      <img
-        src={peopleDataItem.profilePicture.url}
-        alt="Profile"
-        className="w-full h-auto"
-      />
+
+      {peopleDataItem.featureVideo && (
+  <div>
+    <div className="w-full py-6 lg:pb-12 lg:pt-0">
+      <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+    </div>
+
+    <div className="w-full lg:w-3/4">
+      <ResponsiveYouTubeEmbed embedId={peopleDataItem.featureVideo} />
     </div>
   </div>
-  <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
-    <div className="w-full pb-2">
-      <h1 className="text-left text-4xl serif font-bold">
-        {peopleDataItem.name}
-      </h1>
-    </div>
-    <div className="w-full">
-      <p className="text-left sans-serif text-base font-normal">
-        {peopleDataItem.role}, {peopleDataItem.relatedProgramme.name} 
-      </p>
-    </div>
-    <div className="w-full mt-6">
-      <div className="prose prose-xl dark:prose-dark serif">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: peopleDataItem.biography,
-          }}
-        ></div>
+)}
+
+      <div className="w-full lg:pt-12">
+        <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
       </div>
-    </div>
-  </div>
-</div>
+      {/* Separation Bar */}
 
-
-{/* <div className="w-full h-px bg-slate-200"></div> Separation Bar */}
-      <div>
+      {cleanPosts && cleanPosts.length > 0 && (
         <div>
-          <PostAccordion title={"Photos"}>
-            <ContentPhotos images={cleanRelatedImages} />
+          <PostAccordion title={"News"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {cleanPosts.map((post) => (
+                <PostCard key={post.name} content={post} />
+              ))}
+            </div>
           </PostAccordion>
         </div>
-      </div>
+      )}
+
+      {cleanNews && cleanNews.length > 0 && (
+        <div>
+          <PostAccordion title={"Press"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {cleanNews.map((item) => (
+                <NewsCard key={Math.random()} content={item} locale={params} />
+              ))}
+            </div>
+          </PostAccordion>
+        </div>
+      )}
+
+      {/* {cleanPublications && cleanPublications.length > 0 && (
+        <div className="">
+          <PostAccordion title={"Publications"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {cleanPublications.map((item) => (
+                <PublicationsCard key={Math.random()} content={item} />
+              ))}
+            </div>
+          </PostAccordion>
+        </div>
+      )} */}
+      {cleanEvents && cleanEvents.length > 0 && (
+        <div>
+          <PostAccordion title={"Events"}>
+            <div className="grid grid-cols-3 gap-5">
+              {cleanEvents.map((item) => (
+                <EventCard key={Math.random()} article={item} />
+              ))}
+            </div>
+          </PostAccordion>
+        </div>
+      )}
+
+      {cleanRelatedImages && cleanRelatedImages.length > 0 && (
+        <div>
+          <div>
+            <PostAccordion title={"Photos"}>
+              <ContentPhotos key={Math.random()} images={cleanRelatedImages} />
+            </PostAccordion>
+          </div>
+        </div>
+      )}
+
+      <div className="py-12"></div>
     </>
   );
 }

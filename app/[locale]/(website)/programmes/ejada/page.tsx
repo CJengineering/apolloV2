@@ -38,6 +38,27 @@ import LanguageChanger from "@/components/custom beta components/LanguageChanger
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Ejada",
+  description:
+    "Ejada, a collaboration between Save the Children and MIT's J-WEL, supports teachers in overcoming trauma with compassionate teaching, reaching over 283,000 people.",
+  ogType: "website",
+  ogImage:
+    "/images/labs/ejada/ejada-full_logo.png",
+  twitterCard: "summary_large_image",
+  keywords: [
+    "Community Jameel",
+    "Jameel",
+    "Community",
+    "Ejada",
+    "Save the Children",
+    "J-WEL",
+  ],
+});
 
 export default async function EjadaPage({
   params,

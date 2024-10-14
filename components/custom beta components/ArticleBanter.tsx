@@ -22,7 +22,7 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
     <>
     <div className={locale === "ar" ? "rtl" : ""}>
     <div className="pt-6 w-full mb-4 flex">
-    <div>
+    <div className="w-full lg:w-3/4">
     <h1 className={`header-article leading-7 sm:leading-none pb-0 pt-12 lg:pb-4 lg:pt-4 flex-grow ${locale === "ar" ? "sans-serif-ar text-right " : "sans-serif text-left"}`}>
       {locale === 'ar' ? post.arabicTitle : post.name}
     </h1>
@@ -31,7 +31,7 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
       <LanguageChanger />
     </div>
   </div>
-        <div className="flex items-start"></div>
+        <div className="flex items-start w-full lg:w-4/5">
         <Image
           className=""
           src={post.mainImage.url}
@@ -39,8 +39,8 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
           height={1080}
           width={1920}
         />
-
-        <div className="flex justify-around">
+</div>
+        <div className="flex">
           <div className="">
             <div className="mx-auto">
               <div className="pt-6">

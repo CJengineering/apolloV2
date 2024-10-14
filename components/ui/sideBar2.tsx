@@ -117,9 +117,11 @@ const navItems: NavItem[] = [
       
       {
         name: "J-WAFS",
-        href: "/programmes/j-wafs",
-        current: false,
-      },
+        children: [
+          { name: "Overview", href: "/programmes/j-wafs", current: false },
+          { name: "Jameel Index", href: "/programmes/j-wafs/jameel-index", current: false },
+        ],
+        },
       {
         name: "J-WEL",
         href: "/programmes/j-wel",
@@ -175,7 +177,7 @@ const navItems: NavItem[] = [
             subChildren: [
               { "name": "Clara Barbier Serrano (2020)", "href": "/people/clara-barbier-serrano" },
               { "name": "Laura Mekhail (2021)", "href": "/people/laura-mekhail" },
-              { "name": "Seonwoo Lee (2022)", "href": "/people/seonwoo lee" },
+              { "name": "Seonwoo Lee (2022)", "href": "/people/seonwoo-lee" },
               { "name": "Anastasia Koorn (2023)", "href": "/people/anatasia-koorn" },
               { "name": "Henna Mun (2023)", "href": "/people/henna-mun" }
             ]

@@ -612,6 +612,7 @@ export interface PeopleRawFields {
   country?: string;
   name?: string;
   slug?: string;
+  "feature-video"?: string;
 }
 export interface PostFieldsCleaned {
   arabicTitle: string;
@@ -735,6 +736,7 @@ export interface PeopleCleanedFields {
   slug: string;
   pushToGr: boolean;
   arabicOnOff: boolean;
+  featureVideo: string;
 }
 export interface MultimediaRawFields {
   "name-arabic"?: string;
