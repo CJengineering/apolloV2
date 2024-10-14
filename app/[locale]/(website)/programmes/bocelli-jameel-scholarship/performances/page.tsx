@@ -32,7 +32,7 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { get } from "http";
 import { Divide } from "lucide-react";
 import React from "react";
-import ContentPhotos from "../../../../../components/CJ-components/components-CJ/test components/content-photos";
+import ContentPhotos from "../../../../../../components/CJ-components/components-CJ/test components/content-photos";
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
@@ -122,7 +122,7 @@ export const metadata: Metadata = customMetaDataGenerator({
   ],
 });
 
-export default async function BocelliJameelScholarshipPage({
+export default async function BocelliJameelScholarshipPerformancesPage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -289,59 +289,13 @@ export default async function BocelliJameelScholarshipPage({
 
   return (
     <>
-      <div className="pt-20 lg:pt-10 lg:mb-12">
+      <div className="pt-20 lg:pt-10">
       <div className="flex flex-col text-left">
 
           <div className="w-full lg:w-2/3 pb-6">
-            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+            <h1 className="header-article">Bocelli-Jameel scholar performances</h1>
           </div>
-          <div className="w-full lg:w-2/3 pb-12">
-            <div
-              className="prose prose-xl leading-normal dark:text-white"
-              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
-            />
-          </div>
-
-        </div>
-
-        <div className="w-full lg:w-2/3">
-          <ResponsiveYouTubeEmbed embedId="KCMG2btSzJI?si=sU0kZTj5bPS1pUkK" />
-        </div>
-
-        <div className="w-full py-6 lg:py-12">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-        </div>
-
-        <div className="pb-6">
-          <h2 className="header-section">Impact since 2003</h2>
-        </div>
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="">
-            <Stats
-              title={cleanSingleProgramme.impact01}
-              content={cleanSingleProgramme.impact01Title}
-            />
-          </div>
-          <div className="">
-            <Stats
-              title={cleanSingleProgramme.impact02}
-              content={cleanSingleProgramme.impact02Title}
-            />
-          </div>
-          <div className="">
-            <Stats
-              title={cleanSingleProgramme.impact03}
-              content={cleanSingleProgramme.impact03Title}
-            />
-          </div>
-        </div>
-
-        <div className="w-full py-6 lg:py-12">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-        </div>
-
-        <div className="pb-6">
-          <h2 className="header-section">Scholars</h2>
+          
         </div>
 
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -358,79 +312,7 @@ export default async function BocelliJameelScholarshipPage({
             />
           ))}
         </div>
-        <div className="w-full mt-12">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-        </div>
 
-        <div className="">
-          <PostAccordion title={"News"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.map((post) => (
-                <PostCard key={post.name} content={post} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        <div className="">
-          <PostAccordion title={"Press"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.map((item) => (
-                <NewsCard content={item} locale={params} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-        {/* <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
-        </div> */}
-
-        {/* 
-
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
-
-        <div>
-        <PostAccordion title={"Events"}>
-            <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </CarousselForComponents>
-            </div>
-          </PostAccordion>
-        </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
       </div>
     </>
   );

@@ -1,0 +1,3170 @@
+diff --git a/app/[locale]/(no-sidebar)/programmes/bruvs/page.tsx b/app/[locale]/(no-sidebar)/programmes/bruvs/page.tsx
+index 22e10ba..014417f 100644
+--- a/app/[locale]/(no-sidebar)/programmes/bruvs/page.tsx
++++ b/app/[locale]/(no-sidebar)/programmes/bruvs/page.tsx
+@@ -1,13 +1,15 @@
+-import PDFViewer from "@/components/custom beta components/PdfViewer";
+-import React from "react";
++
++
++
++import React from 'react'
+ 
+ export default function page() {
++
+   return (
+     <>
+-      <div className="h-screen flex items-start justify-center b text-4xl">
+-        hello nat
+-      </div>
++    <div className='h-screen flex items-start justify-center bg-cyan-400 text-4xl'>hello nat</div>
++
+ 
+     </>
+-  );
++  )
+ }
+diff --git a/app/[locale]/(website)/news/[slug]/page.tsx b/app/[locale]/(website)/news/[slug]/page.tsx
+index 3e4267b..fd5b315 100644
+--- a/app/[locale]/(website)/news/[slug]/page.tsx
++++ b/app/[locale]/(website)/news/[slug]/page.tsx
+@@ -18,46 +18,42 @@ import { FieldsPostRaw, Item, NewsRawFields } from "@/app/interfaces";
+ import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+ import local from "next/font/local";
+ type Props = {
+-  params: { slug: string; locale: string };
+-};
++  params: { slug : string, locale: string };
++
++}
+ export async function generateMetadata(
+   { params }: Props,
+   parent: ResolvingMetadata
+ ): Promise<Metadata> {
+   // read route params
+-  const slug = params.slug;
++  const slug= params.slug
+   const locale = params.locale;
+ 
++ 
+   const newsId = getIdByDisplayName("Posts");
+   const productTest = await getData(newsId);
+   const teamMembersRaw = productTest.items;
+-  const memberRaw: Item<FieldsPostRaw>[] = teamMembersRaw.filter(
++  const memberRaw :Item<FieldsPostRaw>[] = teamMembersRaw.filter(
+     (item) => item.fieldData.slug === slug
+   );
+-  const seoTitleArabic = memberRaw[0].fieldData["seo-title-arabic"]
+-    ? memberRaw[0].fieldData["seo-title-arabic"]
+-    : "";
+-  const seoTitleEnglish = memberRaw[0].fieldData["seo-title"]
+-    ? memberRaw[0].fieldData["seo-title"]
+-    : "";
+-  const name = locale === "ar" ? seoTitleArabic : seoTitleEnglish;
++  const seoTitleArabic = memberRaw[0].fieldData["seo-title-arabic"] ? memberRaw[0].fieldData["seo-title-arabic"] : '';
++  const seoTitleEnglish = memberRaw[0].fieldData["seo-title"] ? memberRaw[0].fieldData["seo-title"] : '';
++  const name = locale === 'ar'? seoTitleArabic : seoTitleEnglish;
+ 
+-  const seoDescriptionArabic = memberRaw[0].fieldData["seo-title-arabic"]
+-    ? memberRaw[0].fieldData["seo-meta-arabic"]
+-    : "";
+-  const seoDescriptionEnglish = memberRaw[0].fieldData["seo-meta"]
+-    ? memberRaw[0].fieldData["seo-meta"]
+-    : "";
+-  const description =
+-    locale === "ar" ? seoDescriptionArabic : seoDescriptionEnglish;
++  const seoDescriptionArabic = memberRaw[0].fieldData["seo-title-arabic"] ? memberRaw[0].fieldData["seo-meta-arabic"] : '';
++  const seoDescriptionEnglish = memberRaw[0].fieldData["seo-meta"] ? memberRaw[0].fieldData["seo-meta"] : '';
++  const description = locale === 'ar'? seoDescriptionArabic : seoDescriptionEnglish;
+   // optionally access and extend (rather than replace) parent metadata
+-
++  
++ 
+   return customMetaDataGenerator({
+     useRawTitle: true,
+-    title: name || "",
+-    description: description,
+-    ogImage: memberRaw[0].fieldData["open-graph-image"]?.url || "",
+-  });
++      title: name || '',
++      description: description,
++      ogImage: memberRaw[0].fieldData["open-graph-image"]?.url || '',
++    })
++ 
++  
+ }
+ const addType = (items: any[], type: string) =>
+   items.map((item) => ({ ...item, type }));
+@@ -124,7 +120,7 @@ export default async function page({
+   }));
+ 
+   return (
+-    <>
++<>
+       <div className="">
+         <ArticleBanter post={cleanPost} locale={params.locale} />
+       </div>
+@@ -142,7 +138,6 @@ export default async function page({
+                 <ContentPhotos images={cleanRelatedImages} />
+               )}
+           </div>
+-
+           <div className="pt-9 pb-7">
+             <hr className="border-gray-200" />
+           </div>
+@@ -153,7 +148,6 @@ export default async function page({
+           <div className="pb-6">
+             <h2 className="header-section">Related</h2>
+           </div>
+-
+           <div className="grid md:grid-cols-2 gap-4">
+             {relatedPostsCleaned.map((post) => (
+               <PostCard
+@@ -167,5 +161,6 @@ export default async function page({
+         </>
+       )}
+     </>
++
+   );
+ }
+diff --git a/app/[locale]/(website)/people/[slug]/page.tsx b/app/[locale]/(website)/people/[slug]/page.tsx
+index 0ca6a43..868d8fc 100644
+--- a/app/[locale]/(website)/people/[slug]/page.tsx
++++ b/app/[locale]/(website)/people/[slug]/page.tsx
+@@ -54,6 +54,7 @@ import PublicationsCard from "@/components/custom beta components/PublicationCar
+ import { Metadata, ResolvingMetadata } from "next";
+ import { Item, PeopleRawFields } from "@/app/interfaces";
+ import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
++import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+ type Props = {
+   params: { slug: string; locale: string };
+ };
+@@ -238,9 +239,17 @@ export default async function PeoplePage({
+ 
+   return (
+     <>
+-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-12 lg:pb-6 lg:pt-7">
+-        <div className="col-span-12 md:col-span-4 flex justify-center md:justify-end">
+-          <div className="w-full">
++      <div className="pt-20 lg:pt-10 lg:mb-3">
++        <div className="w-full">
++          <h1 className="header-article text-left">{peopleDataItem.name}</h1>
++        </div>
++        <div className="text-left text-base sans-serif font-normal">
++          {peopleDataItem.shortDescription}
++        </div>
++      </div>
++      <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 lg:pb-6">
++        <div className="col-span-12 md:col-span-3 flex justify-center md:justify-end">
++          <div className="w-full mt-6">
+             <img
+               src={peopleDataItem.profilePicture.url}
+               alt="Profile"
+@@ -249,13 +258,10 @@ export default async function PeoplePage({
+           </div>
+         </div>
+         <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
+-          <div className="w-full pb-2">
+-            <h1 className="header-page text-left">{peopleDataItem.name}</h1>
+-          </div>
+           <div className="w-full">
+             <p className="text-left sans-serif text-base font-normal"></p>
+           </div>
+-          <div className="w-full mt-6">
++          <div className="w-full">
+             <div className="prose sans-serif dark:prose-dark">
+               <div
+                 dangerouslySetInnerHTML={{
+@@ -266,116 +272,82 @@ export default async function PeoplePage({
+           </div>
+         </div>
+       </div>
+-      <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
+-      {cleanPosts.length > 0 && (
+-        <PostAccordion title={"News"}>
+-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+-            {cleanPosts.map((post) => (
+-              <PostCard key={post.name} content={post} />
+-            ))}
+-          </div>
+-        </PostAccordion>
+-      )}
+-      {cleanNews.length > 0 && (
+-        <PostAccordion title={"Press"}>
+-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+-            {cleanNews.map((item) => (
+-              <NewsCard content={item} locale={params} />
+-            ))}
+-          </div>
+-        </PostAccordion>
++
++      {peopleDataItem.featureVideo !=="N/A" && (
++  <div>
++    <div className="w-full py-6 lg:pb-12 lg:pt-0">
++      <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
++    </div>
++
++    <div className="w-full lg:w-3/4">
++      <ResponsiveYouTubeEmbed embedId={peopleDataItem.featureVideo} />
++    </div>
++  </div>
++)}
++
++      <div className="w-full lg:pt-12">
++        <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
++      </div>
++      {/* Separation Bar */}
++
++      {cleanPosts && cleanPosts.length > 0 && (
++        <div>
++          <PostAccordion title={"News"}>
++            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
++              {cleanPosts.map((post) => (
++                <PostCard key={post.name} content={post} />
++              ))}
++            </div>
++          </PostAccordion>
++        </div>
+       )}
+-      {cleanMultimedia.length > 0 && (
+-        <div className="">
+-          <PostAccordion title={"Multimedia"}>
++
++      {cleanNews && cleanNews.length > 0 && (
++        <div>
++          <PostAccordion title={"Press"}>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+-              {cleanMultimediaTransformed.map((item) => (
+-                <div key={item.alt} className="">
+-                  <MediaCard {...item} />
+-                </div>
++              {cleanNews.map((item) => (
++                <NewsCard key={Math.random()} content={item} locale={params} />
+               ))}
+             </div>
+           </PostAccordion>
+         </div>
+       )}
+-      {cleanPublications.length > 0 && (
++
++      {/* {cleanPublications && cleanPublications.length > 0 && (
+         <div className="">
+           <PostAccordion title={"Publications"}>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+               {cleanPublications.map((item) => (
+-                <PublicationsCard content={item} />
++                <PublicationsCard key={Math.random()} content={item} />
+               ))}
+             </div>
+           </PostAccordion>
+         </div>
+-      )}
+-      {cleanEvents.length > 0 && (
+-        <PostAccordion title={"Events"}>
+-          <div className="grid grid-cols-3 gap-5">
+-            {cleanEvents.map((item) => (
+-              <>
+-                <EventCard article={item}></EventCard>
+-              </>
+-            ))}
+-          </div>
+-        </PostAccordion>
+-      )}
+-      {/*  <SectionBanter title={"Multimedia"}>
+-            <div className="grid grid-cols-3">
+-              {cleanMultimedia.map((item) => (
+-                <CompoundUnifiedComponent data={item}>
+-                  <UnifiedComponentTitle />
+-                  <UnifiedComponentThumbnail />
+-                  <UnifiedComponentSlug />
+-                  <UnifiedComponentCollection />
+-                  <UnifiedComponentRelatedProgrammes />
+-                </CompoundUnifiedComponent>
++      )} */}
++      {cleanEvents && cleanEvents.length > 0 && (
++        <div>
++          <PostAccordion title={"Events"}>
++            <div className="grid grid-cols-3 gap-5">
++              {cleanEvents.map((item) => (
++                <EventCard key={Math.random()} article={item} />
+               ))}
+-<ContentContainer width="full" desktopWidth="medium">
+-<div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:mt-24">
+-  <div className="col-span-12 md:col-span-4 flex justify-center md:justify-end">
+-    <div className="w-full">
+-      <img
+-        src={peopleDataItem.profilePicture.url}
+-        alt="Profile"
+-        className="w-full h-auto"
+-      />
+-    </div>
+-  </div>
+-  <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
+-    <div className="w-full pb-2">
+-      <h1 className="text-left text-4xl serif font-bold">
+-        {peopleDataItem.name}
+-      </h1>
+-    </div>
+-    <div className="w-full">
+-      <p className="text-left sans-serif text-base font-normal">
+-        {peopleDataItem.role}, {peopleDataItem.relatedProgramme.name} 
+-      </p>
+-    </div>
+-    <div className="w-full mt-6">
+-      <div className="prose prose-xl dark:prose-dark serif">
+-        <div
+-          dangerouslySetInnerHTML={{
+-            __html: peopleDataItem.biography,
+-          }}
+-        ></div>
+-      </div>
+-    </div>
+-  </div>
+-</div>
+-
++            </div>
++          </PostAccordion>
++        </div>
++      )}
+ 
+-{/* <div className="w-full h-px bg-slate-200"></div> Separation Bar */}
+-      <div>
++      {cleanRelatedImages && cleanRelatedImages.length > 0 && (
+         <div>
+-          {cleanRelatedImages.length > 1 && (
++          <div>
+             <PostAccordion title={"Photos"}>
+-              <ContentPhotos images={cleanRelatedImages} />
++              <ContentPhotos key={Math.random()} images={cleanRelatedImages} />
+             </PostAccordion>
+-          )}
++          </div>
+         </div>
+-      </div>
++      )}
++
++      <div className="py-12"></div>
+     </>
+   );
+ }
+diff --git a/app/[locale]/(website)/programmes/bocelli-jameel-scholarship/page.tsx b/app/[locale]/(website)/programmes/bocelli-jameel-scholarship/page.tsx
+index 43142c2..8c67556 100644
+--- a/app/[locale]/(website)/programmes/bocelli-jameel-scholarship/page.tsx
++++ b/app/[locale]/(website)/programmes/bocelli-jameel-scholarship/page.tsx
+@@ -37,8 +37,92 @@ import PostAccordion from "@/components/mdx/accordion";
+ import LanguageChanger from "@/components/custom beta components/LanguageChanger";
+ import ContentContainer from "@/components/custom beta components/ContentContainer";
+ import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
++import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
++import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
++import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
++import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
++import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
++import { Metadata } from "next";
+ 
+-export default async function Programme26page({
++// START THE DATA FOR CARDS
++
++const cardData = [
++  {
++    imageUrl: "/images/labs/bocelli-jameel-scholarship/clara-barbier-serrano_1x1.jpg",
++    alt: "Clara Barbier Serrano",
++    title: "Clara Barbier Serrano",
++    subtitle:
++      "France, 2020",
++    link: "/people/clara-barbier-serrano",
++    openInNewTab: false,
++    clickAction: "Internal link",
++  },
++  {
++    imageUrl: "/images/labs/bocelli-jameel-scholarship/laura-mekhail_1x1.jpg",
++    alt: "Laura Mekhail",
++    title: "Laura Mekhail",
++    subtitle:
++      "Egypt, 2021",
++    link: "/people/laura-mekhail",
++    openInNewTab: false,
++    clickAction: "Internal link",
++  },
++  {
++    imageUrl: "/images/labs/bocelli-jameel-scholarship/seonwoo-lee_1x1.jpg",
++    alt: "Seonwoo Lee",
++    title: "Seonwoo Lee",
++    subtitle: "South Korean, 2022",  
++    link: "/people/seonwoo-lee",
++    openInNewTab: false,
++    clickAction: "Internal link",
++  },
++  {
++    imageUrl: "/images/labs/bocelli-jameel-scholarship/anastasia-koorn_1x1.jpg",
++    alt: "Anatasia Koorn",
++    title: "Anatasia Koorn",
++    subtitle:
++    "United States, 2023",
++    link: "/people/anastasia-koorn",
++    openInNewTab: false,
++    clickAction: "Internal link",
++  },
++  {
++    imageUrl: "/images/labs/bocelli-jameel-scholarship/henna-mun_1x1.jpg",
++    alt: "Henna Mun",
++    title: "Henna Mun",
++    subtitle:
++    "South Korea, 2023",
++    link: "/people/henna-mun",
++    openInNewTab: false,
++    clickAction: "Internal link",
++  },
++];
++// END THE DATA FOR CARDS
++
++export const metadata: Metadata = customMetaDataGenerator({
++  useRawTitle: true,
++  title: "Andrea Bocelli Foundation-Community Jameel Scholarship at RCA",
++  description:
++    "The Andrea Bocelli Foundation-Community Jameel scholarship supports talented students at the Royal College of Music, offering world-class training and the chance to perform with Bocelli.",
++  ogType: "website",
++  ogImage:
++    "/images/labs/bocelli-jameel-scholarship/bocelli-jameel-scholarship_og.jpg",
++  twitterCard: "summary_large_image",
++  keywords: [
++    "Community Jameel",
++    "Jameel",
++    "Community",
++    "Andrea Bocelli",
++    "Royal College of Music",
++    "Clara Barbier Serrano",
++    "Laura Mekhail",
++    "Seonwoo Lee",
++    "Anastasia Koorn",
++    "Henna Mun",
++  ],
++});
++
++export default async function BocelliJameelScholarshipPage({
+   params,
+ }: {
+   params: { slug: string; locale: string };
+@@ -205,17 +289,83 @@ export default async function Programme26page({
+ 
+   return (
+     <>
+-      <div className="pt-12">
+-        <LanguageChanger />
+-        <TableRowSingle
+-          repository={dataForRow.repository}
+-          locale={params.locale}
+-        />
++      <div className="pt-20 lg:pt-10 lg:mb-12">
++      <div className="flex flex-col text-left">
++
++          <div className="w-full lg:w-2/3 pb-6">
++            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
++          </div>
++          <div className="w-full lg:w-2/3 pb-12">
++            <div
++              className="prose prose-xl leading-normal dark:text-white"
++              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
++            />
++          </div>
++
++        </div>
++
++        <div className="w-full lg:w-2/3">
++          <ResponsiveYouTubeEmbed embedId="KCMG2btSzJI?si=sU0kZTj5bPS1pUkK" />
++        </div>
++
++        <div className="w-full py-6 lg:py-12">
++          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
++        </div>
++
++        <div className="pb-6">
++          <h2 className="header-section">Impact since 2003</h2>
++        </div>
++        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
++          <div className="">
++            <Stats
++              title={cleanSingleProgramme.impact01}
++              content={cleanSingleProgramme.impact01Title}
++            />
++          </div>
++          <div className="">
++            <Stats
++              title={cleanSingleProgramme.impact02}
++              content={cleanSingleProgramme.impact02Title}
++            />
++          </div>
++          <div className="">
++            <Stats
++              title={cleanSingleProgramme.impact03}
++              content={cleanSingleProgramme.impact03Title}
++            />
++          </div>
++        </div>
++
++        <div className="w-full py-6 lg:py-12">
++          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
++        </div>
++
++        <div className="pb-6">
++          <h2 className="header-section">Scholars</h2>
++        </div>
++
++        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
++          {cardData.map((card, index) => (
++            <HomeCard
++              key={index}
++              imageUrl={card.imageUrl}
++              alt={card.alt}
++              title={card.title}
++              subtitle={card.subtitle}
++              link={card.link}
++              openInNewTab={card.openInNewTab}
++              clickAction={card.clickAction || ""}
++            />
++          ))}
++        </div>
++        <div className="w-full mt-12">
++          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
++        </div>
+ 
+         <div className="">
+           <PostAccordion title={"News"}>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+-              {postProps.slice(0, 8).map((post) => (
++              {postProps.map((post) => (
+                 <PostCard key={post.name} content={post} />
+               ))}
+             </div>
+@@ -224,13 +374,13 @@ export default async function Programme26page({
+         <div className="">
+           <PostAccordion title={"Press"}>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+-              {newsProps.slice(2, 5).map((item) => (
++              {newsProps.map((item) => (
+                 <NewsCard content={item} locale={params} />
+               ))}
+             </div>
+           </PostAccordion>
+         </div>
+-        <div className="">
++        {/* <div className="">
+           <PostAccordion title={"Multimedia"}>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+               {multimediaProps.map((item) => (
+@@ -240,7 +390,7 @@ export default async function Programme26page({
+               ))}
+             </div>
+           </PostAccordion>
+-        </div>
++        </div> */}
+ 
+         {/* 
+ 
+diff --git a/app/[locale]/(website)/programmes/bocelli-jameel-scholarship/performances/page.tsx b/app/[locale]/(website)/programmes/bocelli-jameel-scholarship/performances/page.tsx
+new file mode 100644
+index 0000000..b698e7a
+--- /dev/null
++++ b/app/[locale]/(website)/programmes/bocelli-jameel-scholarship/performances/page.tsx
+@@ -0,0 +1,319 @@
++import MediaCard from "@/components/CJ-components/components-CJ/basic components/MediaCard";
++import TableRowSingle from "@/components/CJ-components/components-CJ/custom components/TableRowSIngle";
++
++import EventCard from "@/components/custom beta components/EventCard";
++import MainContainer from "@/components/custom beta components/MainContainer";
++import NewsCard from "@/components/custom beta components/NewsCard";
++import PostCard from "@/components/custom beta components/PostCard";
++import { getData } from "@/functions/api/getData";
++import filterRelatedAwards from "@/functions/filters/filterRelatedAwards";
++import { filterRelatedEvents } from "@/functions/filters/filterRelatedEvents";
++import filterRelatedFeatures from "@/functions/filters/filterRelatedFeatures";
++import filterRelatedMultimedia from "@/functions/filters/filterRelatedMultimedia";
++import { filterRelatedNews } from "@/functions/filters/filterRelatedNews";
++import { filterRelatedPosts } from "@/functions/filters/filterRelatedPosts";
++import filterRelatedPrizes from "@/functions/filters/filterRelatedPrizes";
++import eventMapper from "@/functions/transformers/eventMapper";
++import featureMapper from "@/functions/transformers/featureMapper";
++import { mapEventFieldDataToEventCard } from "@/functions/transformers/mapEventFieldToEventCard";
++import multimediaMapper from "@/functions/transformers/multimediaMapper";
++import { mapMultimediaToMediaCard } from "@/functions/transformers/multimediaToCardMultimedia";
++
++import newsMapper from "@/functions/transformers/newsMapper";
++import { newsToNewsCard } from "@/functions/transformers/newsToNewsCard";
++import mapItemToNewsMainProps from "@/functions/transformers/newsTransformer";
++import photoMapper from "@/functions/transformers/photoRawToLightBox";
++import { mapProgrammeToCardProgramme } from "@/functions/transformers/porgrammeToCardProgramme";
++import postMapper from "@/functions/transformers/postMapper";
++import { postToPostCard } from "@/functions/transformers/postToPostCard";
++import { mapProgrammeToRowData } from "@/functions/transformers/programmeCleanIntoRowTable";
++import programmeMapper from "@/functions/transformers/programmeMapper";
++import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
++import { get } from "http";
++import { Divide } from "lucide-react";
++import React from "react";
++import ContentPhotos from "../../../../../../components/CJ-components/components-CJ/test components/content-photos";
++import PostAccordion from "@/components/mdx/accordion";
++import LanguageChanger from "@/components/custom beta components/LanguageChanger";
++import ContentContainer from "@/components/custom beta components/ContentContainer";
++import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
++import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
++import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
++import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
++import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
++import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
++import { Metadata } from "next";
++
++// START THE DATA FOR CARDS
++
++const cardData = [
++  {
++    imageUrl: "/images/labs/bocelli-jameel-scholarship/clara-barbier-serrano_1x1.jpg",
++    alt: "Clara Barbier Serrano",
++    title: "Clara Barbier Serrano",
++    subtitle:
++      "France, 2020",
++    link: "/people/clara-barbier-serrano",
++    openInNewTab: false,
++    clickAction: "Internal link",
++  },
++  {
++    imageUrl: "/images/labs/bocelli-jameel-scholarship/laura-mekhail_1x1.jpg",
++    alt: "Laura Mekhail",
++    title: "Laura Mekhail",
++    subtitle:
++      "Egypt, 2021",
++    link: "/people/laura-mekhail",
++    openInNewTab: false,
++    clickAction: "Internal link",
++  },
++  {
++    imageUrl: "/images/labs/bocelli-jameel-scholarship/seonwoo-lee_1x1.jpg",
++    alt: "Seonwoo Lee",
++    title: "Seonwoo Lee",
++    subtitle: "South Korean, 2022",  
++    link: "/people/seonwoo-lee",
++    openInNewTab: false,
++    clickAction: "Internal link",
++  },
++  {
++    imageUrl: "/images/labs/bocelli-jameel-scholarship/anastasia-koorn_1x1.jpg",
++    alt: "Anatasia Koorn",
++    title: "Anatasia Koorn",
++    subtitle:
++    "United States, 2023",
++    link: "/people/anastasia-koorn",
++    openInNewTab: false,
++    clickAction: "Internal link",
++  },
++  {
++    imageUrl: "/images/labs/bocelli-jameel-scholarship/henna-mun_1x1.jpg",
++    alt: "Henna Mun",
++    title: "Henna Mun",
++    subtitle:
++    "South Korea, 2023",
++    link: "/people/henna-mun",
++    openInNewTab: false,
++    clickAction: "Internal link",
++  },
++];
++// END THE DATA FOR CARDS
++
++export const metadata: Metadata = customMetaDataGenerator({
++  useRawTitle: true,
++  title: "Andrea Bocelli Foundation-Community Jameel Scholarship at RCA",
++  description:
++    "The Andrea Bocelli Foundation-Community Jameel scholarship supports talented students at the Royal College of Music, offering world-class training and the chance to perform with Bocelli.",
++  ogType: "website",
++  ogImage:
++    "/images/labs/bocelli-jameel-scholarship/bocelli-jameel-scholarship_og.jpg",
++  twitterCard: "summary_large_image",
++  keywords: [
++    "Community Jameel",
++    "Jameel",
++    "Community",
++    "Andrea Bocelli",
++    "Royal College of Music",
++    "Clara Barbier Serrano",
++    "Laura Mekhail",
++    "Seonwoo Lee",
++    "Anastasia Koorn",
++    "Henna Mun",
++  ],
++});
++
++export default async function BocelliJameelScholarshipPerformancesPage({
++  params,
++}: {
++  params: { slug: string; locale: string };
++}) {
++  const peopleCollectionID = getIdByDisplayName("People");
++  const programmeCollectionID = getIdByDisplayName("Programmes");
++  const partnersCollectionID = getIdByDisplayName("Partners");
++  const newsCollectionID = getIdByDisplayName("News");
++  const eventsCollectionID = getIdByDisplayName("Events");
++  const postsCollectionID = getIdByDisplayName("Posts");
++  const multimediaCollectionID = getIdByDisplayName("Multimedia");
++  const sourcesCollectionID = getIdByDisplayName("Sources");
++  const featuresCollectionID = getIdByDisplayName("Features");
++  const awardsCollectionID = getIdByDisplayName("Awards");
++  const jobsCollectionID = getIdByDisplayName("Jobs");
++  const photosCollectionID = getIdByDisplayName("Photos");
++  const prizesCollectionID = getIdByDisplayName("Prizes");
++  const categoryId = getIdByDisplayName("Categories");
++  const tagId = getIdByDisplayName("Tags");
++
++  {
++    /**Get the data from the collection */
++  }
++
++  const programmesRawData = await getData(programmeCollectionID);
++  const peopleRawData = await getData(peopleCollectionID);
++  const partnersRawData = await getData(partnersCollectionID);
++  const multimediaRawData = await getData(multimediaCollectionID);
++  const postsRawData = await getData(postsCollectionID);
++  const newsRawData = await getData(newsCollectionID);
++  const eventsRawData = await getData(eventsCollectionID);
++  const sourcesRawData = await getData(sourcesCollectionID);
++  const featuresRawData = await getData(featuresCollectionID);
++  const awardsRawData = await getData(awardsCollectionID);
++  const jobsRawData = await getData(jobsCollectionID);
++  const photosRawData = await getData(photosCollectionID);
++  const prizesRawData = await getData(prizesCollectionID);
++  const categoriesRawData = await getData(categoryId);
++  const tagsRawData = await getData(tagId);
++
++  {
++    /**Get the single programme by id from webflow */
++  }
++  const jwafsId = "61ee828a15a3189441bde67d";
++  const jwafsSlug = params.slug;
++  const singleProgramme = programmesRawData.items.find(
++    (item) => item.id === jwafsId
++  );
++
++  {
++    /**Related collections in raw state  */
++  }
++  const relatedMultimedia = filterRelatedMultimedia(multimediaRawData.items, {
++    programme: singleProgramme.id,
++  });
++  const relatedPost = filterRelatedPosts(postsRawData.items, {
++    programme: singleProgramme.id,
++  });
++  const relatedNews = filterRelatedNews(newsRawData.items, {
++    programme: singleProgramme.id,
++  });
++  const relatedEvents = filterRelatedEvents(eventsRawData.items, {
++    programme: singleProgramme.id,
++  });
++  const relatedFeatures = filterRelatedFeatures(
++    featuresRawData.items,
++    singleProgramme.id
++  );
++  const relatedPrizes = filterRelatedPrizes(prizesRawData.items, {
++    people: singleProgramme.id,
++  });
++  const relatedAwards = filterRelatedAwards(awardsRawData.items, {
++    programme: singleProgramme.id,
++  });
++  const relatedJobs = filterRelatedAwards(jobsRawData.items, {
++    programme: singleProgramme.id,
++  });
++  const relatedPhotos = photosRawData.items;
++  {
++    /**Missing to add 
++    prizes jobs people photos learns
++    
++    */
++  }
++
++  {
++    /**Map the data  the related raw data into clean fields */
++  }
++
++  const cleanRelatedPosts = relatedPost.map((item) =>
++    postMapper(
++      item,
++      categoriesRawData.items,
++      eventsRawData.items,
++      programmesRawData.items,
++      peopleRawData.items
++    )
++  );
++  const cleanRelatedEvents = relatedEvents.map((item) =>
++    eventMapper(
++      item,
++      programmesRawData.items,
++      peopleRawData.items,
++      peopleRawData.items
++    )
++  );
++  const cleanedFeatures = relatedFeatures.map((item) =>
++    featureMapper(item, programmesRawData.items)
++  );
++  const cleanedRelatedPhotos = relatedPhotos.map((item) =>
++    photoMapper(item, programmesRawData.items, peopleRawData.items)
++  );
++  const cleanRelatedNews = relatedNews.map((item) =>
++    newsMapper(
++      item,
++      programmesRawData.items,
++      peopleRawData.items,
++      sourcesRawData.items,
++      tagsRawData.items,
++      eventsRawData.items
++    )
++  );
++  const cleanRelatedMultimedia = relatedMultimedia.map((item) =>
++    multimediaMapper(
++      item,
++      programmesRawData.items,
++      eventsRawData.items,
++      sourcesRawData.items,
++      peopleRawData.items
++    )
++  );
++  {
++    /**Clean Individual Programme */
++  }
++  const cleanSingleProgramme = programmeMapper(
++    singleProgramme,
++    peopleRawData.items,
++    partnersRawData.items,
++    programmesRawData.items
++  );
++
++  {
++    /*map in to interface of different compoenents   */
++  }
++
++  const multimediaProps = cleanRelatedMultimedia.map(mapMultimediaToMediaCard);
++  const newsProps: any[] = relatedNews.map((item) =>
++    newsMapper(
++      item,
++      programmesRawData.items,
++      peopleRawData.items,
++      sourcesRawData.items,
++      tagsRawData.items,
++      eventsRawData.items
++    )
++  );
++  const postProps = cleanRelatedPosts;
++  const eventProps = cleanRelatedEvents.map(mapEventFieldDataToEventCard);
++
++  const dataForRow = mapProgrammeToRowData(
++    cleanSingleProgramme,
++    cleanedFeatures
++  );
++
++  return (
++    <>
++      <div className="pt-20 lg:pt-10">
++      <div className="flex flex-col text-left">
++
++          <div className="w-full lg:w-2/3 pb-6">
++            <h1 className="header-article">Bocelli-Jameel scholar performances</h1>
++          </div>
++          
++        </div>
++
++        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
++          {cardData.map((card, index) => (
++            <HomeCard
++              key={index}
++              imageUrl={card.imageUrl}
++              alt={card.alt}
++              title={card.title}
++              subtitle={card.subtitle}
++              link={card.link}
++              openInNewTab={card.openInNewTab}
++              clickAction={card.clickAction || ""}
++            />
++          ))}
++        </div>
++
++      </div>
++    </>
++  );
++}
+diff --git a/app/[locale]/(website)/programmes/ejada/page.tsx b/app/[locale]/(website)/programmes/ejada/page.tsx
+index ba9a057..bfa046c 100644
+--- a/app/[locale]/(website)/programmes/ejada/page.tsx
++++ b/app/[locale]/(website)/programmes/ejada/page.tsx
+@@ -38,6 +38,27 @@ import LanguageChanger from "@/components/custom beta components/LanguageChanger
+ import ContentContainer from "@/components/custom beta components/ContentContainer";
+ import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+ import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
++import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
++import { Metadata } from "next";
++
++export const metadata: Metadata = customMetaDataGenerator({
++  useRawTitle: true,
++  title: "Ejada",
++  description:
++    "Ejada, a collaboration between Save the Children and MIT's J-WEL, supports teachers in overcoming trauma with compassionate teaching, reaching over 283,000 people.",
++  ogType: "website",
++  ogImage:
++    "/images/labs/ejada/ejada-full_logo.png",
++  twitterCard: "summary_large_image",
++  keywords: [
++    "Community Jameel",
++    "Jameel",
++    "Community",
++    "Ejada",
++    "Save the Children",
++    "J-WEL",
++  ],
++});
+ 
+ export default async function EjadaPage({
+   params,
+diff --git a/app/[locale]/(website)/programmes/j-wafs/jameel-index/page.tsx b/app/[locale]/(website)/programmes/j-wafs/jameel-index/page.tsx
+new file mode 100644
+index 0000000..51918da
+--- /dev/null
++++ b/app/[locale]/(website)/programmes/j-wafs/jameel-index/page.tsx
+@@ -0,0 +1,566 @@
++import MediaCard from "@/components/CJ-components/components-CJ/basic components/MediaCard";
++import TableRowSingle from "@/components/CJ-components/components-CJ/custom components/TableRowSIngle";
++
++import EventCard from "@/components/custom beta components/EventCard";
++import MainContainer from "@/components/custom beta components/MainContainer";
++import NewsCard from "@/components/custom beta components/NewsCard";
++import PostCard from "@/components/custom beta components/PostCard";
++import { getData } from "@/functions/api/getData";
++import filterRelatedAwards from "@/functions/filters/filterRelatedAwards";
++import { filterRelatedEvents } from "@/functions/filters/filterRelatedEvents";
++import filterRelatedFeatures from "@/functions/filters/filterRelatedFeatures";
++import filterRelatedMultimedia from "@/functions/filters/filterRelatedMultimedia";
++import { filterRelatedNews } from "@/functions/filters/filterRelatedNews";
++import { filterRelatedPosts } from "@/functions/filters/filterRelatedPosts";
++import filterRelatedPrizes from "@/functions/filters/filterRelatedPrizes";
++import eventMapper from "@/functions/transformers/eventMapper";
++import featureMapper from "@/functions/transformers/featureMapper";
++import { mapEventFieldDataToEventCard } from "@/functions/transformers/mapEventFieldToEventCard";
++import multimediaMapper from "@/functions/transformers/multimediaMapper";
++import { mapMultimediaToMediaCard } from "@/functions/transformers/multimediaToCardMultimedia";
++
++import newsMapper from "@/functions/transformers/newsMapper";
++import { newsToNewsCard } from "@/functions/transformers/newsToNewsCard";
++import mapItemToNewsMainProps from "@/functions/transformers/newsTransformer";
++import photoMapper from "@/functions/transformers/photoRawToLightBox";
++import { mapProgrammeToCardProgramme } from "@/functions/transformers/porgrammeToCardProgramme";
++import postMapper from "@/functions/transformers/postMapper";
++import { postToPostCard } from "@/functions/transformers/postToPostCard";
++import { mapProgrammeToRowData } from "@/functions/transformers/programmeCleanIntoRowTable";
++import programmeMapper from "@/functions/transformers/programmeMapper";
++import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
++import { get } from "http";
++import { Divide } from "lucide-react";
++import React from "react";
++import ContentPhotos from "../../../../../../components/CJ-components/components-CJ/test components/content-photos";
++import PostAccordion from "@/components/mdx/accordion";
++import LanguageChanger from "@/components/custom beta components/LanguageChanger";
++import ContentContainer from "@/components/custom beta components/ContentContainer";
++import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
++import Image from "next/image";
++import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
++import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
++import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
++import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
++
++// START INITIATIVES
++
++const cardData = [
++  {
++    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
++    alt: "Jameel Index",
++    title: "Jameel Index",
++    subtitle: "",
++    link: "https://jameelindex.mit.edu/",
++    openInNewTab: false,
++    clickAction: "External link",
++  },
++  {
++    imageUrl: "/images/labs/j-wafs/JWAFS_SEED_GRANTS.jpg",
++    alt: "Seed Grants",
++    title: "Seed Grants",
++    subtitle: "",
++    link: "https://jwafs.mit.edu/SeedGrants",
++    openInNewTab: true,
++    clickAction: "External link",
++  },
++  {
++    imageUrl: "/images/labs/j-wafs/JWAFS_SOLUTIONS_PROGRAMME.jpg",
++    alt: "J-WAFS Solutions Programme",
++    title: "J-WAFS Solutions Programme",
++    subtitle: "",
++    link: "https://jwafs.mit.edu/SolutionsGrants",
++    openInNewTab: true,
++    clickAction: "External link",
++  },
++  {
++    imageUrl: "/images/labs/j-wafs/JWAFS_GRUDATE_FELLOWSHIPS.jpg",
++    alt: "Graduate Student Fellowships",
++    title: "Graduate Student Fellowships",
++    subtitle: "",
++    link: "https://jwafs.mit.edu/FellowshipsWaterandFood",
++    openInNewTab: true,
++    clickAction: "External link",
++  },
++];
++// END INITIATIVES
++
++// STARTUP LOGOS START
++
++const spinoutsLogos = [
++  {
++    imageUrl: "/images/labs/j-wafs/spinouts/",
++    alt: "Jameel Index",
++    title: "Jameel Index",
++    subtitle: "",
++    link: "https://jameelindex.mit.edu/",
++    openInNewTab: false,
++    clickAction: "External link",
++  },
++];
++
++// STARTUP LOGOS END
++
++export default async function JameelIndexPage({
++  params,
++}: {
++  params: { slug: string; locale: string };
++}) {
++  const peopleCollectionID = getIdByDisplayName("People");
++  const programmeCollectionID = getIdByDisplayName("Programmes");
++  const partnersCollectionID = getIdByDisplayName("Partners");
++  const newsCollectionID = getIdByDisplayName("News");
++  const eventsCollectionID = getIdByDisplayName("Events");
++  const postsCollectionID = getIdByDisplayName("Posts");
++  const multimediaCollectionID = getIdByDisplayName("Multimedia");
++  const sourcesCollectionID = getIdByDisplayName("Sources");
++  const featuresCollectionID = getIdByDisplayName("Features");
++  const awardsCollectionID = getIdByDisplayName("Awards");
++  const jobsCollectionID = getIdByDisplayName("Jobs");
++  const photosCollectionID = getIdByDisplayName("Photos");
++  const prizesCollectionID = getIdByDisplayName("Prizes");
++  const categoryId = getIdByDisplayName("Categories");
++  const tagId = getIdByDisplayName("Tags");
++
++  {
++    /**Get the data from the collection */
++  }
++
++  const programmesRawData = await getData(programmeCollectionID);
++  const peopleRawData = await getData(peopleCollectionID);
++  const partnersRawData = await getData(partnersCollectionID);
++  const multimediaRawData = await getData(multimediaCollectionID);
++  const postsRawData = await getData(postsCollectionID);
++  const newsRawData = await getData(newsCollectionID);
++  const eventsRawData = await getData(eventsCollectionID);
++  const sourcesRawData = await getData(sourcesCollectionID);
++  const featuresRawData = await getData(featuresCollectionID);
++  const awardsRawData = await getData(awardsCollectionID);
++  const jobsRawData = await getData(jobsCollectionID);
++  const photosRawData = await getData(photosCollectionID);
++  const prizesRawData = await getData(prizesCollectionID);
++  const categoriesRawData = await getData(categoryId);
++  const tagsRawData = await getData(tagId);
++
++  {
++    /**Get the single programme by id from webflow */
++  }
++  const programmeId = "61ee828a15a3182b72bde63d";
++  const jwafsSlug = params.slug;
++  const singleProgramme = programmesRawData.items.find(
++    (item) => item.id === programmeId
++  );
++
++  {
++    /**Related collections in raw state  */
++  }
++  const relatedMultimedia = filterRelatedMultimedia(multimediaRawData.items, {
++    programme: singleProgramme.id,
++  });
++  const relatedPost = filterRelatedPosts(postsRawData.items, {
++    programme: singleProgramme.id,
++  });
++  const relatedNews = filterRelatedNews(newsRawData.items, {
++    programme: singleProgramme.id,
++  });
++  const relatedEvents = filterRelatedEvents(eventsRawData.items, {
++    programme: singleProgramme.id,
++  });
++  const relatedFeatures = filterRelatedFeatures(
++    featuresRawData.items,
++    singleProgramme.id
++  );
++  const relatedPrizes = filterRelatedPrizes(prizesRawData.items, {
++    people: singleProgramme.id,
++  });
++  const relatedAwards = filterRelatedAwards(awardsRawData.items, {
++    programme: singleProgramme.id,
++  });
++  const relatedJobs = filterRelatedAwards(jobsRawData.items, {
++    programme: singleProgramme.id,
++  });
++  const relatedPhotos = photosRawData.items;
++  {
++    /**Missing to add 
++    prizes jobs people photos learns
++    
++    */
++  }
++
++  {
++    /**Map the data  the related raw data into clean fields */
++  }
++
++  const cleanRelatedPosts = relatedPost.map((item) =>
++    postMapper(
++      item,
++      categoriesRawData.items,
++      eventsRawData.items,
++      programmesRawData.items,
++      peopleRawData.items
++    )
++  );
++  const cleanRelatedEvents = relatedEvents.map((item) =>
++    eventMapper(
++      item,
++      programmesRawData.items,
++      peopleRawData.items,
++      peopleRawData.items
++    )
++  );
++  const cleanedFeatures = relatedFeatures.map((item) =>
++    featureMapper(item, programmesRawData.items)
++  );
++  const cleanedRelatedPhotos = relatedPhotos.map((item) =>
++    photoMapper(item, programmesRawData.items, peopleRawData.items)
++  );
++  const cleanRelatedNews = relatedNews.map((item) =>
++    newsMapper(
++      item,
++      programmesRawData.items,
++      peopleRawData.items,
++      sourcesRawData.items,
++      tagsRawData.items,
++      eventsRawData.items
++    )
++  );
++  const cleanRelatedMultimedia = relatedMultimedia.map((item) =>
++    multimediaMapper(
++      item,
++      programmesRawData.items,
++      eventsRawData.items,
++      sourcesRawData.items,
++      peopleRawData.items
++    )
++  );
++  {
++    /**Clean Individual Programme */
++  }
++  const cleanSingleProgramme = programmeMapper(
++    singleProgramme,
++    peopleRawData.items,
++    partnersRawData.items,
++    programmesRawData.items
++  );
++
++  {
++    /*map in to interface of different compoenents   */
++  }
++
++  const multimediaProps = cleanRelatedMultimedia.map(mapMultimediaToMediaCard);
++  const newsProps: any[] = relatedNews.map((item) =>
++    newsMapper(
++      item,
++      programmesRawData.items,
++      peopleRawData.items,
++      sourcesRawData.items,
++      tagsRawData.items,
++      eventsRawData.items
++    )
++  );
++  const postProps = cleanRelatedPosts;
++  const eventProps = cleanRelatedEvents.map(mapEventFieldDataToEventCard);
++
++  const dataForRow = mapProgrammeToRowData(
++    cleanSingleProgramme,
++    cleanedFeatures
++  );
++
++  return (
++    <>
++      <div className="pt-20 lg:pt-12">
++        <div className="flex flex-col text-left">
++          <div className="w-full flex pb-6 lg:pb-12">
++            <img
++              className="dark:hidden"
++              src="/images/labs/j-wafs/J-WAFS_DARK_SVG_1000WIDTH.png"
++              width="360"
++            ></img>
++            <img
++              className="hidden dark:block"
++              src="/images/labs/j-wafs/J-WAFS_LIGHT_SVG_1000WIDTH.png"
++              width="360"
++            ></img>
++          </div>
++
++          <div className="pb-6">
++            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
++          </div>
++          <div className="w-full lg:w-2/3">
++            <div
++              className="prose prose-xl leading-normal dark:text-white"
++              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
++            />
++          </div>
++        </div>
++
++        <div className="py-6">
++          <ButtonCJ
++            href={"https://jwafs.mit.edu/"}
++            text={"Visit the MIT J-WAFS website"}
++            styleType="secondary"
++            openInNewTab={true}
++          ></ButtonCJ>
++        </div>
++
++        <div className="w-full lg:w-2/3">
++          <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
++        </div>
++
++        <div className="w-full py-6 lg:py-12">
++          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
++        </div>
++
++        <div className="pb-6">
++          <h2 className="header-section">Impact</h2>
++        </div>
++        <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
++          <div className="">
++            <Stats title="300+" content="researchers" />
++          </div>
++          <div className="">
++            <Stats title="116" content="research projects" />
++          </div>
++          <div className="">
++            <Stats title="$21.6M" content="research funded" />
++          </div>
++          <div className="">
++            <Stats title="27" content="fellowships" />
++          </div>
++          <div className="">
++            <Stats title="$16.9M" content="seed grant funding" />
++          </div>
++        </div>
++
++        {/* DIVIDER START */}
++        <div className="w-full py-6 lg:py-12">
++          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
++        </div>
++        {/* DIVIDER END */}
++
++        <div className="pb-6">
++          <h2 className="header-section">Select initiatives</h2>
++        </div>
++
++        <div className="w-full grid grid-cols-1 lg:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
++          {cardData.map((card, index) => (
++            <HomeCard
++              key={index}
++              imageUrl={card.imageUrl}
++              alt={card.alt}
++              title={card.title}
++              subtitle={card.subtitle}
++              link={card.link}
++              openInNewTab={card.openInNewTab}
++              clickAction={card.clickAction || ""}
++            />
++          ))}
++        </div>
++        {/* <div className="hidden">
++        <CarousselForComponents>
++          {[
++            <div key="carousel-content" className="">
++              {cardData.map((card, index) => (
++                <HomeCard
++                  key={index}
++                  imageUrl={card.imageUrl}
++                  alt={card.alt}
++                  title={card.title}
++                  subtitle={card.subtitle}
++                  link={card.link}
++                  openInNewTab={card.openInNewTab}
++                  clickAction={card.clickAction || ""}
++                />
++              ))}
++            </div>
++          ]}
++        </CarousselForComponents>
++        </div> */}
++
++        {/* DIVIDER START */}
++        <div className="w-full py-6 lg:py-12">
++          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
++        </div>
++        {/* DIVIDER END */}
++
++        <div className="pb-6">
++          <h2 className="header-section">Spinouts</h2>
++        </div>
++
++        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
++          {/* First Logo */}
++
++          {/* Second Logo */}
++          <div className="flex items-center justify-start py-6 lg:py-2">
++            <a
++              href="https://www.xibus.systems/"
++              target="_blank"
++              rel="noopener noreferrer"
++            >
++              <Image
++                src="/images/labs/j-wafs/spinouts/xibus_systems_logo.png"
++                alt="Logo 2"
++                width={180}
++                height={100}
++                className="object-contain transition duration-300 hover:filter hover:grayscale"
++              />
++            </a>
++          </div>
++
++          {/* Third Logo */}
++          <div className="flex items-center justify-start py-6 lg:py-2">
++            <a
++              href="https://viaseparations.com/"
++              target="_blank"
++              rel="noopener noreferrer"
++            >
++              <Image
++                src="/images/labs/j-wafs/spinouts/via_separations_logo.png"
++                alt="Logo 3"
++                width={200}
++                height={100}
++                className="object-contain transition duration-300 hover:filter hover:grayscale"
++              />
++            </a>
++          </div>
++
++          {/* Fourth Logo */}
++          <div className="flex items-center justify-start py-6 lg:py-2">
++            <a
++              href="https://takachar.com/"
++              target="_blank"
++              rel="noopener noreferrer"
++            >
++              <Image
++                src="/images/labs/j-wafs/spinouts/takachar_logo.png"
++                alt="Logo 4"
++                width={200}
++                height={100}
++                className="object-contain transition duration-300 hover:filter hover:grayscale"
++              />
++            </a>
++          </div>
++
++          {/* Fifth Logo */}
++          <div className="flex items-center justify-start py-6 lg:py-2">
++            <a
++              href="https://sitration.com/"
++              target="_blank"
++              rel="noopener noreferrer"
++            >
++              <Image
++                src="/images/labs/j-wafs/spinouts/sitration_svg_logo.png"
++                alt="Logo 5"
++                width={90}
++                height={100}
++                className="object-contain transition duration-300 hover:filter hover:grayscale"
++              />
++            </a>
++          </div>
++
++          {/* Sixth Logo */}
++          <div className="flex items-center justify-start py-6 lg:py-2">
++            <a
++              href="https://www.detoxyfi.com/"
++              target="_blank"
++              rel="noopener noreferrer"
++            >
++              <Image
++                src="/images/labs/j-wafs/spinouts/detoxify_logo.png"
++                alt="Logo 6"
++                width={200}
++                height={100}
++                className="object-contain transition duration-300 hover:filter hover:grayscale"
++              />
++            </a>
++          </div>
++
++          {/* Seventh Logo */}
++          <div className="flex items-center justify-start py-6 lg:py-2">
++            <a
++              href="https://www.coolveg.org/"
++              target="_blank"
++              rel="noopener noreferrer"
++            >
++              <Image
++                src="/images/labs/j-wafs/spinouts/cool_veg_logo.png"
++                alt="Logo 7"
++                width={160}
++                height={100}
++                className="object-contain transition duration-300 hover:filter hover:grayscale"
++              />
++            </a>
++          </div>
++
++          {/* Eighth Logo */}
++          <div className="flex items-center justify-start py-6 lg:py-2">
++            <a
++              href="https://example.com/8"
++              target="_blank"
++              rel="noopener noreferrer"
++            >
++              <Image
++                src="/images/labs/j-wafs/spinouts/AgZen_logoGRADIENT.png"
++                alt="Logo 8"
++                width={145}
++                height={100}
++                className="object-contain transition duration-300 hover:filter hover:grayscale"
++              />
++            </a>
++          </div>
++        </div>
++
++        {/* DIVIDER START */}
++        <div className="w-full mt-12">
++          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
++        </div>
++        {/* DIVIDER END */}
++      </div>
++
++      <div className="">
++        <PostAccordion title={"News"}>
++          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
++            {postProps.slice(0).map((post) => (
++              <PostCard key={post.name} content={post} />
++            ))}
++          </div>
++        </PostAccordion>
++      </div>
++      <div className="">
++        <PostAccordion title={"Press"}>
++          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
++            {newsProps.slice(0).map((item) => (
++              <NewsCard content={item} locale={params} />
++            ))}
++          </div>
++        </PostAccordion>
++      </div>
++      <div className="">
++        <PostAccordion title={"Multimedia"}>
++          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
++            {multimediaProps.map((item) => (
++              <div key={item.alt} className="">
++                <MediaCard {...item} />
++              </div>
++            ))}
++          </div>
++        </PostAccordion>
++      </div>
++
++      <div>
++        <PostAccordion title={"Events"}>
++          <div className="">
++            <CarousselForComponents>
++              {cleanRelatedEvents.map((item) => (
++                <>
++                  <EventCard article={item}></EventCard>
++                </>
++              ))}
++            </CarousselForComponents>
++          </div>
++        </PostAccordion>
++      </div>
++      <div className="py-12"></div>
++    </>
++  );
++}
+diff --git a/app/interfaces.ts b/app/interfaces.ts
+index 8e02ba0..eb899d2 100644
+--- a/app/interfaces.ts
++++ b/app/interfaces.ts
+@@ -612,6 +612,7 @@ export interface PeopleRawFields {
+   country?: string;
+   name?: string;
+   slug?: string;
++  "feature-video"?: string;
+ }
+ export interface PostFieldsCleaned {
+   arabicTitle: string;
+@@ -735,6 +736,7 @@ export interface PeopleCleanedFields {
+   slug: string;
+   pushToGr: boolean;
+   arabicOnOff: boolean;
++  featureVideo: string;
+ }
+ export interface MultimediaRawFields {
+   "name-arabic"?: string;
+diff --git a/components/CJ-components/components-CJ/basic components/SocialMediaList.tsx b/components/CJ-components/components-CJ/basic components/SocialMediaList.tsx
+index 2fde89a..2460f8d 100644
+--- a/components/CJ-components/components-CJ/basic components/SocialMediaList.tsx	
++++ b/components/CJ-components/components-CJ/basic components/SocialMediaList.tsx	
+@@ -25,7 +25,7 @@ const socialIcons: { [key: string]: string } = {
+   Youtube:
+     "M459.37 151.95c-5.45-20.55-21.59-36.7-42.14-42.15C387.32 96 256 96 256 96s-131.32 0-161.23 13.8c-20.55 5.45-36.7 21.6-42.15 42.15C32 181.86 32 256 32 256s0 74.14 20.62 104.05c5.45 20.55 21.6 36.7 42.15 42.15C124.68 416 256 416 256 416s131.32 0 161.23-13.8c20.55-5.45 36.7-21.6 42.14-42.15C480 330.14 480 256 480 256s0-74.14-20.63-104.05zM204.8 320.16V191.84L320 256l-115.2 64.16z",
+   Tiktok: 
+-    "M412.19,118.66a109.27,109.27,0,0,1-9.45-5.5,132.87,132.87,0,0,1-24.27-20.62c-18.1-20.71-24.86-41.72-27.35-56.43h.1C349.14,23.9,350,16,350.13,16H267.69V334.78c0,4.28,0,8.51-.18,12.69,0,.52-.05,1-.08,1.56,0,.23,0,.47-.05.71,0,.06,0,.12,0,.18a70,70,0,0,1-35.22,55.56,68.8,68.8,0,0,1-34.11,9c-38.41,0-69.54-31.32-69.54-70s31.13-70,69.54-70a68.9,68.9,0,0,1,21.41,3.39l.1-83.94a153.14,153.14,0,0,0-118,34.52,161.79,161.79,0,0,0-35.3,43.53c-3.48,6-16.61,30.11-18.2,69.24-1,22.21,5.67,45.22,8.85,54.73v.2c2,5.6,9.75,24.71,22.38,40.82A167.53,167.53,0,0,0,115,470.66v-.2l.2.2C155.11,497.78,199.36,496,199.36,496c7.66-.31,33.32,0,62.46-13.81,32.32-15.31,50.72-38.12,50.72-38.12a158.46,158.46,0,0,0,27.64-45.93c7.46-19.61,9.95-43.13,9.95-52.53V176.49c1,.6,14.32,9.41,14.32,9.41s19.19,12.3,49.13,20.31c21.48,5.7,50.42,6.9,50.42,6.9V131.27C453.86,132.37,433.27,129.17,412.19,118.66Z",
++    "M448,209.9a133.3,133.3,0,0,1-23.9-2.2c-45-8.3-84.1-39.5-99.8-83.1-.8-2.1-1.6-4.2-2.3-6.3A160,160,0,0,1,318.7,32H262.9V342.4c0,35-28.5,64.3-64.1,65.6a66.68,66.68,0,0,1-39.5-11.9A65.2,65.2,0,0,1,129.5,334c0-35.9,28.8-65.6,64.5-65.6a64.06,64.06,0,0,1,26.7,5.9V231.9a101.15,101.15,0,0,0-16.2-1.3c-57.4,0-107.7,40.4-118.6,96.3a131.57,131.57,0,0,0-2.9,27.2c0,65.1,50.3,119.5,115.6,123.6a124.46,124.46,0,0,0,92.5-31.3c25.3-23.6,39.6-55.9,39.6-90.2V206c12.9,7.4,26.9,13.4,41.7,17.9a189.85,189.85,0,0,0,46.8,8.4v-51.1A125.81,125.81,0,0,1,448,209.9Z",
+   Website:
+     "M256 32C132.288 32 32 132.288 32 256s100.288 224 224 224 224-100.288 224-224S379.712 32 256 32zm0 32c55.61 0 105.348 20.463 144 54.102-12.582 16.165-47.093 56.972-103.668 63.407C288.767 123.748 273.99 64 256 64c-17.99 0-32.767 59.748-40.332 85.509C159.093 142.072 124.582 101.265 112 85.102 150.652 52.463 200.39 32 256 32zm64.602 117.095c16.29 5.346 37.206 18.4 56.773 44.603-5.85 18.957-20.84 58.18-66.577 70.048 5.352-38.167 8.68-85.437 9.804-114.65zm-144.071 0c1.125 29.213 4.452 76.483 9.804 114.65-45.737-11.868-60.727-51.091-66.577-70.048 19.568-26.203 40.483-39.257 56.773-44.603zM78.636 275.016c4.092 21.593 14.993 48.358 35.508 72.696-17.888 15.342-32.11 34.092-42.064 54.465C55.287 364.69 48 311.779 48 256c0-23.954 3.424-47.02 9.714-68.58 17.616 26.006 46.062 54.774 73.94 68.462C106.356 267.91 89.343 272.198 78.636 275.016zM200 426.399c-16.648-9.22-38.616-28.89-61.787-62.356 13.3-11.416 47.522-35.794 98.785-37.496 7.673 29.238 17.448 69.486 27.654 96.224-22.915 1.615-46.088-1.346-64.652-6.372zm-54.875-122.006c26.836 30.158 55.603 48.805 75.847 61.197-4.482-17.205-9.427-35.773-14.187-53.057-44.086 0-72.864 13.662-87.756 26.86-3.25-5.044-6.295-10.249-9.125-15.532 10.636-4.197 25.228-9.423 35.221-19.468zm110.875-75.393c10.435 27.18 23.51 59.35 29.916 84.746 17.89-5.62 32.834-14.25 46.607-25.595 6.31-23.007 11.35-47.545 14.689-70.76H256zm-52.606 0h-63.282c3.339 23.215 8.379 47.753 14.689 70.76 13.773 11.345 28.717 19.976 46.607 25.595 6.406-25.396 19.481-57.566 29.916-84.746zm74.442 144.843c9.404 24.72 19.676 49.315 27.654 70.143-3.23.181-6.508.281-9.915.281-17.838 0-37.249-3.523-54.979-10.34 10.206-26.738 19.981-66.986 27.654-96.224 51.263 1.702 85.485 26.08 98.785 37.496-23.171 33.466-45.139 53.136-61.787 62.356-18.565 5.026-41.738 7.987-64.652 6.372zm128.23-65.048c-9.954-20.373-24.176-39.123-42.064-54.465 20.514-24.338 31.416-51.103 35.508-72.696-10.707-2.818-27.72-7.106-54.018-18.134 27.878-13.688 56.324-42.456 73.94-68.462 6.29 21.56 9.714 44.626 9.714 68.58 0 55.779-7.287 108.69-27.08 146.835z",
+ };
+diff --git a/components/custom beta components/ArticleBanter.tsx b/components/custom beta components/ArticleBanter.tsx
+index ddd0fd0..168067e 100644
+--- a/components/custom beta components/ArticleBanter.tsx	
++++ b/components/custom beta components/ArticleBanter.tsx	
+@@ -22,7 +22,7 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
+     <>
+     <div className={locale === "ar" ? "rtl" : ""}>
+     <div className="pt-6 w-full mb-4 flex">
+-    <div>
++    <div className="w-full lg:w-3/4">
+     <h1 className={`header-article leading-7 sm:leading-none pb-0 pt-12 lg:pb-4 lg:pt-4 flex-grow ${locale === "ar" ? "sans-serif-ar text-right " : "sans-serif text-left"}`}>
+       {locale === 'ar' ? post.arabicTitle : post.name}
+     </h1>
+@@ -31,7 +31,7 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
+       <LanguageChanger />
+     </div>
+   </div>
+-        <div className="flex items-start"></div>
++        <div className="flex items-start w-full lg:w-4/5">
+         <Image
+           className=""
+           src={post.mainImage.url}
+@@ -39,8 +39,8 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
+           height={1080}
+           width={1920}
+         />
+-
+-        <div className="flex justify-around">
++</div>
++        <div className="flex">
+           <div className="">
+             <div className="mx-auto">
+               <div className="pt-6">
+diff --git a/components/custom beta components/PdfViewer.tsx b/components/custom beta components/PdfViewer.tsx
+deleted file mode 100644
+index 0d70252..0000000
+--- a/components/custom beta components/PdfViewer.tsx	
++++ /dev/null
+@@ -1,24 +0,0 @@
+-'use client';
+-import { Document, Page } from 'react-pdf';
+-import { pdfjs } from 'react-pdf';
+-
+-pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+-  'pdfjs-dist/build/pdf.worker.min.mjs',
+-  import.meta.url,
+-).toString();
+-
+-interface PDFViewerProps {
+-  pdfUrl: string;
+-}
+-
+-const PDFViewer = ({ pdfUrl }: PDFViewerProps) => {
+-  return (
+-    <div>
+-      <Document file={pdfUrl}>
+-        <Page pageNumber={1} />
+-      </Document>
+-    </div>
+-  );
+-};
+-
+-export default PDFViewer;
+\ No newline at end of file
+diff --git a/components/ui/sideBar2.tsx b/components/ui/sideBar2.tsx
+index 8048afa..e919dec 100644
+--- a/components/ui/sideBar2.tsx
++++ b/components/ui/sideBar2.tsx
+@@ -40,7 +40,6 @@ type NavItem = {
+   current?: boolean;
+   children?: NavItem[];
+   subChildren?: NavItem[];
+-  targetBlank?: boolean;
+ };
+ 
+ const navItems: NavItem[] = [
+@@ -73,7 +72,6 @@ const navItems: NavItem[] = [
+           {
+             name: "KSA Healthcare Timeiline",
+             href: "/stories/ksa-healthcare-timeline",
+-            targetBlank: true,
+           },
+         ],
+       },
+@@ -119,9 +117,11 @@ const navItems: NavItem[] = [
+       
+       {
+         name: "J-WAFS",
+-        href: "/programmes/j-wafs",
+-        current: false,
+-      },
++        children: [
++          { name: "Overview", href: "/programmes/j-wafs", current: false },
++          { name: "Jameel Index", href: "/programmes/j-wafs/jameel-index", current: false },
++        ],
++        },
+       {
+         name: "J-WEL",
+         href: "/programmes/j-wel",
+@@ -177,7 +177,7 @@ const navItems: NavItem[] = [
+             subChildren: [
+               { "name": "Clara Barbier Serrano (2020)", "href": "/people/clara-barbier-serrano" },
+               { "name": "Laura Mekhail (2021)", "href": "/people/laura-mekhail" },
+-              { "name": "Seonwoo Lee (2022)", "href": "/people/seonwoo lee" },
++              { "name": "Seonwoo Lee (2022)", "href": "/people/seonwoo-lee" },
+               { "name": "Anastasia Koorn (2023)", "href": "/people/anatasia-koorn" },
+               { "name": "Henna Mun (2023)", "href": "/people/henna-mun" }
+             ]
+@@ -461,8 +461,6 @@ export default function Sidebar2() {
+           <SidebarLink
+             href={item.href ?? "#"}
+             key={item.name + "-link" + index}
+-            targetBlank={item.targetBlank}
+-            
+           >
+             {item.name}
+           </SidebarLink>
+@@ -486,7 +484,7 @@ export default function Sidebar2() {
+               ) : // Render SidebarLink if href is present, otherwise handle undefined href
+               child.href ? (
+                 <div className=" mt-3 " key={index + Math.random() + "div-index" + child.name}>
+-                  <SidebarLink key={index + "b" + child.name+ Math.random()} href={child.href} targetBlank={child.targetBlank}>
++                  <SidebarLink key={index + "b" + child.name+ Math.random()} href={child.href}>
+                     {child.name}
+                   </SidebarLink>
+                 </div>
+diff --git a/components/ui/sidebar-link.tsx b/components/ui/sidebar-link.tsx
+index f2654f1..fcd30e5 100755
+--- a/components/ui/sidebar-link.tsx
++++ b/components/ui/sidebar-link.tsx
+@@ -5,25 +5,21 @@ import { useAppProvider } from '@/app/app-provider'
+ interface SidebarLinkProps {
+   children: React.ReactNode
+   href: string
+-  targetBlank?: boolean
+ }
+ 
+ export default function SidebarLink({
+   children,
+   href,
+-  targetBlank
+ }: SidebarLinkProps) {
+ 
+   const pathname = usePathname()
+-  console.log('this is the target',targetBlank)
+   
+   const { setSidebarOpen } = useAppProvider()  
+   
+   return (
+ <Link 
+-  className={`flex items-center space-x-3 w-36 font-normal ${pathname === href ? 'text-dark-600' : 'text-black dark:text-white'}  hover:text-orange-700 dark:hover:text-orange-400`} 
++  className={`flex items-center space-x-3 w-36 font-normal ${pathname === href ? 'text-dark-600' : 'text-black dark:text-white'} hover:text-orange-700 dark:hover:text-orange-400`} 
+   href={href} 
+-  target={ targetBlank ?'_blank' : '_self'}
+   onClick={() => setSidebarOpen(false)}
+ >
+   {children}
+diff --git a/functions/api/getData.ts b/functions/api/getData.ts
+index d979e46..2c35e5a 100644
+--- a/functions/api/getData.ts
++++ b/functions/api/getData.ts
+@@ -19,7 +19,7 @@ export async function getData(collection:string): Promise<FetchResponse> {
+ 
+     while (fetchMore) {
+       const response = await fetch(`${baseUrl}?offset=${offset}&limit=100`, {
+-        next: { revalidate: 3600 },
++        next: { revalidate: 60 },
+         headers: {
+           Accept: "application/json",
+           Authorization: `Bearer ${randomString}`,
+diff --git a/functions/transformers/peopleMapper.ts b/functions/transformers/peopleMapper.ts
+index 7f6fbb2..6c0b55e 100644
+--- a/functions/transformers/peopleMapper.ts
++++ b/functions/transformers/peopleMapper.ts
+@@ -157,5 +157,6 @@ export default function peopleMapper(
+     slug: `/people/${fieldData.slug}` || "N/A",
+     pushToGr: fieldData["push-to-gr"] || false,
+     arabicOnOff: fieldData["arabic-on-off"] || false,
++    featureVideo: fieldData["feature-video"] || "N/A",
+   };
+ }
+diff --git a/functions/utils/customMetadataGenerator.ts b/functions/utils/customMetadataGenerator.ts
+index 59bb18b..a04ade6 100644
+--- a/functions/utils/customMetadataGenerator.ts
++++ b/functions/utils/customMetadataGenerator.ts
+@@ -4,20 +4,7 @@ interface PageSEOProps {
+   title: string;
+   description?: string;
+   canonicalUrl?: string;
+-  ogType?:
+-    | "website"
+-    | "article"
+-    | "book"
+-    | "profile"
+-    | "music.song"
+-    | "music.album"
+-    | "music.playlist"
+-    | "music.radio_station"
+-    | "video.movie"
+-    | "video.episode"
+-    | "video.tv_show"
+-    | "video.other"
+-    | undefined;
++  ogType?: "website" | "article" | "book" | "profile" | "music.song" | "music.album" | "music.playlist" | "music.radio_station" | "video.movie" | "video.episode" | "video.tv_show" | "video.other" | undefined
+   ogImage?: string;
+   twitterCard?: string;
+   useRawTitle?: boolean;
+@@ -34,7 +21,7 @@ export function customMetaDataGenerator({
+ }: PageSEOProps): Metadata {
+   // Create Site Title
+   const siteTitle = "Community Jameel";
+-  const fullTitle = useRawTitle ? `${title} | ${siteTitle}` : title;
++  const fullTitle = useRawTitle ? `${title} | ${siteTitle}`: title;
+ 
+   return {
+     title: fullTitle,
+diff --git a/middleware.ts b/middleware.ts
+index e386b57..3ff60f8 100644
+--- a/middleware.ts
++++ b/middleware.ts
+@@ -10,6 +10,7 @@ export function middleware(request: NextRequest) {
+   const redirects: { [key: string]: string } = {
+     '/tes': '/',
+     'https://ar.communityjameel.org/team/mohammed-jameel': '/ar/about/team/mohammed-jameel',
++    '/programmes/jameel-index': '/programmes/j-wafs/jameel-index',
+   };
+   const { pathname } = request.nextUrl;
+   const host = request.headers.get('host')
+diff --git a/package-lock.json b/package-lock.json
+index 8828425..3d0763a 100755
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -12,7 +12,6 @@
+         "@headlessui/react": "^1.7.17",
+         "@headlessui/tailwindcss": "^0.2.1",
+         "@heroicons/react": "^2.1.3",
+-        "@react-pdf/renderer": "^4.0.0",
+         "@types/node": "^20.10.4",
+         "@types/react": "^18.2.42",
+         "@types/react-dom": "^18.2.17",
+@@ -34,7 +33,6 @@
+         "react": "18.2.0",
+         "react-dom": "18.2.0",
+         "react-i18next": "^14.1.2",
+-        "react-pdf": "^9.1.1",
+         "react-window": "^1.8.10",
+         "rehype-pretty-code": "^0.12.0",
+         "rehype-slug": "^6.0.0",
+@@ -1112,71 +1110,6 @@
+       "resolved": "https://registry.npmjs.org/@mapbox/mapbox-gl-supported/-/mapbox-gl-supported-3.0.0.tgz",
+       "integrity": "sha512-2XghOwu16ZwPJLOFVuIOaLbN0iKMn867evzXFyf0P22dqugezfJwLmdanAgU25ITvz1TvOfVP4jsDImlDJzcWg=="
+     },
+-    "node_modules/@mapbox/node-pre-gyp": {
+-      "version": "1.0.11",
+-      "resolved": "https://registry.npmjs.org/@mapbox/node-pre-gyp/-/node-pre-gyp-1.0.11.tgz",
+-      "integrity": "sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==",
+-      "optional": true,
+-      "dependencies": {
+-        "detect-libc": "^2.0.0",
+-        "https-proxy-agent": "^5.0.0",
+-        "make-dir": "^3.1.0",
+-        "node-fetch": "^2.6.7",
+-        "nopt": "^5.0.0",
+-        "npmlog": "^5.0.1",
+-        "rimraf": "^3.0.2",
+-        "semver": "^7.3.5",
+-        "tar": "^6.1.11"
+-      },
+-      "bin": {
+-        "node-pre-gyp": "bin/node-pre-gyp"
+-      }
+-    },
+-    "node_modules/@mapbox/node-pre-gyp/node_modules/agent-base": {
+-      "version": "6.0.2",
+-      "resolved": "https://registry.npmjs.org/agent-base/-/agent-base-6.0.2.tgz",
+-      "integrity": "sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==",
+-      "optional": true,
+-      "dependencies": {
+-        "debug": "4"
+-      },
+-      "engines": {
+-        "node": ">= 6.0.0"
+-      }
+-    },
+-    "node_modules/@mapbox/node-pre-gyp/node_modules/https-proxy-agent": {
+-      "version": "5.0.1",
+-      "resolved": "https://registry.npmjs.org/https-proxy-agent/-/https-proxy-agent-5.0.1.tgz",
+-      "integrity": "sha512-dFcAjpTQFgoLMzC2VwU+C/CbS7uRL0lWmxDITmqm7C+7F0Odmj6s9l6alZc6AELXhrnggM2CeWSXHGOdX2YtwA==",
+-      "optional": true,
+-      "dependencies": {
+-        "agent-base": "6",
+-        "debug": "4"
+-      },
+-      "engines": {
+-        "node": ">= 6"
+-      }
+-    },
+-    "node_modules/@mapbox/node-pre-gyp/node_modules/node-fetch": {
+-      "version": "2.7.0",
+-      "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-2.7.0.tgz",
+-      "integrity": "sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==",
+-      "optional": true,
+-      "dependencies": {
+-        "whatwg-url": "^5.0.0"
+-      },
+-      "engines": {
+-        "node": "4.x || >=6.0.0"
+-      },
+-      "peerDependencies": {
+-        "encoding": "^0.1.0"
+-      },
+-      "peerDependenciesMeta": {
+-        "encoding": {
+-          "optional": true
+-        }
+-      }
+-    },
+     "node_modules/@mapbox/point-geometry": {
+       "version": "0.1.0",
+       "resolved": "https://registry.npmjs.org/@mapbox/point-geometry/-/point-geometry-0.1.0.tgz",
+@@ -1998,167 +1931,6 @@
+       "resolved": "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.1.0.tgz",
+       "integrity": "sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw=="
+     },
+-    "node_modules/@react-pdf/fns": {
+-      "version": "3.0.0",
+-      "resolved": "https://registry.npmjs.org/@react-pdf/fns/-/fns-3.0.0.tgz",
+-      "integrity": "sha512-ICbIWR93PE6+xf2Xd/fXYO1dAuiOAJaszEuGGv3wp5lLSeeelDXlEYLh6R05okxh28YqMzc0Qd85x6n6MtaLUQ==",
+-      "dependencies": {
+-        "@babel/runtime": "^7.20.13"
+-      }
+-    },
+-    "node_modules/@react-pdf/font": {
+-      "version": "3.0.0",
+-      "resolved": "https://registry.npmjs.org/@react-pdf/font/-/font-3.0.0.tgz",
+-      "integrity": "sha512-/SYEud06maGQiAD0H6J5xnqigKm/FpLKqFYH6+2OjQ2tb32nnKqwqL3pS7glDTFYBJ11B6fVgSNex6tc1V8UDA==",
+-      "dependencies": {
+-        "@babel/runtime": "^7.20.13",
+-        "@react-pdf/types": "^2.7.0",
+-        "cross-fetch": "^3.1.5",
+-        "fontkit": "^2.0.2",
+-        "is-url": "^1.2.4"
+-      }
+-    },
+-    "node_modules/@react-pdf/image": {
+-      "version": "3.0.0",
+-      "resolved": "https://registry.npmjs.org/@react-pdf/image/-/image-3.0.0.tgz",
+-      "integrity": "sha512-l4HV5NutPw52Wbuvxol0BiFc6TkKXK/kJNwVIElphw47nwfueLEjIfBxRTuOeHmpdibvEh3a5STwYmMTQjXSxg==",
+-      "dependencies": {
+-        "@babel/runtime": "^7.20.13",
+-        "@react-pdf/png-js": "^3.0.0",
+-        "cross-fetch": "^3.1.5",
+-        "jay-peg": "^1.1.0"
+-      }
+-    },
+-    "node_modules/@react-pdf/layout": {
+-      "version": "4.0.0",
+-      "resolved": "https://registry.npmjs.org/@react-pdf/layout/-/layout-4.0.0.tgz",
+-      "integrity": "sha512-BNipDwULk9ehvf0V5HLrP2QIujkfj2LzHs8yfCQ/Z8TkAX6dEt1AgwDttBpBLfzcu8w8HFjgpLR1TNOTXiOsAQ==",
+-      "dependencies": {
+-        "@babel/runtime": "^7.20.13",
+-        "@react-pdf/fns": "3.0.0",
+-        "@react-pdf/image": "^3.0.0",
+-        "@react-pdf/pdfkit": "^4.0.0",
+-        "@react-pdf/primitives": "^4.0.0",
+-        "@react-pdf/stylesheet": "^5.0.0",
+-        "@react-pdf/textkit": "^5.0.0",
+-        "@react-pdf/types": "^2.7.0",
+-        "cross-fetch": "^3.1.5",
+-        "emoji-regex": "^10.3.0",
+-        "queue": "^6.0.1",
+-        "yoga-layout": "^3.1.0"
+-      }
+-    },
+-    "node_modules/@react-pdf/layout/node_modules/emoji-regex": {
+-      "version": "10.4.0",
+-      "resolved": "https://registry.npmjs.org/emoji-regex/-/emoji-regex-10.4.0.tgz",
+-      "integrity": "sha512-EC+0oUMY1Rqm4O6LLrgjtYDvcVYTy7chDnM4Q7030tP4Kwj3u/pR6gP9ygnp2CJMK5Gq+9Q2oqmrFJAz01DXjw=="
+-    },
+-    "node_modules/@react-pdf/pdfkit": {
+-      "version": "4.0.0",
+-      "resolved": "https://registry.npmjs.org/@react-pdf/pdfkit/-/pdfkit-4.0.0.tgz",
+-      "integrity": "sha512-HaaAoBpoRGJ6c1ZOANNQZ3q6Ehmagqa8n40x+OZ5s9HcmUviZ34SCm+QBa42s1o4299M+Lgw3UoqpW7sHv3/Hg==",
+-      "dependencies": {
+-        "@babel/runtime": "^7.20.13",
+-        "@react-pdf/png-js": "^3.0.0",
+-        "browserify-zlib": "^0.2.0",
+-        "crypto-js": "^4.2.0",
+-        "fontkit": "^2.0.2",
+-        "jay-peg": "^1.1.0",
+-        "vite-compatible-readable-stream": "^3.6.1"
+-      }
+-    },
+-    "node_modules/@react-pdf/png-js": {
+-      "version": "3.0.0",
+-      "resolved": "https://registry.npmjs.org/@react-pdf/png-js/-/png-js-3.0.0.tgz",
+-      "integrity": "sha512-eSJnEItZ37WPt6Qv5pncQDxLJRK15eaRwPT+gZoujP548CodenOVp49GST8XJvKMFt9YqIBzGBV/j9AgrOQzVA==",
+-      "dependencies": {
+-        "browserify-zlib": "^0.2.0"
+-      }
+-    },
+-    "node_modules/@react-pdf/primitives": {
+-      "version": "4.0.0",
+-      "resolved": "https://registry.npmjs.org/@react-pdf/primitives/-/primitives-4.0.0.tgz",
+-      "integrity": "sha512-yp4E0rDL03NaUp/CnDBz3HQNfH2Mzdlgku57yhTMGNzetwB0NJusXcjYg5XsTGIXnR7Tv80JKI4O4ajj+oaLeQ=="
+-    },
+-    "node_modules/@react-pdf/render": {
+-      "version": "4.0.0",
+-      "resolved": "https://registry.npmjs.org/@react-pdf/render/-/render-4.0.0.tgz",
+-      "integrity": "sha512-gvrw4HM9RocuDLd+19cvP2xaSs3h4OgYn2N6VDXzj6LYQnoHBAazRV9qMpGi8FuNlQ3Va+s82R1ynXYMr0FXIg==",
+-      "dependencies": {
+-        "@babel/runtime": "^7.20.13",
+-        "@react-pdf/fns": "3.0.0",
+-        "@react-pdf/primitives": "^4.0.0",
+-        "@react-pdf/textkit": "^5.0.0",
+-        "@react-pdf/types": "^2.7.0",
+-        "abs-svg-path": "^0.1.1",
+-        "color-string": "^1.9.1",
+-        "normalize-svg-path": "^1.1.0",
+-        "parse-svg-path": "^0.1.2",
+-        "svg-arc-to-cubic-bezier": "^3.2.0"
+-      }
+-    },
+-    "node_modules/@react-pdf/renderer": {
+-      "version": "4.0.0",
+-      "resolved": "https://registry.npmjs.org/@react-pdf/renderer/-/renderer-4.0.0.tgz",
+-      "integrity": "sha512-yDObqmnF08Mwc24W8axmT/y+JPxJkweVQ/EM3GOXh0qyZN5VP5JvKDiCqmftI6QEKfvTFNsquuEQm13GBjkbMg==",
+-      "dependencies": {
+-        "@babel/runtime": "^7.20.13",
+-        "@react-pdf/font": "^3.0.0",
+-        "@react-pdf/layout": "^4.0.0",
+-        "@react-pdf/pdfkit": "^4.0.0",
+-        "@react-pdf/primitives": "^4.0.0",
+-        "@react-pdf/render": "^4.0.0",
+-        "@react-pdf/types": "^2.7.0",
+-        "events": "^3.3.0",
+-        "object-assign": "^4.1.1",
+-        "prop-types": "^15.6.2",
+-        "queue": "^6.0.1",
+-        "scheduler": "^0.17.0"
+-      },
+-      "peerDependencies": {
+-        "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+-      }
+-    },
+-    "node_modules/@react-pdf/renderer/node_modules/scheduler": {
+-      "version": "0.17.0",
+-      "resolved": "https://registry.npmjs.org/scheduler/-/scheduler-0.17.0.tgz",
+-      "integrity": "sha512-7rro8Io3tnCPuY4la/NuI5F2yfESpnfZyT6TtkXnSWVkcu0BCDJ+8gk5ozUaFaxpIyNuWAPXrH0yFcSi28fnDA==",
+-      "dependencies": {
+-        "loose-envify": "^1.1.0",
+-        "object-assign": "^4.1.1"
+-      }
+-    },
+-    "node_modules/@react-pdf/stylesheet": {
+-      "version": "5.0.0",
+-      "resolved": "https://registry.npmjs.org/@react-pdf/stylesheet/-/stylesheet-5.0.0.tgz",
+-      "integrity": "sha512-FrJXUMsvSGee13gpL82HOhhk16y3IKxLmYvmJU1ZUo9Jm9pLydnHDPlSUDK+rKmxdSD2X+twUR7sv6FlrA5i+A==",
+-      "dependencies": {
+-        "@babel/runtime": "^7.20.13",
+-        "@react-pdf/fns": "3.0.0",
+-        "@react-pdf/types": "^2.7.0",
+-        "color-string": "^1.9.1",
+-        "hsl-to-hex": "^1.0.0",
+-        "media-engine": "^1.0.3",
+-        "postcss-value-parser": "^4.1.0"
+-      }
+-    },
+-    "node_modules/@react-pdf/textkit": {
+-      "version": "5.0.0",
+-      "resolved": "https://registry.npmjs.org/@react-pdf/textkit/-/textkit-5.0.0.tgz",
+-      "integrity": "sha512-+K6zkF6lDXHIZZ9nNzplJ48IrjXNGQqVfO5v73AsutHbvx44E62t46EeoGLHsmjGeMG70TooSI1Mwq/7f/5tLw==",
+-      "dependencies": {
+-        "@babel/runtime": "^7.20.13",
+-        "@react-pdf/fns": "3.0.0",
+-        "bidi-js": "^1.0.2",
+-        "hyphen": "^1.6.4",
+-        "unicode-properties": "^1.4.1"
+-      }
+-    },
+-    "node_modules/@react-pdf/types": {
+-      "version": "2.7.0",
+-      "resolved": "https://registry.npmjs.org/@react-pdf/types/-/types-2.7.0.tgz",
+-      "integrity": "sha512-7KrPPCpgRPKR+g+T127PE4bpw9Q84ZiY07EYRwXKVtTEVW9wJ5BZiF9smT9IvH19s+MQaDLmYRgjESsnqlyH0Q=="
+-    },
+     "node_modules/@rushstack/eslint-patch": {
+       "version": "1.10.3",
+       "resolved": "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.10.3.tgz",
+@@ -2514,17 +2286,6 @@
+       "resolved": "https://registry.npmjs.org/@ungap/structured-clone/-/structured-clone-1.2.0.tgz",
+       "integrity": "sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ=="
+     },
+-    "node_modules/abbrev": {
+-      "version": "1.1.1",
+-      "resolved": "https://registry.npmjs.org/abbrev/-/abbrev-1.1.1.tgz",
+-      "integrity": "sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==",
+-      "optional": true
+-    },
+-    "node_modules/abs-svg-path": {
+-      "version": "0.1.1",
+-      "resolved": "https://registry.npmjs.org/abs-svg-path/-/abs-svg-path-0.1.1.tgz",
+-      "integrity": "sha512-d8XPSGjfyzlXC3Xx891DJRyZfqk5JU0BJrDQcsWomFIV1/BIzPW5HDH5iDdWpqWaav0YVIEzT1RHTwWr0FFshA=="
+-    },
+     "node_modules/acorn": {
+       "version": "8.11.2",
+       "resolved": "https://registry.npmjs.org/acorn/-/acorn-8.11.2.tgz",
+@@ -2693,12 +2454,6 @@
+         "node": ">= 8"
+       }
+     },
+-    "node_modules/aproba": {
+-      "version": "2.0.0",
+-      "resolved": "https://registry.npmjs.org/aproba/-/aproba-2.0.0.tgz",
+-      "integrity": "sha512-lYe4Gx7QT+MKGbDsA+Z+he/Wtef0BiwDOlK/XkBrdfsh9J/jPPXbX0tE9x9cl27Tmu5gg3QUbUrQYa/y+KOHPQ==",
+-      "optional": true
+-    },
+     "node_modules/arch": {
+       "version": "2.2.0",
+       "resolved": "https://registry.npmjs.org/arch/-/arch-2.2.0.tgz",
+@@ -2719,20 +2474,6 @@
+         }
+       ]
+     },
+-    "node_modules/are-we-there-yet": {
+-      "version": "2.0.0",
+-      "resolved": "https://registry.npmjs.org/are-we-there-yet/-/are-we-there-yet-2.0.0.tgz",
+-      "integrity": "sha512-Ci/qENmwHnsYo9xKIcUJN5LeDKdJ6R1Z1j9V/J5wyq8nh/mYPEpIKJbBZXtZjG04HiK7zV/p6Vs9952MrMeUIw==",
+-      "deprecated": "This package is no longer supported.",
+-      "optional": true,
+-      "dependencies": {
+-        "delegates": "^1.0.0",
+-        "readable-stream": "^3.6.0"
+-      },
+-      "engines": {
+-        "node": ">=10"
+-      }
+-    },
+     "node_modules/arg": {
+       "version": "5.0.2",
+       "resolved": "https://registry.npmjs.org/arg/-/arg-5.0.2.tgz",
+@@ -3096,6 +2837,7 @@
+       "version": "1.5.1",
+       "resolved": "https://registry.npmjs.org/base64-js/-/base64-js-1.5.1.tgz",
+       "integrity": "sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==",
++      "dev": true,
+       "funding": [
+         {
+           "type": "github",
+@@ -3120,14 +2862,6 @@
+         "tweetnacl": "^0.14.3"
+       }
+     },
+-    "node_modules/bidi-js": {
+-      "version": "1.0.3",
+-      "resolved": "https://registry.npmjs.org/bidi-js/-/bidi-js-1.0.3.tgz",
+-      "integrity": "sha512-RKshQI1R3YQ+n9YJz2QQ147P66ELpa1FQEg20Dk8oW9t2KgLbpDLLp9aGZ7y8WHSshDknG0bknqGw5/tyCs5tw==",
+-      "dependencies": {
+-        "require-from-string": "^2.0.2"
+-      }
+-    },
+     "node_modules/binary-extensions": {
+       "version": "2.2.0",
+       "resolved": "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.2.0.tgz",
+@@ -3173,22 +2907,6 @@
+         "node": ">=8"
+       }
+     },
+-    "node_modules/brotli": {
+-      "version": "1.3.3",
+-      "resolved": "https://registry.npmjs.org/brotli/-/brotli-1.3.3.tgz",
+-      "integrity": "sha512-oTKjJdShmDuGW94SyyaoQvAjf30dZaHnjJ8uAF+u2/vGJkJbJPJAT1gDiOJP5v1Zb6f9KEyW/1HpuaWIXtGHPg==",
+-      "dependencies": {
+-        "base64-js": "^1.1.2"
+-      }
+-    },
+-    "node_modules/browserify-zlib": {
+-      "version": "0.2.0",
+-      "resolved": "https://registry.npmjs.org/browserify-zlib/-/browserify-zlib-0.2.0.tgz",
+-      "integrity": "sha512-Z942RysHXmJrhqk88FmKBVq/v5tqmSkDz7p54G/MGyjMnCFFnC79XWNbg+Vta8W6Wb2qtSZTSxIGkJrRpCFEiA==",
+-      "dependencies": {
+-        "pako": "~1.0.5"
+-      }
+-    },
+     "node_modules/browserslist": {
+       "version": "4.23.1",
+       "resolved": "https://registry.npmjs.org/browserslist/-/browserslist-4.23.1.tgz",
+@@ -3350,21 +3068,6 @@
+         }
+       ]
+     },
+-    "node_modules/canvas": {
+-      "version": "2.11.2",
+-      "resolved": "https://registry.npmjs.org/canvas/-/canvas-2.11.2.tgz",
+-      "integrity": "sha512-ItanGBMrmRV7Py2Z+Xhs7cT+FNt5K0vPL4p9EZ/UX/Mu7hFbkxSjKF2KVtPwX7UYWp7dRKnrTvReflgrItJbdw==",
+-      "hasInstallScript": true,
+-      "optional": true,
+-      "dependencies": {
+-        "@mapbox/node-pre-gyp": "^1.0.0",
+-        "nan": "^2.17.0",
+-        "simple-get": "^3.0.3"
+-      },
+-      "engines": {
+-        "node": ">=6"
+-      }
+-    },
+     "node_modules/caseless": {
+       "version": "0.12.0",
+       "resolved": "https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz",
+@@ -3536,15 +3239,6 @@
+         "fsevents": "~2.3.2"
+       }
+     },
+-    "node_modules/chownr": {
+-      "version": "2.0.0",
+-      "resolved": "https://registry.npmjs.org/chownr/-/chownr-2.0.0.tgz",
+-      "integrity": "sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==",
+-      "optional": true,
+-      "engines": {
+-        "node": ">=10"
+-      }
+-    },
+     "node_modules/ci-info": {
+       "version": "3.9.0",
+       "resolved": "https://registry.npmjs.org/ci-info/-/ci-info-3.9.0.tgz",
+@@ -3641,14 +3335,6 @@
+         "node": ">=12"
+       }
+     },
+-    "node_modules/clone": {
+-      "version": "2.1.2",
+-      "resolved": "https://registry.npmjs.org/clone/-/clone-2.1.2.tgz",
+-      "integrity": "sha512-3Pe/CF1Nn94hyhIYpjtiLhdCoEoz0DqQ+988E9gmeEdQZlojxnOb74wctFyuwWQHzqyf9X7C7MG8juUpqBJT8w==",
+-      "engines": {
+-        "node": ">=0.8"
+-      }
+-    },
+     "node_modules/clsx": {
+       "version": "2.1.1",
+       "resolved": "https://registry.npmjs.org/clsx/-/clsx-2.1.1.tgz",
+@@ -3691,15 +3377,6 @@
+         "simple-swizzle": "^0.2.2"
+       }
+     },
+-    "node_modules/color-support": {
+-      "version": "1.1.3",
+-      "resolved": "https://registry.npmjs.org/color-support/-/color-support-1.1.3.tgz",
+-      "integrity": "sha512-qiBjkpbMLO/HL68y+lh4q0/O1MZFj2RX6X/KmMa3+gJD3z+WwI1ZzDHysvqHGS3mP6mznPckpXmw1nI9cJjyRg==",
+-      "optional": true,
+-      "bin": {
+-        "color-support": "bin.js"
+-      }
+-    },
+     "node_modules/color/node_modules/color-convert": {
+       "version": "1.9.3",
+       "resolved": "https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz",
+@@ -3777,12 +3454,6 @@
+       "resolved": "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz",
+       "integrity": "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="
+     },
+-    "node_modules/console-control-strings": {
+-      "version": "1.1.0",
+-      "resolved": "https://registry.npmjs.org/console-control-strings/-/console-control-strings-1.1.0.tgz",
+-      "integrity": "sha512-ty/fTekppD2fIwRvnZAVdeOiGd1c7YXEixbgJTNzqcxJWKQnjJ/V1bNEEE6hygpM3WjwHFUVK6HTjWSzV4a8sQ==",
+-      "optional": true
+-    },
+     "node_modules/contentlayer": {
+       "version": "0.3.4",
+       "resolved": "https://registry.npmjs.org/contentlayer/-/contentlayer-0.3.4.tgz",
+@@ -3808,33 +3479,6 @@
+       "resolved": "https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz",
+       "integrity": "sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ=="
+     },
+-    "node_modules/cross-fetch": {
+-      "version": "3.1.8",
+-      "resolved": "https://registry.npmjs.org/cross-fetch/-/cross-fetch-3.1.8.tgz",
+-      "integrity": "sha512-cvA+JwZoU0Xq+h6WkMvAUqPEYy92Obet6UdKLfW60qn99ftItKjB5T+BkyWOFWe2pUyfQ+IJHmpOTznqk1M6Kg==",
+-      "dependencies": {
+-        "node-fetch": "^2.6.12"
+-      }
+-    },
+-    "node_modules/cross-fetch/node_modules/node-fetch": {
+-      "version": "2.7.0",
+-      "resolved": "https://registry.npmjs.org/node-fetch/-/node-fetch-2.7.0.tgz",
+-      "integrity": "sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==",
+-      "dependencies": {
+-        "whatwg-url": "^5.0.0"
+-      },
+-      "engines": {
+-        "node": "4.x || >=6.0.0"
+-      },
+-      "peerDependencies": {
+-        "encoding": "^0.1.0"
+-      },
+-      "peerDependenciesMeta": {
+-        "encoding": {
+-          "optional": true
+-        }
+-      }
+-    },
+     "node_modules/cross-spawn": {
+       "version": "7.0.3",
+       "resolved": "https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.3.tgz",
+@@ -3848,11 +3492,6 @@
+         "node": ">= 8"
+       }
+     },
+-    "node_modules/crypto-js": {
+-      "version": "4.2.0",
+-      "resolved": "https://registry.npmjs.org/crypto-js/-/crypto-js-4.2.0.tgz",
+-      "integrity": "sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q=="
+-    },
+     "node_modules/css-select": {
+       "version": "5.1.0",
+       "resolved": "https://registry.npmjs.org/css-select/-/css-select-5.1.0.tgz",
+@@ -4097,18 +3736,6 @@
+         "url": "https://github.com/sponsors/wooorm"
+       }
+     },
+-    "node_modules/decompress-response": {
+-      "version": "4.2.1",
+-      "resolved": "https://registry.npmjs.org/decompress-response/-/decompress-response-4.2.1.tgz",
+-      "integrity": "sha512-jOSne2qbyE+/r8G1VU+G/82LBs2Fs4LAsTiLSHOCOMZQl2OKZ6i8i4IyHemTe+/yIXOtTcRQMzPcgyhoFlqPkw==",
+-      "optional": true,
+-      "dependencies": {
+-        "mimic-response": "^2.0.0"
+-      },
+-      "engines": {
+-        "node": ">=8"
+-      }
+-    },
+     "node_modules/deep-is": {
+       "version": "0.1.4",
+       "resolved": "https://registry.npmjs.org/deep-is/-/deep-is-0.1.4.tgz",
+@@ -4166,12 +3793,6 @@
+         "node": ">=0.4.0"
+       }
+     },
+-    "node_modules/delegates": {
+-      "version": "1.0.0",
+-      "resolved": "https://registry.npmjs.org/delegates/-/delegates-1.0.0.tgz",
+-      "integrity": "sha512-bd2L678uiWATM6m5Z1VzNCErI3jiGzt6HGY8OVICs40JQq/HALfbyNJmp0UDakEY4pMMaN0Ly5om/B1VI/+xfQ==",
+-      "optional": true
+-    },
+     "node_modules/dequal": {
+       "version": "2.0.3",
+       "resolved": "https://registry.npmjs.org/dequal/-/dequal-2.0.3.tgz",
+@@ -4180,15 +3801,6 @@
+         "node": ">=6"
+       }
+     },
+-    "node_modules/detect-libc": {
+-      "version": "2.0.3",
+-      "resolved": "https://registry.npmjs.org/detect-libc/-/detect-libc-2.0.3.tgz",
+-      "integrity": "sha512-bwy0MGW55bG41VqxxypOsdSdGqLwXPI/focwgTYCFMbdUiBAxLg9CFzG08sz2aqzknwiX7Hkl0bQENjg8iLByw==",
+-      "optional": true,
+-      "engines": {
+-        "node": ">=8"
+-      }
+-    },
+     "node_modules/detective": {
+       "version": "5.2.1",
+       "resolved": "https://registry.npmjs.org/detective/-/detective-5.2.1.tgz",
+@@ -4217,11 +3829,6 @@
+         "url": "https://github.com/sponsors/wooorm"
+       }
+     },
+-    "node_modules/dfa": {
+-      "version": "1.2.0",
+-      "resolved": "https://registry.npmjs.org/dfa/-/dfa-1.2.0.tgz",
+-      "integrity": "sha512-ED3jP8saaweFTjeGX8HQPjeC1YYyZs98jGNZx6IiBvxW7JG5v492kamAQB3m2wop07CvU/RQmzcKr6bgcC5D/Q=="
+-    },
+     "node_modules/didyoumean": {
+       "version": "1.2.2",
+       "resolved": "https://registry.npmjs.org/didyoumean/-/didyoumean-1.2.2.tgz",
+@@ -5156,14 +4763,6 @@
+       "integrity": "sha512-tYUSVOGeQPKt/eC1ABfhHy5Xd96N3oIijJvN3O9+TsC28T5V9yX9oEfEK5faP0EFSNVOG97qtAS68GBrQB2hDg==",
+       "dev": true
+     },
+-    "node_modules/events": {
+-      "version": "3.3.0",
+-      "resolved": "https://registry.npmjs.org/events/-/events-3.3.0.tgz",
+-      "integrity": "sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==",
+-      "engines": {
+-        "node": ">=0.8.x"
+-      }
+-    },
+     "node_modules/execa": {
+       "version": "4.1.0",
+       "resolved": "https://registry.npmjs.org/execa/-/execa-4.1.0.tgz",
+@@ -5253,7 +4852,8 @@
+     "node_modules/fast-deep-equal": {
+       "version": "3.1.3",
+       "resolved": "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz",
+-      "integrity": "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q=="
++      "integrity": "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==",
++      "dev": true
+     },
+     "node_modules/fast-glob": {
+       "version": "3.3.2",
+@@ -5421,30 +5021,6 @@
+       "integrity": "sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==",
+       "dev": true
+     },
+-    "node_modules/fontkit": {
+-      "version": "2.0.4",
+-      "resolved": "https://registry.npmjs.org/fontkit/-/fontkit-2.0.4.tgz",
+-      "integrity": "sha512-syetQadaUEDNdxdugga9CpEYVaQIxOwk7GlwZWWZ19//qW4zE5bknOKeMBDYAASwnpaSHKJITRLMF9m1fp3s6g==",
+-      "dependencies": {
+-        "@swc/helpers": "^0.5.12",
+-        "brotli": "^1.3.2",
+-        "clone": "^2.1.2",
+-        "dfa": "^1.2.0",
+-        "fast-deep-equal": "^3.1.3",
+-        "restructure": "^3.0.0",
+-        "tiny-inflate": "^1.0.3",
+-        "unicode-properties": "^1.4.0",
+-        "unicode-trie": "^2.0.0"
+-      }
+-    },
+-    "node_modules/fontkit/node_modules/@swc/helpers": {
+-      "version": "0.5.13",
+-      "resolved": "https://registry.npmjs.org/@swc/helpers/-/helpers-0.5.13.tgz",
+-      "integrity": "sha512-UoKGxQ3r5kYI9dALKJapMmuK+1zWM/H17Z1+iwnNmzcJRnfFuevZs375TA5rW31pu4BS4NoSy1fRsexDXfWn5w==",
+-      "dependencies": {
+-        "tslib": "^2.4.0"
+-      }
+-    },
+     "node_modules/for-each": {
+       "version": "0.3.3",
+       "resolved": "https://registry.npmjs.org/for-each/-/for-each-0.3.3.tgz",
+@@ -5563,30 +5139,6 @@
+         "node": ">=10"
+       }
+     },
+-    "node_modules/fs-minipass": {
+-      "version": "2.1.0",
+-      "resolved": "https://registry.npmjs.org/fs-minipass/-/fs-minipass-2.1.0.tgz",
+-      "integrity": "sha512-V/JgOLFCS+R6Vcq0slCuaeWEdNC3ouDlJMNIsacH2VtALiu9mV4LPrHc5cDl8k5aw6J8jwgWWpiTo5RYhmIzvg==",
+-      "optional": true,
+-      "dependencies": {
+-        "minipass": "^3.0.0"
+-      },
+-      "engines": {
+-        "node": ">= 8"
+-      }
+-    },
+-    "node_modules/fs-minipass/node_modules/minipass": {
+-      "version": "3.3.6",
+-      "resolved": "https://registry.npmjs.org/minipass/-/minipass-3.3.6.tgz",
+-      "integrity": "sha512-DxiNidxSEK+tHG6zOIklvNOwm3hvCrbUrdtzY74U6HKTJxvIDfOUL5W5P2Ghd3DTkhhKPYGqeNUIh5qcM4YBfw==",
+-      "optional": true,
+-      "dependencies": {
+-        "yallist": "^4.0.0"
+-      },
+-      "engines": {
+-        "node": ">=8"
+-      }
+-    },
+     "node_modules/fs-monkey": {
+       "version": "1.0.5",
+       "resolved": "https://registry.npmjs.org/fs-monkey/-/fs-monkey-1.0.5.tgz",
+@@ -5645,33 +5197,6 @@
+         "url": "https://github.com/sponsors/ljharb"
+       }
+     },
+-    "node_modules/gauge": {
+-      "version": "3.0.2",
+-      "resolved": "https://registry.npmjs.org/gauge/-/gauge-3.0.2.tgz",
+-      "integrity": "sha512-+5J6MS/5XksCuXq++uFRsnUd7Ovu1XenbeuIuNRJxYWjgQbPuFhT14lAvsWfqfAmnwluf1OwMjz39HjfLPci0Q==",
+-      "deprecated": "This package is no longer supported.",
+-      "optional": true,
+-      "dependencies": {
+-        "aproba": "^1.0.3 || ^2.0.0",
+-        "color-support": "^1.1.2",
+-        "console-control-strings": "^1.0.0",
+-        "has-unicode": "^2.0.1",
+-        "object-assign": "^4.1.1",
+-        "signal-exit": "^3.0.0",
+-        "string-width": "^4.2.3",
+-        "strip-ansi": "^6.0.1",
+-        "wide-align": "^1.1.2"
+-      },
+-      "engines": {
+-        "node": ">=10"
+-      }
+-    },
+-    "node_modules/gauge/node_modules/signal-exit": {
+-      "version": "3.0.7",
+-      "resolved": "https://registry.npmjs.org/signal-exit/-/signal-exit-3.0.7.tgz",
+-      "integrity": "sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==",
+-      "optional": true
+-    },
+     "node_modules/gaxios": {
+       "version": "6.7.0",
+       "resolved": "https://registry.npmjs.org/gaxios/-/gaxios-6.7.0.tgz",
+@@ -6048,12 +5573,6 @@
+         "url": "https://github.com/sponsors/ljharb"
+       }
+     },
+-    "node_modules/has-unicode": {
+-      "version": "2.0.1",
+-      "resolved": "https://registry.npmjs.org/has-unicode/-/has-unicode-2.0.1.tgz",
+-      "integrity": "sha512-8Rf9Y83NBReMnx0gFzA8JImQACstCYWUplepDa9xprwwtmgEZUF0h/i5xSA625zB/I37EtrswSST6OXxwaaIJQ==",
+-      "optional": true
+-    },
+     "node_modules/hash-wasm": {
+       "version": "4.11.0",
+       "resolved": "https://registry.npmjs.org/hash-wasm/-/hash-wasm-4.11.0.tgz",
+@@ -6392,19 +5911,6 @@
+         "url": "https://opencollective.com/unified"
+       }
+     },
+-    "node_modules/hsl-to-hex": {
+-      "version": "1.0.0",
+-      "resolved": "https://registry.npmjs.org/hsl-to-hex/-/hsl-to-hex-1.0.0.tgz",
+-      "integrity": "sha512-K6GVpucS5wFf44X0h2bLVRDsycgJmf9FF2elg+CrqD8GcFU8c6vYhgXn8NjUkFCwj+xDFb70qgLbTUm6sxwPmA==",
+-      "dependencies": {
+-        "hsl-to-rgb-for-reals": "^1.1.0"
+-      }
+-    },
+-    "node_modules/hsl-to-rgb-for-reals": {
+-      "version": "1.1.1",
+-      "resolved": "https://registry.npmjs.org/hsl-to-rgb-for-reals/-/hsl-to-rgb-for-reals-1.1.1.tgz",
+-      "integrity": "sha512-LgOWAkrN0rFaQpfdWBQlv/VhkOxb5AsBjk6NQVx4yEzWS923T07X0M1Y0VNko2H52HeSpZrZNNMJ0aFqsdVzQg=="
+-    },
+     "node_modules/html-parse-stringify": {
+       "version": "3.0.1",
+       "resolved": "https://registry.npmjs.org/html-parse-stringify/-/html-parse-stringify-3.0.1.tgz",
+@@ -6486,11 +5992,6 @@
+         "node": ">=8.12.0"
+       }
+     },
+-    "node_modules/hyphen": {
+-      "version": "1.10.6",
+-      "resolved": "https://registry.npmjs.org/hyphen/-/hyphen-1.10.6.tgz",
+-      "integrity": "sha512-fXHXcGFTXOvZTSkPJuGOQf5Lv5T/R2itiiCVPg9LxAje5D00O0pP83yJShFq5V89Ly//Gt6acj7z8pbBr34stw=="
+-    },
+     "node_modules/i18next": {
+       "version": "23.11.5",
+       "resolved": "https://registry.npmjs.org/i18next/-/i18next-23.11.5.tgz",
+@@ -7113,11 +6614,6 @@
+         "url": "https://github.com/sponsors/sindresorhus"
+       }
+     },
+-    "node_modules/is-url": {
+-      "version": "1.2.4",
+-      "resolved": "https://registry.npmjs.org/is-url/-/is-url-1.2.4.tgz",
+-      "integrity": "sha512-ITvGim8FhRiYe4IQ5uHSkj7pVaPDrCTkNd3yq3cV7iZAcJdHTUMPMEHcqSOy9xZ9qFenQCvi+2wjH9a1nXqHww=="
+-    },
+     "node_modules/is-weakmap": {
+       "version": "2.0.2",
+       "resolved": "https://registry.npmjs.org/is-weakmap/-/is-weakmap-2.0.2.tgz",
+@@ -7206,14 +6702,6 @@
+         "@pkgjs/parseargs": "^0.11.0"
+       }
+     },
+-    "node_modules/jay-peg": {
+-      "version": "1.1.0",
+-      "resolved": "https://registry.npmjs.org/jay-peg/-/jay-peg-1.1.0.tgz",
+-      "integrity": "sha512-WhyKySfx5CEFoKDnpmHyJUrpX5fUrr/X3kqVHISmiO9jrJC73RQBOAZJB8bDrWT4PHEkl0QgNZLlWJfAWAIFew==",
+-      "dependencies": {
+-        "restructure": "^3.0.0"
+-      }
+-    },
+     "node_modules/jiti": {
+       "version": "1.21.0",
+       "resolved": "https://registry.npmjs.org/jiti/-/jiti-1.21.0.tgz",
+@@ -7729,46 +7217,6 @@
+         "react": "^16.5.1 || ^17.0.0 || ^18.0.0"
+       }
+     },
+-    "node_modules/make-cancellable-promise": {
+-      "version": "1.3.2",
+-      "resolved": "https://registry.npmjs.org/make-cancellable-promise/-/make-cancellable-promise-1.3.2.tgz",
+-      "integrity": "sha512-GCXh3bq/WuMbS+Ky4JBPW1hYTOU+znU+Q5m9Pu+pI8EoUqIHk9+tviOKC6/qhHh8C4/As3tzJ69IF32kdz85ww==",
+-      "funding": {
+-        "url": "https://github.com/wojtekmaj/make-cancellable-promise?sponsor=1"
+-      }
+-    },
+-    "node_modules/make-dir": {
+-      "version": "3.1.0",
+-      "resolved": "https://registry.npmjs.org/make-dir/-/make-dir-3.1.0.tgz",
+-      "integrity": "sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==",
+-      "optional": true,
+-      "dependencies": {
+-        "semver": "^6.0.0"
+-      },
+-      "engines": {
+-        "node": ">=8"
+-      },
+-      "funding": {
+-        "url": "https://github.com/sponsors/sindresorhus"
+-      }
+-    },
+-    "node_modules/make-dir/node_modules/semver": {
+-      "version": "6.3.1",
+-      "resolved": "https://registry.npmjs.org/semver/-/semver-6.3.1.tgz",
+-      "integrity": "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==",
+-      "optional": true,
+-      "bin": {
+-        "semver": "bin/semver.js"
+-      }
+-    },
+-    "node_modules/make-event-props": {
+-      "version": "1.6.2",
+-      "resolved": "https://registry.npmjs.org/make-event-props/-/make-event-props-1.6.2.tgz",
+-      "integrity": "sha512-iDwf7mA03WPiR8QxvcVHmVWEPfMY1RZXerDVNCRYW7dUr2ppH3J58Rwb39/WG39yTZdRSxr3x+2v22tvI0VEvA==",
+-      "funding": {
+-        "url": "https://github.com/wojtekmaj/make-event-props?sponsor=1"
+-      }
+-    },
+     "node_modules/mapbox-gl": {
+       "version": "3.5.2",
+       "resolved": "https://registry.npmjs.org/mapbox-gl/-/mapbox-gl-3.5.2.tgz",
+@@ -8155,11 +7603,6 @@
+         "esbuild": "0.*"
+       }
+     },
+-    "node_modules/media-engine": {
+-      "version": "1.0.3",
+-      "resolved": "https://registry.npmjs.org/media-engine/-/media-engine-1.0.3.tgz",
+-      "integrity": "sha512-aa5tG6sDoK+k70B9iEX1NeyfT8ObCKhNDs6lJVpwF6r8vhUfuKMslIcirq6HIUYuuUYLefcEQOn9bSBOvawtwg=="
+-    },
+     "node_modules/memfs": {
+       "version": "3.5.3",
+       "resolved": "https://registry.npmjs.org/memfs/-/memfs-3.5.3.tgz",
+@@ -8187,22 +7630,6 @@
+         "url": "https://github.com/sponsors/sindresorhus"
+       }
+     },
+-    "node_modules/merge-refs": {
+-      "version": "1.3.0",
+-      "resolved": "https://registry.npmjs.org/merge-refs/-/merge-refs-1.3.0.tgz",
+-      "integrity": "sha512-nqXPXbso+1dcKDpPCXvwZyJILz+vSLqGGOnDrYHQYE+B8n9JTCekVLC65AfCpR4ggVyA/45Y0iR9LDyS2iI+zA==",
+-      "funding": {
+-        "url": "https://github.com/wojtekmaj/merge-refs?sponsor=1"
+-      },
+-      "peerDependencies": {
+-        "@types/react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+-      },
+-      "peerDependenciesMeta": {
+-        "@types/react": {
+-          "optional": true
+-        }
+-      }
+-    },
+     "node_modules/merge-stream": {
+       "version": "2.0.0",
+       "resolved": "https://registry.npmjs.org/merge-stream/-/merge-stream-2.0.0.tgz",
+@@ -8970,18 +8397,6 @@
+         "node": ">=6"
+       }
+     },
+-    "node_modules/mimic-response": {
+-      "version": "2.1.0",
+-      "resolved": "https://registry.npmjs.org/mimic-response/-/mimic-response-2.1.0.tgz",
+-      "integrity": "sha512-wXqjST+SLt7R009ySCglWBCFpjUygmCIfD790/kVbiGmUgfYGuB14PiTd5DwVxSV4NcYHjzMkoj5LjQZwTQLEA==",
+-      "optional": true,
+-      "engines": {
+-        "node": ">=8"
+-      },
+-      "funding": {
+-        "url": "https://github.com/sponsors/sindresorhus"
+-      }
+-    },
+     "node_modules/mini-svg-data-uri": {
+       "version": "1.4.4",
+       "resolved": "https://registry.npmjs.org/mini-svg-data-uri/-/mini-svg-data-uri-1.4.4.tgz",
+@@ -9018,43 +8433,6 @@
+         "node": ">=16 || 14 >=14.17"
+       }
+     },
+-    "node_modules/minizlib": {
+-      "version": "2.1.2",
+-      "resolved": "https://registry.npmjs.org/minizlib/-/minizlib-2.1.2.tgz",
+-      "integrity": "sha512-bAxsR8BVfj60DWXHE3u30oHzfl4G7khkSuPW+qvpd7jFRHm7dLxOjUk1EHACJ/hxLY8phGJ0YhYHZo7jil7Qdg==",
+-      "optional": true,
+-      "dependencies": {
+-        "minipass": "^3.0.0",
+-        "yallist": "^4.0.0"
+-      },
+-      "engines": {
+-        "node": ">= 8"
+-      }
+-    },
+-    "node_modules/minizlib/node_modules/minipass": {
+-      "version": "3.3.6",
+-      "resolved": "https://registry.npmjs.org/minipass/-/minipass-3.3.6.tgz",
+-      "integrity": "sha512-DxiNidxSEK+tHG6zOIklvNOwm3hvCrbUrdtzY74U6HKTJxvIDfOUL5W5P2Ghd3DTkhhKPYGqeNUIh5qcM4YBfw==",
+-      "optional": true,
+-      "dependencies": {
+-        "yallist": "^4.0.0"
+-      },
+-      "engines": {
+-        "node": ">=8"
+-      }
+-    },
+-    "node_modules/mkdirp": {
+-      "version": "1.0.4",
+-      "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz",
+-      "integrity": "sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==",
+-      "optional": true,
+-      "bin": {
+-        "mkdirp": "bin/cmd.js"
+-      },
+-      "engines": {
+-        "node": ">=10"
+-      }
+-    },
+     "node_modules/mri": {
+       "version": "1.2.0",
+       "resolved": "https://registry.npmjs.org/mri/-/mri-1.2.0.tgz",
+@@ -9083,12 +8461,6 @@
+         "thenify-all": "^1.0.0"
+       }
+     },
+-    "node_modules/nan": {
+-      "version": "2.22.0",
+-      "resolved": "https://registry.npmjs.org/nan/-/nan-2.22.0.tgz",
+-      "integrity": "sha512-nbajikzWTMwsW+eSsNm3QwlOs7het9gGJU5dDZzRTQGk03vyBOauxgI4VakDzE0PtsGTmXPsXTbbjVhRwR5mpw==",
+-      "optional": true
+-    },
+     "node_modules/nanoid": {
+       "version": "3.3.7",
+       "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-3.3.7.tgz",
+@@ -9302,21 +8674,6 @@
+       "resolved": "https://registry.npmjs.org/node-releases/-/node-releases-2.0.14.tgz",
+       "integrity": "sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw=="
+     },
+-    "node_modules/nopt": {
+-      "version": "5.0.0",
+-      "resolved": "https://registry.npmjs.org/nopt/-/nopt-5.0.0.tgz",
+-      "integrity": "sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==",
+-      "optional": true,
+-      "dependencies": {
+-        "abbrev": "1"
+-      },
+-      "bin": {
+-        "nopt": "bin/nopt.js"
+-      },
+-      "engines": {
+-        "node": ">=6"
+-      }
+-    },
+     "node_modules/normalize-path": {
+       "version": "3.0.0",
+       "resolved": "https://registry.npmjs.org/normalize-path/-/normalize-path-3.0.0.tgz",
+@@ -9333,14 +8690,6 @@
+         "node": ">=0.10.0"
+       }
+     },
+-    "node_modules/normalize-svg-path": {
+-      "version": "1.1.0",
+-      "resolved": "https://registry.npmjs.org/normalize-svg-path/-/normalize-svg-path-1.1.0.tgz",
+-      "integrity": "sha512-r9KHKG2UUeB5LoTouwDzBy2VxXlHsiM6fyLQvnJa0S5hrhzqElH/CH7TUGhT1fVvIYBIKf3OpY4YJ4CK+iaqHg==",
+-      "dependencies": {
+-        "svg-arc-to-cubic-bezier": "^3.0.0"
+-      }
+-    },
+     "node_modules/normalize.css": {
+       "version": "8.0.1",
+       "resolved": "https://registry.npmjs.org/normalize.css/-/normalize.css-8.0.1.tgz",
+@@ -9358,19 +8707,6 @@
+         "node": ">=8"
+       }
+     },
+-    "node_modules/npmlog": {
+-      "version": "5.0.1",
+-      "resolved": "https://registry.npmjs.org/npmlog/-/npmlog-5.0.1.tgz",
+-      "integrity": "sha512-AqZtDUWOMKs1G/8lwylVjrdYgqA4d9nu8hc+0gzRxlDb1I10+FHBGMXs6aiQHFdCUUlqH99MUMuLfzWDNDtfxw==",
+-      "deprecated": "This package is no longer supported.",
+-      "optional": true,
+-      "dependencies": {
+-        "are-we-there-yet": "^2.0.0",
+-        "console-control-strings": "^1.1.0",
+-        "gauge": "^3.0.0",
+-        "set-blocking": "^2.0.0"
+-      }
+-    },
+     "node_modules/nth-check": {
+       "version": "2.1.1",
+       "resolved": "https://registry.npmjs.org/nth-check/-/nth-check-2.1.1.tgz",
+@@ -9623,11 +8959,6 @@
+       "resolved": "https://registry.npmjs.org/package-json-from-dist/-/package-json-from-dist-1.0.0.tgz",
+       "integrity": "sha512-dATvCeZN/8wQsGywez1mzHtTlP22H8OEfPrVMLNr4/eGa+ijtLn/6M5f0dY8UKNrC2O9UCU6SSoG3qRKnt7STw=="
+     },
+-    "node_modules/pako": {
+-      "version": "1.0.11",
+-      "resolved": "https://registry.npmjs.org/pako/-/pako-1.0.11.tgz",
+-      "integrity": "sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw=="
+-    },
+     "node_modules/parent-module": {
+       "version": "1.0.1",
+       "resolved": "https://registry.npmjs.org/parent-module/-/parent-module-1.0.1.tgz",
+@@ -9664,11 +8995,6 @@
+       "resolved": "https://registry.npmjs.org/parse-numeric-range/-/parse-numeric-range-1.3.0.tgz",
+       "integrity": "sha512-twN+njEipszzlMJd4ONUYgSfZPDxgHhT9Ahed5uTigpQn90FggW4SA/AIPq/6a149fTbE9qBEcSwE3FAEp6wQQ=="
+     },
+-    "node_modules/parse-svg-path": {
+-      "version": "0.1.2",
+-      "resolved": "https://registry.npmjs.org/parse-svg-path/-/parse-svg-path-0.1.2.tgz",
+-      "integrity": "sha512-JyPSBnkTJ0AI8GGJLfMXvKq42cj5c006fnLz6fXy6zfoVjJizi8BNTpu8on8ziI1cKy9d9DGNuY17Ce7wuejpQ=="
+-    },
+     "node_modules/parse5": {
+       "version": "6.0.1",
+       "resolved": "https://registry.npmjs.org/parse5/-/parse5-6.0.1.tgz",
+@@ -9768,15 +9094,6 @@
+         "node": ">=8"
+       }
+     },
+-    "node_modules/path2d": {
+-      "version": "0.2.1",
+-      "resolved": "https://registry.npmjs.org/path2d/-/path2d-0.2.1.tgz",
+-      "integrity": "sha512-Fl2z/BHvkTNvkuBzYTpTuirHZg6wW9z8+4SND/3mDTEcYbbNKWAy21dz9D3ePNNwrrK8pqZO5vLPZ1hLF6T7XA==",
+-      "optional": true,
+-      "engines": {
+-        "node": ">=6"
+-      }
+-    },
+     "node_modules/pbf": {
+       "version": "3.3.0",
+       "resolved": "https://registry.npmjs.org/pbf/-/pbf-3.3.0.tgz",
+@@ -9789,18 +9106,6 @@
+         "pbf": "bin/pbf"
+       }
+     },
+-    "node_modules/pdfjs-dist": {
+-      "version": "4.4.168",
+-      "resolved": "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-4.4.168.tgz",
+-      "integrity": "sha512-MbkAjpwka/dMHaCfQ75RY1FXX3IewBVu6NGZOcxerRFlaBiIkZmUoR0jotX5VUzYZEXAGzSFtknWs5xRKliXPA==",
+-      "engines": {
+-        "node": ">=18"
+-      },
+-      "optionalDependencies": {
+-        "canvas": "^2.11.2",
+-        "path2d": "^0.2.0"
+-      }
+-    },
+     "node_modules/pend": {
+       "version": "1.2.0",
+       "resolved": "https://registry.npmjs.org/pend/-/pend-1.2.0.tgz",
+@@ -10162,6 +9467,7 @@
+       "version": "15.8.1",
+       "resolved": "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz",
+       "integrity": "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==",
++      "dev": true,
+       "dependencies": {
+         "loose-envify": "^1.4.0",
+         "object-assign": "^4.1.1",
+@@ -10379,14 +9685,6 @@
+       "integrity": "sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==",
+       "dev": true
+     },
+-    "node_modules/queue": {
+-      "version": "6.0.2",
+-      "resolved": "https://registry.npmjs.org/queue/-/queue-6.0.2.tgz",
+-      "integrity": "sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==",
+-      "dependencies": {
+-        "inherits": "~2.0.3"
+-      }
+-    },
+     "node_modules/queue-microtask": {
+       "version": "1.2.3",
+       "resolved": "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz",
+@@ -10458,35 +9756,8 @@
+     "node_modules/react-is": {
+       "version": "16.13.1",
+       "resolved": "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz",
+-      "integrity": "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
+-    },
+-    "node_modules/react-pdf": {
+-      "version": "9.1.1",
+-      "resolved": "https://registry.npmjs.org/react-pdf/-/react-pdf-9.1.1.tgz",
+-      "integrity": "sha512-Cn3RTJZMqVOOCgLMRXDamLk4LPGfyB2Np3OwQAUjmHIh47EpuGW1OpAA1Z1GVDLoHx4d5duEDo/YbUkDbr4QFQ==",
+-      "dependencies": {
+-        "clsx": "^2.0.0",
+-        "dequal": "^2.0.3",
+-        "make-cancellable-promise": "^1.3.1",
+-        "make-event-props": "^1.6.0",
+-        "merge-refs": "^1.3.0",
+-        "pdfjs-dist": "4.4.168",
+-        "tiny-invariant": "^1.0.0",
+-        "warning": "^4.0.0"
+-      },
+-      "funding": {
+-        "url": "https://github.com/wojtekmaj/react-pdf?sponsor=1"
+-      },
+-      "peerDependencies": {
+-        "@types/react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+-        "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+-        "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+-      },
+-      "peerDependenciesMeta": {
+-        "@types/react": {
+-          "optional": true
+-        }
+-      }
++      "integrity": "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==",
++      "dev": true
+     },
+     "node_modules/react-window": {
+       "version": "1.8.10",
+@@ -10512,20 +9783,6 @@
+         "pify": "^2.3.0"
+       }
+     },
+-    "node_modules/readable-stream": {
+-      "version": "3.6.2",
+-      "resolved": "https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.2.tgz",
+-      "integrity": "sha512-9u/sniCrY3D5WdsERHzHE4G2YCXqoG5FTHUiCC4SIbr6XcLZBY05ya9EKjYek9O5xOAwjGq+1JdGBAS7Q9ScoA==",
+-      "optional": true,
+-      "dependencies": {
+-        "inherits": "^2.0.3",
+-        "string_decoder": "^1.1.1",
+-        "util-deprecate": "^1.0.1"
+-      },
+-      "engines": {
+-        "node": ">= 6"
+-      }
+-    },
+     "node_modules/readdirp": {
+       "version": "3.6.0",
+       "resolved": "https://registry.npmjs.org/readdirp/-/readdirp-3.6.0.tgz",
+@@ -11047,14 +10304,6 @@
+         "node": ">=0.10.0"
+       }
+     },
+-    "node_modules/require-from-string": {
+-      "version": "2.0.2",
+-      "resolved": "https://registry.npmjs.org/require-from-string/-/require-from-string-2.0.2.tgz",
+-      "integrity": "sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==",
+-      "engines": {
+-        "node": ">=0.10.0"
+-      }
+-    },
+     "node_modules/requires-port": {
+       "version": "1.0.0",
+       "resolved": "https://registry.npmjs.org/requires-port/-/requires-port-1.0.0.tgz",
+@@ -11122,11 +10371,6 @@
+       "integrity": "sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==",
+       "dev": true
+     },
+-    "node_modules/restructure": {
+-      "version": "3.0.2",
+-      "resolved": "https://registry.npmjs.org/restructure/-/restructure-3.0.2.tgz",
+-      "integrity": "sha512-gSfoiOEA0VPE6Tukkrr7I0RBdE0s7H1eFCDBk05l1KIQT1UIKNc5JZy6jdyW6eYH3aR3g5b3PuL77rq0hvwtAw=="
+-    },
+     "node_modules/reusify": {
+       "version": "1.0.4",
+       "resolved": "https://registry.npmjs.org/reusify/-/reusify-1.0.4.tgz",
+@@ -11147,7 +10391,7 @@
+       "resolved": "https://registry.npmjs.org/rimraf/-/rimraf-3.0.2.tgz",
+       "integrity": "sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==",
+       "deprecated": "Rimraf versions prior to v4 are no longer supported",
+-      "devOptional": true,
++      "dev": true,
+       "dependencies": {
+         "glob": "^7.1.3"
+       },
+@@ -11227,6 +10471,7 @@
+       "version": "5.2.1",
+       "resolved": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.2.1.tgz",
+       "integrity": "sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==",
++      "dev": true,
+       "funding": [
+         {
+           "type": "github",
+@@ -11312,12 +10557,6 @@
+       "resolved": "https://registry.npmjs.org/server-destroy/-/server-destroy-1.0.1.tgz",
+       "integrity": "sha512-rb+9B5YBIEzYcD6x2VKidaa+cqYBJQKnU4oe4E3ANwRRN56yk/ua1YCJT1n21NTS8w6CcOclAKNP3PhdCXKYtQ=="
+     },
+-    "node_modules/set-blocking": {
+-      "version": "2.0.0",
+-      "resolved": "https://registry.npmjs.org/set-blocking/-/set-blocking-2.0.0.tgz",
+-      "integrity": "sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw==",
+-      "optional": true
+-    },
+     "node_modules/set-function-length": {
+       "version": "1.2.2",
+       "resolved": "https://registry.npmjs.org/set-function-length/-/set-function-length-1.2.2.tgz",
+@@ -11815,37 +11054,6 @@
+         "url": "https://github.com/sponsors/isaacs"
+       }
+     },
+-    "node_modules/simple-concat": {
+-      "version": "1.0.1",
+-      "resolved": "https://registry.npmjs.org/simple-concat/-/simple-concat-1.0.1.tgz",
+-      "integrity": "sha512-cSFtAPtRhljv69IK0hTVZQ+OfE9nePi/rtJmw5UjHeVyVroEqJXP1sFztKUy1qU+xvz3u/sfYJLa947b7nAN2Q==",
+-      "funding": [
+-        {
+-          "type": "github",
+-          "url": "https://github.com/sponsors/feross"
+-        },
+-        {
+-          "type": "patreon",
+-          "url": "https://www.patreon.com/feross"
+-        },
+-        {
+-          "type": "consulting",
+-          "url": "https://feross.org/support"
+-        }
+-      ],
+-      "optional": true
+-    },
+-    "node_modules/simple-get": {
+-      "version": "3.1.1",
+-      "resolved": "https://registry.npmjs.org/simple-get/-/simple-get-3.1.1.tgz",
+-      "integrity": "sha512-CQ5LTKGfCpvE1K0n2us+kuMPbk/q0EKl82s4aheV9oXjFEz6W/Y7oQFVJuU6QG77hRT4Ghb5RURteF5vnWjupA==",
+-      "optional": true,
+-      "dependencies": {
+-        "decompress-response": "^4.2.0",
+-        "once": "^1.3.1",
+-        "simple-concat": "^1.0.0"
+-      }
+-    },
+     "node_modules/simple-swizzle": {
+       "version": "0.2.2",
+       "resolved": "https://registry.npmjs.org/simple-swizzle/-/simple-swizzle-0.2.2.tgz",
+@@ -11968,14 +11176,6 @@
+         "node": ">=10.0.0"
+       }
+     },
+-    "node_modules/string_decoder": {
+-      "version": "1.3.0",
+-      "resolved": "https://registry.npmjs.org/string_decoder/-/string_decoder-1.3.0.tgz",
+-      "integrity": "sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==",
+-      "dependencies": {
+-        "safe-buffer": "~5.2.0"
+-      }
+-    },
+     "node_modules/string-width": {
+       "version": "4.2.3",
+       "resolved": "https://registry.npmjs.org/string-width/-/string-width-4.2.3.tgz",
+@@ -12233,11 +11433,6 @@
+         "url": "https://github.com/sponsors/ljharb"
+       }
+     },
+-    "node_modules/svg-arc-to-cubic-bezier": {
+-      "version": "3.2.0",
+-      "resolved": "https://registry.npmjs.org/svg-arc-to-cubic-bezier/-/svg-arc-to-cubic-bezier-3.2.0.tgz",
+-      "integrity": "sha512-djbJ/vZKZO+gPoSDThGNpKDO+o+bAeA4XQKovvkNCqnIS2t+S4qnLAGQhyyrulhCFRl1WWzAp0wUDV8PpTVU3g=="
+-    },
+     "node_modules/tailwind-merge": {
+       "version": "2.3.0",
+       "resolved": "https://registry.npmjs.org/tailwind-merge/-/tailwind-merge-2.3.0.tgz",
+@@ -12467,32 +11662,6 @@
+         "node": ">=6"
+       }
+     },
+-    "node_modules/tar": {
+-      "version": "6.2.1",
+-      "resolved": "https://registry.npmjs.org/tar/-/tar-6.2.1.tgz",
+-      "integrity": "sha512-DZ4yORTwrbTj/7MZYq2w+/ZFdI6OZ/f9SFHR+71gIVUZhOQPHzVCLpvRnPgyaMpfWxxk/4ONva3GQSyNIKRv6A==",
+-      "optional": true,
+-      "dependencies": {
+-        "chownr": "^2.0.0",
+-        "fs-minipass": "^2.0.0",
+-        "minipass": "^5.0.0",
+-        "minizlib": "^2.1.1",
+-        "mkdirp": "^1.0.3",
+-        "yallist": "^4.0.0"
+-      },
+-      "engines": {
+-        "node": ">=10"
+-      }
+-    },
+-    "node_modules/tar/node_modules/minipass": {
+-      "version": "5.0.0",
+-      "resolved": "https://registry.npmjs.org/minipass/-/minipass-5.0.0.tgz",
+-      "integrity": "sha512-3FnjYuehv9k6ovOEbyOswadCDPX1piCfhV8ncmYtHOjuPwylVWsghTLo7rabjC3Rx5xD4HDx8Wm1xnMF7S5qFQ==",
+-      "optional": true,
+-      "engines": {
+-        "node": ">=8"
+-      }
+-    },
+     "node_modules/text-table": {
+       "version": "0.2.0",
+       "resolved": "https://registry.npmjs.org/text-table/-/text-table-0.2.0.tgz",
+@@ -12533,16 +11702,6 @@
+       "integrity": "sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==",
+       "dev": true
+     },
+-    "node_modules/tiny-inflate": {
+-      "version": "1.0.3",
+-      "resolved": "https://registry.npmjs.org/tiny-inflate/-/tiny-inflate-1.0.3.tgz",
+-      "integrity": "sha512-pkY1fj1cKHb2seWDy0B16HeWyczlJA9/WW3u3c4z/NiWDsO3DOU5D7nhTLE9CF0yXv/QZFY7sEJmj24dK+Rrqw=="
+-    },
+-    "node_modules/tiny-invariant": {
+-      "version": "1.3.3",
+-      "resolved": "https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.3.3.tgz",
+-      "integrity": "sha512-+FbBPE1o9QAYvviau/qC5SE3caw21q3xkvWKBtja5vgqOWIHHJ3ioaq1VPfn/Szqctz2bU/oYeKd9/z5BL+PVg=="
+-    },
+     "node_modules/tiny-lru": {
+       "version": "11.2.11",
+       "resolved": "https://registry.npmjs.org/tiny-lru/-/tiny-lru-11.2.11.tgz",
+@@ -12826,29 +11985,6 @@
+       "resolved": "https://registry.npmjs.org/undici-types/-/undici-types-5.26.5.tgz",
+       "integrity": "sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA=="
+     },
+-    "node_modules/unicode-properties": {
+-      "version": "1.4.1",
+-      "resolved": "https://registry.npmjs.org/unicode-properties/-/unicode-properties-1.4.1.tgz",
+-      "integrity": "sha512-CLjCCLQ6UuMxWnbIylkisbRj31qxHPAurvena/0iwSVbQ2G1VY5/HjV0IRabOEbDHlzZlRdCrD4NhB0JtU40Pg==",
+-      "dependencies": {
+-        "base64-js": "^1.3.0",
+-        "unicode-trie": "^2.0.0"
+-      }
+-    },
+-    "node_modules/unicode-trie": {
+-      "version": "2.0.0",
+-      "resolved": "https://registry.npmjs.org/unicode-trie/-/unicode-trie-2.0.0.tgz",
+-      "integrity": "sha512-x7bc76x0bm4prf1VLg79uhAzKw8DVboClSN5VxJuQ+LKDOVEW9CdH+VY7SP+vX7xCYQqzzgQpFqz15zeLvAtZQ==",
+-      "dependencies": {
+-        "pako": "^0.2.5",
+-        "tiny-inflate": "^1.0.0"
+-      }
+-    },
+-    "node_modules/unicode-trie/node_modules/pako": {
+-      "version": "0.2.9",
+-      "resolved": "https://registry.npmjs.org/pako/-/pako-0.2.9.tgz",
+-      "integrity": "sha512-NUcwaKxUxWrZLpDG+z/xZaCgQITkA/Dv4V/T6bw7VON6l1Xz/VnrBqrYjZQ12TamKHzITTfOEIYUj48y2KXImA=="
+-    },
+     "node_modules/unified": {
+       "version": "10.1.2",
+       "resolved": "https://registry.npmjs.org/unified/-/unified-10.1.2.tgz",
+@@ -13132,19 +12268,6 @@
+         "url": "https://opencollective.com/unified"
+       }
+     },
+-    "node_modules/vite-compatible-readable-stream": {
+-      "version": "3.6.1",
+-      "resolved": "https://registry.npmjs.org/vite-compatible-readable-stream/-/vite-compatible-readable-stream-3.6.1.tgz",
+-      "integrity": "sha512-t20zYkrSf868+j/p31cRIGN28Phrjm3nRSLR2fyc2tiWi4cZGVdv68yNlwnIINTkMTmPoMiSlc0OadaO7DXZaQ==",
+-      "dependencies": {
+-        "inherits": "^2.0.3",
+-        "string_decoder": "^1.1.1",
+-        "util-deprecate": "^1.0.1"
+-      },
+-      "engines": {
+-        "node": ">= 6"
+-      }
+-    },
+     "node_modules/void-elements": {
+       "version": "3.1.0",
+       "resolved": "https://registry.npmjs.org/void-elements/-/void-elements-3.1.0.tgz",
+@@ -13173,14 +12296,6 @@
+         "pbf": "^3.2.1"
+       }
+     },
+-    "node_modules/warning": {
+-      "version": "4.0.3",
+-      "resolved": "https://registry.npmjs.org/warning/-/warning-4.0.3.tgz",
+-      "integrity": "sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==",
+-      "dependencies": {
+-        "loose-envify": "^1.0.0"
+-      }
+-    },
+     "node_modules/web-namespaces": {
+       "version": "2.0.1",
+       "resolved": "https://registry.npmjs.org/web-namespaces/-/web-namespaces-2.0.1.tgz",
+@@ -13305,15 +12420,6 @@
+         "url": "https://github.com/sponsors/ljharb"
+       }
+     },
+-    "node_modules/wide-align": {
+-      "version": "1.1.5",
+-      "resolved": "https://registry.npmjs.org/wide-align/-/wide-align-1.1.5.tgz",
+-      "integrity": "sha512-eDMORYaPNZ4sQIuuYPDHdQvf4gyCF9rEEV/yPxGfwPkRodwEgiMUUXTx/dex+Me0wxx53S+NgUHaP7y3MGlDmg==",
+-      "optional": true,
+-      "dependencies": {
+-        "string-width": "^1.0.2 || 2 || 3 || 4"
+-      }
+-    },
+     "node_modules/word-wrap": {
+       "version": "1.2.5",
+       "resolved": "https://registry.npmjs.org/word-wrap/-/word-wrap-1.2.5.tgz",
+@@ -13437,11 +12543,6 @@
+         "url": "https://github.com/sponsors/sindresorhus"
+       }
+     },
+-    "node_modules/yoga-layout": {
+-      "version": "3.1.0",
+-      "resolved": "https://registry.npmjs.org/yoga-layout/-/yoga-layout-3.1.0.tgz",
+-      "integrity": "sha512-auzJ8lEovThZIpR8wLGWNo/JEj4VTO79q9/gOJ0dWb3shAYPFdX3t9VN0fC0v+jeQF77STUdCzebLwRMqzn5gQ=="
+-    },
+     "node_modules/zod": {
+       "version": "3.22.4",
+       "resolved": "https://registry.npmjs.org/zod/-/zod-3.22.4.tgz",
+diff --git a/package.json b/package.json
+index 128c960..8134dc2 100755
+--- a/package.json
++++ b/package.json
+@@ -19,7 +19,6 @@
+     "@headlessui/react": "^1.7.17",
+     "@headlessui/tailwindcss": "^0.2.1",
+     "@heroicons/react": "^2.1.3",
+-    "@react-pdf/renderer": "^4.0.0",
+     "@types/node": "^20.10.4",
+     "@types/react": "^18.2.42",
+     "@types/react-dom": "^18.2.17",
+@@ -41,7 +40,6 @@
+     "react": "18.2.0",
+     "react-dom": "18.2.0",
+     "react-i18next": "^14.1.2",
+-    "react-pdf": "^9.1.1",
+     "react-window": "^1.8.10",
+     "rehype-pretty-code": "^0.12.0",
+     "rehype-slug": "^6.0.0",
+diff --git a/public/Tiktok logo.svg b/public/Tiktok logo.svg
+deleted file mode 100644
+index 6c72acb..0000000
+--- a/public/Tiktok logo.svg	
++++ /dev/null
+@@ -1,2 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+-<svg fill="#000000" width="800px" height="800px" viewBox="0 0 512 512" id="icons" xmlns="http://www.w3.org/2000/svg"><path d="M412.19,118.66a109.27,109.27,0,0,1-9.45-5.5,132.87,132.87,0,0,1-24.27-20.62c-18.1-20.71-24.86-41.72-27.35-56.43h.1C349.14,23.9,350,16,350.13,16H267.69V334.78c0,4.28,0,8.51-.18,12.69,0,.52-.05,1-.08,1.56,0,.23,0,.47-.05.71,0,.06,0,.12,0,.18a70,70,0,0,1-35.22,55.56,68.8,68.8,0,0,1-34.11,9c-38.41,0-69.54-31.32-69.54-70s31.13-70,69.54-70a68.9,68.9,0,0,1,21.41,3.39l.1-83.94a153.14,153.14,0,0,0-118,34.52,161.79,161.79,0,0,0-35.3,43.53c-3.48,6-16.61,30.11-18.2,69.24-1,22.21,5.67,45.22,8.85,54.73v.2c2,5.6,9.75,24.71,22.38,40.82A167.53,167.53,0,0,0,115,470.66v-.2l.2.2C155.11,497.78,199.36,496,199.36,496c7.66-.31,33.32,0,62.46-13.81,32.32-15.31,50.72-38.12,50.72-38.12a158.46,158.46,0,0,0,27.64-45.93c7.46-19.61,9.95-43.13,9.95-52.53V176.49c1,.6,14.32,9.41,14.32,9.41s19.19,12.3,49.13,20.31c21.48,5.7,50.42,6.9,50.42,6.9V131.27C453.86,132.37,433.27,129.17,412.19,118.66Z"/></svg>
+\ No newline at end of file
+diff --git a/public/documents/Blue SEO Instagram Post.pdf b/public/documents/Blue SEO Instagram Post.pdf
+deleted file mode 100644
+index 5b41736..0000000
+Binary files a/public/documents/Blue SEO Instagram Post.pdf and /dev/null differ
+diff --git a/public/images/labs/bocelli-jameel-scholarship/anastasia-koorn_1x1.jpg b/public/images/labs/bocelli-jameel-scholarship/anastasia-koorn_1x1.jpg
+new file mode 100644
+index 0000000..53fd873
+Binary files /dev/null and b/public/images/labs/bocelli-jameel-scholarship/anastasia-koorn_1x1.jpg differ
+diff --git a/public/images/labs/bocelli-jameel-scholarship/bocelli-jameel-scholarship_og.jpg b/public/images/labs/bocelli-jameel-scholarship/bocelli-jameel-scholarship_og.jpg
+new file mode 100644
+index 0000000..27afa26
+Binary files /dev/null and b/public/images/labs/bocelli-jameel-scholarship/bocelli-jameel-scholarship_og.jpg differ
+diff --git a/public/images/labs/bocelli-jameel-scholarship/clara-barbier-serrano_1x1.jpg b/public/images/labs/bocelli-jameel-scholarship/clara-barbier-serrano_1x1.jpg
+new file mode 100644
+index 0000000..e3bb6f4
+Binary files /dev/null and b/public/images/labs/bocelli-jameel-scholarship/clara-barbier-serrano_1x1.jpg differ
+diff --git a/public/images/labs/bocelli-jameel-scholarship/henna-mun_1x1.jpg b/public/images/labs/bocelli-jameel-scholarship/henna-mun_1x1.jpg
+new file mode 100644
+index 0000000..d8c147d
+Binary files /dev/null and b/public/images/labs/bocelli-jameel-scholarship/henna-mun_1x1.jpg differ
+diff --git a/public/images/labs/bocelli-jameel-scholarship/laura-mekhail_1x1.jpg b/public/images/labs/bocelli-jameel-scholarship/laura-mekhail_1x1.jpg
+new file mode 100644
+index 0000000..5d84fb6
+Binary files /dev/null and b/public/images/labs/bocelli-jameel-scholarship/laura-mekhail_1x1.jpg differ
+diff --git a/public/images/labs/bocelli-jameel-scholarship/seonwoo-lee_1x1.jpg b/public/images/labs/bocelli-jameel-scholarship/seonwoo-lee_1x1.jpg
+new file mode 100644
+index 0000000..310e7b9
+Binary files /dev/null and b/public/images/labs/bocelli-jameel-scholarship/seonwoo-lee_1x1.jpg differ
