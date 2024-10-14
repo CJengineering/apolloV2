@@ -51,6 +51,27 @@ export default function SocialMediaList({
     );
   };
 
+  socialMediaLinks,
+}: {
+  socialMediaLinks: SocialMediaLinks;
+}) {
+  const renderLink = (name: string, url: string) => {
+    const iconPath = socialIcons[name.charAt(0).toUpperCase() + name.slice(1)];
+    if (!iconPath) return null;
+
+    return (
+      <a
+        key={name}
+        className="pr-2"
+        href={url}
+        target="_blank"
+        aria-label={name.charAt(0).toUpperCase() + name.slice(1)}
+      >
+        <IconBase path={iconPath} />
+      </a>
+    );
+  };
+
   return (
     <div className="flex">
       {socialMediaLinks.instagram &&
@@ -83,6 +104,37 @@ export default function SocialMediaList({
         renderLink(socialMediaLinks.website.name, 
         socialMediaLinks.website.name
         )}    
+      {socialMediaLinks.instagram &&
+        renderLink(
+          socialMediaLinks.instagram.name,
+          socialMediaLinks.instagram.url
+        )}
+      {socialMediaLinks.youtube &&
+        renderLink(socialMediaLinks.youtube.name, socialMediaLinks.youtube.url)}
+      {socialMediaLinks.facebook &&
+        renderLink(
+          socialMediaLinks.facebook.name,
+          socialMediaLinks.facebook.url
+        )}
+      {socialMediaLinks.linkedin &&
+        renderLink(
+          socialMediaLinks.linkedin.name,
+          socialMediaLinks.linkedin.url
+        )}
+      {socialMediaLinks.twitter &&
+        renderLink(socialMediaLinks.twitter.name, 
+        socialMediaLinks.twitter.url
+        )}
+      {socialMediaLinks.tiktok &&
+      renderLink(socialMediaLinks.tiktok.name,
+        socialMediaLinks.tiktok.url
+      )}       
+
+      {socialMediaLinks.website &&
+        renderLink(socialMediaLinks.website.name, 
+        socialMediaLinks.website.name
+        )}    
     </div>
+  );
   );
 }
