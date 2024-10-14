@@ -40,6 +40,7 @@ type NavItem = {
   current?: boolean;
   children?: NavItem[];
   subChildren?: NavItem[];
+  targetBlank?: boolean;
 };
 
 const navItems: NavItem[] = [
@@ -72,6 +73,7 @@ const navItems: NavItem[] = [
           {
             name: "KSA Healthcare Timeiline",
             href: "/stories/ksa-healthcare-timeline",
+            targetBlank: true,
           },
         ],
       },
@@ -459,6 +461,8 @@ export default function Sidebar2() {
           <SidebarLink
             href={item.href ?? "#"}
             key={item.name + "-link" + index}
+            targetBlank={item.targetBlank}
+            
           >
             {item.name}
           </SidebarLink>
@@ -482,7 +486,7 @@ export default function Sidebar2() {
               ) : // Render SidebarLink if href is present, otherwise handle undefined href
               child.href ? (
                 <div className=" mt-3 " key={index + Math.random() + "div-index" + child.name}>
-                  <SidebarLink key={index + "b" + child.name+ Math.random()} href={child.href}>
+                  <SidebarLink key={index + "b" + child.name+ Math.random()} href={child.href} targetBlank={child.targetBlank}>
                     {child.name}
                   </SidebarLink>
                 </div>
