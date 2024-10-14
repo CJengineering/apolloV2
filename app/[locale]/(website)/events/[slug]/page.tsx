@@ -164,11 +164,17 @@ export default async function EventPage({
     </div>
   )}
 </div>
-        <div
+        <div className="flex flex-col lg:flex-row">
+          
+        <div className="w-full lg:w-1/2"
           dangerouslySetInnerHTML={{
             __html: eventSingleDataCleaned.shortDescription2,
           }}
         ></div>
+        <div className="w-full lg:w-1/2" dangerouslySetInnerHTML={{
+          __html: eventSingleDataCleaned.signupEmbed,
+        }} ></div>
+        </div>
       </div>
 
       {eventSingleDataCleaned.rsvpLink && (

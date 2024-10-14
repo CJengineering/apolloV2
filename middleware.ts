@@ -10,6 +10,9 @@ export function middleware(request: NextRequest) {
   const redirects: { [key: string]: string } = {
     '/tes': '/',
     'https://ar.communityjameel.org/team/mohammed-jameel': '/ar/about/team/mohammed-jameel',
+    'https://ar.communityjameel.org/team/fady-jameel': '/ar/about/team/mohammed-jameel',
+    'https://ar.communityjameel.org/team/hassan-jameel': '/ar/about/team/hassan-jameel',
+    'https://ar.communityjameel.org/team/george-richards': '/ar/about/team/george-richards',
     '/programmes/jameel-index': '/programmes/j-wafs/jameel-index',
   };
   const { pathname } = request.nextUrl;

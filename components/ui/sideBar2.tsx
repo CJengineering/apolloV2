@@ -96,21 +96,25 @@ const navItems: NavItem[] = [
             name: "J-PAL MENA",
             href: "https://www.povertyactionlab.org/middle-east-and-north-africa",
             current: false,
+            targetBlank: true,
           },
           {
             name: "ESII",
             href: "https://www.povertyactionlab.org/initiative/european-social-inclusion-initiative",
             current: false,
+            targetBlank: true,
           },
           {
             name: "HAPIE",
             href: "https://www.povertyactionlab.org/page/hub-advanced-policy-innovation-environment-hapie",
             current: false,
+            targetBlank: true,
           },
           {
             name: "J-PAL Air and Water Labs",
-            href: "https://www.povertyactionlab.org/programmes/j-pal/air-and-water-labs",
+            href: "https://www.povertyactionlab.org/page/air-and-water-labs",
             current: false,
+            targetBlank: true,
           },
         ],
       },
@@ -120,7 +124,7 @@ const navItems: NavItem[] = [
         name: "J-WAFS",
         children: [
           { name: "Overview", href: "/programmes/j-wafs", current: false },
-          { name: "Jameel Index", href: "/programmes/j-wafs/jameel-index", current: false },
+          { name: "Jameel Index", href: "https://jameelindex.mit.edu", current: false, targetBlank: true },
         ],
         },
       {
@@ -179,13 +183,13 @@ const navItems: NavItem[] = [
               { "name": "Clara Barbier Serrano (2020)", "href": "/people/clara-barbier-serrano" },
               { "name": "Laura Mekhail (2021)", "href": "/people/laura-mekhail" },
               { "name": "Seonwoo Lee (2022)", "href": "/people/seonwoo-lee" },
-              { "name": "Anastasia Koorn (2023)", "href": "/people/anatasia-koorn" },
+              { "name": "Anastasia Koorn (2023)", "href": "/people/anastasia-koorn" },
               { "name": "Henna Mun (2023)", "href": "/people/henna-mun" }
             ]
           },
           {
-            name: "Performances",
-            href: "/search?event=bocelli-jameel-scholarship&open=true",
+            name: "Media",
+            href: "/programmes/bocelli-jameel-scholarship/media",
           },
           //{ "name": "Gallery", "href": "/programmes", "current": false }
         ],
