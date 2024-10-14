@@ -442,6 +442,7 @@ export default async function JpalPage({
        
           </div>
         </div> */}
+        <div className="w-full py-6 lg:py-12"></div>
       </div>
     </>
   );

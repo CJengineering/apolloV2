@@ -233,7 +233,7 @@ export default async function jhtac2023graduation({
 
   return (
    < >
-      <div className="pt-10">
+     <div className="pt-20 lg:pt-12">
 
 <div className="flex flex-col text-left">
            

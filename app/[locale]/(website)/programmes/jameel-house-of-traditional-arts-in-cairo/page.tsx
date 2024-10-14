@@ -321,7 +321,7 @@ const imageLightboxData: ImageLightbox[] = [
 <div className="flex flex-col text-left">
            
 <div className="pb-6">
-<h1 className="header-article">Jameel House of Traditional Arts in Cairo</h1>
+<h1 className="header-article lg:pl-2">{cleanSingleProgramme.name}</h1>
 </div>
 
 <div className="">
@@ -428,7 +428,7 @@ The Jameel House of Traditional Arts in Cairo offers classes in traditional geom
   </div>
 
   <div className="pb-6">
-    <h2 className="header-section">Graduating collections</h2>
+    <h2 className="header-section">Graduation Collections</h2>
   </div>
 
 <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
