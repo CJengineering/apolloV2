@@ -273,7 +273,7 @@ export default async function PeoplePage({
         </div>
       </div>
 
-      {peopleDataItem.featureVideo && (
+      {peopleDataItem.featureVideo !=="N/A" && (
   <div>
     <div className="w-full py-6 lg:pb-12 lg:pt-0">
       <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
