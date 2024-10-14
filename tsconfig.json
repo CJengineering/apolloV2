@@ -31,6 +31,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated"
-, "i18nConfig.ts", ],
+, "i18nConfig.ts", "app/not-found.tsx", ],
   "exclude": ["node_modules"]
 }

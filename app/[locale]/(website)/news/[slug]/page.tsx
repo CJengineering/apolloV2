@@ -18,54 +18,16 @@ import { FieldsPostRaw, Item, NewsRawFields } from "@/app/interfaces";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import local from "next/font/local";
 type Props = {
-<<<<<<< HEAD
-  params: { slug: string; locale: string };
-};
-=======
   params: { slug : string, locale: string };
 
 }
->>>>>>> origin/nat20241014
+
 export async function generateMetadata(
   { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   // read route params
-<<<<<<< HEAD
-  const slug = params.slug;
-  const locale = params.locale;
 
-  const newsId = getIdByDisplayName("Posts");
-  const productTest = await getData(newsId);
-  const teamMembersRaw = productTest.items;
-  const memberRaw: Item<FieldsPostRaw>[] = teamMembersRaw.filter(
-    (item) => item.fieldData.slug === slug
-  );
-  const seoTitleArabic = memberRaw[0].fieldData["seo-title-arabic"]
-    ? memberRaw[0].fieldData["seo-title-arabic"]
-    : "";
-  const seoTitleEnglish = memberRaw[0].fieldData["seo-title"]
-    ? memberRaw[0].fieldData["seo-title"]
-    : "";
-  const name = locale === "ar" ? seoTitleArabic : seoTitleEnglish;
-
-  const seoDescriptionArabic = memberRaw[0].fieldData["seo-title-arabic"]
-    ? memberRaw[0].fieldData["seo-meta-arabic"]
-    : "";
-  const seoDescriptionEnglish = memberRaw[0].fieldData["seo-meta"]
-    ? memberRaw[0].fieldData["seo-meta"]
-    : "";
-  const description =
-    locale === "ar" ? seoDescriptionArabic : seoDescriptionEnglish;
-  // optionally access and extend (rather than replace) parent metadata
-
-  return customMetaDataGenerator({
-    useRawTitle: true,
-    title: name || "",
-    description: description,
-    ogImage: memberRaw[0].fieldData["open-graph-image"]?.url || "",
-  });
-=======
   const slug= params.slug
   const locale = params.locale;
 
@@ -94,7 +56,7 @@ export async function generateMetadata(
     })
  
   
->>>>>>> origin/nat20241014
+
 }
 const addType = (items: any[], type: string) =>
   items.map((item) => ({ ...item, type }));
@@ -161,11 +123,11 @@ export default async function page({
   }));
 
   return (
-<<<<<<< HEAD
-    <>
-=======
+
+
+
 <>
->>>>>>> origin/nat20241014
+
       <div className="">
         <ArticleBanter post={cleanPost} locale={params.locale} />
       </div>
@@ -183,10 +145,7 @@ export default async function page({
                 <ContentPhotos images={cleanRelatedImages} />
               )}
           </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/nat20241014
           <div className="pt-9 pb-7">
             <hr className="border-gray-200" />
           </div>
@@ -197,10 +156,6 @@ export default async function page({
           <div className="pb-6">
             <h2 className="header-section">Related</h2>
           </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/nat20241014
           <div className="grid md:grid-cols-2 gap-4">
             {relatedPostsCleaned.map((post) => (
               <PostCard
@@ -214,9 +169,5 @@ export default async function page({
         </>
       )}
     </>
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/nat20241014
   );
 }
