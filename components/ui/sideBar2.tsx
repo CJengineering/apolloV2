@@ -311,8 +311,9 @@ const NavGroup = ({
               onTouchStart={(e) => {
                 e.preventDefault();
                 handleClick();
+                alert('hello')
               }}
-            className="relative flex lg:hidden md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+            className="relative flex lg:hidden md:w-[230px]  justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
               {icon && <span className="mr-3">{icon}</span>}
@@ -443,28 +444,28 @@ export default function Sidebar2() {
   const contentRef = useRef<HTMLDivElement>(null);
 
   // This useEffect will calculate the width of the sidebar and content divs
-  useEffect(() => {
-    const updateSizes = () => {
-      const sidebarHeight = sidebarRef.current?.offsetHeight || 0;
-      const contentWidth = contentRef.current?.offsetWidth || 0;
+  // useEffect(() => {
+  //   const updateSizes = () => {
+  //     const sidebarHeight = sidebarRef.current?.offsetHeight || 0;
+  //     const contentWidth = contentRef.current?.offsetWidth || 0;
 
-      setDivSizes({
-        sidebar: sidebarHeight,
-        content: contentWidth,
-      });
-    };
+  //     setDivSizes({
+  //       sidebar: sidebarHeight,
+  //       content: contentWidth,
+  //     });
+  //   };
 
-    // Call the function to set the initial sizes
-    updateSizes();
+  //   // Call the function to set the initial sizes
+  //   updateSizes();
 
-    // Add an event listener to update sizes on window resize
-    window.addEventListener('resize', updateSizes);
+  //   // Add an event listener to update sizes on window resize
+  //   window.addEventListener('resize', updateSizes);
 
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener('resize', updateSizes);
-    };
-  }, []);
+  //   // Cleanup event listener on component unmount
+  //   return () => {
+  //     window.removeEventListener('resize', updateSizes);
+  //   };
+  // }, []);
 
   const renderNavItems = (navItems: NavItem[]) => {
     return navItems.map((item, index) => (
