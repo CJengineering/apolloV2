@@ -24,7 +24,7 @@ export default function SidebarLink({
   className={`flex items-center space-x-3 w-36 font-normal ${pathname === href ? 'text-dark-600' : 'text-black dark:text-white'}   hover:text-orange-700 dark:hover:text-orange-400`} 
   href={href} 
   target={ targetBlank ?'_blank' : ''}
-  onClick={() => {setSidebarOpen(false), alert('hello')}}
+  onClick={() => setSidebarOpen(false)}
 >
   {children}
 </Link>
