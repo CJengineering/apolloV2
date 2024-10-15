@@ -47,7 +47,7 @@ import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/
 
 const cardData = [
   {
-    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
+    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.webp",
     alt: "Jameel Index",
     title: "Jameel Index",
     subtitle: "",
@@ -56,7 +56,7 @@ const cardData = [
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/labs/j-wafs/JWAFS_SEED_GRANTS.jpg",
+    imageUrl: "/images/labs/j-wafs/JWAFS_SEED_GRANTS.webp",
     alt: "Seed Grants",
     title: "Seed Grants",
     subtitle: "",
@@ -65,7 +65,7 @@ const cardData = [
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/labs/j-wafs/JWAFS_SOLUTIONS_PROGRAMME.jpg",
+    imageUrl: "/images/labs/j-wafs/JWAFS_SOLUTIONS_PROGRAMME.webp",
     alt: "J-WAFS Solutions Programme",
     title: "J-WAFS Solutions Programme",
     subtitle: "",
@@ -74,7 +74,7 @@ const cardData = [
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/labs/j-wafs/JWAFS_GRUDATE_FELLOWSHIPS.jpg",
+    imageUrl: "/images/labs/j-wafs/JWAFS_GRUDATE_FELLOWSHIPS.webp",
     alt: "Graduate Student Fellowships",
     title: "Graduate Student Fellowships",
     subtitle: "",
@@ -303,9 +303,9 @@ export default async function JwafsPage({
           ></ButtonCJ>
         </div>
 
-        <div className="w-full lg:w-2/3">
+        {/* <div className="w-full lg:w-2/3">
           <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
-        </div>
+        </div> */}
 
         <div className="w-full py-6 lg:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
