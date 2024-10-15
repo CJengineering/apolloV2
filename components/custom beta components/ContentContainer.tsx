@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar2 from "../ui/sideBar2";
 import Footer from "../ui/footer";
+import CustomSidebar from "../CJ-components/components-CJ/test components/CustomSIdeBar";
 
 interface ContentContainerProps {
   children: React.ReactNode;
@@ -59,8 +60,11 @@ export default function ContentContainer({
     >
       <div className="flex mb-6">
         <div className="w-[250px] hidden  lg:block">
-          <div className="sticky hidden md:block top-[64px]">
+          {/* <div className="sticky hidden md:block top-[64px]">
             <Sidebar2 />
+          </div> */}
+          <div className="sticky hidden md:block">
+            <CustomSidebar />
           </div>
         </div>
         <div className="relative flex-grow 2xl:max-w-[1313px] xl:max-w-[1030px] lg:max-w-[774px] lg:pl-4">
