@@ -527,7 +527,7 @@ export default async function JameelIndexPage({
         </PostAccordion>
       </div>
       <div className="">
-        <PostAccordion title={"Press"}>
+        <PostAccordion title={"Media"}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {newsProps.slice(0).map((item) => (
               <NewsCard content={item} locale={params} />

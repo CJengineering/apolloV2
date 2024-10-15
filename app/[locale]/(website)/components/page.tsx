@@ -430,7 +430,7 @@ const awardAll = await getData(awardId);`}</code>
       <div className="h-16"></div>
       <SectionBanter title={"Card Components"}>
         <p className="my-6">
-          Card componennts used for News, Press, Events, Multimedia, People,
+          Card componennts used for News, Media, Events, Multimedia, People,
           Programmes, Partners, Sources, and Posts
         </p>
         <div className="h-8"></div>
