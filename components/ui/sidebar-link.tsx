@@ -21,10 +21,10 @@ export default function SidebarLink({
   
   return (
 <Link 
-  className={`flex items-center space-x-3 w-36 font-normal ${pathname === href ? 'text-dark-600' : 'text-black dark:text-white'}  hover:text-orange-700 dark:hover:text-orange-400`} 
+  className={`flex items-center space-x-3 w-36 font-normal ${pathname === href ? 'text-dark-600' : 'text-black dark:text-white'}   hover:text-orange-700 dark:hover:text-orange-400`} 
   href={href} 
-  target={ targetBlank ?'_blank' : '_self'}
-  onClick={() => setSidebarOpen(false)}
+  target={ targetBlank ?'_blank' : ''}
+  onClick={() => {setSidebarOpen(false), alert('hello')}}
 >
   {children}
 </Link>
