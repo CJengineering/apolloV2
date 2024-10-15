@@ -62,19 +62,20 @@ export default async function LegalPage({
 
   return (
     <>
-      <div className="py-12 md:py-24 flex flex-col items-center justify-center">
-        <div className="w-full md:w-1/2">
-          <h1 className="text-center text-4xl serif font-bold">
+      <div className="pt-10 pb-6 flex flex-col items-center justify-center">
+        <div className="w-full">
+          <h1 className="text-left text-4xl sand-serif font-bold">
             {cleanSingleLegalData.name}
           </h1>
         </div>
       </div>
-      <div className="flex justify-center te">
+      <div className="flex">
         <div
-          className="w-full prose prose-lg dark:prose-dark serif font-semibold"
+          className="w-full prose prose-lg dark:prose-dark sand-serif"
           dangerouslySetInnerHTML={{ __html: cleanSingleLegalData.body }}
         ></div>
       </div>
+      <div className="py-6 lg:py-12"></div>
     </>
   );
 }

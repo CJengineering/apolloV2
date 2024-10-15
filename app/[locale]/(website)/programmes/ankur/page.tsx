@@ -208,18 +208,17 @@ export default async function Programme0page({
     <>
       <div className="pt-20 lg:pt-10 lg:mb-12">
       <h1 className="header-article lg:pl-2">{cleanSingleProgramme.name}</h1>
-        <LanguageChanger />
         <TableRowSingle
           repository={dataForRow.repository}
           locale={params.locale}
         />
         <div className="py-6"></div>
-<div className="w-full lg:w-2/3">
+        <div className="w-full lg:w-2/3">
           <ResponsiveYouTubeEmbed embedId="Mk12OIaap20?si=pYvXaV9BnXGJV9FE" />
         </div>
 
-         {/* DIVIDER START */}
-   <div className="w-full mt-12">
+      {/* DIVIDER START */}
+      <div className="w-full mt-12">
         <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
       </div>
       {/* DIVIDER END */}

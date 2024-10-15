@@ -14,6 +14,8 @@ export function middleware(request: NextRequest) {
     'https://ar.communityjameel.org/team/hassan-jameel': '/ar/about/team/hassan-jameel',
     'https://ar.communityjameel.org/team/george-richards': '/ar/about/team/george-richards',
     '/programmes/jameel-index': '/programmes/j-wafs/jameel-index',
+    '/programmes/jameel-arts-health-lab': '/programmes/jameel-arts-and-health-lab',
+    '/programmes/jameel-observatory': '/programmes/jameel-observatory/for-food-security-early-action'
   };
   const { pathname } = request.nextUrl;
   const host = request.headers.get('host')
