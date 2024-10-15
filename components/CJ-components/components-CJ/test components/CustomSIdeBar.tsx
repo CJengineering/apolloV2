@@ -29,257 +29,6 @@ type NavItem = {
   targetBlank?: boolean;
 };
 
-const navItems: NavItem[] = [
-  {
-    name: "About",
-    children: [
-      { name: "Overview", href: "/about/overview" },
-      { name: "Team", href: "/about/team" },
-      { name: "Family album", href: "/about/family-album" },
-      { name: "Brand", href: "/about/brand" },
-    ],
-  },
-  {
-    name: "Community",
-    href: "/community",
-  },
-  {
-    name: "Discover",
-    children: [
-      { name: "Media", href: "/media" },
-      { name: "News", href: "/news" },
-      { name: "Events", href: "/events" },
-      { name: "Newsletter", href: "/newsletter" },
-      {
-        name: "Stories",
-        children: [
-          { name: "GCC Heat Tracker", href: "/stories/gcc-heat-tracker" },
-          { name: "Harvesting Hope", href: "/stories/harvesting-hope" },
-          { name: "Jameel Centre", href: "/stories/a-cairo-cornerstone" },
-          {
-            name: "KSA Healthcare Timeiline",
-            href: "/stories/ksa-healthcare-timeline",
-          },
-        ],
-      },
-      // {
-      //   name: "Films",
-      //   children: [
-      //     { name: "Ankur", href: "/films/ankur" },
-      //     { name: "The Collectors", href: "/films/the-collectors" },
-      //   ],
-      // },
-    ],
-  },
-  {
-    name: "Programmes",
-    children: [
-      {
-        name: "J-PAL",
-        children: [
-          { name: "J-PAL Global", href: "/programmes/j-pal", current: false },
-          {
-            name: "J-PAL MENA",
-            href: "https://www.povertyactionlab.org/middle-east-and-north-africa",
-            current: false,
-            targetBlank: true,
-          },
-          {
-            name: "ESII",
-            href: "https://www.povertyactionlab.org/initiative/european-social-inclusion-initiative",
-            current: false,
-            targetBlank: true,
-          },
-          {
-            name: "HAPIE",
-            href: "https://www.povertyactionlab.org/page/hub-advanced-policy-innovation-environment-hapie",
-            current: false,
-            targetBlank: true,
-          },
-          {
-            name: "J-PAL Air and Water Labs",
-            href: "https://www.povertyactionlab.org/page/air-and-water-labs",
-            current: false,
-            targetBlank: true,
-          },
-        ],
-      },
-
-      {
-        name: "J-WAFS",
-        children: [
-          { name: "Overview", href: "/programmes/j-wafs", current: false },
-          {
-            name: "FACT Alliance",
-            href: "https://jwafs.mit.edu/alliance",
-            current: false,
-            targetBlank: true,
-          },
-          {
-            name: "Jameel Index",
-            href: "https://jameelindex.mit.edu",
-            current: false,
-            targetBlank: true,
-          },
-        ],
-      },
-      {
-        name: "J-WEL",
-        href: "/programmes/j-wel",
-        current: false,
-      },
-      {
-        name: "Jameel Clinic",
-        href: "/programmes/jameel-clinic",
-        current: false,
-      },
-      {
-        name: "Jameel Institute",
-        children: [
-          {
-            name: "Overview",
-            href: "/programmes/jameel-institute",
-            current: false,
-          },
-          {
-            name: "Jameel Institute Kenneth C. Griffin Intitiative",
-            href: "/programmes/jameel-institute/kenneth-c-griffin-initiative-for-economics-of-pandemic-preparedness",
-            current: false,
-          },
-        ],
-      },
-      {
-        name: "Jameel Observatory",
-        children: [
-          {
-            name: "Food Security Early Action",
-            href: "/programmes/jameel-observatory/for-food-security-early-action",
-            current: false,
-          },
-          {
-            name: "CREWSNET",
-            href: "/programmes/jameel-observatory/crewsnet",
-            current: false,
-          },
-        ],
-      },
-      {
-        name: "Jameel Arts & Health Lab",
-        href: "/programmes/jameel-arts-and-health-lab",
-        current: false,
-      },
-      {
-        name: "Climavore x Jameel at RCA",
-        href: "/programmes/climavore-x-jameel-at-rca",
-        current: false,
-      },
-      {
-        name: "Bocelli-Jameel Scholarship",
-        children: [
-          {
-            name: "Overview",
-            href: "/programmes/bocelli-jameel-scholarship",
-            current: false,
-          },
-          {
-            name: "Scholars",
-            subChildren: [
-              {
-                name: "Clara Barbier Serrano (2020)",
-                href: "/people/clara-barbier-serrano",
-              },
-              { name: "Laura Mekhail (2021)", href: "/people/laura-mekhail" },
-              { name: "Seonwoo Lee (2022)", href: "/people/seonwoo-lee" },
-              {
-                name: "Anastasia Koorn (2023)",
-                href: "/people/anastasia-koorn",
-              },
-              { name: "Henna Mun (2023)", href: "/people/henna-mun" },
-            ],
-          },
-          {
-            name: "Media",
-            href: "/programmes/bocelli-jameel-scholarship/media",
-          },
-          //{ "name": "Gallery", "href": "/programmes", "current": false }
-        ],
-      },
-
-      {
-        name: "Jameel House of Traditional Arts in Cairo",
-        children: [
-          {
-            name: "Overview",
-            href: "/programmes/jameel-house-of-traditional-arts-in-cairo",
-          },
-          {
-            name: "Graduation collections",
-            subChildren: [
-              {
-                name: "2023",
-                href: "/programmes/jameel-house-of-traditional-arts-in-cairo/2023-graduation-collection",
-              },
-              {
-                name: "2024",
-                href: "/programmes/jameel-house-of-traditional-arts-in-cairo/2024-graduation-collection",
-              },
-            ],
-          },
-        ],
-      },
-
-      {
-        name: "Pratham Jameel Second Chance Programme",
-        href: "/programmes/pratham-jameel-second-chance",
-        current: false,
-      },
-      {
-        name: "Jameel C40 Urban Planning Climate Labs",
-        href: "/programmes/jameel-c40-urban-planning-climate-labs",
-        current: false,
-      },
-      { name: "Ejada", href: "/programmes/ejada", current: false },
-      {
-        name: "Jameel Toyota Scholarship",
-        href: "/programmes/jameel-toyota-scholarship",
-        current: false,
-      },
-      {
-        name: "Ankur",
-        href: "/programmes/ankur",
-        current: false,
-      },
-      {
-        name: "BRUVS Monaco",
-        href: "/programmes/bruvs-monaco",
-        current: false,
-      },
-      {
-        name: "Funds",
-        children: [
-          {
-            name: "Jameel Fund",
-            href: "/programmes/funds/jameel-fund",
-            current: false,
-          },
-          {
-            name: "Iraq Cultural Health Fund",
-            href: "/programmes/funds/iraq-cultural-health-fund",
-            current: false,
-          },
-          {
-            name: "Covid-19-Excellence Fund",
-            href: "/programmes/funds/covid-19-excellence-fund",
-            current: false,
-          },
-        ],
-      },
-    ],
-  },
-
-  // ... (Other nav items here)
-];
-
 const NavLink = ({
   href,
   children,
@@ -349,7 +98,7 @@ const NavGroup = ({
             onTouchStart={(e) => {
               handleClick();
             }}
-            className="hidden lg:flex relative md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+            className="hidden lg:flex relative md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2  pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
               {icon && <span className="mr-3">{icon}</span>}
@@ -395,7 +144,7 @@ const NavSubGroup = ({
             onTouchStart={(e) => {
               handleClick();
             }}
-            className="relative flex lg:hidden md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+            className="relative flex lg:hidden md:w-[230px]  justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
               {title}
@@ -416,7 +165,7 @@ const NavSubGroup = ({
             onTouchStart={(e) => {
               handleClick();
             }}
-            className="hidden lg:flex relative md:w-[202px]  justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+            className="hidden lg:flex relative md:w-[202px]  justify-between items-center font-normal sans-serif text-black py-2  pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
               {title}
@@ -481,7 +230,7 @@ const NavSubSubGroup = ({
             onTouchStart={(e) => {
               handleClick();
             }}
-            className="hidden lg:flex relative md:w-[174px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+            className="hidden lg:flex relative md:w-[174px] justify-between items-center font-normal sans-serif text-black  pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
               {title}
@@ -523,60 +272,6 @@ export default function CustomSideBar() {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
-  const renderNavItems = (navItems: NavItem[]) => {
-    return navItems.map((item, index) => (
-      <div className="mt-3" key={item.name + "-top" + index}>
-        {item.href ? (
-          // Ensure href is defined before rendering SidebarLink
-          <SidebarLink
-            href={item.href ?? "#"}
-            key={item.name + "-link" + index}
-            targetBlank={item.targetBlank}
-          >
-            {item.name}
-          </SidebarLink>
-        ) : (
-          // First level group (children) case
-          <SidebarLinkSubgroup
-            key={item.name + "-group" + index}
-            title={item.name}
-            open={useSelectedLayoutSegments().includes(item.name)}
-          >
-            {item.children?.map((child) =>
-              child.subChildren ? (
-                // Render subChildren inside SidebarLinkSubChildren
-                <SidebarLinkSubChildren
-                  title={child.name}
-                  open={useSelectedLayoutSegments().includes(child.name)}
-                  key={child.name + "-sub" + index}
-                >
-                  {renderNavItems(child.subChildren)}
-                </SidebarLinkSubChildren>
-              ) : // Render SidebarLink if href is present, otherwise handle undefined href
-              child.href ? (
-                <div
-                  className=" mt-3 "
-                  key={index + Math.random() + "div-index" + child.name}
-                >
-                  <SidebarLink
-                    key={index + "b" + child.name + Math.random()}
-                    href={child.href}
-                    targetBlank={child.targetBlank}
-                  >
-                    {child.name}
-                  </SidebarLink>
-                </div>
-              ) : (
-                <div key={child.name + "a" + Math.random() + index}>
-                  {child.name}
-                </div> // Handle cases without href
-              )
-            )}
-          </SidebarLinkSubgroup>
-        )}
-      </div>
-    ));
-  };
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -635,14 +330,14 @@ export default function CustomSideBar() {
                     <AcademicCapIcon className="h-4 w-4 text-gray-500 dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />
                   }
                 >
-                  <div className="mt-3">
+                  <div className="mt-">
                     {[
                       { name: "Overview", href: "/about/overview" },
                       { name: "Team", href: "/about/team" },
                       { name: "Family album", href: "/about/family-album" },
                       { name: "Brand", href: "/about/brand" },
                     ].map((item, index) => (
-                      <div className="mt-3">
+                      <div className="mt-">
                         <SidebarLink href={item.href}>{item.name}</SidebarLink>
                       </div>
                     ))}
@@ -686,8 +381,14 @@ export default function CustomSideBar() {
                         targetBlank: true,
                       },
                     ].map((item, index) => (
-                      <div className="mt-3">
-                        <SidebarLink href={item.href} key={index + Math.random()}>{item.name}</SidebarLink>
+                      <div className="mt-">
+                        <SidebarLink
+                          href={item.href}
+                          key={index + Math.random()}
+                          targetBlank={item.targetBlank}
+                        >
+                          {item.name}
+                        </SidebarLink>
                       </div>
                     ))}
                   </NavSubGroup>
@@ -711,15 +412,21 @@ export default function CustomSideBar() {
                         targetBlank: true,
                       },
                     ].map((item, index) => (
-                      <div className="mt-3">
-                        <SidebarLink href={item.href} key={index + Math.random()}>{item.name}</SidebarLink>
+                      <div className="mt-">
+                        <SidebarLink
+                          href={item.href}
+                          key={index + Math.random()}
+                          targetBlank={item.targetBlank}
+                        >
+                          {item.name}
+                        </SidebarLink>
                       </div>
                     ))}
                   </NavSubGroup>
-                  <div className="mt-3">
+                  <div className="mt-">
                     <SidebarLink href="/programmes/j-wel">J-WEL</SidebarLink>
                   </div>
-                  <div className="mt-3">
+                  <div className="mt-">
                     <SidebarLink href="/programmes/jameel-clinic">
                       Jameel Clinic
                     </SidebarLink>
@@ -737,7 +444,7 @@ export default function CustomSideBar() {
                         current: false,
                       },
                     ].map((item, index) => (
-                      <div className="mt-3">
+                      <div className="mt-">
                         <SidebarLink href={item.href}>{item.name}</SidebarLink>
                       </div>
                     ))}
@@ -755,17 +462,22 @@ export default function CustomSideBar() {
                         current: false,
                       },
                     ].map((item, index) => (
-                      <div className="mt-3">
-                        <SidebarLink href={item.href}  key={index + Math.random()}>{item.name}</SidebarLink>
+                      <div className="mt-">
+                        <SidebarLink
+                          href={item.href}
+                          key={index + Math.random()}
+                        >
+                          {item.name}
+                        </SidebarLink>
                       </div>
                     ))}
                   </NavSubGroup>
-                  <div className="mt-3">
+                  <div className="mt-">
                     <SidebarLink href="/programmes/jameel-arts-and-health-lab">
                       Jameel Arts & Health Lab
                     </SidebarLink>
                   </div>
-                  <div className="mt-3">
+                  <div className="mt-">
                     <SidebarLink href="/programmes/climavore-x-jameel-at-rca">
                       Climavore x Jameel at RCA
                     </SidebarLink>
@@ -777,10 +489,14 @@ export default function CustomSideBar() {
                         href: "/programmes/bocelli-jameel-scholarship",
                         current: false,
                       },
-                    
                     ].map((item, index) => (
-                      <div className="mt-3">
-                        <SidebarLink href={item.href}  key={index + Math.random()}>{item.name}</SidebarLink>
+                      <div className="mt-">
+                        <SidebarLink
+                          href={item.href}
+                          key={index + Math.random()}
+                        >
+                          {item.name}
+                        </SidebarLink>
                       </div>
                     ))}
 
@@ -807,11 +523,115 @@ export default function CustomSideBar() {
                           href: "/people/henna-mun",
                         },
                       ].map((item, index) => (
-                        <div className="mt-3">
-                          <SidebarLink href={item.href}  key={index + Math.random()}>{item.name}</SidebarLink>
+                        <div className="mt-">
+                          <SidebarLink
+                            href={item.href}
+                            key={index + Math.random()}
+                          >
+                            {item.name}
+                          </SidebarLink>
                         </div>
                       ))}
-                  </NavSubSubGroup>
+                    </NavSubSubGroup>
+                    <div className="mt-">
+                      <SidebarLink href="/programmes/bocelli-jameel-scholarship/media">
+                        Media
+                      </SidebarLink>
+                    </div>
+                  </NavSubGroup>
+                  <NavSubGroup
+                    title={"Jameel House of Traditional Arts in Cairo"}
+                  >
+                    {[
+                      {
+                        name: "Overview",
+                        href: "/programmes/jameel-house-of-traditional-arts-in-cairo",
+                      },
+                    ].map((item, index) => (
+                      <div className="mt-">
+                        <SidebarLink
+                          href={item.href}
+                          key={index + Math.random()}
+                        >
+                          {item.name}
+                        </SidebarLink>
+                      </div>
+                    ))}
+                    <NavSubSubGroup title={"Graduation collections"}>
+                      {[
+                        {
+                          name: "2023",
+                          href: "/programmes/jameel-house-of-traditional-arts-in-cairo/2023-graduation-collection",
+                        },
+                        {
+                          name: "2024",
+                          href: "/programmes/jameel-house-of-traditional-arts-in-cairo/2024-graduation-collection",
+                        },
+                      ].map((item, index) => (
+                        <div className="mt-3">
+                          <SidebarLink
+                            href={item.href}
+                            key={index + Math.random()}
+                          >
+                            {item.name}
+                          </SidebarLink>
+                        </div>
+                      ))}
+                    </NavSubSubGroup>
+                  </NavSubGroup>
+                  <div className="mt-3">
+                    <SidebarLink href="/programmes/pratham-jameel-second-chance">
+                      Pratham Jameel Second Chance Programme
+                    </SidebarLink>
+                  </div>
+                  <div className="mt-">
+                    <SidebarLink href="/programmes/jameel-c40-urban-planning-climate-labs">
+                      Jameel C40 Urban Planning Climate Labs
+                    </SidebarLink>
+                  </div>
+                  <div className="mt-">
+                    <SidebarLink href="/programmes/ejada">Ejada</SidebarLink>
+                  </div>
+                  <div className="mt-">
+                    <SidebarLink href="/programmes/jameel-toyota-scholarship">
+                      Jameel Toyota Scholarship
+                    </SidebarLink>
+                  </div>
+                  <div className="mt-">
+                    <SidebarLink href="/programmes/ankur">Ankur</SidebarLink>
+                  </div>
+                  <div className="mt-">
+                    <SidebarLink href="/programmes/bruvs-monaco">
+                      BRUVS Monaco
+                    </SidebarLink>
+                  </div>
+                  <NavSubGroup title={"Funds"}>
+                    {[
+                      {
+                        name: "Jameel Fund",
+                        href: "/programmes/funds/jameel-fund",
+                        current: false,
+                      },
+                      {
+                        name: "Iraq Cultural Health Fund",
+                        href: "/programmes/funds/iraq-cultural-health-fund",
+                        current: false,
+                      },
+                      {
+                        name: "Covid-19-Excellence Fund",
+                        href: "/programmes/funds/covid-19-excellence-fund",
+                        current: false,
+                      },
+                    ].map((item, index) => (
+                      <div className="mt-">
+                        <SidebarLink
+                          href={item.href}
+                          key={index + Math.random()}
+                        >
+                          {item.name}
+                        </SidebarLink>
+                      </div>
+                    ))}
                   </NavSubGroup>
                 </NavGroup>
                 <NavGroup
@@ -826,10 +646,36 @@ export default function CustomSideBar() {
                     { name: "Events", href: "/events" },
                     { name: "Newsletter", href: "/newsletter" },
                   ].map((item, index) => (
-                    <div className="mt-3">
-                      <SidebarLink href={item.href}  key={index + Math.random()}>{item.name}</SidebarLink>
+                    <div className="mt-">
+                      <SidebarLink href={item.href} key={index + Math.random()}>
+                        {item.name}
+                      </SidebarLink>
                     </div>
                   ))}
+                  <NavSubGroup title={"Stories"}>
+                    {[
+                      {
+                        name: "GCC Heat Tracker",
+                        href: "/stories/gcc-heat-tracker",
+                      },
+                      {
+                        name: "Harvesting Hope",
+                        href: "/stories/harvesting-hope",
+                      },
+                      {
+                        name: "Jameel Centre",
+                        href: "/stories/a-cairo-cornerstone",
+                      },
+                      {
+                        name: "KSA Healthcare Timeiline",
+                        href: "/stories/ksa-healthcare-timeline",
+                      },
+                    ].map((item, index) => (
+                      <SidebarLink href={item.href} key={index + Math.random()}>
+                        {item.name}
+                      </SidebarLink>
+                    ))}
+                  </NavSubGroup>
                 </NavGroup>
               </nav>
             </div>
