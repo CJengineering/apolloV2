@@ -1,18 +1,4 @@
-// "use client";
 
-// import { useRef, useEffect } from "react";
-// import { useAppProvider } from "@/app/app-provider";
-// import { useSelectedLayoutSegments } from "next/navigation";
-// import { Transition } from "@headlessui/react";
-// import Link from "next/link";
-// import SidebarLink from "./sidebar-link";
-// import SidebarLinkGroup from "./sidebar-link-group";
-// import SidebarLinkSubgroup from "./sidebar-link-subgroup";
-// import VectorIcon from "./vectorIcon";
-// import GlobeIcon from "./globe-icon";
-// import ChipIcon from "./chip-icon";
-// import BeakerIcon from "./beaker-icon";
-// import { ChevronRightIcon } from '@heroicons/react/24/solid';
 
 "use client";
 
@@ -309,9 +295,9 @@ const NavGroup = ({
               //   handleClick();
               // }}
               onTouchStart={(e) => {
-                e.preventDefault();
+             
                 handleClick();
-                alert('hello')
+           
               }}
             className="relative flex lg:hidden md:w-[230px]  justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
@@ -331,11 +317,11 @@ const NavGroup = ({
 
           <div
               onMouseDown={(e) => {
-                e.preventDefault();
+            
                 handleClick();
               }}
               onTouchStart={(e) => {
-                e.preventDefault();
+           
                 handleClick();
               }}
             className="hidden lg:flex relative md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
