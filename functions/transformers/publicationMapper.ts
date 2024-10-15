@@ -127,6 +127,6 @@ export default function publicationMapper(
     authorMetaTextArabic: fieldData["author-s-meta-text-arabic"] || "",
     people: relatedPeople,
     name: fieldData.name || "",
-    slug: fieldData.slug || "",
+    slug: `/publications/${fieldData.slug}` || "",
   };
 }

@@ -40,7 +40,7 @@ module.exports = {
             
             li: {
               fontWeight: "400",
-              fontSize: "1.1rem",
+              fontSize: "1rem",
             },
 
             'li::marker': {

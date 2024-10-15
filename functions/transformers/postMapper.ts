@@ -9,6 +9,7 @@ import {
   EventFieldData,
   TagRawFields,
 } from "@/app/interfaces";
+import { formatDateArabic } from "../utils/fromDateArabic";
 
 const formatDate = (date: Date | string): string => {
   if (typeof date === "string") {
@@ -129,8 +130,9 @@ export default function postMapper(
           alt: fieldData["main-image"].alt || "",
         }
       : { url: "", alt: "" },
-    openGraphImage: fieldData["open-graph-image"] || "N/A",
+    openGraphImage: fieldData["open-graph-image"]?.url || "N/A",
     datePublished: formatDate(fieldData["date-published"] || ""),
+    datePublishedArabic : formatDateArabic(fieldData["date-published"] || ""),
     location: fieldData["location"] || "N/A",
     locationArabic: fieldData["location-arabic"] || "N/A",
     seoTitle: fieldData["seo-title"] || "N/A",

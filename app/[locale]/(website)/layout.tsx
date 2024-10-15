@@ -4,7 +4,7 @@ import { EB_Garamond, Nothing_You_Could_Do } from "next/font/google";
 import localFont from "next/font/local";
 
 import Image from "next/image";
-import Illustration from "@/public/images/hero-illustration.svg";
+import Illustration from "@/public/images/to_sort/hero-illustration.svg";
 import Header from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
 import Sidebar2 from "@/components/ui/sideBar2";
@@ -26,6 +26,9 @@ import Theme from "@/app/theme-provider";
 import AppProvider from "@/app/app-provider";
 import { Suspense } from "react";
 import LoadingLogo from "@/components/CJ-components/components-CJ/test components/LoadingLogo";
+import ContentContainer from "@/components/custom beta components/ContentContainer";
+import Script from "next/script";
+import ErrorBoundary from "next/dist/client/components/error-boundary";
 
 const nycd = Nothing_You_Could_Do({
   subsets: ["latin"],
@@ -36,12 +39,8 @@ const nycd = Nothing_You_Could_Do({
 
 const arial = localFont({
   src: [
-    {path:"../../../public/fonts/arial/ArialCE.ttf",
-    weight: "400",
-    },
-    {path:"../../../public/fonts/arial/ArialMdm.ttf",
-      weight: "600",
-      },
+    { path: "../../../public/fonts/arial/ArialCE.ttf", weight: "400" },
+    { path: "../../../public/fonts/arial/ArialMdm.ttf", weight: "600" },
   ],
   variable: "--font-arial",
   display: "swap",
@@ -93,7 +92,6 @@ const zain = localFont({
   display: "swap",
 });
 
-
 export const metadata = {
   title: "Community Jameel",
   description: "Advancing science and learning for communities to thrive",
@@ -117,27 +115,26 @@ export default async function RootLayout({
               <Header />
 
               {/*  Page content */}
-              <main className="grow  ">
+              <main className="grow  b">
                 <div className="relative">
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none -z-10"></div>
-
-                  <div className="max-w-12xl mx-auto md:px-0 md:pr-3 sm:px-6">
+                  <div className="max-w-12xl mx-auto md:px-0  ">
                     <div>
-                      <Sidebar2 />
-
                       {/* Page container */}
-                      <div className="md:grow md:pl-64 lg:pr-6 xl:pr-0">
-                        <div className="pt-12  md:pt-12 pb-8 md:pl-6 lg:pl-6">
-                          <Suspense fallback={<LoadingLogo/>}>
-                      
+                      <div className=" ">
+                        <div className="pt-3 mx-auto lg:pt-6 pb-8">
+                          <div className="lg:hidden">
+                            <Sidebar2 />
+                          </div>
 
-                          {children}
-                          </Suspense>
+                          <ContentContainer>
+                            <Suspense fallback={<LoadingLogo />}>
+                              <div className=" min-h-screen">{children}</div>
+                            </Suspense>
+                          </ContentContainer>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <Footer />
                 </div>
               </main>
             </div>

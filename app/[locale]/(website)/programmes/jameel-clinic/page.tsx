@@ -37,8 +37,46 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 
-export default async function Programme34page({
+// START "SELECT INITIATIVES"
+
+const selectInitiatives = [
+  {
+    imageUrl: "/images/labs/jameel-clinic/JAMEEL_CLINIC_HOSPITAL_NETWORK.jpg",
+    alt: "MIT Jameel Clinic Hospital Network",
+    title: "MIT Jameel Clinic Hospital Network",
+    subtitle:"A global network of hospitals deploying MIT Jameel Clinic deep learning cancer prediction tools",
+    link: "https://jclinic.mit.edu/hospital-network/",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/jameel-clinic/mirai.jpg",
+    alt: "MIRAI",
+    title: "MIRAI",
+    subtitle:"MIRAI is a deep learning model that can analyze a patient’s mammogram to accurately predict the patient’s risk of developing breast cancer in the next 5 years.",
+    link: "https://jclinic.mit.edu/mirai/",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/jameel-clinic/sybil.jpg",
+    alt: "SYBIL",
+    title: "SYBIL",
+    subtitle: "SYBIL is a deep learning model that can analyze a patient’s LDCT to accurately predict the patient’s risk of developing lung cancer in the next 6 years.",
+    link: "https://jclinic.mit.edu/sybil/",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+];
+
+// END "SELECT INITIATIVES"
+
+export default async function mitJameelClinic({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -82,10 +120,10 @@ export default async function Programme34page({
   {
     /**Get the single programme by id from webflow */
   }
-  const jwafsId = "61ee828a15a3189014bde63f";
+  const programmeId = "61ee828a15a3189014bde63f";
   const jwafsSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
-    (item) => item.id === jwafsId
+    (item) => item.id === programmeId
   );
 
   {
@@ -204,18 +242,98 @@ export default async function Programme34page({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+    <>
+      <div className="pt-20 lg:pt-12">
+      <div className="flex flex-col text-left">
+  <div className="w-full flex pb-6 lg:pb-12">
 
+<img className="dark:hidden" src="/images/labs/jameel-clinic/JAMEEL_CLINIC_ORIGINAL_DARK.png" width="360"></img>
+<img className="hidden dark:block" src="/images/labs/jameel-clinic/JAMEEL_CLINIC_ORIGINAL_LIGHT.png" width="360"></img>
+  </div>
+                 
+  <div className="pb-6">
+    <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+  </div>
+
+  <div className="pb-6 w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+  <div className="pb-6">
+            <ButtonCJ
+              href={cleanSingleProgramme.website}
+              text={"Visit the website"}
+              styleType="secondary"
+              openInNewTab = {true}
+            ></ButtonCJ>
+          </div>
+</div>
+
+        <div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="4M4_73FqGI8?si=If4aApQytWnFp3Qi" />
+        </div>
+        
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Impact</h2>
+        </div>
+        <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="">
+            <Stats title="2" content="antibiotics discovered" />
+          </div>
+          <div className="">
+            <Stats title="2" content="deep learning tools" />
+          </div>
+          <div className="">
+            <Stats title="55" content="hospitals deploy MIT Jameel Clinic deep learning tool" />
+          </div>
+          <div className="">
+            <Stats title="25" content="in countries" />
+          </div>
+          <div className="">
+            <Stats title="5" content="in continents" />
+          </div>
+        </div>
+
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Select initiatives</h2>
+        </div>
+
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+         
+          {selectInitiatives.map((card, index) => (
+            <HomeCard
+              key={index}
+              imageUrl={card.imageUrl}
+              alt={card.alt}
+              title={card.title}
+              subtitle={card.subtitle}
+              link={card.link}
+              openInNewTab={card.openInNewTab}
+              clickAction={card.clickAction || ""}
+            />
+          ))}
+
+      </div>
+
+        <div>
+
+        <div className="w-full pt-6 lg:pt-12 lg:pb-0">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
         <div className="">
           <PostAccordion title={"News"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+              {postProps.slice(0).map((post) => (
                 <PostCard key={post.name} content={post} />
               ))}
             </div>
@@ -224,7 +342,7 @@ export default async function Programme34page({
         <div className="">
           <PostAccordion title={"Press"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
+              {newsProps.slice(0).map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
             </div>
@@ -242,24 +360,6 @@ export default async function Programme34page({
           </PostAccordion>
         </div>
 
-        {/* 
-
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
 
         <div>
         <PostAccordion title={"Events"}>
@@ -274,14 +374,8 @@ export default async function Programme34page({
             </div>
           </PostAccordion>
         </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
       </div>
-    </ContentContainer>
+      </div>
+    </>
   );
 }

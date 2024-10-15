@@ -27,6 +27,20 @@ import test from "node:test";
 import featureMapper from "@/functions/transformers/featureMapper";
 import filterRelatedFeatures from "@/functions/filters/filterRelatedFeatures";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
+import { ArabicProvider } from "@/components/custom beta components/ArabicContext";
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Our Community",
+  description:
+    "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",
+  ogType: "website",
+  ogImage:
+    "https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61b37423f32e603212069d44_COMMUNITY_JAMEEL_PORTFOLIO_BANNER.png",
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community"],
+});
 
 export default async function SinglePost({
   params,
@@ -34,6 +48,7 @@ export default async function SinglePost({
   params: {
     topic: string;
     slug: string;
+    locale: string;
   };
 }) {
   const post = {
@@ -65,7 +80,20 @@ export default async function SinglePost({
   const rawPartners = await getData(partnerId);
   const rawPeople = await getData(peopleId);
   const rawFeatures = await getData(feautureId);
-  rawProgrammes.items = rawProgrammes.items.filter((item) => item.fieldData.type !== "bb96b247f8c989b67ca5ada5b5cb10df");
+  const includeTypes = [
+    "a1e61c0cc2923f64b29ca5da3e41e427",
+    "730944f73272c28e4ae4052f7611ceff",
+    "bb96b247f8c989b67ca5ada5b5cb10df",
+  ];
+  
+  rawProgrammes.items = rawProgrammes.items.filter(
+    (item) => includeTypes.includes(item.fieldData.type)
+  );
+  // rawProgrammes.items = rawProgrammes.items.filter(
+  //   (item) => item.fieldData.type !== "bb96b247f8c989b67ca5ada5b5cb10df"
+  // );
+
+
   // get rid of Comunitu jameel in the arrays
   const cleanedFeature = rawFeatures.items.map((item) =>
     featureMapper(item, rawProgrammes.items)
@@ -97,16 +125,25 @@ export default async function SinglePost({
   const dataForTable = orderTable.map((item) =>
     mapProgrammeToRowData(item, cleanedFeature)
   );
+  
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
-      <LanguageChanger />
-      <h1 className="sans-serif font-bold text-3xl md:text-4xl lg:text-6xl py-12 text-center">
-        Community
-      </h1>
-      <div className="w-min-full">
-        <TabsCJ rowData={dataForTable} cardData={cardData} />
-      </div>
-    </ContentContainer>
+    <>
+      <ArabicProvider locale={params.locale}>
+        <div
+          className={`flex justify-between items-center pb-10 pt-20 lg:pb-10 lg:pt-10 ${
+            params.locale === "ar" ? "rtl" : ""
+          }`}
+        >
+          <h1 className={`${params.locale === "ar" ? "sans-serif-ar header-page lg:text-left" : "header-page lg:text-left"}`}>
+            {params.locale === "ar" ? "المجتمع" : "Community"}
+          </h1>
+          <LanguageChanger></LanguageChanger>
+        </div>
+        <div className="sm:w-full pb-12">
+          <TabsCJ rowData={dataForTable} cardData={cardData} />
+        </div>
+      </ArabicProvider>
+    </>
   );
 }

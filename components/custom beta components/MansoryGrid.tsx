@@ -25,7 +25,7 @@ const MasonryGrid: React.FC<MasonryGridProps> = ({ images, columnsNumber, onImag
   const columnClass = columnClasses[columns] || columnClasses['5'];
 
   return (
-    <div className={`w-full columns-1 sm:columns-4 gap-4`}>
+    <div className={`w-full columns-1 sm:columns-2 md:columns-2 lg:columns-3 gap-4`}>
       {images.map((image, index) => (
         <div key={index} className="mb-4 break-inside-avoid" onClick={() => onImageClick(index)}>
           <Image src={image.src} width={500} loading='lazy' height={400} alt={image.alt} className="w-full h-auto cursor-pointer" />

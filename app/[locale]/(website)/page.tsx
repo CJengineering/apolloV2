@@ -14,8 +14,8 @@ import HomePageBeta from "@/components/custom beta components/homePageBeta";
 import TrandingTopics from "@/components/custom beta components/trandingTopics";
 import EventSection from "@/components/custom beta components/eventSection";
 import HeroBanter from "@/components/custom beta components/HeroBanter";
-import image from "@/public/images/mapCJ.webp";
-import porgrammeImage from "@/public/images/blueCJMap.png";
+import image from "@/public/images/to_sort/mapCJ.webp";
+import porgrammeImage from "@/public/images/home/blueCJMap.png";
 import Image from "next/image";
 
 import SectionBanter from "@/components/custom beta components/SectionBanter";
@@ -55,7 +55,11 @@ import {
 } from "@/components/CJ-components/components-CJ/test components/AgnosticComponent";
 import { event } from "cypress/types/jquery";
 import { Suspense } from "react";
-import MediaCardHome from "@/components/custom beta components/MediaCardHome";
+import NewsCard from "@/components/custom beta components/NewsCard";
+import EventsCardHome from "@/components/CJ-components/components-CJ/test components/EventsCardHome";
+import PressCardHome from "@/components/CJ-components/components-CJ/test components/PressCardHome";
+import Spinner from "@/components/CJ-components/components-CJ/custom components/Spinner";
+import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 
 // INTERFACE FOR THE DATA START
 const postsId = getIdByDisplayName("Posts");
@@ -66,7 +70,7 @@ const postsId = getIdByDisplayName("Posts");
 
 const cardData = [
   {
-    imageUrl: "/images/GRID_01.jpg",
+    imageUrl: "/images/home/GRID_01.jpg",
     alt: "Life-saving care for mothers and children evacuated from Gaza",
     title: "Life-saving care for mothers and children evacuated from Gaza",
     subtitle:
@@ -76,7 +80,17 @@ const cardData = [
     clickAction: "Video embed code",
   },
   {
-    imageUrl: "/images/GRID_02.jpg",
+    imageUrl: "/images/home/GRID_06.jpg",
+    alt: "Jameel House of World Traditional Arts in Scotland",
+    title: "The Jameel House of World Traditional Arts in Scotland",
+    subtitle:
+      "The Jameel House in Scotland will be a global school for students of traditional arts worldwide. A new Jameel House Scholarship, set to launch in early 2025, will support Arab students of the traditional arts in Scotland, London, Cairo and Jeddah.",
+    link: "/news/jameel-house-of-world-traditional-arts-in-scotland-announced-at-dumfries-house-to-extend-global-partnership-between-the-kings-foundation-and-community-jameel-2",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+  {
+    imageUrl: "/images/home/GRID_02.jpg",
     alt: "Bill Gates and Fady Jameel host food security meeting at COP28",
     title: "Bill Gates and Fady Jameel host food security meeting at COP28",
     subtitle:
@@ -86,7 +100,7 @@ const cardData = [
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/GRID_03.jpg",
+    imageUrl: "/images/home/GRID_03.jpg",
     alt: "CLIMAVORE x Jameel at RCA announces 2024 Food Action Awards",
     title: "CLIMAVORE x Jameel at RCA announces 2024 Food Action Awards",
     subtitle:
@@ -96,17 +110,7 @@ const cardData = [
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/GRID_04.jpg",
-    alt: "Climate Labs with C40 and J-PAL",
-    title: "Climate Labs with C40 and J-PAL",
-    subtitle:
-      "Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.",
-    link: "programmes/climate-labs",
-    openInNewTab: false,
-    clickAction: "Internal link",
-  },
-  {
-    imageUrl: "/images/GRID_05.jpg",
+    imageUrl: "/images/home/GRID_05.jpg",
     alt: "Jameel 75",
     title: "Jameel 75",
     subtitle:
@@ -116,17 +120,17 @@ const cardData = [
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/GRID_06.jpg",
-    alt: "Sample Image 6",
-    title: "Community Jameel x afikra COP28 Conversation Series",
+    imageUrl: "/images/home/GRID_04.jpg",
+    alt: "Climate Labs with C40 and J-PAL",
+    title: "Climate Labs with C40 and J-PAL",
     subtitle:
-      "As part of Community Jameel's participation at COP28 in Dubai it co-produced a six-part podcast series with afikra on climate change, arts & health, early warning systems, oceans and the economics of cuisine.",
-    link: "https://www.communityjameel.org/post/climavore-x-jameel-at-rca-announces-2024-food-action-awards",
+      "Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.",
+    link: "programmes/jameel-c40-urban-planning-climate-labs",
     openInNewTab: false,
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/GRID_07.jpg",
+    imageUrl: "/images/home/GRID_07.jpg",
     alt: "Jameel Arts & Health Lab",
     title: "Jameel Arts & Health Lab",
     subtitle:
@@ -136,7 +140,7 @@ const cardData = [
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/GRID_08.jpg",
+    imageUrl: "/images/home/GRID_08.jpg",
     alt: "Andrea Bocelli and Henna Mun sing 'Tace il labbro'",
     title: "Andrea Bocelli and Henna Mun sing 'Tace il labbro'",
     subtitle:
@@ -146,7 +150,7 @@ const cardData = [
     clickAction: "Video embed code",
   },
   {
-    imageUrl: "/images/GRID_09.jpg",
+    imageUrl: "/images/home/GRID_09.jpg",
     alt: "Jameel Management Centre Building in Cairo",
     title: "A Cairo Cornerstone",
     subtitle:
@@ -211,6 +215,7 @@ export default async function SinglePost({
   const categroriesId = getIdByDisplayName("Categories");
 
   const programmeRaw = await getData(porgrammeId);
+  
   const peopleRaw = await getData(peopleId);
   const featureRaw = await getData(featureId);
   const publicationRaw = await getData(publicationId);
@@ -289,17 +294,22 @@ export default async function SinglePost({
       programmeRaw.items,
       peopleRaw.items,
       partnersRaw.items,
-      sourcesRaw.items,
+      sourcesRaw.items
     )
   );
   const postsAgnostic = postsClean.map((item) => agnosticMapper(item));
   const newsAgnostic = newsClean.map((item) => agnosticMapper(item));
   const eventsAgnostic = eventClean.map((item) => agnosticMapper(item));
+  const fiveFirstPosts =postsClean.slice(0, 5);
+  const fiveFirstNews = newsClean.slice(0, 5);
+  const fiveFirstEvents = eventClean.slice(0, 5);
   return (
-    <ContentContainer width="full" desktopWidth="large">
-      <div className="pt-12 sm:pt-20 flex flex-col justify-center">
+    <>
+
+
+      <div className="pt-20 sm:pt-20 flex flex-col justify-center">
         <div className="w-full lg:w-2/3 mx-auto">
-          <h1 className="sans-serif font-bold text-left text-3xl sm:leading-10text-3xl md:text-4xl lg:text-5xl">
+          <h1 className="header-page leading-none">
             Advancing science and learning for communities to thrive
           </h1>
           <p className="pt-6 sans-serif text-lg sm:text-xl font-normal md:text-2x text-left">
@@ -307,10 +317,10 @@ export default async function SinglePost({
             2003 to continue the tradition of philanthropy and community service
             established by the Jameel family of Saudi Arabia in 1945.
           </p>
-          <div className="pt-8">
+          <div className="pt-4 lg:pt-8">
             <ButtonCJ
               href={"/community"}
-              text={"discover"}
+              text={"explore community"}
               openInNewTab={false}
               styleType="primary"
             />
@@ -319,11 +329,11 @@ export default async function SinglePost({
       </div>
 
       <div className="flex justify-center">
-        <div className="pt-6 pb-3 w-full sm:py-12">
+        <div className="w-full py-6 lg:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
         </div>
       </div>
-      <div className="flex justify-center pb-2">
+      <div className="flex justify-center">
         <div className="hidden sm:block relative w-full">
           <Image
             className="h-full w-full object-cover"
@@ -339,7 +349,23 @@ export default async function SinglePost({
           <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
         </div>
       </div>
-      {/* <div><iframe src="https://benderlidze.github.io/mapbox-custom-marker-div/" style={{width:"100%", height:"600px",border:"0px;"}}></iframe></div> */}
+      {/* <div className="w-full">
+      <CarousselForComponents>   
+          {cardData.map((card, index) => (
+            <HomeCard
+              key={index}
+              imageUrl={card.imageUrl}
+              alt={card.alt}
+              title={card.title}
+              subtitle={card.subtitle}
+              link={card.link}
+              openInNewTab={card.openInNewTab}
+              clickAction={card.clickAction || ""}
+            />
+          ))}
+   </CarousselForComponents>
+   </div>
+       */}
       <div className="flex justify-center">
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cardData.map((card, index) => (
@@ -358,91 +384,82 @@ export default async function SinglePost({
       </div>
 
       <div className="flex justify-center">
-        <div className="w-full py-6 md:py-12">
+        <div className="w-full py-6 lg:py-12">
           <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
         </div>
       </div>
 
-      <div className="flex justify-center">
-        <div className="w-full grid grid-cols-1 col-span-12 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 ">
-          <div className="">
-            
-            <h2 className="header-section pb-6">News</h2>
-            {postsAgnostic.slice(1, 6).map((value, index) => (
-              <AgnosticComponentProvider content={value}>
-                <AgnosticComponentTextColumn>
-                  {/* <AgnosticComponentProgramLabel /> */}
-                  <AgnosticComponentTitle />
-                  <AgnosticComponentShortDescription />
-                  {/* <AgnosticComponentDateAndSourceContainer> */}
-                    <AgnosticComponentDatePublished />
-                    {/* <span className="sans-serif text-sm font-normal">
-                      |
-                    </span> */}
-                    {/* <AgnosticComponentSource /> */}
-                  {/* </AgnosticComponentDateAndSourceContainer> */}
-                </AgnosticComponentTextColumn>
-              </AgnosticComponentProvider>
+      {/* 3 column system */}
+
+      <div className="w-full grid lg:grid-cols-12 lg:gap-x-12">
+        {/* News Column */}
+        <div className="col-span-12 lg:col-span-4">
+          <h2 className="header-section pb-3">News</h2>
+          <div className="w-full space-y-6">
+            {fiveFirstPosts.map((value, index) => (
+              <PressCardHome
+                content={value}
+                locale="en"
+                key={index + "pressCard"}
+              />
             ))}
-          <div className="pt-0">
+          </div>
+          <div className="pt-2 mt-auto">
             <ButtonCJ
               href={"/news"}
-              text={"all news"}
+              text={"All News"}
               openInNewTab={false}
               styleType="secondary"
             />
           </div>
           <div className="lg:hidden w-full py-6 md:py-12">
-          <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
-        </div>
+            <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
           </div>
-          <div className="">
-            <h2 className="header-section pb-6">In the media</h2>
-            {newsClean.slice(1, 6).map((value, index) => (
-             <MediaCardHome content={value} locale="en" />
+        </div>
+
+        {/* Press Column */}
+        <div className="col-span-12 lg:col-span-4">
+          <h2 className="header-section pb-3">Press</h2>
+          <div className="w-full space-y-6">
+            {fiveFirstNews.slice(0, 5).map((value, index) => (
+              <NewsCard content={value} locale="en" key={index + "newsCard"} />
             ))}
-          <div className="pt-0">
+          </div>
+          <div className="pt-2 mt-auto">
             <ButtonCJ
               href={"/press"}
-              text={"all press"}
+              text={"All Press"}
               openInNewTab={false}
               styleType="secondary"
             />
           </div>
           <div className="lg:hidden w-full py-6 md:py-12">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-        </div>
+            <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
           </div>
-          <div className="">
-    
-            <h2 className="header-section pb-6">Events</h2>
-            {eventsAgnostic.slice(1, 6).map((value, index) => (
-              <AgnosticComponentProvider content={value}>
-                <AgnosticComponentTextColumn>
-                  {/* <AgnosticComponentProgramLabel /> */}
-                  <AgnosticComponentTitle />
-                  <AgnosticComponentShortDescription />
-                  <AgnosticComponentDateAndSourceContainer>
-                    <AgnosticComponentDatePublished />
-                    {/* <span className="sans-serif text-sm font-normal">
-                      |
-                    </span> */}
-                    {/* <AgnosticComponentSource /> */}
-                  </AgnosticComponentDateAndSourceContainer>
-                </AgnosticComponentTextColumn>
-              </AgnosticComponentProvider>
+        </div>
+
+        {/* Events Column */}
+        <div className="col-span-12 lg:col-span-4">
+          <h2 className="header-section pb-3">Events</h2>
+          <div className="w-full space-y-6">
+            {fiveFirstEvents.map((value, index) => (
+              <EventsCardHome
+                content={value}
+                locale="en"
+                key={index + "eventCard"}
+              />
             ))}
-            <div className="pt-0">
+          </div>
+          <div className="pt-2 mt-auto">
             <ButtonCJ
               href={"/events"}
-              text={"all events"}
+              text={"All Events"}
               openInNewTab={false}
               styleType="secondary"
             />
-          </div>
           </div>
         </div>
       </div>
-    </ContentContainer>
+    </>
   );
 }

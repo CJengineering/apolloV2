@@ -37,8 +37,92 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
 
-export default async function Programme26page({
+// START THE DATA FOR CARDS
+
+const cardData = [
+  {
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/clara-barbier-serrano_1x1.jpg",
+    alt: "Clara Barbier Serrano",
+    title: "Clara Barbier Serrano",
+    subtitle:
+      "France, 2020",
+    link: "/people/clara-barbier-serrano",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+  {
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/laura-mekhail_1x1.jpg",
+    alt: "Laura Mekhail",
+    title: "Laura Mekhail",
+    subtitle:
+      "Egypt, 2021",
+    link: "/people/laura-mekhail",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+  {
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/seonwoo-lee_1x1.jpg",
+    alt: "Seonwoo Lee",
+    title: "Seonwoo Lee",
+    subtitle: "South Korean, 2022",  
+    link: "/people/seonwoo-lee",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+  {
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/anastasia-koorn_1x1.jpg",
+    alt: "Anatasia Koorn",
+    title: "Anatasia Koorn",
+    subtitle:
+    "United States, 2023",
+    link: "/people/anastasia-koorn",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+  {
+    imageUrl: "/images/labs/bocelli-jameel-scholarship/henna-mun_1x1.jpg",
+    alt: "Henna Mun",
+    title: "Henna Mun",
+    subtitle:
+    "South Korea, 2023",
+    link: "/people/henna-mun",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+];
+// END THE DATA FOR CARDS
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Andrea Bocelli Foundation-Community Jameel Scholarship at RCA",
+  description:
+    "The Andrea Bocelli Foundation-Community Jameel scholarship supports talented students at the Royal College of Music, offering world-class training and the chance to perform with Bocelli.",
+  ogType: "website",
+  ogImage:
+    "/images/labs/bocelli-jameel-scholarship/bocelli-jameel-scholarship_og.jpg",
+  twitterCard: "summary_large_image",
+  keywords: [
+    "Community Jameel",
+    "Jameel",
+    "Community",
+    "Andrea Bocelli",
+    "Royal College of Music",
+    "Clara Barbier Serrano",
+    "Laura Mekhail",
+    "Seonwoo Lee",
+    "Anastasia Koorn",
+    "Henna Mun",
+  ],
+});
+
+export default async function BocelliJameelScholarshipPage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -204,18 +288,84 @@ export default async function Programme26page({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+    <>
+      <div className="pt-20 lg:pt-10 lg:mb-12">
+      <div className="flex flex-col text-left">
+
+          <div className="w-full lg:w-2/3 pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
+          <div className="w-full lg:w-2/3 pb-12">
+            <div
+              className="prose prose-xl leading-normal dark:text-white"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+
+        </div>
+
+        <div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="KCMG2btSzJI?si=sU0kZTj5bPS1pUkK" />
+        </div>
+
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Impact since 2003</h2>
+        </div>
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="">
+            <Stats
+              title={cleanSingleProgramme.impact01}
+              content={cleanSingleProgramme.impact01Title}
+            />
+          </div>
+          <div className="">
+            <Stats
+              title={cleanSingleProgramme.impact02}
+              content={cleanSingleProgramme.impact02Title}
+            />
+          </div>
+          <div className="">
+            <Stats
+              title={cleanSingleProgramme.impact03}
+              content={cleanSingleProgramme.impact03Title}
+            />
+          </div>
+        </div>
+
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Scholars</h2>
+        </div>
+
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {cardData.map((card, index) => (
+            <HomeCard
+              key={index}
+              imageUrl={card.imageUrl}
+              alt={card.alt}
+              title={card.title}
+              subtitle={card.subtitle}
+              link={card.link}
+              openInNewTab={card.openInNewTab}
+              clickAction={card.clickAction || ""}
+            />
+          ))}
+        </div>
+        <div className="w-full mt-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
 
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
+              {postProps.map((post) => (
                 <PostCard key={post.name} content={post} />
               ))}
             </div>
@@ -224,13 +374,13 @@ export default async function Programme26page({
         <div className="">
           <PostAccordion title={"Press"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
+              {newsProps.map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
             </div>
           </PostAccordion>
         </div>
-        <div className="">
+        {/* <div className="">
           <PostAccordion title={"Multimedia"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {multimediaProps.map((item) => (
@@ -240,7 +390,7 @@ export default async function Programme26page({
               ))}
             </div>
           </PostAccordion>
-        </div>
+        </div> */}
 
         {/* 
 
@@ -282,6 +432,6 @@ export default async function Programme26page({
           </div>
         </div> */}
       </div>
-    </ContentContainer>
+    </>
   );
 }

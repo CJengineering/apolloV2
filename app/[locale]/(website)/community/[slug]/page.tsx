@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, ResolvingMetadata } from 'next'
 import { allPosts } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { Mdx } from '@/components/mdx/mdx'
@@ -8,27 +8,53 @@ import Feedback from '@/components/ui/feedback'
 import PageNavigation from '@/components/ui/page-navigation'
 import Footer from '@/components/ui/footer'
 import SecondaryNav from '@/components/ui/secondary-nav'
+import { getIdByDisplayName } from '@/functions/utils/findCollectionId'
+import { getData } from '@/functions/api/getData'
+import { Item, ProgrammeRawFields } from '@/app/interfaces'
+import { customMetaDataGenerator } from '@/functions/utils/customMetadataGenerator'
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
   }))
 }
+type Props = {
+  params: { slug : string, locale: string };
 
-export async function generateMetadata({ params }: {
-  params: { slug: string }
-}): Promise<Metadata | undefined> {
+}
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug= params.slug
+  const locale = params.locale;
 
-  const post = allPosts.find((post) => post.slug === params.slug)
-
-  if (!post) return
-
-  const { title, summary: description } = post
-
-  return {
-    title,
-    description,
-  }
+ 
+ 
+  const labId = getIdByDisplayName("Programmes");
+  const labelRaw = await getData(labId);
+const labelRawData = labelRaw.items;
+  const singleLabRaw :Item<ProgrammeRawFields>[] = labelRawData.filter(
+    (item) => item.fieldData.slug === slug
+  );
+  const seoTitleArabic = singleLabRaw[0].fieldData["name-arabic"] ? singleLabRaw[0].fieldData["name-arabic"] : '';
+  const seoTitleEnglish = singleLabRaw[0].fieldData.name ? singleLabRaw[0].fieldData.name : '';
+  const descriptionArabic = singleLabRaw[0].fieldData['summary-arabic'] ? singleLabRaw[0].fieldData['summary-arabic'] : '';
+  const descriptionEnglish = singleLabRaw[0].fieldData.description   ? singleLabRaw[0].fieldData.description : '';
+  const name = locale === 'ar'? seoTitleArabic : seoTitleEnglish;
+  const description = locale=== 'ar'? descriptionArabic : descriptionEnglish;
+  // optionally access and extend (rather than replace) parent metadata
+  
+ 
+  return customMetaDataGenerator({
+    useRawTitle: true,
+      title: name,
+      description: description,
+      ogImage: singleLabRaw[0].fieldData.hero?.url,
+    })
+ 
+  
 }
 
 export default async function SinglePost({ params }: {

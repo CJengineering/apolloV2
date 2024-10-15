@@ -53,21 +53,21 @@ export default function LanguageChanger() {
   const derivedLocale = getLocaleFromPathname(currentPathname);
 
   return (
-    <div className="absolute top-24 right-4 flex justify-center items-center">
-      <div className="bg-slate-100 py-1 px-2 rounded">
+    <div className="flex justify-end items-center ">
+      <div className="bg-slate-100 pb-1 px-2 rounded dark:bg-slate-800">
         {derivedLocale === 'en' ? (
           <span
             onClick={() => handleChange('ar')}
-            className="cursor-pointer mono text-xs font-medium"
+            className="cursor-pointer text-xs ar-sans font-bold"
           >
-            عربي
+            ع
           </span>
         ) : (
           <span
             onClick={() => handleChange('en')}
-            className="cursor-pointer mono text-xs uppercase font-medium"
+            className="cursor-pointer text-xs uppercase font-bold"
           >
-            english
+            EN
           </span>
         )}
       </div>

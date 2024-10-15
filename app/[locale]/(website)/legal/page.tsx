@@ -12,7 +12,7 @@ export default async function page() {
 
   const cleanLegalData = getDatalegal.items.map((item) => legalMapper(item));
   return (
-    <ContentContainer >
+    <>
       <h1>Legal</h1>
       <div>
         {cleanLegalData.map((item) => (
@@ -21,6 +21,6 @@ export default async function page() {
           </Link>
         ))}
       </div>
-    </ContentContainer>
+    </>
   );
 }

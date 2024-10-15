@@ -1,5 +1,5 @@
 "use client";
-import LogoImg from "@/public/images/CJ English Red Heart.svg";
+import LogoImg from "@/public/images/cj_logo/CJ English Red Heart.svg";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 

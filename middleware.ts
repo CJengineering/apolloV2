@@ -5,18 +5,38 @@ import { i18nRouter } from 'next-i18n-router';
 import { i18nConfig } from './i18nConfig';
 import { revalidatePath } from 'next/cache';
 
+
 export function middleware(request: NextRequest) {
+  const redirects: { [key: string]: string } = {
+    '/tes': '/',
+    'https://ar.communityjameel.org/team/mohammed-jameel': '/ar/about/team/mohammed-jameel',
+    'https://ar.communityjameel.org/team/fady-jameel': '/ar/about/team/mohammed-jameel',
+    'https://ar.communityjameel.org/team/hassan-jameel': '/ar/about/team/hassan-jameel',
+    'https://ar.communityjameel.org/team/george-richards': '/ar/about/team/george-richards',
+    '/programmes/jameel-index': '/programmes/j-wafs/jameel-index',
+  };
   const { pathname } = request.nextUrl;
+  const host = request.headers.get('host')
 
   // Check if the request is for '/ar/about/overview' and set the locale cookie
-  if (pathname === '/ar/about/overview') {
+  // if (pathname === '/ar/about/overview') {
     
 
-    // Create a response with a redirect
-    const response = NextResponse.redirect(new URL('/about/overview', request.url));
-    response.cookies.set('NEXT_LOCALE', 'en', { path: '/' }); // Ensure the cookie is set for all paths
+  //   // Create a response with a redirect
+  //   const response = NextResponse.redirect(new URL('/about/overview', request.url));
+  //   response.cookies.set('NEXT_LOCALE', 'en', { path: '/' }); // Ensure the cookie is set for all paths
+  //   return response;
+  // }
+  if (redirects[pathname]) {
+    const redirectUrl = redirects[pathname];
+
+    // Create a response with a redirect to the mapped URL
+    const response = NextResponse.redirect(new URL(redirectUrl, request.url));
+  
     return response;
+    
   }
+
   if (pathname === '/ar') {
     
 

@@ -16,7 +16,7 @@ export default function teamProfileMapper(
     position: item.fieldData.position,
     order: item.fieldData.order,
     paragraphDescription: item.fieldData["paragraph-description"],
-    metaDescription: item.fieldData["meta-decscription"],
+    metaDescription: item.fieldData["meta-description"],
     altTextImage: item.fieldData.photo.alt || "",
     filter: item.fieldData.filter,
   };

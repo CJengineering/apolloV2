@@ -157,5 +157,6 @@ export default function peopleMapper(
     slug: `/people/${fieldData.slug}` || "N/A",
     pushToGr: fieldData["push-to-gr"] || false,
     arabicOnOff: fieldData["arabic-on-off"] || false,
+    featureVideo: fieldData["feature-video"] || "N/A",
   };
 }
