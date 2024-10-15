@@ -63,7 +63,7 @@ export default function ContentContainer({
           {/* <div className="sticky hidden md:block top-[64px]">
             <Sidebar2 />
           </div> */}
-          <div className="sticky hidden md:block">
+          <div className="sticky hidden md:block top-[64px]">
             <CustomSidebar />
           </div>
         </div>

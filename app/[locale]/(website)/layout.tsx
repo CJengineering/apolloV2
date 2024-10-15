@@ -29,6 +29,7 @@ import LoadingLogo from "@/components/CJ-components/components-CJ/test component
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import Script from "next/script";
 import ErrorBoundary from "next/dist/client/components/error-boundary";
+import CustomSideBar from "@/components/CJ-components/components-CJ/test components/CustomSIdeBar";
 
 const nycd = Nothing_You_Could_Do({
   subsets: ["latin"],
@@ -123,7 +124,7 @@ export default async function RootLayout({
                       <div className=" ">
                         <div className="pt-3 mx-auto lg:pt-6 pb-8">
                           <div className="lg:hidden">
-                            <Sidebar2 />
+                          <CustomSideBar/>
                           </div>
 
                           <ContentContainer>
