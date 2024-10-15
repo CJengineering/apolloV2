@@ -303,9 +303,9 @@ export default async function JwafsPage({
           ></ButtonCJ>
         </div>
 
-        {/* <div className="w-full lg:w-2/3">
+        <div className="w-full lg:w-2/3">
           <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
-        </div> */}
+        </div>
 
         <div className="w-full py-6 lg:py-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
