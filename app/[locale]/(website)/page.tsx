@@ -422,7 +422,7 @@ export default async function SinglePost({
           <h2 className="header-section pb-3">Press</h2>
           <div className="w-full space-y-6">
             {fiveFirstNews.slice(0, 5).map((value, index) => (
-              <NewsCard content={value} locale="en" key={index + "newsCard"} />
+              <NewsCard content={value} locale="en" key={index + "newsCard"+ Math.random()} />
             ))}
           </div>
           <div className="pt-2 mt-auto">
