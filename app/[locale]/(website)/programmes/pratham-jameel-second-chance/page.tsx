@@ -288,48 +288,58 @@ export default async function Programme3page({
         </div>
       </div>
 
-      {/* START DIVIDER */}
-      <div className="w-full py-6 lg:pt-12 lg:pb-7">
+ {/* DIVIDER START */}
+ <div className="w-full mt-12">
         <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
       </div>
-      {/* END DIVIDER */}
+      {/* DIVIDER END */}
 
-      <div className="pb-6">
-        <h2 className="header-section">Impact</h2>
-      </div>
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="">
-          <Stats
-            title={cleanSingleProgramme.impact01}
-            content={cleanSingleProgramme.impact01Title}
-          />
-        </div>
-        <div className="">
-          <Stats
-            title={cleanSingleProgramme.impact02}
-            content={cleanSingleProgramme.impact02Title}
-          />
-        </div>
-        <div className="">
-          <Stats
-            title={cleanSingleProgramme.impact03}
-            content={cleanSingleProgramme.impact03Title}
-          />
-        </div>
-      </div>
 
-      <div className="w-full mt-12">
-        <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-      </div>
-      <div className="">
-        <PostAccordion title={"News"}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {postProps.slice(0, 8).map((post) => (
-              <PostCard key={post.name} content={post} />
-            ))}
-          </div>
-        </PostAccordion>
-      </div>
+      {/* START NEWS */}
+      {postProps && postProps.length > 0 && (
+        <div className="">
+          <PostAccordion title={"News"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {postProps.slice(0).map((post) => (
+                <PostCard key={post.name} content={post} />
+              ))}
+            </div>
+          </PostAccordion>
+        </div>
+      )}
+      {/* END NEWS */}
+
+      {/* START PRESS */}
+      {newsProps && newsProps.length > 0 && (
+        <div className="">
+          <PostAccordion title={"Media"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {newsProps.map((item) => (
+                <NewsCard content={item} locale={params} />
+              ))}
+            </div>
+          </PostAccordion>
+        </div>
+      )}
+      {/* END PRESS */}
+
+      {/* START EVENTS */}
+      {cleanRelatedEvents && cleanRelatedEvents.length > 0 && (
+        <div>
+          <PostAccordion title={"Events"}>
+            <div className="">
+              <CarousselForComponents>
+                {cleanRelatedEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
+              </CarousselForComponents>
+            </div>
+          </PostAccordion>
+        </div>
+      )}
+      {/* END EVENTS */}  
       <div className="py-12"></div>
     </>
   );

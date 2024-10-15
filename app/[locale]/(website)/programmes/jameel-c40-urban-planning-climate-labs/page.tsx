@@ -279,62 +279,43 @@ export default async function JameelC40UrbanPlanningClimateLabsPage({
             <ResponsiveYouTubeEmbed embedId="46WXtuetDrA?si=BRoPb6Ob93Zlu8Ha" />
           </div>
         </div>
+ {/* DIVIDER START */}
+ <div className="w-full mt-12">
+        <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+      </div>
+      {/* DIVIDER END */}
 
-        {/* START DIVIDER */}
-        <div className="w-full pt-9">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-        </div>
-        {/* END DIVIDER */}
 
+      {/* START NEWS */}
+      {postProps && postProps.length > 0 && (
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
+              {postProps.slice(0).map((post) => (
                 <PostCard key={post.name} content={post} />
               ))}
             </div>
           </PostAccordion>
         </div>
+      )}
+      {/* END NEWS */}
+
+      {/* START PRESS */}
+      {newsProps && newsProps.length > 0 && (
         <div className="">
-          <PostAccordion title={"Press"}>
+          <PostAccordion title={"Media"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
+              {newsProps.map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
             </div>
           </PostAccordion>
         </div>
-        {/* <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
-        </div> */}
+      )}
+      {/* END PRESS */}
 
-        {/* 
-
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
-
+      {/* START EVENTS */}
+      {cleanRelatedEvents && cleanRelatedEvents.length > 0 && (
         <div>
           <PostAccordion title={"Events"}>
             <div className="">
@@ -348,13 +329,8 @@ export default async function JameelC40UrbanPlanningClimateLabsPage({
             </div>
           </PostAccordion>
         </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
+      )}
+      {/* END EVENTS */}  
       </div>
       <div className="py-12"></div>
     </>

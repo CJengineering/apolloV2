@@ -39,6 +39,7 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 import Image from "next/image";
+import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 
 export default async function KennethGriffinPage({
   params,
@@ -296,18 +297,58 @@ export default async function KennethGriffinPage({
           </div>
         </div>
       </div>
-      <div className="w-full mt-12">
+   {/* DIVIDER START */}
+   <div className="w-full mt-12">
         <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
       </div>
-      <div className="">
-        <PostAccordion title={"News"}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {postProps.slice(0, 8).map((post) => (
-              <PostCard key={post.name} content={post} />
-            ))}
-          </div>
-        </PostAccordion>
-      </div>
+      {/* DIVIDER END */}
+
+
+      {/* START NEWS */}
+      {postProps && postProps.length > 0 && (
+        <div className="">
+          <PostAccordion title={"News"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {postProps.slice(0).map((post) => (
+                <PostCard key={post.name} content={post} />
+              ))}
+            </div>
+          </PostAccordion>
+        </div>
+      )}
+      {/* END NEWS */}
+
+      {/* START PRESS */}
+      {newsProps && newsProps.length > 0 && (
+        <div className="">
+          <PostAccordion title={"Media"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {newsProps.map((item) => (
+                <NewsCard content={item} locale={params} />
+              ))}
+            </div>
+          </PostAccordion>
+        </div>
+      )}
+      {/* END PRESS */}
+
+      {/* START EVENTS */}
+      {cleanRelatedEvents && cleanRelatedEvents.length > 0 && (
+        <div>
+          <PostAccordion title={"Events"}>
+            <div className="">
+              <CarousselForComponents>
+                {cleanRelatedEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
+              </CarousselForComponents>
+            </div>
+          </PostAccordion>
+        </div>
+      )}
+      {/* END EVENTS */}    
       <div className="py-12"></div>
     </>
   );

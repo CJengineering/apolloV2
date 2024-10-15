@@ -304,7 +304,7 @@ export default async function PeoplePage({
 
       {cleanNews && cleanNews.length > 0 && (
         <div>
-          <PostAccordion title={"Press"}>
+          <PostAccordion title={"Media"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {cleanNews.map((item) => (
                 <NewsCard key={Math.random()} content={item} locale={params} />
