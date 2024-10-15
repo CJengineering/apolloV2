@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import { useRef, useEffect, useState } from "react";
@@ -21,7 +19,6 @@ import SidebarLink from "@/components/ui/sidebar-link";
 import SidebarLinkSubgroup from "@/components/ui/sidebar-link-subgroup";
 import SidebarLinkSubChildren from "@/components/ui/sidebar-link-sub-children";
 import { use } from "chai";
-
 
 type NavItem = {
   name: string;
@@ -59,7 +56,10 @@ const navItems: NavItem[] = [
           { name: "GCC Heat Tracker", href: "/stories/gcc-heat-tracker" },
           { name: "Harvesting Hope", href: "/stories/harvesting-hope" },
           { name: "Jameel Centre", href: "/stories/a-cairo-cornerstone" },
-          { name: "KSA Healthcare Timeiline", href: "/stories/ksa-healthcare-timeline"},
+          {
+            name: "KSA Healthcare Timeiline",
+            href: "/stories/ksa-healthcare-timeline",
+          },
         ],
       },
       // {
@@ -105,15 +105,24 @@ const navItems: NavItem[] = [
         ],
       },
 
-      
       {
         name: "J-WAFS",
         children: [
           { name: "Overview", href: "/programmes/j-wafs", current: false },
-          { name: "FACT Alliance", href: "https://jwafs.mit.edu/alliance", current: false, targetBlank: true },
-          { name: "Jameel Index", href: "https://jameelindex.mit.edu", current: false, targetBlank: true },
+          {
+            name: "FACT Alliance",
+            href: "https://jwafs.mit.edu/alliance",
+            current: false,
+            targetBlank: true,
+          },
+          {
+            name: "Jameel Index",
+            href: "https://jameelindex.mit.edu",
+            current: false,
+            targetBlank: true,
+          },
         ],
-        },
+      },
       {
         name: "J-WEL",
         href: "/programmes/j-wel",
@@ -127,8 +136,16 @@ const navItems: NavItem[] = [
       {
         name: "Jameel Institute",
         children: [
-          { name: "Overview", href: "/programmes/jameel-institute", current: false },
-          { name: "Jameel Institute Kenneth C. Griffin Intitiative", href: "/programmes/jameel-institute/kenneth-c-griffin-initiative-for-economics-of-pandemic-preparedness", current: false },
+          {
+            name: "Overview",
+            href: "/programmes/jameel-institute",
+            current: false,
+          },
+          {
+            name: "Jameel Institute Kenneth C. Griffin Intitiative",
+            href: "/programmes/jameel-institute/kenneth-c-griffin-initiative-for-economics-of-pandemic-preparedness",
+            current: false,
+          },
         ],
       },
       {
@@ -167,12 +184,18 @@ const navItems: NavItem[] = [
           {
             name: "Scholars",
             subChildren: [
-              { "name": "Clara Barbier Serrano (2020)", "href": "/people/clara-barbier-serrano" },
-              { "name": "Laura Mekhail (2021)", "href": "/people/laura-mekhail" },
-              { "name": "Seonwoo Lee (2022)", "href": "/people/seonwoo-lee" },
-              { "name": "Anastasia Koorn (2023)", "href": "/people/anastasia-koorn" },
-              { "name": "Henna Mun (2023)", "href": "/people/henna-mun" }
-            ]
+              {
+                name: "Clara Barbier Serrano (2020)",
+                href: "/people/clara-barbier-serrano",
+              },
+              { name: "Laura Mekhail (2021)", href: "/people/laura-mekhail" },
+              { name: "Seonwoo Lee (2022)", href: "/people/seonwoo-lee" },
+              {
+                name: "Anastasia Koorn (2023)",
+                href: "/people/anastasia-koorn",
+              },
+              { name: "Henna Mun (2023)", href: "/people/henna-mun" },
+            ],
           },
           {
             name: "Media",
@@ -192,13 +215,18 @@ const navItems: NavItem[] = [
           {
             name: "Graduation collections",
             subChildren: [
-              { "name": "2023", "href": "/programmes/jameel-house-of-traditional-arts-in-cairo/2023-graduation-collection"},
-              { "name": "2024", "href": "/programmes/jameel-house-of-traditional-arts-in-cairo/2024-graduation-collection"},
-            ]
+              {
+                name: "2023",
+                href: "/programmes/jameel-house-of-traditional-arts-in-cairo/2023-graduation-collection",
+              },
+              {
+                name: "2024",
+                href: "/programmes/jameel-house-of-traditional-arts-in-cairo/2024-graduation-collection",
+              },
+            ],
           },
         ],
       },
-
 
       {
         name: "Pratham Jameel Second Chance Programme",
@@ -246,7 +274,6 @@ const navItems: NavItem[] = [
           },
         ],
       },
-
     ],
   },
 
@@ -293,15 +320,13 @@ const NavGroup = ({
       {(handleClick, open) => (
         <>
           <div
-              // onMouseDown={(e) => {
-              //   e.preventDefault();
-              //   handleClick();
-              // }}
-              onTouchStart={(e) => {
-             
-                handleClick();
-           
-              }}
+            // onMouseDown={(e) => {
+            //   e.preventDefault();
+            //   handleClick();
+            // }}
+            onTouchStart={(e) => {
+              handleClick();
+            }}
             className="relative flex lg:hidden md:w-[230px]  justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
@@ -317,16 +342,13 @@ const NavGroup = ({
             </div>
           </div>
 
-
           <div
-              onMouseDown={(e) => {
-            
-                handleClick();
-              }}
-              onTouchStart={(e) => {
-           
-                handleClick();
-              }}
+            onMouseDown={(e) => {
+              handleClick();
+            }}
+            onTouchStart={(e) => {
+              handleClick();
+            }}
             className="hidden lg:flex relative md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
@@ -342,7 +364,6 @@ const NavGroup = ({
             </div>
           </div>
 
-
           <div
             className={`mb-3 ml-[11px] pl-4 z-50 border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${
               !open && "hidden"
@@ -356,16 +377,15 @@ const NavGroup = ({
   );
 };
 
-export default function Sidebar2() {
+export default function CustomSideBar() {
   const [mounted, setMounted] = useState(false);
   const sidebar = useRef<HTMLDivElement>(null);
   const { sidebarOpen, setSidebarOpen } = useAppProvider();
 
-
-  
- 
-
-  const [divSizes, setDivSizes] = useState<{ sidebar: number; content: number }>({
+  const [divSizes, setDivSizes] = useState<{
+    sidebar: number;
+    content: number;
+  }>({
     sidebar: 0,
     content: 0,
   });
@@ -404,13 +424,22 @@ export default function Sidebar2() {
                 </SidebarLinkSubChildren>
               ) : // Render SidebarLink if href is present, otherwise handle undefined href
               child.href ? (
-                <div className=" mt-3 " key={index + Math.random() + "div-index" + child.name}>
-                  <SidebarLink key={index + "b" + child.name+ Math.random()} href={child.href} targetBlank={child.targetBlank}>
+                <div
+                  className=" mt-3 "
+                  key={index + Math.random() + "div-index" + child.name}
+                >
+                  <SidebarLink
+                    key={index + "b" + child.name + Math.random()}
+                    href={child.href}
+                    targetBlank={child.targetBlank}
+                  >
                     {child.name}
                   </SidebarLink>
                 </div>
               ) : (
-                <div key={child.name + "a"+ Math.random() + index}>{child.name}</div> // Handle cases without href
+                <div key={child.name + "a" + Math.random() + index}>
+                  {child.name}
+                </div> // Handle cases without href
               )
             )}
           </SidebarLinkSubgroup>
@@ -420,12 +449,14 @@ export default function Sidebar2() {
   };
   useEffect(() => {
     setMounted(true);
-  }
-  , []);  
+  }, []);
   if (!mounted) return null;
 
   return (
-    <div ref={sidebarRef} className=" overflow-y-auto side-scroll-bar  lg:max-h-screen ">
+    <div
+      ref={sidebarRef}
+      className=" overflow-y-auto side-scroll-bar  lg:max-h-screen "
+    >
       {/* Backdrop This is for Mobile */}
       <Transition
         className="md:hidden  fixed sm:static inset-0 z-0 bg-opacity-20 transition-opacity"
@@ -445,7 +476,6 @@ export default function Sidebar2() {
           show={sidebarOpen}
           unmount={false}
           as="aside"
-         
           id="sidebar"
           className="left-0 fixed lg:static top-[64px] dropdown-item lg:top-0 lg:bottom-0  pb-40  w-full pt-6 bg-white lg:w-[233px] h-screen overflow-y-auto md:h-full   lg:shrink-0 z-50 lg:overflow-x-hidden   lg:!opacity-100 lg:!block  dark:bg-slate-900"
           enter="transition ease-out duration-200 transform"
@@ -455,14 +485,8 @@ export default function Sidebar2() {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          {/* Gradient bg displaying on light layout only background mask */}
-          {/* <div
-            className="absolute  bg-blackinset-0 -left-[9999px] bg-gradient-to-b from-slate-50 to-white pointer-events-none -z-10 dark:hidden"
-            aria-hidden="true"
-          ></div> */}
-          {/* The navigational part on postion fixed */}
           <div className="w-full sm:w-[200px] px-4 sm:px-6 md:pl-2 md:pr-8 ">
-          <div className="relative z-30">
+            <div className="relative z-30">
               <nav className="sm:block w-full text-sm ">
                 {/* This is navigational Link consider it as a link  you can find this on component on top of the file */}
                 <NavLink
@@ -473,7 +497,7 @@ export default function Sidebar2() {
                 >
                   Community
                 </NavLink>
-                
+
                 {/* this is a component that is for the dropdown only and has a logo you can find this component on top */}
                 <NavGroup
                   title="About"
@@ -481,7 +505,18 @@ export default function Sidebar2() {
                     <AcademicCapIcon className="h-4 w-4 text-gray-500 dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />
                   }
                 >
-                  {renderNavItems(navItems[0].children || [])}
+                  <div className="mt-3">
+                    {[
+                      { name: "Overview", href: "/about/overview" },
+                      { name: "Team", href: "/about/team" },
+                      { name: "Family album", href: "/about/family-album" },
+                      { name: "Brand", href: "/about/brand" },
+                    ].map((item, index) => (
+                      <div className="mt-3">
+                        <SidebarLink href={item.href}>{item.name}</SidebarLink>
+                      </div>
+                    ))}
+                  </div>
                 </NavGroup>
                 <NavGroup
                   title="Programmes"
@@ -489,10 +524,8 @@ export default function Sidebar2() {
                     <CpuChipIcon className="h-4 w-4 text-gray-500 dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />
                   }
                 >
-                 
 
-                  {renderNavItems(navItems[3].children || [])}
-                 
+                  <div></div>
                 </NavGroup>
                 <NavGroup
                   title="Discover"
@@ -500,7 +533,16 @@ export default function Sidebar2() {
                     <BeakerIcon className="h-4 w-4 text-gray-500 dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />
                   }
                 >
-                  {renderNavItems(navItems[2].children || [])}
+                  {[
+                    { name: "Media", href: "/media" },
+                    { name: "News", href: "/news" },
+                    { name: "Events", href: "/events" },
+                    { name: "Newsletter", href: "/newsletter" },
+                  ].map((item, index) => (
+                    <div className="mt-3">
+                      <SidebarLink href={item.href}>{item.name}</SidebarLink>
+                    </div>
+                  ))}
                 </NavGroup>
               </nav>
             </div>
