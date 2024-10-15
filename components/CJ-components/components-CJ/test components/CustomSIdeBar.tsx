@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, ReactNode } from "react";
 import { useAppProvider } from "@/app/app-provider";
 import { useSelectedLayoutSegments } from "next/navigation";
 import { Transition } from "@headlessui/react";
@@ -377,6 +377,136 @@ const NavGroup = ({
   );
 };
 
+const NavSubGroup = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) => {
+  const segments = useSelectedLayoutSegments();
+  const open = segments.includes(title);
+
+  return (
+    <SidebarLinkGroup open={open}>
+      {(handleClick, open) => (
+        <>
+          <div
+            onTouchStart={(e) => {
+              handleClick();
+            }}
+            className="relative flex lg:hidden md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+          >
+            <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
+              {title}
+            </div>
+            <div>
+              <ChevronRightIcon
+                className={`h-3 w-3 text-black dark:text-white shrink-0 ml-2 transition-transform duration-200 ${
+                  open ? "rotate-90" : ""
+                }`}
+              />
+            </div>
+          </div>
+
+          <div
+            onMouseDown={(e) => {
+              handleClick();
+            }}
+            onTouchStart={(e) => {
+              handleClick();
+            }}
+            className="hidden lg:flex relative md:w-[202px]  justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+          >
+            <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
+              {title}
+            </div>
+            <div>
+              <ChevronRightIcon
+                className={`h-3 w-3 text-black dark:text-white shrink-0 ml-2 transition-transform duration-200 ${
+                  open ? "rotate-90" : ""
+                }`}
+              />
+            </div>
+          </div>
+
+          <div
+            className={`mb-3 ml-[11px] pl-4 z-50 border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${
+              !open && "hidden"
+            }`}
+          >
+            {children}
+          </div>
+        </>
+      )}
+    </SidebarLinkGroup>
+  );
+};
+const NavSubSubGroup = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) => {
+  const segments = useSelectedLayoutSegments();
+  const open = segments.includes(title);
+
+  return (
+    <SidebarLinkGroup open={open}>
+      {(handleClick, open) => (
+        <>
+          <div
+            onTouchStart={(e) => {
+              handleClick();
+            }}
+            className="relative flex lg:hidden md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+          >
+            <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
+              {title}
+            </div>
+            <div>
+              <ChevronRightIcon
+                className={`h-3 w-3 text-black dark:text-white shrink-0 ml-2 transition-transform duration-200 ${
+                  open ? "rotate-90" : ""
+                }`}
+              />
+            </div>
+          </div>
+
+          <div
+            onMouseDown={(e) => {
+              handleClick();
+            }}
+            onTouchStart={(e) => {
+              handleClick();
+            }}
+            className="hidden lg:flex relative md:w-[174px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+          >
+            <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
+              {title}
+            </div>
+            <div>
+              <ChevronRightIcon
+                className={`h-3 w-3 text-black dark:text-white shrink-0 ml-2 transition-transform duration-200 ${
+                  open ? "rotate-90" : ""
+                }`}
+              />
+            </div>
+          </div>
+
+          <div
+            className={`mb-3 ml-[11px] pl-4 z-50 border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${
+              !open && "hidden"
+            }`}
+          >
+            {children}
+          </div>
+        </>
+      )}
+    </SidebarLinkGroup>
+  );
+};
 export default function CustomSideBar() {
   const [mounted, setMounted] = useState(false);
   const sidebar = useRef<HTMLDivElement>(null);
@@ -524,8 +654,165 @@ export default function CustomSideBar() {
                     <CpuChipIcon className="h-4 w-4 text-gray-500 dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />
                   }
                 >
+                  <NavSubGroup title={"J-PAL"}>
+                    {[
+                      {
+                        name: "J-PAL Global",
+                        href: "/programmes/j-pal",
+                        current: false,
+                      },
+                      {
+                        name: "J-PAL MENA",
+                        href: "https://www.povertyactionlab.org/middle-east-and-north-africa",
+                        current: false,
+                        targetBlank: true,
+                      },
+                      {
+                        name: "ESII",
+                        href: "https://www.povertyactionlab.org/initiative/european-social-inclusion-initiative",
+                        current: false,
+                        targetBlank: true,
+                      },
+                      {
+                        name: "HAPIE",
+                        href: "https://www.povertyactionlab.org/page/hub-advanced-policy-innovation-environment-hapie",
+                        current: false,
+                        targetBlank: true,
+                      },
+                      {
+                        name: "J-PAL Air and Water Labs",
+                        href: "https://www.povertyactionlab.org/page/air-and-water-labs",
+                        current: false,
+                        targetBlank: true,
+                      },
+                    ].map((item, index) => (
+                      <div className="mt-3">
+                        <SidebarLink href={item.href} key={index + Math.random()}>{item.name}</SidebarLink>
+                      </div>
+                    ))}
+                  </NavSubGroup>
+                  <NavSubGroup title={"J-WAFS"}>
+                    {[
+                      {
+                        name: "Overview",
+                        href: "/programmes/j-wafs",
+                        current: false,
+                      },
+                      {
+                        name: "FACT Alliance",
+                        href: "https://jwafs.mit.edu/alliance",
+                        current: false,
+                        targetBlank: true,
+                      },
+                      {
+                        name: "Jameel Index",
+                        href: "https://jameelindex.mit.edu",
+                        current: false,
+                        targetBlank: true,
+                      },
+                    ].map((item, index) => (
+                      <div className="mt-3">
+                        <SidebarLink href={item.href} key={index + Math.random()}>{item.name}</SidebarLink>
+                      </div>
+                    ))}
+                  </NavSubGroup>
+                  <div className="mt-3">
+                    <SidebarLink href="/programmes/j-wel">J-WEL</SidebarLink>
+                  </div>
+                  <div className="mt-3">
+                    <SidebarLink href="/programmes/jameel-clinic">
+                      Jameel Clinic
+                    </SidebarLink>
+                  </div>
+                  <NavSubGroup title={"Jameel Institute"}>
+                    {[
+                      {
+                        name: "Overview",
+                        href: "/programmes/jameel-institute",
+                        current: false,
+                      },
+                      {
+                        name: "Jameel Institute Kenneth C. Griffin Intitiative",
+                        href: "/programmes/jameel-institute/kenneth-c-griffin-initiative-for-economics-of-pandemic-preparedness",
+                        current: false,
+                      },
+                    ].map((item, index) => (
+                      <div className="mt-3">
+                        <SidebarLink href={item.href}>{item.name}</SidebarLink>
+                      </div>
+                    ))}
+                  </NavSubGroup>
+                  <NavSubGroup title={"Jameel Observatory"}>
+                    {[
+                      {
+                        name: "Food Security Early Action",
+                        href: "/programmes/jameel-observatory/for-food-security-early-action",
+                        current: false,
+                      },
+                      {
+                        name: "CREWSNET",
+                        href: "/programmes/jameel-observatory/crewsnet",
+                        current: false,
+                      },
+                    ].map((item, index) => (
+                      <div className="mt-3">
+                        <SidebarLink href={item.href}  key={index + Math.random()}>{item.name}</SidebarLink>
+                      </div>
+                    ))}
+                  </NavSubGroup>
+                  <div className="mt-3">
+                    <SidebarLink href="/programmes/jameel-arts-and-health-lab">
+                      Jameel Arts & Health Lab
+                    </SidebarLink>
+                  </div>
+                  <div className="mt-3">
+                    <SidebarLink href="/programmes/climavore-x-jameel-at-rca">
+                      Climavore x Jameel at RCA
+                    </SidebarLink>
+                  </div>
+                  <NavSubGroup title={"Bocelli-Jameel Scholarship"}>
+                    {[
+                      {
+                        name: "Overview",
+                        href: "/programmes/bocelli-jameel-scholarship",
+                        current: false,
+                      },
+                    
+                    ].map((item, index) => (
+                      <div className="mt-3">
+                        <SidebarLink href={item.href}  key={index + Math.random()}>{item.name}</SidebarLink>
+                      </div>
+                    ))}
 
-                  <div></div>
+                    <NavSubSubGroup title={"Scholars"}>
+                      {[
+                        {
+                          name: "Clara Barbier Serrano (2020)",
+                          href: "/people/clara-barbier-serrano",
+                        },
+                        {
+                          name: "Laura Mekhail (2021)",
+                          href: "/people/laura-mekhail",
+                        },
+                        {
+                          name: "Seonwoo Lee (2022)",
+                          href: "/people/seonwoo-lee",
+                        },
+                        {
+                          name: "Anastasia Koorn (2023)",
+                          href: "/people/anastasia-koorn",
+                        },
+                        {
+                          name: "Henna Mun (2023)",
+                          href: "/people/henna-mun",
+                        },
+                      ].map((item, index) => (
+                        <div className="mt-3">
+                          <SidebarLink href={item.href}  key={index + Math.random()}>{item.name}</SidebarLink>
+                        </div>
+                      ))}
+                  </NavSubSubGroup>
+                  </NavSubGroup>
                 </NavGroup>
                 <NavGroup
                   title="Discover"
@@ -540,7 +827,7 @@ export default function CustomSideBar() {
                     { name: "Newsletter", href: "/newsletter" },
                   ].map((item, index) => (
                     <div className="mt-3">
-                      <SidebarLink href={item.href}>{item.name}</SidebarLink>
+                      <SidebarLink href={item.href}  key={index + Math.random()}>{item.name}</SidebarLink>
                     </div>
                   ))}
                 </NavGroup>
