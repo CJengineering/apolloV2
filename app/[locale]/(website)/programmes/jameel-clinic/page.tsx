@@ -41,6 +41,20 @@ import HomeCard from "@/components/CJ-components/components-CJ/basic components/
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "MIT Jameel Clinic",
+  description: "The epicentre of AI and healthcare at MIT",
+  ogType: "website",
+  ogImage: '/images/metadata/JAMEEL_CLINIC__OG_1200x630.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "MIT", "MIT Jameel Clinic", "CSAIL"],
+
+})
+
 
 // START "SELECT INITIATIVES"
 

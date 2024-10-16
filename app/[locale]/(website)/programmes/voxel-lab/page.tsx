@@ -36,8 +36,21 @@ import ContentPhotos from "../../../../../components/CJ-components/components-CJ
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
 
-export default async function Programme10page({
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Voxel Lab",
+  description: "A makerspace for innovation and entrepreneurship in music and the arts",
+  ogType: "website",
+  ogImage: '/images/metadata/VOXEL_LAB_OG.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Voxel Lab", "Jameel Rapid Prototyping Room"],
+
+})
+
+export default async function VoxelLabPage({
   params,
 }: {
   params: { slug: string; locale: string };

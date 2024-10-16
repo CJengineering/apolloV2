@@ -36,8 +36,21 @@ import ContentPhotos from "../../../../../components/CJ-components/components-CJ
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
 
-export default async function Programme24page({
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Jameel Hardship Fund",
+  description: "",
+  ogType: "website",
+  ogImage: "/images/metadata/JAMEEL_HARDSHIP_FUND_OG.webp",
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Hardship Fund", "Jameel", "Bacem Anas Romdhani"],
+
+})
+
+export default async function JameelHardshipFund({
   params,
 }: {
   params: { slug: string; locale: string };

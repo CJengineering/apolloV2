@@ -40,8 +40,22 @@ import CarousselForComponents from "@/components/CJ-components/components-CJ/bas
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 
-export default async function Programme35page({
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "MIT Abdul Latif World Education Lab (J-WEL)",
+  description:
+    "Bringing MIT ideas and know-how to collaborations with educational innovators around the world",
+  ogType: "website",
+  ogImage: '/images/metadata/J-WEL_OG_1200x630.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community", "J-WEL", "MIT World Education Lab"],
+
+})
+
+export default async function JWELProgrammePage({
   params,
 }: {
   params: { slug: string; locale: string };

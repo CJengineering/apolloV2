@@ -42,6 +42,20 @@ import Stats from "@/components/CJ-components/components-CJ/basic components/Sta
 import Image from "next/image";
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Jameel Arts and Health Lab",
+  description:
+    "Measurably improving health and wellbeing through the arts",
+  ogType: "website",
+  ogImage: '/images/metadata/JAMEEL_ARTS_HEALTH_LAB_HERO_OG.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community", "Jameel Arts & Health Lab", "WHO", "NYU Steinhardt", "CULTURUNNERS"],
+
+})
 
 // START INITIATIVES
 

@@ -40,8 +40,22 @@ import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/
 import Image from "next/image";
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
 
-export default async function Programme25page({
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Jameel Toyota Scholarship",
+  description: "Expanding opportunities for the next generation.",
+  ogType: "website",
+  ogImage: '/images/metadata/JTS_HERO_OG.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Toyota", "Scholarship", "Jameel Toyota Scholarship", "MIT"],
+
+})
+
+
+export default async function JameelToyotaScholarshipPage({
   params,
 }: {
   params: { slug: string; locale: string };

@@ -78,15 +78,17 @@ export async function generateStaticParams() {
 }
 
 export const metadata: Metadata = customMetaDataGenerator({
-  title: "Media | Community Jameel",
+  useRawTitle: true,
+  title: "Media",
   description:
     "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",
   ogType: "website",
-  ogImage: 'https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61f09bfb80bd7c62387c6c9c_COMMUNITY_JAMEEL_PRESS_HEADER.jpg',
+  ogImage: '/images/metadata/MEDIA.webp',
   twitterCard: "summary_large_image",
   keywords: ["Community Jameel", "Jameel", "Community"],
 
 })
+
 
 export default async function NewsContent({
   params,
