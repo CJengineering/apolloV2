@@ -15,26 +15,26 @@ export default async function sitemap() {
   const teamRaw = await getData(teamId);
   const events = eventRaw.items
     .map((item) => ({
-      url: `https://www.communityjameel.org/events/${item.fields.slug}`,
-      lastModified: new Date(item.sys.updatedAt),
+      url: `https://www.communityjameel.org/events/${item.fieldData.slug}`,
+      lastModified: new Date(),
       changeFrequency: "daily",
       priority: 0.7,
     }));
   const news = newsRaw.items.map((item) => ({
-    url: `https://www.communityjameel.org/news/${item.fields.slug}`,
-    lastModified: new Date(item.sys.updatedAt),
+    url: `https://www.communityjameel.org/news/${item.fieldData.slug}`,
+    lastModified: new Date(),
     changeFrequency: "daily",
     priority: 0.7,
   }));
   const posts = postsRaw.items.map((item) => ({
-    url: `https://www.communityjameel.org/posts/${item.fields.slug}`,
-    lastModified: new Date(item.sys.updatedAt),
+    url: `https://www.communityjameel.org/posts/${item.fieldData.slug}`,
+    lastModified: new Date(),
     changeFrequency: "daily",
     priority: 0.7,
   }));
   const team = teamRaw.items.map((item) => ({
-    url: `https://www.communityjameel.org/about/team/${item.fields.slug}`,
-    lastModified: new Date(item.sys.updatedAt),
+    url: `https://www.communityjameel.org/about/team/${item.fieldData.slug}`,
+    lastModified: new Date(),
     changeFrequency: "daily",
     priority: 0.7,
   }));
