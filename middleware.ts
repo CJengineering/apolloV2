@@ -51,7 +51,8 @@ export function middleware(request: NextRequest) {
     '/programme/j-wel': '/programmes/j-wel',
     '/programme/j-wafs': '/programmes/j-wafs',
     '/programme/j-pal': '/programmes/j-pal',
-    '/whats-on': '/events'
+    '/whats-on': '/events',
+    '/team/george-richards': '/about/team/george-richards'
   };
   const { pathname } = request.nextUrl;
   const host = request.headers.get('host')
