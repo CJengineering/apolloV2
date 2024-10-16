@@ -21,13 +21,13 @@ export default async function sitemap() {
       priority: 0.7,
     }));
   const news = newsRaw.items.map((item) => ({
-    url: `https://www.communityjameel.org/news/${item.fieldData.slug}`,
+    url: `https://www.communityjameel.org/media/${item.fieldData.slug}`,
     lastModified: new Date(),
     changeFrequency: "daily",
     priority: 0.7,
   }));
   const posts = postsRaw.items.map((item) => ({
-    url: `https://www.communityjameel.org/posts/${item.fieldData.slug}`,
+    url: `https://www.communityjameel.org/news/${item.fieldData.slug}`,
     lastModified: new Date(),
     changeFrequency: "daily",
     priority: 0.7,
