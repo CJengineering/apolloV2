@@ -2,7 +2,7 @@ import "../../css/style.css";
 
 import { EB_Garamond, Nothing_You_Could_Do } from "next/font/google";
 import localFont from "next/font/local";
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 import Image from "next/image";
 import Illustration from "@/public/images/to_sort/hero-illustration.svg";
 import Header from "@/components/ui/header";
@@ -108,7 +108,7 @@ export default async function RootLayout({
       {/* suppressHydrationWarning: https://github.com/vercel/next.js/issues/44343 */}
       <body
         className={`${nycd.variable}${zain.variable} ${aspekta.variable} ${costa.variable} ${ibm_plex_mono.variable} ${ibm_plex_sans.variable} ${ibm_plex_serif.variable} ${vollkorn.variable} ${arial.variable}  ${libre_baskerville.variable} ${eb_garamond.variable} font-aspekta antialiased text-slate-800 font-[350] bg-white dark:bg-slate-900 dark:text-slate-200`}
-      >
+      >    <GoogleAnalytics gaId="G-N43209CL5W" />
         <Theme>
           <AppProvider>
             {/*  previous div had this 'min-h-screen overflow-hidden' removed for sticky positioning  */}
