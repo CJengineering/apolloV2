@@ -3,7 +3,7 @@ import WebflowIframe from "@/components/CJ-components/components-CJ/test compone
 export default function pageKsaHelathStorie() {
   return (
     <div className="">
-      <WebflowIframe webUrl="https://www.communityjameel.org/stories/gcc-heat-tracker"></WebflowIframe>
+      <WebflowIframe webUrl="https://www.littleredheart.org/stories/gcc-heat-tracker"></WebflowIframe>
     </div>
   );
 }
