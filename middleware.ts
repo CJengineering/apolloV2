@@ -50,7 +50,8 @@ export function middleware(request: NextRequest) {
     '/programme/jameel-clinic': '/programmes/jameel-clinic',
     '/programme/j-wel': '/programmes/j-wel',
     '/programme/j-wafs': '/programmes/j-wafs',
-    '/programme/j-pal': '/programmes/j-pal',    
+    '/programme/j-pal': '/programmes/j-pal',
+    '/whats-on': '/events'
   };
   const { pathname } = request.nextUrl;
   const host = request.headers.get('host')

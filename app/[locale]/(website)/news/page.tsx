@@ -57,9 +57,9 @@ export const metadata: Metadata = customMetaDataGenerator({
   useRawTitle: true,
   title: "News",
   description:
-    "Community Jameel supports a community of scientists, humanitarians, technologists and creatives. Working together through centres, funds, scholarships and projects, we are advancing science to help communities thrive in a rapidly changing world.",
+    "News announcements from Community Jameel",
   ogType: "website",
-  ogImage: 'https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61e6a124e31b0c9e6d00c791_TERMS_OF_USE.jpg',
+  ogImage: '/images/metadata/NEWS.webp',
   twitterCard: "summary_large_image",
   keywords: ["Community Jameel", "Jameel", "Community"],
 

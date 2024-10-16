@@ -49,7 +49,7 @@ export const metadata: Metadata = customMetaDataGenerator({
     "Ejada, a collaboration between Save the Children and MIT's J-WEL, supports teachers in overcoming trauma with compassionate teaching, reaching over 283,000 people.",
   ogType: "website",
   ogImage:
-    "/images/labs/ejada/ejada-full_logo.png",
+    "/images/metadata/EJADA.webp",
   twitterCard: "summary_large_image",
   keywords: [
     "Community Jameel",

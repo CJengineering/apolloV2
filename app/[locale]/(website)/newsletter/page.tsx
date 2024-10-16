@@ -7,8 +7,7 @@ import LogoLoader from '@/components/CJ-components/components-CJ/test components
 import { Metadata } from 'next';
 import { customMetaDataGenerator } from '@/functions/utils/customMetadataGenerator';
 
-
-export default function Page() {
+export default function NewsLetterePage() {
   const [status, setStatus] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false); // State for managing loading

@@ -44,6 +44,20 @@ import ResponsiveYouTubeEmbed from "@/components/custom beta components/Responsi
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Abdul Latif Jameel Poverty Action Lab (J-PAL)",
+  description:
+    "What works in fighting poverty",
+  ogType: "website",
+  ogImage: '/images/metadata/J-PAL_OG_1200x630.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community", "J-PAL", "Povery Action Lab"],
+
+})
 
 // START THE DATA FOR CARDS
 

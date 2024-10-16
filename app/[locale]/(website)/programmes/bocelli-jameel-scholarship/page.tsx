@@ -106,12 +106,13 @@ export const metadata: Metadata = customMetaDataGenerator({
     "The Andrea Bocelli Foundation-Community Jameel scholarship supports talented students at the Royal College of Music, offering world-class training and the chance to perform with Bocelli.",
   ogType: "website",
   ogImage:
-    "/images/labs/bocelli-jameel-scholarship/bocelli-jameel-scholarship_og.jpg",
+    "/images/metadata/BOCELLI_JAMEEL_HERO_OG.webp",
   twitterCard: "summary_large_image",
   keywords: [
     "Community Jameel",
     "Jameel",
     "Community",
+    "Royal College of Music London",
     "Andrea Bocelli",
     "Royal College of Music",
     "Clara Barbier Serrano",

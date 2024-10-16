@@ -41,6 +41,20 @@ import Stats from "@/components/CJ-components/components-CJ/basic components/Sta
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Jameel House of Traditional Arts in Cairo 2024 Graduation Collection",
+  description: "s",
+  ogType: "website",
+  ogImage: '/images/metadata/JAMEEL_HOUSE_HERO_OG.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Jameel House", "King's Foundation", "Cultural Development Fund", "Community Jameel"],
+
+})
+
 
 // START INITIATIVES
 
