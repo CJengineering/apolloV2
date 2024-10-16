@@ -30,6 +30,7 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 import Script from "next/script";
 import ErrorBoundary from "next/dist/client/components/error-boundary";
 import CustomSideBar from "@/components/CJ-components/components-CJ/test components/CustomSIdeBar";
+import CookieBanner from "@/components/CJ-components/components-CJ/custom components/cookie-banner";
 
 const nycd = Nothing_You_Could_Do({
   subsets: ["latin"],
@@ -141,6 +142,7 @@ export default async function RootLayout({
             </div>
           </AppProvider>
         </Theme>
+        <CookieBanner />
       </body>
     </html>
   );
