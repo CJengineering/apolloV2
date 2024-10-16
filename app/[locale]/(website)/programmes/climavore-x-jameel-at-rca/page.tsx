@@ -37,6 +37,20 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Climavore x Jameel at RCA",
+  description:
+    "Reimagining foodways for drylands and wetlands in the climate crisis",
+  ogType: "website",
+  ogImage: '/images/metadata/CLIMAMORE_HERO_OG.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community", "Climavore", "Royal College of Art", "RCA"],
+
+})
 
 export default async function ClimavoreJameelPage({
   params,

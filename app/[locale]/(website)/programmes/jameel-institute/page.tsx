@@ -41,6 +41,20 @@ import HomeCard from "@/components/CJ-components/components-CJ/basic components/
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Jameel Institute",
+  description: "Combating disease threats worldwide",
+  ogType: "website",
+  ogImage: '/images/metadata/JAMEEL_INSTITUTE__OG_1200x630.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Jameel Institute", "Imperial College London"],
+
+})
+
 
 // START "SELECT INITIATIVES"
 

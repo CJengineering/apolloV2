@@ -39,6 +39,19 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Jameel Fund",
+  description: "",
+  ogType: "website",
+  ogImage: "/images/metadata/JAMEEL_FUND_OG.webp",
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Jameel Fund", "Imperial College London"],
+
+})
 
 // START THE DATA FOR CARDS
 

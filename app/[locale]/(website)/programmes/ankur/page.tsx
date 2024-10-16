@@ -38,8 +38,22 @@ import LanguageChanger from "@/components/custom beta components/LanguageChanger
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 
-export default async function Programme0page({
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Ankur",
+  description:
+    "Sowing seeds of climate resilience and economic empowerment",
+  ogType: "website",
+  ogImage: '/images/metadata/ANKUR_HERO_OG.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community", "Ankur", "India", "Yass", "Rupantaran"],
+
+})
+
+export default async function AnkurProgrammePage({
   params,
 }: {
   params: { slug: string; locale: string };

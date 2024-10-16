@@ -39,7 +39,22 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 
-export default async function Programme7page({
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "BRUVS Monaco",
+  description:
+    "",
+  ogType: "website",
+  ogImage: '/images/metadata/BRUVS_MONACO.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community", "BRUVS", "Monaco", "Blue Abacus", "Association Monégasque pour la Protection de la Nature"],
+
+})
+
+export default async function BruvMonacoProgrammePage({
   params,
 }: {
   params: { slug: string; locale: string };

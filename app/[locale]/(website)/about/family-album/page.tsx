@@ -17,9 +17,9 @@ export const metadata: Metadata = customMetaDataGenerator({
     "A selection of archival photos of the Jameel family from across the history of Community Jameel",
   ogType: "website",
   ogImage:
-    "https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/64beaaeea2bdc1d6a424413a_JH%20HERITAGE%20PROJECTS_OG.jpg",
+    "/images/metadata/FAMILY.webp",
   twitterCard: "summary_large_image",
-  keywords: ["Community Jameel", "Jameel", "Community"],
+  keywords: ["Community Jameel", "Jameel", "Community", "Family", "Mohammed Jameel KBE", "Hassan Jameel", "Fady Jameel"],
 });
 export default async function page() {
   const dataPhotos = await getData("64aed077835b06888cf9e4c0");

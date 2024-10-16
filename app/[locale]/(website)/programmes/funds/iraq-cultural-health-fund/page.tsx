@@ -42,6 +42,21 @@ import HomeCard from "@/components/CJ-components/components-CJ/basic components/
 import Carousel from "@/components/CJ-components/components-CJ/basic components/Caroussel";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Iraq Cultural Health Fund",
+  description: "",
+  ogType: "website",
+  ogImage: "/images/metadata/IRAQ_CULTURAL_HEALTH_FUND_OG.webp",
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Iraq", "Safina Projects", "Rashad Salim", "Yazidi", "Google Arts & Cultural", "Yazda"],
+
+})
+
+
 // START INITIATIVES
 
 const cardData = [

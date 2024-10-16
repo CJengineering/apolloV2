@@ -37,6 +37,20 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "COVID-19 Excellence Fund",
+  description: "",
+  ogType: "website",
+  ogImage: "/images/metadata/JAMEEL_INSTITUTE__OG_1200x630.webp",
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "COVID-19", "Imperial College London"],
+
+})
+
 
 export default async function Programme20page({
   params,

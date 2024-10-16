@@ -42,6 +42,20 @@ import Stats from "@/components/CJ-components/components-CJ/basic components/Sta
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "MIT Abdul Latif Jameel Water and Food Systems Lab (J-WAFS)",
+  description:
+    "Securing humankind's vital resources",
+  ogType: "website",
+  ogImage: '/images/metadata/J-WAFS_OG_1200x630.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community", "J-WAFS", "Water Food Systems Lab"],
+
+})
 
 // START INITIATIVES
 
@@ -101,7 +115,7 @@ const spinoutsLogos = [
 
 // STARTUP LOGOS END
 
-export default async function JwafsPage({
+export default async function JwafsProgrammePage({
   params,
 }: {
   params: { slug: string; locale: string };

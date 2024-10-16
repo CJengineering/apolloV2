@@ -42,6 +42,20 @@ import Stats from "@/components/CJ-components/components-CJ/basic components/Sta
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import Image from "next/image";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Jameel Observatory-CREWSnet",
+  description: "Empowering frontline vulnerable communities to proactively adapt to climate change.",
+  ogType: "website",
+  ogImage: '/images/metadata/CREWSNET_OG_1200x630.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "MIT", "Lincoln Laboratory", "CREWSnet", "Jameel Observatory"],
+
+})
+
 
 // START "SELECT INITIATIVES"
 
