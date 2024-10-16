@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.communityjameel.org
-
-# Sitemaps
-Sitemap: https://www.communityjameel.org/sitemap.xml
