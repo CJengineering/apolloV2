@@ -50,9 +50,9 @@ export const metadata: Metadata = customMetaDataGenerator({
   description:
     "Community Jameel hosts and collaborates on events across the globe. Check out what's on and look back at some of our past events.",
   ogType: "website",
-  ogImage: 'https://uploads-ssl.webflow.com/612cdb8a4fac760705621df5/61e6f19f486905791dcc1b27_JAMEEL_FAMILY_ARCHIVE_PHOTO.jpg',
+  ogImage: '/images/metadata/EVENTS.webp',
   twitterCard: "summary_large_image",
-  keywords: ["Community Jameel", "Jameel", "Community"],
+  keywords: ["Community Jameel", "Jameel", "Community", "Events", "What's on"],
 
 })
 const articleData: NewsMainProps = {

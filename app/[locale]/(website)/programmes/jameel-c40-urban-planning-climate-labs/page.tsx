@@ -41,6 +41,21 @@ import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import Image from "next/image";
 
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Jameel C40 Urban Planning Climate Labs",
+  description: "Assisting rapidly-growing cities to align climate action with urban planning",
+  ogType: "website",
+  ogImage: '/images/metadata/C40JAMEEL_HERO_OG.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community", "C40", "Urban Planning", "Climate Labs", "C40 Cities"],
+
+})
+
+
 export default async function JameelC40UrbanPlanningClimateLabsPage({
   params,
 }: {

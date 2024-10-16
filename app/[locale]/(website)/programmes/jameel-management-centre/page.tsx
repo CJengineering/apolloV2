@@ -38,8 +38,21 @@ import LanguageChanger from "@/components/custom beta components/LanguageChanger
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
 
-export default async function Programme32page({
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Jameel Management Centre",
+  description: "Fostering Cairo’s spirit of learning, innovation and entrepreneurship at the American University of Cairo's Downtown campus since 1989.",
+  ogType: "website",
+  ogImage: '/images/metadata/JAMEEL_CENTER_HERO_OG.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Jameel Management Centre", "American University in Cairo", ""],
+
+})
+
+export default async function JameelManagementCentrePage({
   params,
 }: {
   params: { slug: string; locale: string };

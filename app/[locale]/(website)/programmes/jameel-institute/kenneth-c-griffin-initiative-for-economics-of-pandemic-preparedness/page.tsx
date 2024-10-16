@@ -40,6 +40,20 @@ import ResponsiveYouTubeEmbed from "@/components/custom beta components/Responsi
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 import Image from "next/image";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Jameel Institute Kenneth C. Griffin Initiative for Economics of Pandemic Preparedness",
+  description: "Combating disease threats worldwide",
+  ogType: "website",
+  ogImage: '/images/metadata/JAMEEL_INSTITUTE__OG_1200x630.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Jameel Institute", "Imperial College London", "Kenneth C. Griffin"],
+
+})
+
 
 export default async function KennethGriffinPage({
   params,

@@ -42,6 +42,19 @@ import HomeCard from "@/components/CJ-components/components-CJ/basic components/
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 import Image from "next/image";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Jameel Observatory for Food Security Early Action",
+  description: "Reinventing climate change adaptation through data and evidence.",
+  ogType: "website",
+  ogImage: '/images/metadata/JO_FSEA_OG.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "University Edinburgh", "ILRI", "Save the Children", "J-PAL", "Jameel Observatory"],
+
+})
 
 // START "SELECT INITIATIVES"
 

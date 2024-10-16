@@ -41,6 +41,20 @@ import ResponsiveYouTubeEmbed from "@/components/custom beta components/Responsi
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 import Image from "next/image";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Pratham Jameel Second Chance Programme",
+  description: "Supporting secondary-education completion for girls in India.",
+  ogType: "website",
+  ogImage: '/images/metadata/PRATHAM_JAMEEL_HERO_OG.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Pratham", "Pratham Jameel Second Chance"],
+
+})
+
 
 export default async function Programme3page({
   params,
