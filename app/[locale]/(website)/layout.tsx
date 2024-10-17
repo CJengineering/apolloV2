@@ -31,6 +31,7 @@ import Script from "next/script";
 import ErrorBoundary from "next/dist/client/components/error-boundary";
 import CustomSideBar from "@/components/CJ-components/components-CJ/test components/CustomSIdeBar";
 import CookieBanner from "@/components/CJ-components/components-CJ/custom components/cookie-banner";
+import { getGoogleAnalyticsData } from "@/functions/api/googleAnalytics";
 
 const nycd = Nothing_You_Could_Do({
   subsets: ["latin"],
@@ -93,7 +94,6 @@ const zain = localFont({
   variable: "--font-zain",
   display: "swap",
 });
-
 export const metadata = {
   title: "Community Jameel",
   description: "Advancing science and learning for communities to thrive",
@@ -104,6 +104,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+
   return (
     <html lang="en" className="scroll-smooth " suppressHydrationWarning>
       {/* suppressHydrationWarning: https://github.com/vercel/next.js/issues/44343 */}

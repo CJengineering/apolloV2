@@ -4,8 +4,9 @@ import ContentContainer from "@/components/custom beta components/ContentContain
 import SocialMediaLinks from "../custom beta components/SocialMediaLinks";
 import SocialMediaList from "../CJ-components/components-CJ/basic components/SocialMediaList";
 import ContentFooterContainer from "../CJ-components/components-CJ/custom components/ContentContainerFooter";
+import SessionCounter from "../CJ-components/components-CJ/test components/SessionCounter";
 
-export default function Footer() {
+export default function Footer({visitCount}: {visitCount: string}) {
   return (
 
       <footer className="lg:mx-0 border-t dark:bg-slate-900 bg-white border-gray-200 dark:border-slate-700 pt-8">
@@ -58,6 +59,7 @@ export default function Footer() {
             <span className="hover:text-orange-700 sans-serif">Accessibility policy</span>
           </Link>
         </div>
+        <SessionCounter visitCount={visitCount}/>
       </footer>
 
   );

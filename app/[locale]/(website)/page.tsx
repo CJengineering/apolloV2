@@ -60,6 +60,8 @@ import EventsCardHome from "@/components/CJ-components/components-CJ/test compon
 import PressCardHome from "@/components/CJ-components/components-CJ/test components/PressCardHome";
 import Spinner from "@/components/CJ-components/components-CJ/custom components/Spinner";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import { getGoogleAnalyticsData } from "@/functions/api/googleAnalytics";
+
 
 // INTERFACE FOR THE DATA START
 const postsId = getIdByDisplayName("Posts");
@@ -306,6 +308,12 @@ export default async function SinglePost({
   const fiveFirstPosts =postsClean.slice(0, 5);
   const fiveFirstNews = newsClean.slice(0, 5);
   const fiveFirstEvents = eventClean.slice(0, 5);
+
+
+ 
+  
+ 
+
   return (
     <>
 

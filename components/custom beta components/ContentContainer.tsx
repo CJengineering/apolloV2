@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar2 from "../ui/sideBar2";
 import Footer from "../ui/footer";
 import CustomSidebar from "../CJ-components/components-CJ/test components/CustomSIdeBar";
+import { getGoogleAnalyticsData } from "@/functions/api/googleAnalytics";
 
 interface ContentContainerProps {
   children: React.ReactNode;
@@ -9,7 +10,7 @@ interface ContentContainerProps {
   desktopWidth?: "full" | "small" | "medium" | "large";
 }
 
-export default function ContentContainer({
+export default async function ContentContainer({
   children,
   width = "full",
   desktopWidth,
@@ -35,7 +36,8 @@ export default function ContentContainer({
     default:
       widthClass = "max-w-screen-xl";
   }
-
+  const dataAanalytic =  await getGoogleAnalyticsData();
+  console.log('this is data analytis',dataAanalytic);
   let desktopWidthClass = "";
   switch (desktopWidth) {
     case "full":
@@ -58,6 +60,7 @@ export default function ContentContainer({
     <div
       className={`mx-auto md:mt-8  2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px] px-4 lg:px-0`}
     >
+      {JSON.stringify(dataAanalytic)}
       <div className="flex mb-6">
         <div className="w-[250px] hidden  lg:block">
           {/* <div className="sticky hidden md:block top-[64px]">
@@ -71,7 +74,7 @@ export default function ContentContainer({
           {children}
         </div>
       </div>
-      <Footer />
+      <Footer  visitCount={dataAanalytic}/>
     </div>
   );
 }
