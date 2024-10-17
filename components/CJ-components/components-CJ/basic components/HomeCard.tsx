@@ -56,7 +56,7 @@ const HomeCard: React.FC<CardProps> = ({
             />
           </ImageContainer>
           </div>
-          <div className="pt-0 lg:pt-3 ml-3">
+          <div className="pt-0 lg:pt-3 ml-3 lg:ml-0">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
             <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
           </div>
@@ -84,7 +84,7 @@ const HomeCard: React.FC<CardProps> = ({
             />
           </ImageContainer>
           </div>
-          <div className="pt-0 lg:pt-3 ml-3">
+          <div className="pt-0 lg:pt-3 ml-3 lg:ml-0">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
             <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
           </div>
@@ -113,7 +113,7 @@ const HomeCard: React.FC<CardProps> = ({
             />
           </ImageContainer>
           </div>
-          <div className="pt-0 lg:pt-3 ml-3">
+          <div className="pt-0 lg:pt-3 ml-3 lg:ml-0">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
             <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
           </div>
@@ -136,7 +136,7 @@ const HomeCard: React.FC<CardProps> = ({
             />
           </ImageContainer>
           </div>
-          <div className="pt-0 lg:pt-3 ml-3">
+          <div className="pt-0 lg:pt-3 ml-3 lg:ml-0">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
             <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
           </div>
@@ -158,7 +158,7 @@ const HomeCard: React.FC<CardProps> = ({
         />
       </ImageContainer>
       </div>
-      <div className="pt-0 lg:pt-3 ml-3">
+      <div className="pt-0 lg:pt-3 ml-3 lg:ml-0">
         <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
         <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
       </div>
