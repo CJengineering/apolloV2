@@ -182,7 +182,7 @@ export default async function PeoplePage({
           </div>
         </div>
       </div>
-      <div className="w-full h-px bg-slate-200"></div>
+      <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
       <div className="py-6">
         <h2 className="serif font-medium text-xl lg:text-2xl">Details</h2>
         <div className="grid grid-cols-1 md:grid-cols-2">
@@ -231,7 +231,7 @@ export default async function PeoplePage({
           </div>
         </div>
       </div>
-      <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
+      <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div> {/* Separation Bar */}
       <div>
         {cleanPublicationsRelated.length > 0 &&
           cleanPublicationsRelated.map((item) => (

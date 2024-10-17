@@ -405,7 +405,22 @@ export default async function JwafsProgrammePage({
           {/* First Logo */}
 
           {/* Second Logo */}
-          <div className="flex items-center justify-start py-6 lg:py-2">
+          <div className="hidden dark:flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://www.xibus.systems/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/xibus_systems_darkmode_logo.svg"
+                alt="Logo 2"
+                width={180}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+          <div className="dark:hidden flex items-center justify-start py-6 lg:py-2">
             <a
               href="https://www.xibus.systems/"
               target="_blank"
@@ -422,7 +437,22 @@ export default async function JwafsProgrammePage({
           </div>
 
           {/* Third Logo */}
-          <div className="flex items-center justify-start py-6 lg:py-2">
+          <div className="hidden dark:flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://viaseparations.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/via-separations-logo-white.svg"
+                alt="Logo 3"
+                width={200}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+          <div className="dark:hidden flex items-center justify-start py-6 lg:py-2">
             <a
               href="https://viaseparations.com/"
               target="_blank"
@@ -437,6 +467,7 @@ export default async function JwafsProgrammePage({
               />
             </a>
           </div>
+
 
           {/* Fourth Logo */}
           <div className="flex items-center justify-start py-6 lg:py-2">
@@ -456,14 +487,29 @@ export default async function JwafsProgrammePage({
           </div>
 
           {/* Fifth Logo */}
-          <div className="flex items-center justify-start py-6 lg:py-2">
+          <div className="hidden dark:flex items-center justify-start py-6 lg:py-2">
             <a
               href="https://sitration.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <Image
-                src="/images/labs/j-wafs/spinouts/sitration_svg_logo.png"
+                src="/images/labs/j-wafs/spinouts/logo-sitration-light.svg"
+                alt="Logo 5"
+                width={90}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+          <div className="dark:hidden flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://sitration.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/logo-sitration-dark.svg"
                 alt="Logo 5"
                 width={90}
                 height={100}

@@ -48,12 +48,17 @@ export const metadata: Metadata = customMetaDataGenerator({
   title: "Jameel Toyota Scholarship",
   description: "Expanding opportunities for the next generation.",
   ogType: "website",
-  ogImage: '/images/metadata/JTS_HERO_OG.webp',
+  ogImage: "/images/metadata/JTS_HERO_OG.webp",
   twitterCard: "summary_large_image",
-  keywords: ["Community Jameel", "Jameel", "Toyota", "Scholarship", "Jameel Toyota Scholarship", "MIT"],
-
-})
-
+  keywords: [
+    "Community Jameel",
+    "Jameel",
+    "Toyota",
+    "Scholarship",
+    "Jameel Toyota Scholarship",
+    "MIT",
+  ],
+});
 
 export default async function JameelToyotaScholarshipPage({
   params,
@@ -223,14 +228,12 @@ export default async function JameelToyotaScholarshipPage({
   return (
     <>
       <div className="pt-20 lg:pt-10">
-
-      <div className="flex flex-col text-left">
+        <div className="flex flex-col text-left">
           <div className="pb-3">
             <h1 className="header-article">{cleanSingleProgramme.name}</h1>
           </div>
           <div>
-            <p className="prose prose-xl font-bold leading-normal dark:text-white mb-5">
-            </p>
+            <p className="prose prose-xl font-bold leading-normal dark:text-white mb-5"></p>
           </div>
           <div className="w-full lg:w-2/3">
             <div
@@ -238,18 +241,16 @@ export default async function JameelToyotaScholarshipPage({
               dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
             />
           </div>
-          <div className="pt-6">
-          </div>
+          <div className="pt-6"></div>
         </div>
         {/* START PARTNERS GRID */}
         <div className="text-sm font-bold items-center pb-3">
-              IN PARTNERSHIP WITH
-              </div>
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-0 pb-6">
-
+          IN PARTNERSHIP WITH
+        </div>
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-0 pb-6">
           {/* 1 */}
           <div className="flex items-center justify-start">
-            <a href="" target="" rel="">
+            <a href="www.mit.edu" target="blank" rel="">
               <Image
                 src="/images/logos/mit_logo.svg"
                 alt="MIT logo"
@@ -260,12 +261,25 @@ export default async function JameelToyotaScholarshipPage({
             </a>
           </div>
 
-            {/* 2 */}
-            <div className="flex items-center justify-start">
+          {/* 2 */}
+          <div className="flex items-center justify-center">
+            <a href="www.toyota.com" target="_blank" rel="">
+              <Image
+                src="/images/logos/toyota_logo.svg"
+                alt="Toyota logo"
+                width={100}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+{/* 3 */}
+          <div className="flex items-center justify-start pl-6">
             <a href="" target="" rel="">
               <Image
                 src="/images/cj_logo/CJ_LOGO_ENGLISH_RED_SVG.svg"
-                alt="Yazda logo"
+                alt="Community Jameel logo"
                 width={170}
                 height={100}
                 className="object-contain transition duration-300 hover:filter hover:grayscale"
@@ -274,19 +288,39 @@ export default async function JameelToyotaScholarshipPage({
           </div>
         </div>
 
-        {/* END PARTNERS GRIP */}
+        {/* END PARTNERS GRID */}
+
+        {/* <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
+        </div> */}
+
+      
+      {/* <div className="flex items-center">
+        <div><Image src={"/images/labs/jameel-toyota-scholarship/melissa-nobles.webp"} width={180} height={180} alt={"Melissa Nobel"}></Image></div>
+          <div className="ml-4">
+            <div>
+              <p className="text-2xl font-bold sans-serif italic">“The value of a Jameel-Toyota scholarship remains nothing short of life-changing."</p>
+            </div>
+            <div>
+              <p className="text-base sans-serif pt-2">Melissa Nobles, Chancellor, MIT</p>
+            </div>
+        </div>
+      </div> */}
+
+        <div className="w-full py-6 lg:pb-12 lg:pt-6">
+          <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
+        </div>
 
         <div className="w-full lg:w-2/3">
           <ResponsiveYouTubeEmbed embedId="89aK7v60jIA?si=YphydcRoIOoQDzJI" />
         </div>
       </div>
 
- {/* DIVIDER START */}
- <div className="w-full mt-12">
+      {/* DIVIDER START */}
+      <div className="w-full mt-12">
         <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
       </div>
       {/* DIVIDER END */}
-
 
       {/* START NEWS */}
       {postProps && postProps.length > 0 && (
@@ -332,7 +366,7 @@ export default async function JameelToyotaScholarshipPage({
           </PostAccordion>
         </div>
       )}
-      {/* END EVENTS */}  
+      {/* END EVENTS */}
       <div className="py-6 lg:py-12"></div>
     </>
   );

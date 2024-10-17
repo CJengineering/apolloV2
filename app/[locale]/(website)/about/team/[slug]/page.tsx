@@ -229,7 +229,7 @@ export default async function page({
       {relatedNewsToTeamMember.length > 0 && (
         <>
           <div className="flex flex-col pt-3 pb-6">
-            <div className="w-full h-px bg-slate-200"></div>{" "}
+            <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>{" "}
             {/* Separation Bar */}
           </div>
           <div className="pb-6">

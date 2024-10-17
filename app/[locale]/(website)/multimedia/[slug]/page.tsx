@@ -201,7 +201,7 @@ export default async function MultimediaPage({
           </div>
         </div>
       </div>
-      <div className="w-full h-px bg-slate-200"></div>
+      <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
       <div className="py-6">
         {/* <h2 className="serif font-medium text-xl lg:text-2xl">Details</h2> */}
         <div className="grid grid-cols-1 md:grid-cols-2">
@@ -262,7 +262,7 @@ export default async function MultimediaPage({
           </div>
         </div>
       </div>
-      <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
+      <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div> {/* Separation Bar */}
       <div>
         <h2 className="header-section pt-6">Related</h2>
         <div className="grid grid-cols-1 space-y-6 lg:space-y-0 lg:grid-cols-2 mt-6 lg:mt-6">

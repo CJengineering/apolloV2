@@ -84,8 +84,8 @@ const cardData = [
   },
   {
     imageUrl: "/images/labs/j-pal/HAPIE.jpg",
-    alt: "Hub of Adbvanced Policy Innovation for the Environment (HAPIE)",
-    title: "Hub of Adbvanced Policy Innovation for the Environment (HAPIE)",
+    alt: "Hub of Advanced Policy Innovation for the Environment (HAPIE)",
+    title: "Hub of Advanced Policy Innovation for the Environment (HAPIE)",
     subtitle:
       "HAPIE is J-PAL's Air and Water Lab in Egypt, launched by NIGSD, J-PAL MENA, and Community Jameel. It extends EIL's environmental work to improve air and water access by generating evidence for government policy. HAPIE enables researchers to collaborate with J-PAL MENA and government partners on evidence-based policies.",
     link: "https://www.povertyactionlab.org/page/hub-advanced-policy-innovation-environment-hapie",

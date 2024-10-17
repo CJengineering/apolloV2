@@ -237,7 +237,7 @@ export default async function WhatsOnContent({
 
         <div>
           <div className="pb-6">
-            <div className="w-full h-px bg-slate-200"></div>
+            <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
           </div>
           <div className="pb-3">
             <h2 className="header-section pb-3">Past events</h2>

@@ -167,7 +167,7 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
 
           {relatedNewsClean.length > 0 && (
             <>
-              <div className="w-full h-px bg-slate-200 mb-6 mt-4 lg:w-2/3"></div>
+              <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mb-6 mt-4 lg:w-2/3"></div>
               <h2 className="header-section mb-6">Related </h2>
             </>
           )}
