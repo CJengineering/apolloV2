@@ -62,7 +62,7 @@ export default async function ContentContainer({
     <div
       className={`mx-auto md:mt-8  2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px] px-4 lg:px-0`}
     >
-      {JSON.stringify(dataAanalytic)}
+   
       <div className="flex mb-6">
         <div className="w-[250px] hidden  lg:block">
           {/* <div className="sticky hidden md:block top-[64px]">
