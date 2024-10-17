@@ -17,6 +17,7 @@ export default function Footer({visitCount}: {visitCount: string}) {
             </div>
           </div>
           {/* Social links */}
+          
           <div>
             <SocialMediaList
               socialMediaLinks={{
@@ -30,13 +31,13 @@ export default function Footer({visitCount}: {visitCount: string}) {
             />
           </div>
         </div>
-        <div className="border-t border-gray-200 dark:border-slate-700 my-8"></div>
+        <div className="border-t border-gray-200 dark:border-slate-700 my-6"></div>
         <div className="text-sm sans-serif text-slate-800 dark:text-slate-500">
           © Community Jameel
           <span>. All rights reserved.</span>
         </div>
         <p className="text-sm mt-4 sans-serif dark:text-slate-500">
-          Sign up Permission to use this site is granted strictly subject to the
+          Permission to use this site is granted strictly subject to the
           Terms of Use. The Community Jameel name and logotype are trademarks or
           registered trademarks of Abdul Latif Jameel IPR Company Limited.
         </p>
@@ -59,7 +60,8 @@ export default function Footer({visitCount}: {visitCount: string}) {
             <span className="hover:text-orange-700 sans-serif">Accessibility policy</span>
           </Link>
         </div>
-        <SessionCounter visitCount={visitCount}/>
+        <div className="mt-4"><SessionCounter visitCount={visitCount}/></div>        
+        
       </footer>
 
   );

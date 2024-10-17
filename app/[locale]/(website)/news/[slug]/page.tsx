@@ -132,7 +132,7 @@ export default async function page({
         <ArticleBanter post={cleanPost} locale={params.locale} />
       </div>
       <div className="pt-9 pb-7">
-        <hr className="border-gray-200" />
+      <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
       </div>
       {cleanRelatedImages.length > 1 && (
         <>
@@ -147,7 +147,7 @@ export default async function page({
           </div>
 
           <div className="pt-9 pb-7">
-            <hr className="border-gray-200" />
+          <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
           </div>
         </>
       )}

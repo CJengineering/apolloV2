@@ -58,14 +58,14 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
           <div className="pb-2">
           {locale !== 'ar' && (
   <div className="flex items-center">
-    <div className="h-3 w-3 bg-[#ad243a] mr-2"></div>
-    <div className="flex items-center bg-slate-100 px-1 group ml-2">
-      <div className="underline pr-1 hover:text-blue-800 hover:cursor-pointer">
+    <div className="h-5 w-5 bg-[#ad243a] mr-2"></div>
+    <div className="flex items-center bg-slate-200 dark:bg-slate-800 px-1 group ml-2">
+      <div className="underline pr-1 hover:text-blue-800 hover:cursor-pointer dark:hover:text-blue-400">
         <Link href={`/programmes/${post.programme.slug}`}>
           {post.programme.name}
         </Link>
       </div>
-      <div className="transition-transform duration-300 ease-in-out group-hover:translate-x-[2px] group-hover:text-blue-800">
+      <div className="transition-transform duration-300 ease-in-out group-hover:translate-x-[2px] group-hover:text-blue-800 dark:group-hover:text-blue-400">
         <ArrowRightIcon className="h-4 w-4" />
       </div>
     </div>

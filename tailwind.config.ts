@@ -35,12 +35,12 @@ module.exports = {
             },
             p: {
               fontWeight: "400",
-              fontSize: "1rem",
+              fontSize: "1.1rem",
             },
             
             li: {
               fontWeight: "400",
-              fontSize: "1rem",
+              fontSize: "1.1rem",
             },
 
             'li::marker': {
@@ -67,12 +67,27 @@ module.exports = {
             a: {
               color: theme('colors.white'),
               '&:hover': {
-                color: theme('colors.white'),
+                color: theme('colors.blue.400'),
               },
+            },
+
+            'li::marker': {
+              color: theme('colors.white'),
+              fontSize: "inherit",
+              fontWeight: "inherit",
+            },
+            marker: {
+              
+              
             },
             p: {
               color: theme('colors.white'), // Set paragraph text color to white in dark mode
               fontWeight: '400',
+              fontSize: '1.1rem',
+            },
+            strong: {
+              color: theme('colors.white'), // Set paragraph text color to white in dark mode
+              fontWeight: '600',
               fontSize: '1.1rem',
             },
             figure: {
@@ -98,7 +113,7 @@ module.exports = {
         xlc: "1500px",
       },
       fontSize: {
-        base: "1rem",
+        base: "1.1rem",
         lg: "1.25rem",
         tiny: "0.8rem",
         md: "1.1rem",
