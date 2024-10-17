@@ -67,7 +67,7 @@ export default function ContentContainer({
           {children}
         </div>
       </div>
-          <Footer />
+      
     </div>
   );
 }

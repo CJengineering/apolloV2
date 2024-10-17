@@ -2,7 +2,9 @@ import React from "react";
 import Sidebar2 from "../ui/sideBar2";
 import Footer from "../ui/footer";
 import CustomSidebar from "../CJ-components/components-CJ/test components/CustomSIdeBar";
+
 import { getGoogleAnalyticsData } from "@/functions/api/googleAnalytics";
+
 
 interface ContentContainerProps {
   children: React.ReactNode;

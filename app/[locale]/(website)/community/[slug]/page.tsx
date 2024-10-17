@@ -112,7 +112,7 @@ export default async function SinglePost({ params }: {
           <PageNavigation prevArticle={post.prev} nextArticle={post.next} />
 
           {/* Content footer */}
-          <Footer />
+   
 
         </div>
 
