@@ -114,7 +114,7 @@ export default async function Page() {
             <h2 className="header-section">Colours</h2>
           </div>
           <p className="text-base sans-serif w-full lg:w-2/3">
-          Our main colour is a <span className="font-bold text-[#ad243a]">dark red</span> (HEX: #ad243a | RGB: 173,36,58) to reflect the heart that underpins our identity.
+          Our main colour is a <span className="font-bold text-[#be0336]">dark red</span> (HEX: #be0336 | RGB: 190,3,54) to reflect the heart that underpins our identity.
           <br /><br />
           We also use colours that evoke the long dawns and dusks on the shores of the Red Sea in Jeddah.
           </p>
