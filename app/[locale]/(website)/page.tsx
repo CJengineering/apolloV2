@@ -310,12 +310,12 @@ export default async function SinglePost({
     <>
 
 
-      <div className="pt-20 sm:pt-20 flex flex-col justify-center">
-        <div className="w-full lg:w-2/3 mx-auto">
+      <div className="pt-20 sm:pt-10 flex flex-col">
+        <div className="w-full lg:w-2/3">
           <h1 className="header-page leading-none">
             Advancing science and learning for communities to thrive
           </h1>
-          <p className="pt-6 sans-serif text-lg sm:text-xl font-normal md:text-2x text-left">
+          <p className="pt-6 sans-serif text-lg sm:text-xl font-normal md:text-2x text-left leading-snug">
             An independent, global organisation, Community Jameel launched in
             2003 to continue the tradition of philanthropy and community service
             established by the Jameel family of Saudi Arabia in 1945.

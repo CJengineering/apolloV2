@@ -35,7 +35,8 @@ const HomeCard: React.FC<CardProps> = ({
 
   // Updated ImageContainer with new overlay styles
   const ImageContainer = ({ children }: { children: React.ReactNode }) => (
-    <div className="relative w-full pb-[100%] group hover:cursor-pointer">
+    <div className="
+    relative h-32 w-32 lg:pb-[100%] lg:w-full group hover:cursor-pointer">
       {children}
       <div className="absolute inset-0 bg-blue-950 mix-blend-screen opacity-0 transition-opacity duration-[2100ms] group-hover:opacity-100 z-10"></div>
     </div>
@@ -44,7 +45,8 @@ const HomeCard: React.FC<CardProps> = ({
   if (clickAction === "Video embed code") {
     return (
       <div>
-        <div onClick={handleOpenLightbox} className="cursor-pointer block overflow-hidden group">
+        <div onClick={handleOpenLightbox} className="flex flex-row items-center lg:block overflow-hidden group cursor-pointer">
+        <div className="col-span-5">
           <ImageContainer>
             <Image
               className="absolute inset-0 w-full h-full object-cover z-0"
@@ -53,9 +55,10 @@ const HomeCard: React.FC<CardProps> = ({
               layout="fill"
             />
           </ImageContainer>
-          <div className="pt-3">
+          </div>
+          <div className="pt-0 lg:pt-3 ml-3">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-            <p className="text-base sans-serif">{subtitle}</p>
+            <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
           </div>
         </div>
         {lightboxOpen && (
@@ -71,7 +74,8 @@ const HomeCard: React.FC<CardProps> = ({
   if (clickAction === "Image link") {
     return (
       <div>
-        <div onClick={handleOpenLightbox} className="cursor-pointer pb-6 block overflow-hidden group">
+        <div onClick={handleOpenLightbox} className="flex flex-row items-center lg:block overflow-hidden group cursor-pointer">
+        <div className="col-span-5">
           <ImageContainer>
             <img
               className="absolute inset-0 w-full h-full object-cover z-0"
@@ -79,9 +83,10 @@ const HomeCard: React.FC<CardProps> = ({
               alt={alt}
             />
           </ImageContainer>
-          <div className="pt-3">
+          </div>
+          <div className="pt-0 lg:pt-3 ml-3">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-            <p className="text-base sans-serif">{subtitle}</p>
+            <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
           </div>
         </div>
         {lightboxOpen && (
@@ -97,18 +102,20 @@ const HomeCard: React.FC<CardProps> = ({
   if (clickAction === "Internal link") {
     return (
       <Link href={link} passHref>
-        <div className="block overflow-hidden group cursor-pointer">
+        <div className="flex flex-row items-center lg:block overflow-hidden group cursor-pointer">
+          <div className="col-span-5">
           <ImageContainer>
             <Image
-              className="absolute inset-0 w-full h-full object-cover z-0"
+              className="absolute inset-0 w-10 h-10 mr-10 lg:w-full lg:h-full object-cover z-0"
               src={imageUrl}
               alt={alt}
               layout="fill"
             />
           </ImageContainer>
-          <div className="pt-3">
+          </div>
+          <div className="pt-0 lg:pt-3 ml-3">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-            <p className="text-base sans-serif">{subtitle}</p>
+            <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
           </div>
         </div>
       </Link>
@@ -118,7 +125,8 @@ const HomeCard: React.FC<CardProps> = ({
   if (clickAction === "External link") {
     return (
       <Link href={link} target="_blank">
-        <div className="block overflow-hidden group cursor-pointer">
+        <div className="flex flex-row items-center lg:block overflow-hidden group cursor-pointer">
+        <div className="col-span-5">
           <ImageContainer>
             <Image
               className="absolute inset-0 w-full h-full object-cover z-0"
@@ -127,9 +135,10 @@ const HomeCard: React.FC<CardProps> = ({
               layout="fill"
             />
           </ImageContainer>
-          <div className="pt-3">
+          </div>
+          <div className="pt-0 lg:pt-3 ml-3">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-            <p className="text-base sans-serif">{subtitle}</p>
+            <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
           </div>
         </div>
       </Link>
@@ -138,7 +147,8 @@ const HomeCard: React.FC<CardProps> = ({
 
   // Default case
   return (
-    <div onClick={handleOpenLightbox} className="cursor-pointer pb-6 block overflow-hidden group">
+    <div onClick={handleOpenLightbox} className="flex flex-row items-center lg:block overflow-hidden group cursor-pointer">
+      <div className="col-span-5">
       <ImageContainer>
         <Image
           className="absolute inset-0 w-full h-full object-cover z-0"
@@ -147,9 +157,10 @@ const HomeCard: React.FC<CardProps> = ({
           layout="fill"
         />
       </ImageContainer>
-      <div className="pt-3">
+      </div>
+      <div className="pt-0 lg:pt-3 ml-3">
         <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-        <p className="text-base sans-serif">{subtitle}</p>
+        <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
       </div>
     </div>
   );
