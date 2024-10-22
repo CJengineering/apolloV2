@@ -17,6 +17,7 @@ interface ColourRow {
 // Define the ColourTable component
 const ColourTable: FC = () => {
   const rows: ColourRow[] = [
+    { bgColor: '#ad243a', hex: '#ad243a', rgb: 'rgb(173, 36, 58)' },
     { bgColor: '#ff00c1', hex: '#ff00c1', rgb: 'rgb(255, 0, 193)' },
     { bgColor: '#9600ff', hex: '#9600ff', rgb: 'rgb(150, 0, 255)' },
     { bgColor: '#4900ff', hex: '#4900ff', rgb: 'rgb(73, 0, 255)' },
@@ -68,7 +69,7 @@ export default async function Page() {
   return (
    
        <div className="w-full">
-        <h1 className="header-page pb-10 pt-20 lg:pb-12 lg:pt-10 lg:text-left">
+        <h1 className="header-page pb-6">
           Brand
         </h1>
 
@@ -114,11 +115,13 @@ export default async function Page() {
             <h2 className="header-section">Colours</h2>
           </div>
           <p className="text-base sans-serif w-full lg:w-2/3">
-          Our main colour is a <span className="font-bold text-[#be0336]">dark red</span> (HEX: #be0336 | RGB: 190,3,54) to reflect the heart that underpins our identity.
+          Our main colour is a <span className="font-bold text-[#ad243a]">dark red</span> (HEX: #ad243a | RGB: 173, 36, 58) to reflect the heart that underpins our identity.
           <br /><br />
           We also use colours that evoke the long dawns and dusks on the shores of the Red Sea in Jeddah.
           </p>
         </div>
+
+        
 
         {/* Colour Table */}
         <ColourTable />

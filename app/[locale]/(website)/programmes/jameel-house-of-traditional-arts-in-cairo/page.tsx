@@ -335,7 +335,7 @@ const imageLightboxData: ImageLightbox[] = [
 <div className="flex flex-col text-left">
            
 <div className="pb-6">
-<h1 className="header-article lg:pl-2">{cleanSingleProgramme.name}</h1>
+<h1 className="header-article">{cleanSingleProgramme.name}</h1>
 </div>
 
 <div className="">

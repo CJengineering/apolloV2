@@ -24,6 +24,13 @@ module.exports = {
       typography: (theme: any) => ({
         DEFAULT: {
           css: {
+            
+            p: {
+              fontWeight: "400",
+              fontSize: "1.1rem",
+              color: "black",
+              lineHeight: "1.5",
+            },
             a: {
               fontWeight: "inherit",
               color: "inherit",
@@ -32,20 +39,19 @@ module.exports = {
               '&:hover': {
                 color: theme('colors.blue.700'),
               },
+              lineHeight: "inherit",
             },
-            p: {
-              fontWeight: "400",
-              fontSize: "1.1rem",
-            },
-            
             li: {
               fontWeight: "400",
               fontSize: "1.1rem",
+              color: "black",
+              lineHeight: "1.5",
             },
 
             'li::marker': {
               fontWeight: "inherit",
               color: "black",
+              lineHeight: "1.5",
             },
             figure: {
               position: "relative !important",
@@ -64,31 +70,40 @@ module.exports = {
         dark: {
           css: {
             color: theme('colors.white'),
+            
             a: {
               color: theme('colors.white'),
               '&:hover': {
                 color: theme('colors.blue.400'),
               },
             },
+            li: {
+              fontWeight: "400",
+              fontSize: "1.1rem",
+              color: theme('colors.white'),
+              lineHeight: "1.5",
+            },
 
             'li::marker': {
               color: theme('colors.white'),
               fontSize: "inherit",
               fontWeight: "inherit",
+              lineHeight: "1.5",
             },
             marker: {
-              
-              
+  
             },
             p: {
               color: theme('colors.white'), // Set paragraph text color to white in dark mode
               fontWeight: '400',
               fontSize: '1.1rem',
+              lineHeight: "1.5",
             },
             strong: {
               color: theme('colors.white'), // Set paragraph text color to white in dark mode
               fontWeight: '600',
               fontSize: '1.1rem',
+              lineHeight: "1.5",
             },
             figure: {
               position: 'relative !important',

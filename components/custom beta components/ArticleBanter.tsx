@@ -12,6 +12,7 @@ import { PostFieldsCleaned } from "@/app/interfaces";
 import SecondaryNav from "../ui/secondary-nav";
 import ContentContainer from "./ContentContainer";
 import LanguageChanger from "./LanguageChanger";
+import ButtonCJ from "../CJ-components/components-CJ/basic components/ButtonCJ";
 interface ArticleBanterProps {
   post: PostFieldsCleaned;
   styleType?: string;
@@ -21,17 +22,17 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
   return (
     <>
     <div className={locale === "ar" ? "rtl" : ""}>
-    <div className="pt-6 w-full mb-4 flex">
-    <div className="w-full lg:w-3/4">
-    <h1 className={`header-article leading-7 sm:leading-none pb-0 pt-12 lg:pb-4 lg:pt-4 flex-grow ${locale === "ar" ? "sans-serif-ar text-right " : "sans-serif text-left"}`}>
+    <div className={`pt-6 w-full mb-4 flex ${locale === 'ar' ? 'justify-between' : 'justify-between'}`}>
+  <div className="w-full lg:w-2/3">
+    <h1 className={`header-article leading-7 sm:leading-none pb-0 pt-12 lg:pb-4 lg:pt-4 flex-grow ${locale === 'ar' ? 'sans-serif-ar text-right' : 'sans-serif text-left'}`}>
       {locale === 'ar' ? post.arabicTitle : post.name}
     </h1>
-    </div>
-    <div className={`pb-0 pt-12 lg:pb-4 lg:pt-4 ${locale === 'ar' ? 'mr-6' : 'ml-6'}`}>
-      <LanguageChanger />
-    </div>
   </div>
-        <div className="flex items-start w-full lg:w-4/5">
+  <div className={`pb-0 pt-12 lg:pb-4 lg:pt-4 ${locale === 'ar' ? 'order-1 ml-0 mr-auto' : 'order-2 mr-0 ml-auto'}`}>
+    <LanguageChanger />
+  </div>
+</div>
+        <div className="flex items-start w-full lg:w-2/3">
         <Image
           className=""
           src={post.mainImage.url}
@@ -44,11 +45,12 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
           <div className="">
             <div className="mx-auto">
               <div className="pt-6">
-                <div className={`{locale === 'ar' ? 'sans-serif-ar : 'sans-serif text-lg'}`}>{locale === 'ar' ? post.datePublishedArabic : post.datePublished}</div>
+                <div className={`pl-0 text-[1.1rem] ${locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}>
+                  {locale === 'ar' ? post.datePublishedArabic : post.datePublished}</div>
               </div>
               <div>
-                <div className={`{locale === 'ar' ? 'sans-serif-ar : 'sans-serif text-lg'}`}>
-                  {locale === 'ar' ? post.locationArabic : post.location === "N/A" ? "" : post.location}
+                <div className={`pl-0 text-[1.1rem] ${locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}>
+                  {locale === 'ar' ? post.locationArabic : post.location }
                 </div>
                 <div className={`pl-0 prose prose-2xl dark:prose-dark ${locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}>
                 <div dangerouslySetInnerHTML={{ __html: locale === 'ar' ? post.bodyArabic : post.body }}></div>
@@ -58,9 +60,12 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
           <div className="pb-2">
           {locale !== 'ar' && (
   <div className="flex items-center">
-    <div className="h-5 w-5 bg-[#be0336] mr-2"></div>
-    <div className="flex items-center bg-slate-200 dark:bg-slate-700 px-1 group ml-2">
+    <ButtonCJ text={post.programme.name} href={`/programmes/${post.programme.slug}`} styleType="secondary" />
+    {/* <div className="h-5 w-5 bg-[#be0336] mr-2"></div> */}
+    {/* <div className="flex items-center bg-slate-200 dark:bg-slate-700 px-1 group ml-2">
       <div className="underline pr-1 hover:text-blue-800 hover:cursor-pointer dark:hover:text-blue-400">
+        
+        
         <Link href={`/programmes/${post.programme.slug}`}>
           {post.programme.name}
         </Link>
@@ -68,12 +73,10 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
       <div className="transition-transform duration-300 ease-in-out group-hover:translate-x-[2px] group-hover:text-blue-800 dark:group-hover:text-blue-400">
         <ArrowRightIcon className="h-4 w-4" />
       </div>
-    </div>
+    </div> */}
   </div>
 )}
-
-
-          </div>
+</div>
         </div>
 
         {/* <div className="sticky top-20 self-start">

@@ -52,7 +52,7 @@ export default function NewsLetterePage() {
 
 <div className="w-min-full">
   <div className="pb-6">
-<h1 className="header-page pb-8 pt-20 lg:pb-6 lg:pt-10 lg:text-left">
+<h1 className="header-page pb-8">
         Join the community
       </h1>
       <div className="w-ful lg:w-2/3">

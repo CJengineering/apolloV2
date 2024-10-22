@@ -74,7 +74,7 @@ export default async function PeopleContent({
     <>
      
 
-     <h1 className="header-page pb-0 pt-20 lg:pb-0 lg:pt-10 lg:text-left">
+     <h1 className="header-page pb-8">
             Team
           </h1>
         <div className="">
