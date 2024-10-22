@@ -150,7 +150,7 @@ export default async function page({
             </div>
           </div>
           {params.locale === "ar" ? (
-            <div className="flex ">
+            <div className="flex justify-between">
               <div className=" pb-2  ml-4">
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl sans-serif-ar">
                   {memberName}
@@ -161,12 +161,9 @@ export default async function page({
               </div>
             </div>
           ) : (
-            <div className="flex">
-              <div className=" mr-4 pb-2 ">
-                <h1
-                  className="text-3xl sm:text-4xl lg:text-6xl 
-                  sans-serif"
-                >
+            <div className="flex justify-between">
+              <div className="mr-4 pb-2">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl sans-serif lg:-ml-[1px]">
                   {memberName}
                 </h1>
               </div>
@@ -237,10 +234,12 @@ export default async function page({
           </div>
         </>
       )}
+      <div className="w-full lg:w-2/3">
       <div className="grid grid-cols-1 gap-3">
         {relatedNewsToTeamMember.map((item) => (
           <NewsCard key={item.slug} content={item} locale={params.locale} />
         ))}
+      </div>
       </div>
     </>
   );

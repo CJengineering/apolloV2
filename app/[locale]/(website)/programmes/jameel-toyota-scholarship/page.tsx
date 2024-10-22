@@ -290,22 +290,22 @@ export default async function JameelToyotaScholarshipPage({
 
         {/* END PARTNERS GRID */}
 
-        {/* <div className="w-full py-6 lg:py-12">
+        <div className="w-full py-6 lg:py-12">
           <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
-        </div> */}
+        </div>
 
       
-      {/* <div className="flex items-center">
+      <div className="flex items-center">
         <div><Image src={"/images/labs/jameel-toyota-scholarship/melissa-nobles.webp"} width={180} height={180} alt={"Melissa Nobel"}></Image></div>
           <div className="ml-4">
             <div>
               <p className="text-2xl font-bold sans-serif italic">“The value of a Jameel-Toyota scholarship remains nothing short of life-changing."</p>
             </div>
             <div>
-              <p className="text-base sans-serif pt-2">Melissa Nobles, Chancellor, MIT</p>
+              <p className="text-base sans-serif pt-2">Melissa Nobles, Chancellor, MIT, <span className="italic">speaking at the 30th anniversary reception for the Jameel-Toyota scholarship</span></p>
             </div>
         </div>
-      </div> */}
+      </div>
 
         <div className="w-full py-6 lg:pb-12 lg:pt-6">
           <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>

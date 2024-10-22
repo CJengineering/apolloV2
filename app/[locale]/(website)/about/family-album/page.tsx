@@ -35,7 +35,7 @@ export default async function page() {
   return (
     <div className="min-h-screen">
     
-        <h1 className="header-page pb-10 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
+        <h1 className="header-page pb-10">
           Family album
         </h1>
         <ContentFamily images={photos} />

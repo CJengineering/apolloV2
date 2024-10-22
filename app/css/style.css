@@ -37,7 +37,7 @@
     @apply sans-serif text-base;
   }
 .header-page {
-    @apply sans-serif font-bold text-4xl lg:text-6xl;
+    @apply sans-serif font-bold text-4xl lg:text-6xl text-left pt-20 sm:pt-20 md:pt-16 lg:pt-10;
   } 
 
 .header-article {

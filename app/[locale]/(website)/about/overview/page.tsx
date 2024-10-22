@@ -58,7 +58,7 @@ export default async function OverviewContent({
     return (
       <div className="rtl min-h-[110vh]">
         <div className="w-full">
-          <div className="flex justify-between items-center pb-6 mt-20 lg:mt-10 lg:pb-0">
+          <div className="flex justify-between items-center">
             <h1 className="header-page sans-serif-ar lg:text-left">
               نظرة عامة
             </h1>
@@ -164,17 +164,17 @@ export default async function OverviewContent({
   return (
     <div className="min-h-[110vh]">
       <div className="w-full">
-        <div className="flex justify-between items-center mt-20 lg:mt-10 lg:pb-0">
-          <h1 className="header-page mr-8 lg:text-left">
+        <div className="flex justify-between items-center">
+          <h1 className="header-page lg:text-left">
             Overview
           </h1>
           <div className="">
             <LanguageChanger />
           </div>
         </div>
-        <article className="leading-7 text-black dark:text-white prose prose-lg serif font-normal dark:prose-invert">
+        <article className="dark:text-white prose prose-lg serif font-normal dark:prose-invert">
           <div className="text-rich-text w-richtext">
-            <p className="prose prose-2xl sans-serif leading-normal text-black dark:text-white ">
+            <p className="prose prose-2xl sans-serif leading-normal dark:text-white ">
               Community Jameel advances science and learning for communities to
               thrive.
             </p>

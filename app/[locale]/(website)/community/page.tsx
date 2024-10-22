@@ -131,7 +131,7 @@ export default async function SinglePost({
     <>
       <ArabicProvider locale={params.locale}>
         <div
-          className={`flex justify-between items-center pb-10 pt-20 lg:pb-10 lg:pt-10 ${
+          className={`flex justify-between items-center pb-10 ${
             params.locale === "ar" ? "rtl" : ""
           }`}
         >

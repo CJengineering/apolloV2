@@ -136,8 +136,8 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
           </div>
 
           <div className="flex flex-col md:flex-row">
-            <div className="w-full md:w-2/3 pr-6">
-              <article className="leading-7 text-black dark:text-white prose prose-xl  font-normal dark:prose-invert prose-p:mx-0 sans-serif prose-p:px-0">
+            <div className="w-full lg:w-2/3">
+              <article className="prose prose-2xl sans-seri dark:prose-dark">
                 <div
                   dangerouslySetInnerHTML={{ __html: newsItem.summary }}
                 ></div>
@@ -167,7 +167,7 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
 
           {relatedNewsClean.length > 0 && (
             <>
-              <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mb-6 mt-4 lg:w-2/3"></div>
+              <div className="w-full h-px bg-slate-200 dark:bg-slate-700 mb-6 mt-4"></div>
               <h2 className="header-section mb-6">Related </h2>
             </>
           )}

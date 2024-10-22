@@ -104,7 +104,7 @@ const multimediaClean = multimediaRaw.items.map(item => multimediaMapper(item,pr
   return (
     <>
       <div className="py-0">
-        <h1 className="header-page pb-8 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
+        <h1 className="header-page pb-8">
         Multimedia
         </h1>
       </div>

@@ -217,7 +217,7 @@ export default async function WhatsOnContent({
   );
   return (
     <>
-      <h1 className="header-page pb-8 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
+      <h1 className="header-page pb-8 lg:text-left">
         Events
       </h1>
       <div>

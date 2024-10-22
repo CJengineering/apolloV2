@@ -137,7 +137,7 @@ export default async function AnnouncementsContent({
   return (
     <>
       <div className="py-0">
-        <h1 className="header-page pb-8 pt-20 lg:pb-10 lg:pt-10 lg:text-left">
+        <h1 className="header-page pb-8">
           News
         </h1>
       </div>

@@ -318,7 +318,7 @@ export default async function SinglePost({
     <>
 
 
-      <div className="pt-20 sm:pt-10 flex flex-col">
+      <div className="">
         <div className="w-full lg:w-2/3">
           <h1 className="header-page leading-none">
             Advancing science and learning for communities to thrive
