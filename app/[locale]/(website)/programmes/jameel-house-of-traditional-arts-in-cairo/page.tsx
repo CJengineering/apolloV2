@@ -419,7 +419,7 @@ With a mission to preserve and champion Egypt’s oldest crafts, the Jameel Hous
       </div>
       {/* END DIVIDER */}
 
-<div className="w-full lg:w-2/3">
+<div className="w-full lg:w-2/3 pt-5">
   <ResponsiveYouTubeEmbed embedId="dn9mZchjKHw?si=_2VQzRq_rzQ7lqp4" />
   </div>
   
@@ -502,7 +502,7 @@ With a mission to preserve and champion Egypt’s oldest crafts, the Jameel Hous
       {newsProps && newsProps.length > 0 && (
         <div className="">
           <PostAccordion title={"Media"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-5">
               {newsProps.map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
