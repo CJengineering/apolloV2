@@ -339,8 +339,14 @@ const imageLightboxData: ImageLightbox[] = [
 </div>
 
 <div className="">
-<p className="prose prose-xl leading-normal dark:text-white">
-The Jameel House of Traditional Arts in Cairo offers classes in traditional geometry, drawing, colour harmony, and decorative floral patterns, as well as training in ceramics, glass, gypsum, metalwork, and woodwork. Located in Fustat, Historic Cairo, the Jameel House was launched in 2009 through a collaboration between The Prince’s Foundation School of Traditional Arts, Community Jameel, and the Cultural Development Fund of Egypt. With a mission to preserve Egypt’s oldest crafts, the Jameel House accepts 20 students annually on a two-year training programme by The Prince’s Foundation School.
+<p className="prose prose-xl leading-normal dark:text-white pb-5">
+The Jameel House of Traditional Arts in Cairo is an educational institute teaching classes in traditional geometry, observational drawing, colour harmony and decorative floral patterns, as well as specialised training in ceramics, glass and gypsum, metalwork and woodwork.
+</p>
+<p className="prose prose-xl leading-normal dark:text-white pb-5">
+Located in Fustat in Historic Cairo, the Jameel House was launched in 2009 and is a collaboration between The King's Foundation School of Traditional Arts, Community Jameel, and the Cultural Development Fund of Egypt.
+</p>
+<p className="prose prose-xl leading-normal dark:text-white pb-5">
+With a mission to preserve and champion Egypt’s oldest crafts, the Jameel House accepts around 20 students annually on a two-year training programme, developed and delivered by The King's Foundation School according to the same principles and standards as the courses at the London campus.
 </p>
 </div>
 </div>
