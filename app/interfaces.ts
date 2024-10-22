@@ -192,6 +192,7 @@ export interface Item<T> {
 }
 
 export interface EventFieldData {
+  "createdOn": string;
   "push-to-gr": boolean;
   "programme-label": string;
   "related-programme-s": string[];
@@ -251,6 +252,7 @@ export interface EventFieldData {
 // EVENTS DATA START //
 
 export interface EventFieldDataCleaned {
+  createdOn: string;
   pushToGr: boolean;
   programmeLabel: string;
   programmeLabelShort?: string;
@@ -334,6 +336,7 @@ export interface EventCardProps {
 // EVENTS DATA END //
 
 export interface ProgrammeRawFields {
+
   "push-to-gr"?: string;
   type?: string;
   "link-to-page"?: string;
@@ -396,6 +399,7 @@ export interface ProgrammeRawFields {
   slug?: string;
 }
 export interface ProgrammeCleanedFields {
+
   logoSvgOriginalRatio: ImageProps;
   logoSvgLightOriginalRatio: ImageProps;
   pushToGr: string;
@@ -530,6 +534,7 @@ export interface LightboxProps {
   onPrev: () => void;
 }
 export interface FieldsPostRaw {
+  "createdOn": string;
   "arabic-title"?: string;
   "push-to-gr"?: boolean;
   "programme-2"?: string;
@@ -566,6 +571,7 @@ export interface FieldsPostRaw {
 }
 
 export interface PeopleRawFields {
+  "createdOn": string;
   "name-arabic"?: string;
   "arabic-on-off"?: boolean;
   "push-to-gr"?: boolean;
@@ -615,6 +621,7 @@ export interface PeopleRawFields {
   "feature-video"?: string;
 }
 export interface PostFieldsCleaned {
+  createdOn: string;
   arabicTitle: string;
   pushToGr: boolean;
   programme: RelatedColection;
@@ -689,6 +696,7 @@ export interface ArticleProps {
   };
 }
 export interface PeopleCleanedFields {
+  createdOn: string;
   name: string;
   nameArabic: string;
   hero: boolean;
@@ -739,6 +747,7 @@ export interface PeopleCleanedFields {
   featureVideo: string;
 }
 export interface MultimediaRawFields {
+  "createdOn": string;
   "name-arabic"?: string;
   "push-to-gr"?: boolean;
   "programme-label"?: string;
@@ -762,6 +771,7 @@ export interface MultimediaRawFields {
   slug: string;
 }
 export interface MultimediaCleanedFields {
+  createdOn: string;
   nameArabic: string;
   pushToGr: boolean;
   collectionName: "multimedia";
@@ -833,6 +843,7 @@ export interface FeatureCleanedFields {
 }
 
 export interface NewsCleanedFields {
+  createdOn: string;
   arabicTitle: string;
   pushToGr: boolean;
   collectionName: "press";
@@ -886,6 +897,7 @@ export interface NewsMainProps {
   authorImage: string;
 }
 export interface PublicationsRawFields {
+  "createdOn": string;
   "name-arabic"?: string;
   "date-published"?: string;
   type?: string;
@@ -905,6 +917,7 @@ export interface PublicationsRawFields {
   slug?: string;
 }
 export interface PublicationsCleanedFields {
+  createdOn: string;
   nameArabic: string;
   datePublished: string;
   type: string;
@@ -1062,6 +1075,7 @@ export interface CategorieCleanedFields {
   slug: string;
 }
 export interface NewsRawFields {
+  "createdOn": string;
   "arabic-title"?: string;
   "push-to-gr"?: boolean;
   featured?: boolean;
@@ -1109,6 +1123,7 @@ export interface AgnosticComponentProps {
   data: AgnosticFields;
 }
 export interface AgnosticCardProps {
+  createdOn: string;
   slug: string;
   imageSrc: string;
   programShortname: string;

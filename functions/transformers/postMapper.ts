@@ -100,6 +100,7 @@ export default function postMapper(
     arabicName: programmeMatch?.fieldData["name-arabic"] || "N/A",
   };
   return {
+    createdOn: item.createdOn,
     arabicTitle: fieldData["arabic-title"] || "",
     pushToGr: fieldData["push-to-gr"] || false,
     programme: programmeMatch

@@ -120,6 +120,7 @@ export default function multimediaMapper(
   const iframe = fieldData["video-link"]?.metadata.html || "";
 
   return {
+    createdOn: item["createdOn"] || "",
     nameArabic: fieldData["name-arabic"] || "N/A",
     pushToGr: fieldData["push-to-gr"] || false,
     programmeLabel: programmeLabel,

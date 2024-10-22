@@ -45,6 +45,7 @@ export default function agnosticMapper(
 ): AgnosticCardProps {
   let title = "";
   let slug = "";
+  let createdOn = "";
   let imageSrc = "";
   let programShortname = "";
   let datePublished = "";
@@ -52,6 +53,7 @@ export default function agnosticMapper(
   let collectionName = "";
   let shortDescription = "";
   if (isMultimediaCleanedFields(data)) {
+    createdOn = data.createdOn;
     imageSrc = data.thumbnail.url;
     title = data.name;
     slug = `${data.slug}`;
@@ -70,6 +72,7 @@ export default function agnosticMapper(
     source = data.programme.shortname || "";
   }
   if (isNewsCleanedFields(data)) {
+    createdOn = data.createdOn;
     imageSrc = data.thumbnail.url;
     title = data.name;
     slug = data.slug;
@@ -79,6 +82,7 @@ export default function agnosticMapper(
     source = data.sources.name;
   }
   if (isProgrammeCleanedFields(data)) {
+    createdOn = ''
     imageSrc = data.logoSvgDark.url;
     title = data.name;
     slug = `/programmes/${data.slug}`;
@@ -88,6 +92,7 @@ export default function agnosticMapper(
     source = '';
   }
   if (isEventFieldDataCleaned(data)) {
+    createdOn = data.createdOn;
     imageSrc = data.thumbnail.url;
     title = data.name;
     slug = data.slug;
@@ -97,6 +102,7 @@ export default function agnosticMapper(
     source = data.programmeLabel || "";
   }
   if (isPublicationsCleanedFields(data)) {
+    createdOn = data.createdOn;
     imageSrc = data.thumbnail.url;
     title = data.name;
     slug = data.slug;
@@ -106,6 +112,7 @@ export default function agnosticMapper(
     source =data.source2 || "";
   }
   if (isPeopleCleanedFields(data)) {
+    createdOn = data.createdOn;
     imageSrc = data.profilePicture.url;
     title = data.name;
     slug = data.slug;
@@ -117,6 +124,7 @@ export default function agnosticMapper(
   }
 
   return {
+    createdOn: createdOn,
     title: title,
     slug: slug,
     imageSrc: imageSrc,

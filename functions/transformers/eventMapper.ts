@@ -27,6 +27,7 @@ const formatDate = (date: Date | string): string => {
   }
 };
 export default function eventMapper(
+  
   item: Item<EventFieldData>,
   arrayPartners: Item<PartnersRawFields>[],
   arrayProgramme: Item<ProgrammeRawFields>[],
@@ -99,6 +100,7 @@ export default function eventMapper(
     slug: "N/A",
   };
   return {
+    createdOn: item.createdOn,
     pushToGr: item.fieldData["push-to-gr"] || false,
     programmeLabel: programmeLabelCleaned[0] || "",
     programmeLabelShort: programmeLabelShortCleaned[0] || "",

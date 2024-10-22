@@ -108,6 +108,7 @@ export default function peopleMapper(
         url: "N/A",
       };
   return {
+    createdOn: item.createdOn,
     name: fieldData.name || "N/A",
     nameArabic: fieldData["name-arabic"] || "N/A",
     hero: fieldData.hero || false,

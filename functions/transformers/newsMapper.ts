@@ -127,6 +127,7 @@ export default function newsMapper(
     : [];
 
   return {
+    createdOn: item.createdOn || "",
     arabicTitle: fieldData["arabic-title"] || "",
     collectionName: "press",
     pushToGr: fieldData["push-to-gr"] || false,
