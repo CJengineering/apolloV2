@@ -36,6 +36,7 @@ module.exports = {
               fontWeight: "inherit",
               color: "inherit",
               textDecorationLine: "underline",
+              textUnderlineOffset: "2px",
               textDecorationThickness: "from-font",
               '&:hover': {
                 color: theme('colors.blue.700'),
