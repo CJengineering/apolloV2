@@ -171,7 +171,7 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
               <h2 className="header-section mb-6">Related </h2>
             </>
           )}
-          <div className="grid grid-cols-1 sd:grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 sd:grid-cols-1 gap-4">
             {relatedNewsClean.map((item) => (
               <NewsCard key={item.slug} content={item} locale={params.locale} />
             ))}

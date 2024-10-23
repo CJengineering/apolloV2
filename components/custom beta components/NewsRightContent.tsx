@@ -40,7 +40,7 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
               <li key={index}>
                 <p>
                   {source}
-                  </p>
+                </p>
               </li>
             ))}
           </ul>
@@ -48,7 +48,7 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
       </div>
 
       <div className="mb-6">
-        <div className="text-xs font-normal mono uppercase">lab</div>
+        <div className="text-xs font-normal mono uppercase">programme</div>
         <div className="sans-serif text-base font-normal">
           <ul>
             {relatedProgrammes.map((programme, index) => (

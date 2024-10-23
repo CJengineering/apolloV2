@@ -24,12 +24,13 @@ module.exports = {
       typography: (theme: any) => ({
         DEFAULT: {
           css: {
-            
+          
             p: {
               fontWeight: "400",
               fontSize: "1.1rem",
               color: "black",
               lineHeight: "1.5",
+              textUnderlineOffset: "3px",
             },
             a: {
               fontWeight: "inherit",
@@ -40,18 +41,21 @@ module.exports = {
                 color: theme('colors.blue.700'),
               },
               lineHeight: "inherit",
+              
             },
             li: {
               fontWeight: "400",
               fontSize: "1.1rem",
               color: "black",
               lineHeight: "1.5",
+              
             },
 
             'li::marker': {
               fontWeight: "inherit",
               color: "black",
               lineHeight: "1.5",
+              
             },
             figure: {
               position: "relative !important",
@@ -70,7 +74,13 @@ module.exports = {
         dark: {
           css: {
             color: theme('colors.white'),
-            
+            p: {
+              color: theme('colors.white'),
+              fontWeight: '400',
+              fontSize: '1.1rem',
+              lineHeight: "1.5",
+              textUnderlineOffset: "3px",              
+            },
             a: {
               color: theme('colors.white'),
               '&:hover': {
@@ -93,17 +103,13 @@ module.exports = {
             marker: {
   
             },
-            p: {
-              color: theme('colors.white'), // Set paragraph text color to white in dark mode
-              fontWeight: '400',
-              fontSize: '1.1rem',
-              lineHeight: "1.5",
-            },
+           
             strong: {
               color: theme('colors.white'), // Set paragraph text color to white in dark mode
               fontWeight: '600',
               fontSize: '1.1rem',
               lineHeight: "1.5",
+              
             },
             figure: {
               position: 'relative !important',
@@ -134,6 +140,11 @@ module.exports = {
         md: "1.1rem",
         "5xl": "2.65rem",
         "6xl": "2.75rem",
+      },
+
+      textUnderlineOffset: {
+        a:{base: "3px"},
+        
       },
       maxWidth: {
         xxs: "16rem",

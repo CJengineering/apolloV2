@@ -151,7 +151,7 @@ export default async function page({
           </div>
           {params.locale === "ar" ? (
             <div className="flex justify-between">
-              <div className=" pb-2  ml-4">
+              <div className="pb-2 ml-4">
                 <h1 className="text-3xl sm:text-4xl lg:text-6xl sans-serif-ar">
                   {memberName}
                 </h1>
@@ -173,7 +173,7 @@ export default async function page({
             </div>
           )}
 
-          <div className="w-full lg:w-1/3">
+          <div className="w-full">
             <p
               className={`sans-serif text-lg font-normal ${
                 params.locale === "ar" ? "sans-serif-ar" : ""
