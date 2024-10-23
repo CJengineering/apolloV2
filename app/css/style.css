@@ -45,7 +45,9 @@
 } 
 
 }
-
+a:hover{
+   text-underline-offset: 2px;
+}
 
 @media (min-width: 768px) {
   html {
