@@ -25,7 +25,7 @@ const NewsRightContent: React.FC<NewsRightContentProps> = ({
   relatedPeople,
 }) => {
   return (
-    <div className="w-full md:w-auto xl:w-64 lg:w-32 shrink-0 mt-6">
+    <div className="mt-6">
       {/* <div className="mb-6 flex items-center space-x-2">
         <div className="mono uppercase text-sm font-normal">{source}</div>
         <span>•</span>

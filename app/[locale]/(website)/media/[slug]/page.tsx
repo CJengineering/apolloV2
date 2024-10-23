@@ -154,7 +154,7 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
                 )}
               </article>
               
-              <div className="md:block md:w-1/3 mt-0 md:mt-0">
+              <div className="mt-0 md:mt-0">
               <NewsRightContent
                 source={newsItem.sources.name}
                 datePublished={newsItem.datePublished}
