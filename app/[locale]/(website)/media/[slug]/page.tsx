@@ -13,6 +13,7 @@ import NewsCard from "@/components/custom beta components/NewsCard";
 import { Metadata, ResolvingMetadata } from "next";
 import { Item, NewsRawFields } from "@/app/interfaces";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 type Props = {
   params: { slug : string, locale: string };
 
@@ -161,9 +162,18 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
                 relatedPeople={newsItem.people}
               />
             </div>
-              {/* <div className="pb-2"><span className="mono text-sm font-normal uppercase bg-slate-100 px-1">{newsItem.programme.name}</span></div> */}
+            <div className="pt-2">
+            <ButtonCJ
+              href={newsItem.externalLink}
+              text="Read original article"
+              styleType="secondary"
+              openInNewTab = {true}
+            ></ButtonCJ>
             </div>
+              </div>
+              
           </div>
+          <div className="py-3"></div>
 
           {relatedNewsClean.length > 0 && (
             <>
