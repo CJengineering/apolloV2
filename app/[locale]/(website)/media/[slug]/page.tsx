@@ -144,7 +144,7 @@ const orderedRelatedNewsClean = relatedNewsClean.sort((a, b) => { const dateA = 
                 ></div>
                 {newsItem.excerpt && (
                   <>
-                    <h3 className="sans-serif font-bold text-2xl md:text-3xl mb-5">Excerpt</h3>
+                    <h3 className="sans-serif font-bold text-2xl md:text-3xl mb-6">Excerpt</h3>
                     <div
                       dangerouslySetInnerHTML={{
                         __html: newsItem.excerpt,
