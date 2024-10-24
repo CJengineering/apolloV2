@@ -165,7 +165,7 @@ const NavSubGroup = ({
             onTouchStart={(e) => {
               handleClick();
             }}
-            className="hidden lg:flex relative md:w-[202px]  justify-between items-center font-normal sans-serif text-black py-2  pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+            className="hidden lg:flex relative md:w-[198px] justify-between items-center font-normal sans-serif text-black py-2 r-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
               {title}
