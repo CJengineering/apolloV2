@@ -106,7 +106,7 @@ const cardData = [
     alt: "Pratham-Jameel Second Chance",
     title: "Pratham-Jameel Second Chance",
     subtitle:
-      "Pratham-Jameel Second Chance programme supports 11,399 girls and women in India in first year.",
+      "Pratham-Jameel Second Chance supported 11,399 girls and women in India in its first year.",
     link: "/news/pratham-jameel-second-chance-programme-supports-11-399-girls-and-women-in-india-in-first-year",
     openInNewTab: false,
     clickAction: "Internal link",
