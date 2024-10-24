@@ -102,16 +102,15 @@ const cardData = [
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/home/GRID_02.webp",
-    alt: "Bill Gates and Fady Jameel host food security meeting at COP28",
-    title: "Bill Gates and Fady Jameel host food security meeting at COP28",
+    imageUrl: "/images/home/GRID_07x.webp",
+    alt: "Pratham-Jameel Second Chance",
+    title: "Pratham-Jameel Second Chance",
     subtitle:
-      "Scientists, farmers and chefs convene for the 'Farming for our future' breakfast event.",
-    link: "/news/bill-gates-and-fady-jameel-discuss-food-and-farming-with-scientists-farmers-and-chefs-at-the-farming-for-our-future-breakfast-event-on-the-sidelines-of-cop28-in-dubai",
+      "Pratham-Jameel Second Chance programme supports 11,399 girls and women in India in first year.",
+    link: "/news/pratham-jameel-second-chance-programme-supports-11-399-girls-and-women-in-india-in-first-year",
     openInNewTab: false,
     clickAction: "Internal link",
   },
-
   {
     imageUrl: "/images/home/GRID_05.webp",
     alt: "Jameel 75",
@@ -123,6 +122,27 @@ const cardData = [
     clickAction: "External link",
   },
   {
+    imageUrl: "/images/home/GRID_04x.webp",
+    alt: "Jameel Institute – Realtime Intelligent Support for Emergencies",
+    title: "Jameel Institute – Realtime Intelligent Support for Emergencies",
+    subtitle:
+      "New global initiative to offer crucial insights to international agencies and transform humanitarian response in conflict zones.",
+    link: "/news/new-global-initiative-to-offer-crucial-insights-to-international-agencies-and-transform-humanitarian-response-in-conflict-zones",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+  {
+    imageUrl: "/images/home/GRID_02.webp",
+    alt: "Bill Gates and Fady Jameel host food security meeting at COP28",
+    title: "Bill Gates and Fady Jameel host food security meeting at COP28",
+    subtitle:
+      "Scientists, farmers and chefs convene for the 'Farming for our future' breakfast event.",
+    link: "/news/bill-gates-and-fady-jameel-discuss-food-and-farming-with-scientists-farmers-and-chefs-at-the-farming-for-our-future-breakfast-event-on-the-sidelines-of-cop28-in-dubai",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+
+  {
     imageUrl: "/images/home/GRID_03.webp",
     alt: "CLIMAVORE x Jameel at RCA announces 2024 Food Action Awards",
     title: "CLIMAVORE x Jameel at RCA announces 2024 Food Action Awards",
@@ -133,26 +153,6 @@ const cardData = [
     clickAction: "Internal link",
   },
 
-  {
-    imageUrl: "/images/home/GRID_04.webp",
-    alt: "Climate Labs with C40 and J-PAL",
-    title: "Climate Labs with C40 and J-PAL",
-    subtitle:
-      "Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.",
-    link: "programmes/jameel-c40-urban-planning-climate-labs",
-    openInNewTab: false,
-    clickAction: "Internal link",
-  },
-  {
-    imageUrl: "/images/home/GRID_07.webp",
-    alt: "Jameel Arts & Health Lab",
-    title: "Jameel Arts & Health Lab",
-    subtitle:
-      "The lab aims to radically improve global health through arts-related research and advocacy to drive policy.",
-    link: "/programmes/jameel-arts-and-health-lab",
-    openInNewTab: false,
-    clickAction: "Internal link",
-  },
   {
     imageUrl: "/images/home/GRID_08.webp",
     alt: "Andrea Bocelli and Henna Mun sing 'Tace il labbro'",
