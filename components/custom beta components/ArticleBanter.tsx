@@ -29,7 +29,8 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
     </h1>
   </div>
   <div className={`pb-0 pt-12 lg:pb-4 lg:pt-4 ${locale === 'ar' ? 'order-1 ml-0 mr-auto' : 'order-2 mr-0 ml-auto'}`}>
-    <LanguageChanger />
+    {post.isPostArabic  && (<LanguageChanger />)}
+    
   </div>
 </div>
         <div className="flex items-start w-full lg:w-2/3">

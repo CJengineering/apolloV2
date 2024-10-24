@@ -101,6 +101,7 @@ export default function postMapper(
   };
   return {
     createdOn: item.createdOn,
+    isPostArabic: fieldData["arabic-complete-incomplete"] || false,
     arabicTitle: fieldData["arabic-title"] || "",
     pushToGr: fieldData["push-to-gr"] || false,
     programme: programmeMatch

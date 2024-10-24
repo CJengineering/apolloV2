@@ -534,6 +534,7 @@ export interface LightboxProps {
   onPrev: () => void;
 }
 export interface FieldsPostRaw {
+  "arabic-complete-incomplete" : boolean
   "createdOn": string;
   "arabic-title"?: string;
   "push-to-gr"?: boolean;
@@ -621,6 +622,7 @@ export interface PeopleRawFields {
   "feature-video"?: string;
 }
 export interface PostFieldsCleaned {
+  isPostArabic: boolean;
   createdOn: string;
   arabicTitle: string;
   pushToGr: boolean;

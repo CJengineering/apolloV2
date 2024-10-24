@@ -167,6 +167,7 @@ const cardData = [
 ];
 // END THE DATA FOR CARDS
 
+
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
@@ -218,7 +219,7 @@ export default async function SinglePost({
   const sourceId = getIdByDisplayName("Sources");
   const tagsId = getIdByDisplayName("Tags");
   const categroriesId = getIdByDisplayName("Categories");
-
+  
   const programmeRaw = await getData(porgrammeId);
   
   const peopleRaw = await getData(peopleId);
@@ -233,6 +234,8 @@ export default async function SinglePost({
   const sourcesRaw = await getData(sourceId);
   const tagRaw = await getData(tagsId);
   const categoriesRaw = await getData(categroriesId);
+
+
 
   const programmeClean = programmeRaw.items.map((item) =>
     programmeMapper(
@@ -322,6 +325,8 @@ export default async function SinglePost({
         <div className="w-full lg:w-2/3">
           <h1 className="header-page leading-none">
             Advancing science and learning for communities to thrive
+  
+        
           </h1>
           <p className="pt-6 sans-serif text-lg sm:text-xl font-normal md:text-2x text-left leading-snug">
             An independent, global organisation, Community Jameel launched in
