@@ -48,7 +48,19 @@
 a:hover{
    text-underline-offset: 2px;
 }
-
+.custom-underline {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.custom-underline-hover:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: #60a5fa;
+}
+.no-underline-hover:hover {
+  text-decoration: none !important;
+  text-underline-offset: 0 !important;
+}
 @media (min-width: 768px) {
   html {
     overflow-y: scroll;

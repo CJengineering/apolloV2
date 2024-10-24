@@ -41,9 +41,9 @@ export default function Footer({visitCount}: {visitCount: string}) {
           Terms of Use. The Community Jameel name and logotype are trademarks or
           registered trademarks of Abdul Latif Jameel IPR Company Limited.
         </p>
-        <div className="flex flex-col md:flex-row text-sm mono text-slate-800 dark:text-slate-500 mt-4 gap-x-6 gap-y-2 underline">
+        <div className="flex flex-col md:flex-row text-sm mono text-slate-800 dark:text-slate-500 mt-4 gap-x-6 gap-y-2 " style={{textDecoration:'underline',textUnderlineOffset:'2px'}}>
           <Link href="/legal/terms-of-use">
-            <span className="hover:text-orange-700 sans-serif">Terms of Use</span>
+            <span className="hover:text-orange-700 sans-serif no-underline-hover">Terms of Use</span>
           </Link>
           <Link href="/legal/copyright-notice-disclaimer">
             <span className="hover:text-orange-700 sans-serif">
