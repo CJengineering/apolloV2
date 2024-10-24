@@ -84,7 +84,7 @@ module.exports = {
             h2: {
               color: theme('colors.white'),
             },
-            
+          
             h3: {
               color: theme('colors.white'),
             },
@@ -94,7 +94,6 @@ module.exports = {
             h5: {
               color: theme('colors.white'),
             },
-
             a: {
               color: theme('colors.white'),
               '&:hover': {

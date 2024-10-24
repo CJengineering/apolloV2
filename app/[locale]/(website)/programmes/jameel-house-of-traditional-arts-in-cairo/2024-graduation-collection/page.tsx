@@ -232,7 +232,7 @@ export default async function jhtac2024graduation({
           </div>
 
           <div className="mt-6">
-            <p className="prose prose-xl leading-normal dark:text-white mb-5">
+            <p className="prose prose-xl leading-normal dark:prose-dark mb-5">
               The Jameel House of Traditional Arts in Cairo continues to impress
               with the outstanding work of its students, especially the 2024
               graduating class. The programme, established in 2009 in
@@ -241,20 +241,20 @@ export default async function jhtac2024graduation({
               offers intensive training in traditional arts and crafts.
             </p>
             
-            <p className="prose prose-xl leading-normal dark:text-white mb-5">
+            <p className="prose prose-xl leading-normal dark:prose-dark mb-5">
               This year introduced traditional joinery, known as gamiya, as a
               new specialisation alongside existing woodwork techniques like
               inlay, carving, and wood turning. Students also explored brasswork
               techniques for the first time.
             </p>
            
-            <p className="prose prose-xl leading-normal dark:text-white mb-5">
+            <p className="prose prose-xl leading-normal dark:prose-dark mb-5">
               Inspired by Islamic art from Cairo, Iran, and Central Asia, the
               class of 2024 produced intricate mangour screens, mother-of-pearl
               and bone-inlaid furniture, and carved wooden pieces. Their works
               form a stunning collection of furniture and home accessories.
             </p>
-            <p className="prose prose-xl leading-normal dark:text-white mb-5">
+            <p className="prose prose-xl leading-normal dark:prose-dark mb-5">
               Students in ceramics, metalwork, and gypsum carving also
               contributed remarkable pieces, creating a harmonious collection
               that showcases the richness of Egyptian craft.
@@ -1323,7 +1323,7 @@ export default async function jhtac2024graduation({
         <div className="sans-serif font-bold text-4xl">Heritage projects</div>
         <div className="py-6"></div>
 
-        <p className="prose prose-xl leading-normal dark:text-white mb-5">
+        <p className="prose prose-xl leading-normal dark:prose-dark mb-5">
           We believe that our students are fortunate to live in Cairo, a city
           with numerous monuments and museums. These glorious buildings serve as
           a profound source of inspiration. Every year, we select one of Cairo’s
@@ -1337,14 +1337,14 @@ export default async function jhtac2024graduation({
           Engaging in such a project makes students more confident in thinking
           about and designing their own pieces for their graduation projects.
         </p>
-        <p className="prose prose-xl leading-normal dark:text-white mb-5">
+        <p className="prose prose-xl leading-normal dark:prose-dark mb-5">
           Over the years, we have examined and worked on an extensive list of
           monuments, which includes Al-Maridani Mosque, Sultan Barquq Mosque,
           Tikkyat Al-Gulshani, Bayt Zeinab Khatoun, the Museum of Islamic Art
           and the Coptic Museum. This year, the Gayer-Anderson Museum was also
           selected as a source of inspiration for our students.
         </p>
-        <p className="prose prose-xl leading-normal dark:text-white mb-5">
+        <p className="prose prose-xl leading-normal dark:prose-dark mb-5">
           The Gayer-Anderson Museum, also known as Bayt Al-Krietiliya, is a 17th
           century house in Cairo’s Sayyida Zeinab neighbourhood that epitomises
           the richness and complexity of Cairene traditional architecture.
@@ -1353,7 +1353,7 @@ export default async function jhtac2024graduation({
           British Army major and former Oriental Secretary to the High
           Commissioner in Cairo, who resided in Egypt between 1912-1942.
         </p>
-        <p className="prose prose-xl leading-normal dark:text-white mb-5">
+        <p className="prose prose-xl leading-normal dark:prose-dark mb-5">
           The museum contains numerous art pieces that provide inspiration to
           our students. Although the selection process was not easy, we
           succeeded in finding art pieces that were both aesthetically appealing

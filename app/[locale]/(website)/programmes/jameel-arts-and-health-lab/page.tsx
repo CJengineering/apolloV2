@@ -278,7 +278,7 @@ export default async function jameelArtsHealthLabProgrammePage({
 
           <div className="pb-6">
           <div
-              className="prose prose-xl leading-normal dark:text-white"
+              className="prose prose-xl leading-normal dark:prose-dark"
               dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
             /></div>
           </div>

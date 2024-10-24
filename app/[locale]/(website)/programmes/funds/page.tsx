@@ -241,7 +241,7 @@ export default async function ProgrammesFunds({
 </div>
 
 <div className="pb-12">
-<p className="prose prose-xl leading-normal dark:text-white">
+<p className="prose prose-xl leading-normal dark:prose-dark">
 The Jameel House of Traditional Arts in Cairo offers classes in traditional geometry, drawing, colour harmony, and decorative floral patterns, as well as training in ceramics, glass, gypsum, metalwork, and woodwork. Located in Fustat, Historic Cairo, the Jameel House was launched in 2009 through a collaboration between The Prince’s Foundation School of Traditional Arts, Community Jameel, and the Cultural Development Fund of Egypt. With a mission to preserve Egypt’s oldest crafts, the Jameel House accepts 20 students annually on a two-year training programme by The Prince’s Foundation School.
 </p>
 </div>

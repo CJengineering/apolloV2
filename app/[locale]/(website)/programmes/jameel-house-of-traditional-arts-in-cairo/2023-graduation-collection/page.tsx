@@ -257,11 +257,11 @@ Jameel House of Traditional Arts in Cairo</h1>
 </div>
 
 <div className="mt-6">
-<p className="prose prose-xl leading-normal dark:text-white">At the Jameel House of Traditional Arts in Cairo, we immerse ourselves in the rich heritage of traditional arts, challenging ourselves to create original designs using timeless techniques. Since its inception in 2009, this collaborative programme between the Egyptian Ministry of Culture, The Prince’s Foundation School of Traditional Arts, and Community Jameel has trained over 200 artists and artisans. Many graduates are now building their own businesses, contributing to Egypt’s evolving art scene.
+<p className="prose prose-xl leading-normal dark:prose-dark">At the Jameel House of Traditional Arts in Cairo, we immerse ourselves in the rich heritage of traditional arts, challenging ourselves to create original designs using timeless techniques. Since its inception in 2009, this collaborative programme between the Egyptian Ministry of Culture, The Prince’s Foundation School of Traditional Arts, and Community Jameel has trained over 200 artists and artisans. Many graduates are now building their own businesses, contributing to Egypt’s evolving art scene.
 </p><br/>
-<p className="prose prose-xl leading-normal dark:text-white">We continually enhance our curriculum, introducing intricate geometric and floral patterns, new craft techniques, and a stronger focus on design. This year, students embraced exciting challenges, such as the cuerda seca technique in ceramics, and created impressive projects, like Hany El Deeb’s curvilinear wood panel and Mariam Anwar’s tempera painting. New materials, like stone, were also explored, with Aya Soliman’s stone bench being a standout achievement.
+<p className="prose prose-xl leading-normal dark:prose-dark">We continually enhance our curriculum, introducing intricate geometric and floral patterns, new craft techniques, and a stronger focus on design. This year, students embraced exciting challenges, such as the cuerda seca technique in ceramics, and created impressive projects, like Hany El Deeb’s curvilinear wood panel and Mariam Anwar’s tempera painting. New materials, like stone, were also explored, with Aya Soliman’s stone bench being a standout achievement.
 </p><br/>
-<p className="prose prose-xl leading-normal dark:text-white">Our programme fosters creativity and craftsmanship, and we look forward to welcoming new students into this inspiring journey, hoping to further enrich Egypt’s artistic legacy.</p>
+<p className="prose prose-xl leading-normal dark:prose-dark">Our programme fosters creativity and craftsmanship, and we look forward to welcoming new students into this inspiring journey, hoping to further enrich Egypt’s artistic legacy.</p>
 </div>
 
 <div className="my-6">
