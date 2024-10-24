@@ -7,7 +7,7 @@ export default function page() {
 
   return (
     <>
-    <div className='h-screen flex items-start justify-center bg-cyan-400 text-4xl'>hello nt world</div>
+    <div className='h-screen flex items-start justify-center bg-cyan-400 text-4xl'>hell nt world</div>
 
 
     </>
