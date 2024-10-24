@@ -81,6 +81,20 @@ module.exports = {
               lineHeight: "1.5",
               textUnderlineOffset: "3px",              
             },
+            h2: {
+              color: theme('colors.white'),
+            },
+            
+            h3: {
+              color: theme('colors.white'),
+            },
+            h4: {
+              color: theme('colors.white'),
+            },
+            h5: {
+              color: theme('colors.white'),
+            },
+
             a: {
               color: theme('colors.white'),
               '&:hover': {

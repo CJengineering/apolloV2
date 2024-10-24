@@ -24,7 +24,7 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
     <div className={locale === "ar" ? "rtl" : ""}>
     <div className={`pt-6 w-full mb-4 flex ${locale === 'ar' ? 'justify-between' : 'justify-between'}`}>
   <div className="w-full lg:w-2/3">
-    <h1 className={`header-article leading-7 sm:leading-none pb-0 pt-12 lg:pb-4 lg:pt-4 flex-grow ${locale === 'ar' ? 'sans-serif-ar text-right' : 'sans-serif text-left'}`}>
+    <h1 className={`header-article leading-7 sm:leading-tight pb-0 pt-12 lg:pb-4 lg:pt-4 flex-grow ${locale === 'ar' ? 'sans-serif-ar text-right' : 'sans-serif text-left'}`}>
       {locale === 'ar' ? post.arabicTitle : post.name}
     </h1>
   </div>
@@ -33,7 +33,7 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
     
   </div>
 </div>
-        <div className="flex items-start w-full lg:w-2/3">
+        <div className="flex items-start w-full lg:w-8/12">
         <Image
           className=""
           src={post.mainImage.url}
