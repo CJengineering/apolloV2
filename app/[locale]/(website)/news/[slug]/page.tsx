@@ -50,6 +50,7 @@ export async function generateMetadata(
  
   return customMetaDataGenerator({
     useRawTitle: true,
+    isArabic: true,
       title: name || '',
       description: description,
       ogImage: memberRaw[0].fieldData["open-graph-image"]?.url || '',

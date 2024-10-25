@@ -4,6 +4,7 @@ interface PageSEOProps {
   title: string;
   description?: string;
   canonicalUrl?: string;
+  isArabic?: boolean;
   ogType?: "website" | "article" | "book" | "profile" | "music.song" | "music.album" | "music.playlist" | "music.radio_station" | "video.movie" | "video.episode" | "video.tv_show" | "video.other" | undefined
   ogImage?: string;
   twitterCard?: string;
@@ -13,6 +14,7 @@ interface PageSEOProps {
 export function customMetaDataGenerator({
   title,
   description,
+  isArabic,
   ogType = "website",
   ogImage,
   useRawTitle,
@@ -21,7 +23,11 @@ export function customMetaDataGenerator({
 }: PageSEOProps): Metadata {
   // Create Site Title
   const siteTitle = "Community Jameel";
-  const fullTitle = useRawTitle ? `${title} | ${siteTitle}`: title;
+
+  const arabicSiteTitle ="مجتمع جميل";
+  const englishSiteTitle = "Community Jameel";
+  const finalSiteTitle = isArabic ? arabicSiteTitle : englishSiteTitle;
+  const fullTitle = useRawTitle ? `${title} | ${finalSiteTitle}`: title;
 
   return {
     title: fullTitle,
