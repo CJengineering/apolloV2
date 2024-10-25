@@ -45,7 +45,7 @@ const HomeCard: React.FC<CardProps> = ({
   if (clickAction === "Video embed code") {
     return (
       <div>
-        <div onClick={handleOpenLightbox} className="flex flex-row items-center lg:block overflow-hidden group cursor-pointer">
+        <div onClick={handleOpenLightbox} className="flex flex-row  items-center lg:block overflow-hidden group cursor-pointer">
         <div className="col-span-5">
           <ImageContainer>
             <Image

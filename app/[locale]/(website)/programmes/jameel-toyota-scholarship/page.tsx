@@ -42,6 +42,7 @@ import ResponsiveYouTubeEmbed from "@/components/custom beta components/Responsi
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import { Metadata } from "next";
+import { ImageContainer } from "@/components/CJ-components/components-CJ/test components/ImageCont";
 
 export const metadata: Metadata = customMetaDataGenerator({
   useRawTitle: true,
@@ -274,7 +275,7 @@ export default async function JameelToyotaScholarshipPage({
             </a>
           </div>
 
-{/* 3 */}
+          {/* 3 */}
           <div className="flex items-center justify-start pl-6">
             <a href="" target="" rel="">
               <Image
@@ -294,18 +295,67 @@ export default async function JameelToyotaScholarshipPage({
           <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
         </div>
 
-      
-      <div className="flex items-center">
-        <div><Image src={"/images/labs/jameel-toyota-scholarship/melissa-nobles.webp"} width={180} height={180} alt={"Melissa Nobel"}></Image></div>
+        <div className="lg:flex items-center hidden ">
+          <div>
+            <Image
+              src={"/images/labs/jameel-toyota-scholarship/melissa-nobles.webp"}
+              className="min-w-[60px]"
+              width={180}
+              height={180}
+              alt={"Melissa Nobel"}
+            ></Image>
+          </div>
           <div className="ml-4">
             <div>
-              <p className="text-2xl font-bold sans-serif italic">“The value of a Jameel-Toyota scholarship remains nothing short of life-changing."</p>
+              <p className="text-2xl font-bold sans-serif italic">
+                “The value of a Jameel-Toyota scholarship remains nothing short
+                of life-changing."
+              </p>
             </div>
             <div>
-              <p className="text-base sans-serif pt-2">Melissa Nobles, Chancellor, MIT, <span className="italic">speaking at the 30th anniversary reception for the Jameel-Toyota scholarship</span></p>
+              <p className="text-base sans-serif pt-2">
+                Melissa Nobles, Chancellor, MIT,{" "}
+                <span className="italic">
+                  speaking at the 30th anniversary reception for the
+                  Jameel-Toyota scholarship
+                </span>
+              </p>
             </div>
+          </div>
         </div>
-      </div>
+        <div className="flex flex-row   items-center lg:hidden overflow-hidden group cursor-pointer">
+          <div className="col-span-5">
+            <ImageContainer>
+              <Image
+                className="absolute inset-0 w-full h-full object-cover z-0"
+                src={
+                  "/images/labs/jameel-toyota-scholarship/melissa-nobles.webp"
+                }
+                alt={"Melissa Nobel"}
+                layout="fill"
+              />
+            </ImageContainer>
+          </div>
+          <div className="flex flex-col">
+            <div className="pt-0 lg:pt-3 ml-3 lg:ml-0 ">
+              {/* <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{"title"}</h3>
+            <p className="text-base sans-serif hidden lg:block">{"subtitle"}</p> */}
+              <p className="text-xl font-bold sans-serif italic">
+                “The value of a Jameel-Toyota scholarship remains nothing short
+                of life-changing."
+              </p>
+            </div>
+          <div className=" ml-3">
+            <p className="text-base sans-serif pt-2">
+              Melissa Nobles, Chancellor, MIT,{" "}
+              <span className="italic">
+                speaking at the 30th anniversary reception for the Jameel-Toyota
+                scholarship
+              </span>
+            </p>
+          </div>
+          </div>
+        </div>
 
         <div className="w-full py-6 lg:pb-12 lg:pt-6">
           <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
