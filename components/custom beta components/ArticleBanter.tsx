@@ -46,14 +46,14 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
           <div className="">
             <div className="mx-auto">
               <div className="pt-6">
-                <div className={`pl-0 text-[1.1rem] ${locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}>
+                <div className={`pl-0 text-[1.1rem] ${locale === "ar" ? "sans-serif-ar " : "sans-serif"}`}>
                   {locale === 'ar' ? post.datePublishedArabic : post.datePublished}</div>
               </div>
               <div>
-                <div className={`pl-0 text-[1.1rem] ${locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}>
+                <div className={`pl-0 text-[1.1rem] ${locale === "ar" ? "sans-serif-ar " : "sans-serif"}`}>
                   {locale === 'ar' ? post.locationArabic : post.location }
                 </div>
-                <div className={`pl-0 prose prose-2xl dark:prose-dark ${locale === "ar" ? "sans-serif-ar" : "sans-serif"}`}>
+                <div className={`prose prose-2xl dark:prose-dark ${locale === "ar" ? "sans-serif-ar pr-6  " : "sans-serif pl-0"}`}>
                 <div dangerouslySetInnerHTML={{ __html: locale === 'ar' ? post.bodyArabic : post.body }}></div>
                 </div>
             </div>
