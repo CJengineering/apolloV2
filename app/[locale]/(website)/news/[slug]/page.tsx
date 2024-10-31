@@ -45,13 +45,17 @@ export async function generateMetadata(
   const seoDescriptionArabic = memberRaw[0].fieldData["seo-title-arabic"] ? memberRaw[0].fieldData["seo-meta-arabic"] : '';
   const seoDescriptionEnglish = memberRaw[0].fieldData["seo-meta"] ? memberRaw[0].fieldData["seo-meta"] : '';
   const description = locale === 'ar'? seoDescriptionArabic : seoDescriptionEnglish;
+  const arabicCJ = "مجتمع جميل"
+  const arabicConstruction = `${seoTitleArabic} | ${arabicCJ}`
+  const englishConstruction = `${seoTitleEnglish} | Community Jameel`
   // optionally access and extend (rather than replace) parent metadata
+  const finalTitle = locale ==='ar'? arabicConstruction : englishConstruction
   
  
   return customMetaDataGenerator({
-    useRawTitle: true,
+    useRawTitle: false,
     isArabic: true,
-      title: name || '',
+      title: finalTitle,
       description: description,
       ogImage: memberRaw[0].fieldData["open-graph-image"]?.url || '',
     })

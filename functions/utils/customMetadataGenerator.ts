@@ -13,6 +13,7 @@ interface PageSEOProps {
 }
 export function customMetaDataGenerator({
   title,
+  
   description,
   isArabic,
   ogType = "website",
