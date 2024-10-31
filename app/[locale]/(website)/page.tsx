@@ -168,28 +168,32 @@ const cardData = [
 // END THE DATA FOR CARDS
 
 
-export async function generateStaticParams() {
-  return allPosts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+// export async function generateStaticParams() {
+//   return allPosts.map((post) => ({
+//     slug: post.slug,
+//   }));
+// }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata | undefined> {
-  const post = allPosts.find((post) => post.slug === params.slug);
+// export async function generateMetadata({
+//   params,
+// }: {
+//   params: { slug: string };
+// }): Promise<Metadata | undefined> {
+//   const post = allPosts.find((post) => post.slug === params.slug);
 
-  if (!post) return;
+//   if (!post) return;
 
-  const { title, summary: description } = post;
+//   const { title, summary: description } = post;
 
-  return {
-    title,
-    description,
-  };
-}
+//   return {
+//     title,
+//     description,
+//   };
+// }
+export const metadata = {
+  title: "Community Jameel",
+  description: "Advancing science and learning for communities to thrive",
+};
 
 export default async function SinglePost({
   params,
