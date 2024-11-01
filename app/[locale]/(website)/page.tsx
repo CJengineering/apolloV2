@@ -132,14 +132,14 @@ const cardData = [
     clickAction: "Internal link",
   },
   {
-    imageUrl: "/images/home/GRID_02.webp",
-    alt: "Bill Gates and Fady Jameel host food security meeting at COP28",
-    title: "Bill Gates and Fady Jameel host food security meeting at COP28",
+    imageUrl: "/images/home/GRID_02_NEW.webp",
+    alt: "Jameel Index for Food Trade and Vulnerability",
+    title: "Jameel Index for Food Trade and Vulnerability",
     subtitle:
-      "Scientists, farmers and chefs convene for the 'Farming for our future' breakfast event.",
-    link: "/news/bill-gates-and-fady-jameel-discuss-food-and-farming-with-scientists-farmers-and-chefs-at-the-farming-for-our-future-breakfast-event-on-the-sidelines-of-cop28-in-dubai",
-    openInNewTab: false,
-    clickAction: "Internal link",
+      "Measuring key aspects of global food security that are dependent on food trade and the global change threats impacting food trade.",
+    link: "https://jameelindex.mit.edu",
+    openInNewTab: true,
+    clickAction: "External link",
   },
 
   {
