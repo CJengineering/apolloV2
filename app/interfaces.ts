@@ -569,6 +569,8 @@ export interface FieldsPostRaw {
   innovations?: string[];
   name?: string;
   slug?: string;
+  "bullet-points-english"?: string;
+  "bullet-points-arabic"?: string;
 }
 
 export interface PeopleRawFields {
@@ -661,6 +663,8 @@ export interface PostFieldsCleaned {
   innovations: string[];
   name: string;
   slug: string;
+  bulletPointsEnglish: string;
+  bulletPointsArabic: string;
 }
 export interface Author {
   name: string;

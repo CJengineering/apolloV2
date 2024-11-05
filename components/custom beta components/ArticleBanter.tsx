@@ -33,6 +33,13 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
     
   </div>
 </div>
+{(post.bulletPointsArabic || post.bulletPointsEnglish) && (
+    <div>
+        <div className={`prose prose-2xl dark:prose-dark ${locale === "ar" ? "sans-serif-ar pr-6" : "sans-serif pl-0"}`}>
+            <div dangerouslySetInnerHTML={{ __html: locale === 'ar' ? post.bulletPointsArabic : post.bulletPointsEnglish }}></div>
+        </div>
+    </div>
+)}
         <div className="flex items-start w-full lg:w-8/12">
         <Image
           className=""

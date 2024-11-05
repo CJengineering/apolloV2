@@ -133,6 +133,8 @@ export default function postMapper(
         }
       : { url: "", alt: "" },
     openGraphImage: fieldData["open-graph-image"]?.url || "N/A",
+    bulletPointsEnglish: fieldData["bullet-points-english"] || "",
+    bulletPointsArabic: fieldData["bullet-points-arabic"] || "",
     datePublished: formatDate(fieldData["date-published"] || ""),
     datePublishedArabic : formatDateArabic(fieldData["date-published"] || ""),
     location: fieldData["location"] || "N/A",
