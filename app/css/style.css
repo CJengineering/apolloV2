@@ -43,6 +43,9 @@
 .header-article {
   @apply sans-serif text-2xl sm:text-3xl lg:text-4xl;
 } 
+.prose.prose-2xl.dark\\:prose-dark.sans-serif ol {
+  padding-left: 0px;
+}
 
 }
 a:hover{

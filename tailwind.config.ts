@@ -23,6 +23,7 @@ module.exports = {
 
       typography: (theme: any) => ({
         DEFAULT: {
+          
           css: {
           
             p: {
@@ -32,6 +33,7 @@ module.exports = {
               lineHeight: "1.5",
               textUnderlineOffset: "3px",
             },
+            ol: { paddingLeft: 0 },
             a: {
               fontWeight: "inherit",
               color: "inherit",
@@ -69,6 +71,12 @@ module.exports = {
               width: "100% !important",
               height: "100% !important",
             },
+          },
+        },
+        '2xl': {
+          css: {
+            ol: { paddingLeft: '1rem' },
+            
           },
         },
         dark: {
