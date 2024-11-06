@@ -35,7 +35,7 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
 </div>
 {(post.bulletPointsArabic || post.bulletPointsEnglish) && (
     <div>
-        <div className={`prose prose-2xl  dark:prose-dark ${locale === "ar" ? "sans-serif-ar pr-6" : "sans-serif pl-0"}`} >
+        <div className={`prose prose-2xl  dark:prose-dark ${locale === "ar" ? "sans-serif-ar pl-0" : "sans-serif pl-0"}`} >
             <div dangerouslySetInnerHTML={{ __html: locale === 'ar' ? post.bulletPointsArabic : post.bulletPointsEnglish }} ></div>
         </div>
     </div>
@@ -60,7 +60,7 @@ export default function ArticleBanter({ post, styleType, locale }: ArticleBanter
                 <div className={`pl-0 text-[1.1rem] ${locale === "ar" ? "sans-serif-ar " : "sans-serif"}`}>
                   {locale === 'ar' ? post.locationArabic : post.location }
                 </div>
-                <div className={`prose prose-2xl dark:prose-dark ${locale === "ar" ? "sans-serif-ar pr-6  " : "sans-serif pl-0"}`}>
+                <div className={`prose prose-2xl dark:prose-dark ${locale === "ar" ? "sans-serif-ar   " : "sans-serif pl-0"}`}>
                 <div dangerouslySetInnerHTML={{ __html: locale === 'ar' ? post.bodyArabic : post.body }}></div>
                 </div>
             </div>

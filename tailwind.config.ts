@@ -75,7 +75,10 @@ module.exports = {
         },
         '2xl': {
           css: {
-            ol: { paddingLeft: '1rem' },
+             ol: { marginTop: '0px', marginBottom: '0px',paddingRight: '2.56rem' },
+             h4:{marginTop: '0px'},
+             ul:{paddingRight: '2.56rem'},
+             
             
           },
         },
