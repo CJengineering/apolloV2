@@ -291,7 +291,7 @@ export default async function JameelToyotaScholarshipPage({
 
         {/* END PARTNERS GRID */}
 
-        <div className="w-full py-6 lg:py-12">
+        <div className="w-full py-6 lg:py-6">
           <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
         </div>
 
@@ -323,8 +323,8 @@ export default async function JameelToyotaScholarshipPage({
             </div>
           </div>
         </div>
-        <div className="flex flex-row   items-center lg:hidden overflow-hidden group cursor-pointer">
-          <div className="col-span-5">
+        <div className="items-center lg:hidden overflow-hidden group cursor-pointer">
+          <div className="pb-3 w-full">
             <ImageContainer>
               <Image
                 className="absolute inset-0 w-full h-full object-cover z-0"
@@ -336,8 +336,8 @@ export default async function JameelToyotaScholarshipPage({
               />
             </ImageContainer>
           </div>
-          <div className="flex flex-col">
-            <div className="pt-0 lg:pt-3 ml-3 lg:ml-0 ">
+          <div className="">
+            <div className="pt-0 lg:pt-3 lg:ml-0 ">
               {/* <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{"title"}</h3>
             <p className="text-base sans-serif hidden lg:block">{"subtitle"}</p> */}
               <p className="text-xl font-bold sans-serif italic">
@@ -345,8 +345,8 @@ export default async function JameelToyotaScholarshipPage({
                 of life-changing."
               </p>
             </div>
-          <div className=" ml-3">
-            <p className="text-base sans-serif pt-2">
+          <div className="">
+            <p className="text-sm lg:text-base sans-serif pt-2">
               Melissa Nobles, Chancellor, MIT,{" "}
               <span className="italic">
                 speaking at the 30th anniversary reception for the Jameel-Toyota
@@ -357,7 +357,7 @@ export default async function JameelToyotaScholarshipPage({
           </div>
         </div>
 
-        <div className="w-full py-6 lg:pb-12 lg:pt-6">
+        <div className="w-full py-6 lg:pb-6 lg:pt-6">
           <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
         </div>
 
