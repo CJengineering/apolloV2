@@ -534,6 +534,8 @@ export interface LightboxProps {
   onPrev: () => void;
 }
 export interface FieldsPostRaw {
+  "video-as-hero-yes-no"?:boolean;
+  "hero-video-youtube-embed-id"?:string;
   "arabic-complete-incomplete" : boolean
   "createdOn": string;
   "arabic-title"?: string;
@@ -574,6 +576,7 @@ export interface FieldsPostRaw {
 }
 
 export interface PeopleRawFields {
+
   "createdOn": string;
   "name-arabic"?: string;
   "arabic-on-off"?: boolean;
@@ -624,6 +627,8 @@ export interface PeopleRawFields {
   "feature-video"?: string;
 }
 export interface PostFieldsCleaned {
+  videoAsHeroYesNo: boolean;
+  heroVideoYoutubeEmbedId: string;
   isPostArabic: boolean;
   createdOn: string;
   arabicTitle: string;

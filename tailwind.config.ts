@@ -59,6 +59,7 @@ module.exports = {
               lineHeight: "1.5",
               
             },
+           
             figure: {
               position: "relative !important",
               width: "100% !important",
@@ -75,9 +76,9 @@ module.exports = {
         },
         '2xl': {
           css: {
-             ol: { marginTop: '0px', marginBottom: '0px',paddingRight: '2.56rem' },
-             h4:{marginTop: '0px'},
-             ul:{paddingRight: '2.56rem'},
+             ol: { marginTop: '0px', marginBottom: '0px',paddingRight: '1.45rem' , paddingLeft: "0px"},
+             h4:{marginTop: '0px', lineHeight: '1.2'},
+             ul:{paddingRight: '1.45rem', paddingLeft: "1rem"},
              
             
           },
