@@ -20,7 +20,7 @@ export default function ListSmall({ data }: ListSmallProps) {
             <div className='flex flex-col'>
               {items && items.map((item, index) => (
                 item.url ? (
-                  <a href={item.url} className="text-small sans font-normal underline cursor-pointer hover:text-blue-700" key={index}>
+                  <a href={item.url} className="text-small sans font-normal underline cursor-pointer hover:text-blue-800" key={index}>
                     {item.name}
                   </a>
                 ) : (

@@ -114,7 +114,7 @@ export default async function PeopleContent({
           <h2 className="header-section pb-6">Jameel Family</h2>
           <p className="sans-serif font-normal text-base mb-6">
             Check out a selection of{" "}
-            <a href="/about/family-album" className="underline">
+            <a href="/about/family-album" className="custom-underline hover:text-blue-00">
               archival photos
             </a>{" "}
             of the Jameel family from across the history of Community Jameel.
