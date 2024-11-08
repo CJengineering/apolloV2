@@ -330,19 +330,19 @@ export default async function JwafsProgrammePage({
         </div>
         <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="">
-            <Stats title="300+" content="researchers" />
+            <Stats title={cleanSingleProgramme.impact01} content={cleanSingleProgramme.impact01Title} />
           </div>
           <div className="">
-            <Stats title="116" content="research projects" />
+            <Stats title={cleanSingleProgramme.impact02} content={cleanSingleProgramme.impact02Title} />
           </div>
           <div className="">
-            <Stats title="$21.6M" content="research funded" />
+            <Stats title={cleanSingleProgramme.impact03} content={cleanSingleProgramme.impact03Title} />
           </div>
           <div className="">
-            <Stats title="27" content="fellowships" />
+            <Stats title={cleanSingleProgramme.impact04} content={cleanSingleProgramme.impact04Title} />
           </div>
           <div className="">
-            <Stats title="$16.9M" content="seed grant funding" />
+            <Stats title={cleanSingleProgramme.impact05} content={cleanSingleProgramme.impact05Title} />
           </div>
         </div>
 

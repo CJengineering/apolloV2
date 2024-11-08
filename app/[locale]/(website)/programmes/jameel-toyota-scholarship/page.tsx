@@ -43,6 +43,7 @@ import CarousselForComponents from "@/components/CJ-components/components-CJ/bas
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import { Metadata } from "next";
 import { ImageContainer } from "@/components/CJ-components/components-CJ/test components/ImageCont";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 
 export const metadata: Metadata = customMetaDataGenerator({
   useRawTitle: true,
@@ -276,7 +277,7 @@ export default async function JameelToyotaScholarshipPage({
           </div>
 
           {/* 3 */}
-          <div className="flex items-center justify-start pl-6">
+          <div className="flex items-center justify-start pl-6 pt-6 lg:pt-0">
             <a href="" target="" rel="">
               <Image
                 src="/images/cj_logo/CJ_LOGO_ENGLISH_RED_SVG.svg"
@@ -289,11 +290,30 @@ export default async function JameelToyotaScholarshipPage({
           </div>
         </div>
 
+        <div className="w-full py-6 lg:py-6">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Impact</h2>
+        </div>
+        <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="">
+            <Stats title={cleanSingleProgramme.impact01} content={cleanSingleProgramme.impact01Title} />
+          </div>
+          <div className="">
+            <Stats title={cleanSingleProgramme.impact02} content={cleanSingleProgramme.impact02Title} />
+          </div>
+        </div>
+
+        {/* DIVIDER START */}
+        <div className="w-full py-6 lg:py-6">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+        {/* DIVIDER END */}
+
         {/* END PARTNERS GRID */}
 
-        <div className="w-full py-6 lg:py-6">
-          <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
-        </div>
 
         <div className="lg:flex items-center hidden ">
           <div>
