@@ -198,7 +198,7 @@ export default async function EventPage({
       {eventSingleDataCleaned.trailerLivestreamHighlightsVideoLink && (
         <div className="flex w-full">
           <div
-            className="w-full"
+            className=" embedeYoutube"
             dangerouslySetInnerHTML={{
               __html:
                 eventSingleDataCleaned.trailerLivestreamHighlightsVideoLink,

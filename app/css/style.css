@@ -48,6 +48,12 @@
 }
 
 }
+@media (max-width: 768px) {
+  .embedeYoutube iframe {
+    width: 320px;
+    height: 100%;
+  }
+}
 a:hover{
    text-underline-offset: 2px;
 }
