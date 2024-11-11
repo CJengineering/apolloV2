@@ -50,8 +50,11 @@
 }
 @media (max-width: 768px) {
   .embedeYoutube iframe {
-    width: 320px;
+ 
+ 
+    max-width:  380px;
     height: 100%;
+   
   }
 }
 a:hover{
