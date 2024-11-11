@@ -192,6 +192,7 @@ export interface Item<T> {
 }
 
 export interface EventFieldData {
+  "main-video-embed-code": string;
   "createdOn": string;
   "push-to-gr": boolean;
   "programme-label": string;
@@ -252,6 +253,7 @@ export interface EventFieldData {
 // EVENTS DATA START //
 
 export interface EventFieldDataCleaned {
+  mainVideoEmbedCode: string;
   createdOn: string;
   pushToGr: boolean;
   programmeLabel: string;

@@ -16,6 +16,7 @@ import React from "react";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 import { Metadata, ResolvingMetadata } from "next";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 type Props = {
   params: { slug: string; locale: string };
 };
@@ -195,15 +196,10 @@ export default async function EventPage({
         )}
       </div>
 
-      {eventSingleDataCleaned.trailerLivestreamHighlightsVideoLink && (
+      {eventSingleDataCleaned.mainVideoEmbedCode && (
         <div className="flex w-full">
-          <div
-            className=" embedeYoutube"
-            dangerouslySetInnerHTML={{
-              __html:
-                eventSingleDataCleaned.trailerLivestreamHighlightsVideoLink,
-            }}
-          ></div>
+        
+          <ResponsiveYouTubeEmbed embedId={eventSingleDataCleaned.mainVideoEmbedCode}/>
         </div>
       )}
 
