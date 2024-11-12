@@ -1,53 +1,35 @@
-
-
-
-
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { getData } from "@/functions/api/getData";
-import programmeMapper from "@/functions/transformers/programmeMapper";
+
 import eventMapper from "@/functions/transformers/eventMapper";
-import peopleMapper from "@/functions/transformers/peopleMapper";
-import featureMapper from "@/functions/transformers/featureMapper";
+
 import newsMapper from "@/functions/transformers/newsMapper";
-import multimediaMapper from "@/functions/transformers/multimediaMapper";
-import teamProfileMapper from "@/functions/transformers/teamProfileMapper";
-import publicationMapper from "@/functions/transformers/publicationMapper";
+
 import postMapper from "@/functions/transformers/postMapper";
-import agnosticMapper from "@/functions/transformers/agnosticMapper";
 
 import NewsCard from "@/components/custom beta components/NewsCard";
 import EventsCardHome from "@/components/CJ-components/components-CJ/test components/EventsCardHome";
 import PressCardHome from "@/components/CJ-components/components-CJ/test components/PressCardHome";
 
 import ContentColumn from "@/components/components V2/home/ContentColumn";
-import React, { Suspense } from "react";
+
 import SectionDivider from "@/components/components V2/generic/section-divider";
 import SectionHeaderHome from "@/components/components V2/home/section-header-home";
 import SectionHeroHome from "@/components/components V2/home/section-hero-home";
 import SectionHomeCard from "@/components/components V2/home/section-home-card";
 import { cardData } from "@/components/components V2/home/card-data";
-
+import SectionDividerHiddenMobile from "@/components/components V2/generic/section-divider-hidden-mobile";
 
 // INTERFACE FOR THE DATA START
-
 
 // INTERFACE FOR THE DATA END
 
 // START THE DATA FOR CARDS
 
-
 export const metadata = {
   title: "Community Jameel",
   description: "Advancing science and learning for communities to thrive",
 };
-
-
-
-
-
-
-
-
 
 export default async function SinglePost({
   params,
@@ -58,8 +40,6 @@ export default async function SinglePost({
     locale: string;
   };
 }) {
-
-
   const ids = [
     "Programmes",
     "People",
@@ -109,7 +89,6 @@ export default async function SinglePost({
     )
   );
 
-
   const postsClean = postsRaw.items.map((item) =>
     postMapper(
       item,
@@ -119,7 +98,6 @@ export default async function SinglePost({
       peopleRaw.items
     )
   );
-
 
   const fiveFirstPosts = postsClean.slice(0, 5);
   const fiveFirstNews = newsClean.slice(0, 5);
@@ -153,22 +131,26 @@ export default async function SinglePost({
       <SectionHeaderHome />
       <SectionDivider />
       <SectionHeroHome />
-      <SectionDivider />
+      <SectionDividerHiddenMobile />
       <SectionHomeCard cardData={cardData} />
       <SectionDivider />
       {/* 3 column system */}
       <div className="w-full grid lg:grid-cols-12 lg:gap-x-12 ">
         {/* News Column */}
         {contentColumns.map((column, index) => (
-      <ContentColumn
-        key={index}
-        title={column.title}
-        content={column.content}
-        buttonLink={column.buttonLink}
-        buttonText={column.buttonText}
-        CardComponent={column.CardComponent}
-      />
-    ))}
+          <>
+            <ContentColumn
+              key={index}
+              title={column.title}
+              content={column.content}
+              buttonLink={column.buttonLink}
+              buttonText={column.buttonText}
+              CardComponent={column.CardComponent}
+              isLast={index === contentColumns.length - 1}
+            />
+         
+          </>
+        ))}
       </div>
     </>
   );
