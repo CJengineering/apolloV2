@@ -5,6 +5,15 @@ interface ImageProps {
   url: string;
   alt: string;
 }
+export interface HomeCardProps {
+  imageUrl: string;
+  alt: string;
+  title: string;
+  subtitle: string;
+  link: string;
+  openInNewTab?: boolean;
+  clickAction: string;
+}
 export interface RelatedColection {
   name: string;
   arabicName: string;

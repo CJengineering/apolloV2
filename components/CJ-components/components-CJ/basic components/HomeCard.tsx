@@ -3,18 +3,11 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import LightboxSingle from "@/components/custom beta components/LightBoxSingle";
+import { HomeCardProps } from '@/app/interfaces';
 
-interface CardProps {
-  imageUrl: string;
-  alt: string;
-  title: string;
-  subtitle: string;
-  link: string;
-  openInNewTab?: boolean;
-  clickAction: string;
-}
 
-const HomeCard: React.FC<CardProps> = ({
+
+const HomeCard: React.FC<HomeCardProps> = ({
   imageUrl,
   alt,
   title,
