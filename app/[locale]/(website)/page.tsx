@@ -12,6 +12,7 @@ import SectionHeaderHome from "@/components/components V2/home/section-header-ho
 import SectionHeroHome from "@/components/components V2/home/section-hero-home";
 import SectionHomeCard from "@/components/components V2/home/section-home-card";
 import { cardData } from "@/components/components V2/home/card-data";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 
 export const metadata = {
   title: "Community Jameel",
@@ -116,17 +117,78 @@ export default async function HomePage({
       <SectionDivider />
       <SectionHomeCard cardData={cardData} />
       <SectionDivider />
-      <div className="w-full grid lg:grid-cols-12 lg:gap-x-12 ">
-        {contentColumns.map((column, index) => (
-          <ContentColumn
-            key={index}
-            title={column.title}
-            content={column.content}
-            buttonLink={column.buttonLink}
-            buttonText={column.buttonText}
-            CardComponent={column.CardComponent}
-          />
-        ))}
+      <div className="w-full grid lg:grid-cols-12 lg:gap-x-12">
+        {/* News Column */}
+        <div className="col-span-12 lg:col-span-4">
+          <h2 className="header-section pb-3">News</h2>
+          <div className="w-full space-y-6">
+            {fiveFirstPosts.map((value, index) => (
+              <PressCardHome
+                content={value}
+                locale="en"
+                key={index + "pressCard"}
+              />
+            ))}
+          </div>
+          <div className="pt-2 mt-auto">
+            <ButtonCJ
+              href={"/news"}
+              text={"All News"}
+              openInNewTab={false}
+              styleType="secondary"
+            />
+          </div>
+          <div className="lg:hidden w-full py-6 md:py-12">
+            <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
+          </div>
+        </div>
+
+        {/* Press Column */}
+        <div className="col-span-12 lg:col-span-4">
+          <h2 className="header-section pb-3">Media</h2>
+          <div className="w-full space-y-6">
+            {fiveFirstNews.slice(0, 5).map((value, index) => (
+              <NewsCard
+                content={value}
+                locale="en"
+                key={index + "newsCard" + Math.random()}
+              />
+            ))}
+          </div>
+          <div className="pt-2 mt-auto">
+            <ButtonCJ
+              href={"/press"}
+              text={"All Press"}
+              openInNewTab={false}
+              styleType="secondary"
+            />
+          </div>
+          <div className="lg:hidden w-full py-6 md:py-12">
+            <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+          </div>
+        </div>
+
+        {/* Events Column */}
+        <div className="col-span-12 lg:col-span-4">
+          <h2 className="header-section pb-3">Events</h2>
+          <div className="w-full space-y-6">
+            {fiveFirstEvents.map((value, index) => (
+              <EventsCardHome
+                content={value}
+                locale="en"
+                key={index + "eventCard"}
+              />
+            ))}
+          </div>
+          <div className="pt-2 mt-auto">
+            <ButtonCJ
+              href={"/events"}
+              text={"All Events"}
+              openInNewTab={false}
+              styleType="secondary"
+            />
+          </div>
+        </div>
       </div>
     </>
   );

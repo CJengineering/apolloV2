@@ -8,7 +8,7 @@ export default function SectionHeroHome() {
             className="h-full w-full object-cover"
             src={programmeImage.src}
             priority={true}
-            alt=""
+            alt="Map of Community Jameel programmes"
             width={1980}
             height={1080}
           />
