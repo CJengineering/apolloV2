@@ -128,15 +128,13 @@ export default async function SinglePost({
 
   return (
     <>
-      <SectionHeaderHome />
-      <SectionDivider />
-      <SectionHeroHome />
-      <SectionDividerHiddenMobile />
-      <SectionHomeCard cardData={cardData} />
-      <SectionDivider />
-      {/* 3 column system */}
+      <SectionHeaderHome/>
+      <SectionDivider/>
+      <SectionHeroHome/>
+      <SectionDividerHiddenMobile/>
+      <SectionHomeCard cardData={cardData}/>
+      <SectionDivider/>
       <div className="w-full grid lg:grid-cols-12 lg:gap-x-12 ">
-        {/* News Column */}
         {contentColumns.map((column, index) => (
           <>
             <ContentColumn
@@ -148,8 +146,7 @@ export default async function SinglePost({
               CardComponent={column.CardComponent}
               isLast={index === contentColumns.length - 1}
             />
-         
-          </>
+          </>    
         ))}
       </div>
     </>

@@ -5,6 +5,21 @@ interface ImageProps {
   url: string;
   alt: string;
 }
+interface DataEntry {
+  name: string;
+  url: string;
+}
+
+
+export interface DataItem {
+  [key: string]: DataEntry[] | undefined;
+}
+
+
+export type DataChecksType = Array<DataItem | undefined>;
+
+
+
 export interface HomeCardProps {
   imageUrl: string;
   alt: string;
