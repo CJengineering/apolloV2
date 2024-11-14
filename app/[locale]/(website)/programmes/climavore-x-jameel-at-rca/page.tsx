@@ -233,8 +233,8 @@ export default async function ClimavoreJameelPage({
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0).map((post) => (
-                <PostCard key={post.name} content={post} />
+              {postProps.slice(0).map((post, index) => (
+                <PostCard key={post.name+index} content={post} />
               ))}
             </div>
           </PostAccordion>
@@ -247,8 +247,8 @@ export default async function ClimavoreJameelPage({
         <div className="">
           <PostAccordion title={"Media"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.map((item) => (
-                <NewsCard content={item} locale={params} />
+              {newsProps.map((item, index) => (
+                <NewsCard content={item} locale={params} key={index}/>
               ))}
             </div>
           </PostAccordion>

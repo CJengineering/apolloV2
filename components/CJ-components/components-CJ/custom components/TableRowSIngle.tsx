@@ -1,15 +1,14 @@
 "use client";
 import React from "react";
-import { RowData, StatProps } from "@/app/interfaces";
-import Image from "next/image";
-import ListSmall from "../basic components/ListSmall";
-import CardSquaredImage from "../basic components/CardSquared";
-import Stats from "../basic components/Stats";
-import SocialMediaList from "../basic components/SocialMediaList";
-import ButtonCJ from "../basic components/ButtonCJ";
+import { ListSmallProps, RowData, StatProps } from "@/app/interfaces";
 import FeatureCardTable from "../test components/FeatureCardTable";
-import { title } from "process";
-import { divide } from "cypress/types/lodash";
+import { TableRowLogoLightImage } from "./table-row-logo-light-image";
+import { TableRowLogoDarkImage } from "./table-row-logo-dark-image";
+import { TableRowFullDescription } from "./table-row-full-description";
+import VerticalSpaceDivider from "@/components/components V2/generic/vertical-space-divider";
+import { TableRowSocialContent } from "./table-row-social-content";
+import { TableRowMetaDataContent } from "./table-row-meta-data-description";
+import { TableRowKPI } from "./table-row-kpi";
 
 interface TableRowSingleProps {
   repository: RowData["repository"];
@@ -21,12 +20,28 @@ export default function TableRowSingle({
   locale,
 }: TableRowSingleProps) {
   const isArabic = locale === "ar";
-
+  const dataChecks: Array<ListSmallProps["data"]> = [
+    isArabic
+      ? repository.content.researchArabic?.data
+      : repository.content.research?.data,
+    isArabic
+      ? repository.content.established?.data
+      : repository.content.established?.data,
+    isArabic
+      ? repository.content.headquartersArabic?.data
+      : repository.content.headquarters?.data,
+    isArabic
+      ? repository.content["key partnersArabic"]?.data
+      : repository.content["key partners"]?.data,
+    isArabic
+      ? repository.content.leadershipArabic?.data
+      : repository.content.leadership?.data,
+  ];
   return (
-    <div className="border-b dark:border-slate-700 pb-9">
-      <div className="grid px-2 md:grid-cols-2 md:gap-16">
+    <div className="border-b dark:border-slate-700 pb-9 ">
+      <div className="grid pr-2 md:grid-cols-2 md:gap-16">
         <div>
-          <div>
+          {/* <div>
             {repository.content.logo?.url && (
               <Image
                 className="dark:hidden object-fit w-64 py-9"
@@ -45,8 +60,14 @@ export default function TableRowSingle({
               src={repository.content.logoDark?.url || ""}
               alt={repository.content.logoDark?.alt || ""}
             />
-          </div>
-          <div className="mt-6">
+          </div> */}
+          <TableRowLogoLightImage
+            content={repository.content}
+          ></TableRowLogoLightImage>
+          <TableRowLogoDarkImage
+            content={repository.content}
+          ></TableRowLogoDarkImage>
+          {/* <div className="mt-6">
             <div
               className="sans-serif text-xl md:w-11/12 sm:text-2xl leading-normal"
               dangerouslySetInnerHTML={{
@@ -55,11 +76,15 @@ export default function TableRowSingle({
                   : repository.content.fullDescription,
               }}
             ></div>
-          </div>
+          </div> */}
+          <TableRowFullDescription
+            content={repository.content}
+            isArabic={isArabic}
+          ></TableRowFullDescription>
 
-          <div className="py-6"></div>
+          <VerticalSpaceDivider padding={3} />
 
-          <div className="grid grid-cols-2  py-4">
+          {/* <div className="grid grid-cols-2  py-4">
             <div className="flex items-center">
               <div>
                 <SocialMediaList
@@ -77,13 +102,17 @@ export default function TableRowSingle({
                 )}
               </div>
             </div>
-          </div>
+          </div> */}
+          <TableRowSocialContent
+            content={repository.content}
+            slug={repository.top.slug}
+          ></TableRowSocialContent>
         </div>
 
         <div>
-          <div className="py-4"></div>
+          <VerticalSpaceDivider padding={4} />
           <div>
-            <div className="grid grid-cols-2 gap-x-9 gap-y-6 lg:grid-cols-2">
+            {/* <div className="grid grid-cols-2 gap-x-9 gap-y-6 lg:grid-cols-2">
               {repository.content.research?.data?.research[0].name !== "" && (
                 <div>
                   <ListSmall
@@ -131,11 +160,14 @@ export default function TableRowSingle({
                   }
                 />
               </div>
-            </div>
+            </div> */}
+            <TableRowMetaDataContent
+              dataChecks={dataChecks}
+            ></TableRowMetaDataContent>
           </div>
 
-          <div className="py-4"></div>
-          <div className="grid grid-cols-2 gap-x-9 gap-y-6">
+          <VerticalSpaceDivider padding={4} />
+          {/* <div className="grid grid-cols-2 gap-x-9 gap-y-6">
             {repository.content.stats.map((stat: StatProps) => (
               <Stats
                 key={stat.title}
@@ -143,8 +175,9 @@ export default function TableRowSingle({
                 content={stat.title}
               />
             ))}
-          </div>
-          <div className="py-4"></div>
+          </div> */}
+          <TableRowKPI stats={repository.content.stats}></TableRowKPI>
+          <VerticalSpaceDivider padding={4} />
           <div>
             <div className="pt-4 pb-8 grid grid-cols-3 gap-3">
               {repository.content.features.map((feature, index) => (
