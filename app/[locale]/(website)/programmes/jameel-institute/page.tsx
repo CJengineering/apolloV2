@@ -69,7 +69,7 @@ const selectInitiatives = [
     clickAction: "External link",
   },
   {
-    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.jpg",
+    imageUrl: "/images/labs/j-wafs/JameelInstitute_KennethGriffin_01.webp",
     alt: "Jameel Institute-Kenneth C. Griffin Initiative",
     title: "Jameel Institute-Kenneth C. Griffin Initiative",
     subtitle:"The Jameel Institute-Kenneth C. Griffin Initiative for the Economics of Pandemic Preparedness",
