@@ -27,7 +27,7 @@ export default function ArticleBanter({
   return (
     <>
       <div className={locale === "ar" ? "rtl" : ""}>
-        <div className="w-full  lg:w-2/3">
+        <div className="w-full  xl:w-2/3">
 
  
         <div
