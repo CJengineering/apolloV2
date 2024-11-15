@@ -22,7 +22,7 @@ export default function SidebarLink({
   
   return (
 <Link 
-  className={`flex items-center py-2   space-x-3 w-44 font-normal ${pathname === href ? 'text-dark-600' : 'text-black dark:text-white'}   hover:text-orange-700 dark:hover:text-orange-400`} 
+  className={`flex items-center py-2  pl-2 space-x-3 w-44 font-normal ${pathname === href ? 'text-dark-600' : 'text-black dark:text-white'}   hover:text-orange-700 dark:hover:text-orange-400`} 
   href={href} 
   target={ targetBlank ? '_blank' : ''}
   onClick={() => setSidebarOpen(false)}
