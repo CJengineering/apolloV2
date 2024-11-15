@@ -17,6 +17,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import { FieldsPostRaw, Item, NewsRawFields } from "@/app/interfaces";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import local from "next/font/local";
+import ArticleCJ from "@/components/custom beta components/ArticleCJ";
 type Props = {
   params: { slug : string, locale: string };
 
@@ -134,7 +135,8 @@ export default async function page({
 <>
 
       <div className="">
-        <ArticleBanter post={cleanPost} locale={params.locale} />
+        <ArticleCJ post={cleanPost} locale={params.locale} />
+     
       </div>
       <div className="pt-9 pb-7">
       <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
