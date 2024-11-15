@@ -27,14 +27,17 @@ export default function ArticleBanter({
   return (
     <>
       <div className={locale === "ar" ? "rtl" : ""}>
+        <div className="w-full  lg:w-2/3">
+
+ 
         <div
-          className={`pt-6 w-full mb-4 flex ${
+          className={`pt-6 w-full mb-4   flex ${
             locale === "ar" ? "justify-between" : "justify-between"
           }`}
         >
-          <div className="w-full lg:w-2/3">
+          <div className="w-full ">
             <h1
-              className={`header-article leading-7 sm:leading-tight pb-0 pt-12 lg:pb-0 lg:pt-4 flex-grow ${
+              className={`header-article  leading-7 sm:leading-tight pb-0 pt-12 lg:pb-0 lg:pt-4 flex-grow  ${
                 locale === "ar"
                   ? "sans-serif-ar text-right"
                   : "sans-serif text-left"
@@ -70,11 +73,11 @@ export default function ArticleBanter({
           </div>
         )}
         {post.videoAsHeroYesNo ? (
-          <div className="flex items-start w-full lg:w-8/12">
+          <div className="flex items-start w-full">
             <ResponsiveYouTubeEmbed embedId={post.heroVideoYoutubeEmbedId} />
           </div>
         ) : (
-          <div className="flex items-start w-full lg:w-8/12">
+          <div className="flex items-start w-full ">
             <Image
               className=""
               src={post.mainImage.url}
@@ -108,7 +111,7 @@ export default function ArticleBanter({
                   {locale === "ar" ? post.locationArabic : post.location}
                 </div>
                 <div
-                  className={`prose prose-2xl dark:prose-dark ${
+                  className={`prose prose-2xl dark:prose-dark   ${
                     locale === "ar" ? "sans-serif-ar   " : "sans-serif pl-0"
                   }`}
                 >
@@ -149,6 +152,7 @@ export default function ArticleBanter({
           {/* <div className="sticky top-20 self-start">
           <SecondaryNav />
         </div> */}
+        </div>
         </div>
       </div>
     </>
