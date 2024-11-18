@@ -179,7 +179,7 @@ export default async function EventPage({
         <div className="relative"></div>
         {eventSingleDataCleaned.signupEmbed && (
           <div
-            className=" md:w-1/3 w-full relative  md:min-w-[400px] xl:min-w-[350px] lg:min-w-[260px]"
+            className=" md:w-1/3 w-full  relative  md:min-w-[400px] xl:min-w-[350px] lg:min-w-[260px]"
             dangerouslySetInnerHTML={{
               __html: eventSingleDataCleaned.signupEmbed,
             }}
