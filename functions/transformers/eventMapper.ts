@@ -101,6 +101,8 @@ export default function eventMapper(
   };
   return {
     createdOn: item.createdOn,
+    video2EmbedCode: item.fieldData["video-2-embed-code"] || "",
+    video3EmbedCode: item.fieldData["video-3-embed-code"] || "",
     mainVideoEmbedCode: item.fieldData["main-video-embed-code"] || "",
     pushToGr: item.fieldData["push-to-gr"] || false,
     programmeLabel: programmeLabelCleaned[0] || "",

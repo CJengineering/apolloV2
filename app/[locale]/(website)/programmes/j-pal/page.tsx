@@ -46,6 +46,7 @@ import Stats from "@/components/CJ-components/components-CJ/basic components/Sta
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
 import { Metadata } from "next";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { EventVideo } from "@/components/CJ-components/components-CJ/custom components/event-video-embed";
 
 export const metadata: Metadata = customMetaDataGenerator({
   useRawTitle: true,
@@ -306,7 +307,6 @@ export default async function JpalPage({
             ></ButtonCJ>
           </div>
         </div>
-
         <div className="w-full lg:w-2/3">
           <ResponsiveYouTubeEmbed embedId="4FLeNSqLxdQ?si=IBMZ4AHpawegC0e_" />
         </div>

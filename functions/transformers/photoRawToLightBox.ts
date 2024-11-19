@@ -54,7 +54,7 @@ export default function photoMapper(
     description: fieldData.description || "",
     descriptionArabic: fieldData["description-arabic"] || "",
     source: fieldData.source || "",
-    programmeLabel: {name: programmeLabel?.fieldData.name ||"", slug: programmeLabel?.fieldData.slug||""} || {name: "", slug: ""},
+    programmeLabel: {name: programmeLabel?.fieldData.name || "", slug: programmeLabel?.fieldData.slug || ""},
     programmesMultiReference: relatedProgrammes,
     tags: fieldData.tags || [],
     peopleMultiReference: relatedPeople,
