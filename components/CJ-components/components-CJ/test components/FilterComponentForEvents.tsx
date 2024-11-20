@@ -97,7 +97,7 @@ export const FilterComponentForEvents: React.FC = () => {
             placeholder="Search..."
             value={EventQuery}
             onChange={(e) => setEventQuery(e.target.value)}
-            className="sans-serif text-base mt-1 block w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="sans-serif text-base mt-1 block w-full pl-3 dark:text-gray-800  pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
         </div>
 

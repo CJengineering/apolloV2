@@ -206,7 +206,7 @@ const FilterResultsV2: React.FC<FilterResultsProps> = ({
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
           placeholder="Search..."
-          className=" flex-grow border sans-serif text-base border-gray-300  text-slate-400 dark:text-white rounded focus:outline-none focus:border-1 focus:border-blue-700 focus:text-black"
+          className=" flex-grow border sans-serif text-base  border-gray-300  text-slate-400 dark:text-gray-600 rounded focus:outline-none focus:border-1 focus:border-blue-700 focus:text-black"
         />
          <button
           onClick={handleSearch} // Trigger search when clicked

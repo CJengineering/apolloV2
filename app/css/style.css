@@ -230,12 +230,7 @@ a:hover{
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
-  #map {
-   
-    top: 0;
-    bottom: 0;
-    width: 100%;
-  }
+
   
   .text-container {
     font-family: "IBM Plex Mono", monospace;
@@ -283,3 +278,45 @@ a:hover{
   .animate-spin {
     animation: spin 1s linear infinite;
   }
+  
+  #map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.text-container {
+    font-family: "IBM Plex Mono", monospace;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: fit-content;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: white;
+    margin: 20px;
+}
+
+.text-container div {
+    width: 100%;
+}
+
+.text-container a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.text-container a:hover {
+    text-decoration: underline;
+}
+
+.text-container>.city {
+    color: red;
+}
+
+.marker-container {
+    width: fit-content;
+}

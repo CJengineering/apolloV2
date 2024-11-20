@@ -147,7 +147,7 @@ export default async function EventPage({
      
      
         <EventContent eventSingleDataCleaned={eventSingleDataCleaned} />
-        <EventVideo embedCode={eventSingleDataCleaned.mainVideoEmbedCode} imageUrl={eventSingleDataCleaned.heroImage.url}  />
+        <EventVideo embedCode={eventSingleDataCleaned.mainVideoEmbedCode}  imageUrl={eventSingleDataCleaned.heroImage.url}  />
       {eventSingleDataCleaned.video2EmbedCode && <VerticalSpaceDivider padding={3}/>}
         <EventVideo embedCode={eventSingleDataCleaned.video2EmbedCode} imageUrl={eventSingleDataCleaned.heroImage.url}  />
         {eventSingleDataCleaned.video3EmbedCode && <VerticalSpaceDivider padding={3}/>}

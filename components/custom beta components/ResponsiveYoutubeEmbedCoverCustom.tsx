@@ -8,6 +8,7 @@ interface ResponsiveYouTubeEmbedProps {
 
 const ResponsiveYouTubeEmbedCoverCustom: React.FC<ResponsiveYouTubeEmbedProps> = ({ embedId, coverImage }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  console.log('cover image',coverImage)
 
   return (
     <div className="relative w-full aspect-video">
