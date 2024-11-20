@@ -236,7 +236,7 @@ a:hover{
     font-family: "IBM Plex Mono", monospace;
     background-color: rgba(0, 0, 0, 0.8);
     width: fit-content;
-    padding: 10px;
+    padding: 11px;
     display: flex;
     flex-direction: column;
     justify-content: center;
