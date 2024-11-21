@@ -87,7 +87,7 @@ export default async function Page() {
             <br /><br />
             You can download our logo in different colours and formats{' '}
             <a
-              href="https://www.dropbox.com/scl/fi/tk11wnmossdb8osuojdfb/COMMUNITY_JAMEEL_LOGO_ALL.zip?rlkey=7mofvv6v2g6lrzwuoqd0fynzq&dl=0"
+              href="/images/cj_logo/COMMUNITY_JAMEEL_LOGOS_ALL.zip"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-blue-800"
