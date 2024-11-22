@@ -42,10 +42,18 @@ export default async function NewsContent({
   }
 
   //Get Names
+  //
+  // const dataFetches = ids.map((id) => getData(getIdByDisplayName(id)));
+  // const [programmeAll, peopleAll, sourcesAll, tagsAll, eventAll, newsAll] =
+  //   await Promise.all(dataFetches);
   const ids = ["Programmes", "People", "Sources", "Tags", "Events", "News"];
-  const dataFetches = ids.map((id) => getData(getIdByDisplayName(id)));
-  const [programmeAll, peopleAll, sourcesAll, tagsAll, eventAll, newsAll] =
-    await Promise.all(dataFetches);
+    const results = [];
+for (const id of ids) {
+  const data = await getData(getIdByDisplayName(id));
+  results.push(data);
+}
+
+const [programmeAll, peopleAll, sourcesAll, tagsAll, eventAll, newsAll] = results;
 
   // Data fetching
 

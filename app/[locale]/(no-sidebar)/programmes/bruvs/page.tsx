@@ -44,16 +44,16 @@ export default function page() {
 
   return (
     <>
-      {/* <StlViewerComponent />
+      <StlViewerComponent />
       <iframe
         src="http://127.0.0.1:5501/map.html"
-      className="w-full h-[200px] md:h-[400px]"
+      className="w-full h-[200px] md:h-[400px] xl:"
         title="Mapbox Custom Marker"
       ></iframe> 
        
       <div className="h-screen flex items-start justify-center bg-cyan-400 text-4xl">
         <ContentPhotos images={arrayOfTreatedImages} isCaroussel />
-      </div> */}
+      </div>
     </>
   );
 }
