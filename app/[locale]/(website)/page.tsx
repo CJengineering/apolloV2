@@ -91,7 +91,7 @@ export default async function SinglePost({
       sourcesRaw.items,
       tagRaw.items,
       eventRaw.items
-    )
+    )     
   );
 
   const postsClean = postsRaw.items.map((item) =>

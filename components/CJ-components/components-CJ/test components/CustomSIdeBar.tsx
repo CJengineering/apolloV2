@@ -44,7 +44,7 @@ const NavLink = ({
     <Link
       href={href}
       onClick={() => setSidebarOpen(false)}
-      className="relative flex items-center font-normal sans-serif text-black py-2 pr-2  hover:text-orange-700 dark:hover:text-orange-400 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200"
+      className="relative flex items-center font-normal  sans-serif text-black py-2 pr-2  hover:text-orange-700 dark:hover:text-orange-400 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200"
     >
       {icon && <span className="mr-3">{icon}</span>}
       {children}
@@ -100,7 +100,7 @@ const NavGroup = ({
             }}
             className="hidden lg:flex relative md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2  pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
-            <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
+            <div className="flex items-center  hover:text-orange-700 dark:hover:text-orange-400">
               {icon && <span className="mr-3">{icon}</span>}
               {title}
             </div>
@@ -114,7 +114,7 @@ const NavGroup = ({
           </div>
 
           <div
-            className={`mb-3 ml-[7.5px] pl-4 z-50 border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${
+            className={`mb-3 ml-[7.5px] pl-4  z-50 border-l sans-serif font-normal border-slate-200 dark:border-slate-800 ${
               !open && "hidden"
             }`}
           >
@@ -165,7 +165,7 @@ const NavSubGroup = ({
             onTouchStart={(e) => {
               handleClick();
             }}
-            className="hidden lg:flex  pl-2 relative md:w-[198px] justify-between items-center font-normal sans-serif text-black py-2 r-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+            className="hidden lg:flex  pl-2   relative md:w-[198px] justify-between items-center font-normal sans-serif text-black py-2 r-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
               {title}
@@ -230,14 +230,14 @@ const NavSubSubGroup = ({
             onTouchStart={(e) => {
               handleClick();
             }}
-            className="hidden lg:flex relative md:w-[174px] justify-between items-center font-normal sans-serif text-black  pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+            className="hidden lg:flex relative md:w-[182px]  justify-between items-center font-normal sans-serif text-black  pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
               {title}
             </div>
             <div>
               <ChevronRightIcon
-                className={`h-3 w-3 text-black dark:text-white shrink-0 ml-2 transition-transform duration-200 ${
+                className={`h-3 w-3 text-black  dark:text-white shrink-0 ml-2 transition-transform duration-200 ${
                   open ? "rotate-90" : ""
                 }`}
               />
@@ -346,7 +346,7 @@ export default function CustomSideBar() {
                 <NavGroup
                   title="Programmes"
                   icon={
-                    <CpuChipIcon className="h-4 w-4 text-gray-500 dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />
+                    <CpuChipIcon className="h-4 w-4 text-gray-500  dark:text-gray-500 hover:text-orange-700 dark:hover:text-orange-700" />
                   }
                 >
                   <NavSubGroup title={"J-PAL"}>
