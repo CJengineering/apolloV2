@@ -10,6 +10,7 @@ import { NewsProvider } from "./news-contect";
 import { NewsDisplay } from "./news-display";
 import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { getDataInternalServer } from "@/functions/api/getDataInternalServer";
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -42,19 +43,13 @@ export default async function NewsContent({
   }
 
   //Get Names
-  //
-  // const dataFetches = ids.map((id) => getData(getIdByDisplayName(id)));
-  // const [programmeAll, peopleAll, sourcesAll, tagsAll, eventAll, newsAll] =
-  //   await Promise.all(dataFetches);
-  const ids = ["Programmes", "People", "Sources", "Tags", "Events", "News"];
-    const results = [];
-for (const id of ids) {
-  const data = await getData(getIdByDisplayName(id));
-  results.push(data);
-}
+  const ids = ["programmes", "people", "sources", "tags", "events", "news"];
+  const dataFetches = ids.map((id) => getDataInternalServer(id));
+  const [programmeAll, peopleAll, sourcesAll, tagsAll, eventAll, newsAll] =
+    await Promise.all(dataFetches);
 
-const [programmeAll, peopleAll, sourcesAll, tagsAll, eventAll, newsAll] = results;
-
+    
+ 
   // Data fetching
 
   let rawNewsArray = newsAll.items;

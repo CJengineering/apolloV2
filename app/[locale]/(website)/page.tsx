@@ -56,7 +56,12 @@ export default async function SinglePost({
     "Categories",
   ];
 
-  const dataFetches = ids.map((id) => getData(getIdByDisplayName(id)));
+  const results = [];
+  for (const id of ids) {
+    const data = await getData(getIdByDisplayName(id));
+    results.push(data);
+  }
+  
   const [
     programmeRaw,
     peopleRaw,
@@ -71,7 +76,7 @@ export default async function SinglePost({
     sourcesRaw,
     tagRaw,
     categoriesRaw,
-  ] = await Promise.all(dataFetches);
+  ] = results;
 
   const eventClean = eventRaw.items.map((item) =>
     eventMapper(item, partnersRaw.items, programmeRaw.items, peopleRaw.items)

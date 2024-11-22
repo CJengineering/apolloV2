@@ -29,6 +29,7 @@ export const usePostContext = () => {
   }
   return context;
 };
+console.log('PostContext',PostContext)
 
 interface PostProviderProps {
   children: React.ReactNode;

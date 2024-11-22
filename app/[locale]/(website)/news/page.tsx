@@ -29,8 +29,9 @@ import PostCard from "@/components/custom beta components/PostCard";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import { Suspense } from "react";
-import { NewsMainProps } from "@/app/interfaces";
+import { FieldsPostRaw, NewsMainProps } from "@/app/interfaces";
 import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
+import postJson from "@/app/data/post.json";
 import {
   PostCardDatePublished,
   PostCardImageColumn,
@@ -46,6 +47,8 @@ import { sources } from "next/dist/compiled/webpack/webpack";
 import FilterComponentForPosts from "@/components/CJ-components/components-CJ/test components/FilterComponentForPosts";
 import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { getDataInternalServer } from "@/functions/api/getDataInternalServer";
+import { all } from "cypress/types/bluebird";
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -103,13 +106,17 @@ export default async function AnnouncementsContent({
   }
   const categoryId = getIdByDisplayName("Categories");
 
-  const rawPosts = await getData("61ee828a15a3183262bde542");
-  const programesRaw = await getData("61ee828a15a3183d2abde540");
-  const eventsRaw = await getData("6225fe8b1f52b40001a99d66");
-  const peopleRaw = await getData("62271a6df4ceb0027d91e6c4");
-  const categoriesRaw = await getData(categoryId);
-  rawPosts.items.filter((item) => !item.isDraft);
-  const posts = rawPosts.items.map((item) =>
+
+  const programesRaw = await getDataInternalServer("programmes")
+  const eventsRaw = await getDataInternalServer("events")
+  const peopleRaw = await getDataInternalServer("people")
+  const categoriesRaw = await getDataInternalServer("categories")
+  const allnews = await getDataInternalServer("posts")
+
+  const filteredItems =  allnews.items.filter((item) => !item.isDraft);
+
+  const posts = filteredItems.map((item ) =>
+
     postMapper(
       item,
       categoriesRaw.items,
@@ -140,6 +147,7 @@ export default async function AnnouncementsContent({
         <h1 className="header-page pb-8">
           News
         </h1>
+      
       </div>
 
       <PostProvider
@@ -157,4 +165,4 @@ export default async function AnnouncementsContent({
       </PostProvider>
     </>
   );
-}
+}                   
