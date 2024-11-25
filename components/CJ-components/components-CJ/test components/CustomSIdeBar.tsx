@@ -165,7 +165,7 @@ const NavSubGroup = ({
             onTouchStart={(e) => {
               handleClick();
             }}
-            className="hidden lg:flex  pl-2   relative md:w-[198px] justify-between items-center font-normal sans-serif text-black py-2 r-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+            className="hidden lg:flex  ml-1  relative md:w-[194px] justify-between items-center font-normal sans-serif text-black py-2 r-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
               {title}
@@ -209,7 +209,7 @@ const NavSubSubGroup = ({
             onTouchStart={(e) => {
               handleClick();
             }}
-            className="relative flex lg:hidden md:w-[230px] justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+            className="relative flex lg:hidden md:w-[230px]  justify-between items-center font-normal sans-serif text-black py-2 pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
               {title}
@@ -230,7 +230,7 @@ const NavSubSubGroup = ({
             onTouchStart={(e) => {
               handleClick();
             }}
-            className="hidden lg:flex relative md:w-[182px]  justify-between items-center font-normal sans-serif text-black  pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
+            className="hidden lg:flex  relative md:w-[174px] ml-1  justify-between items-center font-normal sans-serif text-black  pr-2 before:absolute before:inset-0 before:rounded before:bg-gradient-to-tr before:opacity-20 before:-z-10 before:pointer-events-none dark:text-slate-200 cursor-pointer"
           >
             <div className="flex items-center hover:text-orange-700 dark:hover:text-orange-400">
               {title}
