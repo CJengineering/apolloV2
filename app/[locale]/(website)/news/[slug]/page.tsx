@@ -36,6 +36,7 @@ export async function generateMetadata(
  
   const newsId = getIdByDisplayName("Posts");
   const productTest = await getDataInternalServer('posts');
+  console.log('this is the product test', productTest)
   const teamMembersRaw = productTest.items;
   const memberRaw :Item<FieldsPostRaw>[] = teamMembersRaw.filter(
     (item) => item.fieldData.slug === slug
