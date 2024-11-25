@@ -75,16 +75,16 @@ export default async function page({
   params: { locale: string; slug: string };
 }) {
   const categoryId = getIdByDisplayName("Categories");
-  // const categoriesRaw = await getData(categoryId);
-  // const rawPosts = await getData("61ee828a15a3183262bde542");
-  // const programesRaw = await getData("61ee828a15a3183d2abde540");
-  // const eventsRaw = await getData("6225fe8b1f52b40001a99d66");
-  // const peopleRaw = await getData("62271a6df4ceb0027d91e6c4");
-  const rawPosts = await getDataInternalServer("posts");
-  const programesRaw = await getDataInternalServer("programmes");
-  const eventsRaw = await  getDataInternalServer("events");
-  const peopleRaw = await getDataInternalServer("people");
-  const categoriesRaw = await getDataInternalServer("categories");
+  const categoriesRaw = await getData(categoryId);
+  const rawPosts = await getData("61ee828a15a3183262bde542");
+  const programesRaw = await getData("61ee828a15a3183d2abde540");
+  const eventsRaw = await getData("6225fe8b1f52b40001a99d66");
+  const peopleRaw = await getData("62271a6df4ceb0027d91e6c4");
+  // const rawPosts = await getDataInternalServer("posts");
+  // const programesRaw = await getDataInternalServer("programmes");
+  // const eventsRaw = await  getDataInternalServer("events");
+  // const peopleRaw = await getDataInternalServer("people");
+  // const categoriesRaw = await getDataInternalServer("categories");
 
 
   const post = rawPosts.items.find(
