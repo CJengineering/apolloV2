@@ -18,6 +18,7 @@ import { FieldsPostRaw, Item, NewsRawFields } from "@/app/interfaces";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import local from "next/font/local";
 import ArticleCJ from "@/components/custom beta components/ArticleCJ";
+import { getDataInternalServer } from "@/functions/api/getDataInternalServer";
 type Props = {
   params: { slug : string, locale: string };
 
@@ -34,7 +35,7 @@ export async function generateMetadata(
 
  
   const newsId = getIdByDisplayName("Posts");
-  const productTest = await getData(newsId);
+  const productTest = await getDataInternalServer('posts');
   const teamMembersRaw = productTest.items;
   const memberRaw :Item<FieldsPostRaw>[] = teamMembersRaw.filter(
     (item) => item.fieldData.slug === slug
@@ -73,11 +74,17 @@ export default async function page({
   params: { locale: string; slug: string };
 }) {
   const categoryId = getIdByDisplayName("Categories");
-  const categoriesRaw = await getData(categoryId);
-  const rawPosts = await getData("61ee828a15a3183262bde542");
-  const programesRaw = await getData("61ee828a15a3183d2abde540");
-  const eventsRaw = await getData("6225fe8b1f52b40001a99d66");
-  const peopleRaw = await getData("62271a6df4ceb0027d91e6c4");
+  // const categoriesRaw = await getData(categoryId);
+  // const rawPosts = await getData("61ee828a15a3183262bde542");
+  // const programesRaw = await getData("61ee828a15a3183d2abde540");
+  // const eventsRaw = await getData("6225fe8b1f52b40001a99d66");
+  // const peopleRaw = await getData("62271a6df4ceb0027d91e6c4");
+  const rawPosts = await getDataInternalServer("posts");
+  const programesRaw = await getDataInternalServer("programmes");
+  const eventsRaw = await  getDataInternalServer("events");
+  const peopleRaw = await getDataInternalServer("people");
+  const categoriesRaw = await getDataInternalServer("categories");
+
 
   const post = rawPosts.items.find(
     (post) => post.fieldData.slug === params.slug
