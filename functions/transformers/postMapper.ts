@@ -103,6 +103,7 @@ export default function postMapper(
   return {
     videoAsHeroYesNo: fieldData["video-as-hero-yes-no"] || false,
     heroVideoYoutubeEmbedId: fieldData["hero-video-youtube-embed-id"] || "",
+    heroVideoArabicYoutubeVideoId: fieldData["hero-video-arabic-youtube-video-id"] || "",
     createdOn: item.createdOn,
     isPostArabic: fieldData["arabic-complete-incomplete"] || false,
     arabicTitle: fieldData["arabic-title"] || "",

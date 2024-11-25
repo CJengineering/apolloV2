@@ -564,6 +564,7 @@ export interface LightboxProps {
   onPrev: () => void;
 }
 export interface FieldsPostRaw {
+  "hero-video-arabic-youtube-video-id"?: string;
   "video-as-hero-yes-no"?:boolean;
   "hero-video-youtube-embed-id"?:string;
   "arabic-complete-incomplete" : boolean
@@ -659,6 +660,7 @@ export interface PeopleRawFields {
 export interface PostFieldsCleaned {
   videoAsHeroYesNo: boolean;
   heroVideoYoutubeEmbedId: string;
+  heroVideoArabicYoutubeVideoId: string;
   isPostArabic: boolean;
   createdOn: string;
   arabicTitle: string;

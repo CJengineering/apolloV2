@@ -1,4 +1,3 @@
-
 import { PostFieldsCleaned } from "@/app/interfaces";
 import ArticleHeader from "./ArticleCJHeader";
 import ArticleBody from "./ArticleCJBody";
@@ -6,17 +5,18 @@ import HeroMedia from "./ArticleCJHeroMedia";
 import ArticleMetadata from "./ArticleCJMetadata";
 import ProgrammeButton from "./ArticleCJButton";
 interface ArticleCJProps {
-    post: PostFieldsCleaned;
-    styleType?: string;
-    locale: string;
-  }
+  post: PostFieldsCleaned;
+  styleType?: string;
+  locale: string;
+}
 
-export default function ArticleCJ({
-  post,
-  styleType,
-  locale,
-}: ArticleCJProps) {
+export default function ArticleCJ({ post, styleType, locale }: ArticleCJProps) {
   const title = locale === "ar" ? post.arabicTitle : post.name;
+  const arabicVideoLink = post.heroVideoArabicYoutubeVideoId
+    ? post.heroVideoArabicYoutubeVideoId
+    : post.heroVideoYoutubeEmbedId;
+  const videoLink =
+    locale === "ar" ? arabicVideoLink : post.heroVideoYoutubeEmbedId;
   const content = locale === "ar" ? post.bodyArabic : post.body;
   const bulletPoints =
     locale === "ar" ? post.bulletPointsArabic : post.bulletPointsEnglish;
@@ -34,7 +34,7 @@ export default function ArticleCJ({
 
         <HeroMedia
           isVideo={post.videoAsHeroYesNo}
-          videoId={post.heroVideoYoutubeEmbedId}
+          videoId={videoLink}
           imageUrl={post.mainImage.url}
           alt={post.name}
         />
