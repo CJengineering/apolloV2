@@ -7,7 +7,7 @@ export async function getDataInternalServer(
   try {
     const response = await fetch(`https://next-tutorial-vercel-xi.vercel.app/api/${endpoint}`, {
   
-        cache: "no-store",
+       next: { revalidate: 360 },
         
         headers: {
           Accept: "application/json",
