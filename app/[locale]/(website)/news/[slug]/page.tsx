@@ -35,13 +35,16 @@ export async function generateMetadata(
 
  
   const newsId = getIdByDisplayName("Posts");
-  const productTest = await getDataInternalServer('posts');
-  console.log('this is the product test', productTest)
+  const productTest = await getData(newsId);
+
   const teamMembersRaw = productTest.items;
+
+  
   const memberRaw :Item<FieldsPostRaw>[] = teamMembersRaw.filter(
     (item) => item.fieldData.slug === slug
   );
-  const seoTitleArabic = memberRaw[0].fieldData["seo-title-arabic"] ? memberRaw[0].fieldData["seo-title-arabic"] : '';
+  console.log('this is the member raw', memberRaw)
+  const seoTitleArabic = memberRaw[0]?.fieldData["seo-title-arabic"] ? memberRaw[0].fieldData["seo-title-arabic"] : '';
   const seoTitleEnglish = memberRaw[0].fieldData["seo-title"] ? memberRaw[0].fieldData["seo-title"] : '';
   const name = locale === 'ar'? seoTitleArabic : seoTitleEnglish;
 
@@ -143,6 +146,7 @@ export default async function page({
 <>
 
       <div className="">
+      
         <ArticleCJ post={cleanPost} locale={params.locale} />
      
       </div>
