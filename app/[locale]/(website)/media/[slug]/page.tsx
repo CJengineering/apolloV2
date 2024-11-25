@@ -14,6 +14,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import { Item, NewsRawFields } from "@/app/interfaces";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { getDataInternalServer } from "@/functions/api/getDataInternalServer";
 type Props = {
   params: { slug : string, locale: string };
 
@@ -72,12 +73,12 @@ export default async function NewsPage({
   const newsId = getIdByDisplayName("News");
 
   // Data fetching
-  const dataWeb = await getData(newsId);
-  const sourcesAll = await getData(sourcesId);
-  const peopleAll = await getData(peopleId);
-  const programmeAll = await getData(progremmeId);
-  const eventAll = await getData(eventsId);
-  const tagsAll = await getData(tagsId);
+  const dataWeb = await getDataInternalServer('news');
+  const sourcesAll = await getDataInternalServer('sources');
+  const peopleAll = await getDataInternalServer('people');
+  const programmeAll = await getDataInternalServer('programmes');
+  const eventAll = await getDataInternalServer('events');
+  const tagsAll = await getDataInternalServer('tags');
 
   const rawNewsArray = dataWeb.items;
   const rawSingleNews = rawNewsArray.find(
