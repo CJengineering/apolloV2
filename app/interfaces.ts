@@ -29,6 +29,17 @@ export interface HomeCardProps {
   openInNewTab?: boolean;
   clickAction: string;
 }
+export interface NewsCardFields {
+  slug: string;
+  thumbnail: ImageProps;
+  thumbnailAltText?: string;
+  sources: RelatedColection
+  arabicTitle: string;
+  name: string;
+  datePublished: string;
+  datePublishedArabic: string;
+  programme: RelatedColection;
+}
 export interface RelatedColection {
   name: string;
   arabicName: string;

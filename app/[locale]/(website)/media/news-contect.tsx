@@ -1,6 +1,6 @@
 'use client';
 
-import { NewsCleanedFields } from '@/app/interfaces';
+import { NewsCardFields, NewsCleanedFields } from '@/app/interfaces';
 // src/context/NewsContext.tsx
 import React, { createContext, useContext, useMemo, useState } from 'react';
 
@@ -14,8 +14,8 @@ interface RelatedCollection {
 interface NewsContextProps {
   programmes: RelatedCollection[];
   sources: RelatedCollection[];
-  newsArrayCleaned: NewsCleanedFields[];
-  filteredNews: NewsCleanedFields[];
+  newsArrayCleaned: NewsCleanedFields[] | NewsCardFields[];
+  filteredNews: NewsCleanedFields[]| NewsCardFields[];
  newsQuery: string;
   setProgrammeFilter: (programmes: RelatedCollection[]) => void;
   setSourceFilter: (sources: RelatedCollection[]) => void;
@@ -36,7 +36,7 @@ interface NewsProviderProps {
   children: React.ReactNode;
   programmes: RelatedCollection[];
   sources: RelatedCollection[];
-  newsArrayCleaned: NewsCleanedFields[];
+  newsArrayCleaned: NewsCleanedFields[] | NewsCardFields[];
 
 }
 

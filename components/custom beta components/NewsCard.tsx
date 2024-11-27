@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NewsCleanedFields } from "@/app/interfaces";
+import { NewsCardFields, NewsCleanedFields } from "@/app/interfaces";
 
 interface newLocaleProps {
   locale: string;
@@ -10,7 +10,7 @@ export default function NewsCard({
   content,
   locale,
 }: {
-  content: NewsCleanedFields;
+  content: NewsCleanedFields | NewsCardFields;
   locale: newLocaleProps | string;
 }) {
   return (
