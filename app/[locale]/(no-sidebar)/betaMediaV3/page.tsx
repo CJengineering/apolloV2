@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import { allPosts } from "contentlayer/generated";
-
-import { getData } from "@/functions/api/getData";
-
-import newsMapper from "@/functions/transformers/newsMapper";
-import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import FilterComponent from "@/components/CJ-components/components-CJ/test components/FilterComponent";
-
 import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import { getDataInternalServer } from "@/functions/api/getDataInternalServer";
@@ -15,35 +9,34 @@ import { NewsDisplay } from "../../(website)/media/news-display";
 import { fetchAllNews } from "@/functions/api/fetchAllNews";
 import { NewsCardFields, NewsCleanedFields } from "@/app/interfaces";
 
-
- function mapToNewsCardFields(row: any): NewsCardFields {
-    return {
-      slug: row.slug || "",
-      thumbnail: {
-        url: row.thumbnailUrl || "",
-        alt: row.thumbnailAltText || "Default Alt Text", // Fallback alt text
-      },
-      thumbnailAltText: row.thumbnailAltText || "",
-      sources: {
-        name: row.sourcesName || "",
-        arabicName: row.sourcesArabicName || "",
-        shortname: undefined, // This field is not present in the SQL query
-        slug: row.sourcesSlug || "",
-        url: row.sourcesUrl || "",
-      },
-      arabicTitle: row.arabicTitle || "",
-      name: row.name || "",
-      datePublished: row.datePublished || "",
-      datePublishedArabic: row.datePublishedArabic || "",
-      programme: {
-        name: row.programmeName || "",
-        arabicName: row.programmeArabicName || "",
-        shortname: row.programmeShortname || "",
-        slug: row.programmeSlug || "",
-        url: row.programmeUrl || "",
-      },
-    };
-  }
+function mapToNewsCardFields(row: any): NewsCardFields {
+  return {
+    slug: row.slug || "",
+    thumbnail: {
+      url: row.thumbnailUrl || "",
+      alt: row.thumbnailAltText || "Default Alt Text", // Fallback alt text
+    },
+    thumbnailAltText: row.thumbnailAltText || "",
+    sources: {
+      name: row.sourcesName || "",
+      arabicName: row.sourcesArabicName || "",
+      shortname: undefined, // This field is not present in the SQL query
+      slug: row.sourcesSlug || "",
+      url: row.sourcesUrl || "",
+    },
+    arabicTitle: row.arabicTitle || "",
+    name: row.name || "",
+    datePublished: row.datePublished || "",
+    datePublishedArabic: row.datePublishedArabic || "",
+    programme: {
+      name: row.programmeName || "",
+      arabicName: row.programmeArabicName || "",
+      shortname: row.programmeShortname || "",
+      slug: row.programmeSlug || "",
+      url: row.programmeUrl || "",
+    },
+  };
+}
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
@@ -80,23 +73,10 @@ export default async function NewsContent({
   const [programmeAll, peopleAll, sourcesAll, tagsAll, eventAll, newsAll] =
     await Promise.all(dataFetches);
 
-    
- 
   // Data fetching
 
   let rawNewsArray = newsAll.items;
   rawNewsArray = rawNewsArray.filter((item) => item.isDraft === false);
-
-  const newsArrayCleaned = rawNewsArray.map((item) =>
-    newsMapper(
-      item,
-      programmeAll.items,
-      peopleAll.items,
-      sourcesAll.items,
-      tagsAll.items,
-      eventAll.items
-    )
-  );
 
   interface RelatedCollection {
     id: string;
@@ -114,8 +94,7 @@ export default async function NewsContent({
       name: item.fieldData.name || "",
     })
   );
-  const rowsD =  await fetchAllNews('newsV3');
-
+  const rowsD = await fetchAllNews("newsV3");
 
   const news: NewsCardFields[] = rowsD.map(mapToNewsCardFields);
   return (

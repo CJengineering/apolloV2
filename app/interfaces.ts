@@ -901,7 +901,7 @@ export interface NewsCleanedFields {
   arabicTitle: string;
   pushToGr: boolean;
   collectionName: "press";
-
+  id: string;
   featured: boolean;
   externalLink: string;
   datePublished: string;
