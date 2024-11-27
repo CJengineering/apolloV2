@@ -12,38 +12,37 @@ import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerat
 import { getDataInternalServer } from "@/functions/api/getDataInternalServer";
 import { NewsProvider } from "../../(website)/media/news-contect";
 import { NewsDisplay } from "../../(website)/media/news-display";
-import { fetchAllNews } from "@/functions/api/fetchAllNews";
+import { fetchAll } from "@/functions/api/fetchAll";
 import { NewsCardFields, NewsCleanedFields } from "@/app/interfaces";
 
-
- function mapToNewsCardFields(row: any): NewsCardFields {
-    return {
-      slug: row.slug || "",
-      thumbnail: {
-        url: row.thumbnailUrl || "",
-        alt: row.thumbnailAltText || "Default Alt Text", // Fallback alt text
-      },
-      thumbnailAltText: row.thumbnailAltText || "",
-      sources: {
-        name: row.sourcesName || "",
-        arabicName: row.sourcesArabicName || "",
-        shortname: undefined, // This field is not present in the SQL query
-        slug: row.sourcesSlug || "",
-        url: row.sourcesUrl || "",
-      },
-      arabicTitle: row.arabicTitle || "",
-      name: row.name || "",
-      datePublished: row.datePublished || "",
-      datePublishedArabic: row.datePublishedArabic || "",
-      programme: {
-        name: row.programmeName || "",
-        arabicName: row.programmeArabicName || "",
-        shortname: row.programmeShortname || "",
-        slug: row.programmeSlug || "",
-        url: row.programmeUrl || "",
-      },
-    };
-  }
+function mapToNewsCardFields(row: any): NewsCardFields {
+  return {
+    slug: row.slug || "",
+    thumbnail: {
+      url: row.thumbnailUrl || "",
+      alt: row.thumbnailAltText || "Default Alt Text", // Fallback alt text
+    },
+    thumbnailAltText: row.thumbnailAltText || "",
+    sources: {
+      name: row.sourcesName || "",
+      arabicName: row.sourcesArabicName || "",
+      shortname: undefined, // This field is not present in the SQL query
+      slug: row.sourcesSlug || "",
+      url: row.sourcesUrl || "",
+    },
+    arabicTitle: row.arabicTitle || "",
+    name: row.name || "",
+    datePublished: row.datePublished || "",
+    datePublishedArabic: row.datePublishedArabic || "",
+    programme: {
+      name: row.programmeName || "",
+      arabicName: row.programmeArabicName || "",
+      shortname: row.programmeShortname || "",
+      slug: row.programmeSlug || "",
+      url: row.programmeUrl || "",
+    },
+  };
+}
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
@@ -80,8 +79,6 @@ export default async function NewsContent({
   const [programmeAll, peopleAll, sourcesAll, tagsAll, eventAll, newsAll] =
     await Promise.all(dataFetches);
 
-    
- 
   // Data fetching
 
   let rawNewsArray = newsAll.items;
@@ -114,17 +111,17 @@ export default async function NewsContent({
       name: item.fieldData.name || "",
     })
   );
-  const rowsD =  await fetchAllNews('newsV2');
+  const rowsD = await fetchAll("newsV2");
 
   const firstRow = rowsD[0];
 
-  const news: NewsCleanedFields[] = rowsD.map(row => row.fielddata);
+  const news: NewsCleanedFields[] = rowsD.map((row) => row.fielddata);
   return (
     <>
       <div>
         <h1 className="header-page pb-8">Media</h1>
       </div>
-  
+
       <NewsProvider
         programmes={programmesForFilter}
         sources={sourcesForFilter}

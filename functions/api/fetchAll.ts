@@ -1,19 +1,22 @@
+
+
 type FetchResponse = {
     rows: any[];
     fetchMore: boolean;
   };
   
-  export async function fetchAllNews(collection:string): Promise<any[]> {
+  export async function fetchAll(collection:string): Promise<any[]> {
     let allNews: any[] = [];
     let offset = 0;
     const chunkSize = 150; // Matches the limit in the API
+    const websiteUrl =process.env.FETCHING_URL;
   
     while (true) {
       try {
         console.log(`Fetching offset: ${offset}`); // Debug: Log the current offset
   
         const response = await fetch(
-          `https://next-tutorial-vercel-xi.vercel.app/api/${collection}?offset=${offset}`,
+          `${websiteUrl}/api/${collection}?offset=${offset}`,
           { next: { revalidate: 36 } }
         );
   
@@ -23,7 +26,7 @@ type FetchResponse = {
   
         const data: FetchResponse = await response.json();
   
-        console.log(`Fetched ${data.rows.length} rows`); // Debug: Log the number of rows fetched
+      
         allNews = allNews.concat(data.rows);
   
         // If fewer rows than the chunk size are returned, it means we've fetched everything

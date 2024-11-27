@@ -39,7 +39,7 @@ type FetchResponse = {
       }
     }
   
-    console.log(`Total rows fetched: ${allPosts.length}`); // Debug: Log total rows fetched
+   
     return allPosts;
   }
   

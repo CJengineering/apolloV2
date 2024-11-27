@@ -1,9 +1,10 @@
-export async function fetchSingleNews(collection: string, slug: string): Promise<any | null> {
+export async function fetchSingleItem(collection: string, slug: string): Promise<any | null> {
+    const websiteUrl =process.env.FETCHING_URL;
     try {
       console.log(`Fetching news item with slug: ${slug}`); // Debug: Log the slug being fetched
   
       const response = await fetch(
-        `https://next-tutorial-vercel-xi.vercel.app/api/${collection}?slug=${slug}`,
+        `${websiteUrl}/api/${collection}?slug=${slug}`,
         { next: { revalidate: 36 } }
       );
   
@@ -12,7 +13,7 @@ export async function fetchSingleNews(collection: string, slug: string): Promise
       }
   
       const data = await response.json();
-      console.log("Fetched news item:", data); // Debug: Log the fetched item
+     
   
       return data;
     } catch (error) {

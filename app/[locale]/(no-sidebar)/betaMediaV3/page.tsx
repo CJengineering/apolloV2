@@ -6,7 +6,7 @@ import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerat
 import { getDataInternalServer } from "@/functions/api/getDataInternalServer";
 import { NewsProvider } from "../../(website)/media/news-contect";
 import { NewsDisplay } from "../../(website)/media/news-display";
-import { fetchAllNews } from "@/functions/api/fetchAllNews";
+import { fetchAll } from "@/functions/api/fetchAll";
 import { NewsCardFields, NewsCleanedFields } from "@/app/interfaces";
 
 function mapToNewsCardFields(row: any): NewsCardFields {
@@ -94,7 +94,7 @@ export default async function NewsContent({
       name: item.fieldData.name || "",
     })
   );
-  const rowsD = await fetchAllNews("newsV3");
+  const rowsD = await fetchAll("newsV3");
 
   const news: NewsCardFields[] = rowsD.map(mapToNewsCardFields);
   return (
