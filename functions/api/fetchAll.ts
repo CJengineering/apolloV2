@@ -17,7 +17,7 @@ type FetchResponse = {
   
         const response = await fetch(
           `${websiteUrl}/api/${collection}?offset=${offset}`,
-          { next: { revalidate: 36 } }
+          { next: { revalidate: 360 } }
         );
   
         if (!response.ok) {

@@ -14,7 +14,7 @@ type FetchResponse = {
   
         const response = await fetch(
           `https://next-tutorial-vercel-xi.vercel.app/api/test?offset=${offset}`,
-          { next: { revalidate: 36 } }
+          { next: { revalidate: 360 } }
         );
   
         if (!response.ok) {
