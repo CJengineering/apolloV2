@@ -90,7 +90,7 @@ export default async function page({
   return (
     <>
       <div className="">
-        {JSON.stringify(relatedPostsCleaned.length)}
+        
         <ArticleCJ post={cleanPost} locale={params.locale} />
       </div>
       <div className="pt-9 pb-7">
