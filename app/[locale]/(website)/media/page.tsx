@@ -8,6 +8,7 @@ import { NewsProvider } from "../../(website)/media/news-contect";
 import { NewsDisplay } from "../../(website)/media/news-display";
 import { fetchAll } from "@/functions/api/fetchAll";
 import { NewsCardFields, NewsCleanedFields } from "@/app/interfaces";
+import { fetchFirstChunk } from "@/functions/api/fetchFirstChunk";
 
 function mapToNewsCardFields(row: any): NewsCardFields {
   return {
@@ -68,15 +69,14 @@ export default async function NewsContent({
   }
 
   //Get Names
-  const ids = ["programmes", "people", "sources", "tags", "events", "news"];
+  const ids = ["programmes",  "sources"];
   const dataFetches = ids.map((id) => getDataInternalServer(id));
-  const [programmeAll, peopleAll, sourcesAll, tagsAll, eventAll, newsAll] =
+  const [programmeAll,  sourcesAll, ] =
     await Promise.all(dataFetches);
 
   // Data fetching
 
-  let rawNewsArray = newsAll.items;
-  rawNewsArray = rawNewsArray.filter((item) => item.isDraft === false);
+
 
   interface RelatedCollection {
     id: string;
@@ -94,7 +94,7 @@ export default async function NewsContent({
       name: item.fieldData.name || "",
     })
   );
-  const rowsD = await fetchAll("newsV3");
+  const rowsD = await fetchFirstChunk("newsV3");
 
   const news: NewsCardFields[] = rowsD.map(mapToNewsCardFields);
   return (

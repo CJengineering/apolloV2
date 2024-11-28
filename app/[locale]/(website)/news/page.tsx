@@ -9,6 +9,7 @@ import { getDataInternalServer } from "@/functions/api/getDataInternalServer";
 import { PostProvider } from "../../(website)/news/post-context";
 import PostsDisplay from "../../(website)/news/posts-display";
 import { fetchAll } from "@/functions/api/fetchAll";
+import { fetchFirst100Posts } from "@/functions/api/fetchFirst100posts";
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slug,
@@ -51,7 +52,8 @@ export default async function AnnouncementsContent({
     id: item.id || "",
     name: item.fieldData.name || "",
   }));
-  const rowsD = await fetchAll("posts");
+  //const rowsD = await fetchAll("posts");
+  const  rowsD = await fetchFirst100Posts()
   const newsArray: PostFieldsCleaned[] = rowsD.map((row) => row.field_data);
 
   return (

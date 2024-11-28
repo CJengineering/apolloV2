@@ -16,7 +16,7 @@ type FetchResponse = {
         console.log(`Fetching offset: ${offset}`); // Debug: Log the current offset
   
         const response = await fetch(
-          `${websiteUrl}/api/${collection}?offset=${offset}`,
+          `https://next-tutorial-vercel-xi.vercel.app/api/${collection}?offset=${offset}`,
           { next: { revalidate: 360 } }
         );
   
