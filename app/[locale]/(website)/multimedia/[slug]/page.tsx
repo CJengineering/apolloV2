@@ -57,6 +57,11 @@ import {
   MultimediaRawFields,
   PublicationsRawFields,
 } from "@/app/interfaces";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+const metadata = {
+  title: "Multimedia",
+  description: "Multimedia",
+};
 
 export default async function MultimediaPage({
   params,
@@ -162,51 +167,50 @@ export default async function MultimediaPage({
       peopleDataRaw.items
     )
   );
-  const cleanCardMedia =  cleanMediaRelated.map((item)=>mapMultimediaToMediaCard(item));
+  const cleanCardMedia = cleanMediaRelated.map((item) =>
+    mapMultimediaToMediaCard(item)
+  );
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:mt-24">
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-20 lg:mt-10">
         <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
           <div>
-         
-            <p className="text-left sans-serif text-base text-slate-700 font-normal mono uppercase ">
+            {/* <p className="text-left sans-serif text-base text-slate-700 font-normal mono uppercase ">
               {multimediaItem.type}
-            </p>
-            {multimediaItem.videoLink && (   <div
-                dangerouslySetInnerHTML={{
-                  __html:multimediaItem.videoLink,
-                }}
-              ></div>
-)}
-         
-          </div>
-          <div className="w-full pb-2">
-            <h1 className="text-left text-4xl serif font-bold">
-              {multimediaItem.name}
-            </h1>
-          </div>
-          <div className="w-full mt-6">
-            <div className="prose prose-xl dark:prose-dark serif">
+            </p> */}
+              <h1 className="header-article leading-none mb-6">
+                {multimediaItem.name}
+              </h1>
+            {multimediaItem.videoLink && (
               <div
                 dangerouslySetInnerHTML={{
-                  __html:multimediaItem.description,
+                  __html: multimediaItem.videoLink,
+                }}
+              ></div>
+            )}
+          </div>
+          <div className="w-full mt-3 mb-2">
+            <div className="prose prose-2xl dark:prose-dark sans-serif">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: multimediaItem.description,
                 }}
               ></div>
             </div>
           </div>
         </div>
       </div>
-      <div className="w-full h-px bg-slate-200"></div>
+      <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
       <div className="py-6">
-        <h2 className="serif font-medium text-xl lg:text-2xl">Details</h2>
+        {/* <h2 className="serif font-medium text-xl lg:text-2xl">Details</h2> */}
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="py-4 space-y-4">
+          <div className="py-2 space-y-4">
             <ListSmall
               data={{
-                "realted people": multimediaItem.relatedPeople.map((item) => ({
+                "related people": multimediaItem.relatedPeople.map((item) => ({
                   name: item.name,
-                  url: item.slug,
+                  url: `/people/${item.slug}`,
                 })),
               }}
             />
@@ -220,20 +224,24 @@ export default async function MultimediaPage({
             />
 
             <ListSmall
-              data={{ source: [{ name: multimediaItem.sources.name, url: "" }] }}
+              data={{
+                source: [{ name: multimediaItem.sources.name, url: "" }],
+              }}
             />
           </div>
-          <div className="py-4 space-y-4">
+          <div className="">
             <ListSmall
               data={{
-                "related programme": multimediaItem.relatedProgrammes.map((item) => ({
-                  name: item.name,
-                  url: `/programmes/${item.slug}`,
-                })),
+                "related programme": multimediaItem.relatedProgrammes.map(
+                  (item) => ({
+                    name: item.name,
+                    url: `/programmes/${item.slug}`,
+                  })
+                ),
               }}
             />
 
-            <ListSmall
+            {/* <ListSmall
               data={{
                 "Link to publication": [
                   {
@@ -242,18 +250,24 @@ export default async function MultimediaPage({
                   },
                 ],
               }}
-            />
+            /> */}
+          <div className="mt-4">
+            <ButtonCJ
+              href={multimediaItem.originalLink}
+              text={"Go to original"}
+              openInNewTab={false}
+              styleType="secondary"
+            />  
+            </div>
           </div>
         </div>
       </div>
-      <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
+      <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div> {/* Separation Bar */}
       <div>
-        <div className="grid grid-cols-3 mt-4">
-
-        {cleanMediaRelated.length > 0 &&
-          cleanCardMedia.map((item) => (
-            <MediaCard {...item} />
-          ))}
+        <h2 className="header-section pt-6">Related</h2>
+        <div className="grid grid-cols-1 space-y-6 lg:space-y-0 lg:grid-cols-2 mt-6 lg:mt-6">
+          {cleanMediaRelated.length > 0 &&
+            cleanCardMedia.map((item) => <MediaCard {...item} />)}
         </div>
         {/* Related Publications
         
@@ -262,6 +276,6 @@ export default async function MultimediaPage({
           </PostAccordion>
         */}
       </div>
-    </ContentContainer>
+    </>
   );
 }

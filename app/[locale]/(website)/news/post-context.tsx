@@ -1,8 +1,9 @@
 "use client";
 
 import { PostFieldsCleaned } from "@/app/interfaces";
+import { fetchAll } from "@/functions/api/fetchAll";
 // src/context/PostContext.tsx
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 interface RelatedCollection {
   id: string;
@@ -29,6 +30,7 @@ export const usePostContext = () => {
   }
   return context;
 };
+console.log('PostContext',PostContext)
 
 interface PostProviderProps {
   children: React.ReactNode;
@@ -48,8 +50,23 @@ export const PostProvider: React.FC<PostProviderProps> = ({
   >([]);
   const [selectedPeople, setSelectedPeople] = useState<RelatedCollection[]>([]);
   const [postQuery, setPostQuery] = useState("");
+  const [fetchedPosts, setFetchedPosts] = useState<PostFieldsCleaned[]>(postsClean);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const rowsD = await fetchAll("posts"); // Fetch new posts
+        const updatedPosts = rowsD.map((row: any) => row.field_data);
+        setFetchedPosts(updatedPosts); // Update state with fetched posts
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
   const filteredPosts = useMemo(() => {
-    let filtered = postsClean; 
+    let filtered = fetchedPosts
   
     if (selectedProgrammes.length > 0 && selectedPeople.length > 0) {
       // Filter by both programmes and people
@@ -81,7 +98,7 @@ export const PostProvider: React.FC<PostProviderProps> = ({
     }
   
     return filtered;
-  }, [postsClean, selectedProgrammes, selectedPeople, postQuery]);
+  }, [fetchedPosts, selectedProgrammes, selectedPeople, postQuery]);
   
 
   const setProgrammeFilter = (programmes: RelatedCollection[]) => {
@@ -97,7 +114,7 @@ export const PostProvider: React.FC<PostProviderProps> = ({
       value={{
         programmes,
         people,
-        postsClean,
+        postsClean: fetchedPosts,
         filteredPosts,
         setProgrammeFilter,
         setPeopleFilter,

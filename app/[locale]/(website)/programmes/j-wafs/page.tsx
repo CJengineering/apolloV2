@@ -37,8 +37,85 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import Image from "next/image";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 
-export default async function JpalPage({
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "MIT Abdul Latif Jameel Water and Food Systems Lab (J-WAFS)",
+  description:
+    "Securing humankind's vital resources",
+  ogType: "website",
+  ogImage: '/images/metadata/J-WAFS_OG_1200x630.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community", "J-WAFS", "Water Food Systems Lab"],
+
+})
+
+// START INITIATIVES
+
+const cardData = [
+  {
+    imageUrl: "/images/labs/j-wafs/JAMEEL_INDEX_1000PX.webp",
+    alt: "Jameel Index",
+    title: "Jameel Index",
+    subtitle: "",
+    link: "https://jameelindex.mit.edu/",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/j-wafs/JWAFS_SEED_GRANTS.webp",
+    alt: "Seed Grants",
+    title: "Seed Grants",
+    subtitle: "",
+    link: "https://jwafs.mit.edu/SeedGrants",
+    openInNewTab: true,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/j-wafs/JWAFS_SOLUTIONS_PROGRAMME.webp",
+    alt: "J-WAFS Solutions Programme",
+    title: "J-WAFS Solutions Programme",
+    subtitle: "",
+    link: "https://jwafs.mit.edu/SolutionsGrants",
+    openInNewTab: true,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/j-wafs/JWAFS_GRUDATE_FELLOWSHIPS.webp",
+    alt: "Graduate Student Fellowships",
+    title: "Graduate Student Fellowships",
+    subtitle: "",
+    link: "https://jwafs.mit.edu/FellowshipsWaterandFood",
+    openInNewTab: true,
+    clickAction: "External link",
+  },
+];
+// END INITIATIVES
+
+// STARTUP LOGOS START
+
+const spinoutsLogos = [
+  {
+    imageUrl: "/images/labs/j-wafs/spinouts/",
+    alt: "Jameel Index",
+    title: "Jameel Index",
+    subtitle: "",
+    link: "https://jameelindex.mit.edu/",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+];
+
+// STARTUP LOGOS END
+
+export default async function JwafsProgrammePage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -82,10 +159,10 @@ export default async function JpalPage({
   {
     /**Get the single programme by id from webflow */
   }
-  const jwafsId = "61ee828a15a3182b72bde63d";
+  const programmeId = "61ee828a15a3182b72bde63d";
   const jwafsSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
-    (item) => item.id === jwafsId
+    (item) => item.id === programmeId
   );
 
   {
@@ -204,84 +281,349 @@ export default async function JpalPage({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+    <>
+      <div className="pt-20 lg:pt-12">
+        <div className="flex flex-col text-left">
+          <div className="w-full flex pb-6 lg:pb-12">
+            <img
+              className="dark:hidden"
+              src="/images/labs/j-wafs/J-WAFS_DARK_SVG_1000WIDTH.png"
+              width="360"
+            ></img>
+            <img
+              className="hidden dark:block"
+              src="/images/labs/j-wafs/J-WAFS_LIGHT_SVG_1000WIDTH.png"
+              width="360"
+            ></img>
+          </div>
 
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
+          <div className="w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:prose-dark"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+        </div>
+
+        <div className="py-6">
+          <ButtonCJ
+            href={"https://jwafs.mit.edu/"}
+            text={"Visit the MIT J-WAFS website"}
+            styleType="secondary"
+            openInNewTab={true}
+          ></ButtonCJ>
+        </div>
+
+        <div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=coeLLkyQxTIrvj3q" />
+        </div>
+
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Impact</h2>
+        </div>
+        <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="">
+            <Stats title={cleanSingleProgramme.impact01} content={cleanSingleProgramme.impact01Title} />
+          </div>
+          <div className="">
+            <Stats title={cleanSingleProgramme.impact02} content={cleanSingleProgramme.impact02Title} />
+          </div>
+          <div className="">
+            <Stats title={cleanSingleProgramme.impact03} content={cleanSingleProgramme.impact03Title} />
+          </div>
+          <div className="">
+            <Stats title={cleanSingleProgramme.impact04} content={cleanSingleProgramme.impact04Title} />
+          </div>
+          <div className="">
+            <Stats title={cleanSingleProgramme.impact05} content={cleanSingleProgramme.impact05Title} />
+          </div>
+        </div>
+
+        {/* DIVIDER START */}
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+        {/* DIVIDER END */}
+
+        <div className="pb-6">
+          <h2 className="header-section">Select initiatives</h2>
+        </div>
+
+        <div className="w-full grid grid-cols-1 lg:grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {cardData.map((card, index) => (
+            <HomeCard
+              key={index}
+              imageUrl={card.imageUrl}
+              alt={card.alt}
+              title={card.title}
+              subtitle={card.subtitle}
+              link={card.link}
+              openInNewTab={card.openInNewTab}
+              clickAction={card.clickAction || ""}
+            />
+          ))}
+        </div>
+        {/* <div className="hidden">
+        <CarousselForComponents>
+          {[
+            <div key="carousel-content" className="">
+              {cardData.map((card, index) => (
+                <HomeCard
+                  key={index}
+                  imageUrl={card.imageUrl}
+                  alt={card.alt}
+                  title={card.title}
+                  subtitle={card.subtitle}
+                  link={card.link}
+                  openInNewTab={card.openInNewTab}
+                  clickAction={card.clickAction || ""}
+                />
+              ))}
+            </div>
+          ]}
+        </CarousselForComponents>
+        </div> */}
+
+        {/* DIVIDER START */}
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+        {/* DIVIDER END */}
+
+        <div className="pb-6">
+          <h2 className="header-section">Spinouts</h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {/* First Logo */}
+
+          {/* Second Logo */}
+          <div className="hidden dark:flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://www.xibus.systems/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/xibus_systems_darkmode_logo.svg"
+                alt="Logo 2"
+                width={180}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+          <div className="dark:hidden flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://www.xibus.systems/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/xibus_systems_logo.png"
+                alt="Logo 2"
+                width={180}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* Third Logo */}
+          <div className="hidden dark:flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://viaseparations.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/via-separations-logo-white.svg"
+                alt="Logo 3"
+                width={200}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+          <div className="dark:hidden flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://viaseparations.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/via_separations_logo.png"
+                alt="Logo 3"
+                width={200}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+
+          {/* Fourth Logo */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://takachar.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/takachar_logo.png"
+                alt="Logo 4"
+                width={200}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* Fifth Logo */}
+          <div className="hidden dark:flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://sitration.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/logo-sitration-light.svg"
+                alt="Logo 5"
+                width={90}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+          <div className="dark:hidden flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://sitration.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/logo-sitration-dark.svg"
+                alt="Logo 5"
+                width={90}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* Sixth Logo */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://www.detoxyfi.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/detoxify_logo.png"
+                alt="Logo 6"
+                width={200}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* Seventh Logo */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://www.coolveg.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/cool_veg_logo.png"
+                alt="Logo 7"
+                width={160}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* Eighth Logo */}
+          <div className="flex items-center justify-start py-6 lg:py-2">
+            <a
+              href="https://example.com/8"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/images/labs/j-wafs/spinouts/AgZen_logoGRADIENT.png"
+                alt="Logo 8"
+                width={145}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+        </div>
+
+      {/* DIVIDER START */}
+      <div className="w-full mt-12">
+        <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+      </div>
+      {/* DIVIDER END */}
+      </div>
+
+      {/* START NEWS */}
+      {postProps && postProps.length > 0 && (
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
+              {postProps.slice(0).map((post) => (
                 <PostCard key={post.name} content={post} />
               ))}
             </div>
           </PostAccordion>
         </div>
+      )}
+      {/* END NEWS */}
+
+      {/* START PRESS */}
+      {newsProps && newsProps.length > 0 && (
         <div className="">
-          <PostAccordion title={"Press"}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
+          <PostAccordion title={"Media"}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {newsProps.map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
             </div>
           </PostAccordion>
         </div>
-        <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
+      )}
+      {/* END PRESS */}
 
-        {/* 
-
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
-
+      {/* START EVENTS */}
+      {cleanRelatedEvents && cleanRelatedEvents.length > 0 && (
         <div>
           <PostAccordion title={"Events"}>
             <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
+              <CarousselForComponents>
+                {cleanRelatedEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
               </CarousselForComponents>
             </div>
           </PostAccordion>
         </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
-      </div>
-    </ContentContainer>
+      )}
+      {/* END EVENTS */}
+
+      <div className="py-12"></div>
+    </>
   );
 }

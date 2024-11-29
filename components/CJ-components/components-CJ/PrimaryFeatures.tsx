@@ -6,11 +6,11 @@ import { Tab } from '@headlessui/react'
 import clsx from 'clsx'
 
 import { Container } from './Container'
-import backgroundImage from '@/images/background-features.jpg'
-import screenshotExpenses from '@/images/screenshots/expenses.png'
-import screenshotPayroll from '@/images/screenshots/payroll.png'
-import screenshotReporting from '@/images/screenshots/reporting.png'
-import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
+import backgroundImage from '@/images/to_sort/screenshots/background-features.jpg'
+import screenshotExpenses from '@/images/to_sort/screenshots/expenses.png'
+import screenshotPayroll from '@/images/to_sort/screenshots/payroll.png'
+import screenshotReporting from '@/images/to_sort/screenshots/reporting.png'
+import screenshotVatReturns from '@/images/to_sort/screenshots/vat-returns.png'
 
 const features = [
   {

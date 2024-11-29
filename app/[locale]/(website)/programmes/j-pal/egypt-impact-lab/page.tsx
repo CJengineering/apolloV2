@@ -202,7 +202,7 @@ export default async function Programme19page({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
+    <>
       <div className="pt-12">
         <LanguageChanger />
         <TableRowSingle
@@ -220,7 +220,7 @@ export default async function Programme19page({
           </PostAccordion>
         </div>
         <div className="">
-          <PostAccordion title={"Press"}>
+          <PostAccordion title={"Media"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {newsProps.slice(2, 5).map((item) => (
                 <NewsCard content={item} locale={params} />
@@ -278,6 +278,6 @@ export default async function Programme19page({
           </div>
         </div> */}
       </div>
-    </ContentContainer>
+    </>
   );
 }

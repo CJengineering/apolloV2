@@ -1,3 +1,5 @@
+import { event } from "cypress/types/jquery";
+
 type FetchResponse = {
   items: any[];
   error?: string;
@@ -6,6 +8,7 @@ type FetchResponse = {
 
 export async function getData(collection:string): Promise<FetchResponse> {
   const baseUrl = `https://api.webflow.com/v2/collections/${collection}/items`;
+  const eventCollection = collection ==='6225fe8b1f52b40001a99d66'? true : false;
   const randomString= "d2eac7bfcd8cc230db56e0dd9f9c7c7f4652db6195ad674c0b7939bb438fb33c";
   let allItems: any[] = [];
   let offset = 0;
@@ -16,7 +19,8 @@ export async function getData(collection:string): Promise<FetchResponse> {
 
     while (fetchMore) {
       const response = await fetch(`${baseUrl}?offset=${offset}&limit=100`, {
-        next: { revalidate: 3600 },
+        next: { revalidate: 36 },
+        
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${randomString}`,
@@ -36,11 +40,21 @@ export async function getData(collection:string): Promise<FetchResponse> {
  allItems = allItems.filter(item => !item.isDraft);
 
  // Sort items by datePublished in descending order, placing items without datePublished at the end
+ if(eventCollection){
+  allItems.sort((a, b) => {
+    const dateA = a.fieldData["event-date"]? new Date(a.fieldData["event-date"]).getTime() : 0;
+    const dateB = b.fieldData["event-date"]? new Date(b.fieldData["event-date"]).getTime() : 0;
+    return dateB - dateA;
+  }); 
+  }
+  if(!eventCollection){
  allItems.sort((a, b) => {
    const dateA = a.fieldData["date-published"]? new Date(a.fieldData["date-published"]).getTime() : 0;
    const dateB = b.fieldData["date-published"]? new Date(b.fieldData["date-published"]).getTime() : 0;
    return dateB - dateA;
  });
+}
+
       // Check if the number of items fetched is less than 100, indicating last page
       fetchMore = items.length === 100;
     }

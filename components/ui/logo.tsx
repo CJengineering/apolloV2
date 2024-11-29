@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import LogoImg from '@/public/images/CJ_LOGO_ENGLISH_RED_SVG.svg'
-import whiteLogo from '@/public/images/CJ English Logo.svg'
+import LogoImg from '@/public/images/cj_logo/CJ_LOGO_ENGLISH_RED_SVG.svg'
+import whiteLogo from '@/public/images/cj_logo/CJ English Logo.svg'
 
 export default function Logo() {
   return (

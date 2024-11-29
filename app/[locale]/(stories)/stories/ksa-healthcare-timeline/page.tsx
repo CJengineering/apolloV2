@@ -4,7 +4,7 @@ import WebflowIframe from "@/components/CJ-components/components-CJ/test compone
 export default function pageJameelCenterStorie() {
   return (
     <div className="">
-    <WebflowIframe webUrl="https://www.communityjameel.org/stories/ksa-healthcare-timeline"></WebflowIframe>
+    <WebflowIframe webUrl="https://www.littleredheart.org/stories/ksa-healthcare-timeline"></WebflowIframe>
   </div>
   )
 }

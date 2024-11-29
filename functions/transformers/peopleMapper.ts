@@ -108,6 +108,7 @@ export default function peopleMapper(
         url: "N/A",
       };
   return {
+    createdOn: item.createdOn,
     name: fieldData.name || "N/A",
     nameArabic: fieldData["name-arabic"] || "N/A",
     hero: fieldData.hero || false,
@@ -157,5 +158,6 @@ export default function peopleMapper(
     slug: `/people/${fieldData.slug}` || "N/A",
     pushToGr: fieldData["push-to-gr"] || false,
     arabicOnOff: fieldData["arabic-on-off"] || false,
+    featureVideo: fieldData["feature-video"] || "N/A",
   };
 }

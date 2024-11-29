@@ -6,6 +6,7 @@ import {
   ProgrammeRawFields,
   PeopleRawFields,
 } from "@/app/interfaces";
+import { formatDateArabic } from "../utils/fromDateArabic";
 function calculateReadTime(text: string): string {
   const wordsPerMinute = 200;
   const numberOfWords = text ? text.split(/\s+/).length : 0;
@@ -26,6 +27,7 @@ const formatDate = (date: Date | string): string => {
   }
 };
 export default function eventMapper(
+  
   item: Item<EventFieldData>,
   arrayPartners: Item<PartnersRawFields>[],
   arrayProgramme: Item<ProgrammeRawFields>[],
@@ -89,14 +91,23 @@ export default function eventMapper(
   const programmeLabelCleaned = matchProgrammes
     .map((prog) => (prog ? prog.fieldData.name : ""))
     .filter((name): name is string => name !== undefined);
+  const programmeLabelShortCleaned = matchProgrammes
+    .map((prog) => (prog ? prog.fieldData.shortname : ""))
+    .filter((name): name is string => name !== undefined);
   const fakeSource = {
     name: programmeLabelCleaned[0],
     arabicName: matchProgrammes[0]?.fieldData["field-arabic"] || "N/A",
     slug: "N/A",
   };
   return {
+    createdOn: item.createdOn,
+    video2EmbedCode: item.fieldData["video-2-embed-code"] || "",
+    video3EmbedCode: item.fieldData["video-3-embed-code"] || "",
+    mainVideoEmbedCode: item.fieldData["main-video-embed-code"] || "",
     pushToGr: item.fieldData["push-to-gr"] || false,
     programmeLabel: programmeLabelCleaned[0] || "",
+    programmeLabelShort: programmeLabelShortCleaned[0] || "",
+    inTheMedia: item.fieldData["in-the-media"] || '',
     sources: fakeSource,
     relatedProgrammes: matchProgrammes
       .map((prog) => (prog ? prog.fieldData.name : ""))
@@ -124,9 +135,11 @@ export default function eventMapper(
     signupEmbed: item.fieldData["signup-embed"] || "",
     shortDescription2: item.fieldData["short-description-2"] || "",
     eventDate: formatDate(item.fieldData["event-date"] || ""),
+    eventDateArabic: formatDateArabic(item.fieldData["event-date"] || ""),
     endDate: formatDate(
       item.fieldData["end-date"] || item.fieldData["event-date"] || ""
     ),
+    endDateArabic: formatDateArabic(item.fieldData["end-date"] || ""),
     time: item.fieldData.time || "",
     address: item.fieldData.address || "",
     locationLink: item.fieldData["location-link"] || "",
@@ -190,5 +203,6 @@ export default function eventMapper(
     group: item.fieldData.group || "",
     name: item.fieldData.name || "",
     slug: `/events/${item.fieldData.slug}` || "",
+    city: item.fieldData.city || "",
   };
 }

@@ -37,8 +37,25 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 
-export default async function Programme35page({
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "MIT Abdul Latif World Education Lab (J-WEL)",
+  description:
+    "Bringing MIT ideas and know-how to collaborations with educational innovators around the world",
+  ogType: "website",
+  ogImage: '/images/metadata/J-WEL_OG_1200x630.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community", "J-WEL", "MIT World Education Lab"],
+
+})
+
+export default async function JWELProgrammePage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -82,10 +99,10 @@ export default async function Programme35page({
   {
     /**Get the single programme by id from webflow */
   }
-  const jwafsId = "61ee828a15a3180d48bde63e";
+  const programmeId = "61ee828a15a3180d48bde63e";
   const jwafsSlug = params.slug;
   const singleProgramme = programmesRawData.items.find(
-    (item) => item.id === jwafsId
+    (item) => item.id === programmeId
   );
 
   {
@@ -204,84 +221,118 @@ export default async function Programme35page({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+    <>
+      <div className="pt-20 lg:pt-12 lg:mb-12">
+        <div className="flex flex-col text-left">
+          <div className="w-full flex pb-6 lg:pb-12">
+            <img
+              className="dark:hidden"
+              src="/images/labs/j-wel/J_WEL_DARK_ORIGNAL.png"
+              width="360"
+            ></img>
+            <img
+              className="hidden dark:block"
+              src="/images/labs/j-wel/J_WEL_LIGHT_ORIGINAL.png"
+              width="360"
+            ></img>
+          </div>
 
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
+          <div className="pb-6 w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:prose-dark"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+          <div className="pb-6">
+            <ButtonCJ
+              href={"https://www.jwel.mit.edu/"}
+              text={"Visit the MIT J-WEL website"}
+              styleType="secondary"
+              openInNewTab = {true}
+            ></ButtonCJ>
+          </div>
+        </div>
+
+        <div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="TGrW6u_oz38?si=toWb-detrLn82Rur" />
+        </div>
+
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Impact</h2>
+        </div>
+        <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="">
+            <Stats title="20" content="institutional members" />
+          </div>
+          <div className="">
+            <Stats title="100+" content="research grants" />
+          </div>
+          <div className="">
+            <Stats title="840K" content="learners reached" />
+          </div>
+        </div>
+
+      {/* DIVIDER START */}
+      <div className="w-full mt-12">
+        <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+      </div>
+      {/* DIVIDER END */}
+
+
+      {/* START NEWS */}
+      {postProps && postProps.length > 0 && (
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
+              {postProps.slice(0).map((post) => (
                 <PostCard key={post.name} content={post} />
               ))}
             </div>
           </PostAccordion>
         </div>
+      )}
+      {/* END NEWS */}
+
+      {/* START PRESS */}
+      {newsProps && newsProps.length > 0 && (
         <div className="">
-          <PostAccordion title={"Press"}>
+          <PostAccordion title={"Media"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
+              {newsProps.map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
             </div>
           </PostAccordion>
         </div>
-        <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
+      )}
+      {/* END PRESS */}
 
-        {/* 
-
+      {/* START EVENTS */}
+      {cleanRelatedEvents && cleanRelatedEvents.length > 0 && (
         <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
-
-        <div>
-        <PostAccordion title={"Events"}>
+          <PostAccordion title={"Events"}>
             <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </CarousselForComponents>
+              <CarousselForComponents>
+                {cleanRelatedEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
+              </CarousselForComponents>
             </div>
           </PostAccordion>
         </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
+      )}
+      {/* END EVENTS */}       
+        <div className="py-6 lg:py-12"></div>
       </div>
-    </ContentContainer>
+    </>
   );
 }

@@ -74,7 +74,7 @@ const navigation = [
         name: 'Jameel-Clinic',
         children: [
           { name: 'Overview', href: '#', current: false },
-          { name: 'Press', href: '#', current: false },
+          { name: 'Media', href: '#', current: false },
           { name: 'AI/ML tools', href: '#', current: false },
           { name: 'Hospital Network', href: '#', current: false },
           { name: 'MIT-Takeda Programme', href: '#', current: false },
@@ -252,7 +252,7 @@ const navigation = [
     ],
   },
   { name: 'News', href: '#', current: false },
-  { name: 'Press', href: '#', current: false },
+  { name: 'Media', href: '#', current: false },
   { name: 'Events', href: '#', current: false },
 ]
 

@@ -8,7 +8,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
-import imageUrl from '@/images/CJ_HEART_RED_PNG.png'
+import imageUrl from '@/images/cj_logo/CJ_HEART_RED_PNG.png'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -19,7 +19,8 @@ export default function TopBarNav() {
     <Disclosure as="nav" className="sticky top-0 z-20 bg-white shadow">
       {({ open }) => (
         <>
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto md:mt-8 mt-4 lg:px-4 2xl:w-[1563px] xl:w-[1280px] lg:w-[1024px]">
+        {/* <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"> */}
         <div className="flex h-16 justify-between">
           {/* Logo section */}
           <div className="flex items-center ">

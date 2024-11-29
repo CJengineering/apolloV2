@@ -9,6 +9,7 @@ import {
   EventFieldData,
   TagRawFields,
 } from "@/app/interfaces";
+import { formatDateArabic } from "../utils/fromDateArabic";
 
 const formatDate = (date: Date | string): string => {
   if (typeof date === "string") {
@@ -98,7 +99,13 @@ export default function postMapper(
     slug: `/porgrammes/${programmeMatch?.fieldData.slug}`,
     arabicName: programmeMatch?.fieldData["name-arabic"] || "N/A",
   };
+
   return {
+    videoAsHeroYesNo: fieldData["video-as-hero-yes-no"] || false,
+    heroVideoYoutubeEmbedId: fieldData["hero-video-youtube-embed-id"] || "",
+    heroVideoArabicYoutubeVideoId: fieldData["hero-video-arabic-youtube-video-id"] || "",
+    createdOn: item.createdOn,
+    isPostArabic: fieldData["arabic-complete-incomplete"] || false,
     arabicTitle: fieldData["arabic-title"] || "",
     pushToGr: fieldData["push-to-gr"] || false,
     programme: programmeMatch
@@ -129,8 +136,11 @@ export default function postMapper(
           alt: fieldData["main-image"].alt || "",
         }
       : { url: "", alt: "" },
-    openGraphImage: fieldData["open-graph-image"] || "N/A",
+    openGraphImage: fieldData["open-graph-image"]?.url || "N/A",
+    bulletPointsEnglish: fieldData["bullet-points-english"] || "",
+    bulletPointsArabic: fieldData["bullet-points-arabic"] || "",
     datePublished: formatDate(fieldData["date-published"] || ""),
+    datePublishedArabic : formatDateArabic(fieldData["date-published"] || ""),
     location: fieldData["location"] || "N/A",
     locationArabic: fieldData["location-arabic"] || "N/A",
     seoTitle: fieldData["seo-title"] || "N/A",

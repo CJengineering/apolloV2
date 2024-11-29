@@ -28,7 +28,11 @@ import PersonalCard from "@/components/custom beta components/PersonCard";
 import { ListOrdered } from "lucide-react";
 
 import CodeBlock from "@/components/CJ-components/components-CJ/basic components/CodeBlock";
-import { EventCardProps, NewsMainProps } from "@/app/interfaces";
+import {
+  EventCardProps,
+  NewsMainProps,
+  SocialMediaLinks,
+} from "@/app/interfaces";
 import ModalVideo from "@/components/mdx/modal-video";
 import ModalVideoYoutube from "@/components/custom beta components/ModalVideoYoutube";
 const author = {
@@ -237,11 +241,12 @@ const popularTags = [
   "Reviews",
 ];
 
-const socialMediaLinks = {
+const socialMediaLinks: SocialMediaLinks = {
+  length: 5,
   instagram: {
     url: "https://instagram.com/yourprofile",
     name: "Instagram",
-  },
+  }, 
   youtube: {
     url: "https://youtube.com/yourchannel",
     name: "YouTube",

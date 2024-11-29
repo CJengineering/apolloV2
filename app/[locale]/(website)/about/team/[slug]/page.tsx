@@ -1,4 +1,4 @@
-import { NewsRawFields } from "@/app/interfaces";
+import { FieldDataTeamProfile, Item, NewsRawFields } from "@/app/interfaces";
 import FiltredNews from "@/components/CJ-components/components-CJ/FiltredNews";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
@@ -15,6 +15,48 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { getDisplayName } from "next/dist/shared/lib/utils";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import React from "react";
+import { Metadata, ResolvingMetadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+type Props = {
+  params: { slug: string; locale: string };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug = params.slug;
+  const locale = params.locale;
+
+  const productTest = await getData("61ee828a15a3182ecebde53f");
+  const teamMembersRaw = productTest.items;
+  const memberRaw: Item<FieldDataTeamProfile>[] = teamMembersRaw.filter(
+    (item) => item.fieldData.slug === slug
+  );
+  const seoTitleArabic = memberRaw[0].fieldData["name-arabic"]
+    ? memberRaw[0].fieldData["name-arabic"]
+    : "";
+  const seoTitleEnglish = memberRaw[0].fieldData.name
+    ? memberRaw[0].fieldData.name
+    : "";
+  const descriptionArabic = memberRaw[0].fieldData["meta-description-arabic"]
+    ? memberRaw[0].fieldData["meta-description-arabic"]
+    : "";
+  const descriptionEnglish = memberRaw[0].fieldData["meta-description"]
+    ? memberRaw[0].fieldData["meta-description"]
+    : "";
+  const name = locale === "ar" ? seoTitleArabic : seoTitleEnglish;
+  const description = locale === "ar" ? descriptionArabic : descriptionEnglish;
+  // optionally access and extend (rather than replace) parent metadata
+
+  return customMetaDataGenerator({
+    useRawTitle: true,
+    title: name,
+    description: description,
+    ogImage: memberRaw[0].fieldData.photo.url,
+  });
+}
 
 export default async function page({
   params,
@@ -73,57 +115,132 @@ export default async function page({
       : member.paragraphDescription;
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
-      <LanguageChanger></LanguageChanger>
+    <>
       <div className={params.locale === "ar" ? "rtl" : ""}>
-  
-  <div className="flex pt-3 items-center gap-x-3"><div><p className="sans-serif underline hover:text-blue-800"><a href="/about/team">Team</a></p></div><div><p className="sans-serif"><ChevronRightIcon className="w-4 h-4 text-gray-500" /></p></div><div><p className="sans-serif">{memberName}</p></div></div>
-  <div className="pb-6 pt-12 flex flex-col">
-    <div className="w-full pb-2 md:w-1/2">
-      <h1 className="header-page">{memberName}</h1>
-    </div>
-    <div className="w-full lg:w-1/3">
-      <p className="sans-serif text-lg font-normal">{memberPosition}</p>
-    </div>
-  </div>
+        <div className="pb-6 pt-16 lg:pt-10 flex flex-col">
+          <div className="flex items-center gap-x-3 pb-3 lg:pb-6">
+            <div>
+              <p
+                className={`underline hover:text-blue-800 ${
+                  params.locale === "ar" ? "sans-serif-ar" : "sans-serif"
+                }`}
+              >
+                <a href="/about/team">
+                  {params.locale === "ar" ? "فريق" : "Team"}
+                </a>
+              </p>
+            </div>
+            <div>
+              <p
+                className={`${
+                  params.locale === "ar" ? "sans-serif-ar" : "sans-serif"
+                }`}
+              >
+                <ChevronRightIcon className="w-4 h-4 text-gray-500" />
+              </p>
+            </div>
+            <div>
+              <p
+                className={`sans-serif ${
+                  params.locale === "ar" ? "sans-serif-ar" : ""
+                }`}
+              >
+                {memberName}
+              </p>
+            </div>
+          </div>
+          {params.locale === "ar" ? (
+            <div className="flex justify-between">
+              <div className="pb-2 ml-4">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl sans-serif-ar">
+                  {memberName}
+                </h1>
+              </div>
+              <div className="mt-2">
+                <LanguageChanger></LanguageChanger>
+              </div>
+            </div>
+          ) : (
+            <div className="flex justify-between">
+              <div className="mr-4 pb-2">
+                <h1 className="text-3xl sm:text-4xl lg:text-6xl sans-serif lg:-ml-[1px]">
+                  {memberName}
+                </h1>
+              </div>
+              <div className="mt-2">
+                <LanguageChanger></LanguageChanger>
+              </div>
+            </div>
+          )}
 
-  {/* Flex container to align the image with text wrapping */}
-  <div className="flex-col">
-    <div className="w-[330px] float-left mr-6 mb-6">
-      <img
-        src={member.imageUrl}
-        alt={member.altTextImage}
-        className="w-full h-auto object-cover"
-      />
-      <p className="text-xs font-normal uppercase mono hover:underline hover:text-blue-800 cursor-pointer"><a href={hiresPhoto}>Download high-resolution photograph</a></p>
-    </div>
-      {/* Biography text with prose for rich text formatting */}
-  <div className="pl-0 prose sans-serif prose-2xl dark:prose-dark">
-    <div
-      dangerouslySetInnerHTML={{
-        __html: memberBiography ? memberBiography : "",
-      }}
-    ></div>
-  </div>
-  </div>
+          <div className="w-full">
+            <p
+              className={`sans-serif text-lg font-normal ${
+                params.locale === "ar" ? "sans-serif-ar" : ""
+              }`}
+            >
+              {memberPosition}
+            </p>
+          </div>
+        </div>
 
-
-</div>
+        {/* Flex container to align the image with text wrapping */}
+        <div className="flex-col">
+          <div
+            className={`w-full lg:w-[330px] mr-6 mb-6 ${
+              params.locale === "ar" ? "mr-0 lg:w-[330px] lg:mr-0" : ""
+            }`}
+          >
+            <img
+              src={member.imageUrl}
+              alt={member.altTextImage}
+              className="w-full h-auto object-cover"
+            />
+            <p
+              className={`text-xs font-normal uppercase hover:underline hover:text-blue-900 cursor-pointer pt-1 ${
+                params.locale === "ar" ? "sans-serif-ar" : "mono"
+              }`}
+            >
+              <a href={hiresPhoto}>
+                {params.locale === "ar"
+                  ? "تنزيل صورة عالية الدقة"
+                  : "Download high-resolution photograph"}
+              </a>
+            </p>
+          </div>
+          {/* Biography text with prose for rich text formatting */}
+          <div
+            className={`pl-0 prose prose-2xl dark:prose-dark ${
+              params.locale === "ar" ? "sans-serif-ar" : "sans-serif"
+            }`}
+          >
+            <div
+              dangerouslySetInnerHTML={{
+                __html: memberBiography ? memberBiography : "",
+              }}
+            ></div>
+          </div>
+        </div>
+      </div>
 
       {relatedNewsToTeamMember.length > 0 && (
         <>
-          <div className="flex flex-col py-6">
-            <div className="w-full h-px bg-slate-200"></div> {/* Separation Bar */}
+          <div className="flex flex-col pt-3 pb-6">
+            <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>{" "}
+            {/* Separation Bar */}
           </div>
-          <div className="pb-6"><h2 className="header-section pb-3">Related content</h2></div>
-          
+          <div className="pb-6">
+            <h2 className="header-section pb-3">Related content</h2>
+          </div>
         </>
       )}
+      <div className="w-full lg:w-2/3">
       <div className="grid grid-cols-1 gap-3">
         {relatedNewsToTeamMember.map((item) => (
           <NewsCard key={item.slug} content={item} locale={params.locale} />
         ))}
       </div>
-    </ContentContainer>
+      </div>
+    </>
   );
 }

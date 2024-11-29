@@ -36,8 +36,33 @@ import ContentPhotos from "../../../../../components/CJ-components/components-CJ
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import Image from "next/image";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
+import { ImageContainer } from "@/components/CJ-components/components-CJ/test components/ImageCont";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 
-export default async function Programme25page({
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Jameel Toyota Scholarship",
+  description: "Expanding opportunities for the next generation.",
+  ogType: "website",
+  ogImage: "/images/metadata/JTS_HERO_OG.webp",
+  twitterCard: "summary_large_image",
+  keywords: [
+    "Community Jameel",
+    "Jameel",
+    "Toyota",
+    "Scholarship",
+    "Jameel Toyota Scholarship",
+    "MIT",
+  ],
+});
+
+export default async function JameelToyotaScholarshipPage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -203,82 +228,216 @@ export default async function Programme25page({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+    <>
+      <div className="pt-20 lg:pt-10">
+        <div className="flex flex-col text-left">
+          <div className="pb-3">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
+          <div>
+            <p className="prose prose-xl font-bold leading-normal dark:text-white mb-5"></p>
+          </div>
+          <div className="w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:prose-dark"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+          <div className="pt-6"></div>
+        </div>
+        {/* START PARTNERS GRID */}
+        <div className="text-sm font-bold items-center pb-3">
+          IN PARTNERSHIP WITH
+        </div>
+        <div className="grid grid-cols-2 lg:grid-cols-6 gap-0 pb-6">
+          {/* 1 */}
+          <div className="flex items-center justify-start">
+            <a href="www.mit.edu" target="blank" rel="">
+              <Image
+                src="/images/logos/mit_logo.svg"
+                alt="MIT logo"
+                width={200}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
 
+          {/* 2 */}
+          <div className="flex items-center justify-center">
+            <a href="www.toyota.com" target="_blank" rel="">
+              <Image
+                src="/images/logos/toyota_logo.svg"
+                alt="Toyota logo"
+                width={100}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+
+          {/* 3 */}
+          <div className="flex items-center justify-start pl-6 pt-6 lg:pt-0">
+            <a href="" target="" rel="">
+              <Image
+                src="/images/cj_logo/CJ_LOGO_ENGLISH_RED_SVG.svg"
+                alt="Community Jameel logo"
+                width={170}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </a>
+          </div>
+        </div>
+
+        <div className="w-full py-6 lg:py-6">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Impact</h2>
+        </div>
+        <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="">
+            <Stats title={cleanSingleProgramme.impact01} content={cleanSingleProgramme.impact01Title} />
+          </div>
+          <div className="">
+            <Stats title={cleanSingleProgramme.impact02} content={cleanSingleProgramme.impact02Title} />
+          </div>
+        </div>
+
+        {/* DIVIDER START */}
+        <div className="w-full py-6 lg:py-6">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+        {/* DIVIDER END */}
+
+        {/* END PARTNERS GRID */}
+
+
+        <div className="lg:flex items-center hidden ">
+          <div>
+            <Image
+              src={"/images/labs/jameel-toyota-scholarship/melissa-nobles.webp"}
+              className="min-w-[60px]"
+              width={180}
+              height={180}
+              alt={"Melissa Nobel"}
+            ></Image>
+          </div>
+          <div className="ml-4">
+            <div>
+              <p className="text-2xl font-bold sans-serif italic">
+                “The value of a Jameel-Toyota scholarship remains nothing short
+                of life-changing."
+              </p>
+            </div>
+            <div>
+              <p className="text-base sans-serif pt-2">
+                Melissa Nobles, Chancellor, MIT,{" "}
+                <span className="italic">
+                  speaking at the 30th anniversary reception for the
+                  Jameel-Toyota scholarship
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="items-center lg:hidden overflow-hidden group cursor-pointer">
+          <div className="pb-3 w-full">
+            <ImageContainer>
+              <Image
+                className="absolute inset-0 w-full h-full object-cover z-0"
+                src={
+                  "/images/labs/jameel-toyota-scholarship/melissa-nobles.webp"
+                }
+                alt={"Melissa Nobel"}
+                layout="fill"
+              />
+            </ImageContainer>
+          </div>
+          <div className="">
+            <div className="pt-0 lg:pt-3 lg:ml-0 ">
+              {/* <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{"title"}</h3>
+            <p className="text-base sans-serif hidden lg:block">{"subtitle"}</p> */}
+              <p className="text-xl font-bold sans-serif italic">
+                “The value of a Jameel-Toyota scholarship remains nothing short
+                of life-changing."
+              </p>
+            </div>
+          <div className="">
+            <p className="text-sm lg:text-base sans-serif pt-2">
+              Melissa Nobles, Chancellor, MIT,{" "}
+              <span className="italic">
+                speaking at the 30th anniversary reception for the Jameel-Toyota
+                scholarship
+              </span>
+            </p>
+          </div>
+          </div>
+        </div>
+
+        <div className="w-full py-6 lg:pb-6 lg:pt-6">
+          <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="89aK7v60jIA?si=YphydcRoIOoQDzJI" />
+        </div>
+      </div>
+
+      {/* DIVIDER START */}
+      <div className="w-full mt-12">
+        <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+      </div>
+      {/* DIVIDER END */}
+
+      {/* START NEWS */}
+      {postProps && postProps.length > 0 && (
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
+              {postProps.slice(0).map((post) => (
                 <PostCard key={post.name} content={post} />
               ))}
             </div>
           </PostAccordion>
         </div>
+      )}
+      {/* END NEWS */}
+
+      {/* START PRESS */}
+      {newsProps && newsProps.length > 0 && (
         <div className="">
-          <PostAccordion title={"Press"}>
+          <PostAccordion title={"Media"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
+              {newsProps.map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
             </div>
           </PostAccordion>
         </div>
-        <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
+      )}
+      {/* END PRESS */}
 
-        {/* 
-
-        <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
-
+      {/* START EVENTS */}
+      {cleanRelatedEvents && cleanRelatedEvents.length > 0 && (
         <div>
           <PostAccordion title={"Events"}>
-            <div className="grid grid-cols-3 gap-5">
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
+            <div className="">
+              <CarousselForComponents>
+                {cleanRelatedEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
+              </CarousselForComponents>
             </div>
           </PostAccordion>
         </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
-      </div>
-    </ContentContainer>
+      )}
+      {/* END EVENTS */}
+      <div className="py-6 lg:py-12"></div>
+    </>
   );
 }

@@ -1,6 +1,6 @@
 import MediaCard from "@/components/CJ-components/components-CJ/basic components/MediaCard";
 import TableRowSingle from "@/components/CJ-components/components-CJ/custom components/TableRowSIngle";
-
+import { CardHorizontalImageProps, RowData, StatProps } from "@/app/interfaces";
 import EventCard from "@/components/custom beta components/EventCard";
 import MainContainer from "@/components/custom beta components/MainContainer";
 import NewsCard from "@/components/custom beta components/NewsCard";
@@ -32,11 +32,79 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { get } from "http";
 import { Divide } from "lucide-react";
 import React from "react";
+import Image from "next/image";
 import ContentPhotos from "../../../../../components/CJ-components/components-CJ/test components/content-photos";
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import { Container } from "@/components/CJ-components/components-CJ/Container";
+import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
+import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { EventVideo } from "@/components/CJ-components/components-CJ/custom components/event-video-embed";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Abdul Latif Jameel Poverty Action Lab (J-PAL)",
+  description:
+    "What works in fighting poverty",
+  ogType: "website",
+  ogImage: '/images/metadata/J-PAL_OG_1200x630.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community", "J-PAL", "Povery Action Lab"],
+
+})
+
+// START THE DATA FOR CARDS
+
+const cardData = [
+  {
+    imageUrl: "/images/labs/j-pal/J-PAL_MENA.jpg",
+    alt: "J-PAL MENA",
+    title: "J-PAL MENA",
+    subtitle:
+      "J-PAL Middle East and North Africa (MENA), based at the American University in Cairo, leads J-PAL’s work in the Middle East and North Africa region. J-PAL MENA conducts randomized evaluations, builds partnerships for evidence-informed policymaking, and helps partners scale up effective programs.",
+    link: "https://www.povertyactionlab.org/middle-east-and-north-africa",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/j-pal/ESII.jpg",
+    alt: "European Social Inclusion Initiatve",
+    title: "European Social Inclusion Initiatve (ESII)",
+    subtitle:
+      "The European Social Inclusion Initiative (ESII) is a partnership between J-PAL Europe and the European Commission to support the design and evaluation of social policies in Europe. ESII aims to generate high-quality evidence on the effectiveness of social programs and policies, and to build the capacity of policymakers and practitioners to use evidence in decision-making.",
+    link: "https://www.povertyactionlab.org/initiative/european-social-inclusion-initiative",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/j-pal/HAPIE.jpg",
+    alt: "Hub of Advanced Policy Innovation for the Environment (HAPIE)",
+    title: "Hub of Advanced Policy Innovation for the Environment (HAPIE)",
+    subtitle:
+      "HAPIE is J-PAL's Air and Water Lab in Egypt, launched by NIGSD, J-PAL MENA, and Community Jameel. It extends EIL's environmental work to improve air and water access by generating evidence for government policy. HAPIE enables researchers to collaborate with J-PAL MENA and government partners on evidence-based policies.",
+    link: "https://www.povertyactionlab.org/page/hub-advanced-policy-innovation-environment-hapie",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+  {
+    imageUrl: "/images/labs/j-pal/air-water-labs.jpg",
+    alt: "Air and Water Labs",
+    title: "J-PAL Air and Water Labs",
+    subtitle:
+      "Embedded with government policymakers in Egypt, India, Jordan and South Africa, Community Jameel, C40 and J-PAL operate a network of climate labs pioneering innovative, evidence-based strategies to tackling climate change.",
+    link: "https://www.povertyactionlab.org/page/air-and-water-labs",
+    openInNewTab: false,
+    clickAction: "External link",
+  },
+];
+// END THE DATA FOR CARDS
 
 export default async function JpalPage({
   params,
@@ -205,13 +273,115 @@ export default async function JpalPage({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+    <>
+      <div className="pt-20 lg:pt-12 lg:mb-12">
+        <div className="flex flex-col text-left">
+          <div className="w-full flex pb-6 lg:pb-12">
+            <img
+              className="dark:hidden"
+              src="/images/labs/j-pal/J-PAL_ORIGINAL_DARK.png"
+              width="360"
+            ></img>
+            <img
+              className="hidden dark:block"
+              src="/images/labs/j-pal/J-PAL_ORIGINAL_LIGHT.png"
+              width="360"
+            ></img>
+          </div>
+
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
+          <div className="w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:prose-dark"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
+          <div className="py-6">
+            <ButtonCJ
+              href={"https://www.povertyactionlab.org/"}
+              text={"To learn more visit the J-PAL website"}
+              styleType="secondary"
+              openInNewTab = {true}
+            ></ButtonCJ>
+          </div>
+        </div>
+        <div className="w-full lg:w-2/3">
+          <ResponsiveYouTubeEmbed embedId="4FLeNSqLxdQ?si=IBMZ4AHpawegC0e_" />
+        </div>
+
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Impact since 2003</h2>
+        </div>
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="">
+            <Stats
+              title={cleanSingleProgramme.impact01}
+              content={cleanSingleProgramme.impact01Title}
+            />
+          </div>
+          <div className="">
+            <Stats
+              title={cleanSingleProgramme.impact02}
+              content={cleanSingleProgramme.impact02Title}
+            />
+          </div>
+          <div className="">
+            <Stats
+              title={cleanSingleProgramme.impact03}
+              content={cleanSingleProgramme.impact03Title}
+            />
+          </div>
+          <div className="">
+            <Stats
+              title={cleanSingleProgramme.impact04}
+              content={cleanSingleProgramme.impact04Title}
+            />
+          </div>
+          <div className="">
+            <Stats
+              title={cleanSingleProgramme.impact05}
+              content={cleanSingleProgramme.impact05Title}
+            />
+          </div>
+          <div className="">
+            <Stats
+              title={cleanSingleProgramme.impact06}
+              content={cleanSingleProgramme.impact06Title}
+            />
+          </div>
+        </div>
+
+        <div className="w-full py-6 lg:py-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
+
+        <div className="pb-6">
+          <h2 className="header-section">Select initiatives</h2>
+        </div>
+
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {cardData.map((card, index) => (
+            <HomeCard
+              key={index}
+              imageUrl={card.imageUrl}
+              alt={card.alt}
+              title={card.title}
+              subtitle={card.subtitle}
+              link={card.link}
+              openInNewTab={card.openInNewTab}
+              clickAction={card.clickAction || ""}
+            />
+          ))}
+        </div>
+        <div className="w-full mt-12">
+          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+        </div>
 
         <div className="">
           <PostAccordion title={"News"}>
@@ -223,17 +393,17 @@ export default async function JpalPage({
           </PostAccordion>
         </div>
         <div className="">
-          <PostAccordion title={"Press"}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
-                <NewsCard content={item} locale={params} />
+          <PostAccordion title={"Media"}>
+            <div className="grid grid-cols-1 gap-5">
+              {newsProps.map((item) => (
+                <NewsCard content={item} locale={params} key={item.id} />
               ))}
             </div>
           </PostAccordion>
         </div>
-        <div className="">
+        {/* <div className="">
           <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-9">
    
 
               {multimediaProps.map((item) => (
@@ -244,7 +414,7 @@ export default async function JpalPage({
            
             </div>
           </PostAccordion>
-        </div>
+        </div> */}
 
         {/* 
 
@@ -268,16 +438,17 @@ export default async function JpalPage({
         <div>
           <PostAccordion title={"Events"}>
             <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </CarousselForComponents>
+              <CarousselForComponents>
+                {cleanRelatedEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
+              </CarousselForComponents>
             </div>
           </PostAccordion>
         </div>
+
         {/* <div>
           <h2> related photos by programme</h2>
           <div>
@@ -285,7 +456,8 @@ export default async function JpalPage({
        
           </div>
         </div> */}
+        <div className="w-full py-6 lg:py-12"></div>
       </div>
-    </ContentContainer>
+    </>
   );
 }

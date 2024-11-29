@@ -36,8 +36,21 @@ import ContentPhotos from "../../../../../components/CJ-components/components-CJ
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { Metadata } from "next";
 
-export default async function Programme10page({
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Voxel Lab",
+  description: "A makerspace for innovation and entrepreneurship in music and the arts",
+  ogType: "website",
+  ogImage: '/images/metadata/VOXEL_LAB_OG.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Voxel Lab", "Jameel Rapid Prototyping Room"],
+
+})
+
+export default async function VoxelLabPage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -203,7 +216,7 @@ export default async function Programme10page({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
+    <>
       <div className="pt-12">
         <LanguageChanger />
         <TableRowSingle
@@ -221,7 +234,7 @@ export default async function Programme10page({
           </PostAccordion>
         </div>
         <div className="">
-          <PostAccordion title={"Press"}>
+          <PostAccordion title={"Media"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {newsProps.slice(2, 5).map((item) => (
                 <NewsCard content={item} locale={params} />
@@ -279,6 +292,6 @@ export default async function Programme10page({
           </div>
         </div> */}
       </div>
-    </ContentContainer>
+    </>
   );
 }

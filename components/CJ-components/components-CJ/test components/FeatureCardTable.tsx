@@ -1,9 +1,10 @@
-"use client";
+'use client';
 import { CardHorizontalImageProps } from "@/app/interfaces";
 import React, { useState } from "react";
 import Link from "next/link";
 import CardSquaredImage from "../basic components/CardSquared";
 import LightboxSingle from "@/components/custom beta components/LightBoxSingle";
+import FeatureCardAsHome from "../basic components/FeatureCardAsHome";
 
 interface FeatureCardTableProps {
   image: CardHorizontalImageProps;
@@ -37,7 +38,7 @@ export default function FeatureCardTable({
       <div>
  
         <div onClick={handleOpenLightbox} className="cursor-pointer">
-          <CardSquaredImage imageUrl={imageUrl} type={type} title={title} />
+          <FeatureCardAsHome imageUrl={imageUrl} type={type} title={title} />
         </div>
         {lightboxOpen && (
           <LightboxSingle
@@ -53,7 +54,7 @@ export default function FeatureCardTable({
       <div>
        
         <div onClick={handleOpenLightbox} className="cursor-pointer">
-          <CardSquaredImage imageUrl={imageUrl} type={type} title={title} />
+          <FeatureCardAsHome imageUrl={imageUrl} type={type} title={title} />
         </div>
         {lightboxOpen && (
           <LightboxSingle
@@ -69,7 +70,7 @@ export default function FeatureCardTable({
     return (
       <Link href={link} >
        
-        <CardSquaredImage imageUrl={imageUrl} type={type} title={title} />
+        <FeatureCardAsHome imageUrl={imageUrl} type={type} title={title} />
       </Link>
     );
   }
@@ -77,7 +78,7 @@ if(clickAction === "External link") {
   return (
     <Link href={customLink } target="_blank">
       <div onClick={handleOpenLightbox} className="cursor-pointer">
-        <CardSquaredImage imageUrl={imageUrl} type={type} title={title} />
+        <FeatureCardAsHome imageUrl={imageUrl} type={type} title={title} />
       </div>
 
     </Link>
@@ -86,7 +87,7 @@ if(clickAction === "External link") {
 return (
     <div onClick={handleOpenLightbox} className="cursor-pointer">
   
-        <CardSquaredImage imageUrl={imageUrl} type={type} title={title} />
+        <FeatureCardAsHome imageUrl={imageUrl} type={type} title={title} />
     </div>
     );
 }

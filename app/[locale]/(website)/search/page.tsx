@@ -1,4 +1,5 @@
 import FilterResults from "@/components/CJ-components/components-CJ/test components/FilterResults";
+import FilterResultsV2 from "@/components/CJ-components/components-CJ/test components/FilterRsultsV2";
 import WebflowPage from "@/components/CJ-components/components-CJ/test components/testWebflowPage";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import { getData } from "@/functions/api/getData";
@@ -138,8 +139,11 @@ export default async function SearchPage() {
   };
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
-      <div className="pt-12">
+    <>
+      <div>
+        <h1 className="header-page pb-10">Search</h1>
+      </div>
+      {/* <div className="w-full min-h-[90vh] ">
         <FilterResults
           teamMembers={teamsClean}
           events={eventClean}
@@ -151,7 +155,22 @@ export default async function SearchPage() {
           news={newsClean}
           publications={publicationsClean}
         />
-      </div>
-    </ContentContainer>
+      </div> */}
+         
+       <div className="w-full min-h-[90vh] ">
+        <FilterResultsV2
+          teamMembers={teamsClean}
+          events={eventClean}
+          programmes={programmeClean}
+          posts={postsClean}
+          people={peopleClean}
+          multimedia={cleanMultimedia}
+          features={featureClean}
+          news={newsClean}
+          publications={publicationsClean}
+        />
+      </div> 
+    </>
   );
+
 }

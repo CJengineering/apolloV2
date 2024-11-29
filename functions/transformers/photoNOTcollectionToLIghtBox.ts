@@ -29,7 +29,7 @@ export default function photoNotFromCollectionMapper(
     description:  "",
     descriptionArabic:   "",
     source:  "",
-    programmeLabel:   {name: "", slug: ""} || {name: "", slug: ""},
+    programmeLabel:   {name: "", slug: ""},
     programmesMultiReference: [{name: "", slug: ""}],
     tags:  [],
     peopleMultiReference:[],

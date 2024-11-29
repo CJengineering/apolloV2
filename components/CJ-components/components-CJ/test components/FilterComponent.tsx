@@ -6,7 +6,7 @@ import {
   ChevronDownIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { useNewsContext } from "@/app/[locale]/(website)/press/news-contect";
+import { useNewsContext } from "@/app/[locale]/(website)/media/news-contect";
 import { FixedSizeList as List } from "react-window";
 
 interface RelatedCollection {
@@ -118,7 +118,7 @@ const FilterComponent: React.FC = () => {
             placeholder="Search..."
             value={newsQuery}
             onChange={(e) => setNewsQuery(e.target.value)}
-            className="mt-1 sans-serif text-base block w-full pl-3 pr-10 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 sans-serif text-base block w-full pl-3 pr-10 py-2 dark:text-gray-800  border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           />
         </div>
         <div className="hidden md:block w-1/2">
@@ -222,7 +222,7 @@ const FilterComponent: React.FC = () => {
                       placeholder="Source"
                       onChange={(event) => setQuerySource(event.target.value)}
                       displayValue={(source: RelatedCollection) => source.name}
-                    />  
+                    />
                     <Combobox.Button className="absolute inset-y-0 right-0 flex items-center pr-2">
                       <ChevronDownIcon
                         className="w-5 h-5 text-gray-400"
@@ -237,7 +237,7 @@ const FilterComponent: React.FC = () => {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                   <Combobox.Options className="absolute z-40 mt-1 w-full bg-white max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5  focus:outline-none sm:text-sm">
+                    <Combobox.Options className="absolute z-40 mt-1 w-full bg-white max-h-60 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5  focus:outline-none sm:text-sm">
                       {filteredSources.length === 0 && querySource !== "" ? (
                         <div className="cursor-default select-none relative py-2 px-4 text-gray-700">
                           No results found
@@ -268,7 +268,9 @@ const FilterComponent: React.FC = () => {
               key={programme.id}
               className="flex items-center justify-between px-2 py-2 bg-blue-200 rounded-md"
             >
-              <span className="mono text-xs uppercase font-medium">{programme.name}</span>
+              <span className="mono text-xs uppercase font-medium">
+                {programme.name}
+              </span>
               <button
                 onClick={() => handleRemove(programme.id, "programme")}
                 className="ml-4 text-red-600 hover:text-red-800 focus:outline-none"
@@ -282,7 +284,9 @@ const FilterComponent: React.FC = () => {
               key={source.id}
               className="flex items-center justify-between px-2 py-2 bg-green-200 rounded-md"
             >
-              <span className="mono text-xs uppercase font-medium">{source.name}</span>
+              <span className="mono text-xs uppercase font-medium">
+                {source.name}
+              </span>
               <button
                 onClick={() => handleRemove(source.id, "source")}
                 className="ml-4 text-red-600 hover:text-red-800 focus:outline-none"

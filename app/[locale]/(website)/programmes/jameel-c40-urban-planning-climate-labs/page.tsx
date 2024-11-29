@@ -37,8 +37,26 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
+import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
+import Image from "next/image";
 
-export default async function Programme1page({
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Jameel C40 Urban Planning Climate Labs",
+  description: "Assisting rapidly-growing cities to align climate action with urban planning",
+  ogType: "website",
+  ogImage: '/images/metadata/C40JAMEEL_HERO_OG.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community", "C40", "Urban Planning", "Climate Labs", "C40 Cities"],
+
+})
+
+
+export default async function JameelC40UrbanPlanningClimateLabsPage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -204,84 +222,132 @@ export default async function Programme1page({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
-      <div className="pt-12">
-        <LanguageChanger />
-        <TableRowSingle
-          repository={dataForRow.repository}
-          locale={params.locale}
-        />
+    <>
+      <div className="pt-20 lg:pt-10">
+        <div className="flex flex-col text-left">
+          <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
+          <div className="w-full lg:w-2/3">
+            <div
+              className="prose prose-xl leading-normal dark:prose-dark"
+              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
+            />
+          </div>
 
+          {/* START PARTNERS GRID */}
+          <div className="text-sm font-bold items-center pt-6">
+            IN PARTNERSHIP WITH
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-6 gap-0">
+            {/* 1 */}
+            <div className="flex items-center justify-start py-3">
+              <a
+                href="https://www.povertyactionlab.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/images/logos/j-pal-dark_logo.png"
+                  alt="J-PAL logo"
+                  width={220}
+                  height={100}
+                  className="object-contain transition duration-300 hover:filter hover:grayscale"
+                />
+              </a>
+            </div>
+
+            {/* 2 */}
+            <div className="flex items-center justify-start lg:justify-center py-3">
+              <a
+                href="https://www.c40.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  src="/images/logos/c40_logo.png"
+                  alt="C40 Cities logo"
+                  width={100}
+                  height={100}
+                  className="object-contain transition duration-300 hover:filter hover:grayscale"
+                />
+              </a>
+            </div>
+
+            {/* 3 */}
+            <div className="flex items-center justify-start lg:justify-center py-3">
+              <Image
+                src="/images/cj_logo/CJ_LOGO_ENGLISH_RED_SVG.svg"
+                alt="Community Jameel logo"
+                width={170}
+                height={100}
+                className="object-contain transition duration-300 hover:filter hover:grayscale"
+              />
+            </div>
+          </div>
+
+          {/* END PARTNERS GRID */}
+          <div className="w-full lg:w-2/3 pt-6">
+            <ResponsiveYouTubeEmbed embedId="0g31Hu7RRrI?si=lcHv3ipn3RUHh_B-" />
+          </div>
+          <div className="w-full lg:w-2/3 pt-6">
+            <ResponsiveYouTubeEmbed embedId="46WXtuetDrA?si=BRoPb6Ob93Zlu8Ha" />
+          </div>
+        </div>
+ {/* DIVIDER START */}
+ <div className="w-full mt-12">
+        <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
+      </div>
+      {/* DIVIDER END */}
+
+
+      {/* START NEWS */}
+      {postProps && postProps.length > 0 && (
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
+              {postProps.slice(0).map((post) => (
                 <PostCard key={post.name} content={post} />
               ))}
             </div>
           </PostAccordion>
         </div>
+      )}
+      {/* END NEWS */}
+
+      {/* START PRESS */}
+      {newsProps && newsProps.length > 0 && (
         <div className="">
-          <PostAccordion title={"Press"}>
+          <PostAccordion title={"Media"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
+              {newsProps.map((item) => (
                 <NewsCard content={item} locale={params} />
               ))}
             </div>
           </PostAccordion>
         </div>
-        <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
+      )}
+      {/* END PRESS */}
 
-        {/* 
-
+      {/* START EVENTS */}
+      {cleanRelatedEvents && cleanRelatedEvents.length > 0 && (
         <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
-
-        <div>
-        <PostAccordion title={"Events"}>
+          <PostAccordion title={"Events"}>
             <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </CarousselForComponents>
+              <CarousselForComponents>
+                {cleanRelatedEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
+              </CarousselForComponents>
             </div>
           </PostAccordion>
         </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
+      )}
+      {/* END EVENTS */}  
       </div>
-    </ContentContainer>
+      <div className="py-12"></div>
+    </>
   );
 }

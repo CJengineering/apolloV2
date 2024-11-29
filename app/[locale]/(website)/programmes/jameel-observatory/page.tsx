@@ -38,7 +38,7 @@ import LanguageChanger from "@/components/custom beta components/LanguageChanger
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 
-export default async function Programme23page({
+export default async function jameelObservatoryProgrammePage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -204,7 +204,7 @@ export default async function Programme23page({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
+    <>
       <div className="pt-12">
         <LanguageChanger />
         <TableRowSingle
@@ -222,7 +222,7 @@ export default async function Programme23page({
           </PostAccordion>
         </div>
         <div className="">
-          <PostAccordion title={"Press"}>
+          <PostAccordion title={"Media"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {newsProps.slice(2, 5).map((item) => (
                 <NewsCard content={item} locale={params} />
@@ -282,6 +282,6 @@ export default async function Programme23page({
           </div>
         </div> */}
       </div>
-    </ContentContainer>
+    </>
   );
 }

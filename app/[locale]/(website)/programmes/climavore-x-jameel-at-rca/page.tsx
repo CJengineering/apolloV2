@@ -37,8 +37,22 @@ import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
+import { Metadata } from "next";
+import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 
-export default async function Programme6page({
+export const metadata: Metadata = customMetaDataGenerator({
+  useRawTitle: true,
+  title: "Climavore x Jameel at RCA",
+  description:
+    "Reimagining foodways for drylands and wetlands in the climate crisis",
+  ogType: "website",
+  ogImage: '/images/metadata/CLIMAMORE_HERO_OG.webp',
+  twitterCard: "summary_large_image",
+  keywords: ["Community Jameel", "Jameel", "Community", "Climavore", "Royal College of Art", "RCA"],
+
+})
+
+export default async function ClimavoreJameelPage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -204,84 +218,63 @@ export default async function Programme6page({
   );
 
   return (
-    <ContentContainer width="full" desktopWidth="large">
-      <div className="pt-12">
-        <LanguageChanger />
+    <>
+      <div className="pt-20 lg:pt-10 lg:mb-12">
+      <div className="pb-6">
+            <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+          </div>
         <TableRowSingle
           repository={dataForRow.repository}
           locale={params.locale}
         />
 
+      {/* START NEWS */}
+      {postProps && postProps.length > 0 && (
         <div className="">
           <PostAccordion title={"News"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0, 8).map((post) => (
-                <PostCard key={post.name} content={post} />
+              {postProps.slice(0).map((post, index) => (
+                <PostCard key={post.name+index} content={post} />
               ))}
             </div>
           </PostAccordion>
         </div>
+      )}
+      {/* END NEWS */}
+
+      {/* START PRESS */}
+      {newsProps && newsProps.length > 0 && (
         <div className="">
-          <PostAccordion title={"Press"}>
+          <PostAccordion title={"Media"}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.slice(2, 5).map((item) => (
-                <NewsCard content={item} locale={params} />
+              {newsProps.map((item, index) => (
+                <NewsCard content={item} locale={params} key={index}/>
               ))}
             </div>
           </PostAccordion>
         </div>
-        <div className="">
-          <PostAccordion title={"Multimedia"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {multimediaProps.map((item) => (
-                <div key={item.alt} className="">
-                  <MediaCard {...item} />
-                </div>
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
+      )}
+      {/* END PRESS */}
 
-        {/* 
-
+      {/* START EVENTS */}
+      {cleanRelatedEvents && cleanRelatedEvents.length > 0 && (
         <div>
-          <h2> related features </h2>
-          <div>
-            {cleanedFeatures.map((feature, index) => (
-              <>
-                <div key={index}>
-                  <div>{feature.name}</div>
-                  <div>{feature.dateDisplay}</div>
-                  <div>
-                    <img className="w-48" src={feature.square.url} alt="" />
-                  </div>
-                </div>
-              </>
-            ))}
-          </div>
-        </div> */}
-
-        <div>
-        <PostAccordion title={"Events"}>
+          <PostAccordion title={"Events"}>
             <div className="">
-            <CarousselForComponents>
-              {cleanRelatedEvents.map((item) => (
-                <>
-                  <EventCard article={item}></EventCard>
-                </>
-              ))}
-            </CarousselForComponents>
+              <CarousselForComponents>
+                {cleanRelatedEvents.map((item) => (
+                  <>
+                    <EventCard article={item}></EventCard>
+                  </>
+                ))}
+              </CarousselForComponents>
             </div>
           </PostAccordion>
         </div>
-        {/* <div>
-          <h2> related photos by programme</h2>
-          <div>
-          <ContentPhotos images={cleanedRelatedPhotos} />
-       
-          </div>
-        </div> */}
+      )}
+      {/* END EVENTS */}   
       </div>
-    </ContentContainer>
+      <div className="py-6 lg:py-12"></div>
+    </>
   );
 }

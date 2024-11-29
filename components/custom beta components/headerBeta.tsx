@@ -1,6 +1,6 @@
 import React from "react";
-import image from "@/public/images/mapCJ.webp";
-import whiteLogo from "@/public/images/CJ_LOGO_SUBTITLE_ENGLISH_WHITE_PNG.png";
+import image from "@/public/images/to_sort/mapCJ.webp";
+import whiteLogo from "@/public/images/cj_logo/CJ_LOGO_SUBTITLE_ENGLISH_WHITE_PNG.png";
 import Image from "next/image";
 
 const HeaderBeta = () => {

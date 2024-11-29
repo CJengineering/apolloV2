@@ -89,6 +89,7 @@ export function mapProgrammeToRowData(programme: ProgrammeCleanedFields, feature
         fullDescription: programme.text,
         fullDescriptionArabic: programme.summaryArabic,
         socialMediaLinks: {
+          length: 6,
           instagram: mapSocialMediaLink('instagram', programme.instagram),
           youtube: mapSocialMediaLink('youtube', programme.youtube),
           linkedin: mapSocialMediaLink('linkedin', programme.linkedin),

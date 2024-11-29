@@ -4,9 +4,10 @@ import Image from 'next/image';
 import ContentContainer from '@/components/custom beta components/ContentContainer';
 import ButtonCJ from '@/components/CJ-components/components-CJ/basic components/ButtonCJ';
 import LogoLoader from '@/components/CJ-components/components-CJ/test components/LogoLoader';
+import { Metadata } from 'next';
+import { customMetaDataGenerator } from '@/functions/utils/customMetadataGenerator';
 
-
-export default function Page() {
+export default function NewsLetterePage() {
   const [status, setStatus] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false); // State for managing loading
@@ -47,16 +48,24 @@ export default function Page() {
   };
 
   return (
-    <ContentContainer width="full" desktopWidth="medium">
+<>
 
-<div className="flex flex-col items-center justify-center bg-cover bg-center min-h-[90vh]">
-  <h1 className="header-page py-6">Join the community</h1>
-  <div className="max-w-xl w-full p-8 rounded-lg">
+<div className="w-min-full">
+  <div className="pb-6">
+<h1 className="header-page pb-8">
+        Join the community
+      </h1>
+      <div className="w-ful lg:w-2/3">
+      <p className="text-base sans-serif">Community Jameel is a global network of scientists, technologists, humanitarians and creatives advancing science and learning for communities to thrive. To receive regular updates from the community please sign up to our quarterly newsletter.</p>
+      </div>
+      </div>
+  <div className="w-full lg:w-2/3">
     {loading ? (
       <LogoLoader /> // Display LogoLoader while loading
     ) : (
+      
       <form onSubmit={handleSubmit}>
-        <div className="mb-6">
+       <div className="mb-4 lg:w-1/2">
           <input
             type="text"
             name="FNAME"
@@ -66,7 +75,7 @@ export default function Page() {
             required
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-4 lg:w-1/2">
           <input
             type="email"
             name="EMAIL"
@@ -76,10 +85,10 @@ export default function Page() {
             required
           />
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between"> 
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white sans-serif py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-blue-500 sans-serif hover:bg-blue-700 text-white sans-serif py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Sign Up
           </button>
@@ -93,6 +102,6 @@ export default function Page() {
     )}
   </div>
 </div>
-    </ContentContainer>
+    </>
   );
 }

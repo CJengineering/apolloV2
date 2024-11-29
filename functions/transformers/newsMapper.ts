@@ -9,6 +9,7 @@ import {
   EventFieldData,
 } from "@/app/interfaces";
 import { formatDate } from "../utils/formDate";
+import { formatDateArabic } from "../utils/fromDateArabic";
 
 export default function newsMapper(
   item: Item<NewsRawFields>,
@@ -126,12 +127,15 @@ export default function newsMapper(
     : [];
 
   return {
+    id: item.id || "",
+    createdOn: item.createdOn || "",
     arabicTitle: fieldData["arabic-title"] || "",
     collectionName: "press",
     pushToGr: fieldData["push-to-gr"] || false,
     featured: fieldData.featured || false,
     externalLink: fieldData["external-link"] || "",
     datePublished: formatDate(fieldData["date-published"] || "") || "",
+    datePublishedArabic: formatDateArabic(fieldData["date-published"] || "") || "",
     sources: source,
     programme: programme,
     programmeS: relatedProgrammes,
@@ -160,6 +164,6 @@ export default function newsMapper(
     tags: relatedTags,
     removeFromNewsGrid: fieldData["remove-from-news-grid"] || false,
     name: fieldData.name || "",
-    slug: `/press/${fieldData.slug}` || "",
+    slug: `/media/${fieldData.slug}` || "",
   };
 }

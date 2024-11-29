@@ -89,7 +89,7 @@ export default function publicationMapper(
     : [];
 
   const validateSource = {
-    name: "ff" || "",
+    name: "ff" ,
     slug: "N/A",
     arabicName: relatedProgrammes[0]?.arabicName || "",
   };
@@ -97,6 +97,7 @@ export default function publicationMapper(
   const shortName = relatedProgrammes.length > 0 ? relatedProgrammes[0].shortName : "N/A";
 
   return {
+    createdOn : item["createdOn"],
     nameArabic: fieldData["name-arabic"] || "",
     datePublished: fieldData["date-published"]
       ? formatDate(fieldData["date-published"])
@@ -127,6 +128,6 @@ export default function publicationMapper(
     authorMetaTextArabic: fieldData["author-s-meta-text-arabic"] || "",
     people: relatedPeople,
     name: fieldData.name || "",
-    slug: fieldData.slug || "",
+    slug: `/publications/${fieldData.slug}` || "",
   };
 }
