@@ -45,7 +45,8 @@ const HomeCard: React.FC<HomeCardProps> = ({
               className="absolute inset-0 w-full h-full object-cover z-0"
               src={imageUrl}
               alt={alt}
-              layout="fill"
+              width={300}
+              height={300}
             />
           </ImageContainer>
           </div>

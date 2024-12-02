@@ -19,6 +19,10 @@ import SectionHeroHome from "@/components/components V2/home/section-hero-home";
 import SectionHomeCard from "@/components/components V2/home/section-home-card";
 import { cardData } from "@/components/components V2/home/card-data";
 import SectionDividerHiddenMobile from "@/components/components V2/generic/section-divider-hidden-mobile";
+import { fetchAll } from "@/functions/api/fetchAll";
+import { fetchFirstChunk } from "@/functions/api/fetchFirstChunk";
+import { NewsCardFields, NewsCleanedFields, PostFieldsCleaned } from "@/app/interfaces";
+import { mapToNewsCardFields } from "@/functions/api/mapToNewsCardFields";
 
 // INTERFACE FOR THE DATA START
 
@@ -43,17 +47,10 @@ export default async function SinglePost({
   const ids = [
     "Programmes",
     "People",
-    "Features",
-    "Publications",
     "Events",
-    "News",
-    "Posts",
-    "Multimedia",
-    "Team",
+ 
     "Partners",
-    "Sources",
-    "Tags",
-    "Categories",
+  
   ];
 
   const results = [];
@@ -65,47 +62,26 @@ export default async function SinglePost({
   const [
     programmeRaw,
     peopleRaw,
-    featureRaw,
-    publicationRaw,
     eventRaw,
-    newsRaw,
-    postsRaw,
-    multimediaRaw,
-    teamRaw,
     partnersRaw,
-    sourcesRaw,
-    tagRaw,
-    categoriesRaw,
+   
   ] = results;
 
   const eventClean = eventRaw.items.map((item) =>
     eventMapper(item, partnersRaw.items, programmeRaw.items, peopleRaw.items)
   );
 
-  const newsClean = newsRaw.items.map((item) =>
-    newsMapper(
-      item,
+  
 
-      programmeRaw.items,
-      peopleRaw.items,
-      sourcesRaw.items,
-      tagRaw.items,
-      eventRaw.items
-    )     
-  );
+ 
+  const rowsD = await fetchFirstChunk("newsV3");
 
-  const postsClean = postsRaw.items.map((item) =>
-    postMapper(
-      item,
-      categoriesRaw.items,
-      eventRaw.items,
-      programmeRaw.items,
-      peopleRaw.items
-    )
-  );
+  const newsCleanInternal = rowsD.map(mapToNewsCardFields);
+  const postsCleanInternal = await fetchFirstChunk("posts");
+  const postsCleanUse: PostFieldsCleaned[] = postsCleanInternal.map(item => item.field_data);
 
-  const fiveFirstPosts = postsClean.slice(0, 5);
-  const fiveFirstNews = newsClean.slice(0, 5);
+  const fiveFirstPosts = postsCleanUse.slice(0, 5);
+  const fiveFirstNews = newsCleanInternal.slice(0, 5);
   const fiveFirstEvents = eventClean.slice(0, 5);
   const contentColumns = [
     {
@@ -157,3 +133,5 @@ export default async function SinglePost({
     </>
   );
 }
+
+
