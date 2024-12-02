@@ -127,8 +127,8 @@ export async function  middleware(request: NextRequest) {
     "/programme/iraq-cultural-health-fund":
       "/programmes/iraq-cultural-health-fund",
     "/programme/jameel-fund": "/programmes/funds/jameel-fund",
-    "/programme/jameel-management-centre":
-      "/programmes/jameel-management-centre",
+    "/centres/jameel-management-centre":
+      "/programmes/auc-jameel-centre",
     "/programme/jameel-institute": "/programmes/v",
     "/programme/jameel-clinic": "/programmes/jameel-clinic",
     "/programme/j-wel": "/programmes/j-wel",

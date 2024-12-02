@@ -43,12 +43,12 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = customMetaDataGenerator({
   useRawTitle: true,
-  title: "Jameel Management Centre",
+  title: "AUC Jameel Centre",
   description: "Fostering Cairo’s spirit of learning, innovation and entrepreneurship at the American University of Cairo's Downtown campus since 1989.",
   ogType: "website",
   ogImage: '/images/metadata/JAMEEL_CENTER_HERO_OG.webp',
   twitterCard: "summary_large_image",
-  keywords: ["Community Jameel", "Jameel", "Jameel Management Centre", "American University in Cairo", ""],
+  keywords: ["Community Jameel", "Jameel", "AUC Jameel Centre", "American University in Cairo", ""],
 
 })
 
