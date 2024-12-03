@@ -14,7 +14,10 @@ const HomeCard: React.FC<HomeCardProps> = ({
   subtitle,
   link,
   openInNewTab = false,
-  clickAction,
+  clickAction ,
+  isClickable,
+  isWithSubtitle,
+  
 }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
@@ -35,7 +38,7 @@ const HomeCard: React.FC<HomeCardProps> = ({
     </div>
   );
 
-  if (clickAction === "Video embed code") {
+  if (clickAction === "Video embed code" && !isClickable) {
     return (
       <div>
         <div onClick={handleOpenLightbox} className="flex flex-row  items-center lg:block overflow-hidden group cursor-pointer">
@@ -52,7 +55,7 @@ const HomeCard: React.FC<HomeCardProps> = ({
           </div>
           <div className="pt-0 lg:pt-3 ml-3 lg:ml-0">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-            <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
+            <p className={`text-base sans-serif ${isWithSubtitle ?'block':'hidden'} lg:block`}>{subtitle}</p>
           </div>
         </div>
         {lightboxOpen && (
@@ -65,22 +68,24 @@ const HomeCard: React.FC<HomeCardProps> = ({
     );
   }
 
-  if (clickAction === "Image link") {
+  if (clickAction === "Image link" && !isClickable) {
     return (
       <div>
         <div onClick={handleOpenLightbox} className="flex flex-row items-center lg:block overflow-hidden group cursor-pointer">
         <div className="col-span-5">
           <ImageContainer>
-            <img
+            <Image
               className="absolute inset-0 w-full h-full object-cover z-0"
               src={imageUrl}
               alt={alt}
+              width={300}
+              height={300}
             />
           </ImageContainer>
           </div>
           <div className="pt-0 lg:pt-3 ml-3 lg:ml-0">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-            <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
+            <p className={`text-base sans-serif ${isWithSubtitle ?'block':'hidden'} lg:block`}>{subtitle}</p>
           </div>
         </div>
         {lightboxOpen && (
@@ -93,7 +98,7 @@ const HomeCard: React.FC<HomeCardProps> = ({
     );
   }
 
-  if (clickAction === "Internal link") {
+  if (clickAction === "Internal link"&& !isClickable) {
     return (
       <Link href={link} passHref>
         <div className="flex flex-row items-center lg:block overflow-hidden group cursor-pointer">
@@ -103,20 +108,20 @@ const HomeCard: React.FC<HomeCardProps> = ({
               className="absolute inset-0 w-10 h-10 mr-10 lg:w-full lg:h-full object-cover z-0"
               src={imageUrl}
               alt={alt}
-              layout="fill"
+           layout='fill'
             />
           </ImageContainer>
           </div>
           <div className="pt-0 lg:pt-3 ml-3 lg:ml-0">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-            <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
+            <p className={`text-base sans-serif ${isWithSubtitle ?'block':'hidden'} lg:block`}>{subtitle}</p>
           </div>
         </div>
       </Link>
     );
   }
 
-  if (clickAction === "External link") {
+  if (clickAction === "External link"&& !isClickable) {
     return (
       <Link href={link} target="_blank">
         <div className="flex flex-row items-center lg:block overflow-hidden group cursor-pointer">
@@ -126,13 +131,14 @@ const HomeCard: React.FC<HomeCardProps> = ({
               className="absolute inset-0 w-full h-full object-cover z-0"
               src={imageUrl}
               alt={alt}
-              layout="fill"
+              height={300}
+              width={300}
             />
           </ImageContainer>
           </div>
           <div className="pt-0 lg:pt-3 ml-3 lg:ml-0">
             <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-            <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
+            <p className={`text-base sans-serif ${isWithSubtitle ?'block':'hidden'} lg:block`}>{subtitle}</p>
           </div>
         </div>
       </Link>
@@ -148,13 +154,14 @@ const HomeCard: React.FC<HomeCardProps> = ({
           className="absolute inset-0 w-full h-full object-cover z-0"
           src={imageUrl}
           alt={alt}
-          layout="fill"
+          height={300}
+          width={300}
         />
       </ImageContainer>
       </div>
       <div className="pt-0 lg:pt-3 ml-3 lg:ml-0">
         <h3 className="sans-serif text-lg leading-snug pb-1 group-hover:underline">{title}</h3>
-        <p className="text-base sans-serif hidden lg:block">{subtitle}</p>
+        <p className={`text-base sans-serif ${isWithSubtitle ?'block':'hidden'} lg:block`}>{subtitle}</p>
       </div>
     </div>
   );

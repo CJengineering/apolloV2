@@ -28,6 +28,8 @@ export interface HomeCardProps {
   link: string;
   openInNewTab?: boolean;
   clickAction: string;
+  isClickable?: boolean;
+  isWithSubtitle?: boolean;
 }
 export interface NewsCardFields {
   slug: string;

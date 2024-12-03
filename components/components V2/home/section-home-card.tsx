@@ -15,6 +15,8 @@ export default function SectionHomeCard({ cardData }: { cardData: HomeCardProps[
               link={card.link}
               openInNewTab={card.openInNewTab}
               clickAction={card.clickAction || ""}
+              
+              
             />
           ))}
         </div>
