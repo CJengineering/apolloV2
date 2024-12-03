@@ -22,7 +22,7 @@ export  const cardData = [
       alt: "Stairway to Heaven",
       title: "Stairway to Heaven",
       subtitle:
-        "2007 | Director by André Singer",
+        "2007 | Directed by André Singer",
       link: "https://www.youtube.com/embed/CLu6O7LBis8?si=7C5YYcD-iWizjIuM",
       openInNewTab: false,
       clickAction: "Video embed code",
