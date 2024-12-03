@@ -12,6 +12,7 @@ import eventMapper from "@/functions/transformers/eventMapper";
 import EventCardSmall from "@/components/custom beta components/EventCardSmall";
 import {
   EventFieldData,
+  EventFieldDataCleaned,
   Item,
   NewsMainProps,
   PartnersRawFields,
@@ -24,6 +25,7 @@ import FilterComponentForEvents from "@/components/CJ-components/components-CJ/t
 import EventsDisplay from "./event-display";
 import ContainerFixedWidth from "@/components/CJ-components/components-CJ/layout/ContainerFixedWidth";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
+import { fetchAll } from "@/functions/api/fetchAll";
 export const metadata: Metadata = customMetaDataGenerator({
   useRawTitle: true,
   title: "Events",
@@ -46,17 +48,14 @@ export default async function WhatsOnContent({
   {
     /** DATA FETCHING  */
   }
-  const ids = ["Events", "People", "Programmes", "Partners"];
+  const ids = ["Programmes" ];
   const dataFetches = ids.map((id) => getData(getIdByDisplayName(id)));
-  const [eventsData, peopleData, programmeData, partnersData] =
+  const [ programmeData,] =
     await Promise.all(dataFetches);
 
-  const eventsRaw: Item<EventFieldData>[] = eventsData.items;
-  const programmeRaw: Item<ProgrammeRawFields>[] = programmeData.items;
-  const partnersRaw: Item<PartnersRawFields>[] = partnersData.items;
-  const eventsClean = eventsRaw.map((event) =>
-    eventMapper(event, partnersRaw, programmeRaw, peopleData.items)
-  );
+  const eventsCleanResponse =  await fetchAll("events")
+  const eventsClean : EventFieldDataCleaned[] = eventsCleanResponse.map(item => item.field_data)
+   
   const eventsFeatured = eventsClean.filter((event) => event.featured);
 
   const eventFuture = eventsClean.filter(

@@ -15,7 +15,8 @@ const EventCardSmall: React.FC<{ article: EventFieldDataCleaned }> = ({ article 
           src={article.thumbnail.url}
           alt={article.thumbnail.alt || article.name}
           className="w-full h-full object-cover transition-transform duration-1000 ease-linear group-hover:scale-105"
-          layout="fill"
+         height={300}
+          width={300}
         />
       </div>
       <div className="flex w-full flex-1 flex-col justify-between pb-6">

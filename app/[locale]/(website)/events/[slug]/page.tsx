@@ -23,6 +23,7 @@ import { EventAffiliatedInstitutions } from "@/components/CJ-components/componen
 import { EventImageGallery } from "@/components/CJ-components/components-CJ/custom components/event-image-gallery";
 import { EventVideo } from "@/components/CJ-components/components-CJ/custom components/event-video-embed";
 import VerticalSpaceDivider from "@/components/components V2/generic/vertical-space-divider";
+import { fetchSingleItem } from "@/functions/api/fetchSingleNews";
 type Props = {
   params: { slug: string; locale: string };
 };
@@ -74,11 +75,11 @@ export default async function EventPage({
   const peopleCollectionID = getIdByDisplayName("People");
   const programmeCollectionID = getIdByDisplayName("Programmes");
   const partnersCollectionID = getIdByDisplayName("Partners");
-  const newsCollectionID = getIdByDisplayName("News");
+
   const eventsCollectionID = getIdByDisplayName("Events");
-  const postsCollectionID = getIdByDisplayName("Posts");
+
   const multimediaCollectionID = getIdByDisplayName("Multimedia");
-  const sourcesCollectionID = getIdByDisplayName("Sources");
+
 
   {
     /**Get the data from the collection */
@@ -86,11 +87,11 @@ export default async function EventPage({
   const peopleDataRaw = await getData(peopleCollectionID);
   const programmeDataRaw = await getData(programmeCollectionID);
   const partnersDataRaw = await getData(partnersCollectionID);
-  const newsDataRaw = await getData(newsCollectionID);
+
   const eventsDataRaw = await getData(eventsCollectionID);
-  const postsDataRaw = await getData(postsCollectionID);
+
   const multimediaDataRaw = await getData(multimediaCollectionID);
-  const sourcesDataRaw = await getData(sourcesCollectionID);
+
 
   {
     /**Get the single item */
@@ -107,13 +108,11 @@ export default async function EventPage({
 
   {
     /** Mapped items */
+
   }
-  const eventSingleDataCleaned = eventMapper(
-    eventSingleDataRaw,
-    partnersDataRaw.items,
-    programmeDataRaw.items,
-    peopleDataRaw.items
-  );
+  const eventSinglerResponse = await fetchSingleItem('eventSingle', params.slug);
+  const eventSingleDataCleaned: EventFieldDataCleaned = eventSinglerResponse.field_data;
+
   const relatedPeopleDataCleaned = relatedPeopleDataRaw.map((item) =>
     peopleMapper(
       item,

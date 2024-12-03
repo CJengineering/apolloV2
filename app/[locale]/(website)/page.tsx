@@ -21,7 +21,7 @@ import { cardData } from "@/components/components V2/home/card-data";
 import SectionDividerHiddenMobile from "@/components/components V2/generic/section-divider-hidden-mobile";
 import { fetchAll } from "@/functions/api/fetchAll";
 import { fetchFirstChunk } from "@/functions/api/fetchFirstChunk";
-import { NewsCardFields, NewsCleanedFields, PostFieldsCleaned } from "@/app/interfaces";
+import { EventFieldDataCleaned, NewsCardFields, NewsCleanedFields, PostFieldsCleaned } from "@/app/interfaces";
 import { mapToNewsCardFields } from "@/functions/api/mapToNewsCardFields";
 
 // INTERFACE FOR THE DATA START
@@ -73,7 +73,9 @@ export default async function SinglePost({
 
   
 
- 
+ const eventRows = await fetchFirstChunk("events");
+ const eventsCleaned : EventFieldDataCleaned[]= eventRows.map(item => item.field_data);
+ const firstEvent = eventsCleaned[0];
   const rowsD = await fetchFirstChunk("newsV3");
 
   const newsCleanInternal = rowsD.map(mapToNewsCardFields);
@@ -82,7 +84,7 @@ export default async function SinglePost({
 
   const fiveFirstPosts = postsCleanUse.slice(0, 5);
   const fiveFirstNews = newsCleanInternal.slice(0, 5);
-  const fiveFirstEvents = eventClean.slice(0, 5);
+  const fiveFirstEvents = eventsCleaned.slice(0, 5);
   const contentColumns = [
     {
       title: "News",
@@ -116,6 +118,7 @@ export default async function SinglePost({
       <SectionHomeCard cardData={cardData}/>
       <SectionDivider/>
       <div className="w-full grid lg:grid-cols-12 lg:gap-x-12 ">
+       
         {contentColumns.map((column, index) => (
           <>
             <ContentColumn
