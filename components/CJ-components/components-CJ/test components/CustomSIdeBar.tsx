@@ -641,9 +641,10 @@ export default function CustomSideBar() {
                   }
                 >
                   {[
-                    { name: "Media", href: "/media" },
                     { name: "News", href: "/news" },
+                    { name: "Media", href: "/media" },
                     { name: "Events", href: "/events" },
+                    { name: "Studios", href: "/studios" },
                     { name: "Newsletter", href: "/newsletter" },
                   ].map((item, index) => (
                     <div className="mt-">
