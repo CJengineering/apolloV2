@@ -333,8 +333,8 @@ export default function CustomSideBar() {
                   <div className="mt-">
                     {[
                       { name: "Overview", href: "/about/overview" },
-                      { name: "Family", href: "/about/family" },
                       { name: "Team", href: "/about/team" },
+                      { name: "Jameel family", href: "/about/family" },
                       { name: "Family album", href: "/about/family-album" },
                       { name: "Brand", href: "/about/brand" },
                     ].map((item, index) => (

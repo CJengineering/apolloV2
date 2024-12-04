@@ -87,7 +87,7 @@ export default async function PeopleContent({
   return (
     <>
         <div className="pt-[53px] sm:pt-[68px] md:pt-[36px] lg:pt-2"><Image src="https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/674f2b2d2fd2c4071a040b12_FAMILY_HERO_IMAGE.webp" alt="Jameel Family" width={940} height={540} /></div>
-      <h1 className="sans-serif font-bold text-4xl lg:text-6xl pt-3 pb-3 lg:pt-6 ">Jameel Family</h1>
+      <h1 className="sans-serif font-bold text-4xl lg:text-6xl pt-3 pb-3 lg:pt-6 ">Jameel family</h1>
         <SectionFamilyTeam leadership={leadership}></SectionFamilyTeam>
       <div className="pb-24"></div>
     </>
