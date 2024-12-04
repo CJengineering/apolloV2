@@ -27,7 +27,7 @@ export default function page() {
   return (
     <>
       <div>Stream Graph of J-Pal RCT</div>
-      <div className="w-[1080px]">
+      <div className="w-[1080px] mono ">
         <StreamGraph categories={categories} data={transformedData} />
       </div>
     </>

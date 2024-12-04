@@ -9,7 +9,7 @@ import StreamgraphModule from "highcharts/modules/streamgraph";
 if (typeof StreamgraphModule === "function") {
   StreamgraphModule(Highcharts);
 } else {
-  console.error("Streamgraph module could not be initialized.");
+  console.error("");
 }
 
 interface StreamGraphProps {
@@ -26,7 +26,8 @@ const StreamGraph: React.FC<StreamGraphProps> = ({ data, categories }) => {
   const options = {
     chart: {
       type: "streamgraph",
-      marginBottom: 30,
+      marginBottom: 50,
+      marginRight: 230,
       zooming: {
         type: "x",
       },
@@ -55,13 +56,20 @@ const StreamGraph: React.FC<StreamGraphProps> = ({ data, categories }) => {
     title: {
       floating: true,
       align: "left",
-      text: "Winter Olympic Medal Wins",
+      text: "J-PAL's Randomised Control Trials (by region)",
+      style: {
+        fontFamily:   "var(--font-ibm-plex-mono)" // Replace with your font
+      },
+
     },
     subtitle: {
       floating: true,
       align: "left",
       y: 30,
-      text: 'Source: <a href="https://www.olympedia.org/statistics">olympedia.org</a>',
+      style: {
+        fontFamily:   "var(--font-ibm-plex-mono)" // Replace with your font
+      }
+     
     },
     xAxis: {
       maxPadding: 0,
@@ -72,10 +80,16 @@ const StreamGraph: React.FC<StreamGraphProps> = ({ data, categories }) => {
         align: "left",
         reserveSpace: false,
         rotation: 270,
+        style: {
+          fontFamily: "var(--font-ibm-plex-mono)", // Custom font applied
+          fontSize: "12px",
+          fontWeight: "400",
+        },
       },
       lineWidth: 0,
       margin: 20,
       tickWidth: 0,
+     
     },
     yAxis: {
       visible: false,
@@ -83,10 +97,27 @@ const StreamGraph: React.FC<StreamGraphProps> = ({ data, categories }) => {
       endOnTick: false,
       minPadding: 0.1,
       maxPadding: 0.15,
+      labels: {
+        style: {
+          fontFamily: "var(--font-ibm-plex-mono)", // Custom font applied
+          fontSize: "12px",
+          fontWeight: "400",
+        },
+      },
     },
     legend: {
-      enabled: false,
-    },
+        enabled: true,
+        layout: "vertical", // Vertical layout for legends
+        align:'right',// Align legends to the right of the chart
+        verticalAlign: "middle", // Center legends vertically outside the graph
+        x: 10, // Adjust position horizontally (space between chart and legend)
+        itemStyle: {
+          fontFamily: "var(--font-ibm-plex-mono)", // Custom font applied
+          fontSize: "12px",
+          fontWeight: "400",
+          color: "#000",
+        },
+      },
     annotations: [
       {
         labels: [
@@ -97,7 +128,7 @@ const StreamGraph: React.FC<StreamGraphProps> = ({ data, categories }) => {
               y: 30,
               yAxis: 0,
             },
-            text: "Cancelled<br>during<br>World War II",
+           
           },
           {
             point: {
@@ -106,7 +137,7 @@ const StreamGraph: React.FC<StreamGraphProps> = ({ data, categories }) => {
               y: 90,
               yAxis: 0,
             },
-            text: "Soviet Union fell,<br>Germany united",
+      
           },
           {
             point: {
@@ -115,7 +146,7 @@ const StreamGraph: React.FC<StreamGraphProps> = ({ data, categories }) => {
               y: 140,
               yAxis: 0,
             },
-            text: "Russia banned from<br>the Olympic Games<br> in 2017",
+           
           },
         ],
         labelOptions: {
