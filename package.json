@@ -33,6 +33,8 @@
     "contentlayer": "^0.3.2",
     "esbuild": "^0.24.0",
     "framer-motion": "^11.3.19",
+    "highcharts": "^12.0.2",
+    "highcharts-react-official": "^3.2.1",
     "i18next": "^23.11.5",
     "i18next-resources-to-backend": "^1.2.1",
     "linkinator": "^6.1.1",
