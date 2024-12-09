@@ -48,12 +48,17 @@ export const metadata: Metadata = customMetaDataGenerator({
   title: "Jameel House of Traditional Arts in Cairo 2024 Graduation Collection",
   description: "s",
   ogType: "website",
-  ogImage: '/images/metadata/JAMEEL_HOUSE_2024_CATALOGUE.webp',
+  ogImage: "/images/metadata/JAMEEL_HOUSE_2024_CATALOGUE.webp",
   twitterCard: "summary_large_image",
-  keywords: ["Community Jameel", "Jameel", "Jameel House", "King's Foundation", "Cultural Development Fund", "Community Jameel"],
-
-})
-
+  keywords: [
+    "Community Jameel",
+    "Jameel",
+    "Jameel House",
+    "King's Foundation",
+    "Cultural Development Fund",
+    "Community Jameel",
+  ],
+});
 
 export default async function jhtac2024graduation({
   params,
@@ -240,14 +245,14 @@ export default async function jhtac2024graduation({
               Arts, Community Jameel, and the Egyptian Ministry of Culture,
               offers intensive training in traditional arts and crafts.
             </p>
-            
+
             <p className="prose prose-xl leading-normal dark:prose-dark mb-5">
               This year introduced traditional joinery, known as gamiya, as a
               new specialisation alongside existing woodwork techniques like
               inlay, carving, and wood turning. Students also explored brasswork
               techniques for the first time.
             </p>
-           
+
             <p className="prose prose-xl leading-normal dark:prose-dark mb-5">
               Inspired by Islamic art from Cairo, Iran, and Central Asia, the
               class of 2024 produced intricate mangour screens, mother-of-pearl
@@ -259,7 +264,7 @@ export default async function jhtac2024graduation({
               contributed remarkable pieces, creating a harmonious collection
               that showcases the richness of Egyptian craft.
             </p>
-            
+
             <div>
               <p className="prose prose-xl font-medium leading-normal dark:text-white">
                 Mamdouh Sakr
@@ -292,7 +297,7 @@ export default async function jhtac2024graduation({
             <h2 className="header-section pb-6">Hagar Al Hariri</h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/01_hagar-al-hariri/hagar-al-hariri_01.webp"
                 alt="Amera Negm"
@@ -347,7 +352,7 @@ export default async function jhtac2024graduation({
             <h2 className="header-section pb-6">Esraa Badawy</h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/02_esraa-badawy/esraa-badawy-01.webp"
                 alt="Amira Khaled - Three of Life"
@@ -373,7 +378,7 @@ export default async function jhtac2024graduation({
           <div className="py-6"></div>
 
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/02_esraa-badawy/esraa-badawy-02.webp"
                 alt="Amera Negm"
@@ -410,7 +415,7 @@ export default async function jhtac2024graduation({
             <h2 className="header-section pb-6">Fatma Badawy</h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/13_fatma-badawy/fatma-badawy_01.webp"
                 alt="Heba Amin - Brass box"
@@ -457,7 +462,7 @@ export default async function jhtac2024graduation({
             <h2 className="header-section pb-6">Nermeen Badawy</h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/03_nermeen-badawi/nermeen-badawi-01.webp"
                 alt="Heba Amin - Brass box"
@@ -502,7 +507,7 @@ export default async function jhtac2024graduation({
             <h2 className="header-section pb-6">Bassant Darwish</h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/04_bassant-darwish/bassant-darwish_02.webp"
                 alt="Bassant Darwish - Iznik earthenware plate"
@@ -534,7 +539,7 @@ export default async function jhtac2024graduation({
           <div className="py-6"></div>
 
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/04_bassant-darwish/bassant-darwish_01.webp"
                 alt="Bassant Darwish - Tea set"
@@ -557,7 +562,7 @@ export default async function jhtac2024graduation({
           <div className="py-6"></div>
 
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/04_bassant-darwish/bassant-darwish_03.webp"
                 alt="Bassant Darwish - Ancient manuscript ceramic tile panel"
@@ -606,7 +611,7 @@ export default async function jhtac2024graduation({
           </div>
 
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/07_alia-el-garhy/alia-el-garhy_01.webp"
                 alt="Alia El Garhy"
@@ -664,7 +669,7 @@ export default async function jhtac2024graduation({
             <h2 className="header-section pb-6">Amira El Kadi</h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/05_amira-el-kadi/amira-el-kadi_01.webp"
                 alt="Amira El Kadi - Koutoubia box"
@@ -764,7 +769,7 @@ export default async function jhtac2024graduation({
             <h2 className="header-section pb-6">Sara El Sayed</h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/06_sara-el-sayed/sara-el-sayed_01.webp"
                 alt="Sara El Sayed - Camel bone inlaid turnings and carved beechwood side table"
@@ -797,43 +802,43 @@ export default async function jhtac2024graduation({
         </div>
         {/* DIVIDER END*/}
 
-       {/* STUDENT START */}
+        {/* STUDENT START */}
 
-<div>
-  <div>
-    <h2 className="header-section pb-6">Rawan El Taweel</h2>
-  </div>
-</div>
-<div className="flex flex-col lg:flex-row">
-  <div className="w-full lg:w-7/12">
-    <Image
-      src="/images/labs/jameel-house-cairo/2024-catalogue/09_rawan-el-taweel/rawan-el-taweel_01.webp"
-      alt="Rawan El Taweel - Bunchberry mangour cabinet"
-      width={1600}
-      height={600}
-    />
-  </div>
-  <div className="w-full lg:w-5/12 lg:ml-6">
-    <div className="pt-6 lg:pt-0 pb-3">
-      <p className="text-2xl">
-        Bunchberry-<span className="italic">mangour</span> cabinet
-      </p>
-      <p className="text-xl italic">92 x 46 x 26 cm</p>
-    </div>
-    <p className="prose leading-normal dark:text-white mb-5">
-      This wall cabinet combines traditional mangour craftwork and
-      decorations of tiny arquette flowers, similar to bunchberry
-      flowers, fitted within the mangour negative space without using
-      nails, screws or glue.
-    </p>
+        <div>
+          <div>
+            <h2 className="header-section pb-6">Rawan El Taweel</h2>
+          </div>
+        </div>
+        <div className="flex flex-col lg:flex-row">
+          <div className="w-full lg:w-7/12">
+            <Image
+              src="/images/labs/jameel-house-cairo/2024-catalogue/09_rawan-el-taweel/rawan-el-taweel_01.webp"
+              alt="Rawan El Taweel - Bunchberry mangour cabinet"
+              width={1600}
+              height={600}
+            />
+          </div>
+          <div className="w-full lg:w-5/12 lg:ml-6">
+            <div className="pt-6 lg:pt-0 pb-3">
+              <p className="text-2xl">
+                Bunchberry-<span className="italic">mangour</span> cabinet
+              </p>
+              <p className="text-xl italic">92 x 46 x 26 cm</p>
+            </div>
+            <p className="prose leading-normal dark:text-white mb-5">
+              This wall cabinet combines traditional mangour craftwork and
+              decorations of tiny arquette flowers, similar to bunchberry
+              flowers, fitted within the mangour negative space without using
+              nails, screws or glue.
+            </p>
 
-    <p className="prose leading-normal dark:text-white mb-5">
-      The two carved arches bearing floral ornaments are made of
-      mahogany wood.
-    </p>
-  </div>
-</div>
-{/* STUDENT END */}
+            <p className="prose leading-normal dark:text-white mb-5">
+              The two carved arches bearing floral ornaments are made of
+              mahogany wood.
+            </p>
+          </div>
+        </div>
+        {/* STUDENT END */}
         {/* DIVIDER START */}
         <div className="w-full pt-16 pb-12">
           <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
@@ -847,7 +852,7 @@ export default async function jhtac2024graduation({
             <h2 className="header-section pb-6">Hagar Etman</h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/10_hager-etman/hager-etman_01.webp"
                 alt="Mohamed ElShamy - Panel"
@@ -894,7 +899,7 @@ export default async function jhtac2024graduation({
             <h2 className="header-section pb-6">Doaa Fathy</h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/11_doaa-fathy/doaa-fathy_01.webp"
                 alt="Doaa Fathy - Panel inspired by the Minbar of Saladin"
@@ -972,7 +977,7 @@ export default async function jhtac2024graduation({
             <h2 className="header-section pb-6">Somaya Wael Ismail</h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/14_somaya-wael-ismail/somaya-wael-ismail_01.webp"
                 alt="Somaya Wael Ismail - Al-Maridani wall appliqué"
@@ -1039,7 +1044,7 @@ export default async function jhtac2024graduation({
             <h2 className="header-section pb-6">Lydia Malak</h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/15_lydia-malak/lydia-malak_01.webp"
                 alt="Lydia Malak - ‘Cypress trees’ gypsum panel for prayer room"
@@ -1072,7 +1077,7 @@ export default async function jhtac2024graduation({
           </div>
           <div className="py-6"></div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/15_lydia-malak/lydia-malak_02.webp"
                 alt="Lydia Malak - ‘Birds from the past’ fresco"
@@ -1121,9 +1126,9 @@ export default async function jhtac2024graduation({
           </div>
         </div>
         <div className="flex flex-col lg:flex-row">
-        <div className="w-full lg:w-7/12">
+          <div className="w-full lg:w-7/12">
             <Image
-              src="/images/labs/jameel-house-cairo/2024-catalogue/16_sara-meghani/sara-meghani_01.webp"
+              src="/images/labs/jameel-house-cairo/2024-catalogue/16_sara-meghani/sara-meghani_02.webp"
               alt="Sara Meghani - ‘Words of wisdom’ vase"
               width={1000}
               height={600}
@@ -1159,13 +1164,13 @@ export default async function jhtac2024graduation({
         </div>
         <div className="py-6"></div>
         <div className="flex flex-col lg:flex-row">
-        <div className="w-full lg:w-7/12">
-          <Image
-            src="/images/labs/jameel-house-cairo/2024-catalogue/16_sara-meghani/sara-meghani_02.webp"
-            alt="Sara Meghani - ‘Elegance’ potpourri bowl"
-            width={1600}
-            height={600}
-          />
+          <div className="w-full lg:w-7/12">
+            <Image
+              src="/images/labs/jameel-house-cairo/2024-catalogue/16_sara-meghani/sara-meghani_01.webp"
+              alt="Sara Meghani - ‘Elegance’ potpourri bowl"
+              width={1600}
+              height={600}
+            />
           </div>
           <div className="w-full lg:w-5/12 lg:ml-6">
             <div className="pt-6 lg:pt-0 pb-3">
@@ -1196,7 +1201,7 @@ export default async function jhtac2024graduation({
             <h2 className="header-section pb-6">Rana Meligui</h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/17_rana-meligui/rana_meligui_01.webp"
                 alt="Rana Meligui - Carved wooden wall mirror frame with embossed brass details"
@@ -1275,7 +1280,7 @@ export default async function jhtac2024graduation({
             <h2 className="header-section pb-6">Areej Niazy</h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/19_areeg-niazy/areeg-niazy_01.webp"
                 alt="Areej Niazy - Brass polyhedron lighting unit with a Moroccan-Andalusian pattern"
@@ -1396,7 +1401,7 @@ export default async function jhtac2024graduation({
             </h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/heritage-wooden-cabinet-panel/heritage-wooden-cabinet-panel_01.webp"
                 alt="Wooden cabinet panel"
@@ -1434,14 +1439,14 @@ export default async function jhtac2024graduation({
         {/* HERITAGE PROJECT START */}
 
         <div>
-        <div className="w-3/5">
+          <div className="w-3/5">
             <h2 className="header-section pb-6">
               Wessam Ghanim, Sara Meghani, Gamila Mourad, Areej Niazy, and
               Somaya Wael Ismail
             </h2>
           </div>
           <div className="w-full">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/heritage-brass-tray/heritage-brass-tray_01.webp"
                 alt="Engraved brass tray"
@@ -1477,13 +1482,13 @@ export default async function jhtac2024graduation({
         {/* HERITAGE PROJECT START */}
 
         <div>
-        <div className="w-3/5">
+          <div className="w-3/5">
             <h2 className="header-section pb-6">
               Hager Al Hariri, Nermeen Badawy, Sara El Sayed and Rana Meligui
             </h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/heritage-carved-wooden-panel/heritage-carved-wooden-panel_01.webp"
                 alt="Carved wooden panels"
@@ -1518,14 +1523,14 @@ export default async function jhtac2024graduation({
         {/* HERITAGE PROJECT START */}
 
         <div>
-        <div className="w-3/5">
+          <div className="w-3/5">
             <h2 className="header-section pb-6">
               Wessam Ghaniem, Sara Meghani, Gamila Mourad, Areej Niazy and
               Somaya Wael Ismail
             </h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/heritage-chandelier/heritage_chandelier_01.webp"
                 alt="Brass chandelier"
@@ -1560,13 +1565,13 @@ export default async function jhtac2024graduation({
         {/* HERITAGE PROJECT START */}
 
         <div>
-        <div className="w-3/5">
+          <div className="w-3/5">
             <h2 className="header-section pb-6">
               Hager Etman, Amira El Kadi and Doaa Fathy
             </h2>
           </div>
           <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-7/12">
+            <div className="w-full lg:w-7/12">
               <Image
                 src="/images/labs/jameel-house-cairo/2024-catalogue/heritage-wooden-box/heritage-wooden-box_01.webp"
                 alt="Inlaid wooden box"
@@ -1599,7 +1604,7 @@ export default async function jhtac2024graduation({
         {/* HERITAGE PROJECT START */}
 
         <div>
-        <div className="w-3/5">
+          <div className="w-3/5">
             <h2 className="header-section pb-6">
               Hager Etman, Amira El Kadi and Doaa Fathy
             </h2>
