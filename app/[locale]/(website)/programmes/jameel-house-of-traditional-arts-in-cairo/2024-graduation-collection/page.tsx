@@ -1141,10 +1141,8 @@ export default async function jhtac2024graduation({
             </div>
             <p className="prose leading-normal dark:text-white mb-5">
               ‘Words of wisdom’ is a brass vase inspired by the elegance of 16th
-              century Iranian crafts.
-              <p className="prose leading-normal dark:text-white mb-5"></p>
-              Engraved with the wise words of the sage Ibn Ata Allah
-              al-Iskandari, it says:
+              century Iranian crafts. Engraved with the wise words of the sage
+              Ibn Ata Allah al-Iskandari, it says:
             </p>
             <p className="prose leading-normal dark:text-white mb-5">
               <span className="italic">
