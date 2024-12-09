@@ -45,18 +45,29 @@ const FilterComponent: React.FC = () => {
     setSourceFilter(selectedSources);
   }, [selectedSources, setSourceFilter]);
 
-  const filteredProgrammes =
-    queryProgramme === ""
-      ? programmes
-      : programmes.filter((programme) =>
-          programme.name.toLowerCase().startsWith(queryProgramme.toLowerCase())
-        );
-  const filteredSources =
-    querySource === ""
-      ? sources
-      : sources.filter((source) =>
-          source.name.toLowerCase().startsWith(querySource.toLowerCase())
-        );
+  const filteredProgrammes = useMemo(() => {
+    const sortedProgrammes =
+      queryProgramme === ""
+        ? [...programmes]
+        : programmes.filter((programme) =>
+            programme.name.toLowerCase().startsWith(queryProgramme.toLowerCase())
+          );
+    return sortedProgrammes.sort((a, b) =>
+      a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
+    );
+  }, [programmes, queryProgramme]);
+  
+  const filteredSources = useMemo(() => {
+    const sortedSources =
+      querySource === ""
+        ? [...sources]
+        : sources.filter((source) =>
+            source.name.toLowerCase().startsWith(querySource.toLowerCase())
+          );
+    return sortedSources.sort((a, b) =>
+      a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
+    );
+  }, [sources, querySource]);
 
   const handleSelect = (item: RelatedCollection, type: string) => {
     switch (type) {

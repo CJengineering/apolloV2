@@ -37,13 +37,17 @@ export const FilterComponentForEvents: React.FC = () => {
     setProgrammeFilter(selectedProgrammes);
   }, [selectedProgrammes, setProgrammeFilter]);
 
-  const filteredProgrammes =
-    queryProgramme === ""
-      ? programmes
-      : programmes.filter((programme) =>
-          programme.name.toLowerCase().startsWith(queryProgramme.toLowerCase())
-        );
-  
+  const filteredProgrammes = React.useMemo(() => {
+    const sortedProgrammes =
+      queryProgramme === ""
+        ? [...programmes]
+        : programmes.filter((programme) =>
+            programme.name.toLowerCase().startsWith(queryProgramme.toLowerCase())
+          );
+    return sortedProgrammes.sort((a, b) =>
+      a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
+    );
+  }, [programmes, queryProgramme]);
   const handleSelect = (item: RelatedCollection, type: string) => {
     switch (type) {
       case "programme":
