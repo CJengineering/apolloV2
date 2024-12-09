@@ -1,41 +1,50 @@
-'use client'
+ "use client";
 
-import React, { useRef } from 'react'
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
+
+import React, { useEffect, useRef, useState } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
 interface CarouselProps {
-  children: React.ReactNode[]
+  children: React.ReactNode[];
 }
 
 const CarouselForComponent = ({ children }: CarouselProps) => {
-  const carouselRef = useRef<HTMLDivElement>(null)
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const carousselKidRef = useRef<HTMLDivElement>(null);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+useEffect(() => {
+  const handleResize = () => setScreenWidth(window.innerWidth-30);
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+  
 
   const scrollLeft = () => {
-    if (carouselRef.current) {
+    if (carouselRef.current && carousselKidRef.current) { 
+      console.log("scrolling left the carousel ofsetWidth", carouselRef.current.offsetWidth,'this is kid ref',carousselKidRef.current?.offsetWidth,'scren width',screenWidth);
       carouselRef.current.scrollBy({
-        left: -carouselRef.current.offsetWidth,
-        behavior: 'smooth',
-      })
+        left: -carousselKidRef.current?.offsetWidth+3,
+        behavior: "smooth",
+      });
     }
-  }
+  };
 
   const scrollRight = () => {
-    if (carouselRef.current) {
+    if ( carouselRef.current&& carousselKidRef.current) {
+      console.log("scrolling right the carousel ofsetWidth", carouselRef.current.offsetWidth,'this is kid ref',carousselKidRef.current?.offsetWidth,'scren width',screenWidth);
       carouselRef.current.scrollBy({
-        left: carouselRef.current.offsetWidth,
-        behavior: 'smooth',
-      })
+        left: carousselKidRef.current?.offsetWidth+3,
+        behavior: "smooth",
+      });
     }
-  }
+  };
 
   return (
     <div className="relative w-full md:bg-transparent ">
       {/* Arrows Container: Positioned at the top center */}
       <div className="top-0 left-0 right-0 z-10 flex justify-end space-x-4 mt-4">
-        <button
-          onClick={scrollLeft}
-          className="rounded-full p-2 text-gray-500"
-        >
+        <button onClick={scrollLeft} className="rounded-full p-2 text-gray-500">
           <ChevronLeftIcon className="w-6 h-6" />
         </button>
         <button
@@ -45,22 +54,26 @@ const CarouselForComponent = ({ children }: CarouselProps) => {
           <ChevronRightIcon className="w-6 h-6" />
         </button>
       </div>
-
-      <div
-        ref={carouselRef}
-        className="carousel flex carousel-center bg-neutral custom-scrollbar gap-4 overflow-x-auto max-w-[340px] md:max-w-[960px] lg:max-w-[900px] xl:max-w-[1030px] 2xl:max-w-[1313px] "
-      >
-        {children.map((child, index) => (
-          <div
-            key={index}
-            className="2xl:min-w-[350px] xl:min-w-[350px] lg:min-w-[300px] md:min-w-[250px] min-w-[300px]"
-          >
-            {child}
-          </div>
-        ))}
+      <div className=" ">
+        <div
+          ref={carouselRef}
+          className={`carousel mx-a flex carousel-center bg-neutral custom-scrollbar gap-4 overflow-x-auto   md:max-w-[960px] lg:max-w-[900px] xl:max-w-[1030px] 2xl:max-w-[1313px]`}
+          style={{
+            maxWidth: screenWidth <= 768 ? `${screenWidth}px` : undefined, // Apply only on mobile
+          }} >
+          {children.map((child, index) => (
+            <div
+            ref={carousselKidRef}
+              key={index}
+              className="2xl:min-w-[350px] xl:min-w-[350px] lg:min-w-[300px] md:min-w-[250px] min-w-[250px]"
+            >
+              {child}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CarouselForComponent
+export default CarouselForComponent;

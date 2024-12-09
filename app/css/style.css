@@ -190,16 +190,22 @@ a:hover{
     
     }
     .carousel {
+      display: flex;                
+      overflow-x: auto;               
+      scroll-snap-type: x mandatory; 
+      gap: 8px;                  
+      padding: 16px;                 
+    }
+    @media (max-width: 768px) {
+      .carousel {
         display: flex;                
         overflow-x: auto;               
         scroll-snap-type: x mandatory; 
-        gap: 16px;                  
-        padding: 16px;                 
-        border-radius: 8px;           
-         
-             
+        gap: 8px;                  
+        padding: 1px;                 
+      }
+    }
         
-        }
 
   .carousel-item {
     flex: 0 0 25%;                 
