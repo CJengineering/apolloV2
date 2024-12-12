@@ -80,7 +80,6 @@ export default async function EventPage({
 
   const multimediaCollectionID = getIdByDisplayName("Multimedia");
 
-
   {
     /**Get the data from the collection */
   }
@@ -91,7 +90,6 @@ export default async function EventPage({
   const eventsDataRaw = await getData(eventsCollectionID);
 
   const multimediaDataRaw = await getData(multimediaCollectionID);
-
 
   {
     /**Get the single item */
@@ -108,10 +106,13 @@ export default async function EventPage({
 
   {
     /** Mapped items */
-
   }
-  const eventSinglerResponse = await fetchSingleItem('eventSingle', params.slug);
-  const eventSingleDataCleaned: EventFieldDataCleaned = eventSinglerResponse.field_data;
+  const eventSinglerResponse = await fetchSingleItem(
+    "eventSingle",
+    params.slug
+  );
+  const eventSingleDataCleaned: EventFieldDataCleaned =
+    eventSinglerResponse.field_data;
 
   const relatedPeopleDataCleaned = relatedPeopleDataRaw.map((item) =>
     peopleMapper(
@@ -132,26 +133,45 @@ export default async function EventPage({
     <>
       <div className="w-full xl:w-2/3">
         <EventHeading name={eventSingleDataCleaned.name} />
-   
+
         <div className="pb-6">
-          <Image
-            className="w-full"
-            src={eventSingleDataCleaned.heroImage.url}
-            alt={eventSingleDataCleaned.heroImage.alt || ""}
-            width={100}
-            height={100}
-          />
+          {eventSingleDataCleaned.videoAsHeroOnOff ? (
+            <EventVideo
+              embedCode={eventSingleDataCleaned.mainVideoEmbedCode}
+              imageUrl={eventSingleDataCleaned.heroImage.url}
+            />
+          ) : (
+            <Image
+              className="w-full"
+              src={eventSingleDataCleaned.heroImage.url}
+              alt={eventSingleDataCleaned.heroImage.alt || ""}
+              width={100}
+              height={100}
+            />
+          )}
         </div>
 
-     
-     
         <EventContent eventSingleDataCleaned={eventSingleDataCleaned} />
-        <EventVideo embedCode={eventSingleDataCleaned.mainVideoEmbedCode}  imageUrl={eventSingleDataCleaned.heroImage.url}  />
-      {eventSingleDataCleaned.video2EmbedCode && <VerticalSpaceDivider padding={3}/>}
-        <EventVideo embedCode={eventSingleDataCleaned.video2EmbedCode} imageUrl={eventSingleDataCleaned.heroImage.url}  />
-        {eventSingleDataCleaned.video3EmbedCode && <VerticalSpaceDivider padding={3}/>}
-        <EventVideo embedCode={eventSingleDataCleaned.video3EmbedCode} imageUrl={eventSingleDataCleaned.heroImage.url}  />
-        
+        {eventSingleDataCleaned.videoAsHeroOnOff ? null : (
+          <EventVideo
+            embedCode={eventSingleDataCleaned.mainVideoEmbedCode}
+            imageUrl={eventSingleDataCleaned.heroImage.url}
+          />
+        )}
+        {eventSingleDataCleaned.video2EmbedCode && (
+          <VerticalSpaceDivider padding={3} />
+        )}
+        <EventVideo
+          embedCode={eventSingleDataCleaned.video2EmbedCode}
+          imageUrl={eventSingleDataCleaned.heroImage.url}
+        />
+        {eventSingleDataCleaned.video3EmbedCode && (
+          <VerticalSpaceDivider padding={3} />
+        )}
+        <EventVideo
+          embedCode={eventSingleDataCleaned.video3EmbedCode}
+          imageUrl={eventSingleDataCleaned.heroImage.url}
+        />
       </div>
       <EventParticipants relatedPeopleData={relatedPeopleDataCleaned} />
       <EventOrganisers organisers={eventSingleDataCleaned.organisers} />

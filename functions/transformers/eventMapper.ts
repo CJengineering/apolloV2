@@ -101,6 +101,7 @@ export default function eventMapper(
   };
   return {
     createdOn: item.createdOn,
+    videoAsHeroOnOff: item.fieldData["video-as-hero-on-off"] || false,
     video2EmbedCode: item.fieldData["video-2-embed-code"] || "",
     video3EmbedCode: item.fieldData["video-3-embed-code"] || "",
     mainVideoEmbedCode: item.fieldData["main-video-embed-code"] || "",

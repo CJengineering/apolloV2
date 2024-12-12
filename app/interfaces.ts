@@ -230,6 +230,7 @@ export interface Item<T> {
 
 export interface EventFieldData {
   "main-video-embed-code": string;
+  "video-as-hero-on-off": boolean;
   "video-2-embed-code": string;
     "video-3-embed-code": string;
   "createdOn": string;
@@ -293,6 +294,7 @@ export interface EventFieldData {
 
 export interface EventFieldDataCleaned {
   mainVideoEmbedCode: string;
+  videoAsHeroOnOff: boolean;
   video2EmbedCode: string;
   video3EmbedCode: string;
   createdOn: string;
