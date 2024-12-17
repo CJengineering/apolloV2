@@ -5,7 +5,7 @@ type FetchResponse = {
   export async function fetchFirst100Posts(): Promise<any[]> {
     const limit = 100; // Define the limit for rows
     const offset = 0; // Always start from the beginning
-    const websiteUrl = 'https://next-tutorial-vercel-xi.vercel.app';
+    const websiteUrl = 'https://apollo-v2-git-main-cjengineerings-projects.vercel.app';
     
     try {
       console.log(`Fetching first ${limit} rows`); // Debug: Log the fetch action
