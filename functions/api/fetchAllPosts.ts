@@ -7,7 +7,7 @@ type FetchResponse = {
     let allPosts: any[] = [];
     let offset = 0;
     const chunkSize = 10; // Matches the limit in the API
-    const websiteUrl ='https://www.communityjameel.com';
+    const websiteUrl ='https://next-tutorial-vercel-xi.vercel.app';
     while (true) {
       try {
         console.log(`Fetching offset: ${offset}`); // Debug: Log the current offset

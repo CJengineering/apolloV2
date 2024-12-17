@@ -9,7 +9,7 @@ type FetchResponse = {
     let allNews: any[] = [];
     let offset = 0;
     const chunkSize = 150; // Matches the limit in the API
-    const websiteUrl = 'https://www.communityjameel.com';
+    const websiteUrl = 'https://next-tutorial-vercel-xi.vercel.app';
   
     while (true) {
       try {

@@ -1,5 +1,5 @@
 export async function fetchSingleItem(collection: string, slug: string): Promise<any | null> {
-    const websiteUrl ='https://www.communityjameel.com';
+    const websiteUrl ='https://next-tutorial-vercel-xi.vercel.app';
     try {
       console.log(`Fetching news item with slug: ${slug}`); // Debug: Log the slug being fetched
   

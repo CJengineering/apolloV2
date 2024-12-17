@@ -6,7 +6,7 @@ type FetchResponse = {
   export async function fetchFirstChunk(collection: string): Promise<any[]> {
     const chunkSize = 150; // Limit to the first chunk
     const offset = 0; // Always start from the beginning
-    const websiteUrl = 'https://www.communityjameel.com';
+    const websiteUrl = 'https://next-tutorial-vercel-xi.vercel.app';
   
     try {
       console.log(`Fetching first ${chunkSize} rows from ${collection}`); // Debug: Log the fetch action
