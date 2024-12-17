@@ -6,13 +6,14 @@ export async function GET(request: Request) {
   const limit = 100; // Fixed chunk size of 10 rows
 
   try {
-    const { rows } = await sql`
-      SELECT * FROM posts   ORDER BY TO_DATE(field_data->>'datePublished', 'DD Month YYYY') DESC LIMIT ${limit} OFFSET ${offset};
-    `;
-  
+    const { rows } = await sql` SELECT * FROM events
+  ORDER BY (field_data->>'eventDate')::TIMESTAMP DESC
+  LIMIT ${limit}
+  OFFSET ${offset};`;
+
     const fetchMore = rows.length === limit; // Determine if more data is available (fetchMore = true if full chunk is returned)
     const rowsLength = rows.length;
-    return new Response(JSON.stringify({ rows, fetchMore,rowsLength  }), {
+    return new Response(JSON.stringify({ rows, fetchMore, rowsLength }), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +22,7 @@ export async function GET(request: Request) {
       },
     });
   } catch (error: any) {
-    console.error("Error fetching posts:", error.message);
+    console.error("Error fetching events:", error.message);
 
     return new Response(JSON.stringify({ error: error.message }), {
       status: 500,

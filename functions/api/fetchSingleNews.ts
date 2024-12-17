@@ -1,5 +1,5 @@
 export async function fetchSingleItem(collection: string, slug: string): Promise<any | null> {
-    const websiteUrl =process.env.FETCHING_URL;
+    const websiteUrl ='https://www.communityjameel.com';
     try {
       console.log(`Fetching news item with slug: ${slug}`); // Debug: Log the slug being fetched
   

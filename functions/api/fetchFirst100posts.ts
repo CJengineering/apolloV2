@@ -5,13 +5,14 @@ type FetchResponse = {
   export async function fetchFirst100Posts(): Promise<any[]> {
     const limit = 100; // Define the limit for rows
     const offset = 0; // Always start from the beginning
+    const websiteUrl = 'https://www.communityjameel.com';
     
     try {
       console.log(`Fetching first ${limit} rows`); // Debug: Log the fetch action
   
       const response = await fetch(
-        `https://next-tutorial-vercel-xi.vercel.app/api/posts?offset=${offset}&limit=${limit}`,
-        { next: { revalidate: 360 } }
+        `${websiteUrl}/api/posts?offset=${offset}&limit=${limit}`,
+        { next: { revalidate: 36 } }
       );
   
       if (!response.ok) {

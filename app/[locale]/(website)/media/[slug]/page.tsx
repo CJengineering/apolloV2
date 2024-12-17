@@ -23,7 +23,7 @@ export async function generateMetadata(
   const locale = params.locale;
 
   const newsItemRaw = await fetchSingleItem("newsSingle", params.slug);
-  const newsItem: NewsCleanedFields = newsItemRaw.fielddata;
+  const newsItem: NewsCleanedFields = newsItemRaw.field_data;
 
   const seoTitleArabic = newsItemRaw ? newsItem.arabicTitle : "";
   const seoTitleEnglish = newsItemRaw ? newsItem.name : "";
@@ -54,15 +54,17 @@ export default async function NewsPage({
   const newsItemRaw = await fetchSingleItem("newsSingle", params.slug);
 
   const rowsD = await fetchAll("newsV2");
-  const news: NewsCleanedFields[] = rowsD.map((row) => row.fielddata);
-  const newsItem = newsItemRaw.fielddata;
-  const relatedNewsClean = filteredRelatedNewsClean(newsItem, news);
+  const news: NewsCleanedFields[] = rowsD.map((row) => row.field_data);
+  const newsItem = newsItemRaw.field_data;
+
+  const relatedNewsClean =  filteredRelatedNewsClean(newsItem, news); 
 
   if (!newsItem) notFound();
 
   return (
     <>
       <div>
+      
         <Suspense fallback={<Loading />}>
           <Link
             href="/news"

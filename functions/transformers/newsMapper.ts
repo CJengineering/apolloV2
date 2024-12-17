@@ -10,6 +10,7 @@ import {
 } from "@/app/interfaces";
 import { formatDate } from "../utils/formDate";
 import { formatDateArabic } from "../utils/fromDateArabic";
+import { getIdByDisplayName } from "../utils/findCollectionId";
 
 export default function newsMapper(
   item: Item<NewsRawFields>,
@@ -125,9 +126,12 @@ export default function newsMapper(
           : { name: "N/A", slug: "N/A", arabicName: "N/A" };
       })
     : [];
-
+    const collectionId =  getIdByDisplayName('News');
   return {
     id: item.id || "",
+    webflowId: item.id,
+    webflowCollectionId: collectionId,
+    originalSlug: fieldData.slug || "",
     createdOn: item.createdOn || "",
     arabicTitle: fieldData["arabic-title"] || "",
     collectionName: "press",

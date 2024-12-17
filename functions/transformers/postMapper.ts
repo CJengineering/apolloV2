@@ -10,6 +10,7 @@ import {
   TagRawFields,
 } from "@/app/interfaces";
 import { formatDateArabic } from "../utils/fromDateArabic";
+import { getIdByDisplayName } from "../utils/findCollectionId";
 
 const formatDate = (date: Date | string): string => {
   if (typeof date === "string") {
@@ -24,6 +25,7 @@ const formatDate = (date: Date | string): string => {
     return "Invalid Date";
   }
 };
+const collectionId =  getIdByDisplayName('Posts');
 
 export default function postMapper(
   item: Item<FieldsPostRaw>,
@@ -101,6 +103,9 @@ export default function postMapper(
   };
 
   return {
+    originalSlug: fieldData.slug || "",
+    webflowCollectionId: collectionId,
+    webflowId: item.id,
     videoAsHeroYesNo: fieldData["video-as-hero-yes-no"] || false,
     heroVideoYoutubeEmbedId: fieldData["hero-video-youtube-embed-id"] || "",
     heroVideoArabicYoutubeVideoId: fieldData["hero-video-arabic-youtube-video-id"] || "",

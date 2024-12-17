@@ -6,14 +6,14 @@ type FetchResponse = {
   export async function fetchFirstChunk(collection: string): Promise<any[]> {
     const chunkSize = 150; // Limit to the first chunk
     const offset = 0; // Always start from the beginning
-    const websiteUrl = process.env.FETCHING_URL;
+    const websiteUrl = 'https://www.communityjameel.com';
   
     try {
       console.log(`Fetching first ${chunkSize} rows from ${collection}`); // Debug: Log the fetch action
   
       const response = await fetch(
         `${websiteUrl}/api/${collection}?offset=${offset}`,
-        { next: { revalidate: 360 } }
+        { next: { revalidate: 36} }
       );
   
       if (!response.ok) {

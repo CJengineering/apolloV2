@@ -9,14 +9,14 @@ type FetchResponse = {
     let allNews: any[] = [];
     let offset = 0;
     const chunkSize = 150; // Matches the limit in the API
-    const websiteUrl =process.env.FETCHING_URL;
+    const websiteUrl = 'https://www.communityjameel.com';
   
     while (true) {
       try {
         console.log(`Fetching offset: ${offset}`); // Debug: Log the current offset
-  
+          console.log('websiteUrl',websiteUrl)
         const response = await fetch(
-          `https://next-tutorial-vercel-xi.vercel.app/api/${collection}?offset=${offset}`,
+          `${websiteUrl}/api/${collection}?offset=${offset}`,
           { next: { revalidate: 360 } }
         );
   

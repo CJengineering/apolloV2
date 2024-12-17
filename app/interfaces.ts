@@ -293,6 +293,9 @@ export interface EventFieldData {
 // EVENTS DATA START //
 
 export interface EventFieldDataCleaned {
+  webflowId: string;
+  webflowCollectionId: string;
+  originalSlug: string;
   mainVideoEmbedCode: string;
   videoAsHeroOnOff: boolean;
   video2EmbedCode: string;
@@ -673,6 +676,7 @@ export interface PeopleRawFields {
   "feature-video"?: string;
 }
 export interface PostFieldsCleaned {
+  webflowId: string;
   videoAsHeroYesNo: boolean;
   heroVideoYoutubeEmbedId: string;
   heroVideoArabicYoutubeVideoId: string;
@@ -717,6 +721,8 @@ export interface PostFieldsCleaned {
   slug: string;
   bulletPointsEnglish: string;
   bulletPointsArabic: string;
+  originalSlug: string;
+  webflowCollectionId: string;
 }
 export interface Author {
   name: string;
@@ -901,6 +907,9 @@ export interface FeatureCleanedFields {
 }
 
 export interface NewsCleanedFields {
+  webflowId: string;
+  originalSlug: string;
+  webflowCollectionId: string;
   createdOn: string;
   arabicTitle: string;
   pushToGr: boolean;
