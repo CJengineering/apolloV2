@@ -13,7 +13,7 @@ type FetchResponse = {
   
       const response = await fetch(
         `${websiteUrl}/api/${collection}?offset=${offset}`,
-        { next: { revalidate: 36} }
+        { next: { revalidate: 3600} }
       );
   
       if (!response.ok) {

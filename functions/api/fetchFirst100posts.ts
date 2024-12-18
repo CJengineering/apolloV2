@@ -12,7 +12,7 @@ type FetchResponse = {
   
       const response = await fetch(
         `${websiteUrl}/api/posts?offset=${offset}&limit=${limit}`,
-        { next: { revalidate: 36 } }
+        { next: { revalidate: 3600 } }
       );
   
       if (!response.ok) {

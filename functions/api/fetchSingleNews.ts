@@ -5,7 +5,7 @@ export async function fetchSingleItem(collection: string, slug: string): Promise
   
       const response = await fetch(
         `${websiteUrl}/api/${collection}?slug=${slug}`,
-        { next: { revalidate: 36 } }
+        { next: { revalidate: 3600 } }
       );
   
       if (!response.ok) {
