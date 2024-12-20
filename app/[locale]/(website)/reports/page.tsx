@@ -8,7 +8,7 @@ import TrailerModalButton from "@/components/CJ-components/components-CJ/custom 
 import { Metadata } from "next";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
-import { cardData } from "@/app/data/annualreport2024";
+import {cardMITJWAFS  } from "@/app/data/annualreport2024";
 import SectionHomeCard from "@/components/components V2/home/section-home-card";
 import SectionDivider from "@/components/components V2/generic/section-divider";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
@@ -58,7 +58,7 @@ export default async function ReportsPage({
                 <div>
             <div className="">
               <CarousselForComponents>
-              {cardData.map((card, index) => (
+              {cardMITJWAFS.map((card, index) => (
                     <HomeCard
                       key={index}
                       imageUrl={card.imageUrl}
