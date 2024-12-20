@@ -619,7 +619,15 @@ export const imageMosaicJameelObservatoryForFoodSecurityEarlyAction = [
     alt: "picture",
   },
   {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676557fa94ab1eac570cc647_IMG_6890.webp",
+    alt: "picture",
+  },
+  {
     url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/675c35984e02fee5b0a39b71_KENA4186.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676557f920f2c96293302ad1_100alistair_veryard_photography_community_cameel_2024_253A1493-CR3.webp",
     alt: "picture",
   },
   {
@@ -627,7 +635,15 @@ export const imageMosaicJameelObservatoryForFoodSecurityEarlyAction = [
     alt: "picture",
   },
   {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676557f9c891a483e7600d21__ART4422%20copy%202.webp",
+    alt: "picture",
+  },
+  {
     url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/675c35974a8f0a9d039b0ea7_KENA3456.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676557f920f2c96293302abc_Anticipatory_Action.webp",
     alt: "picture",
   },
   {
@@ -739,13 +755,13 @@ export const newsJameelObservatoryCREWNSnet:NewsForReport[] = [
 
 /*MOSAIC START*/
 
-export const imageJameelObservatoryCREWSnet = [
-  {
-    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6751649e687518a61378f5fd_JAMEEL_INSTITUTE_SCHOOL_PUBLIC_HEALTH_WEBP.webp",
-    alt: "picture",
-  },
+// export const imageJameelObservatoryCREWSnet = [
+//   {
+//     url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6751649e687518a61378f5fd_JAMEEL_INSTITUTE_SCHOOL_PUBLIC_HEALTH_WEBP.webp",
+//     alt: "picture",
+//   },
   
-  ];
+//   ];
 /*MOSAIC END*/
 
 
@@ -883,7 +899,16 @@ export const statsJPAL:StatProps[] = [
 export  const cardJPAL = [
 
   {
-    imageUrl: "CardImageURL Nat to finish",
+    imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67658588287e7dcbaf4c9196_NOBEL_PRIZE.webp",
+    alt: "Nobel prize awarded to J-PAL affiliates Daron Acemoğlu and James Robinson, bringing the lab’s tally to five",
+    title: "Nobel prize awarded to J-PAL affiliates Daron Acemoğlu and James Robinson, bringing the lab’s tally to five",
+    subtitle:"October 2024",
+    link: "https://www.communityjameel.org/news/nobel-prize-awarded-to-j-pal-affiliates-daron-acemoglu-and-james-robinson-bringing-the-labs-tally-to-five",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+  {
+    imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676585f4ea69710bd61b3673_COTE_IV.webp",
     alt: "New, multi-year training partnership in Côte d’Ivoire to increase the use of rigorous evidence in national policies and programmes",
     title: "New, multi-year training partnership in Côte d’Ivoire to increase the use of rigorous evidence in national policies and programmes",
     subtitle:"January 2024",
@@ -892,7 +917,7 @@ export  const cardJPAL = [
     clickAction: "Internal link",
   },
   {
-    imageUrl: "CardImageURL Nat to finish",
+    imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67658588b5586a2703caea6d_AGAAZ.webp",
     alt: "Celebrating 20 years of J-PAL: Shaping policy, transforming lives",
     title: "Celebrating 20 years of J-PAL: Shaping policy, transforming lives",
     subtitle:"February 2024",
@@ -901,7 +926,7 @@ export  const cardJPAL = [
     clickAction: "Video embed code",
   },
   {
-    imageUrl: "CardImageURL Nat to finish",
+    imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67658587f605f5a2ecda9f47_MIMES.webp",
     alt: "J-PAL Values: A performance in mime",
     title: "J-PAL Values: A performance in mime",
     subtitle:"April 2024",
@@ -910,7 +935,7 @@ export  const cardJPAL = [
     clickAction: "Video embed code",
   },
   {
-    imageUrl: "CardImageURL Nat to finish",
+    imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6765858764e10f894a47928d_BEHIND_THE_SCENES.webp",
     alt: "Behind the evidence: J-PAL South Asia's first public exhibition",
     title: "Behind the evidence: J-PAL South Asia's first public exhibition",
     subtitle:"April 2024",
@@ -919,7 +944,7 @@ export  const cardJPAL = [
     clickAction: "Video embed code",
   },
   {
-    imageUrl: "CardImageURL Nat to finish",
+    imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6765858a187d125d9cab7145_BAPPENAS.webp",
     alt: "Egyptian and Indonesian governments exchange best practices for evidence-based policymaking",
     title: "Egyptian and Indonesian governments exchange best practices for evidence-based policymaking",
     subtitle:"June 2024",
@@ -928,7 +953,7 @@ export  const cardJPAL = [
     clickAction: "Internal link",
   }, 
   {
-    imageUrl: "CardImageURL Nat to finish",
+    imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67658588fcaaea46a3484852_SOCIAL_INCLUSION.webp",
     alt: "A massive effort to strenthen social inclusion in Spain",
     title: "A massive effort to strenthen social inclusion in Spain",
     subtitle:"June 2024",
@@ -1049,16 +1074,16 @@ export const statsJPALAWL:StatProps[] = [
 export  const cardJPALAWL = [
 
     {
-      imageUrl: "CardImageURL Nat to finish",
-      alt: "J-PAL Africal, the City of Cape Town and Community Jameel launch new Water, Air and Energy Lab",
-      title: "J-PAL Africal, the City of Cape Town and Community Jameel launch new Water, Air and Energy Lab",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67658927177f2c6d7a812b0d_AWL_YOUTUBE.webp",
+      alt: "J-PAL Africa, the City of Cape Town and Community Jameel launch new Water, Air and Energy Lab",
+      title: "J-PAL Africa, the City of Cape Town and Community Jameel launch new Water, Air and Energy Lab",
       subtitle:"March 2024",
       link: "https://www.communityjameel.org/news/j-pal-africa-the-city-of-cape-town-and-community-jameel-launch-new-water-air-and-energy-lab",
       openInNewTab: false,
       clickAction: "Internal link",
     },
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6765892799de44e52cea8340_SA_LAUNCH_AWL.webp",
       alt: "Launch event of the Water, Air and Energy Lab in Cape Town",
       title: "Launch event of the Water, Air and Energy Lab in Cape Town",
       subtitle:"September 2024",
@@ -1152,7 +1177,7 @@ export const statsC40:StatProps[] = [
 export  const cardC40 = [
 
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67658be73bb316f87cf3e484_CHENNAI%20copy.webp",
       alt: "Chennai mainstreams climate action planning through the Jameel C40 Urban Planning Climate Lab",
       title: "Chennai mainstreams climate action planning through the Jameel C40 Urban Planning Climate Lab",
       subtitle:"March 2024",
@@ -1161,7 +1186,7 @@ export  const cardC40 = [
       clickAction: "Internal link",
     },
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67658be6519e012edb3fcb9c_C40_CHENNAI%20copy.webp",
       alt: "Transforming urban planning and climate action in Chennai",
       title: "Transforming urban planning and climate action in Chennai",
       subtitle:"March 2024",
@@ -1170,7 +1195,7 @@ export  const cardC40 = [
       clickAction: "Video embed code",
     },
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67658be64d0ed27eab153274_PHILATHROPY%20copy.webp",
       alt: "Former Toronto mayor David Miller and Cléa Daridan discuss how philanthropy drives climate action",
       title: "Former Toronto mayor David Miller and Cléa Daridan discuss how philanthropy drives climate action",
       subtitle:"April 2024",
@@ -1179,7 +1204,7 @@ export  const cardC40 = [
       clickAction: "Video embed code",
     },
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67658c4332615e56a28d7360_WUF.webp",
       alt: "Jameel C40 Urban Planning Climate Labs launch climate action guide at WUF12",
       title: "Jameel C40 Urban Planning Climate Labs launch climate action guide at WUF12",
       subtitle:"November 2024",
@@ -1188,7 +1213,7 @@ export  const cardC40 = [
       clickAction: "Video embed code",
     },
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67658be62c3b9c719c0a0ca9_SERGE_TELLE%20copy.webp",
       alt: "Serge Telle showcases 'Climate Action Guide for Urban Planners' at Jeonju Future Cities Forum 2024",
       title: "Serge Telle showcases 'Climate Action Guide for Urban Planners' at Jeonju Future Cities Forum 2024",
       subtitle:"November 2024",
@@ -1354,10 +1379,6 @@ export  const cardPrathamJameel = [
 
 export const imageMosaicPrathamJameel = [
   {
-    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6760931d049f68ed0b522d4f_VVB03774.webp",
-    alt: "picture",
-  },
-  {
     url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6760931c5e0d449817ac0718_VVB03747.webp",
     alt: "picture",
   },
@@ -1500,10 +1521,10 @@ export const imageMosaicEjada = [
 
 /*KPIs START*/
 export const statsJameelArtsAndHealth:StatProps[] = [
-    {content: "People targeted to benefit", title: "10M",},
-    {content: "Affiliated researchers", title: "106",},
-    {content: "Governments engaged", title: "8",},
-  
+  {content: "People targeted to benefit", title: "10M",},
+  {content: "Affiliated researchers", title: "106",},
+  {content: "Governments engaged", title: "8",},
+
 ];
 /*KPIs END*/
 
@@ -1512,60 +1533,60 @@ export const statsJameelArtsAndHealth:StatProps[] = [
 
 export  const cardJameelArtsAndHealth = [
 
-    {
-      imageUrl: "CardImageURL Nat to finish",
-      alt: "In the arts, there is no time",
-      title: "In the arts, there is no time",
-      subtitle:"February 2024",
-      link: "https://www.youtube.com/embed/uZrcl9nbKW4?si=dg-9iq23i7ADVSYG",
-      openInNewTab: false,
-      clickAction: "Video embed code",
-    },
-    {
-      imageUrl: "CardImageURL Nat to finish",
-      alt: "Edge Hill University, in collaboration with the Jameel Arts & Health Lab, secures record £2.5m from UK government",
-      title: "Edge Hill University, in collaboration with the Jameel Arts & Health Lab, secures record £2.5m from UK government",
-      subtitle:"March 2024",
-      link: "https://www.communityjameel.org/news/edge-hill-university-in-collaboration-with-the-jameel-arts-health-lab-secure-record-funding-boost-of-ps2-5m-for-childrens-arts-and-mental-health-project",
+  {
+    imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676549293271186f172d8515_CHRIS_BAILEY.webp",
+    alt: "In the arts, there is no time",
+    title: "In the arts, there is no time",
+    subtitle:"February 2024",
+    link: "https://www.youtube.com/embed/uZrcl9nbKW4?si=dg-9iq23i7ADVSYG",
+    openInNewTab: false,
+    clickAction: "Video embed code",
+  },
+  {
+    imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676549293270dc39ca7a8808_THE_ARTS_KIDS.webp",
+    alt: "Edge Hill University, in collaboration with the Jameel Arts & Health Lab, secures record £2.5m from UK government",
+    title: "Edge Hill University, in collaboration with the Jameel Arts & Health Lab, secures record £2.5m from UK government",
+    subtitle:"March 2024",
+    link: "https://www.communityjameel.org/news/edge-hill-university-in-collaboration-with-the-jameel-arts-health-lab-secure-record-funding-boost-of-ps2-5m-for-childrens-arts-and-mental-health-project",
+    openInNewTab: false,
+    clickAction: "Internal link",
+  },
+  {
+    imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676549293f1480937a2862d4_JohnnyCashIreland_YT.webp",
+    alt: "How Johnny Cash helps dementia patients in Ireland",
+    title: "How Johnny Cash helps dementia patients in Ireland",
+    subtitle:"March 2024",
+    link: "https://www.youtube.com/embed/YOtkQWucldg?si=7czuoXW4ymus3shR",
+    openInNewTab: false,
+    clickAction: "Video embed code",
+  },
+  {
+    imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6765492a1dfd18078cac4232_JAMEEL_ARTS_AND_HEALTH_BASEL.webp",
+    alt: "Jameel Arts & Health Lab x Art Basel | Healing arts: Reimagining healthcare",
+    title: "Jameel Arts & Health Lab x Art Basel | Healing arts: Reimagining healthcare",
+    subtitle:"June 2024",
+    link: "https://www.youtube.com/embed/nKI_XEyPDQ0?si=VY-jwJ9sJe-LCqiK",
+    openInNewTab: false,
+    clickAction: "Video embed code",
+  },
+  {
+    imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67654929ab7fe0a3922d4054_HEALING_ARTS_SCOTLAND.webp",
+    alt: "A nationwide celebration of the healing arts in Scotland",
+    title: "A nationwide celebration of the healing arts in Scotland",
+    subtitle:"October 2024",
+    link: "https://www.youtube.com/embed/ywDD1Rr3YlE?si=3DcHyEwouFi6Apfa",
+    openInNewTab: false,
+    clickAction: "Video embed code",
+  },
+  {
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67654929bfa29b69f53ab2be_POLICY_IMPACT.webp",
+      alt: "Jameel Arts & Health Lab announces public health policy impact of Healing Arts Scotland at 2024 World Cities Culture Summit in Dubai",
+      title: "Jameel Arts & Health Lab announces public health policy impact of Healing Arts Scotland at 2024 World Cities Culture Summit in Dubai",
+      subtitle:"October 2024",
+      link: "https://www.communityjameel.org/news/jameel-arts-health-lab-announces-public-health-policy-impact-of-healing-arts-scotland-at-2024-world-cities-culture-summit-in-dubai",
       openInNewTab: false,
       clickAction: "Internal link",
     },
-    {
-      imageUrl: "CardImageURL Nat to finish",
-      alt: "How Johnny Cash helps dementia patients in Ireland",
-      title: "How Johnny Cash helps dementia patients in Ireland",
-      subtitle:"March 2024",
-      link: "https://www.youtube.com/embed/YOtkQWucldg?si=7czuoXW4ymus3shR",
-      openInNewTab: false,
-      clickAction: "Video embed code",
-    },
-    {
-      imageUrl: "CardImageURL Nat to finish",
-      alt: "Jameel Arts & Health Lab x Art Basel | Healing arts: Reimagining healthcare",
-      title: "Jameel Arts & Health Lab x Art Basel | Healing arts: Reimagining healthcare",
-      subtitle:"June 2024",
-      link: "https://www.youtube.com/embed/nKI_XEyPDQ0?si=VY-jwJ9sJe-LCqiK",
-      openInNewTab: false,
-      clickAction: "Video embed code",
-    },
-    {
-      imageUrl: "CardImageURL Nat to finish",
-      alt: "A nationwide celebration of the healing arts in Scotland",
-      title: "A nationwide celebration of the healing arts in Scotland",
-      subtitle:"October 2024",
-      link: "https://www.youtube.com/embed/ywDD1Rr3YlE?si=3DcHyEwouFi6Apfa",
-      openInNewTab: false,
-      clickAction: "Video embed code",
-    },
-    {
-        imageUrl: "CardImageURL Nat to finish",
-        alt: "Jameel Arts & Health Lab announces public health policy impact of Healing Arts Scotland at 2024 World Cities Culture Summit in Dubai",
-        title: "Jameel Arts & Health Lab announces public health policy impact of Healing Arts Scotland at 2024 World Cities Culture Summit in Dubai",
-        subtitle:"October 2024",
-        link: "https://www.communityjameel.org/news/jameel-arts-health-lab-announces-public-health-policy-impact-of-healing-arts-scotland-at-2024-world-cities-culture-summit-in-dubai",
-        openInNewTab: false,
-        clickAction: "Internal link",
-      },
 ];
 /*CARD END*/
 
@@ -1573,84 +1594,84 @@ export  const cardJameelArtsAndHealth = [
 /*NEWS START*/
 
 export const newsJameelArtsAndHealth:NewsForReport[] = [
-  {
-    programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "NPR",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/groundbreaking-arts-summit-propels-national-conversation-on-healing-bridging-and-thriving",
-    },
-    datePublished: "January 2024",
-    arabicTitle: "none",
-    slug: "none",
-    name: "Groundbreaking art summit propels national conversation on healing, bridging and thriving",
+{
+  programme: {
+  name: "none",
+  arabicName: "none",
+  shortname: "NPR",
+  slug: "none",
+  url: "https://www.communityjameel.org/media/groundbreaking-arts-summit-propels-national-conversation-on-healing-bridging-and-thriving",
   },
-  {
-    programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "The White House",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/readout-of-white-house-domestic-policy-council-and-national-endowment-of-the-arts-healing-bridging-thriving-summit-on-arts-and-culture-in-our-communities",
-    },
-    datePublished: "January 2024",
-    arabicTitle: "none",
-    slug: "none",
-    name: "Readout of White House Domestic Policy Council and National Endowment of the Arts 'Healing, bridging, thriving' summit on arts and culture in our communities",
+  datePublished: "January 2024",
+  arabicTitle: "none",
+  slug: "none",
+  name: "Groundbreaking art summit propels national conversation on healing, bridging and thriving",
+},
+{
+  programme: {
+  name: "none",
+  arabicName: "none",
+  shortname: "The White House",
+  slug: "none",
+  url: "https://www.communityjameel.org/media/readout-of-white-house-domestic-policy-council-and-national-endowment-of-the-arts-healing-bridging-thriving-summit-on-arts-and-culture-in-our-communities",
   },
-  {
-    programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "Dublin Gazette",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/creative-brain-week-at-trinity",
-    },
-    datePublished: "March 2024",
-    arabicTitle: "none",
-    slug: "none",
-    name: "Creative Brain Week at Trinity",
+  datePublished: "January 2024",
+  arabicTitle: "none",
+  slug: "none",
+  name: "Readout of White House Domestic Policy Council and National Endowment of the Arts 'Healing, bridging, thriving' summit on arts and culture in our communities",
+},
+{
+  programme: {
+  name: "none",
+  arabicName: "none",
+  shortname: "Dublin Gazette",
+  slug: "none",
+  url: "https://www.communityjameel.org/media/creative-brain-week-at-trinity",
   },
-  {
-    programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "NYC Health + Hospitals",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/nyc-health-hospitals-and-the-jameel-arts-health-lab-collaborate-on-largest-ever-evaluation-of-the-impact-of-murals-in-hospitals",
-    },
-    datePublished: "May 2024",
-    arabicTitle: "none",
-    slug: "none",
-    name: "NYC Health + Hospitals and The Jameel Arts & Health Lab collaborate on largest ever evaluation of the impact of murals in hospitals",
+  datePublished: "March 2024",
+  arabicTitle: "none",
+  slug: "none",
+  name: "Creative Brain Week at Trinity",
+},
+{
+  programme: {
+  name: "none",
+  arabicName: "none",
+  shortname: "NYC Health + Hospitals",
+  slug: "none",
+  url: "https://www.communityjameel.org/media/nyc-health-hospitals-and-the-jameel-arts-health-lab-collaborate-on-largest-ever-evaluation-of-the-impact-of-murals-in-hospitals",
   },
-  {
-    programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "The Art Newspaper",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/we-need-a-shared-language-scotland-wide-festival-highlights-links-between-the-arts-and-health",
-    },
-    datePublished: "August 2024",
-    arabicTitle: "none",
-    slug: "none",
-    name: "We need a shared language: Scotland-wide festival highlights links between the arts and health",
+  datePublished: "May 2024",
+  arabicTitle: "none",
+  slug: "none",
+  name: "NYC Health + Hospitals and The Jameel Arts & Health Lab collaborate on largest ever evaluation of the impact of murals in hospitals",
+},
+{
+  programme: {
+  name: "none",
+  arabicName: "none",
+  shortname: "The Art Newspaper",
+  slug: "none",
+  url: "https://www.communityjameel.org/media/we-need-a-shared-language-scotland-wide-festival-highlights-links-between-the-arts-and-health",
   },
-  {
-    programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "Edinburgh Magazine",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/scottish-ballet-and-jameel-arts-health-lab-present-healing-arts-scotland-week",
-    },
-    datePublished: "August 2024",
-    arabicTitle: "none",
-    slug: "none",
-    name: "Scottish Ballet and Jameel Arts & Health Lab present healing arts scotland week",
+  datePublished: "August 2024",
+  arabicTitle: "none",
+  slug: "none",
+  name: "‘We need a shared language’: Scotland-wide festival highlights links between the arts and health",
+},
+{
+  programme: {
+  name: "none",
+  arabicName: "none",
+  shortname: "Edinburgh Magazine",
+  slug: "none",
+  url: "https://www.communityjameel.org/media/scottish-ballet-and-jameel-arts-health-lab-present-healing-arts-scotland-week",
   },
+  datePublished: "August 2024",
+  arabicTitle: "none",
+  slug: "none",
+  name: "Scottish Ballet and Jameel Arts & Health Lab present healing arts scotland week",
+},
 ];
 /*NEWS END*/
 
@@ -1658,11 +1679,31 @@ export const newsJameelArtsAndHealth:NewsForReport[] = [
 /*MOSAIC START*/
 
 export const imageMosaicJameelArtsAndHealth = [
-  {
-    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6751649e687518a61378f5fd_JAMEEL_INSTITUTE_SCHOOL_PUBLIC_HEALTH_WEBP.webp",
-    alt: "picture",
-  },
-  
+{
+  url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67653c8dacee6561714158d5_Cultur_runners_Event-0057.webp",
+  alt: "picture",
+},
+{
+  url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67653d2e2519a98e4c265d99_5068-267.webp",
+  alt: "picture",
+},
+{
+  url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67653d6572de08383af9b1c5_SB%20HAS%20Hospital%20Film%20-%20Image%20by%20Mihaela%20Bodlovic%20(198).webp",
+  alt: "picture",
+},
+{
+  url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67653db1ab15addae865d159_003-CH-WB-WHO-091924_WEBP.webp",
+  alt: "picture",
+},
+{
+  url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67654560b00ee14ccb420616_Group-Photo_Dubai-Summit.webp",
+  alt: "picture",
+},
+{
+  url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676549e00ad1b50c79bf214b_002-CH-WB-WHO-091924_WEBP.webp",
+  alt: "picture",
+},
+
 ];
 
 /*MOSAIC END*/
@@ -1691,7 +1732,7 @@ export const statsJameelHouses:StatProps[] = [
 export  const cardJameelHouses = [
 
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6765552be52d03a14715e325_KUNDEKARI.webp",
       alt: "Kündekari | Timelapse of traditional joinery technique for geometric wooden panel",
       title: "Kündekari | Timelapse of traditional joinery technique for geometric wooden panel",
       subtitle:"July 2024",
@@ -1700,16 +1741,16 @@ export  const cardJameelHouses = [
       clickAction: "Video embed code",
     },
     {
-      imageUrl: "CardImageURL Nat to finish",
-      alt: "Introducing the Jameel House of World Traditional Arts",
-      title: "Introducing the Jameel House of World Traditional Arts",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6765552bfba3d7b198e27310_DUMFRIES_HOUSE.webp",
+      alt: "Introducing the Jameel House of World Traditional Arts in Scotland",
+      title: "Introducing the Jameel House of World Traditional Arts in Scotland",
       subtitle:"October 2024",
       link: "https://www.youtube.com/embed/BKER9lkhfFg?si=B2QDgf7FxEYTfYf2",
       openInNewTab: false,
       clickAction: "Video embed code",
     },
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6765552b56400b759b7469e5_JAMEEL_HOUSE_CATALOGUE_2024.webp",
       alt: "2024 Jameel House in Cairo catalogue showcases the craftsmanship of a new cohort of graduates",
       title: "2024 Jameel House in Cairo catalogue showcases the craftsmanship of a new cohort of graduates",
       subtitle:"November 2024",
@@ -1719,6 +1760,25 @@ export  const cardJameelHouses = [
     },
 ];
 /*CARD END*/
+
+/*NEWS START*/
+
+export const newsJameelHouses:NewsForReport[] = [
+  {
+    programme: {
+    name: "none",
+    arabicName: "none",
+    shortname: "NPR",
+    slug: "none",
+    url: "https://almalnews.com/%d8%a8%d9%8a%d8%aa-%d8%ac%d9%85%d9%8a%d9%84-%d8%a8%d8%a7%d9%84%d9%82%d8%a7%d9%87%d8%b1%d8%a9-%d9%85%d8%b8%d9%84%d8%a9-%d9%81%d9%86%d9%8a%d8%a9-%d9%84%d8%ad%d9%85%d8%a7%d9%8a%d8%a9/",
+    },
+    datePublished: "January 2024",
+    arabicTitle: "none",
+    slug: "none",
+    name: "بيت جميل بالقاهرة .. مظلة فنية لحماية التراث بدعم شراكات دولية",
+  },
+  ];
+  /*NEWS END*/
 
 
 /*MOSAIC START*/
@@ -1755,7 +1815,7 @@ export const statsAtelierJameel:StatProps[] = [
 export  const cardAtelierJameel = [
 
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6765641fe0eefac1a20bf936_ATELIER_JAMEEL_WINTER.webp",
       alt: "Bayt Yakan for the Al-Darb Al-Ahmar community",
       title: "Bayt Yakan for the Al-Darb Al-Ahmar community",
       subtitle:"February 2024",
@@ -1764,7 +1824,7 @@ export  const cardAtelierJameel = [
       clickAction: "Video embed code"
     },
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6765641fb05d646d40b51095_ATELIER_JAMEEL_FRANCE24.webp",
       alt: "Winter school at Bayt Yakan as seen on France 24",
       title: "Winter school at Bayt Yakan as seen on France 24",
       subtitle:"February 2024",
@@ -1773,7 +1833,7 @@ export  const cardAtelierJameel = [
       clickAction: "Video embed code",
     },
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67655f3455a500be636b4ee1_Photo%2020-07-2024%2C%208%2018%2032%E2%80%AFPM%20(2).jpg",
       alt: "Atelier Jameel and Bayt Yakan partner to deliver traditional arts and crafts summer programme in support of Al-Darb Al-Ahmar community",
       title: "Atelier Jameel and Bayt Yakan partner to deliver traditional arts and crafts summer programme in support of Al-Darb Al-Ahmar community",
       subtitle:"June 2024",
@@ -1789,9 +1849,50 @@ export  const cardAtelierJameel = [
 
 export const imageMosaicAtelierJameel = [
   {
-    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6751649e687518a61378f5fd_JAMEEL_INSTITUTE_SCHOOL_PUBLIC_HEALTH_WEBP.webp",
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67655ce14a78ece65b808673_2F2A0710.webp",
     alt: "picture",
   },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67655ce1b940036dedde691b_IMG_8044.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67655ce137a1c7ccfe5cb7a2_JH-Exhibition-IFAO_%20(15).webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67655ce18a2f795de3800e70_JH_Beit-Yakan_%20(79).webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67655ce147609fd3aa5aa95f_JH-Exhibition-IFAO_%20(462).webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67655ce04a977a0a9c037b9f_PHOTO-2024-08-14-14-32-08%20(12).webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67655ce0d3159233251a1c7d_2F2A1186.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67655ce0a1218a8cb40b1311_JH-Exhibition-IFAO_%20(489).webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67655d67aea76886a7cd76a3_IMG_8114.webp",
+    alt: "picture",
+  },  
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67655ddbddace9edc1198def_PHOTO-2024-08-14-14-32-08%20(25).jpg",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67655e1949322e3ca8aebf2a_JH_Beit-Yakan_10-Aug_%20(70)%20copy.webp",
+    alt: "picture",
+  },
+
   
 ];
 
@@ -1808,7 +1909,7 @@ export const imageMosaicAtelierJameel = [
 
 /*KPIs START*/
 export const statsBocelliJameel:StatProps[] = [
-    {content: "Schoalrs", title: "5",},
+    {content: "Scholars", title: "5",},
     {content: "Performances", title: "50+",},
     {content: "participants at Mawheba masterclass", title: "30",},
   
@@ -1821,7 +1922,7 @@ export const statsBocelliJameel:StatProps[] = [
 export  const cardBoecelliJameel = [
 
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67657f306bf44a50ee2ccddb_ANASTASIA.webp",
       alt: "I always told myself I'm going to be an opera singer",
       title: "I always told myself I'm going to be an opera singer",
       subtitle:"January 2024",
@@ -1830,7 +1931,7 @@ export  const cardBoecelliJameel = [
       clickAction: "Video embed code",
     },
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67657f5458f59f52488b7cff_HENNA.webp",
       alt: "Opera is storytelling, moving people's emotions",
       title: "Opera is storytelling, moving people's emotions",
       subtitle:"January 2024",
@@ -1839,7 +1940,7 @@ export  const cardBoecelliJameel = [
       clickAction: "Video embed code",
     },
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67657f301eedafcfd7374dcf_HENNA_BOCELLI.webp",
       alt: "Andrea Bocelli and Henna Mun perform 'Tace il labbro' at BST Hyde Park",
       title: "Andrea Bocelli and Henna Mun perform 'Tace il labbro' at BST Hyde Park",
       subtitle:"July 2024",
@@ -1848,7 +1949,7 @@ export  const cardBoecelliJameel = [
       clickAction: "Video embed code",
     },
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67657f3048ffcfba8aa933ae_HENNA_GLYDEBOURNE.webp",
       alt: "Henna Mun wins the 2024 John Christie Award at Glyndebourne",
       title: "Henna Mun wins the 2024 John Christie Award at Glyndebourne",
       subtitle:"August 2024",
@@ -1857,13 +1958,13 @@ export  const cardBoecelliJameel = [
       clickAction: "Video embed code",
     },
     {
-      imageUrl: "CardImageURL Nat to finish",
-      alt: "Discover Mawheba masterclasses for young Egyptian musicians",
-      title: "Discover Mawheba masterclasses for young Egyptian musicians",
-      subtitle:"November 2024",
-      link: "https://www.youtube.com/embed/lKqysglN5n4?si=idyGZa0YD70ZnO76",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676581d25fdcbfbca1c8be10_CLARA_BARBIER_SERRANO.webp",
+      alt: "Clara Barbier Serrano performs at Les Arènes Lyriques in Montmatre",
+      title: "Clara Barbier Serrano performs at Les Arènes Lyriques in Montmatre",
+      subtitle:"July-August 2024",
+      link: "https://www.communityjameel.org/events/clara-barbier-serrano-les-arenes-lyriques",
       openInNewTab: false,
-      clickAction: "Video embed code",
+      clickAction: "Internal link",
     },
 ];
 /*CARD END*/
@@ -1873,7 +1974,31 @@ export  const cardBoecelliJameel = [
 
 export const imageMosaicBocelliJameel = [
   {
-    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6751649e687518a61378f5fd_JAMEEL_INSTITUTE_SCHOOL_PUBLIC_HEALTH_WEBP.webp",
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67657fe28cca329a3b3b0d3d_673224663d4bc7e5b05cf240_668ab0cb44fb5c4dda3c164c_HennaxBocelli_BSTHydePark.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67657fe2f9a5e566fbc1e583_6732248e32eeccbbea7dd0be_65fab8bd6cd12b7cacc16f81_The%2520Merry%2520Widow-Anastasia%2520Koorn.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67657fe1b052e8a47c05df4f_673224663d4bc7e5b05cf253_66b1000d64c41df2dd0b26de_lucarossetti-1915-RE%2520copia.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67657fe135cd958149a3d211_673224663d4bc7e5b05cf21b_66b1001d2d10d7cd53aae7e2_lucarossetti-9220-RE%2520copia.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67658059e38cb1f1fcfcd675_Henna.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6765810169c067bdcd8ce1f4_673224682044bd006077c116_66c8631735d1051600362cbe_DSC08312-2%20copy.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67658101882c3894c87452db_673224692044bd006077c15e_66c8630c793f5d37d092e7ee_DSC08448%20copy.webp",
     alt: "picture",
   },
   
