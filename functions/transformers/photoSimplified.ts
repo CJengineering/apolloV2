@@ -1,12 +1,7 @@
 import {ImageLightbox,  } from "@/app/interfaces";
-
-
-
 export default function photoMosaicSimplified(
   item: any,
-
 ): ImageLightbox {
-
   return {
     src: item.url || "",
     alt: item.alt || "",
@@ -27,15 +22,9 @@ export default function photoMosaicSimplified(
     peopleMultiReference: [],
     location2: "",
     locationArabic: "",
-
     highResolution: "",
     name: "",
     slug: "",
-
-
-
-   
-   
     // Add other missing attributes here with default empty values
   };
 }
