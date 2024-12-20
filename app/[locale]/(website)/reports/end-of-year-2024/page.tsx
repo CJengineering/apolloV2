@@ -8,7 +8,7 @@ import TrailerModalButton from "@/components/CJ-components/components-CJ/custom 
 import { Metadata } from "next";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
-import { cardGaza, cardJameelInstitute, cardMITJameelClinic, imageMosaicJameelInstitute, imageMosaicMITJameelClinic, newsJameelInstitute, newsMITJameelClinic, statsGaza, statsJameelInstitute, statsMITJameelClinic, ImageLightbox, statsMITJWAFS, cardMITJWAFS, newsMITJWAFS, imageMosaicGazaProgramme, imageMosaicMITAbdulLatifWaterFood, statsJameelIndex, cardJameelIndex, statsJameelObservatoryForFoodSecurityEarlyAction, cardJameelObservatoryForFoodSecurityEarlyAction, statsJameelObservatoryCREWSnet, cardJameelObservatoryCREWNSnet, newsJameelObservatoryCREWNSnet, imageJameelObservatoryCREWSnet, statsCLIMAVORExJameelAtRCA, cardCLIMAVORExJameelAtRCA, newsCLIMAVORExJameelAtRCA, imageMosaicJameelObservatoryForFoodSecurityEarlyAction, imageMosaicCLIMAVORExJameelAtRCA, statsJPAL, cardJPAL, newsJPAL, cardJPALAWL, statsJPALAWL, newsJPALAWL, imageMosaicJPALAWL, newsC40, cardC40, statsC40, statsAnkur, cardAnkur, imageMosaicAnkur, imageMosaicC40, newsGaza, statsPrathamJameel, cardPrathamJameel, imageMosaicPrathamJameel, statsJameeToyotaScholarship, cardJameelToyotaScholarship, imageMosaicJameelToyotaScholarship, imageMosaicEjada, cardEjada, statsEjada} from "@/app/data/annualreport2024";
+import { cardGaza, cardJameelInstitute, cardMITJameelClinic, imageMosaicJameelInstitute, imageMosaicMITJameelClinic, newsJameelInstitute, newsMITJameelClinic, statsGaza, statsJameelInstitute, statsMITJameelClinic, ImageLightbox, statsMITJWAFS, cardMITJWAFS, newsMITJWAFS, imageMosaicGazaProgramme, imageMosaicMITAbdulLatifWaterFood, statsJameelIndex, cardJameelIndex, statsJameelObservatoryForFoodSecurityEarlyAction, cardJameelObservatoryForFoodSecurityEarlyAction, statsJameelObservatoryCREWSnet, cardJameelObservatoryCREWNSnet, newsJameelObservatoryCREWNSnet, imageJameelObservatoryCREWSnet, statsCLIMAVORExJameelAtRCA, cardCLIMAVORExJameelAtRCA, newsCLIMAVORExJameelAtRCA, imageMosaicJameelObservatoryForFoodSecurityEarlyAction, imageMosaicCLIMAVORExJameelAtRCA, statsJPAL, cardJPAL, newsJPAL, cardJPALAWL, statsJPALAWL, newsJPALAWL, imageMosaicJPALAWL, newsC40, cardC40, statsC40, statsAnkur, cardAnkur, imageMosaicAnkur, imageMosaicC40, newsGaza, statsPrathamJameel, cardPrathamJameel, imageMosaicPrathamJameel, statsJameeToyotaScholarship, cardJameelToyotaScholarship, imageMosaicJameelToyotaScholarship, imageMosaicEjada, cardEjada, statsEjada, cardJameelArtsAndHealth, statsJameelArtsAndHealth, newsJameelArtsAndHealth, imageMosaicJameelArtsAndHealth, statsJameelHouses, cardJameelHouses, imageMosaicJameelHouses, newsJameelHouses, statsAtelierJameel, cardAtelierJameel, imageMosaicAtelierJameel, cardBoecelliJameel, statsBocelliJameel, imageMosaicBocelliJameel} from "@/app/data/annualreport2024";
 import SectionHomeCard from "@/components/components V2/home/section-home-card";
 import SectionDivider from "@/components/components V2/generic/section-divider";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
@@ -24,14 +24,14 @@ import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcolle
 import ResponsiveYouTubeEmbed from "@/components/custom beta components/ResponsiveYouTubeEmbed";
 export const metadata: Metadata = customMetaDataGenerator({
   useRawTitle: true,
-  title: "Community Jameel Studios",
+  title: "Community Jameel | A look back at 2024",
   description:
-    "Community Jameel Studios produces award-winning films and video content about how science and learning can help communities thrive.",
+    "Community Jameel's work in 2024, from emergency humanitarian relief to climate action, water and food systems, disease modelling, AI and health, learning, traditional arts and arts and health.",
   ogType: "website",
   ogImage:
-    "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/674dfdfb6d3debc818f1c510_COMMUNITY_JAMEEL_STUDIOS_OG.webp",
+    "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67657e024b52c1e8ca648a2e_END_OF_YEAR_2024_OG.webp",
   twitterCard: "summary_large_image",
-  keywords: ["Community Jameel", "Jameel", "Community", "Studios"],
+  keywords: ["Community Jameel", "Jameel", "Community", "A year in review 2024", "2024"],
 });
 
 export default async function AnnualReport2024Page({
@@ -40,12 +40,12 @@ export default async function AnnualReport2024Page({
   params: { slug: string; locale: string };
 }) {
 
-  const imagesGaza: ImageLightbox[] = imageMosaicGazaProgramme.map(photoNotFromCollectionMapper);
-  const imagesJI: ImageLightbox[] = imageMosaicJameelInstitute.map(photoNotFromCollectionMapper);
+  // const imagesGaza: ImageLightbox[] = imageMosaicGazaProgramme.map(photoNotFromCollectionMapper);
+  // const imagesJI: ImageLightbox[] = imageMosaicJameelInstitute.map(photoNotFromCollectionMapper);
   // const imagesMITJC: ImageLightbox[] = imageMosaicMITJameelClinic.map(photoNotFromCollectionMapper);
   // const imagesMITJWAFS: ImageLightbox[] = imageMosaicMITAbdulLatifWaterFood.map(photoNotFromCollectionMapper);  
   const imagesJOFSEA: ImageLightbox[] = imageMosaicJameelObservatoryForFoodSecurityEarlyAction.map(photoNotFromCollectionMapper);
-  const imagesJOCREWSNET: ImageLightbox[] = imageJameelObservatoryCREWSnet.map(photoNotFromCollectionMapper);
+  // const imagesJOCREWSNET: ImageLightbox[] = imageJameelObservatoryCREWSnet.map(photoNotFromCollectionMapper);
   const imagesCLIMAVORE: ImageLightbox[] = imageMosaicCLIMAVORExJameelAtRCA.map(photoNotFromCollectionMapper);
   const imagesJPAL: ImageLightbox[] = imageMosaicMITAbdulLatifWaterFood.map(photoNotFromCollectionMapper);
   const imagesJPALAWL: ImageLightbox[] = imageMosaicJPALAWL.map(photoNotFromCollectionMapper);
@@ -53,7 +53,12 @@ export default async function AnnualReport2024Page({
   const imagesAnkur: ImageLightbox[] = imageMosaicAnkur.map(photoNotFromCollectionMapper);
   const imagesPratham: ImageLightbox[] = imageMosaicPrathamJameel.map(photoNotFromCollectionMapper);
   const imagesJTS: ImageLightbox[] = imageMosaicJameelToyotaScholarship.map(photoNotFromCollectionMapper);
-  const imagesEjada: ImageLightbox[] =   imageMosaicEjada.map(photoNotFromCollectionMapper);
+  const imagesEjada: ImageLightbox[] =  imageMosaicEjada.map(photoNotFromCollectionMapper);
+  const imagesJAHL: ImageLightbox[] =  imageMosaicJameelArtsAndHealth.map(photoNotFromCollectionMapper);
+  const imagesJameelHouses: ImageLightbox[] =  imageMosaicJameelHouses.map(photoNotFromCollectionMapper);
+  const imagesAtelierJameel: ImageLightbox[] =  imageMosaicAtelierJameel.map(photoNotFromCollectionMapper);
+  const imagesBJS: ImageLightbox[] =  imageMosaicBocelliJameel.map(photoNotFromCollectionMapper);
+  
 
 
   return (
@@ -63,15 +68,16 @@ export default async function AnnualReport2024Page({
           <div className="">
           <div className="pb-12">
           <div className="w-full pb-6">
-            <h1 className="header-article">End of year report 2024</h1>
+            <h1 className="header-article">A look back at 2024</h1>
           </div>
+          <div className="pb-12 w-full lg:w-3/4"><ResponsiveYouTubeEmbed embedId="6NYZ4AE4dt8?si=HvcyM_C75vTWbCoK"></ResponsiveYouTubeEmbed></div>
           <div className="w-full">
             <div className="prose prose-xl leading-normal dark:prose-dark">
               <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut laoreet velit eu ante sagittis convallis. Nulla vel pharetra ipsum. Pellentesque cursus, nibh a blandit volutpat, nisl nibh tempus purus, viverra tincidunt ligula sapien a arcu. Proin rhoncus urna eu auctor hendrerit. Nulla facilisis ex ligula, ut gravida velit faucibus eu. Fusce tempus pretium turpis, non posuere felis malesuada et. Nulla varius neque sit amet blandit iaculis.
+              In 2024, Community Jameel continued to advance its mission across emergency humanitarian relief, climate action, water and food systems, disease modelling, AI and health, learning, traditional arts and arts and health, making significant strides through its global programme and partnerships. The MIT Jameel Clinic led breakthroughs in AI-driven medical research, while collaborations with Imperial College London and Save the Children supported vital emergency responses and healthcare training. The Jameel Observatory expanded its reach, enhancing resilience to climate shocks in vulnerable regions, and the Jameel Toyota Scholarship marked its 30th year of empowering students worldwide.
               </p>
               <p>
-              Nullam sed volutpat mauris. Nullam vel lorem id neque scelerisque viverra. Phasellus ut nisi quis arcu mattis sollicitudin a vel mauris. Integer posuere varius mauris. Quisque consequat scelerisque tortor, quis pulvinar nisi tempor in. Donec at felis nisi. Pellentesque hendrerit odio at purus vehicula volutpat.
+This year also celebrated the preservation of culture and the transformative power of the arts. The Jameel Houses of Traditional Arts and Atelier Jameel delivered impactful programmes supporting artisans and craft communities. Meanwhile, the Jameel Arts & Health Lab fostered global dialogue on the intersection of arts and wellbeing, with initiatives ranging from Scotland to Dubai. As 2024 draws to a close, Community Jameel’s commitment to innovation, collaboration, and human flourishing has enriched lives and strengthened communities worldwide, setting the stage for an even more impactful 2025.
               </p>
             </div>
             </div>
@@ -117,9 +123,9 @@ export default async function AnnualReport2024Page({
               </CarousselForComponents>
             </div>
 
-      <div className="w-full mx-auto pt-12">
+      {/* <div className="w-full mx-auto pt-12">
                   <ContentPhotos images={imagesGaza} />
-          </div>
+          </div> */}
             </div>
             </div>
             </PostAccordion>
@@ -162,9 +168,9 @@ export default async function AnnualReport2024Page({
           <div className="py-2"><PressCardHome key={index} content={value} locale="en"/></div>
         ))}
       </div>
-      <div className="w-full mx-auto py-6">
+      {/* <div className="w-full mx-auto py-6">
                   <ContentPhotos images={imagesJI} />
-          </div>
+          </div> */}
             </div>
             </div>
             </PostAccordion>
@@ -278,6 +284,7 @@ export default async function AnnualReport2024Page({
                 {/* <h3 className="text-2xl sans-serif">Features</h3> */}
               </div>
           </div>
+          <div className="mb-6"><ButtonCJ href="https://jameelindex.mit.edu" text="Explore the Jameel Index" styleType="primary"></ButtonCJ></div>
             </div>
             </PostAccordion>
             
@@ -375,7 +382,7 @@ export default async function AnnualReport2024Page({
         ))}
         
       </div>
-      <div className="py-6"><ContentPhotos images={imagesJOCREWSNET} /></div>
+      {/* <div className="py-6"><ContentPhotos images={imagesJOCREWSNET} /></div> */}
       
       </div>
       </div>
@@ -392,7 +399,7 @@ export default async function AnnualReport2024Page({
                 {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
               </div>
               <div className="pb-12"><ResponsiveYouTubeEmbed embedId="OfRczfzmMoE?si=I9a3EZNfgk6BRMQx"></ResponsiveYouTubeEmbed></div>
-
+              <div className="mb-12">
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
               {statsCLIMAVORExJameelAtRCA.map((value, index) => (
@@ -400,12 +407,12 @@ export default async function AnnualReport2024Page({
         ))}
         </div>
         </div>
+        </div>
                 <div className="mt-6">
                 <div className="mb-3">
                 {/* <h3 className="text-2xl sans-serif">Features</h3> */}
               </div>
-            <div className="">
-              <CarousselForComponents>
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {cardCLIMAVORExJameelAtRCA.map((card, index) => (
                   <ReportCard
                   key={index}
@@ -418,7 +425,6 @@ export default async function AnnualReport2024Page({
                   clickAction={card.clickAction || ""}
                   isWithSubtitle date={""}                    />
                   ))}
-              </CarousselForComponents>
             </div>
             <div className="w-full pt-6">
               
@@ -427,7 +433,6 @@ export default async function AnnualReport2024Page({
         ))}
         
       </div>
-      <div className="py-6"><ContentPhotos images={imagesCLIMAVORE} /></div>
       
       </div>
       </div>
@@ -509,7 +514,7 @@ export default async function AnnualReport2024Page({
                 {/* <h3 className="text-2xl sans-serif">Features</h3> */}
               </div>
             <div className="">
-              <CarousselForComponents>
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {cardJPALAWL.map((card, index) => (
                   <ReportCard
                   key={index}
@@ -522,7 +527,7 @@ export default async function AnnualReport2024Page({
                   clickAction={card.clickAction || ""}
                   isWithSubtitle date={""}                    />
                   ))}
-              </CarousselForComponents>
+              </div>
             </div>
             <div className="w-full pt-6">
               
@@ -531,7 +536,6 @@ export default async function AnnualReport2024Page({
         ))}
         
       </div>
-      <div className="py-6"><ContentPhotos images={imagesJPALAWL} /></div>
       </div>
       </div>
       </PostAccordion>
@@ -582,7 +586,7 @@ export default async function AnnualReport2024Page({
         ))}
         
       </div>
-      <div className="py-6"><ContentPhotos images={imagesC40} /></div>
+      {/* <div className="py-6"><ContentPhotos images={imagesC40} /></div> */}
       </div>
       </div>
       </PostAccordion>
@@ -642,7 +646,7 @@ export default async function AnnualReport2024Page({
                 {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
               </div>
               <div className="pb-12"><ResponsiveYouTubeEmbed embedId="Z9On8kB-DJg?si=BSp1P_mYXTmyOAiJY"></ResponsiveYouTubeEmbed></div>
-
+<div className="mb-12">
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
               {statsPrathamJameel.map((value, index) => (
@@ -650,12 +654,13 @@ export default async function AnnualReport2024Page({
         ))}
         </div>
         </div>
+        </div>
                 <div className="mt-6">
                 <div className="mb-3">
                 {/* <h3 className="text-2xl sans-serif">Features</h3> */}
               </div>
             <div className="">
-              <CarousselForComponents>
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {cardPrathamJameel.map((card, index) => (
                   <ReportCard
                   key={index}
@@ -668,7 +673,7 @@ export default async function AnnualReport2024Page({
                   clickAction={card.clickAction || ""}
                   isWithSubtitle date={""}                    />
                   ))}
-              </CarousselForComponents>
+              </div>
             </div>
             <div className="w-full pt-6">
               
@@ -677,7 +682,7 @@ export default async function AnnualReport2024Page({
         ))}
         
       </div>
-      <div className="py-6"><ContentPhotos images={imagesPratham} /></div>
+      <div className="py-6"><ContentPhotos images={imagesPratham} numberColumns="3" /></div>
       </div>
       </div>
       </PostAccordion>
@@ -692,7 +697,7 @@ export default async function AnnualReport2024Page({
               <div className="mb-3">
                 {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
               </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="Z9On8kB-DJg?si=BSp1P_mYXTmyOAiJY"></ResponsiveYouTubeEmbed></div>
+              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="QfwB8A75cqU?si=F6JKAm3wdEHNrQEE"></ResponsiveYouTubeEmbed></div>
 
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
@@ -706,7 +711,7 @@ export default async function AnnualReport2024Page({
                 {/* <h3 className="text-2xl sans-serif">Features</h3> */}
               </div>
             <div className="">
-              <CarousselForComponents>
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {cardJameelToyotaScholarship.map((card, index) => (
                   <ReportCard
                   key={index}
@@ -719,7 +724,7 @@ export default async function AnnualReport2024Page({
                   clickAction={card.clickAction || ""}
                   isWithSubtitle date={""}                    />
                   ))}
-              </CarousselForComponents>
+              </div>
             </div>
 
       <div className="py-6"><ContentPhotos images={imagesJTS} /></div>
@@ -737,7 +742,7 @@ export default async function AnnualReport2024Page({
               <div className="mb-3">
                 {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
               </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="Z9On8kB-DJg?si=BSp1P_mYXTmyOAiJY"></ResponsiveYouTubeEmbed></div>
+              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="48OzqMQkY9U?si=gRZ1352DZdIxC24K"></ResponsiveYouTubeEmbed></div>
 
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
@@ -750,9 +755,52 @@ export default async function AnnualReport2024Page({
                 <div className="mb-3">
                 {/* <h3 className="text-2xl sans-serif">Features</h3> */}
               </div>
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="">
+              {cardEjada.map((card, index) => (
+                  <ReportCard
+                  key={index}
+                  imageUrl={card.imageUrl}
+                  alt={card.alt}
+                  title={card.title}
+                  subtitle={card.subtitle}
+                  link={card.link}
+                  openInNewTab={card.openInNewTab}
+                  clickAction={card.clickAction || ""}
+                  isWithSubtitle date={""}                    />
+                  ))}
+            </div>
+            </div>
+      </div>
+      </div>
+      </PostAccordion>
+
+{/* //////////////////// EJADA END //////////////////////////// */}
+
+{/* ////////////////////JAMEEL ARTS AND HEALTH LAB START//////////////////////////// */}
+
+<PostAccordion title={"Jameel Arts & Health Lab"}> 
+            <div>
+             <div className="mt-6">
+              <div className="mb-3">
+                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
+              </div>
+              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="ywDD1Rr3YlE?si=tBDNURYSRRV_r2-o"></ResponsiveYouTubeEmbed></div>
+
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+              {statsJameelArtsAndHealth.map((value, index) => (
+          <Stats key={index} title={value.title} content={value.content} />
+        ))}
+        </div>
+        </div>
+                <div className="mt-6">
+                <div className="mb-3">
+                {/* <h3 className="text-2xl sans-serif">Features</h3> */}
+              </div>
             <div className="">
               <CarousselForComponents>
-              {cardEjada.map((card, index) => (
+              {cardJameelArtsAndHealth.map((card, index) => (
                   <ReportCard
                   key={index}
                   imageUrl={card.imageUrl}
@@ -766,12 +814,172 @@ export default async function AnnualReport2024Page({
                   ))}
               </CarousselForComponents>
             </div>
-      <div className="py-6"><ContentPhotos images={imagesEjada} /></div>
+            <div className="w-full pt-6">
+              
+        {newsJameelArtsAndHealth.map((value, index) => (
+          <div className="py-3"><PressCardHome key={index} content={value} locale="en"/></div>
+        ))}
+        
+      </div>
+      <div className="py-6"><ContentPhotos images={imagesJAHL} /></div>
       </div>
       </div>
       </PostAccordion>
 
-{/* //////////////////// EJADA END //////////////////////////// */}
+{/* ////////////////////JAMEEL ARTS AND HEALTH LAB END//////////////////////////// */}
+
+{/* ////////////////////JAMEEL HOUSES START//////////////////////////// */}
+
+<PostAccordion title={"Jameel Houses of Traditional Arts"}> 
+            <div>
+             <div className="mt-6">
+              <div className="mb-3">
+                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
+              </div>
+              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="dn9mZchjKHw?si=qhPvYDOggzetOpj3"></ResponsiveYouTubeEmbed></div>
+
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
+
+              {statsJameelHouses.map((value, index) => (
+          <Stats key={index} title={value.title} content={value.content} />
+        ))}
+        </div>
+        </div>
+                <div className="mt-6">
+                <div className="mb-3">
+                {/* <h3 className="text-2xl sans-serif">Features</h3> */}
+              </div>
+            <div className="">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {cardJameelHouses.map((card, index) => (
+                  <ReportCard
+                  key={index}
+                  imageUrl={card.imageUrl}
+                  alt={card.alt}
+                  title={card.title}
+                  subtitle={card.subtitle}
+                  link={card.link}
+                  openInNewTab={card.openInNewTab}
+                  clickAction={card.clickAction || ""}
+                  isWithSubtitle date={""}                    />
+                  ))}
+                  </div>
+            </div>
+            {/* <div className="w-full pt-6">
+              
+        {newsJameelHouses.map((value, index) => (
+          <div className="py-3"><PressCardHome key={index} content={value} locale="en"/></div>
+        ))}
+        
+      </div> */}
+      {/* <div className="py-6"><ContentPhotos images={imagesJameelHouses} /></div> */}
+      </div>
+      </div>
+      </PostAccordion>
+
+{/* ////////////////////JAMEEL HOUSES END//////////////////////////// */}
+
+{/* ////////////////////ATELIER JAMEEL START//////////////////////////// */}
+
+<PostAccordion title={"Atelier Jameel"}> 
+            <div>
+             <div className="mt-6">
+              <div className="mb-3">
+                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
+              </div>
+              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="JLzaKJyffjI?si=SQmQVE8SDwBQCxNt"></ResponsiveYouTubeEmbed></div>
+
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
+
+              {statsAtelierJameel.map((value, index) => (
+          <Stats key={index} title={value.title} content={value.content} />
+        ))}
+        </div>
+        </div>
+                <div className="mt-6">
+                <div className="mb-3">
+                {/* <h3 className="text-2xl sans-serif">Features</h3> */}
+              </div>
+            <div className="">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {cardAtelierJameel.map((card, index) => (
+                  <ReportCard
+                  key={index}
+                  imageUrl={card.imageUrl}
+                  alt={card.alt}
+                  title={card.title}
+                  subtitle={card.subtitle}
+                  link={card.link}
+                  openInNewTab={card.openInNewTab}
+                  clickAction={card.clickAction || ""}
+                  isWithSubtitle date={""}                    />
+                  ))}
+                  </div>
+            </div>
+            {/* <div className="w-full pt-6">
+              
+        {newsJameelHouses.map((value, index) => (
+          <div className="py-3"><PressCardHome key={index} content={value} locale="en"/></div>
+        ))}
+        
+      </div> */}
+      <div className="py-6"><ContentPhotos images={imagesAtelierJameel} /></div>
+      </div>
+      </div>
+      </PostAccordion>
+
+{/* ////////////////////ATELIER JAMEEL END//////////////////////////// */}
+
+{/* ////////////////////BOCELLI JAMEEL SCHOLARSHIP END//////////////////////////// */}
+
+<PostAccordion title={"Andrea Bocelli Foundation-Community Jameel Scholarship at the Royal College of Music in London"}> 
+            <div>
+             <div className="mt-6">
+              <div className="mb-3">
+                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
+              </div>
+              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="KCMG2btSzJI?si=cHeTH6dby5zEWZMd"></ResponsiveYouTubeEmbed></div>
+
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+              {statsBocelliJameel.map((value, index) => (
+          <Stats key={index} title={value.title} content={value.content} />
+        ))}
+        </div>
+        </div>
+                <div className="mt-6">
+                <div className="mb-3">
+                {/* <h3 className="text-2xl sans-serif">Features</h3> */}
+              </div>
+            <div className="">
+              <CarousselForComponents>
+              {cardBoecelliJameel.map((card, index) => (
+                  <ReportCard
+                  key={index}
+                  imageUrl={card.imageUrl}
+                  alt={card.alt}
+                  title={card.title}
+                  subtitle={card.subtitle}
+                  link={card.link}
+                  openInNewTab={card.openInNewTab}
+                  clickAction={card.clickAction || ""}
+                  isWithSubtitle date={""}                    />
+                  ))}
+              </CarousselForComponents>
+            </div>
+            <div className="w-full pt-6">
+              
+        {newsJameelArtsAndHealth.map((value, index) => (
+          <div className="py-3"><PressCardHome key={index} content={value} locale="en"/></div>
+        ))}
+        
+      </div>
+      <div className="py-6"><ContentPhotos images={imagesBJS} /></div>
+      </div>
+      </div>
+      </PostAccordion>
+
+{/* ////////////////////BOCELLI JAMEEL SCHOLARSHIP END//////////////////////////// */}
 
 </div>
           </div>
