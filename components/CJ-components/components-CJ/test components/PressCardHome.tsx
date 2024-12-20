@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { NewsCleanedFields, PostFieldsCleaned } from "@/app/interfaces";
+import { NewsCleanedFields, PostFieldsCleaned, NewsForReport } from "@/app/interfaces";
 
 interface newLocaleProps {
   locale: string;
@@ -10,7 +10,7 @@ export default function PressCardHome({
   content,
   locale,
 }: {
-  content: PostFieldsCleaned;
+  content: PostFieldsCleaned | NewsForReport;
   locale: newLocaleProps | string;
 }) {
   return (

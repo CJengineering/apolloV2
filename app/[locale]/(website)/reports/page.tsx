@@ -26,7 +26,7 @@ export const metadata: Metadata = customMetaDataGenerator({
   keywords: ["Community Jameel", "Jameel", "Community", "Studios"],
 });
 
-export default async function AnnualReport2024Page({
+export default async function ReportsPage({
   params,
 }: {
   params: { slug: string; locale: string };

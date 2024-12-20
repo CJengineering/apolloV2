@@ -20,7 +20,20 @@ export type DataChecksType = Array<DataItem | undefined>;
 
 
 
-export interface HomeCardProps {
+export interface ReportCardProps {
+  imageUrl: string;
+  alt: string;
+  title: string;
+  date: string;
+  subtitle: string;
+  link: string;
+  openInNewTab?: boolean;
+  clickAction: string;
+  isClickable?: boolean;
+  isWithSubtitle?: boolean;
+}
+
+export interface CarouselCardProps {
   imageUrl: string;
   alt: string;
   title: string;
@@ -48,6 +61,17 @@ export interface RelatedColection {
   shortname?: string;
   slug: string;
   url?: string;
+}
+export interface HomeCardProps {
+  imageUrl: string;
+  alt: string;
+  title: string;
+  subtitle: string;
+  link: string;
+  openInNewTab?: boolean;
+  clickAction: string;
+  isClickable?: boolean;
+  isWithSubtitle?: boolean;
 }
 
 export interface ButtonCJProps {
@@ -550,6 +574,8 @@ export interface PhotoFieldsRaw {
   name?: string;
   slug?: string;
 }
+
+
 export interface ImageLightbox {
   src: string;
   alt: string;
@@ -675,6 +701,15 @@ export interface PeopleRawFields {
   slug?: string;
   "feature-video"?: string;
 }
+
+export interface NewsForReport {
+  programme: RelatedColection;
+  datePublished: string;
+  arabicTitle: string;
+  slug: string;
+  name: string;
+}
+
 export interface PostFieldsCleaned {
   webflowId: string;
   videoAsHeroYesNo: boolean;

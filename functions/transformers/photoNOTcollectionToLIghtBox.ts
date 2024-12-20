@@ -6,9 +6,6 @@ export default function photoNotFromCollectionMapper(
   item: any,
 
 ): ImageLightbox {
-  
-
-
 
   return {
     src: item.url || "",
