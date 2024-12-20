@@ -49,7 +49,7 @@ export const FilterComponentForPosts: React.FC = () => {
         : programmes.filter((programme) =>
             programme.name
               .toLowerCase()
-              .startsWith(queryProgramme.toLowerCase())
+              .includes(queryProgramme.toLowerCase()) 
           );
     return sortedProgrammes.sort((a, b) =>
       a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
@@ -61,7 +61,7 @@ export const FilterComponentForPosts: React.FC = () => {
       queryPerson === ""
         ? [...people]
         : people.filter((person) =>
-            person.name.toLowerCase().startsWith(queryPerson.toLowerCase())
+            person.name.toLowerCase().includes(queryPerson.toLowerCase())
           );
     return sortedPeople.sort((a, b) =>
       a.name.localeCompare(b.name, undefined, { sensitivity: "base" })

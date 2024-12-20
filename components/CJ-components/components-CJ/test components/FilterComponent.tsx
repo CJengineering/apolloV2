@@ -50,7 +50,7 @@ const FilterComponent: React.FC = () => {
       queryProgramme === ""
         ? [...programmes]
         : programmes.filter((programme) =>
-            programme.name.toLowerCase().startsWith(queryProgramme.toLowerCase())
+            programme.name.toLowerCase().includes(queryProgramme.toLowerCase())
           );
     return sortedProgrammes.sort((a, b) =>
       a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
@@ -62,7 +62,7 @@ const FilterComponent: React.FC = () => {
       querySource === ""
         ? [...sources]
         : sources.filter((source) =>
-            source.name.toLowerCase().startsWith(querySource.toLowerCase())
+            source.name.toLowerCase().includes(querySource.toLowerCase())
           );
     return sortedSources.sort((a, b) =>
       a.name.localeCompare(b.name, undefined, { sensitivity: "base" })

@@ -42,7 +42,7 @@ export const FilterComponentForEvents: React.FC = () => {
       queryProgramme === ""
         ? [...programmes]
         : programmes.filter((programme) =>
-            programme.name.toLowerCase().startsWith(queryProgramme.toLowerCase())
+            programme.name.toLowerCase().includes(queryProgramme.toLowerCase())
           );
     return sortedProgrammes.sort((a, b) =>
       a.name.localeCompare(b.name, undefined, { sensitivity: "base" })
