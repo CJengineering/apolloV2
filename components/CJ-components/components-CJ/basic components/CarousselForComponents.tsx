@@ -11,14 +11,15 @@ interface CarouselProps {
 const CarouselForComponent = ({ children }: CarouselProps) => {
   const carouselRef = useRef<HTMLDivElement>(null);
   const carousselKidRef = useRef<HTMLDivElement>(null);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState<number | null>(null);
 
-useEffect(() => {
-  const handleResize = () => setScreenWidth(window.innerWidth-30);
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
-  
+  useEffect(() => {
+    // Set screen width only on the client
+    const handleResize = () => setScreenWidth(window.innerWidth - 30);
+    handleResize(); // Set initial width
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const scrollLeft = () => {
     if (carouselRef.current && carousselKidRef.current) { 
@@ -59,7 +60,7 @@ useEffect(() => {
           ref={carouselRef}
           className={`carousel mx-a flex carousel-center bg-neutral custom-scrollbar gap-4 overflow-x-auto   md:max-w-[960px] lg:max-w-[900px] xl:max-w-[1030px] 2xl:max-w-[1313px]`}
           style={{
-            maxWidth: screenWidth <= 768 ? `${screenWidth}px` : undefined, // Apply only on mobile
+            maxWidth: screenWidth && screenWidth<= 768 ? `${screenWidth}px` : undefined, // Apply only on mobile
           }} >
           {children.map((child, index) => (
             <div

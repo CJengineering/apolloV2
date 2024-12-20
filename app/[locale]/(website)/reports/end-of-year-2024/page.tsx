@@ -8,7 +8,7 @@ import TrailerModalButton from "@/components/CJ-components/components-CJ/custom 
 import { Metadata } from "next";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
-import { cardGaza, cardJameelInstitute, cardMITJameelClinic, imageMosaicJameelInstitute, imageMosaicMITJameelClinic, newsJameelInstitute, newsMITJameelClinic, statsGaza, statsJameelInstitute, statsMITJameelClinic, ImageLightbox, statsMITJWAFS, cardMITJWAFS, newsMITJWAFS, imageMosaicGazaProgramme, imageMosaicMITAbdulLatifWaterFood, statsJameelIndex, cardJameelIndex, statsJameelObservatoryForFoodSecurityEarlyAction, cardJameelObservatoryForFoodSecurityEarlyAction, statsJameelObservatoryCREWSnet, cardJameelObservatoryCREWNSnet, newsJameelObservatoryCREWNSnet, imageJameelObservatoryCREWSnet, statsCLIMAVORExJameelAtRCA, cardCLIMAVORExJameelAtRCA, newsCLIMAVORExJameelAtRCA, imageMosaicJameelObservatoryForFoodSecurityEarlyAction, imageMosaicCLIMAVORExJameelAtRCA, statsJPAL, cardJPAL, newsJPAL, cardJPALAWL, statsJPALAWL, newsJPALAWL, imageMosaicJPALAWL, newsC40, cardC40, statsC40, statsAnkur, cardAnkur, imageMosaicAnkur, imageMosaicC40, newsGaza, statsPrathamJameel, cardPrathamJameel, imageMosaicPrathamJameel, statsJameeToyotaScholarship, cardJameelToyotaScholarship, imageMosaicJameelToyotaScholarship, imageMosaicEjada, cardEjada, statsEjada} from "@/app/data/annualreport2024";
+import { cardGaza, cardJameelInstitute, cardMITJameelClinic, imageMosaicJameelInstitute, imageMosaicMITJameelClinic, newsJameelInstitute, newsMITJameelClinic, statsGaza, statsJameelInstitute, statsMITJameelClinic,  statsMITJWAFS, cardMITJWAFS, newsMITJWAFS, imageMosaicGazaProgramme, imageMosaicMITAbdulLatifWaterFood, statsJameelIndex, cardJameelIndex, statsJameelObservatoryForFoodSecurityEarlyAction, cardJameelObservatoryForFoodSecurityEarlyAction, statsJameelObservatoryCREWSnet, cardJameelObservatoryCREWNSnet, newsJameelObservatoryCREWNSnet, imageJameelObservatoryCREWSnet, statsCLIMAVORExJameelAtRCA, cardCLIMAVORExJameelAtRCA, newsCLIMAVORExJameelAtRCA, imageMosaicJameelObservatoryForFoodSecurityEarlyAction, imageMosaicCLIMAVORExJameelAtRCA, statsJPAL, cardJPAL, newsJPAL, cardJPALAWL, statsJPALAWL, newsJPALAWL, imageMosaicJPALAWL, newsC40, cardC40, statsC40, statsAnkur, cardAnkur, imageMosaicAnkur, imageMosaicC40, newsGaza, statsPrathamJameel, cardPrathamJameel, imageMosaicPrathamJameel, statsJameeToyotaScholarship, cardJameelToyotaScholarship, imageMosaicJameelToyotaScholarship, imageMosaicEjada, cardEjada, statsEjada} from "@/app/data/annualreport2024";
 import SectionHomeCard from "@/components/components V2/home/section-home-card";
 import SectionDivider from "@/components/components V2/generic/section-divider";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
@@ -17,7 +17,7 @@ import PostAccordion from "@/components/mdx/accordion";
 import CarousselForComponents from "@/components/CJ-components/components-CJ/basic components/CarousselForComponents";
 import Stats from "@/components/CJ-components/components-CJ/basic components/Stats";
 import PressCardHome from "@/components/CJ-components/components-CJ/test components/PressCardHome";
-import { NewsForReport } from "@/app/interfaces";
+import { ImageLightbox, NewsForReport } from "@/app/interfaces";
 import ContentPhotos from "@/components/CJ-components/components-CJ/test components/content-photos";
 import { url } from "inspector";
 import photoNotFromCollectionMapper from "@/functions/transformers/photoNOTcollectionToLIghtBox";
@@ -101,6 +101,7 @@ export default async function AnnualReport2024Page({
               </div>
               <div><ResponsiveYouTubeEmbed embedId="Aq2pvQWUeWA?si=QRMDUXpfepqOcn-N"></ResponsiveYouTubeEmbed></div>
             <div className="">
+              
               <CarousselForComponents>
               {cardGaza.map((card, index) => (
                   <ReportCard
