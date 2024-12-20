@@ -5,7 +5,7 @@
 // clickAction: "External link",
 /////////////////////////////////////////////////////////////////////////
 
-import { ImageLightbox, NewsForReport, StatProps, } from "../interfaces";
+import { NewsForReport, StatProps, } from "../interfaces";
 
 /*GAZA START */
 
