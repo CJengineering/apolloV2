@@ -53,7 +53,7 @@ export default async function AnnualReport2024Page({
   const imagesAnkur: ImageLightbox[] = imageMosaicAnkur.map(photoNotFromCollectionMapper);
   const imagesPratham: ImageLightbox[] = imageMosaicPrathamJameel.map(photoNotFromCollectionMapper);
   const imagesJTS: ImageLightbox[] = imageMosaicJameelToyotaScholarship.map(photoNotFromCollectionMapper);
-  const imagesEjada: ImageLightbox[] =   imageMosaicEjada.map(photoNotFromCollectionMapper);
+  const imagesEjada: ImageLightbox[] = imageMosaicEjada.map(photoNotFromCollectionMapper);
 
 
   return (
