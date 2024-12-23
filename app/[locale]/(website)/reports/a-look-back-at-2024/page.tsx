@@ -773,6 +773,7 @@ export default async function AnnualReport2024Page({
                   ))}
             </div>
             </div>
+            <div className="py-6"><ContentPhotos images={imagesEjada} /></div>
       </div>
       </div>
       </PostAccordion>
