@@ -8,7 +8,7 @@ import TrailerModalButton from "@/components/CJ-components/components-CJ/custom 
 import { Metadata } from "next";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
-import { cardGaza, cardJameelInstitute, cardMITJameelClinic, imageMosaicJameelInstitute, imageMosaicMITJameelClinic, newsJameelInstitute, newsMITJameelClinic, statsGaza, statsJameelInstitute, statsMITJameelClinic, statsMITJWAFS, cardMITJWAFS, newsMITJWAFS, imageMosaicGazaProgramme, imageMosaicMITAbdulLatifWaterFood, statsJameelIndex, cardJameelIndex, statsJameelObservatoryForFoodSecurityEarlyAction, cardJameelObservatoryForFoodSecurityEarlyAction, statsJameelObservatoryCREWSnet, cardJameelObservatoryCREWNSnet, newsJameelObservatoryCREWNSnet, statsCLIMAVORExJameelAtRCA, cardCLIMAVORExJameelAtRCA, newsCLIMAVORExJameelAtRCA, imageMosaicJameelObservatoryForFoodSecurityEarlyAction, imageMosaicCLIMAVORExJameelAtRCA, statsJPAL, cardJPAL, newsJPAL, cardJPALAWL, statsJPALAWL, newsJPALAWL, imageMosaicJPALAWL, newsC40, cardC40, statsC40, statsAnkur, cardAnkur, imageMosaicAnkur, imageMosaicC40, newsGaza, statsPrathamJameel, cardPrathamJameel, imageMosaicPrathamJameel, statsJameeToyotaScholarship, cardJameelToyotaScholarship, imageMosaicJameelToyotaScholarship, imageMosaicEjada, cardEjada, statsEjada, cardJameelArtsAndHealth, statsJameelArtsAndHealth, newsJameelArtsAndHealth, imageMosaicJameelArtsAndHealth, statsJameelHouses, cardJameelHouses, imageMosaicJameelHouses, newsJameelHouses, statsAtelierJameel, cardAtelierJameel, imageMosaicAtelierJameel, cardBoecelliJameel, statsBocelliJameel, imageMosaicBocelliJameel, imageMosaicJPAL} from "@/app/data/annualreport2024";
+import { cardGaza, cardJameelInstitute, cardMITJameelClinic, imageMosaicJameelInstitute, imageMosaicMITJameelClinic, newsJameelInstitute, newsMITJameelClinic, statsGaza, statsJameelInstitute, statsMITJameelClinic, statsMITJWAFS, cardMITJWAFS, newsMITJWAFS, imageMosaicGazaProgramme, imageMosaicMITAbdulLatifWaterFood, statsJameelIndex, cardJameelIndex, statsJameelObservatoryForFoodSecurityEarlyAction, cardJameelObservatoryForFoodSecurityEarlyAction, statsJameelObservatoryCREWSnet, cardJameelObservatoryCREWNSnet, newsJameelObservatoryCREWNSnet, statsCLIMAVORExJameelAtRCA, cardCLIMAVORExJameelAtRCA, newsCLIMAVORExJameelAtRCA, imageMosaicJameelObservatoryForFoodSecurityEarlyAction, imageMosaicCLIMAVORExJameelAtRCA, statsJPAL, cardJPAL, newsJPAL, cardJPALAWL, statsJPALAWL, newsJPALAWL, imageMosaicJPALAWL, newsC40, cardC40, statsC40, statsAnkur, cardAnkur, imageMosaicAnkur, imageMosaicC40, newsGaza, statsPrathamJameel, cardPrathamJameel, imageMosaicPrathamJameel, statsJameeToyotaScholarship, cardJameelToyotaScholarship, imageMosaicJameelToyotaScholarship, imageMosaicEjada, cardEjada, statsEjada, cardJameelArtsAndHealth, statsJameelArtsAndHealth, newsJameelArtsAndHealth, imageMosaicJameelArtsAndHealth, statsJameelHouses, cardJameelHouses, imageMosaicJameelHouses, newsJameelHouses, statsAtelierJameel, cardAtelierJameel, imageMosaicAtelierJameel, cardBoecelliJameel, statsBocelliJameel, imageMosaicBocelliJameel, imageMosaicJPAL, newsBJS} from "@/app/data/annualreport2024";
 import SectionHomeCard from "@/components/components V2/home/section-home-card";
 import SectionDivider from "@/components/components V2/generic/section-divider";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
@@ -645,17 +645,17 @@ export default async function AnnualReport2024Page({
 <PostAccordion title={"Pratham-Jameel Second Chance"}> 
             <div>
              <div className="mt-6">
-              <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
-              </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="Z9On8kB-DJg?si=BSp1P_mYXTmyOAiJY"></ResponsiveYouTubeEmbed></div>
-<div className="mb-12">
+              <div className="mb-12">
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              {statsPrathamJameel.map((value, index) => (
-          <Stats key={index} title={value.title} content={value.content} />
-        ))}
-        </div>
+{statsPrathamJameel.map((value, index) => (
+<Stats key={index} title={value.title} content={value.content} />
+))}
+</div>
+              </div>
+              <div className=""><ResponsiveYouTubeEmbed embedId="Z9On8kB-DJg?si=BSp1P_mYXTmyOAiJY"></ResponsiveYouTubeEmbed></div>
+<div className="mb-12">
+
         </div>
         </div>
                 <div className="mt-6">
@@ -678,13 +678,6 @@ export default async function AnnualReport2024Page({
                   ))}
               </div>
             </div>
-            <div className="w-full pt-6">
-              
-        {newsC40.map((value, index) => (
-          <div className="py-3"><PressCardHome key={index} content={value} locale="en"/></div>
-        ))}
-        
-      </div>
       <div className="py-6"><ContentPhotos images={imagesPratham} numberColumns="3" /></div>
       </div>
       </div>
@@ -697,17 +690,17 @@ export default async function AnnualReport2024Page({
 <PostAccordion title={"MIT Jameel-Toyota Scholarship"}> 
             <div>
              <div className="mt-6">
-              <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
-              </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="QfwB8A75cqU?si=F6JKAm3wdEHNrQEE"></ResponsiveYouTubeEmbed></div>
-
+              <div className="mb-12">
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              {statsJameeToyotaScholarship.map((value, index) => (
-          <Stats key={index} title={value.title} content={value.content} />
-        ))}
-        </div>
+{statsJameeToyotaScholarship.map((value, index) => (
+<Stats key={index} title={value.title} content={value.content} />
+))}
+</div>
+              </div>
+              <div className="mb-6"><ResponsiveYouTubeEmbed embedId="QfwB8A75cqU?si=F6JKAm3wdEHNrQEE"></ResponsiveYouTubeEmbed></div>
+
+
         </div>
                 <div className="mt-6">
                 <div className="mb-3">
@@ -970,7 +963,7 @@ export default async function AnnualReport2024Page({
             </div>
             <div className="w-full pt-6">
               
-        {newsJameelArtsAndHealth.map((value, index) => (
+        {newsBJS.map((value, index) => (
           <div className="py-3"><PressCardHome key={index} content={value} locale="en"/></div>
         ))}
         

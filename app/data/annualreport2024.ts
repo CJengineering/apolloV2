@@ -146,8 +146,8 @@ export  const cardJameelInstitute = [
     },
     {
       imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/675c2a044569562b4c4f5fc6_JI-RISE.webp",
-      alt: "Launching Jameel Institute - Realtime Intelligent Support for emergencies",
-      title: "Launching Jameel Institute - Realtime Intelligent Support for emergencies",
+      alt: "Launching Jameel Institute - Realtime Intelligent Support for Emergencies",
+      title: "Launching Jameel Institute - Realtime Intelligent Support for Emergencies",
       subtitle:"October 2024",
       link: "https://www.youtube.com/embed/SWA0DEKRvz8?si=rDwfc9gK7FsTAcr-",
       openInNewTab: false,
@@ -229,8 +229,8 @@ export  const cardMITJameelClinic = [
 
   {
     imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/675c305163869e9149bebdfe_HALICIN%20copy.webp",
-    alt: "Scientists at the MIT Jameel CLinic use AI to discover a first new antibiotic canditate in 60 years",
-    title: "Scientists at the MIT Jameel CLinic use AI to discover a first new antibiotic canditate in 60 years",
+    alt: "Scientists at the MIT Jameel Clinic use AI to discover a first new antibiotic canditate in 60 years",
+    title: "Scientists at the MIT Jameel Clinic use AI to discover a first new antibiotic canditate in 60 years",
     subtitle:"January 2024",
     link: "https://www.youtube.com/embed/IJn-bYloHiI?si=cWh5Zs4DQre0OU_N",
     openInNewTab: false,
@@ -530,7 +530,7 @@ export  const cardJameelIndex = [
 
 /*KPIs START*/
 export const statsJameelObservatoryForFoodSecurityEarlyAction:StatProps[] = [
-  {content: "People targetd to benefit", title: "23M",},
+  {content: "People targeted to benefit", title: "23M",},
   {content: "Partner organisations", title: "42",},
   {content: "PhD students", title: "10",},
 
@@ -672,8 +672,8 @@ export const imageMosaicJameelObservatoryForFoodSecurityEarlyAction = [
 
 /*KPIs START*/
 export const statsJameelObservatoryCREWSnet:StatProps[] = [
-  {content: "People targetd for improved clean water access", title: "33M",},
-  {content: "Households targetd for improved climate resilience", title: "152K",},
+  {content: "People targeted for improved clean water access", title: "33M",},
+  {content: "Households targeted for improved climate resilience", title: "152K",},
   {content: "flagship innovations", title: "3",},
 
 ];
@@ -1505,10 +1505,6 @@ export  const cardJameelToyotaScholarship = [
 export const imageMosaicJameelToyotaScholarship = [
 {
   url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67609b1f951968d847e2ec23_mit092524_0034.webp",
-  alt: "picture",
-},
-{
-  url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67609b1f873e2b6d2683d402_mit092524_0053.webp",
   alt: "picture",
 },
 {
