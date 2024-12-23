@@ -56,7 +56,7 @@ const CarouselForComponent = ({ children }: CarouselProps) => {
       <div className=" ">
         <div
           ref={carouselRef}
-          className={`carousel mx-a flex carousel-center bg-neutral custom-scrollbar gap-4 overflow-x-auto   md:max-w-[960px] lg:max-w-[900px] xl:max-w-[1030px] 2xl:max-w-[1313px]`}
+          className={`carousel mx-a flex carousel-center bg-neutral custom-scrollbar gap-4 overflow-x-auto md:max-w-[960px] lg:max-w-[900px] xl:max-w-[1030px] 2xl:max-w-[1313px]`}
           style={{
             maxWidth: screenWidth && screenWidth<= 768 ? `${screenWidth}px` : undefined, // Apply only on mobile
           }} >

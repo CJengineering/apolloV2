@@ -193,7 +193,7 @@ a:hover{
       display: flex;                
       overflow-x: auto;               
       scroll-snap-type: x mandatory; 
-      gap: 8px;                  
+      gap: 16px;                  
       padding: 16px;                 
     }
     @media (max-width: 768px) {

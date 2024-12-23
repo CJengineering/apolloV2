@@ -229,15 +229,13 @@ export default async function AnnualReport2024Page({
 
 <PostAccordion title={"MIT Abdul Latif Jameel Water & Food Systems Lab"}> 
             <div>
-            <div className="my-12">
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=j4NzlQCvdKmRtaUu"></ResponsiveYouTubeEmbed></div>
-
-              
-              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {statsMITJWAFS.map((value, index) => (
               <Stats key={index} title={value.title} content={value.content} />
               ))}
               </div>
+            <div className="my-12">
+              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="M4_cprod9Co?si=j4NzlQCvdKmRtaUu"></ResponsiveYouTubeEmbed></div>
               </div>
                 <div className="mt-6">
                 <div className="mb-3">
@@ -450,17 +448,17 @@ export default async function AnnualReport2024Page({
 <PostAccordion title={"Abdul Latif Jameel Poverty Action Lab (J-PAL)"}> 
             <div>
              <div className="mt-6">
-              <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
-              </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="4FLeNSqLxdQ?si=ewIxpbIysSu0SDmr"></ResponsiveYouTubeEmbed></div>
-
+              <div className="mb-12">
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              {statsJPAL.map((value, index) => (
-          <Stats key={index} title={value.title} content={value.content} />
-        ))}
-        </div>
+{statsJPAL.map((value, index) => (
+<Stats key={index} title={value.title} content={value.content} />
+))}
+</div>
+              </div>
+              <div className=""><ResponsiveYouTubeEmbed embedId="4FLeNSqLxdQ?si=ewIxpbIysSu0SDmr"></ResponsiveYouTubeEmbed></div>
+
+
         </div>
                 <div className="mt-6">
                 <div className="mb-3">
@@ -501,17 +499,18 @@ export default async function AnnualReport2024Page({
 <PostAccordion title={"J-PAL Air and Water Labs"}> 
             <div>
              <div className="mt-6">
-              <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
+                            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+{statsJPALAWL.map((value, index) => (
+<Stats key={index} title={value.title} content={value.content} />
+))}
+</div>
+              <div className="mb-12">
+
               </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="339UyvRg9hg?si=4VADPL4iGFctHRID"></ResponsiveYouTubeEmbed></div>
+              <div className="pb-3"><ResponsiveYouTubeEmbed embedId="339UyvRg9hg?si=4VADPL4iGFctHRID"></ResponsiveYouTubeEmbed></div>
 
-              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              {statsJPALAWL.map((value, index) => (
-          <Stats key={index} title={value.title} content={value.content} />
-        ))}
-        </div>
         </div>
                 <div className="mt-6">
                 <div className="mb-3">
@@ -551,22 +550,20 @@ export default async function AnnualReport2024Page({
 <PostAccordion title={"Jameel C40 Urban Climate Labs"}> 
             <div>
              <div className="mt-6">
-              <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
-              </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="MTJlwYOmX8k?si=pieMkK3hunDECKoY"></ResponsiveYouTubeEmbed></div>
-
+              <div className="mb-12">
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              {statsC40.map((value, index) => (
-          <Stats key={index} title={value.title} content={value.content} />
-        ))}
-        </div>
+{statsC40.map((value, index) => (
+<Stats key={index} title={value.title} content={value.content} />
+))}
+</div>
+              </div>
+              <div className=""><ResponsiveYouTubeEmbed embedId="MTJlwYOmX8k?si=pieMkK3hunDECKoY"></ResponsiveYouTubeEmbed></div>
+
+
         </div>
                 <div className="mt-6">
-                <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Features</h3> */}
-              </div>
+  
             <div className="">
               <CarousselForComponents>
               {cardC40.map((card, index) => (
@@ -787,17 +784,17 @@ export default async function AnnualReport2024Page({
 <PostAccordion title={"Jameel Arts & Health Lab"}> 
             <div>
              <div className="mt-6">
-              <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
-              </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="ywDD1Rr3YlE?si=tBDNURYSRRV_r2-o"></ResponsiveYouTubeEmbed></div>
-
+              <div className="mb-12">
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              {statsJameelArtsAndHealth.map((value, index) => (
-          <Stats key={index} title={value.title} content={value.content} />
-        ))}
-        </div>
+{statsJameelArtsAndHealth.map((value, index) => (
+<Stats key={index} title={value.title} content={value.content} />
+))}
+</div>
+              </div>
+              <div className=""><ResponsiveYouTubeEmbed embedId="ywDD1Rr3YlE?si=tBDNURYSRRV_r2-o"></ResponsiveYouTubeEmbed></div>
+
+
         </div>
                 <div className="mt-6">
                 <div className="mb-3">
@@ -839,16 +836,16 @@ export default async function AnnualReport2024Page({
             <div>
              <div className="mt-6">
               <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
-              </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="dn9mZchjKHw?si=qhPvYDOggzetOpj3"></ResponsiveYouTubeEmbed></div>
-
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
 
-              {statsJameelHouses.map((value, index) => (
-          <Stats key={index} title={value.title} content={value.content} />
-        ))}
-        </div>
+{statsJameelHouses.map((value, index) => (
+<Stats key={index} title={value.title} content={value.content} />
+))}
+</div>
+              </div>
+              <div className="pb-3"><ResponsiveYouTubeEmbed embedId="dn9mZchjKHw?si=qhPvYDOggzetOpj3"></ResponsiveYouTubeEmbed></div>
+
+
         </div>
                 <div className="mt-6">
                 <div className="mb-3">
@@ -938,17 +935,17 @@ export default async function AnnualReport2024Page({
 <PostAccordion title={"Bocelli Jameel Scholarship at RCM"}> 
             <div>
              <div className="mt-6">
-              <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
-              </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="KCMG2btSzJI?si=cHeTH6dby5zEWZMd"></ResponsiveYouTubeEmbed></div>
-
+              <div className="mb-12">
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              {statsBocelliJameel.map((value, index) => (
-          <Stats key={index} title={value.title} content={value.content} />
-        ))}
-        </div>
+{statsBocelliJameel.map((value, index) => (
+<Stats key={index} title={value.title} content={value.content} />
+))}
+</div>
+              </div>
+              <div className=""><ResponsiveYouTubeEmbed embedId="KCMG2btSzJI?si=cHeTH6dby5zEWZMd"></ResponsiveYouTubeEmbed></div>
+
+
         </div>
                 <div className="mt-6">
                 <div className="mb-3">
