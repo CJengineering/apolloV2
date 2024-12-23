@@ -12,6 +12,7 @@ import { NewsForReport, StatProps, } from "../interfaces";
 export const statsGaza:StatProps[] = [
   {content: "First responders set to be trained for paediatric blast injury & psychosocial support", title: "16,000",},
   {content: "Mothers & babies directly benefitted", title: "2,000",},
+  {content: "Mothers & newborns evacuated from Gaza", title: "1,800",},
   {content: "STOP THE BLEED® kits", title: "1,000",},
 ];
 export  const cardGaza = [
@@ -54,17 +55,6 @@ export  const cardGaza = [
     openInNewTab: false,
     clickAction: "Video embed code",
   },
-
-  {
-    imageUrl: "CardImageURL Nat to finish",
-    alt: "Thousands of Palestinians, including newborn babies, medically evacuated from Gaza to Egypt",
-    title: "Thousands of Palestinians, including newborn babies, medically evacuated from Gaza to Egypt",
-    subtitle:"September 2024",
-    link: "https://www.communityjameel.org/news/save-the-children-supports-thousands-of-palestinians-including-newborn-babies-medically-evacuated-to-egypt-with-funding-from-community-jameel",
-    openInNewTab: false,
-    clickAction: "Internal link",
-  },
-
 ];
 export const newsGaza:NewsForReport[] = [
   {
@@ -129,8 +119,8 @@ export  const cardJameelInstitute = [
 
     {
       imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/675c2a04b5ce550918504264_MAJID_EZZATI.webp",
-      alt: "Majid-Ezzati-led study flinds one billion people are obese",
-      title: "Majid-Ezzati-led study flinds one billion people are obese",
+      alt: "Majid Ezzati-led study finds one billion people are obese",
+      title: "Majid Ezzati-led study finds one billion people are obese",
       subtitle:"March 2024",
       link: "https://www.communityjameel.org/news/more-than-one-billion-people-are-obese-finds-study-led-by-the-jameel-institutes-majid-ezzati",
       openInNewTab: false,
@@ -176,11 +166,11 @@ export const newsJameelInstitute:NewsForReport[] = [
     arabicName: "none",
     shortname: "BBC",
     slug: "none",
-    url: "https://www.communityjameel.org/media/more-than-a-billion-people-obese-worldwide-research-suggests",
+    url: "none",
     },
     datePublished: "March 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/more-than-a-billion-people-obese-worldwide-research-suggests",
     name: "More than a billion people obese worldwide, research suggests",
   },
   {
@@ -189,11 +179,11 @@ export const newsJameelInstitute:NewsForReport[] = [
     arabicName: "none",
     shortname: "The Telegraph",
     slug: "none",
-    url: "https://www.communityjameel.org/media/the-risk-from-h5n1-has-never-been-greater---but-making-our-farms-bio-secure-is-harder-than-it-seems",
+    url: "none",
     },
     datePublished: "June 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/the-risk-from-h5n1-has-never-been-greater---but-making-our-farms-bio-secure-is-harder-than-it-seems",
     name: "The risk from H5N1 has never been greater – but making our farms bio-secure is harder than it seems",
   },
  
@@ -296,11 +286,11 @@ export const newsMITJameelClinic:NewsForReport[] = [
     arabicName: "none",
     shortname: "Nature",
     slug: "none",
-    url: "https://www.communityjameel.org/media/building-a-two-way-street-between-cell-biology-and-machine-learning",
+    url: "none",
     },
     datePublished: "January 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/building-a-two-way-street-between-cell-biology-and-machine-learning",
     name: "Building a two-way street between cell biology and machine learning",
   },
   {
@@ -309,11 +299,11 @@ export const newsMITJameelClinic:NewsForReport[] = [
     arabicName: "none",
     shortname: "MIT News",
     slug: "none",
-    url: "https://www.communityjameel.org/media/ai-model-identifies-certain-breast-tumour-stages-likely-to-progress-to-invasive-cancer",
+    url: "none",
     },
     datePublished: "July 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/ai-model-identifies-certain-breast-tumour-stages-likely-to-progress-to-invasive-cancer",
     name: "AI model identifies certain breast tumour stages likely to progress to invasive cancer",
   },
   {
@@ -322,11 +312,11 @@ export const newsMITJameelClinic:NewsForReport[] = [
     arabicName: "none",
     shortname: "The New Yorker",
     slug: "none",
-    url: "https://www.communityjameel.org/media/how-machines-learned-to-discover-drugs",
+    url: "none",
     },
     datePublished: "September 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/how-machines-learned-to-discover-drugs",
     name: "How machines learned to discover drugs",
   },
 ];
@@ -428,11 +418,11 @@ export const newsMITJWAFS:NewsForReport[] = [
     arabicName: "none",
     shortname: "MIT News",
     slug: "none",
-    url: "https://www.communityjameel.org/media/a-new-way-to-swiftly-eliminate-micropollutants-from-water",
+    url: "none",
     },
     datePublished: "January 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/a-new-way-to-swiftly-eliminate-micropollutants-from-water",
     name: "A new way to swiftly eliminate micropollutants from water",
   },
   {
@@ -441,11 +431,11 @@ export const newsMITJWAFS:NewsForReport[] = [
     arabicName: "none",
     shortname: "MIT News",
     slug: "none",
-    url: "https://www.communityjameel.org/media/j-wafs-awards-seed-grants-to-seven-mit-projects-in-water-and-food",
+    url: "none",
     },
     datePublished: "March 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/j-wafs-awards-seed-grants-to-seven-mit-projects-in-water-and-food",
     name: "J-WAFS awards seed grants to seven MIT projects in water and food",
   },
   {
@@ -454,11 +444,11 @@ export const newsMITJWAFS:NewsForReport[] = [
     arabicName: "none",
     shortname: "Tech Crunch",
     slug: "none",
-    url: "https://www.communityjameel.org/media/agzens-realcoverage-wants-to-keep-pesticides-only-where-they-are-needed",
+    url: "none",
     },
     datePublished: "March 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/agzens-realcoverage-wants-to-keep-pesticides-only-where-they-are-needed",
     name: "AgZen's RealCoverage wants to keep pesticides only where they are needed",
   },
   {
@@ -467,11 +457,11 @@ export const newsMITJWAFS:NewsForReport[] = [
     arabicName: "none",
     shortname: "MIT News",
     slug: "none",
-    url: "https://www.communityjameel.org/media/pioneering-the-future-of-materials-extraction",
+    url: "none",
     },
     datePublished: "July 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/pioneering-the-future-of-materials-extraction",
     name: "Pioneering the future of materials extraction",
   },
   {
@@ -480,11 +470,11 @@ export const newsMITJWAFS:NewsForReport[] = [
     arabicName: "none",
     shortname: "MIT News",
     slug: "none",
-    url: "https://www.communityjameel.org/media/j-wafs-grantee-develops-solar-powered-desalination-system-requiring-no-extra-batteries",
+    url: "none",
     },
     datePublished: "October 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/j-wafs-grantee-develops-solar-powered-desalination-system-requiring-no-extra-batteries",
     name: "J-WAFS grantee develops solar-powered desalination system requiring no extra batteries",
   },
 ];
@@ -600,11 +590,11 @@ export const newsJameelObservatoryForFoodSecurityEarlyAction:NewsForReport[] = [
     arabicName: "none",
     shortname: "AgTech Navigator",
     slug: "none",
-    url: "https://www.communityjameel.org/media/early-warning-systems-eliminate-hunger-so-why-the-lack-of-investment",
+    url: "none",
     },
     datePublished: "June 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/early-warning-systems-eliminate-hunger-so-why-the-lack-of-investment",
     name: "Early warning systems eliminate hunger – so why the lack of investment",
   },
 ];
@@ -709,44 +699,44 @@ export  const cardJameelObservatoryCREWNSnet = [
 
 /*NEWS START*/
 
-export const newsJameelObservatoryCREWNSnet:NewsForReport[] = [
+export const newsJameelObservatoryCREWNSnet: NewsForReport[] = [
   {
     programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "MIT News",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/how-climate-change-will-impact-outdoor-activities-in-the-us",
+      name: "none",
+      arabicName: "none",
+      shortname: "MIT News",
+      slug: "none",
+      url: "none",
     },
     datePublished: "October 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/how-climate-change-will-impact-outdoor-activities-in-the-us",
     name: "How climate change will impact outdoor activities in the US",
   },
   {
     programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "Bloomberg",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/by-2100-some-destinations-will-lose-half-their-nice-weather-days",
+      name: "none",
+      arabicName: "none",
+      shortname: "Bloomberg",
+      slug: "none",
+      url: "none",
     },
     datePublished: "April 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/by-2100-some-destinations-will-lose-half-their-nice-weather-days",
     name: "By 2100, some destinations will lose half their nice weather days",
   },
   {
     programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "Robb Report",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/how-climate-change-could-disrupt-the-future-of-travel-according-to-a-new-study",
+      name: "none",
+      arabicName: "none",
+      shortname: "Robb Report",
+      slug: "none",
+      url: "none",
     },
     datePublished: "April 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/how-climate-change-could-disrupt-the-future-of-travel-according-to-a-new-study",
     name: "How climate change could disrupt the future of travel, according to a new study",
   },
 ];
@@ -827,11 +817,11 @@ export const newsCLIMAVORExJameelAtRCA:NewsForReport[] = [
     arabicName: "none",
     shortname: "BBC",
     slug: "none",
-    url: "https://www.communityjameel.org/media/giant-living-tractors-are-bringing-nature-back-to-post-industrial-wastelands",
+    url: "none",
     },
     datePublished: "August 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/giant-living-tractors-are-bringing-nature-back-to-post-industrial-wastelands",
     name: "Giant 'living tractors' bringing nature back to post-industrial wastelands",
   },
   {
@@ -840,11 +830,11 @@ export const newsCLIMAVORExJameelAtRCA:NewsForReport[] = [
     arabicName: "none",
     shortname: "NO NIIN",
     slug: "none",
-    url: "https://www.communityjameel.org/media/rethinking-climate-security-through-food-an-interview-with-cooking-sections",
+    url: "none",
     },
     datePublished: "October 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/rethinking-climate-security-through-food-an-interview-with-cooking-sections",
     name: "Rethinking (climate) security through food: An interview with Cooking Sections",
   },
 
@@ -967,70 +957,70 @@ export  const cardJPAL = [
 
 /*NEWS START*/
 
-export const newsJPAL:NewsForReport[] = [
+export const newsJPAL: NewsForReport[] = [
   {
     programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "Financial Times",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/esther-duflo-rich-world-owes-500bn-in-moral-debt-to-poor-countries",
+      name: "none",
+      arabicName: "none",
+      shortname: "Financial Times",
+      slug: "none",
+      url: "none",
     },
     datePublished: "April 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/esther-duflo-rich-world-owes-500bn-in-moral-debt-to-poor-countries",
     name: "Esther Duflo: Rich world owes $500bn in 'moral debt' to poor countries",
   },
   {
     programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "The New York Times",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/how-one-tech-skeptic-decided-ai-might-benefit-the-middle-class",
+      name: "none",
+      arabicName: "none",
+      shortname: "The New York Times",
+      slug: "none",
+      url: "none",
     },
     datePublished: "April 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/how-one-tech-skeptic-decided-ai-might-benefit-the-middle-class",
     name: "How one tech skeptic decided AI might benefit the middle class",
   },
   {
     programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "The New York Times",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/paying-off-peoples-medical-debt-has-little-impact-on-their-lives-study-finds",
+      name: "none",
+      arabicName: "none",
+      shortname: "The New York Times",
+      slug: "none",
+      url: "none",
     },
     datePublished: "April 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/paying-off-peoples-medical-debt-has-little-impact-on-their-lives-study-finds",
     name: "Paying off people's medical debt has little impact on their lives, study finds",
   },
   {
     programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "The New York Times",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/why-cash-is-better-than-expanded-health-insurance-for-the-poor",
+      name: "none",
+      arabicName: "none",
+      shortname: "The New York Times",
+      slug: "none",
+      url: "none",
     },
     datePublished: "May 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/why-cash-is-better-than-expanded-health-insurance-for-the-poor",
     name: "Why cash is better than expanded health insurance for the poor",
   },
   {
     programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "MIT News",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/groundbreaking-poverty-alleviation-project-expands-with-new-arnold-ventures-j-pal-north-america-collaboration",
+      name: "none",
+      arabicName: "none",
+      shortname: "MIT News",
+      slug: "none",
+      url: "none",
     },
     datePublished: "July 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/groundbreaking-poverty-alleviation-project-expands-with-new-arnold-ventures-j-pal-north-america-collaboration",
     name: "Groundbreaking poverty alleviation project expands with new Arnold Ventures, J-PAL North America collaboration",
   },
 ];
@@ -1040,7 +1030,43 @@ export const newsJPAL:NewsForReport[] = [
 
 export const imageMosaicJPAL = [
     {
-      url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6751649e687518a61378f5fd_JAMEEL_INSTITUTE_SCHOOL_PUBLIC_HEALTH_WEBP.webp",
+      url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67694ca0a7c45429ff71066b_IMG_6523.webp",
+      alt: "picture",
+    },
+    {
+      url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67694ca0bec428850694014c_IMG_1217.webp",
+      alt: "picture",
+    },
+    {
+      url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67694c9fe300fe3c5cde9883_IPL_Event1.webp",
+      alt: "picture",
+    },
+    {
+      url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67694c9fbf1c60d85e6693aa_DSC_4701.webp",
+      alt: "picture",
+    },
+    {
+      url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67694c9fa7c45429ff7105fe_IMG_1375_cropped.webp",
+      alt: "picture",
+    },
+    {
+      url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67694c9fe300fe3c5cde9883_IPL_Event1.webp",
+      alt: "picture",
+    },
+    {
+      url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67694ca0883d6937367ec6f1_5P9A0835.webp",
+      alt: "picture",
+    },
+    {
+      url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67694ca05c0ead786de60e3b_IMG_6446.webp",
+      alt: "picture",
+    },
+    {
+      url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67694ca0883d6937367ec6f1_5P9A0835.webp",
+      alt: "picture",
+    },
+    {
+      url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67694c9f943b35501f38d3c2_EDAB_GREAT_AMERICANS_16x9.webp",
       alt: "picture",
     },
     
@@ -1097,44 +1123,44 @@ export  const cardJPALAWL = [
 
 /*NEWS START*/
 
-export const newsJPALAWL:NewsForReport[] = [
+export const newsJPALAWL: NewsForReport[] = [
   {
     programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "News 24",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/water-crisis-fear-factor-saved-cape-town-and-can-work-for-joburg-says-mayor",
+      name: "none",
+      arabicName: "none",
+      shortname: "News 24",
+      slug: "none",
+      url: "none",
     },
     datePublished: "March 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/water-crisis-fear-factor-saved-cape-town-and-can-work-for-joburg-says-mayor",
     name: "Water crisis: 'Fear factor' saved Cape Town and can work for Joburg, says mayor",
   },
   {
     programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "Radio France",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/reduire-leur-consommation-deau-le-defi-des-habitants-du-cap-pour-eviter-la-catastrophe-en-2018",
+      name: "none",
+      arabicName: "none",
+      shortname: "Radio France",
+      slug: "none",
+      url: "none",
     },
     datePublished: "March 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/reduire-leur-consommation-deau-le-defi-des-habitants-du-cap-pour-eviter-la-catastrophe-en-2018",
     name: "Réduire leur consommation d'eau, le défi des habitants du Cap pour éviter la catastrophe en 2018",
   },
   {
     programme: {
-    name: "none",
-    arabicName: "none",
-    shortname: "Cape Town Today",
-    slug: "none",
-    url: "https://www.communityjameel.org/media/igniting-a-beacon-of-innovation-the-launch-of-the-wae-lab-in-cape-town",
+      name: "none",
+      arabicName: "none",
+      shortname: "Cape Town Today",
+      slug: "none",
+      url: "none",
     },
     datePublished: "March 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "/media/igniting-a-beacon-of-innovation-the-launch-of-the-wae-lab-in-cape-town",
     name: "Igniting a beacon of innovation: The launch of the WAE Lab in Cape Town",
   },
 ];
@@ -1322,10 +1348,53 @@ export  const cardAnkur = [
 
 export const imageMosaicAnkur = [
   {
-    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6751649e687518a61378f5fd_JAMEEL_INSTITUTE_SCHOOL_PUBLIC_HEALTH_WEBP.webp",
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676946ed1dd275da15ee2e89_DSC01957.webp",
     alt: "picture",
   },
-  
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676946edbf1c60d85e6195d2_DSC01338.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676946ed6a4b576e3156f1af_DSC02157.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676946edb40595983c2a6e0b_DSC01829.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676946eda44a3f0c8a12ad06_DSC02136.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676946ed1ea888d5cb5fc95b_DSC01437.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676946ed103d24f42d488e32_DSC02688.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676946ed103d24f42d488e1d_DSC02886.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676946edf2abd948e4ad9453_DSC03279.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6769479d60f10cc9ca1b6a37_DSC02040.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676947c7bec42885068fc33f_DSC01750.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/676947e7b30e84ee21236b1c_DSC02486.webp",
+    alt: "picture",
+  },
 ];
 
 /*MOSAIC END*/
@@ -1486,7 +1555,7 @@ export const statsEjada:StatProps[] = [
 export  const cardEjada = [
 
     {
-      imageUrl: "CardImageURL Nat to finish",
+      imageUrl: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6769276f5058400f86200df5_EJADA_THUMB%20copy.webp",
       alt: "Ejada programme for teachers set to reach 1.4 million people in Jordan",
       title: "Ejada programme for teachers set to reach 1.4 million people in Jordan",
       subtitle:"November 2024",
@@ -1502,7 +1571,35 @@ export  const cardEjada = [
 
 export const imageMosaicEjada = [
   {
-    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/6751649e687518a61378f5fd_JAMEEL_INSTITUTE_SCHOOL_PUBLIC_HEALTH_WEBP.webp",
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67693c7c883d693736709fc0_202309AlYadouda_1.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67693c7ca0f953a9b74a9af3_202305_WheelOfEmotions_7.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67693c7c35f12d43a47f3b9f_202309_GreatArabRevolutionSecondarySchool_2.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67693c7c4891c42833d28d9a_202302_NTSImpactEvent_6.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67693c7cb9e1eff9a1c70c16_202305_WheelOfEmotions_3.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67693c7cd519ad8fb8be4922_202305_WheelOfEmotions_4.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67693c7bcd0e3fbcf95101e8_202302_NTSImpactEvent_1.webp",
+    alt: "picture",
+  },
+  {
+    url: "https://cdn.prod.website-files.com/612cdb8a4fac760705621df5/67693c7ba0f953a9b74a9ad8_202309AlYadouda_5.webp",
     alt: "picture",
   },
   
@@ -1593,85 +1690,85 @@ export  const cardJameelArtsAndHealth = [
 
 /*NEWS START*/
 
-export const newsJameelArtsAndHealth:NewsForReport[] = [
-{
-  programme: {
-  name: "none",
-  arabicName: "none",
-  shortname: "NPR",
-  slug: "none",
-  url: "https://www.communityjameel.org/media/groundbreaking-arts-summit-propels-national-conversation-on-healing-bridging-and-thriving",
+export const newsJameelArtsAndHealth: NewsForReport[] = [
+  {
+    programme: {
+      name: "none",
+      arabicName: "none",
+      shortname: "NPR",
+      slug: "none",
+      url: "none",
+    },
+    datePublished: "January 2024",
+    arabicTitle: "none",
+    slug: "/media/groundbreaking-arts-summit-propels-national-conversation-on-healing-bridging-and-thriving",
+    name: "Groundbreaking art summit propels national conversation on healing, bridging and thriving",
   },
-  datePublished: "January 2024",
-  arabicTitle: "none",
-  slug: "none",
-  name: "Groundbreaking art summit propels national conversation on healing, bridging and thriving",
-},
-{
-  programme: {
-  name: "none",
-  arabicName: "none",
-  shortname: "The White House",
-  slug: "none",
-  url: "https://www.communityjameel.org/media/readout-of-white-house-domestic-policy-council-and-national-endowment-of-the-arts-healing-bridging-thriving-summit-on-arts-and-culture-in-our-communities",
+  {
+    programme: {
+      name: "none",
+      arabicName: "none",
+      shortname: "The White House",
+      slug: "none",
+      url: "none",
+    },
+    datePublished: "January 2024",
+    arabicTitle: "none",
+    slug: "/media/readout-of-white-house-domestic-policy-council-and-national-endowment-of-the-arts-healing-bridging-thriving-summit-on-arts-and-culture-in-our-communities",
+    name: "Readout of White House Domestic Policy Council and National Endowment of the Arts 'Healing, bridging, thriving' summit on arts and culture in our communities",
   },
-  datePublished: "January 2024",
-  arabicTitle: "none",
-  slug: "none",
-  name: "Readout of White House Domestic Policy Council and National Endowment of the Arts 'Healing, bridging, thriving' summit on arts and culture in our communities",
-},
-{
-  programme: {
-  name: "none",
-  arabicName: "none",
-  shortname: "Dublin Gazette",
-  slug: "none",
-  url: "https://www.communityjameel.org/media/creative-brain-week-at-trinity",
+  {
+    programme: {
+      name: "none",
+      arabicName: "none",
+      shortname: "Dublin Gazette",
+      slug: "none",
+      url: "none",
+    },
+    datePublished: "March 2024",
+    arabicTitle: "none",
+    slug: "/media/creative-brain-week-at-trinity",
+    name: "Creative Brain Week at Trinity",
   },
-  datePublished: "March 2024",
-  arabicTitle: "none",
-  slug: "none",
-  name: "Creative Brain Week at Trinity",
-},
-{
-  programme: {
-  name: "none",
-  arabicName: "none",
-  shortname: "NYC Health + Hospitals",
-  slug: "none",
-  url: "https://www.communityjameel.org/media/nyc-health-hospitals-and-the-jameel-arts-health-lab-collaborate-on-largest-ever-evaluation-of-the-impact-of-murals-in-hospitals",
+  {
+    programme: {
+      name: "none",
+      arabicName: "none",
+      shortname: "NYC Health + Hospitals",
+      slug: "none",
+      url: "none",
+    },
+    datePublished: "May 2024",
+    arabicTitle: "none",
+    slug: "/media/nyc-health-hospitals-and-the-jameel-arts-health-lab-collaborate-on-largest-ever-evaluation-of-the-impact-of-murals-in-hospitals",
+    name: "NYC Health + Hospitals and The Jameel Arts & Health Lab collaborate on largest ever evaluation of the impact of murals in hospitals",
   },
-  datePublished: "May 2024",
-  arabicTitle: "none",
-  slug: "none",
-  name: "NYC Health + Hospitals and The Jameel Arts & Health Lab collaborate on largest ever evaluation of the impact of murals in hospitals",
-},
-{
-  programme: {
-  name: "none",
-  arabicName: "none",
-  shortname: "The Art Newspaper",
-  slug: "none",
-  url: "https://www.communityjameel.org/media/we-need-a-shared-language-scotland-wide-festival-highlights-links-between-the-arts-and-health",
+  {
+    programme: {
+      name: "none",
+      arabicName: "none",
+      shortname: "The Art Newspaper",
+      slug: "none",
+      url: "none",
+    },
+    datePublished: "August 2024",
+    arabicTitle: "none",
+    slug: "/media/we-need-a-shared-language-scotland-wide-festival-highlights-links-between-the-arts-and-health",
+    name: "‘We need a shared language’: Scotland-wide festival highlights links between the arts and health",
   },
-  datePublished: "August 2024",
-  arabicTitle: "none",
-  slug: "none",
-  name: "‘We need a shared language’: Scotland-wide festival highlights links between the arts and health",
-},
-{
-  programme: {
-  name: "none",
-  arabicName: "none",
-  shortname: "Edinburgh Magazine",
-  slug: "none",
-  url: "https://www.communityjameel.org/media/scottish-ballet-and-jameel-arts-health-lab-present-healing-arts-scotland-week",
+  {
+    programme: {
+      name: "none",
+      arabicName: "none",
+      shortname: "Edinburgh Magazine",
+      slug: "none",
+      url: "none",
+    },
+    datePublished: "August 2024",
+    arabicTitle: "none",
+    slug: "/media/scottish-ballet-and-jameel-arts-health-lab-present-healing-arts-scotland-week",
+    name: "Scottish Ballet and Jameel Arts & Health Lab present healing arts scotland week",
   },
-  datePublished: "August 2024",
-  arabicTitle: "none",
-  slug: "none",
-  name: "Scottish Ballet and Jameel Arts & Health Lab present healing arts scotland week",
-},
 ];
 /*NEWS END*/
 
@@ -1770,11 +1867,11 @@ export const newsJameelHouses:NewsForReport[] = [
     arabicName: "none",
     shortname: "NPR",
     slug: "none",
-    url: "https://almalnews.com/%d8%a8%d9%8a%d8%aa-%d8%ac%d9%85%d9%8a%d9%84-%d8%a8%d8%a7%d9%84%d9%82%d8%a7%d9%87%d8%b1%d8%a9-%d9%85%d8%b8%d9%84%d8%a9-%d9%81%d9%86%d9%8a%d8%a9-%d9%84%d8%ad%d9%85%d8%a7%d9%8a%d8%a9/",
+    url: "none",
     },
     datePublished: "January 2024",
     arabicTitle: "none",
-    slug: "none",
+    slug: "https://almalnews.com/%d8%a8%d9%8a%d8%aa-%d8%ac%d9%85%d9%8a%d9%84-%d8%a8%d8%a7%d9%84%d9%82%d8%a7%d9%87%d8%b1%d8%a9-%d9%85%d8%b8%d9%84%d8%a9-%d9%81%d9%86%d9%8a%d8%a9-%d9%84%d8%ad%d9%85%d8%a7%d9%8a%d8%a9/",
     name: "بيت جميل بالقاهرة .. مظلة فنية لحماية التراث بدعم شراكات دولية",
   },
   ];
@@ -1968,6 +2065,57 @@ export  const cardBoecelliJameel = [
     },
 ];
 /*CARD END*/
+
+/*NEWS START*/
+
+export const newsBJS:NewsForReport[] = [
+  {
+    programme: {
+    name: "none",
+    arabicName: "none",
+    shortname: "Royal College of Music",
+    slug: "none",
+    url: "none",
+    },
+    datePublished: "July 2024",
+    arabicTitle: "none",
+    slug: "/media/royal-college-of-music-singers-win-prestigious-awards",
+    name: "Royal College of Music singers win prestigious awards",
+  },
+
+  {
+    programme: {
+    name: "none",
+    arabicName: "none",
+    shortname: "The ",
+    slug: "none",
+    url: "none",
+    },
+    datePublished: "February 2024",
+    arabicTitle: "none",
+    slug: "/media/lefanu-the-path-above-the-dunes",
+    name: "Lefanu 'The path above the dunes'",
+  },
+
+
+  {
+    programme: {
+    name: "none",
+    arabicName: "none",
+    shortname: "Cosmopolitan Middle East",
+    slug: "none",
+    url: "none",
+    },
+    datePublished: "February 2024",
+    arabicTitle: "none",
+    slug: "/media/these-arab-artists-are-the-ones-to-watch",
+    name: "These Arab artists are *the* ones to watch",
+  },
+
+
+];
+  /*NEWS END*/
+
 
 
 /*MOSAIC START*/

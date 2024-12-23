@@ -8,7 +8,7 @@ import TrailerModalButton from "@/components/CJ-components/components-CJ/custom 
 import { Metadata } from "next";
 import { customMetaDataGenerator } from "@/functions/utils/customMetadataGenerator";
 import ButtonCJ from "@/components/CJ-components/components-CJ/basic components/ButtonCJ";
-import { cardGaza, cardJameelInstitute, cardMITJameelClinic, imageMosaicJameelInstitute, imageMosaicMITJameelClinic, newsJameelInstitute, newsMITJameelClinic, statsGaza, statsJameelInstitute, statsMITJameelClinic, statsMITJWAFS, cardMITJWAFS, newsMITJWAFS, imageMosaicGazaProgramme, imageMosaicMITAbdulLatifWaterFood, statsJameelIndex, cardJameelIndex, statsJameelObservatoryForFoodSecurityEarlyAction, cardJameelObservatoryForFoodSecurityEarlyAction, statsJameelObservatoryCREWSnet, cardJameelObservatoryCREWNSnet, newsJameelObservatoryCREWNSnet, statsCLIMAVORExJameelAtRCA, cardCLIMAVORExJameelAtRCA, newsCLIMAVORExJameelAtRCA, imageMosaicJameelObservatoryForFoodSecurityEarlyAction, imageMosaicCLIMAVORExJameelAtRCA, statsJPAL, cardJPAL, newsJPAL, cardJPALAWL, statsJPALAWL, newsJPALAWL, imageMosaicJPALAWL, newsC40, cardC40, statsC40, statsAnkur, cardAnkur, imageMosaicAnkur, imageMosaicC40, newsGaza, statsPrathamJameel, cardPrathamJameel, imageMosaicPrathamJameel, statsJameeToyotaScholarship, cardJameelToyotaScholarship, imageMosaicJameelToyotaScholarship, imageMosaicEjada, cardEjada, statsEjada, cardJameelArtsAndHealth, statsJameelArtsAndHealth, newsJameelArtsAndHealth, imageMosaicJameelArtsAndHealth, statsJameelHouses, cardJameelHouses, imageMosaicJameelHouses, newsJameelHouses, statsAtelierJameel, cardAtelierJameel, imageMosaicAtelierJameel, cardBoecelliJameel, statsBocelliJameel, imageMosaicBocelliJameel} from "@/app/data/annualreport2024";
+import { cardGaza, cardJameelInstitute, cardMITJameelClinic, imageMosaicJameelInstitute, imageMosaicMITJameelClinic, newsJameelInstitute, newsMITJameelClinic, statsGaza, statsJameelInstitute, statsMITJameelClinic, statsMITJWAFS, cardMITJWAFS, newsMITJWAFS, imageMosaicGazaProgramme, imageMosaicMITAbdulLatifWaterFood, statsJameelIndex, cardJameelIndex, statsJameelObservatoryForFoodSecurityEarlyAction, cardJameelObservatoryForFoodSecurityEarlyAction, statsJameelObservatoryCREWSnet, cardJameelObservatoryCREWNSnet, newsJameelObservatoryCREWNSnet, statsCLIMAVORExJameelAtRCA, cardCLIMAVORExJameelAtRCA, newsCLIMAVORExJameelAtRCA, imageMosaicJameelObservatoryForFoodSecurityEarlyAction, imageMosaicCLIMAVORExJameelAtRCA, statsJPAL, cardJPAL, newsJPAL, cardJPALAWL, statsJPALAWL, newsJPALAWL, imageMosaicJPALAWL, newsC40, cardC40, statsC40, statsAnkur, cardAnkur, imageMosaicAnkur, imageMosaicC40, newsGaza, statsPrathamJameel, cardPrathamJameel, imageMosaicPrathamJameel, statsJameeToyotaScholarship, cardJameelToyotaScholarship, imageMosaicJameelToyotaScholarship, imageMosaicEjada, cardEjada, statsEjada, cardJameelArtsAndHealth, statsJameelArtsAndHealth, newsJameelArtsAndHealth, imageMosaicJameelArtsAndHealth, statsJameelHouses, cardJameelHouses, imageMosaicJameelHouses, newsJameelHouses, statsAtelierJameel, cardAtelierJameel, imageMosaicAtelierJameel, cardBoecelliJameel, statsBocelliJameel, imageMosaicBocelliJameel, imageMosaicJPAL} from "@/app/data/annualreport2024";
 import SectionHomeCard from "@/components/components V2/home/section-home-card";
 import SectionDivider from "@/components/components V2/generic/section-divider";
 import HomeCard from "@/components/CJ-components/components-CJ/basic components/HomeCard";
@@ -47,7 +47,7 @@ export default async function AnnualReport2024Page({
   const imagesJOFSEA: ImageLightbox[] = imageMosaicJameelObservatoryForFoodSecurityEarlyAction.map(photoNotFromCollectionMapper);
   // const imagesJOCREWSNET: ImageLightbox[] = imageJameelObservatoryCREWSnet.map(photoNotFromCollectionMapper);
   const imagesCLIMAVORE: ImageLightbox[] = imageMosaicCLIMAVORExJameelAtRCA.map(photoNotFromCollectionMapper);
-  const imagesJPAL: ImageLightbox[] = imageMosaicMITAbdulLatifWaterFood.map(photoNotFromCollectionMapper);
+  const imagesJPAL: ImageLightbox[] = imageMosaicJPAL.map(photoNotFromCollectionMapper);
   const imagesJPALAWL: ImageLightbox[] = imageMosaicJPALAWL.map(photoNotFromCollectionMapper);
   const imagesC40: ImageLightbox[] = imageMosaicC40.map(photoNotFromCollectionMapper);
   const imagesAnkur: ImageLightbox[] = imageMosaicAnkur.map(photoNotFromCollectionMapper);
@@ -74,10 +74,10 @@ export default async function AnnualReport2024Page({
           <div className="w-full">
             <div className="prose prose-xl leading-normal dark:prose-dark">
               <p>
-              In 2024, Community Jameel continued to advance its mission across emergency humanitarian relief, climate action, water and food systems, disease modelling, AI and health, learning, traditional arts and arts and health, making significant strides through its global programme and partnerships. The MIT Jameel Clinic led breakthroughs in AI-driven medical research, while collaborations with Imperial College London and Save the Children supported vital emergency responses and healthcare training. The Jameel Observatory expanded its reach, enhancing resilience to climate shocks in vulnerable regions, and the Jameel Toyota Scholarship marked its 30th year of empowering students worldwide.
+              In 2024, Community Jameel continued to advance its mission across emergency humanitarian relief, climate action, water and food systems, disease modelling, AI and health, learning, traditional arts and arts and health, making significant strides through its global programme and partnerships. The MIT Jameel Clinic led breakthroughs in AI-driven medical research, while collaborations with Imperial College London and Save the Children supported vital emergency responses and healthcare training. The Jameel Observatory-CREWSnet expanded its reach, enhancing resilience to climate shocks in vulnerable regions, and the MIT Jameel Toyota Scholarship marked its 30th year of empowering students worldwide.
               </p>
               <p>
-This year also celebrated the preservation of culture and the transformative power of the arts. The Jameel Houses of Traditional Arts and Atelier Jameel delivered impactful programmes supporting artisans and craft communities. Meanwhile, the Jameel Arts & Health Lab fostered global dialogue on the intersection of arts and wellbeing, with initiatives ranging from Scotland to Dubai. As 2024 draws to a close, Community Jameel’s commitment to innovation, collaboration, and human flourishing has enriched lives and strengthened communities worldwide, setting the stage for an even more impactful 2025.
+              This year also celebrated the preservation of culture and the transformative power of the arts. The Jameel Houses of Traditional Arts expanded its footprint to Dumfries House in Scotland and Atelier Jameel delivered impactful programmes supporting artisans and craft communities. Meanwhile, the Jameel Arts & Health Lab fostered global dialogue on the intersection of arts and wellbeing, with initiatives ranging from Scotland to Dubai. As 2024 draws to a close, Community Jameel’s commitment to innovation, collaboration, and human flourishing has enriched lives and strengthened communities worldwide, setting the stage for an even more impactful 2025.
               </p>
             </div>
             </div>
@@ -91,7 +91,7 @@ This year also celebrated the preservation of culture and the transformative pow
 
 {/* ////////////////////GAZA START//////////////////////////// */}
 
-<PostAccordion title={"Gaza Mothers & Children Fund"}> 
+<PostAccordion title={"Emergency humanitarian relief"}> 
             <div>
              <div className="my-12">
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -190,6 +190,7 @@ This year also celebrated the preservation of culture and the transformative pow
         ))}
         </div>
         </div>
+        <div className=""><ResponsiveYouTubeEmbed embedId="A7MyaFdk64g?si=yJxEW1EAJmI0F6nh"></ResponsiveYouTubeEmbed></div>
                 <div className="mt-6">
                 <div className="mb-3">
                 {/* <h3 className="text-2xl sans-serif">Features</h3> */}
@@ -296,14 +297,14 @@ This year also celebrated the preservation of culture and the transformative pow
 <PostAccordion title={"Jameel Observatory for Food Security Early Action"}> 
             <div>
             <div className="my-12">
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="NT9QllV96Pw?si=Rp6HCsmxu1mSgdvL"></ResponsiveYouTubeEmbed></div>
-
-              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {statsJameelObservatoryForFoodSecurityEarlyAction.map((value, index) => (
           <Stats key={index} title={value.title} content={value.content} />
         ))}
         </div>
         </div>
+              <div className=""><ResponsiveYouTubeEmbed embedId="NT9QllV96Pw?si=Rp6HCsmxu1mSgdvL"></ResponsiveYouTubeEmbed></div>
+
                 <div className="mt-6">
                 <div className="mb-3">
                 {/* <h3 className="text-2xl sans-serif">Features</h3> */}
@@ -344,17 +345,17 @@ This year also celebrated the preservation of culture and the transformative pow
 <PostAccordion title={"Jameel Observatory CREWSnet"}> 
             <div>
              <div className="mt-6">
-              <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
-              </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="8ZrWM8rbtkA?si=XdU0V5y79PNGSL5C"></ResponsiveYouTubeEmbed></div>
+              <div className="pb-12">
+             <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+{statsJameelObservatoryCREWSnet.map((value, index) => (
+<Stats key={index} title={value.title} content={value.content} />
+))}
+</div>
+</div>      
+<div className=""><ResponsiveYouTubeEmbed embedId="8ZrWM8rbtkA?si=XdU0V5y79PNGSL5C"></ResponsiveYouTubeEmbed></div>
 
-              {statsJameelObservatoryCREWSnet.map((value, index) => (
-          <Stats key={index} title={value.title} content={value.content} />
-        ))}
-        </div>
+
         </div>
                 <div className="mt-6">
                 <div className="mb-3">
@@ -396,17 +397,17 @@ This year also celebrated the preservation of culture and the transformative pow
 <PostAccordion title={"CLIMAVORE x Jameel at RCA"}> 
             <div>
              <div className="mt-6">
-              <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
-              </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="OfRczfzmMoE?si=I9a3EZNfgk6BRMQx"></ResponsiveYouTubeEmbed></div>
               <div className="mb-12">
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              {statsCLIMAVORExJameelAtRCA.map((value, index) => (
-          <Stats key={index} title={value.title} content={value.content} />
-        ))}
-        </div>
+{statsCLIMAVORExJameelAtRCA.map((value, index) => (
+<Stats key={index} title={value.title} content={value.content} />
+))}
+</div>
+</div>
+              <div className="pb-6"><ResponsiveYouTubeEmbed embedId="OfRczfzmMoE?si=I9a3EZNfgk6BRMQx"></ResponsiveYouTubeEmbed></div>
+              <div className="mb6">
+
         </div>
         </div>
                 <div className="mt-6">
@@ -432,6 +433,8 @@ This year also celebrated the preservation of culture and the transformative pow
         {newsCLIMAVORExJameelAtRCA.map((value, index) => (
           <div className="py-3"><PressCardHome key={index} content={value} locale="en"/></div>
         ))}
+
+<div className="pt-6"><ContentPhotos images={imagesCLIMAVORE} /></div>
         
       </div>
       
@@ -444,7 +447,7 @@ This year also celebrated the preservation of culture and the transformative pow
 
 {/* ////////////////////JPAL START//////////////////////////// */}
 
-<PostAccordion title={"Abdul Latif Jameel Poverty Action Lab"}> 
+<PostAccordion title={"Abdul Latif Jameel Poverty Action Lab (J-PAL)"}> 
             <div>
              <div className="mt-6">
               <div className="mb-3">
@@ -600,22 +603,24 @@ This year also celebrated the preservation of culture and the transformative pow
             <div>
              <div className="mt-6">
               <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
-              </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="XTnup49AZcM?si=029LVnboKT47xe_3"></ResponsiveYouTubeEmbed></div>
-
+<div className="pb-12">
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-              {statsAnkur.map((value, index) => (
-          <Stats key={index} title={value.title} content={value.content} />
-        ))}
-        </div>
+{statsAnkur.map((value, index) => (
+<Stats key={index} title={value.title} content={value.content} />
+))}
+</div>
+</div>
+              <div className="pb-6"><ResponsiveYouTubeEmbed embedId="XTnup49AZcM?si=029LVnboKT47xe_3"></ResponsiveYouTubeEmbed></div>
+              </div>
+              
+
         </div>
                 <div className="mt-6">
                 <div className="mb-3">
                 {/* <h3 className="text-2xl sans-serif">Features</h3> */}
               </div>
-            <div className="">
+            {/* <div className="">
               <CarousselForComponents>
               {cardAnkur.map((card, index) => (
                   <ReportCard
@@ -630,7 +635,7 @@ This year also celebrated the preservation of culture and the transformative pow
                   isWithSubtitle date={""}                    />
                   ))}
               </CarousselForComponents>
-            </div>
+            </div> */}
       <div className="py-6"><ContentPhotos images={imagesAnkur} /></div>
       </div>
       </div>
@@ -740,17 +745,16 @@ This year also celebrated the preservation of culture and the transformative pow
 <PostAccordion title={"Ejada"}> 
             <div>
              <div className="mt-6">
-              <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
-              </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="48OzqMQkY9U?si=gRZ1352DZdIxC24K"></ResponsiveYouTubeEmbed></div>
-
+             <div className="mb-12">
               <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
               {statsEjada.map((value, index) => (
           <Stats key={index} title={value.title} content={value.content} />
         ))}
         </div>
+        </div>
+              <div className=""><ResponsiveYouTubeEmbed embedId="48OzqMQkY9U?si=gRZ1352DZdIxC24K"></ResponsiveYouTubeEmbed></div>
+              
         </div>
                 <div className="mt-6">
                 <div className="mb-3">
@@ -888,20 +892,18 @@ This year also celebrated the preservation of culture and the transformative pow
               <div className="mb-3">
                 {/* <h3 className="text-2xl sans-serif">Impact</h3> */}
               </div>
-              <div className="pb-12"><ResponsiveYouTubeEmbed embedId="JLzaKJyffjI?si=SQmQVE8SDwBQCxNt"></ResponsiveYouTubeEmbed></div>
-
-              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
+              
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-12">
 
               {statsAtelierJameel.map((value, index) => (
           <Stats key={index} title={value.title} content={value.content} />
         ))}
         </div>
+        <div className="pb-6"><ResponsiveYouTubeEmbed embedId="JLzaKJyffjI?si=SQmQVE8SDwBQCxNt"></ResponsiveYouTubeEmbed></div>
+
         </div>
                 <div className="mt-6">
-                <div className="mb-3">
-                {/* <h3 className="text-2xl sans-serif">Features</h3> */}
-              </div>
-            <div className="">
+            <div className="pb-12">
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {cardAtelierJameel.map((card, index) => (
                   <ReportCard
@@ -933,7 +935,7 @@ This year also celebrated the preservation of culture and the transformative pow
 
 {/* ////////////////////BOCELLI JAMEEL SCHOLARSHIP END//////////////////////////// */}
 
-<PostAccordion title={"Andrea Bocelli Foundation-Community Jameel Scholarship at the Royal College of Music in London"}> 
+<PostAccordion title={"Bocelli Jameel Scholarship at RCM"}> 
             <div>
              <div className="mt-6">
               <div className="mb-3">
