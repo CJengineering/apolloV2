@@ -547,7 +547,7 @@ export default async function AnnualReport2024Page({
 
 {/* ////////////////////JAMEEL C40 START//////////////////////////// */}
 
-<PostAccordion title={"Jameel C40 Urban Climate Labs"}> 
+<PostAccordion title={"Jameel C40 Urban Planning Climate Labs"}> 
             <div>
              <div className="mt-6">
               <div className="mb-12">
@@ -694,7 +694,7 @@ export default async function AnnualReport2024Page({
 
 {/* ////////////////////JAMEEL TOYOTA SCHOLARSHIP START //////////////////////////// */}
 
-<PostAccordion title={"MIT Jameel Toyota Scholarship"}> 
+<PostAccordion title={"MIT Jameel-Toyota Scholarship"}> 
             <div>
              <div className="mt-6">
               <div className="mb-3">
