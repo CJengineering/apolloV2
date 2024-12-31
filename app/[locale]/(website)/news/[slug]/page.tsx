@@ -26,7 +26,7 @@ import ArticleCJ from "@/components/custom beta components/ArticleCJ";
 import { getDataInternalServer } from "@/functions/api/getDataInternalServer";
 import { fetchAll } from "@/functions/api/fetchAll";
 import { fetchSingleItem } from "@/functions/api/fetchSingleNews";
-import { findRelatedPostsClean } from "@/functions/findFunctions/findRelatedPostsClean";
+import { findRelatedPostsCleanSolo } from "@/functions/findFunctions/findRelatedPostsCleanSolo";
 type Props = {
   params: { slug: string; locale: string };
 };
@@ -85,7 +85,7 @@ export default async function page({
     photoNotFromCollectionMapper
   );
 
-  const relatedPostsCleaned = findRelatedPostsClean(cleanPost, cleanPosts);
+  const relatedPostsCleaned = findRelatedPostsCleanSolo(cleanPost, cleanPosts);
 
   return (
     <>

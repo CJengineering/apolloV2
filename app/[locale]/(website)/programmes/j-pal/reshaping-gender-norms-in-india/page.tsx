@@ -32,7 +32,6 @@ import { getIdByDisplayName } from "@/functions/utils/findCollectionId";
 import { get } from "http";
 import { Divide } from "lucide-react";
 import React from "react";
-import ContentPhotos from "../../../../../components/CJ-components/components-CJ/test components/content-photos";
 import PostAccordion from "@/components/mdx/accordion";
 import LanguageChanger from "@/components/custom beta components/LanguageChanger";
 import ContentContainer from "@/components/custom beta components/ContentContainer";
@@ -56,41 +55,7 @@ export const metadata: Metadata = customMetaDataGenerator({
 })
 
 
-// START "SELECT INITIATIVES"
-
-const selectInitiatives = [
-  {
-    imageUrl: "/images/labs/jameel-clinic/JAMEEL_CLINIC_HOSPITAL_NETWORK.jpg",
-    alt: "MIT Jameel Clinic Hospital Network",
-    title: "MIT Jameel Clinic Hospital Network",
-    subtitle:"A global network of hospitals deploying MIT Jameel Clinic deep learning cancer prediction tools",
-    link: "https://jclinic.mit.edu/hospital-network/",
-    openInNewTab: false,
-    clickAction: "External link",
-  },
-  {
-    imageUrl: "/images/labs/jameel-clinic/mirai.jpg",
-    alt: "MIRAI",
-    title: "MIRAI",
-    subtitle:"MIRAI is a deep learning model that can analyse a patient’s mammogram to accurately predict the patient’s risk of developing breast cancer in the next 5 years.",
-    link: "https://jclinic.mit.edu/mirai/",
-    openInNewTab: false,
-    clickAction: "External link",
-  },
-  {
-    imageUrl: "/images/labs/jameel-clinic/sybil.jpg",
-    alt: "SYBIL",
-    title: "SYBIL",
-    subtitle: "SYBIL is a deep learning model that can analyse a patient’s LDCT to accurately predict the patient’s risk of developing lung cancer in the next 6 years.",
-    link: "https://jclinic.mit.edu/sybil/",
-    openInNewTab: false,
-    clickAction: "External link",
-  },
-];
-
-// END "SELECT INITIATIVES"
-
-export default async function mitJameelClinic({
+export default async function reshapingGenderNormsInIndiaPage({
   params,
 }: {
   params: { slug: string; locale: string };
@@ -258,140 +223,28 @@ export default async function mitJameelClinic({
   return (
     <>
       <div className="pt-20 lg:pt-12">
-      <div className="flex flex-col text-left">
-  <div className="w-full flex pb-6 lg:pb-12">
-
-<img className="dark:hidden" src="/images/labs/jameel-clinic/JAMEEL_CLINIC_ORIGINAL_DARK.png" width="360"></img>
-<img className="hidden dark:block" src="/images/labs/jameel-clinic/JAMEEL_CLINIC_ORIGINAL_LIGHT.png" width="360"></img>
-  </div>
-                 
+      <div className="flex flex-col text-left">     
   <div className="pb-6">
-    <h1 className="header-article">{cleanSingleProgramme.name}</h1>
+    <h1 className="header-article">Reshaping gender norms in India</h1>
   </div>
-
-  <div className="pb-6 w-full lg:w-2/3">
-            <div
-              className="prose prose-xl leading-normal dark:prose-dark"
-              dangerouslySetInnerHTML={{ __html: cleanSingleProgramme.text }}
-            />
-          </div>
-  <div className="pb-6">
-            <ButtonCJ
-              href={cleanSingleProgramme.website}
-              text={"Visit the website"}
-              styleType="secondary"
-              openInNewTab = {true}
-            ></ButtonCJ>
+          <div className="w-full lg:w-2/3">
+            <div className="prose prose-xl leading-normal dark:prose-dark">
+              <p>In India, J-PAL South Asia is working with the state governments of Punjab and Odisha to scale up an evidence-based gender transformative education programme in government schools with <a href="https://inbreakthrough.org/">Breakthrough</a>, a non-governmental organisation, reaching <strong>4 million students</strong> across both states by 2026.</p>
+              <p>Women and girls around the world experience pervasive gender inequality and gender-based discrimination. In many places, including India, social norms contribute to gender gaps that severely limit women’s educational, professional, economic and personal growth.</p>
+              <p>From 2013 to 2017, researchers, led by J-PAL affiliate and gender sector chair <a href="https://www.povertyactionlab.org/node/268">Seema Jayachandran</a> (from Princeton University), partnered with Breakthrough and the state government of Haryana to measure the impact of a school-based gender equality curriculum on adolescents’ gender attitudes, aspirations and behaviors. 
+                <p>They found that a series of interactive classroom discussions led to more gender-progressive attitudes and gender-equitable behaviors among adolescent students.</p>
+                <p>Based on these findings, Breakthrough and J-PAL South Asia partnered with governments in the Indian states of Punjab and Odisha to adopt the programme at scale. The curriculum was rolled out to sixth through eighth graders in all 6,250 state-run schools in Punjab in July 2022, and rollout is anticipated for sixth through tenth graders in 23,000 state-run schools in Odisha in 2024.</p>
+                <p>The scale-up is supported by Community Jameel and Co-Impact through the Evidence to Policy grant.</p>
+              </p>
+            </div>
           </div>
 </div>
 
-        <div className="w-full lg:w-2/3">
-          <ResponsiveYouTubeEmbed embedId="4M4_73FqGI8?si=If4aApQytWnFp3Qi" />
+        <div className="w-full lg:w-2/3 lg:pr-16">
+          <ResponsiveYouTubeEmbed embedId="7sIaajMdpiM?si=EdsgC69vvRsArlQW" />
         </div>
-        
-        <div className="w-full py-6 lg:py-12">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-        </div>
-
-        <div className="pb-6">
-          <h2 className="header-section">Impact</h2>
-        </div>
-        <div className="w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="">
-            <Stats title={cleanSingleProgramme.impact01} content={cleanSingleProgramme.impact01Title} />
-          </div>
-          <div className="">
-            <Stats title={cleanSingleProgramme.impact02} content={cleanSingleProgramme.impact02Title} />
-          </div>
-          <div className="">
-            <Stats title={cleanSingleProgramme.impact03} content={cleanSingleProgramme.impact03Title} />
-          </div>
-          <div className="">
-            <Stats title={cleanSingleProgramme.impact04} content={cleanSingleProgramme.impact04Title} />
-          </div>
-          <div className="">
-            <Stats title={cleanSingleProgramme.impact05} content={cleanSingleProgramme.impact05Title} />
-          </div>
-        </div>
-
-        <div className="w-full py-6 lg:py-12">
-          <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-        </div>
-
-        <div className="pb-6">
-          <h2 className="header-section">Select initiatives</h2>
-        </div>
-
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-         
-          {selectInitiatives.map((card, index) => (
-            <HomeCard
-              key={index}
-              imageUrl={card.imageUrl}
-              alt={card.alt}
-              title={card.title}
-              subtitle={card.subtitle}
-              link={card.link}
-              openInNewTab={card.openInNewTab}
-              clickAction={card.clickAction || ""}
-            />
-          ))}
-
-      </div>
-      </div>
-      {/* DIVIDER START */}
-      <div className="w-full mt-12">
-        <div className="w-full h-px bg-slate-200 dark:bg-slate-700"></div>
-      </div>
-      {/* DIVIDER END */}
-
-
-      {/* START NEWS */}
-      {postProps && postProps.length > 0 && (
-        <div className="">
-          <PostAccordion title={"News"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {postProps.slice(0).map((post) => (
-                <PostCard key={post.name} content={post} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-      )}
-      {/* END NEWS */}
-
-      {/* START PRESS */}
-      {newsProps && newsProps.length > 0 && (
-        <div className="">
-          <PostAccordion title={"Media"}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {newsProps.map((item) => (
-                <NewsCard content={item} locale={params} />
-              ))}
-            </div>
-          </PostAccordion>
-        </div>
-      )}
-      {/* END PRESS */}
-
-      {/* START EVENTS */}
-      {cleanRelatedEvents && cleanRelatedEvents.length > 0 && (
-        <div>
-          <PostAccordion title={"Events"}>
-            <div className="">
-              <CarousselForComponents>
-                {cleanRelatedEvents.map((item) => (
-                  <>
-                    <EventCard article={item}></EventCard>
-                  </>
-                ))}
-              </CarousselForComponents>
-            </div>
-          </PostAccordion>
-        </div>
-      )}
-      {/* END EVENTS */}       
-        <div className="py-6 lg:py-12"></div>
+      </div>    
+        <div className="py-6"></div>
     </>
   );
 }

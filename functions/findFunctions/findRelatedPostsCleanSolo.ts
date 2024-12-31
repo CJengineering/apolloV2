@@ -15,7 +15,7 @@ function hasCommonRelatedCollections(
 }
 
 // Main function to find similar posts
-export function findRelatedPostsClean(
+export function findRelatedPostsCleanSolo(
   postItem: PostFieldsCleaned,
   postArray: PostFieldsCleaned[]
 ): PostFieldsCleaned[] {
@@ -32,15 +32,16 @@ export function findRelatedPostsClean(
       post.programme &&
       programme.slug.trim().toLowerCase() === post.programme.slug.trim().toLowerCase();
 
-    const hasSimilarPeople = hasCommonRelatedCollections(people, post.people || []);
+    // const hasSimilarPeople = hasCommonRelatedCollections(people, post.people || []);
 
-    const isSimilarEvent =
-      relatedEvent &&
-      post.relatedEvent &&
-      relatedEvent.slug.trim().toLowerCase() === post.relatedEvent.slug.trim().toLowerCase();
+    // const isSimilarEvent =
+    //   relatedEvent &&
+    //   post.relatedEvent &&
+    //   relatedEvent.slug.trim().toLowerCase() === post.relatedEvent.slug.trim().toLowerCase();
 
     // A post is similar if it shares the same programme, people, or related event
   
-    return isSimilarProgramme || hasSimilarPeople || isSimilarEvent;
+    return isSimilarProgramme
+    // return isSimilarProgramme || hasSimilarPeople || isSimilarEvent;
   });
 }

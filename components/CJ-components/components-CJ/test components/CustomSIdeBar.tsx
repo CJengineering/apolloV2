@@ -393,7 +393,7 @@ export default function CustomSideBar() {
                       </div>
                     ))}
                   </NavSubGroup>
-                  <NavSubGroup title={"J-WAFS"}>
+                  <NavSubGroup title={"MIT J-WAFS"}>
                     {[
                       {
                         name: "Overview",
@@ -425,11 +425,11 @@ export default function CustomSideBar() {
                     ))}
                   </NavSubGroup>
                   <div className="mt-">
-                    <SidebarLink href="/programmes/j-wel">J-WEL</SidebarLink>
+                    <SidebarLink href="/programmes/j-wel">MIT J-WEL</SidebarLink>
                   </div>
                   <div className="mt-">
                     <SidebarLink href="/programmes/jameel-clinic">
-                      Jameel Clinic
+                      MIT Jameel Clinic
                     </SidebarLink>
                   </div>
                   <NavSubGroup title={"Jameel Institute"}>
@@ -480,7 +480,7 @@ export default function CustomSideBar() {
                   </div>
                   <div className="mt-">
                     <SidebarLink href="/programmes/climavore-x-jameel-at-rca">
-                      Climavore x Jameel at RCA
+                      CLIMAVORE x Jameel at RCA
                     </SidebarLink>
                   </div>
                   <NavSubGroup title={"Bocelli-Jameel Scholarship"}>
@@ -595,7 +595,7 @@ export default function CustomSideBar() {
                   </div>
                   <div className="mt-">
                     <SidebarLink href="/programmes/jameel-toyota-scholarship">
-                      Jameel Toyota Scholarship
+                      MIT Jameel Toyota Scholarship
                     </SidebarLink>
                   </div>
                   <div className="mt-">
