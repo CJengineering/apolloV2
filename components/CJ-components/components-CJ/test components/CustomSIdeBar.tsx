@@ -381,6 +381,11 @@ export default function CustomSideBar() {
                         current: false,
                         targetBlank: true,
                       },
+                      {
+                        name: "Gender norms in India",
+                        href: "/programmes/j-pal/reshaping-gender-norms-in-india",
+                        current: false,
+                      },
                     ].map((item, index) => (
                       <div className="mt-">
                         <SidebarLink
