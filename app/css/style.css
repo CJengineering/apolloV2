@@ -58,15 +58,15 @@
   }
 }
 a:hover{
-   text-underline-offset: 2px;
+   text-underline-offset: 3px;
 }
 .custom-underline {
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
 }
 .custom-underline-hover:hover {
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
   color: #60a5fa;
 }
 .no-underline-hover:hover {
